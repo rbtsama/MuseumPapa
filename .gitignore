@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+
+# 临时探索文件 — v0.1 收尾时全部清掉
+_tmp_*
+
+# 私有数据(用户卡 barcode 等)
+config/owned_*.json
+
+# HTTP 缓存
+data/.cache/
+
+# Playwright 浏览器
+.playwright/
+
+# 旧版预览截图
+preview-*.png
