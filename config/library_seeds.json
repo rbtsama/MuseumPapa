@@ -1,0 +1,157 @@
+{
+  "_comment": "Canonical library seed list for NorthShore (15 libraries). Used by all scrapers to know which libraries to hit. Network values feed cross-validation against MBLC directory; non_resident_policy is a coarse hand-curated initial value that will be refined by scrape_library_policies.py + Claude review.",
+  "libraries": [
+    {
+      "id": "wakefield",
+      "name": "Lucius Beebe Memorial Library",
+      "town": "Wakefield",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "wakefieldlibrary.assabetinteractive.com",
+      "card_page": "https://www.wakefieldlibrary.org/get-a-card/",
+      "non_resident_policy_initial": "open_ma_resident"
+    },
+    {
+      "id": "stoneham",
+      "name": "Stoneham Public Library",
+      "town": "Stoneham",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "stonehamlibrary.assabetinteractive.com",
+      "card_page": "https://stonehamlibrary.org/get-a-library-card/",
+      "non_resident_policy_initial": "open_ma_resident"
+    },
+    {
+      "id": "reading",
+      "name": "Reading Public Library",
+      "town": "Reading",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "readingpl.assabetinteractive.com",
+      "card_page": "https://www.readingpl.org/services/get-a-library-card/",
+      "non_resident_policy_initial": "open_ma_resident"
+    },
+    {
+      "id": "woburn",
+      "name": "Woburn Public Library",
+      "town": "Woburn",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "woburnpubliclibrary.assabetinteractive.com",
+      "card_page": "https://www.woburnpubliclibrary.org/borrow/get-a-library-card/",
+      "non_resident_policy_initial": "residents_only"
+    },
+    {
+      "id": "lynnfield",
+      "name": "Lynnfield Public Library",
+      "town": "Lynnfield",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "lynnfieldlibrary.assabetinteractive.com",
+      "card_page": "https://www.lynnfieldlibrary.org/get-a-card/",
+      "non_resident_policy_initial": "open_ma_resident"
+    },
+    {
+      "id": "peabody",
+      "name": "Peabody Institute Library",
+      "town": "Peabody",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "peabodylibrary.assabetinteractive.com",
+      "card_page": "https://peabodylibrary.org/services/get-a-library-card/",
+      "non_resident_policy_initial": "open_ma_resident"
+    },
+    {
+      "id": "melrose",
+      "name": "Melrose Public Library",
+      "town": "Melrose",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "melrosepubliclibrary.assabetinteractive.com",
+      "card_page": "https://melrosepubliclibrary.org/services/borrow/library-cards/",
+      "non_resident_policy_initial": "residents_only"
+    },
+    {
+      "id": "saugus",
+      "name": "Saugus Public Library",
+      "town": "Saugus",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "sauguspubliclibrary.assabetinteractive.com",
+      "card_page": "https://sauguspubliclibrary.org/borrowing/library-cards/",
+      "non_resident_policy_initial": "open_ma_resident"
+    },
+    {
+      "id": "malden",
+      "name": "Malden Public Library",
+      "town": "Malden",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "maldenpubliclibrary.assabetinteractive.com",
+      "card_page": "https://maldenpubliclibrary.org/services/library-card/",
+      "non_resident_policy_initial": "residents_only"
+    },
+    {
+      "id": "medford",
+      "name": "Medford Public Library",
+      "town": "Medford",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "medfordlibrary.assabetinteractive.com",
+      "card_page": "https://medfordlibrary.org/services/borrow/library-cards/",
+      "non_resident_policy_initial": "residents_only"
+    },
+    {
+      "id": "burlington",
+      "name": "Burlington Public Library",
+      "town": "Burlington",
+      "network": "MVLC",
+      "platform": "assabet",
+      "domain": "burlington.assabetinteractive.com",
+      "card_page": "https://www.burlington.org/170/Library-Card",
+      "non_resident_policy_initial": "network_only"
+    },
+    {
+      "id": "north-reading",
+      "name": "Flint Memorial Library",
+      "town": "North Reading",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "flintmemoriallibrary.assabetinteractive.com",
+      "card_page": "https://www.flintmemoriallibrary.org/services/get-a-card/",
+      "non_resident_policy_initial": "open_ma_resident"
+    },
+    {
+      "id": "wilmington",
+      "name": "Wilmington Memorial Library",
+      "town": "Wilmington",
+      "network": "MVLC",
+      "platform": "assabet",
+      "domain": "wilmlibrary.assabetinteractive.com",
+      "card_page": "https://wilmlibrary.org/get-a-library-card/",
+      "non_resident_policy_initial": "network_only"
+    },
+    {
+      "id": "winchester",
+      "name": "Winchester Public Library",
+      "town": "Winchester",
+      "network": "Minuteman",
+      "platform": "winpublib",
+      "domain": "www.winpublib.org",
+      "pass_page": "https://www.winpublib.org/museumpasses/",
+      "card_page": "https://www.winpublib.org/library-card/",
+      "non_resident_policy_initial": "residents_only"
+    },
+    {
+      "id": "bpl",
+      "name": "Boston Public Library",
+      "town": "Boston",
+      "network": "BPL",
+      "platform": "libcal",
+      "domain": "bpl.libcal.com",
+      "pass_page": "https://bpl.libcal.com/passes",
+      "card_page": "https://www.bpl.org/borrowing/",
+      "non_resident_policy_initial": "open_ma_resident"
+    }
+  ]
+}
