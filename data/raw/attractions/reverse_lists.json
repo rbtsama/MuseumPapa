@@ -1,14 +1,12 @@
 {
-  "scraped_at": "2026-05-11T16:05:20+00:00",
+  "scraped_at": "2026-05-11T16:09:56+00:00",
   "meta": {
     "status_summary": {
-      "ok": 2,
+      "ok": 3,
       "empty": 0,
-      "failed": {
-        "HTTPError": 1
-      },
+      "failed": {},
       "total": 3,
-      "ok_ratio": 0.667
+      "ok_ratio": 1.0
     }
   },
   "sources": [
@@ -104,8 +102,16 @@
     {
       "id": "jfk-library",
       "url": "https://www.jfklibrary.org/visit-museum/visit/plan-your-trip/public-library-museum-pass-program",
-      "status": "failed:HTTPError",
-      "library_mentions": []
+      "status": "ok",
+      "text_size": 6276,
+      "library_mentions": [
+        "Public Library",
+        "JFK Library",
+        "Kennedy Library",
+        "John F. Kennedy Presidential Library",
+        "The John F. Kennedy Presidential Library"
+      ],
+      "raw_text": "Public Library Museum Pass Program | JFK Library\nSkip past main navigation\nMenu\nDonate\nSearch\nLearn\nOpen Learn submenu\nAbout JFK\nOpen About JFK submenu\nLife of John F. Kennedy\nLife of Jacqueline B. Kennedy\nJFK in History\nHistoric Speeches\nThe Kennedy Family\nMedia Galleries\nInteractives\nEducation\nOpen Education submenu\nTeachers\nSchool Field Trips\nStudents\nProfile in Courage Essay Contest\nAdults\nFamilies\nInteractives\nHemingway at the JFK\nOpen Hemingway at the JFK submenu\nExplore Hemingway's Life & Works\nSearch Hemingway at the JFK\nHemingway Events\nHemingway Exhibits\nFriends of the Hemingway Collection\nResearch in the Hemingway Collection\nAbout Hemingway at the JFK\nVisit\nOpen Visit submenu\nPlan Your Trip\nOpen Plan Your Trip submenu\nVisiting FAQ\nReserve Tickets Online\nHours and Admission\nGetting Here\nMuseum Calendar\nAccessibility\nGroups\nMuseum Store\nHost an Event\nOpen Host an Event submenu\nEvent Photo Gallery\nSpaces and Fees\nWeddings\nCatering\nRehearsal Dinners and Personal Events\nAudio-Visual Services\nPolicies and Procedures\nExhibits\nOpen Exhibits submenu\nPermanent Exhibits\nSpecial Exhibits\nVirtual Exhibits\nResearch Collections\nOpen Research Collections submenu\nArchives\nOpen Archives submenu\nAsk an Archivist\nAbout Archival Collections\nSearch Collections\nPlan a Research Visit\nResearch Support Services\nOther Resources\nResearch Fellowships & Grants\nErnest Hemingway Collection\nJFK Library Archives Blog\nMuseum\nOpen Museum submenu\nAbout the Museum Collection\nExplore the Collection\nEvents & Awards\nOpen Events & Awards submenu\nMuseum Calendar\nKennedy Library Forums\nCelebrate! Family Programming\nProfile in Courage Award\nProfile in Courage Essay Contest\nEarthshot Innovation Challenge: Northeast U.S. Edition\nAbout Us\nOpen About Us submenu\nAbout Us\nOpen About Us submenu\nAbout the JFK Library\nAbout the JFK Library Foundation\nNews and Press\nJobs, Internships & Volunteers\nSocial Media, Podcasts, and Apps\nContact Us\nPrivacy and Terms of Use\nJoin and Support\nOpen Join and Support submenu\nMake a Gift\nBecome a Member\nNew Frontier Network\nFriends of the Hemingway Collection\nPlanned Giving\nProfile in Courage Award Gala\nCorporate Sponsorship\nMore Ways to Give\nMuseum Store\nAccessibility\nPress\nMuseum Store\nSearch\nDonate\nLearn\nOpen Learn submenu\nAbout JFK\nLife of John F. Kennedy\nLife of Jacqueline B. Kennedy\nJFK in History\nHistoric Speeches\nThe Kennedy Family\nMedia Galleries\nInteractives\nEducation\nTeachers\nSchool Field Trips\nStudents\nProfile in Courage Essay Contest\nAdults\nFamilies\nHemingway at the JFK\nExplore Hemingway's Life & Works\nSearch Hemingway at the JFK\nHemingway Events\nHemingway Exhibits\nFriends of the Hemingway Collection\nResearch in the Hemingway Collection\nAbout Hemingway at the JFK\nVisit\nOpen Visit submenu\nPlan Your Trip\nVisiting FAQ\nReserve Tickets Online\nHours and Admission\nGetting Here\nMuseum Calendar\nAccessibility\nGroups\nMuseum Store\nHost an Event\nEvent Photo Gallery\nSpaces and Fees\nWeddings\nCatering\nRehearsal Dinners and Personal Events\nAudio-Visual Services\nPolicies and Procedures\nExhibits\nOpen Exhibits submenu\nPermanent Exhibits\nSpecial Exhibits\nVirtual Exhibits\nJohn F. Kennedy Presidential Library and Museum\nResearch Collections\nOpen Research Collections submenu\nArchives\nAsk an Archivist\nAbout Archival Collections\nSearch Collections\nPlan a Research Visit\nResearch Support Services\nOther Resources\nResearch Fellowships & Grants\nErnest Hemingway Collection\nJFK Library Archives Blog\nMuseum\nAbout the Museum Collection\nExplore the Collection\nEvents & Awards\nOpen Events & Awards submenu\nMuseum Calendar\nKennedy Library Forums\nCelebrate! Family Programming\nProfile in Courage Award\nProfile in Courage Essay Contest\nEarthshot Innovation Challenge: Northeast U.S. Edition\nAbout Us\nOpen About Us submenu\nAbout Us\nAbout the JFK Library\nAbout the JFK Library Foundation\nNews and Press\nJobs, Internships & Volunteers\nSocial Media, Podcasts, and Apps\nContact Us\nPrivacy and Terms of Use\nJoin and Support\nMake a Gift\nBecome a Member\nNew Frontier Network\nFriends of the Hemingway Collection\nPlanned Giving\nProfile in Courage Award Gala\nCorporate Sponsorship\nMore Ways to Give\nMuseum Store\nPlan Your Trip\nPlan Your Trip\nVisiting FAQ\nHours and Admission\nGetting Here\nAccessibility\nGroups\nMuseum Store\nPublic Library Museum Pass Program\nReserve Tickets Online\nWalk-In Visitor Programs\nMuseum Calendar\nHost an Event\nBreadcrumb\nHome\nVisit Museum\nVisit\nPlan Your Trip\n\"Ask not what your country can do for you—ask what you can do for your country.\"\nGive Today\nVisit Museum\nVisit\nPlan Your Trip\nVisiting FAQ\nHours and Admission\nGetting Here\nAccessibility\nGroups\nMuseum Store\nPublic Library Museum Pass Program\nReserve Tickets Online\nWalk-In Visitor Programs\nMuseum Calendar\nHost an Event\nExhibits\nPublic Library Museum Pass Program\nAbout the Program\nWe are pleased to announce that the John F. Kennedy Presidential Library & Museum has updated its Public Library Museum Pass Program. Now, any patron of a local, Massachusetts library can receive a 50% discount on their admission ticket, by simply presenting their physical or digital library card at the Admissions desk.\nPlease Note\nThis discount can only be redeemed in person at the John F. Kennedy Presidential Library and Museum and cannot be applied with any other discounts offered by the Museum. This offer is valid for the library card holder only. Each patron will need to present a Massachusetts library card in order to receive the discount. Youth 17 and under are free.\nQuestions\nPlease call 617.514.1589 or email\n[email protected]\nwith any questions or for further information.\nThe John F. Kennedy Presidential Library and Museum is dedicated to the memory of our nation's thirty-fifth president and to all those who through the art of politics seek a new and better world.\nColumbia Point, Boston MA 02125\n|\n(617) 514-1600\n‍\nOpen 10 A.M to 5 P.M. | Free parking\nContact Us\nVisit\nExplore the Archives\nEducation\nHemingway at the JFK\nJFK35 Podcast\nAbout the Library\nAbout the Foundation\nDonate\nFOIA\nBluesky\nFacebook\nInstagram\nLinkedIn\nTikTok\nYouTube\nThe John F. Kennedy Presidential Library & Museum is one of 16 presidential libraries administered by the National Archives and Records Administration. This website is hosted and maintained by the John F. Kennedy Library Foundation."
     },
     {
       "id": "mass-moca",
