@@ -46,6 +46,10 @@ BENEFITS_RE = re.compile(
     r"<h5>Pass Benefits</h5>\s*([\s\S]*?)(?=<div class=\"location-form-wrapper\"|<form\s|</div>\s*</div>\s*</div>)",
     re.IGNORECASE,
 )
+WEBSITE_ANCHOR_RE = re.compile(
+    r'<a\s+href="(https?://[^"]+)"[^>]*aria-label="Visit\s+[^"]+\s+website"',
+    re.IGNORECASE,
+)
 
 PASS_TYPE_MAP = [
     ("circulating pass", "physical-circ"),
@@ -105,6 +109,12 @@ def parse_pass_block(slug: str, block: str) -> dict:
         h = H3_RE.search(block) or H4_RE.search(block)
         if h:
             record["museum_name"] = _clean_text(h.group(1))
+
+    # Fall back to the `[Visit ... website]` anchor when JSON-LD url is missing
+    if not record.get("website"):
+        wm = WEBSITE_ANCHOR_RE.search(block)
+        if wm:
+            record["website"] = wm.group(1)
 
     cm = CATEGORIES_RE.search(block)
     record["categories"] = (

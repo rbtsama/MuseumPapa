@@ -1,0 +1,819 @@
+{
+  "scraped_at": "2026-05-11T15:58:04+00:00",
+  "attractions": {
+    "american-heritage-museum": {
+      "name": "American Heritage Museum",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.americanheritagemuseum.org/",
+          "status": "ok",
+          "size": 6237
+        },
+        "visit": {
+          "url": "https://www.americanheritagemuseum.org/visit/",
+          "status": "ok",
+          "size": 12403
+        }
+      }
+    },
+    "boston-children-s-museum": {
+      "name": "Boston Children's Museum",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.bostonchildrensmuseum.org/",
+          "status": "ok",
+          "size": 8426
+        },
+        "visit": {
+          "url": "http://www.bostonchildrensmuseum.org/visit/",
+          "status": "ok",
+          "size": 6904
+        }
+      }
+    },
+    "the-butterfly-place": {
+      "name": "The Butterfly Place",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.butterflyplace-ma.com/",
+          "status": "ok",
+          "size": 2869
+        }
+      }
+    },
+    "concord-museum": {
+      "name": "Concord Museum",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.concordmuseum.org/",
+          "status": "ok",
+          "size": 1707
+        },
+        "visit": {
+          "url": "http://www.concordmuseum.org/visit/",
+          "status": "ok",
+          "size": 872
+        }
+      }
+    },
+    "discovery-museum": {
+      "name": "Discovery Museum",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.discoveryacton.org/",
+          "status": "ok",
+          "size": 5072
+        },
+        "visit": {
+          "url": "http://www.discoveryacton.org/visit/",
+          "status": "ok",
+          "size": 28394
+        }
+      }
+    },
+    "ecotarium": {
+      "name": "EcoTarium",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.ecotarium.org/",
+          "status": "ok",
+          "size": 9374
+        },
+        "visit": {
+          "url": "http://www.ecotarium.org/visit/",
+          "status": "ok",
+          "size": 14762
+        }
+      }
+    },
+    "garden-in-the-woods-native-plant-trust": {
+      "name": "Garden in the Woods (Native Plant Trust)",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.nativeplanttrust.org/",
+          "status": "ok",
+          "size": 5264
+        },
+        "visit": {
+          "url": "http://www.nativeplanttrust.org/visit/",
+          "status": "ok",
+          "size": 5669
+        }
+      }
+    },
+    "gore-place": {
+      "name": "Gore Place",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.goreplace.org/",
+          "status": "ok",
+          "size": 3507
+        },
+        "visit": {
+          "url": "https://www.goreplace.org/visit/",
+          "status": "ok",
+          "size": 5064
+        }
+      }
+    },
+    "harvard-museums-of-science-and-culture": {
+      "name": "Harvard Museums of Science and Culture",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://hmsc.harvard.edu/",
+          "status": "ok",
+          "size": 4561
+        },
+        "visit": {
+          "url": "https://hmsc.harvard.edu/visit/",
+          "status": "ok",
+          "size": 11379
+        }
+      }
+    },
+    "the-house-of-seven-gables": {
+      "name": "The House of Seven Gables",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.7gables.org/",
+          "status": "ok",
+          "size": 5869
+        },
+        "visit": {
+          "url": "https://www.7gables.org/visit/",
+          "status": "ok",
+          "size": 5869
+        }
+      }
+    },
+    "isabella-stewart-gardner-museum": {
+      "name": "Isabella Stewart Gardner Museum",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.gardnermuseum.org/",
+          "status": "ok",
+          "size": 4529
+        },
+        "visit": {
+          "url": "http://www.gardnermuseum.org/visit/",
+          "status": "ok",
+          "size": 10557
+        }
+      }
+    },
+    "john-f-kennedy-library-museum": {
+      "name": "John F. Kennedy Library & Museum",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.jfklibrary.org/",
+          "status": "ok",
+          "size": 6739
+        }
+      }
+    },
+    "mass-audubon-drumlin-farm": {
+      "name": "Mass Audubon (Drumlin Farm)",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.massaudubon.org/",
+          "status": "ok",
+          "size": 10978
+        }
+      }
+    },
+    "massachusetts-state-parks-department-of-conservation-and-rec": {
+      "name": "Massachusetts State Parks (Department of Conservation and Recreation)",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.mass.gov/",
+          "status": "failed:HTTPError",
+          "size": 0
+        }
+      }
+    },
+    "museum-of-fine-arts": {
+      "name": "Museum of Fine Arts",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.mfa.org/",
+          "status": "ok",
+          "size": 6019
+        },
+        "visit": {
+          "url": "http://www.mfa.org/visit/",
+          "status": "ok",
+          "size": 10725
+        }
+      }
+    },
+    "museum-of-science": {
+      "name": "Museum of Science",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.mos.org/",
+          "status": "ok",
+          "size": 7591
+        },
+        "visit": {
+          "url": "http://www.mos.org/visit/",
+          "status": "ok",
+          "size": 6602
+        }
+      }
+    },
+    "new-england-aquarium": {
+      "name": "New England Aquarium",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.neaq.org/",
+          "status": "ok",
+          "size": 5757
+        },
+        "visit": {
+          "url": "http://www.neaq.org/visit/",
+          "status": "ok",
+          "size": 5324
+        }
+      }
+    },
+    "new-england-botanic-garden-at-tower-hill": {
+      "name": "New England Botanic Garden at Tower Hill",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.nebg.org/",
+          "status": "ok",
+          "size": 23224
+        },
+        "visit": {
+          "url": "https://www.nebg.org/visit/",
+          "status": "ok",
+          "size": 25198
+        }
+      }
+    },
+    "new-england-quilt-museum": {
+      "name": "New England Quilt Museum",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.neqm.org/",
+          "status": "ok",
+          "size": 1459
+        },
+        "visit": {
+          "url": "https://www.neqm.org/visit/",
+          "status": "ok",
+          "size": 2391
+        }
+      }
+    },
+    "north-shore-children-s-museum": {
+      "name": "North Shore Children's Museum",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.nschildrensmuseum.org/",
+          "status": "ok",
+          "size": 7199
+        },
+        "visit": {
+          "url": "https://www.nschildrensmuseum.org/visit/",
+          "status": "ok",
+          "size": 1161
+        }
+      }
+    },
+    "peabody-essex-museum": {
+      "name": "Peabody Essex Museum",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.pem.org/",
+          "status": "ok",
+          "size": 8250
+        },
+        "visit": {
+          "url": "http://www.pem.org/visit/",
+          "status": "ok",
+          "size": 14606
+        }
+      }
+    },
+    "salem-witch-museum": {
+      "name": "Salem Witch Museum",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.salemwitchmuseum.com/",
+          "status": "ok",
+          "size": 2576
+        },
+        "visit": {
+          "url": "http://www.salemwitchmuseum.com/visit/",
+          "status": "ok",
+          "size": 5397
+        }
+      }
+    },
+    "trustees-of-the-reservations": {
+      "name": "Trustees of the Reservations",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.thetrustees.org/",
+          "status": "ok",
+          "size": 32969
+        }
+      }
+    },
+    "uss-constitution-museum": {
+      "name": "USS Constitution Museum",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://ussconstitutionmuseum.org/",
+          "status": "ok",
+          "size": 4279
+        },
+        "visit": {
+          "url": "https://ussconstitutionmuseum.org/visit/",
+          "status": "ok",
+          "size": 5429
+        }
+      }
+    },
+    "zoo-new-england": {
+      "name": "Zoo New England",
+      "source": "assabet:burlington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.zoonewengland.org/",
+          "status": "ok",
+          "size": 13176
+        },
+        "visit": {
+          "url": "http://www.zoonewengland.org/visit/",
+          "status": "ok",
+          "size": 10578
+        }
+      }
+    },
+    "harvard-museum-of-natural-history": {
+      "name": "Harvard Museum of Natural History",
+      "source": "assabet:lynnfield:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://hmnh.harvard.edu/",
+          "status": "ok",
+          "size": 2551
+        },
+        "visit": {
+          "url": "https://hmnh.harvard.edu/plan-your-visit/",
+          "status": "ok",
+          "size": 7961
+        }
+      }
+    },
+    "trustees-of-reservations-with-decordova-sculpture-park-and-m": {
+      "name": "Trustees of Reservations (with deCordova Sculpture Park and Museum)",
+      "source": "assabet:lynnfield:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.thetrustees.org/",
+          "status": "ok",
+          "size": 32969
+        }
+      }
+    },
+    "american-repertory-theater": {
+      "name": "American Repertory Theater",
+      "source": "assabet:malden:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://americanrepertorytheater.org/",
+          "status": "ok",
+          "size": 3168
+        },
+        "visit": {
+          "url": "https://americanrepertorytheater.org/plan-your-visit/",
+          "status": "ok",
+          "size": 5834
+        }
+      }
+    },
+    "institute-of-contemporary-art-boston": {
+      "name": "Institute of Contemporary Art/Boston",
+      "source": "assabet:malden:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.icaboston.org/",
+          "status": "ok",
+          "size": 2198
+        },
+        "visit": {
+          "url": "https://www.icaboston.org/visit/",
+          "status": "ok",
+          "size": 15489
+        }
+      }
+    },
+    "boston-by-foot": {
+      "name": "Boston by Foot ",
+      "source": "assabet:medford:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.bostonbyfoot.org/",
+          "status": "ok",
+          "size": 3418
+        },
+        "visit": {
+          "url": "http://www.bostonbyfoot.org/visit/",
+          "status": "ok",
+          "size": 1185
+        }
+      }
+    },
+    "griffin-museum-of-photography": {
+      "name": "Griffin Museum of Photography",
+      "source": "assabet:medford:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.griffinmuseum.org/",
+          "status": "ok",
+          "size": 8199
+        },
+        "visit": {
+          "url": "http://www.griffinmuseum.org/visit/",
+          "status": "ok",
+          "size": 8018
+        }
+      }
+    },
+    "mass-audubon": {
+      "name": "Mass Audubon",
+      "source": "assabet:medford:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.massaudubon.org/",
+          "status": "ok",
+          "size": 10978
+        }
+      }
+    },
+    "paddle-boston": {
+      "name": "Paddle Boston",
+      "source": "assabet:medford:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.paddleboston.com/",
+          "status": "ok",
+          "size": 5467
+        },
+        "visit": {
+          "url": "https://www.paddleboston.com/hours/",
+          "status": "ok",
+          "size": 4776
+        }
+      }
+    },
+    "sandmagination": {
+      "name": "Sandmagination",
+      "source": "assabet:medford:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://sandmagination.com/",
+          "status": "ok",
+          "size": 2673
+        },
+        "visit": {
+          "url": "https://sandmagination.com/plan-your-visit/",
+          "status": "ok",
+          "size": 2527
+        }
+      }
+    },
+    "harvard-art-museums": {
+      "name": "Harvard Art Museums",
+      "source": "assabet:melrose:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.harvardartmuseums.org/",
+          "status": "ok",
+          "size": 2341
+        },
+        "visit": {
+          "url": "http://www.harvardartmuseums.org/visit/",
+          "status": "ok",
+          "size": 4888
+        }
+      }
+    },
+    "historic-new-england": {
+      "name": "Historic New England",
+      "source": "assabet:melrose:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.historicnewengland.org/",
+          "status": "ok",
+          "size": 4973
+        },
+        "visit": {
+          "url": "https://www.historicnewengland.org/visit/",
+          "status": "ok",
+          "size": 2055
+        }
+      }
+    },
+    "paul-revere-house": {
+      "name": "Paul Revere House",
+      "source": "assabet:melrose:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.paulreverehouse.org/",
+          "status": "ok",
+          "size": 4804
+        },
+        "visit": {
+          "url": "https://www.paulreverehouse.org/visit/",
+          "status": "ok",
+          "size": 3312
+        }
+      }
+    },
+    "the-aviation-museum-of-new-hampshire": {
+      "name": "The Aviation Museum of New Hampshire",
+      "source": "assabet:north-reading:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://aviationmuseumofnh.org/",
+          "status": "ok",
+          "size": 5050
+        },
+        "visit": {
+          "url": "https://aviationmuseumofnh.org/visit/",
+          "status": "ok",
+          "size": 5750
+        }
+      }
+    },
+    "the-children-s-piazza": {
+      "name": "The Children's Piazza",
+      "source": "assabet:peabody:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.thechildrenspiazza.com/",
+          "status": "empty",
+          "size": 29
+        }
+      }
+    },
+    "davis-farmland": {
+      "name": "Davis Farmland",
+      "source": "assabet:peabody:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.davisfarmland.com/",
+          "status": "ok",
+          "size": 2863
+        },
+        "visit": {
+          "url": "https://www.davisfarmland.com/hours/",
+          "status": "ok",
+          "size": 7275
+        }
+      }
+    },
+    "plimoth-patuxet-museums": {
+      "name": "Plimoth Patuxet Museums",
+      "source": "assabet:peabody:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.plimoth.org/",
+          "status": "ok",
+          "size": 2549
+        },
+        "visit": {
+          "url": "http://www.plimoth.org/plan-your-visit/",
+          "status": "ok",
+          "size": 2338
+        }
+      }
+    },
+    "wenham-museum": {
+      "name": "Wenham Museum",
+      "source": "assabet:peabody:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.wenhammuseum.org/",
+          "status": "ok",
+          "size": 4657
+        },
+        "visit": {
+          "url": "http://www.wenhammuseum.org/visit/",
+          "status": "ok",
+          "size": 5425
+        }
+      }
+    },
+    "greater-boston-stage-company": {
+      "name": "Greater Boston Stage Company",
+      "source": "assabet:stoneham:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.greaterbostonstage.org/",
+          "status": "ok",
+          "size": 5665
+        },
+        "visit": {
+          "url": "https://www.greaterbostonstage.org/plan-your-visit/",
+          "status": "ok",
+          "size": 1978
+        }
+      }
+    },
+    "einstein-s-workshop": {
+      "name": "Einstein's Workshop",
+      "source": "assabet:wilmington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.einsteinsworkshop.com/",
+          "status": "failed:URLError",
+          "size": 0
+        }
+      }
+    },
+    "merrimack-repertory-theatre": {
+      "name": "Merrimack Repertory Theatre",
+      "source": "assabet:wilmington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "http://www.mrt.org/",
+          "status": "ok",
+          "size": 4132
+        },
+        "visit": {
+          "url": "http://www.mrt.org/plan-your-visit/",
+          "status": "ok",
+          "size": 7623
+        }
+      }
+    },
+    "naismith-memorial-basketball-hall-of-fame": {
+      "name": "Naismith Memorial Basketball Hall of Fame",
+      "source": "assabet:wilmington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.hoophall.com/",
+          "status": "ok",
+          "size": 7926
+        },
+        "visit": {
+          "url": "https://www.hoophall.com/visit/",
+          "status": "ok",
+          "size": 7743
+        }
+      }
+    },
+    "patriots-hall-of-fame": {
+      "name": "Patriots Hall of Fame",
+      "source": "assabet:wilmington:jsonld",
+      "pages": {
+        "homepage": {
+          "url": "https://www.patriotshalloffame.com/",
+          "status": "ok",
+          "size": 2109
+        },
+        "visit": {
+          "url": "https://www.patriotshalloffame.com/visit/",
+          "status": "ok",
+          "size": 3296
+        }
+      }
+    },
+    "mass-audubon-wildlife-sanctuary": {
+      "name": "Mass Audubon Wildlife Sanctuary",
+      "source": "bpl:76269f5073ed",
+      "pages": {
+        "homepage": {
+          "url": "https://www.massaudubon.org/",
+          "status": "ok",
+          "size": 10978
+        }
+      }
+    },
+    "dcr-parkspass": {
+      "name": "DCR ParksPass",
+      "source": "bpl:96efc267af24",
+      "pages": {
+        "homepage": {
+          "url": "https://www.mass.gov/",
+          "status": "failed:HTTPError",
+          "size": 0
+        }
+      }
+    },
+    "boston-harbor-islands": {
+      "name": "Boston Harbor Islands",
+      "source": "bpl:a6c8020ee3e0",
+      "pages": {
+        "homepage": {
+          "url": "https://www.bostonharborislands.org/",
+          "status": "ok",
+          "size": 6844
+        }
+      }
+    },
+    "revolutionary-spaces": {
+      "name": "Revolutionary Spaces",
+      "source": "bpl:a86b0e178ad8",
+      "pages": {
+        "homepage": {
+          "url": "https://revolutionaryspaces.org/",
+          "status": "ok",
+          "size": 7250
+        },
+        "visit": {
+          "url": "https://revolutionaryspaces.org/visit/",
+          "status": "ok",
+          "size": 5042
+        }
+      }
+    },
+    "larz-anderson-museum": {
+      "name": "Larz Anderson Museum",
+      "source": "bpl:c4d127379588",
+      "pages": {
+        "homepage": {
+          "url": "https://www.larzanderson.org/",
+          "status": "ok",
+          "size": 4853
+        },
+        "visit": {
+          "url": "https://www.larzanderson.org/plan-your-visit/",
+          "status": "ok",
+          "size": 6336
+        }
+      }
+    },
+    "institute-of-contemporary-art": {
+      "name": "Institute of Contemporary Art",
+      "source": "bpl:ca412b08c3fc",
+      "pages": {
+        "homepage": {
+          "url": "https://www.icaboston.org/",
+          "status": "ok",
+          "size": 2198
+        },
+        "visit": {
+          "url": "https://www.icaboston.org/visit/",
+          "status": "ok",
+          "size": 15489
+        }
+      }
+    },
+    "how-do-you-see-the-world-mapparium-globe": {
+      "name": "How Do You See the World + Mapparium™ Globe",
+      "source": "bpl:ee42fe43a508",
+      "pages": {
+        "homepage": {
+          "url": "https://www.christianscience.com/",
+          "status": "ok",
+          "size": 13068
+        },
+        "visit": {
+          "url": "https://www.christianscience.com/visit/",
+          "status": "ok",
+          "size": 7125
+        }
+      }
+    }
+  },
+  "status_summary": {
+    "ok": 50,
+    "empty": 1,
+    "failed": {
+      "HTTPError": 2,
+      "URLError": 1
+    },
+    "total": 54,
+    "ok_ratio": 0.926
+  }
+}
