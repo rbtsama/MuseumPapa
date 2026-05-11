@@ -1,0 +1,155 @@
+{
+  "scraped_at": "2026-05-11T15:39:09+00:00",
+  "libraries": {
+    "wakefield": {
+      "url_tried": [
+        "https://www.wakefieldlibrary.org/get-a-card/",
+        "https://www.wakefieldlibrary.org/",
+        "https://wakefieldlibrary.org/get-a-library-card/"
+      ],
+      "url_final": "https://wakefieldlibrary.org/get-a-library-card/",
+      "status": "ok",
+      "size": 4518
+    },
+    "stoneham": {
+      "url_tried": [
+        "https://stonehamlibrary.org/get-a-library-card/"
+      ],
+      "url_final": "https://stonehamlibrary.org/get-a-library-card/",
+      "status": "ok",
+      "size": 5148
+    },
+    "reading": {
+      "url_tried": [
+        "https://www.readingpl.org/services/get-a-library-card/",
+        "https://www.readingpl.org/",
+        "https://www.readingpl.org/get-a-library-card-15613"
+      ],
+      "url_final": "https://www.readingpl.org/get-a-library-card-15613",
+      "status": "ok",
+      "size": 5179
+    },
+    "woburn": {
+      "url_tried": [
+        "https://www.woburnpubliclibrary.org/borrow/get-a-library-card/",
+        "https://www.woburnpubliclibrary.org/",
+        "https://library.minlib.net/selfreg"
+      ],
+      "url_final": "https://library.minlib.net/selfreg",
+      "status": "ok",
+      "size": 318
+    },
+    "lynnfield": {
+      "url_tried": [
+        "https://www.lynnfieldlibrary.org/get-a-card/",
+        "https://www.lynnfieldlibrary.org/",
+        "https://lynnfieldlibrary.org/about/get-a-library-card/"
+      ],
+      "url_final": "https://lynnfieldlibrary.org/about/get-a-library-card/",
+      "status": "ok",
+      "size": 4106
+    },
+    "peabody": {
+      "url_tried": [
+        "https://peabodylibrary.org/services/get-a-library-card/",
+        "https://peabodylibrary.org/",
+        "http://"
+      ],
+      "status": "failed:all_attempts_failed",
+      "size": 0
+    },
+    "melrose": {
+      "url_tried": [
+        "https://melrosepubliclibrary.org/services/borrow/library-cards/"
+      ],
+      "url_final": "https://melrosepubliclibrary.org/services/borrow/library-cards/",
+      "status": "ok",
+      "size": 4842
+    },
+    "saugus": {
+      "url_tried": [
+        "https://sauguspubliclibrary.org/borrowing/library-cards/",
+        "https://sauguspubliclibrary.org/",
+        "https://www.sauguspubliclibrary.org/explore/library-card/"
+      ],
+      "url_final": "https://www.sauguspubliclibrary.org/explore/library-card/",
+      "status": "ok",
+      "size": 8647
+    },
+    "malden": {
+      "url_tried": [
+        "https://maldenpubliclibrary.org/services/library-card/",
+        "https://maldenpubliclibrary.org/",
+        "https://maldenpubliclibrary.org/services/borrowing-items/"
+      ],
+      "url_final": "https://maldenpubliclibrary.org/services/borrowing-items/",
+      "status": "ok",
+      "size": 7280
+    },
+    "medford": {
+      "url_tried": [
+        "https://medfordlibrary.org/services/borrow/library-cards/",
+        "https://medfordlibrary.org/",
+        "http://hoopladigital.com"
+      ],
+      "url_final": "http://hoopladigital.com",
+      "status": "empty",
+      "size": 0
+    },
+    "burlington": {
+      "url_tried": [
+        "https://www.burlington.org/170/Library-Card"
+      ],
+      "url_final": "https://www.burlington.org/170/Library-Card",
+      "status": "ok",
+      "size": 1167
+    },
+    "north-reading": {
+      "url_tried": [
+        "https://www.flintmemoriallibrary.org/services/get-a-card/",
+        "https://www.flintmemoriallibrary.org/",
+        "https://flintmemoriallibrary.org/collections/borrow-materials/"
+      ],
+      "url_final": "https://flintmemoriallibrary.org/collections/borrow-materials/",
+      "status": "ok",
+      "size": 5015
+    },
+    "wilmington": {
+      "url_tried": [
+        "https://wilmlibrary.org/get-a-library-card/",
+        "https://wilmlibrary.org/",
+        "https://wilmlibrary.org/services/library-card-requests/"
+      ],
+      "url_final": "https://wilmlibrary.org/services/library-card-requests/",
+      "status": "ok",
+      "size": 8069
+    },
+    "winchester": {
+      "url_tried": [
+        "https://www.winpublib.org/library-card/",
+        "https://www.winpublib.org/",
+        "https://www.winpublib.org/borrow/"
+      ],
+      "url_final": "https://www.winpublib.org/borrow/",
+      "status": "ok",
+      "size": 5092
+    },
+    "bpl": {
+      "url_tried": [
+        "https://www.bpl.org/borrowing/"
+      ],
+      "url_final": "https://www.bpl.org/borrowing/",
+      "status": "ok",
+      "size": 5970
+    }
+  },
+  "status_summary": {
+    "ok": 13,
+    "empty": 1,
+    "failed": {
+      "all_attempts_failed": 1
+    },
+    "total": 15,
+    "ok_ratio": 0.867
+  }
+}

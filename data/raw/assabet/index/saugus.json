@@ -1,0 +1,195 @@
+{
+  "url": "https://sauguspubliclibrary.assabetinteractive.com/museum-passes/by-museum/",
+  "scraped_at": "2026-05-11T15:19:49+00:00",
+  "meta": {
+    "fetch_status": "ok",
+    "status_summary": {
+      "ok": 10,
+      "empty": 0,
+      "failed": {},
+      "total": 10,
+      "ok_ratio": 1.0
+    }
+  },
+  "passes": [
+    {
+      "slug": "boston-childrens-museum",
+      "museum_name": "Boston Children's Museum",
+      "address": "308 Congress Street, Boston, MA 02210",
+      "phone": "617-426-6500",
+      "website": null,
+      "description": "Founded in 1913 by the Science Teachers' Bureau, the Boston Children's Museum is the second oldest children's museum in the world and one of the few that maintain a collection. Designed for both children and families, the Museum exhibits focus on science, culture, environmental awareness, health & fitness, and the arts, emphasizing hands-on engagement and learning through experience, and employing play as a tool to spark the inherent creativity, curiosity, and imagination of children.",
+      "categories": [
+        "Children",
+        "Crafts",
+        "Family",
+        "Technology"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "50% off of regular admission price. Discount allows $11.00 admission for adults and children (children under 1 are free). Four people maximum per pass. The Museum's schedule is subject to change and early closures. Please visit https://bostonchildrensmuseum.org before you visit.",
+      "status": "ok"
+    },
+    {
+      "slug": "the-childrens-piazza",
+      "museum_name": "The Children's Piazza",
+      "address": "83 Pine Street, Unit F, Peabody, MA 01960",
+      "phone": "978-817-2809",
+      "website": null,
+      "description": "Located in Peabody, MA, The Children's Piazza is a space is designed for young children—aged 0 to 6—to learn through unstructured play. Organized to optimize social, cognitive and motor development, areas include a large room with a climbing structure, slides, and swings; an arts and crafts room; a room with a train table; a lunch area with appropriately sized furniture; a glow-in-the-dark planet room; among others. There is a coffee shop and free Wi-Fi on the premises. Please check the website for the requirements of entry.",
+      "categories": [
+        "Children",
+        "Family"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass provides 50% off admission for one family (immediate family/household only). Please visit The Children's Piazza website (thechildrenspiazza.com) to make a reservation prior to your visit. Reservations required for entry. Pass only valid on date reserved.",
+      "status": "ok"
+    },
+    {
+      "slug": "harvard-museums-of-science-and-culture",
+      "museum_name": "Harvard Museums of Science and Culture",
+      "address": "11 Divinity Avenue, Cambridge, MA 02138",
+      "phone": "617-496-1638",
+      "website": null,
+      "description": "The Harvard Museums of Science & Culture is a partnership of museums on the Harvard University Cambridge campus dedicated to the natural world, science, and human cultures. They include the Collection of Historical Scientific Instruments, the Harvard Museum of Natural History (comprised of the Harvard University Herbaria, Mineralogical and Geological Museum, and Museum of Comparative Zoology), the Harvard Museum of the Ancient Near East, and the Peabody Museum of Archaeology & Ethnology, all located between Oxford St./Divinity Ave area. Of particular note are the famous glass flowers, models commissioned by Harvard in 1886 to aid in the teaching of botany (and made in Germany over the course of more than eight decades), on display in the Harvard Museum of Natural History.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "50% off admission price. Visitors must be Massachusetts residents to use this pass.",
+      "status": "ok"
+    },
+    {
+      "slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "museum_name": "Massachusetts State Parks (Department of Conservation and Recreation)",
+      "address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104",
+      "phone": "617-626-1250",
+      "website": null,
+      "description": "The Massachusetts State Parks have locations in all regions of the Commonwealth, from Pittsfield to Boston, and from Gloucester to Provincetown. They include beaches, wooded parks, parkways, and reservoirs, each with its own unique activities and amenities like hiking, biking, swimming and boating, camping, and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "Free parking at most Department of Conservation and Recreation facilities/parks. Visit https://www.mass.gov/visit-massachusetts-state-parks for a list of facilities/parks. Visit: https://search.mass.gov/?q=recreation%2Bmap/ for a copy of the Massachusetts Outdoor Recreation Map (select Outdoor Recreation Map on the landing page).",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-fine-arts",
+      "museum_name": "Museum of Fine Arts",
+      "address": "465 Huntington Avenue, Boston, MA 02115",
+      "phone": "617-267-9300",
+      "website": null,
+      "description": "The Boston Museum of Fine Arts, in existence since July 4, 1876, is one of the most comprehensive art museums in the world, with a collection of almost 500,000 works of art, ranging from ancient Egyptian artifacts to contemporary painting, sculpture and video. In addition, there are always special exhibitions on view, opportunities to take advantage of educational programs—some right in the galleries—and a contemplative Japanese garden.",
+      "categories": [
+        "Art",
+        "Family",
+        "History"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "$10 admission for up to two people; $10 admission for ages 7-17 years; children under 7 free.",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-science",
+      "museum_name": "Museum of Science",
+      "address": "1 Science Park, Boston, MA 02114",
+      "phone": "617-723-2500",
+      "website": null,
+      "description": "The Museum of Science in Boston is located on a piece of land that extends the width of the Charles River, connecting Boston and Cambridge. Dedicated to promoting and educating visitors about science and technology, the museum includes a planetarium, the world's largest open-air Van de Graaff generator, an IMAX theatre, a butterfly garden, and permanent and changing exhibits on birds, insects and animals; space; dinosaurs; engineering; nanotechnology; math; biology; and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science",
+        "Technology",
+        "Sky"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "* This pass will admit up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. * Your Library pass can only be used on the date printed on the pass. * Please bring your library pass confirmation (printed or displayed on a phone) when you visit. * When you arrive at the Museum, stop at the Box Office to exchange your library pass, and purchase your Exhibit Halls tickets at the discounted rate. If you have any questions or if you would like to reserve your Exhibit Halls passes in advance to avoid waiting in line the day of your visit, please call 617-723-2500 (9:00 a.m. – 5:00 p.m. daily). * If you are unable to show your Library confirmation on a phone, you may print out a copy using the link in the confirmation email or request a paper copy from the library.",
+      "status": "ok"
+    },
+    {
+      "slug": "new-england-aquarium",
+      "museum_name": "New England Aquarium",
+      "address": "1 Central Wharf, Boston, MA 02110",
+      "phone": "617-973-5200",
+      "website": null,
+      "description": "The New England Aquarium is home to thousands of aquatic animals, from the giant Pacific octopus to Northern fur seals to little blue penguins. They offer a wide range of exhibits, including a shark and ray touch tank and the Giant Ocean Tank, a four-story coral reef featuring hundreds of Caribbean animals. In addition, they have an IMAX theatre and run whale watch boat excursions in partnership with Boston Harbor Cruises from April through November.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "ELECTRONIC PASS - Library ID: 77558 • This coupon allows 50% for discounted admission for up to 4 people off the regular admission price to the New England Aquarium. • Only applies to adult and child pricing. • This is not a ticket. It is an electronic discount. • Redeem this discount by showing the email you will be sent when you make your reservation at the General Admission line at the Aquarium’s ticket booth. Please note the Library ID (77558) above. • Please visit neaq.org/coupons for details. • Review the Aquarium’s website at www.neaq.org/safety ahead of your visit to ensure a safe and accessible experience. • Valid only for Aquarium admission. • This does not provide any other discounts and cannot be applied to combo tickets. • Tickets obtained with library passes may not be sold. • Void if altered or copied. No cash value. • Hours of operation are subject to change.",
+      "status": "ok"
+    },
+    {
+      "slug": "north-shore-childrens-museum",
+      "museum_name": "North Shore Children's Museum",
+      "address": "10 Main Street, Peabody, MA 01960",
+      "phone": "978-538-5765",
+      "website": null,
+      "description": "Located in downtown Peabody, MA, the North Shore Children's Museum offers 15 hands-on exhibits geared towards explorative and imaginative play for children ages 2 to 8. A child may become a superhero in the Comic Room, a builder in the Gross Motor Room, an artist in the Makerspace, and more. All exhibits are in ADA-accessible spaces.",
+      "categories": [
+        "Children",
+        "Family",
+        "Science"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "50% of regular admission. Admits up to 5 adults/children. The NSCM is also open on Mondays from 9 am to 12 Noon during the months of July and August.",
+      "status": "ok"
+    },
+    {
+      "slug": "the-uss-constitution-museum",
+      "museum_name": "USS Constitution Museum",
+      "address": "Charlestown Navy Yard, Building 22, Charlestown, MA 02129",
+      "phone": "617-426-1812",
+      "website": null,
+      "description": "The museum, a part of the Boston National Historical Park, is located in the Charlestown Navy Yard near the ship USS Constitution (“Old Ironsides”) at the end of Boston's Freedom Trail. The museum provides a detailed look at the history of the ship, information about the war of 1812, and the battle between the ship and HMS Java. Stories are told through interactive exhibits, unique artifacts, archival records, and artwork. The museum also includes a research library which houses a strong collection of manuscripts, books, artifacts, and microfilm of primary source material. The ship itself is maintained by the US Navy, and may be visited free of charge on certain days.",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Ocean"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Pass holders will receive free admission to the museum. One pass allows free admission for up to 9 people per day. One pass per party, please. The Museum has a suggested admission (donation) of $10 – $15 for Adults – $5 – $10 for Children The Ship, which is available for visits Wednesday through Sunday, is free to visit on a first come, first serve basis. The Constitution is an active-duty ship operated by the U.S. Navy. Please be aware of their security requirements in advance by visiting their site: https://www.navy.mil/USS-CONSTITUTION/Hours-Visitor-Info/ *The Museum is a non-profit organization that relies on donations to keep its door open.",
+      "status": "ok"
+    },
+    {
+      "slug": "zoo-new-england",
+      "museum_name": "Zoo New England",
+      "address": "1 Franklin Park Road, Boston, MA 02121",
+      "phone": "617-541-5466",
+      "website": null,
+      "description": "Zoo New England operates Franklin Park Zoo, a 72-acre site nestled in Boston's historic Franklin Park, and the Stone Zoo, located on a 26-acre site near Spot Pond reservoir in Stoneham, MA. In addition to animals, both zoos are engaged in wildlife and conservation programs, research, and education.",
+      "categories": [
+        "Family",
+        "Zoo"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Pass admits up to 6 people. at a discounted rates of $9.00 per adult and $6.00 per child ages 2-12. Children under 2 are free.",
+      "status": "ok"
+    }
+  ]
+}

@@ -1,7 +1,8 @@
-"""Fetch each library's *Get a Card* / borrower policy page.
+"""Fetch each library's *Get a Card* / borrower policy page (all 15 libraries).
 
-We save the cleaned text body to ``data/raw/assabet/policies/<lib_id>.txt`` so
-Phase 2 (Claude session) can extract:
+Platform-agnostic: works for Assabet, LibCal (BPL), and Winchester. We save
+the cleaned text body to ``data/raw/policies/<lib_id>.txt`` so Phase 2 (Claude
+session) can extract:
 
 - online_signup (yes/no)
 - documents_required
@@ -26,8 +27,8 @@ from pathlib import Path
 
 from malibbene.common import http, status
 
-REPO_ROOT = Path(__file__).resolve().parents[4]
-OUT_DIR = REPO_ROOT / "data" / "raw" / "assabet" / "policies"
+REPO_ROOT = Path(__file__).resolve().parents[3]
+OUT_DIR = REPO_ROOT / "data" / "raw" / "policies"
 SEEDS_PATH = REPO_ROOT / "config" / "library_seeds.json"
 META_PATH = OUT_DIR / "_meta.json"
 
