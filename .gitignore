@@ -8,8 +8,8 @@ __pycache__/
 # 临时探索文件 — v0.1 收尾时全部清掉
 _tmp_*
 
-# 私有数据(用户卡 barcode 等)
-config/owned_*.json
+# 私有数据 — 用户卡 barcode 等 secrets 走 .env 加载
+.env
 
 # HTTP 缓存
 data/.cache/

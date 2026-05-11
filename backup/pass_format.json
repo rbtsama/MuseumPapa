@@ -1,0 +1,334 @@
+{
+  "scraped_at": "2026-05-04T22:35:22+00:00",
+  "counts": {
+    "physical-circ": 38,
+    "physical-coupon": 69,
+    "digital": 128,
+    "unknown": 0
+  },
+  "data": {
+    "american-heritage-museum": {
+      "burlington": "physical-circ",
+      "stoneham": "physical-circ"
+    },
+    "american-rep-theater": {
+      "malden": "digital"
+    },
+    "aviation-museum-nh": {
+      "north-reading": "physical-coupon",
+      "stoneham": "physical-circ"
+    },
+    "boston-by-foot": {
+      "medford": "digital",
+      "north-reading": "digital",
+      "reading": "digital",
+      "wilmington": "digital"
+    },
+    "boston-childrens-museum": {
+      "burlington": "digital",
+      "lynnfield": "digital",
+      "malden": "digital",
+      "medford": "digital",
+      "melrose": "digital",
+      "peabody": "digital",
+      "reading": "digital",
+      "saugus": "digital",
+      "stoneham": "digital",
+      "wakefield": "digital",
+      "wilmington": "digital",
+      "woburn": "digital"
+    },
+    "butterfly-place": {
+      "burlington": "physical-coupon",
+      "north-reading": "physical-coupon",
+      "wilmington": "physical-coupon",
+      "woburn": "physical-coupon"
+    },
+    "childrens-piazza": {
+      "peabody": "digital",
+      "reading": "digital",
+      "saugus": "digital"
+    },
+    "concord-museum": {
+      "burlington": "physical-circ",
+      "medford": "physical-circ",
+      "reading": "digital"
+    },
+    "davis-farmland": {
+      "peabody": "physical-coupon",
+      "wilmington": "physical-coupon"
+    },
+    "discovery-museum": {
+      "burlington": "digital",
+      "medford": "digital",
+      "north-reading": "physical-circ",
+      "reading": "digital",
+      "stoneham": "digital",
+      "wilmington": "digital",
+      "woburn": "digital"
+    },
+    "ecotarium": {
+      "burlington": "physical-coupon",
+      "reading": "physical-coupon"
+    },
+    "einsteins-workshop": {
+      "wilmington": "physical-circ"
+    },
+    "garden-in-the-woods": {
+      "burlington": "physical-circ",
+      "reading": "physical-circ"
+    },
+    "gore-place": {
+      "burlington": "digital"
+    },
+    "greater-boston-stage": {
+      "stoneham": "digital"
+    },
+    "griffin-museum": {
+      "medford": "digital"
+    },
+    "harvard-art-museums": {
+      "melrose": "digital"
+    },
+    "harvard-museums": {
+      "burlington": "physical-coupon",
+      "lynnfield": "physical-coupon",
+      "malden": "physical-coupon",
+      "medford": "physical-coupon",
+      "melrose": "physical-coupon",
+      "reading": "physical-coupon",
+      "saugus": "physical-coupon",
+      "wakefield": "physical-coupon",
+      "woburn": "physical-coupon"
+    },
+    "historic-new-england": {
+      "melrose": "digital",
+      "reading": "physical-coupon",
+      "stoneham": "physical-coupon"
+    },
+    "house-of-seven-gables": {
+      "burlington": "physical-coupon",
+      "lynnfield": "physical-coupon",
+      "malden": "physical-coupon",
+      "medford": "physical-coupon",
+      "peabody": "physical-coupon",
+      "stoneham": "physical-coupon",
+      "wakefield": "physical-coupon",
+      "wilmington": "digital",
+      "woburn": "physical-coupon"
+    },
+    "ica-boston": {
+      "malden": "digital",
+      "medford": "physical-coupon",
+      "melrose": "digital",
+      "north-reading": "digital",
+      "reading": "digital",
+      "wakefield": "digital",
+      "wilmington": "physical-coupon"
+    },
+    "isabella-stewart-gardner": {
+      "burlington": "digital",
+      "lynnfield": "digital",
+      "malden": "digital",
+      "medford": "digital",
+      "melrose": "digital",
+      "north-reading": "digital",
+      "peabody": "digital",
+      "reading": "digital",
+      "stoneham": "digital",
+      "wakefield": "digital",
+      "wilmington": "digital",
+      "woburn": "digital"
+    },
+    "jfk-library": {
+      "burlington": "physical-coupon",
+      "medford": "digital",
+      "melrose": "physical-coupon",
+      "reading": "physical-coupon",
+      "stoneham": "physical-coupon",
+      "wakefield": "physical-coupon"
+    },
+    "ma-state-parks": {
+      "burlington": "physical-circ",
+      "lynnfield": "physical-circ",
+      "malden": "physical-circ",
+      "medford": "physical-circ",
+      "north-reading": "physical-circ",
+      "peabody": "physical-circ",
+      "reading": "physical-circ",
+      "saugus": "physical-circ",
+      "stoneham": "physical-circ",
+      "wakefield": "physical-circ",
+      "wilmington": "physical-circ",
+      "woburn": "physical-circ"
+    },
+    "mass-audubon": {
+      "burlington": "digital",
+      "medford": "physical-coupon",
+      "melrose": "digital",
+      "peabody": "physical-coupon",
+      "wakefield": "digital",
+      "wilmington": "physical-coupon",
+      "woburn": "physical-coupon"
+    },
+    "merrimack-rep": {
+      "wilmington": "digital"
+    },
+    "mfa": {
+      "burlington": "digital",
+      "lynnfield": "digital",
+      "malden": "digital",
+      "medford": "digital",
+      "melrose": "digital",
+      "north-reading": "digital",
+      "peabody": "digital",
+      "reading": "digital",
+      "saugus": "digital",
+      "stoneham": "physical-coupon",
+      "wakefield": "digital",
+      "wilmington": "digital",
+      "woburn": "digital"
+    },
+    "museum-of-science": {
+      "burlington": "digital",
+      "lynnfield": "digital",
+      "malden": "digital",
+      "medford": "digital",
+      "melrose": "digital",
+      "north-reading": "digital",
+      "peabody": "digital",
+      "reading": "digital",
+      "saugus": "digital",
+      "stoneham": "digital",
+      "wakefield": "digital",
+      "wilmington": "digital",
+      "woburn": "digital"
+    },
+    "naismith-basketball-hof": {
+      "wilmington": "physical-circ"
+    },
+    "new-england-aquarium": {
+      "burlington": "digital",
+      "lynnfield": "digital",
+      "malden": "digital",
+      "medford": "digital",
+      "melrose": "digital",
+      "north-reading": "digital",
+      "peabody": "digital",
+      "reading": "digital",
+      "saugus": "digital",
+      "stoneham": "digital",
+      "wakefield": "digital",
+      "wilmington": "digital",
+      "woburn": "digital"
+    },
+    "new-england-botanic-garden": {
+      "burlington": "physical-circ",
+      "wilmington": "physical-circ",
+      "woburn": "physical-circ"
+    },
+    "new-england-quilt-museum": {
+      "burlington": "digital",
+      "wilmington": "physical-circ"
+    },
+    "north-shore-childrens-museum": {
+      "burlington": "digital",
+      "lynnfield": "digital",
+      "melrose": "digital",
+      "north-reading": "physical-coupon",
+      "peabody": "digital",
+      "reading": "digital",
+      "saugus": "digital",
+      "wakefield": "digital",
+      "wilmington": "digital"
+    },
+    "paddle-boston": {
+      "medford": "physical-circ",
+      "reading": "physical-circ",
+      "stoneham": "physical-circ"
+    },
+    "patriots-hall-of-fame": {
+      "wilmington": "physical-circ"
+    },
+    "paul-revere-house": {
+      "melrose": "physical-circ"
+    },
+    "peabody-essex-museum": {
+      "burlington": "digital",
+      "lynnfield": "digital",
+      "malden": "digital",
+      "medford": "digital",
+      "melrose": "digital",
+      "north-reading": "digital",
+      "peabody": "digital",
+      "reading": "digital",
+      "stoneham": "physical-coupon",
+      "wakefield": "digital",
+      "wilmington": "digital",
+      "woburn": "digital"
+    },
+    "plimoth-patuxet": {
+      "peabody": "physical-coupon",
+      "wakefield": "digital"
+    },
+    "salem-witch-museum": {
+      "burlington": "physical-circ",
+      "reading": "physical-circ",
+      "stoneham": "physical-circ",
+      "wakefield": "physical-circ",
+      "wilmington": "physical-circ",
+      "woburn": "physical-circ"
+    },
+    "sandmagination": {
+      "medford": "digital",
+      "north-reading": "digital",
+      "wilmington": "digital"
+    },
+    "trustees-of-reservations": {
+      "burlington": "physical-coupon",
+      "lynnfield": "physical-coupon",
+      "malden": "physical-coupon",
+      "medford": "physical-coupon",
+      "melrose": "physical-coupon",
+      "north-reading": "physical-coupon",
+      "peabody": "physical-coupon",
+      "reading": "physical-coupon",
+      "stoneham": "physical-coupon",
+      "wakefield": "physical-coupon",
+      "wilmington": "physical-coupon",
+      "woburn": "physical-coupon"
+    },
+    "uss-constitution-museum": {
+      "burlington": "digital",
+      "lynnfield": "digital",
+      "malden": "digital",
+      "medford": "digital",
+      "melrose": "digital",
+      "north-reading": "digital",
+      "peabody": "digital",
+      "reading": "digital",
+      "saugus": "physical-coupon",
+      "wakefield": "digital",
+      "wilmington": "physical-circ",
+      "woburn": "digital"
+    },
+    "wenham-museum": {
+      "peabody": "digital"
+    },
+    "zoo-new-england": {
+      "burlington": "physical-coupon",
+      "lynnfield": "physical-coupon",
+      "malden": "physical-coupon",
+      "medford": "physical-coupon",
+      "melrose": "physical-coupon",
+      "north-reading": "physical-coupon",
+      "peabody": "physical-coupon",
+      "reading": "physical-coupon",
+      "saugus": "physical-coupon",
+      "stoneham": "physical-coupon",
+      "wakefield": "physical-coupon",
+      "wilmington": "physical-coupon",
+      "woburn": "physical-coupon"
+    }
+  }
+}
