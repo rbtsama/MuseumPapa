@@ -1,0 +1,332 @@
+{
+  "url": "https://chelmsfordlibrary.assabetinteractive.com/museum-passes/by-museum/",
+  "scraped_at": "2026-05-13T15:56:33+00:00",
+  "meta": {
+    "fetch_status": "ok",
+    "status_summary": {
+      "ok": 18,
+      "empty": 0,
+      "failed": {},
+      "total": 18,
+      "ok_ratio": 1.0
+    }
+  },
+  "passes": [
+    {
+      "slug": "boston-childrens-museum",
+      "museum_name": "Boston Children's Museum",
+      "address": "308 Congress Street, Boston, MA 02210",
+      "phone": "617-426-6500",
+      "website": "http://www.bostonchildrensmuseum.org/",
+      "description": "Founded in 1913 by the Science Teachers' Bureau, the Boston Children's Museum is the second oldest children's museum in the world and one of the few that maintain a collection. Designed for both children and families, the Museum exhibits focus on science, culture, environmental awareness, health & fitness, and the arts, emphasizing hands-on engagement and learning through experience, and employing play as a tool to spark the inherent creativity, curiosity, and imagination of children.",
+      "categories": [
+        "Children",
+        "Crafts",
+        "Family",
+        "Technology"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Pass admits up to 4 people with a 50% discount off each admission.",
+      "status": "ok"
+    },
+    {
+      "slug": "davis-farmland",
+      "museum_name": "Davis Farmland",
+      "address": "145 Redstone Hill, Sterling, MA 01564",
+      "phone": "978-422-6666",
+      "website": "https://www.davisfarmland.com/",
+      "description": "Davis Farmland is a seven-generation, working family farm, continuously in operation since 1846 in Sterling, MA. Starting in 1996, Davis Farmland has provided opportunities for discovery and play to families with children 12 years old and younger. It has a Waterspray Park; Imagine-Acres; Adventureland; interactions with farm animals; and a “Mega Maze” in the fall. It is also home to the largest sanctuary of endangered farm animals in North America. Special events include hands-on reptile shows. Hours change with the season. Shop with food and souvenirs on the premises.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Zoo"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Pass admits up to 6 guests to Davis Farmland at the gate with a savings of $10 OFF per ticket. Dates & rates change with the season. Visit DavisFarmland.com for up to date info. Adults MUST be accompanied by at least one child 12 years or younger.",
+      "status": "ok"
+    },
+    {
+      "slug": "the-discovery-museums",
+      "museum_name": "Discovery Museum",
+      "address": "177 Main Street, Acton, MA 01720",
+      "phone": "978-264-4200",
+      "website": "http://www.discoveryacton.org/",
+      "description": "Acton's Discovery Museum, located on a 4-acre campus, is aimed at providing an environment in which play becomes a conduit for learning about science, technology, and nature. The museum's building contains a number of galleries dedicated to teaching scientific concepts in a fun, hands-on environment, as well as themed play spaces for younger visitors. Outdoors, Discovery Woods includes a nature playscape with a cargo net climb, nest swing and beaver lodges, as well as a treehouse with an observation deck and a bouncy bridge. There are opportunities to practice orienteering with provided maps and instructions on trails on the property. A museum shop is on the premises. The museum building is fully ADA compliant, with exhibits based on Universal Design principles.",
+      "categories": [
+        "Children",
+        "Family",
+        "Science"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Pass admits three (3) people at half price admission ($9.50) per person; any additional visitors must pay the regular admission price ($19.) Open some Monday holidays. Summer hours (mid-June - August) open 7 days a week.",
+      "status": "ok"
+    },
+    {
+      "slug": "garden-in-the-woods-native-plant-trust",
+      "museum_name": "Garden in the Woods (Native Plant Trust)",
+      "address": "180 Hemenway Road, Framingham, MA 01701",
+      "phone": "508-877-7630",
+      "website": "http://www.nativeplanttrust.org/",
+      "description": "The Garden in the Woods (Native Plant Trust) displays rare and common native New England plants in a naturalistic setting at its location in Framingham, Massachusetts, attracting visitors from all over the world. Set on 45 acres, it includes two miles of paths that meander over glacier-sculpted ridges and through narrow valleys. A pond, a wooded bog, several springs, and a brook bring a diversity of wildlife into the garden. The garden is maintained by the Native Plant Trust, which works throughout New England to monitor and protect rare and endangered plants, collect and bank seeds for biological diversity, control invasive species, conduct research, and educate the public.",
+      "categories": [
+        "Family",
+        "Nature"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "This is a SET OF 2 laminated passes, each pass offers discount to ONE person: Each pass will admit 1 adult at a 50% discount. This pass will admit children (ages 5-17) for $1.00 admission each. No discounts on classes, tours, or retail items. Pick up the pass from the library and bring it with you when you visit. The Garden is open from April 19, 2026 to October 15, 2026. Check website ( http://www.nativeplanttrust.org/visit/garden-woods/ ) for exact dates & hours.",
+      "status": "ok"
+    },
+    {
+      "slug": "the-house-of-seven-gables",
+      "museum_name": "The House of Seven Gables",
+      "address": "115 Derby Street, Salem, MA 01970",
+      "phone": "978-744-0991",
+      "website": "https://www.7gables.org/",
+      "description": "The House of the Seven Gables, one of the oldest surviving timber-framed mansion houses in continental North America, was the setting of Nathaniel Hawthorne's famous 1851 novel of the same name. The historic site which includes the house (a National Historic Landmark District) includes a guided tour of the Turner-Ingersoll Mansion (the House of the Seven Gables) and visits to the Nathaniel Hawthorne Birthplace, the Colonial Revival seaside gardens, and the Counting House, with a maritime discovery zone called “Kids' Cove at The Gables.” (An audio tour of the gardens, grounds, and waterfront is available through the UniGuide App.) Lectures and seasonal living history labs are scheduled throughout the year, and a changing annual exhibition examines various aspects of the institution's 350 years of history. There is a gift shop on the premises. The website has virtual field trips and interactive exhibitions that can provide helpful background information before a visit.",
+      "categories": [
+        "Children",
+        "Family",
+        "Science"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Patrons receive 50% off admission for up to four people (either the Guided Tour Package or Grounds Pass.)",
+      "status": "ok"
+    },
+    {
+      "slug": "isabella-stewart-gardner-museum",
+      "museum_name": "Isabella Stewart Gardner Museum",
+      "address": "25 Evans Way, Boston, MA 02115",
+      "phone": "617-566-1401",
+      "website": "http://www.gardnermuseum.org/home/",
+      "description": "The Gardner Museum houses the collection of Isabella Stewart Gardner, a local patron of the arts who died in 1924, in a building she commissioned to look like a 15th century Venetian palazzo. The center of the original building showcases courtyard plantings that reflect the seasons as they evolve throughout the year. In addition to her collection, which remains displayed exactly as she arranged it per her will, there are changing exhibitions, concerts, lectures, family events, and an artist-in-residence program. In 2012, the museum opened an addition designed by Renzo Piano that houses a space for their concert series.",
+      "categories": [
+        "Art",
+        "Family",
+        "Music"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Pass admits up to four adults at $5 admission per person. Children under 18 are always free (when reserved as a child ticket).",
+      "status": "ok"
+    },
+    {
+      "slug": "mass-audubon-drumlin-farm",
+      "museum_name": "Mass Audubon (Drumlin Farm)",
+      "address": "208 South Great Road, Lincoln, MA 01773",
+      "phone": "781-259-2200",
+      "website": "http://www.massaudubon.org/",
+      "description": "Mass Audubon maintains about 100 wildlife sanctuaries in Massachusetts, more than half of which may be visited for walks on trails and visits to nature centers and museums. Among these is Drumlin Farm in Lincoln, a working farm with animals and crops, plus exhibits that include native wildlife, such as owls, foxes and deer. A shop on the premises sells items related to nature, such as bird feeders and binoculars.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Pass admits up to four (4) people at $2 per person (children under 2 are free) to any Mass Audubon wildlife sanctuary. Hours of operation vary by sanctuary. Please check https://www.massaudubon.org/places-to-explore/trails before planning a visit.",
+      "status": "ok"
+    },
+    {
+      "slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "museum_name": "Massachusetts State Parks (Department of Conservation and Recreation)",
+      "address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104",
+      "phone": "617-626-1250",
+      "website": "http://www.mass.gov/eea/agencies/dcr/massparks/",
+      "description": "The Massachusetts State Parks have locations in all regions of the Commonwealth, from Pittsfield to Boston, and from Gloucester to Provincetown. They include beaches, wooded parks, parkways, and reservoirs, each with its own unique activities and amenities like hiking, biking, swimming and boating, camping, and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "The Parks Pass entitles the bearer to free parking at over 50 facilities in the Massachusetts State Parks System that charge a day-use parking fee.",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-fine-arts",
+      "museum_name": "Museum of Fine Arts",
+      "address": "465 Huntington Avenue, Boston, MA 02115",
+      "phone": "617-267-9300",
+      "website": "http://www.mfa.org/",
+      "description": "The Boston Museum of Fine Arts, in existence since July 4, 1876, is one of the most comprehensive art museums in the world, with a collection of almost 500,000 works of art, ranging from ancient Egyptian artifacts to contemporary painting, sculpture and video. In addition, there are always special exhibitions on view, opportunities to take advantage of educational programs—some right in the galleries—and a contemplative Japanese garden.",
+      "categories": [
+        "Art",
+        "Family",
+        "History"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "The pass admits 2 adults and 4 children (ages 7-17) at $10 each (general admission and special exhibition). Admission is free for children under 7. Admission price changing 1/20/2026 : The regular price of adult admission will increase to $30, and the discounted rate with this pass will increase to $15. Discount admission for children will remain $10. This change takes effect starting 1/20/2026.",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-science",
+      "museum_name": "Museum of Science",
+      "address": "1 Science Park, Boston, MA 02114",
+      "phone": "617-723-2500",
+      "website": "http://www.mos.org/",
+      "description": "The Museum of Science in Boston is located on a piece of land that extends the width of the Charles River, connecting Boston and Cambridge. Dedicated to promoting and educating visitors about science and technology, the museum includes a planetarium, the world's largest open-air Van de Graaff generator, an IMAX theatre, a butterfly garden, and permanent and changing exhibits on birds, insects and animals; space; dinosaurs; engineering; nanotechnology; math; biology; and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science",
+        "Technology",
+        "Sky"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "• This pass will admit up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. • Your Library pass can only be used on the date printed on the pass. • Please bring your library pass (printed or displayed on a phone) when you visit. • When you arrive at the Museum, stop at the Box Office to exchange your library pass, and purchase your Exhibit Halls tickets at the discounted rate. If you have any questions or if you would like to reserve your Exhibit Halls passes in advance to avoid waiting in line the day of your visit, please call 617-723-2500.",
+      "status": "ok"
+    },
+    {
+      "slug": "new-england-aquarium",
+      "museum_name": "New England Aquarium",
+      "address": "1 Central Wharf, Boston, MA 02110",
+      "phone": "617-973-5200",
+      "website": "http://www.neaq.org/",
+      "description": "The New England Aquarium is home to thousands of aquatic animals, from the giant Pacific octopus to Northern fur seals to little blue penguins. They offer a wide range of exhibits, including a shark and ray touch tank and the Giant Ocean Tank, a four-story coral reef featuring hundreds of Caribbean animals. In addition, they have an IMAX theatre and run whale watch boat excursions in partnership with Boston Harbor Cruises from April through November.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Pass admits up to 4 people with a 50% discount. The current admission rates can be found on the New England Aquarium's website . Children aged 2 and under are always admitted for free. This pass does not provide any other discounts and cannot be applied to combo tickets. In June, July and August this pass is not available Saturday or Sunday.",
+      "status": "ok"
+    },
+    {
+      "slug": "new-england-botanic-garden-at-tower-hill",
+      "museum_name": "New England Botanic Garden at Tower Hill",
+      "address": "11 French Drive, Boylston, MA 01505-0598",
+      "phone": "508-869-6111",
+      "website": "https://www.nebg.org/",
+      "description": "Located in Boylston, MA, and open year-round, the New England Botanic Garden at Tower Hill features carefully planned gardens and collections of ornamental, edible and native plants, with a number of trails that traverse the 200-acre property. In addition, there are many programs and events, including classes, lectures, art exhibits and concerts. The Garden is run by the Worcester County Horticultural Society, the third oldest active horticultural society in the United States.",
+      "categories": [
+        "Art",
+        "Crafts",
+        "Family",
+        "Nature"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "Pass admits 2 guests at half price off general admission",
+      "status": "ok"
+    },
+    {
+      "slug": "new-england-quilt-museum",
+      "museum_name": "New England Quilt Museum",
+      "address": "18 Shattuck St., Lowell, MA 01852",
+      "phone": "978-452-4207",
+      "website": "https://www.neqm.org/",
+      "description": "The New England Quilt Museum, part of the Lowell National Historic Park, is fittingly located not far from the old textile manufacturing plants that made the city famous during the industrial revolution. Since its opening in 1987, it has been committed to both craft and fine arts quilts, with a permanent collection, special exhibitions, a library and resource center, classrooms, and a gift shop.",
+      "categories": [
+        "Children",
+        "Family",
+        "History"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "Pass admits 2 people free of charge.",
+      "status": "ok"
+    },
+    {
+      "slug": "peabody-essex-museum",
+      "museum_name": "Peabody Essex Museum",
+      "address": "161 Essex Street, Salem, MA 01970-3783",
+      "phone": "978-745-9500",
+      "website": "http://www.pem.org/",
+      "description": "The Peabody Essex Museum grew out of the collection of East India Marine Society, an organization of Salem captains whose charter called for acquisition of “natural and artificial curiosities.” Its permanent collection contains art and artifacts of Africa, Asia, India, China (with a Qing Dynasty house brought from the Huizhou region), Japan, Korea, Pacific Islands, and features objects of maritime art and history that include paintings, drawings, ship models, marine decorative arts, tools, weapons, navigational instruments, and ship and yacht plans. It also has a thriving changing exhibition schedule that sometimes includes important traveling shows.",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Pass allows you to purchase up to two tickets at the reduced rate of $12 each. The code you'll receive is for one time use only and is not combinable with any other discount.",
+      "status": "ok"
+    },
+    {
+      "slug": "plimoth-patuxet-museums",
+      "museum_name": "Plimoth Patuxet Museums",
+      "address": "137 Warren Avenue, Plymouth, MA 02360",
+      "phone": "508-746-1622",
+      "website": "http://www.plimoth.org/",
+      "description": "Plimoth Patuxet Museums offers a living history that tells the story of the English colonists who became known as “Pilgrims” and the Native Americans with whom they interacted. A big draw is the re-creation of the original settlement, populated with interpreters in period dress with whom one may interact that are based on actual historical figures. Native People from various nations in historically accurate dress provide information about the Wampanoag—the first tribe the Pilgrims encountered—at a home site based on how the group would have lived in the 17th century. In addition to the two settlements, the museum includes a visitor center, the Craft Center, barns that contain rare and heritage animal breeds, and a grist mill that manufactures cornmeal. Plymouth Patuxet Museums is also responsible for the replica of the Mayflower, the ship that brought the Pilgrims to the New World.",
+      "categories": [
+        "Children",
+        "Crafts",
+        "Family",
+        "History"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass allows patrons to purchase a Heritage Pass , Combination Pass , or Plimoth Patuxet Only pass for up to six individuals at the reduced rate of $18 per adult; $12 per child ages 5-17. Not combinable with any other discount. Tickets must be purchased in person at the Museum in order to receive the discount. No online ticket sales.",
+      "status": "ok"
+    },
+    {
+      "slug": "the-trustees-of-the-reservations",
+      "museum_name": "Trustees of Reservations (with deCordova Sculpture Park and Museum)",
+      "website": "http://www.thetrustees.org/",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "This pass is valid for one-time use at any of our 100+ properties that collect an admission fee. Pass holder will pay an admission fee equivalent to that of a Trustees Family Level membership (two adults & children 17 and under.)",
+      "status": "ok"
+    },
+    {
+      "slug": "the-uss-constitution-museum",
+      "museum_name": "USS Constitution Museum",
+      "address": "Charlestown Navy Yard, Building 22, Charlestown, MA 02129",
+      "phone": "617-426-1812",
+      "website": "https://ussconstitutionmuseum.org/",
+      "description": "The museum, a part of the Boston National Historical Park, is located in the Charlestown Navy Yard near the ship USS Constitution (“Old Ironsides”) at the end of Boston's Freedom Trail. The museum provides a detailed look at the history of the ship, information about the war of 1812, and the battle between the ship and HMS Java. Stories are told through interactive exhibits, unique artifacts, archival records, and artwork. The museum also includes a research library which houses a strong collection of manuscripts, books, artifacts, and microfilm of primary source material. The ship itself is maintained by the US Navy, and may be visited free of charge on certain days.",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Pass admits up to 5 people to the museum for free. This pass is valid for the museum only and not for the ship.",
+      "status": "ok"
+    },
+    {
+      "slug": "zoo-new-england",
+      "museum_name": "Zoo New England",
+      "address": "1 Franklin Park Road, Boston, MA 02121",
+      "phone": "617-541-5466",
+      "website": "http://www.zoonewengland.org/",
+      "description": "Zoo New England operates Franklin Park Zoo, a 72-acre site nestled in Boston's historic Franklin Park, and the Stone Zoo, located on a 26-acre site near Spot Pond reservoir in Stoneham, MA. In addition to animals, both zoos are engaged in wildlife and conservation programs, research, and education.",
+      "categories": [
+        "Family",
+        "Zoo"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Pass allows up to 6 people to purchase discounted admission ($9.00/adult and $6.00/child) to the Stone Zoo or the Franklin Park Zoo. Library passes are good for daytime admission only, and not valid for Boston Lights or ZooLights.",
+      "status": "ok"
+    }
+  ]
+}

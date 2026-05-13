@@ -1,0 +1,350 @@
+{
+  "url": "https://actonmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/",
+  "scraped_at": "2026-05-13T15:56:37+00:00",
+  "meta": {
+    "fetch_status": "ok",
+    "status_summary": {
+      "ok": 19,
+      "empty": 0,
+      "failed": {},
+      "total": 19,
+      "ok_ratio": 1.0
+    }
+  },
+  "passes": [
+    {
+      "slug": "boston-childrens-museum",
+      "museum_name": "Boston Children's Museum",
+      "address": "308 Congress Street, Boston, MA 02210",
+      "phone": "617-426-6500",
+      "website": "http://www.bostonchildrensmuseum.org/",
+      "description": "Founded in 1913 by the Science Teachers' Bureau, the Boston Children's Museum is the second oldest children's museum in the world and one of the few that maintain a collection. Designed for both children and families, the Museum exhibits focus on science, culture, environmental awareness, health & fitness, and the arts, emphasizing hands-on engagement and learning through experience, and employing play as a tool to spark the inherent creativity, curiosity, and imagination of children.",
+      "categories": [
+        "Children",
+        "Crafts",
+        "Family",
+        "Technology"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "The Boston Children's Museum pass offers half price admission for up to four (4) people.",
+      "status": "ok"
+    },
+    {
+      "slug": "concord-museum",
+      "museum_name": "Concord Museum",
+      "address": "200 Lexington Road, Concord, MA 01742",
+      "phone": "978-369-9763",
+      "website": "http://www.concordmuseum.org/",
+      "description": "Founded in 1886, the Concord Museum is a repository of local history and a gateway to the town of Concord. It educates visitors from around the world about the history of Concord and its continuing influence on American political, literary and cultural life through permanent and changing exhibits, educational programs and publications. Its collection contains a range of unique items from the area, including a Paul Revere lantern; many objects that once belonged to Henry David Thoreau; a reproduction of Ralph Waldo Emerson's study; and furniture, artwork, and objects from the colonial era on.",
+      "categories": [
+        "Family",
+        "History"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "This pass admits up to 4 at $5-off each. Pickup the pass the day before or the day of the reservation date. This pass MUST be returned to Acton Memorial Library before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue passes are subject to a fine of $10 per day.",
+      "status": "ok"
+    },
+    {
+      "slug": "davis-farmland",
+      "museum_name": "Davis Farmland",
+      "address": "145 Redstone Hill, Sterling, MA 01564",
+      "phone": "978-422-6666",
+      "website": "https://www.davisfarmland.com/",
+      "description": "Davis Farmland is a seven-generation, working family farm, continuously in operation since 1846 in Sterling, MA. Starting in 1996, Davis Farmland has provided opportunities for discovery and play to families with children 12 years old and younger. It has a Waterspray Park; Imagine-Acres; Adventureland; interactions with farm animals; and a “Mega Maze” in the fall. It is also home to the largest sanctuary of endangered farm animals in North America. Special events include hands-on reptile shows. Hours change with the season. Shop with food and souvenirs on the premises.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Zoo"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "This pass admits up to six (6) people to either Davis Farmland or Davis Mega Maze at the gate with a savings of $10 OFF per ticket. This is a coupon pass and does not need to be returned.",
+      "status": "ok"
+    },
+    {
+      "slug": "the-discovery-museums",
+      "museum_name": "Discovery Museum",
+      "address": "177 Main Street, Acton, MA 01720",
+      "phone": "978-264-4200",
+      "website": "http://www.discoveryacton.org/",
+      "description": "Acton's Discovery Museum, located on a 4-acre campus, is aimed at providing an environment in which play becomes a conduit for learning about science, technology, and nature. The museum's building contains a number of galleries dedicated to teaching scientific concepts in a fun, hands-on environment, as well as themed play spaces for younger visitors. Outdoors, Discovery Woods includes a nature playscape with a cargo net climb, nest swing and beaver lodges, as well as a treehouse with an observation deck and a bouncy bridge. There are opportunities to practice orienteering with provided maps and instructions on trails on the property. A museum shop is on the premises. The museum building is fully ADA compliant, with exhibits based on Universal Design principles.",
+      "categories": [
+        "Children",
+        "Family",
+        "Science"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "This pass admits up to three (3) people at half price. Pickup the pass up to six (6) days in advance of the reservation date. This pass MUST be returned to the library it was checked out from (either Acton Memorial Library or West Acton Citizens' Library) before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue passes are subject to a fine of $10 per day. This pass is provided by the Friends of the Acton Libraries.",
+      "status": "ok"
+    },
+    {
+      "slug": "ecotarium",
+      "museum_name": "EcoTarium",
+      "address": "222 Harrington Way, Worcester, MA 01604",
+      "phone": "508-929-2700",
+      "website": "http://www.ecotarium.org/",
+      "description": "The EcoTarium is a unique indoor-outdoor museum in Worcester, MA. Set in an urban oasis, the museum offers a chance to walk through the treetops, take a multimedia journey through the galaxy at a digital planetarium, meet wildlife, stroll nature trails, and get hands-on with family-friendly exhibits.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "This pass offers a 50% discount admission for up to two (2) adults and two (2) children in one vehicle. Children under two are admitted for free.",
+      "status": "ok"
+    },
+    {
+      "slug": "garden-in-the-woods-native-plant-trust",
+      "museum_name": "Garden in the Woods (Native Plant Trust)",
+      "address": "180 Hemenway Road, Framingham, MA 01701",
+      "phone": "508-877-7630",
+      "website": "http://www.nativeplanttrust.org/",
+      "description": "The Garden in the Woods (Native Plant Trust) displays rare and common native New England plants in a naturalistic setting at its location in Framingham, Massachusetts, attracting visitors from all over the world. Set on 45 acres, it includes two miles of paths that meander over glacier-sculpted ridges and through narrow valleys. A pond, a wooded bog, several springs, and a brook bring a diversity of wildlife into the garden. The garden is maintained by the Native Plant Trust, which works throughout New England to monitor and protect rare and endangered plants, collect and bank seeds for biological diversity, control invasive species, conduct research, and educate the public.",
+      "categories": [
+        "Family",
+        "Nature"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "This pass admits up to two (2) adults at 50% discounted admission, and up to two (2) children at $1 admission. Pickup the pass up to six (6) days in advance of the reservation date. This pass MUST be returned to Acton Memorial Library before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue passes are subject to a fine of $10 per day.",
+      "status": "ok"
+    },
+    {
+      "slug": "harvard-museums-of-science-and-culture",
+      "museum_name": "Harvard Museums of Science and Culture",
+      "address": "11 Divinity Avenue, Cambridge, MA 02138",
+      "phone": "617-496-1638",
+      "website": "https://hmsc.harvard.edu/",
+      "description": "The Harvard Museums of Science & Culture is a partnership of museums on the Harvard University Cambridge campus dedicated to the natural world, science, and human cultures. They include the Collection of Historical Scientific Instruments, the Harvard Museum of Natural History (comprised of the Harvard University Herbaria, Mineralogical and Geological Museum, and Museum of Comparative Zoology), the Harvard Museum of the Ancient Near East, and the Peabody Museum of Archaeology & Ethnology, all located between Oxford St./Divinity Ave area. Of particular note are the famous glass flowers, models commissioned by Harvard in 1886 to aid in the teaching of botany (and made in Germany over the course of more than eight decades), on display in the Harvard Museum of Natural History.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "This pass allows four (4) people at the Harvard Museum of Natural History or the Peabody admission desks at 50% off regular museum admission rates . Includes access to all four (4) HMSC museums.",
+      "status": "ok"
+    },
+    {
+      "slug": "institute-of-contemporary-art-boston",
+      "museum_name": "Institute of Contemporary Art/Boston",
+      "address": "25 Harbor Shore Drive, Boston, MA 02210",
+      "phone": "617-478-3100",
+      "website": "https://www.icaboston.org/",
+      "description": "The building that houses the Institute of Contemporary Art/Boston on Fan Pier is the first in the US designed by the architectural firm of Diller Scofidio + Renfro. The museum was founded in 1936 as a sister institution to New York's MoMA, though it had no permanent collection until starting one after moving into the new building on the waterfront in 2006. In addition to the collection, changing exhibitions, music, dance, film, talks, tours, family activities, and teen programming are offered throughout the year.",
+      "categories": [
+        "Art",
+        "Family",
+        "Music",
+        "Dance"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Admits up to two (2) visitors at a discounted price of $10 per admission ticket. (discounted from the regular fee of $20 per ticket).",
+      "status": "ok"
+    },
+    {
+      "slug": "isabella-stewart-gardner-museum",
+      "museum_name": "Isabella Stewart Gardner Museum",
+      "address": "25 Evans Way, Boston, MA 02115",
+      "phone": "617-566-1401",
+      "website": "http://www.gardnermuseum.org/home/",
+      "description": "The Gardner Museum houses the collection of Isabella Stewart Gardner, a local patron of the arts who died in 1924, in a building she commissioned to look like a 15th century Venetian palazzo. The center of the original building showcases courtyard plantings that reflect the seasons as they evolve throughout the year. In addition to her collection, which remains displayed exactly as she arranged it per her will, there are changing exhibitions, concerts, lectures, family events, and an artist-in-residence program. In 2012, the museum opened an addition designed by Renzo Piano that houses a space for their concert series.",
+      "categories": [
+        "Art",
+        "Family",
+        "Music"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass allows admission for up to four (4) people at $5 per person. Children under the age of 18 are always free.",
+      "status": "ok"
+    },
+    {
+      "slug": "john-f-kennedy-library-and-museum",
+      "museum_name": "John F. Kennedy Library & Museum",
+      "address": "Columbia Point, Boston, MA 02125",
+      "phone": "617-514-1600",
+      "website": "https://www.jfklibrary.org/",
+      "description": "The John F. Kennedy Presidential Library and Museum, dedicated to the memory of the nation's thirty-fifth president, is located on a ten-acre park which overlooks the sea in an building designed by I.M. Pei. The Museum portrays the life, leadership, and legacy of President Kennedy, conveys his enthusiasm for politics and public service, and illustrates the nature of the office of the President, all through permanent and changing exhibits. The Library is available to students and scholars to conduct research using its collection of historical materials chronicling mid-20th century politics and the life and administration of the institution's namesake.",
+      "categories": [
+        "Family",
+        "Governance",
+        "History"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Passes are no longer required—the presentation of a valid library card grants the cardholder 50% off of one admission ticket—but please place a reservation for the desired date of your visit.”",
+      "status": "ok"
+    },
+    {
+      "slug": "mass-audubon-drumlin-farm",
+      "museum_name": "Mass Audubon (Drumlin Farm)",
+      "address": "208 South Great Road, Lincoln, MA 01773",
+      "phone": "781-259-2200",
+      "website": "http://www.massaudubon.org/",
+      "description": "Mass Audubon maintains about 100 wildlife sanctuaries in Massachusetts, more than half of which may be visited for walks on trails and visits to nature centers and museums. Among these is Drumlin Farm in Lincoln, a working farm with animals and crops, plus exhibits that include native wildlife, such as owls, foxes and deer. A shop on the premises sells items related to nature, such as bird feeders and binoculars.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "This pass admits 4 people to Drumlin Farm and other Mass Audubon wildlife sanctuaries for $2 per visitor over the age of 2. This pass is a coupon and does not need to be returned to Acton Memorial Library. This pass is provided by the Friends of the Acton Libraries.",
+      "status": "ok"
+    },
+    {
+      "slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "museum_name": "Massachusetts State Parks (Department of Conservation and Recreation)",
+      "address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104",
+      "phone": "617-626-1250",
+      "website": "http://www.mass.gov/eea/agencies/dcr/massparks/",
+      "description": "The Massachusetts State Parks have locations in all regions of the Commonwealth, from Pittsfield to Boston, and from Gloucester to Provincetown. They include beaches, wooded parks, parkways, and reservoirs, each with its own unique activities and amenities like hiking, biking, swimming and boating, camping, and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "This pass offers free general parking at many Massachusetts State Parks. Pickup the pass the day before or the day of the reservation date. This pass is not valid for camping or parking at the following locations – Quabbin Reservoir Boat Launch Areas, Squantum Point, North Point, any metered facilities, or Draw Seven Commuter lots. This pass MUST be returned to Acton Memorial Library before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue passes are subject to a fine of $10 per day.",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-fine-arts",
+      "museum_name": "Museum of Fine Arts",
+      "address": "465 Huntington Avenue, Boston, MA 02115",
+      "phone": "617-267-9300",
+      "website": "http://www.mfa.org/",
+      "description": "The Boston Museum of Fine Arts, in existence since July 4, 1876, is one of the most comprehensive art museums in the world, with a collection of almost 500,000 works of art, ranging from ancient Egyptian artifacts to contemporary painting, sculpture and video. In addition, there are always special exhibitions on view, opportunities to take advantage of educational programs—some right in the galleries—and a contemplative Japanese garden.",
+      "categories": [
+        "Art",
+        "Family",
+        "History"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass allows admission for two (2) adults at $15 each and up to 4 children ages 7-17 at $10 each. Children 6 and under are free. The pass is good ONLY for the date listed. It cannot be used on another date.",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-science",
+      "museum_name": "Museum of Science",
+      "address": "1 Science Park, Boston, MA 02114",
+      "phone": "617-723-2500",
+      "website": "http://www.mos.org/",
+      "description": "The Museum of Science in Boston is located on a piece of land that extends the width of the Charles River, connecting Boston and Cambridge. Dedicated to promoting and educating visitors about science and technology, the museum includes a planetarium, the world's largest open-air Van de Graaff generator, an IMAX theatre, a butterfly garden, and permanent and changing exhibits on birds, insects and animals; space; dinosaurs; engineering; nanotechnology; math; biology; and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science",
+        "Technology",
+        "Sky"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "• This pass will admit up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. • Your Library pass can only be used on the date printed on the pass. • Please bring your library pass confirmation (printed or displayed on a phone) when you visit. • When you arrive at the Museum, stop at the Box Office to exchange your library pass and purchase your Exhibit Halls tickets at the discounted rate. If you have any questions or if you would like to reserve your Exhibit Halls passes in advance to avoid waiting in line the day of your visit, please call 617-723-2500 (9:00 a.m. – 5:00 p.m. daily). • If you are unable to show your Library confirmation on a phone, you may print out a copy using the link in the confirmation email or request a paper copy from the library.",
+      "status": "ok"
+    },
+    {
+      "slug": "new-england-aquarium",
+      "museum_name": "New England Aquarium",
+      "address": "1 Central Wharf, Boston, MA 02110",
+      "phone": "617-973-5200",
+      "website": "http://www.neaq.org/",
+      "description": "The New England Aquarium is home to thousands of aquatic animals, from the giant Pacific octopus to Northern fur seals to little blue penguins. They offer a wide range of exhibits, including a shark and ray touch tank and the Giant Ocean Tank, a four-story coral reef featuring hundreds of Caribbean animals. In addition, they have an IMAX theatre and run whale watch boat excursions in partnership with Boston Harbor Cruises from April through November.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Library pass holders no longer need to make advance reservation s. Tickets cannot be pre-purchased online nor over the phone. The original, dated pass must be presented at the Aquarium Box Office (“General Admission” line) at the time of the visit. Library pass holders will be granted immediate entry after purchasing discounted tickets, even if the Aquarium is sold out to the general public at that time. Passes can be scanned directly off the phone or other device OR may be printed. Barcode must be included. Patrons who do not have an original pass will not receive the discount. Each coupon admits up to 4 people for a 50% off reduction from the regular admission rate, per person . Coupon only applies to adult and child rates. Reduced-rate admission payment must be paid at the Aquarium Box Office to gain entry. Children under the age of 3 are not included in the admission count and are always admitted free. Please visit neaq.org/visit/offers-and-discounts for details. Review the Aquarium’s website at neaq.org/visit/accessibility ahead of visiting to ensure a safe and accessible experience. Library coupons may not be used in conjunction with school or group visits, nor be applied toward Aquarium programs, Simons Theatre tickets, Whale Watch tickets, or combination tickets. Library coupons or tickets obtained with library coupons may not be sold. Hours of operation are subject to change without notice. Before leaving home, we encourage you to visit our website, neaq.org , for details about hours, exhibits, schedules, prices, directions, parking, and safety guidelines. If you have questions, you may call the New England Aquarium Membership Department at 617-973-6555, weekdays, 9:00 a.m. to 4:30 p.m., or email members@neaq.org .",
+      "status": "ok"
+    },
+    {
+      "slug": "new-england-botanic-garden-at-tower-hill",
+      "museum_name": "New England Botanic Garden at Tower Hill",
+      "address": "11 French Drive, Boylston, MA 01505-0598",
+      "phone": "508-869-6111",
+      "website": "https://www.nebg.org/",
+      "description": "Located in Boylston, MA, and open year-round, the New England Botanic Garden at Tower Hill features carefully planned gardens and collections of ornamental, edible and native plants, with a number of trails that traverse the 200-acre property. In addition, there are many programs and events, including classes, lectures, art exhibits and concerts. The Garden is run by the Worcester County Horticultural Society, the third oldest active horticultural society in the United States.",
+      "categories": [
+        "Art",
+        "Crafts",
+        "Family",
+        "Nature"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "This pass offers a 50% discount on general admission for up to two (2) people. Pickup the pass the day before or the day of the reservation date.",
+      "status": "ok"
+    },
+    {
+      "slug": "peabody-essex-museum",
+      "museum_name": "Peabody Essex Museum",
+      "address": "161 Essex Street, Salem, MA 01970-3783",
+      "phone": "978-745-9500",
+      "website": "http://www.pem.org/",
+      "description": "The Peabody Essex Museum grew out of the collection of East India Marine Society, an organization of Salem captains whose charter called for acquisition of “natural and artificial curiosities.” Its permanent collection contains art and artifacts of Africa, Asia, India, China (with a Qing Dynasty house brought from the Huizhou region), Japan, Korea, Pacific Islands, and features objects of maritime art and history that include paintings, drawings, ship models, marine decorative arts, tools, weapons, navigational instruments, and ship and yacht plans. It also has a thriving changing exhibition schedule that sometimes includes important traveling shows.",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "The Peabody Essex Museum pass offers discounted tickets of $12 each for up to two (2) people.",
+      "status": "ok"
+    },
+    {
+      "slug": "the-trustees-of-the-reservations",
+      "museum_name": "Trustees of Reservations (with deCordova Sculpture Park and Museum)",
+      "website": "http://www.thetrustees.org/",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "The DeCordova and Fruitlands Museums are included in the list of Trustees of the Reservations Properties. For a full list of all Trustees of the Reservations properties, please go to thetrustees.org . The GO Pass admits two adults and children under 18 at the family membership admission price (at Trustees properties that charge an admission fee). GO Passes are valid for admission only. Not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, equipment rentals, or in place of any permits or passes. This pass is provided by the Friends of the Acton Libraries.",
+      "status": "ok"
+    },
+    {
+      "slug": "zoo-new-england",
+      "museum_name": "Zoo New England",
+      "address": "1 Franklin Park Road, Boston, MA 02121",
+      "phone": "617-541-5466",
+      "website": "http://www.zoonewengland.org/",
+      "description": "Zoo New England operates Franklin Park Zoo, a 72-acre site nestled in Boston's historic Franklin Park, and the Stone Zoo, located on a 26-acre site near Spot Pond reservoir in Stoneham, MA. In addition to animals, both zoos are engaged in wildlife and conservation programs, research, and education.",
+      "categories": [
+        "Family",
+        "Zoo"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Provides discounted admission for a group of up to 6 individuals per pass to the Franklin Park and Stone Zoos. Admission costs with the pass are $9 per adult and $6 per child. Under 2 is free. Pass can only be used for daytime admission. They can't be used for Stone Zoo Zoolights or Franklin Park Zoo Boston Lights.",
+      "status": "ok"
+    }
+  ]
+}

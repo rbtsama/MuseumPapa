@@ -1,0 +1,170 @@
+{
+  "scraped_at": "2026-05-13T15:56:58+00:00",
+  "url": "https://www2.museumkey.com/ui/byMuseum/?code=paulma02025&branchID=231",
+  "meta": {
+    "fetch_status": "ok",
+    "status_summary": {
+      "ok": 14,
+      "empty": 0,
+      "failed": {},
+      "total": 14,
+      "ok_ratio": 1.0
+    }
+  },
+  "passes": [
+    {
+      "slug": "boston-childrens-museum",
+      "musid": "4894",
+      "museum_name": "Boston Children's Museum",
+      "pass_type": "physical-coupon",
+      "pass_type_raw": "(body: coupon/disposable)",
+      "benefits_text": "308 Congress Street Boston, MA 02210 617-426-6500 Get Directions Updated 10/27/2025 This coupon is not your ticket. You MUST make a reservation on the Museum's website. Hours of Operation: Wednesday â€“ Monday, 9:00am - 4:00pm Please Note: Boston Children's Museum will be closed September 8, 2025 -September 16, 2025 for regularly scheduled Annual Maintenance. Visit https://bostonchildrensmuseum.org/ticketing Select â€œDiscount programsâ€ Select \"Purchase Discount Program Tickets\" Select \"Half Price Library Timed Tickets\" Select the correct date (must match coupon) Select time slot Select number of tickets (maximum 4) Select \"Add to cart\" Select \"Check out\" and complete payment You will be sent tickets via email The day of your visit, please bring both your coupon from the library and your tickets from the Museum. Your coupon and tickets can be printed out or shown on a smartphone or other device. Visit museum website for more information. Boston Harbor Island Ferry Learn More",
+      "label": "50% off",
+      "label_class": "half",
+      "status": "ok"
+    },
+    {
+      "slug": "boston-harbor-islands",
+      "musid": "4906",
+      "museum_name": "Boston Harbor Island Ferry",
+      "pass_type": "physical-coupon",
+      "pass_type_raw": "(body: coupon/disposable)",
+      "benefits_text": "66 Long Wharf Boston, MA 02110 617-227-4321 Get Directions This is a 50% discount to the Boston Harbor Islands and is suitable for up to four people. Passes are good between May and October. Please see the island specific schedule for the 2025 season below. Visit www.bostonharborislands.org/ferry-tickets to purchase advance tickets. Select the date, time and destination and number of tickets. Enter the library's code in the \"Coupon/Voucher Code\" field and click apply to receive the 50% discounted rate. Complete your transaction and bring your phone or printed copy of your barcode to board the ferry! 2025 Code: HARBOR7 Spectacle Island May 16 - June 15: Thursdays through Sundays June 16 - September 1: every day September 4 - 21: Thursdays through Sundays September 26 - October 13: Fridays through Sundays Georges Island June 16- September 1: every day Peddocks Island June 16 - September 1: every day September 4 - October 13: Thursdays through Sundays Visit museum website for more information. The Butterfly Place Learn More",
+      "label": "50% off",
+      "label_class": "half",
+      "status": "ok"
+    },
+    {
+      "slug": "butterfly-place",
+      "musid": "11201",
+      "museum_name": "The Butterfly Place",
+      "pass_type": "physical-coupon",
+      "pass_type_raw": "(body: coupon/disposable)",
+      "benefits_text": "120 Tyngsboro Road Westford, MA 01886 978-392-0955 Get Directions Pass admits 1 person for free. Patrons must bring the physical coupon. Visit museum website for more information. Cohasset Historical Society Learn More",
+      "label": "Free",
+      "label_class": "free",
+      "status": "ok"
+    },
+    {
+      "slug": "cohasset-historical-society",
+      "musid": "4904",
+      "museum_name": "Cohasset Historical Society",
+      "pass_type": "physical-coupon",
+      "pass_type_raw": "(body: coupon/disposable)",
+      "benefits_text": "106 South Main Street Cohasset, MA 02025 (781) 383-1434 Get Directions Free Lecture Series Pass. Check this pass out from the library and present it upon entrance to the Historical Society's Event. Pass does not need to be returned. Visit museum website for more information. Isabella Stewart Gardner Museum Learn More",
+      "label": "",
+      "label_class": "unknown",
+      "status": "ok"
+    },
+    {
+      "slug": "isabella-stewart-gardner",
+      "musid": "4895",
+      "museum_name": "Isabella Stewart Gardner Museum",
+      "pass_type": "digital",
+      "pass_type_raw": "(body: digital/email)",
+      "benefits_text": "25 Evans Way Boston, MA 02115 617-566-1401 Get Directions Paul Pratt Memorial Library THIS PASS IS VALID ONCE BETWEEN 11/1/2025 AND 10/31/2026 The online promo code is MPP82401YK When reserving Isabella Stewart Gardner Museum timed entry tickets online, you will: 1. Go to https:/tnew.gardnermuseum.org/ events 2. Submit the promo code in the box at the top of the screen 3. Select the visit date and a time to enter 4. Add desired number of tickets to the basket. The library pass allows you to get up to four tickets at $5 each (choose the Library Pass ticket type). Any additional ticket will be normally priced (Children under 18 are always free and should be reserved as child tickets) 5. Login or create an account 6. Finish checking out (discount is applied only at checkout) More information on how to use the promo code online can be found in these instructions: How to Book Museum Tickets Using a Library Pass Online . This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617 278 5156. PATRONS MUST PRESENT BOTH THIS LIBRARY PASS AND THEIR RESERVED TIMED MUSEUM ADMISSION TICKETS FOR ENTRY INTO THE MUSEUM . MUSEUM HOURS : WEEKDAYS 11 AM â€“ 5 PM | WEEKENDS 10 AM â€“ 5 PM | THURSDAYS 11 AM â€“ 9 PM | CLOSED TUESDAYS 25 EVANS WAY, BOSTON, MA 02115 Visit museum website for more information. John F. Kennedy Presidential Library and Museum Learn More",
+      "label": "$5",
+      "label_class": "price",
+      "status": "ok"
+    },
+    {
+      "slug": "jfk-library",
+      "musid": "10432",
+      "museum_name": "John F. Kennedy Presidential Library and Museum",
+      "pass_type": "unknown",
+      "pass_type_raw": "",
+      "benefits_text": "Columbia Point Boston, MA 02125 617-514-1600 Get Directions Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card to receive the discount. No pass is needed. Visitors aged 12 and under receive free admission. Please reach out to the JFK Library Visitor Services Department with questions at kennedy.groupvisits@nara.gov or 617-514-1600. Open seven days a week 10:00am - 5:00pm. Visit museum website for more information. Massachusetts State Parks Learn More",
+      "label": "Free",
+      "label_class": "free",
+      "status": "ok"
+    },
+    {
+      "slug": "ma-state-parks",
+      "musid": "4896",
+      "museum_name": "Massachusetts State Parks",
+      "pass_type": "unknown",
+      "pass_type_raw": "",
+      "benefits_text": "251 Causeway Street, Suite 900 Boston, MA 02114 617-626-1250 Get Directions Free parking for most State parks including Nantasket Beach. Visit museum website for more information. Museum of Fine Arts Boston Learn More",
+      "label": "Free",
+      "label_class": "free",
+      "status": "ok"
+    },
+    {
+      "slug": "mfa",
+      "musid": "4897",
+      "museum_name": "Museum of Fine Arts Boston",
+      "pass_type": "digital",
+      "pass_type_raw": "(body: digital/email)",
+      "benefits_text": "465 Huntington Avenue Boston, MA 02115 617-267-9300 Get Directions Updated 03/26/2026 Use promo code IP-1636144 to receive a discount on MFA tickets. Visit mfa.org/tickets . Use promo code IP-1636144 to receive a discount and select Library Pass Ticket. The ticket will be emailed to the patron. For visit dates beginning January 20, 2026, each promo code may be redeemed for up to two adult tickets ($15 each) and four youth tickets ($10 each). Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Yearâ€™s Day, Patriotsâ€™ Day, Fourth of July, Thanksgiving, and Christmas. Visit museum website for more information. Museum of Science Learn More",
+      "label": "$15",
+      "label_class": "price",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-science",
+      "musid": "4898",
+      "museum_name": "Museum of Science",
+      "pass_type": "unknown",
+      "pass_type_raw": "",
+      "benefits_text": "1 Science Park Boston, MA 02134 617-723-2500 Get Directions Updated 10/29/25 Reserve pass for a specific day at the library. Download to phone or print pass. Up to 4 people are admitted at a 50% discount off of Exhibit Hall admission prices only with each pass, and children under 3 are always free. Take pass to the Box Office to Exchange for discounted Exhibit Hall tickets. Your pass can only be used on the date printed on the confirmation. Visit museum website for more information. New England Aquarium Learn More",
+      "label": "50% off",
+      "label_class": "half",
+      "status": "ok"
+    },
+    {
+      "slug": "new-england-aquarium",
+      "musid": "4900",
+      "museum_name": "New England Aquarium",
+      "pass_type": "unknown",
+      "pass_type_raw": "",
+      "benefits_text": "1 Central Wharf Boston, MA 02110 617-973-5200 Get Directions Updated 03/16/2026 Pass is good for 50% off per person, up to 4 people. Passbook Code is PS143901 and library ID is 324077. The New England Aquarium will be closed to the public on Wednesday, April 8. Passes for April 8 will be honored up to a week after the original date. In addition, in the event of an Aquarium closure due to inclement weather, we will honor passes up to a week after the original date as well. Visit museum website for more information. Plimoth Patuxet Learn More",
+      "label": "50% off",
+      "label_class": "half",
+      "status": "ok"
+    },
+    {
+      "slug": "plimoth-patuxet",
+      "musid": "4901",
+      "museum_name": "Plimoth Patuxet",
+      "pass_type": "unknown",
+      "pass_type_raw": "",
+      "benefits_text": "137 Warren Avenue Plymouth, MA 02360 508-746-1622 Get Directions Updated 3/13/2025 Open for the 2025 season March 15 through the Sunday following Thanksgiving Day Reserve the date on the library website, then print or download the pass. Take to museum and present at the box office. Pass is good for a rate of $18/adult and $12/child, ages 5-17, for up to 6 people and is valid for all of the living history sites offered. Patrons may either show a picture of their library pass on their phone or provide a paper version of the library pass. Visit museum website for more information. The Trustees of Reservations GO Pass Learn More",
+      "label": "$18",
+      "label_class": "price",
+      "status": "ok"
+    },
+    {
+      "slug": "trustees-of-reservations",
+      "musid": "4902",
+      "museum_name": "The Trustees of Reservations GO Pass",
+      "pass_type": "digital",
+      "pass_type_raw": "(body: digital/email)",
+      "benefits_text": "200 High Street Boston, MA 02110 617-542-7696 Get Directions Go Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. Go Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. To use Go Passes with a site that requires timed passes, please enter the promo code \"GOPASS\" when securing a timed ticket. GoPass is good for admission of two adults and all children under the age of 18. Visit museum website for more information. USS Constitution Museum Learn More",
+      "label": "",
+      "label_class": "unknown",
+      "status": "ok"
+    },
+    {
+      "slug": "uss-constitution-museum",
+      "musid": "4903",
+      "museum_name": "USS Constitution Museum",
+      "pass_type": "unknown",
+      "pass_type_raw": "",
+      "benefits_text": "Building 22, Charlestown Navy Yard Charlestown, MA 02129 617-426-1812 Get Directions Print out this pass or display on phone and bring to the USS Constitution Museum box office. Pass holders will receive free admission to the museum. One pass allows free admission for up to 5 people per day. One pass per party, please. Please Note: Museum Hours - Open Daily; Winter Hours 10:00am - 5:00pm. Museum is closed Thanksgiving Day, Christmas Day, and New Year's Day. Update 01/12/2026 Visit museum website for more information. Zoo New England Learn More",
+      "label": "Free",
+      "label_class": "free",
+      "status": "ok"
+    },
+    {
+      "slug": "zoo-new-england",
+      "musid": "4907",
+      "museum_name": "Zoo New England",
+      "pass_type": "unknown",
+      "pass_type_raw": "",
+      "benefits_text": "1 Franklin Park Road Boston, MA 02121 617-541-5466 Get Directions Pass is good for the Franklin Park Zoo in Boston or the Stone Zoo in Stoneham, MA. Admits 6 people at $9.00 per adult and $6.00 per child. Children 2 years and younger are free. Pass can only be used for daytime admission. They can't be used for Stone Zoo Zoolights or Franklin Park Zoo Boston Lights. Visit museum website for more information.",
+      "label": "$9",
+      "label_class": "price",
+      "status": "ok"
+    }
+  ]
+}

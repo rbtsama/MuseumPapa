@@ -1,0 +1,230 @@
+{
+  "url": "https://robbinslibrary.assabetinteractive.com/museum-passes/by-museum/",
+  "scraped_at": "2026-05-13T15:56:35+00:00",
+  "meta": {
+    "fetch_status": "ok",
+    "status_summary": {
+      "ok": 12,
+      "empty": 0,
+      "failed": {},
+      "total": 12,
+      "ok_ratio": 1.0
+    }
+  },
+  "passes": [
+    {
+      "slug": "boston-childrens-museum",
+      "museum_name": "Boston Children's Museum",
+      "address": "308 Congress Street, Boston, MA 02210",
+      "phone": "617-426-6500",
+      "website": "http://www.bostonchildrensmuseum.org/",
+      "description": "Founded in 1913 by the Science Teachers' Bureau, the Boston Children's Museum is the second oldest children's museum in the world and one of the few that maintain a collection. Designed for both children and families, the Museum exhibits focus on science, culture, environmental awareness, health & fitness, and the arts, emphasizing hands-on engagement and learning through experience, and employing play as a tool to spark the inherent creativity, curiosity, and imagination of children.",
+      "categories": [
+        "Children",
+        "Crafts",
+        "Family",
+        "Technology"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass admits up to four (4) visitors at half-price admission. You will receive an email coupon from the Library. You then MUST visit https://bostonchildrensmuseum.org/ticketing/ to purchase your tickets at half price. On the day of your visit, you will need to present your museum tickets AND the library coupon to gain entry.",
+      "status": "ok"
+    },
+    {
+      "slug": "the-discovery-museums",
+      "museum_name": "Discovery Museum",
+      "address": "177 Main Street, Acton, MA 01720",
+      "phone": "978-264-4200",
+      "website": "http://www.discoveryacton.org/",
+      "description": "Acton's Discovery Museum, located on a 4-acre campus, is aimed at providing an environment in which play becomes a conduit for learning about science, technology, and nature. The museum's building contains a number of galleries dedicated to teaching scientific concepts in a fun, hands-on environment, as well as themed play spaces for younger visitors. Outdoors, Discovery Woods includes a nature playscape with a cargo net climb, nest swing and beaver lodges, as well as a treehouse with an observation deck and a bouncy bridge. There are opportunities to practice orienteering with provided maps and instructions on trails on the property. A museum shop is on the premises. The museum building is fully ADA compliant, with exhibits based on Universal Design principles.",
+      "categories": [
+        "Children",
+        "Family",
+        "Science"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Advance reservations are no longer required or accepted. This pass admits up to three (3) visitors at half-price admission. You will receive a coupon that you can present to staff on the day of your visit.",
+      "status": "ok"
+    },
+    {
+      "slug": "harvard-museums-of-science-and-culture",
+      "museum_name": "Harvard Museums of Science and Culture",
+      "address": "11 Divinity Avenue, Cambridge, MA 02138",
+      "phone": "617-496-1638",
+      "website": "https://hmsc.harvard.edu/",
+      "description": "The Harvard Museums of Science & Culture is a partnership of museums on the Harvard University Cambridge campus dedicated to the natural world, science, and human cultures. They include the Collection of Historical Scientific Instruments, the Harvard Museum of Natural History (comprised of the Harvard University Herbaria, Mineralogical and Geological Museum, and Museum of Comparative Zoology), the Harvard Museum of the Ancient Near East, and the Peabody Museum of Archaeology & Ethnology, all located between Oxford St./Divinity Ave area. Of particular note are the famous glass flowers, models commissioned by Harvard in 1886 to aid in the teaching of botany (and made in Germany over the course of more than eight decades), on display in the Harvard Museum of Natural History.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "This pass admits up to four (4) visitors at half-price admission. This pass is a physical coupon pass that you can pick up at the Robbins Library, but not the Fox branch. You will need to select a reservation date, but you can apply the coupon discount on any date that you decide to go. Admission includes entry to: The Harvard Museum of Natural History The Peabody Museum of Archaeology & Ethnology The Harvard Museum of the Ancient Near East The Collection of Historical Scientific Instruments.",
+      "status": "ok"
+    },
+    {
+      "slug": "institute-of-contemporary-art-boston",
+      "museum_name": "Institute of Contemporary Art/Boston",
+      "address": "25 Harbor Shore Drive, Boston, MA 02210",
+      "phone": "617-478-3100",
+      "website": "https://www.icaboston.org/",
+      "description": "The building that houses the Institute of Contemporary Art/Boston on Fan Pier is the first in the US designed by the architectural firm of Diller Scofidio + Renfro. The museum was founded in 1936 as a sister institution to New York's MoMA, though it had no permanent collection until starting one after moving into the new building on the waterfront in 2006. In addition to the collection, changing exhibitions, music, dance, film, talks, tours, family activities, and teen programming are offered throughout the year.",
+      "categories": [
+        "Art",
+        "Family",
+        "Music",
+        "Dance"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass admits up to two (2) people at $10 each. Library Passes are not valid for performances, events, or films You will receive an email from the Library that will act as your coupon. You can purchase your tickets online at https://my.icaboston.org/events , or over the phone at 617-478-3100, or in person on the day of your visit.",
+      "status": "ok"
+    },
+    {
+      "slug": "isabella-stewart-gardner-museum",
+      "museum_name": "Isabella Stewart Gardner Museum",
+      "address": "25 Evans Way, Boston, MA 02115",
+      "phone": "617-566-1401",
+      "website": "http://www.gardnermuseum.org/home/",
+      "description": "The Gardner Museum houses the collection of Isabella Stewart Gardner, a local patron of the arts who died in 1924, in a building she commissioned to look like a 15th century Venetian palazzo. The center of the original building showcases courtyard plantings that reflect the seasons as they evolve throughout the year. In addition to her collection, which remains displayed exactly as she arranged it per her will, there are changing exhibitions, concerts, lectures, family events, and an artist-in-residence program. In 2012, the museum opened an addition designed by Renzo Piano that houses a space for their concert series.",
+      "categories": [
+        "Art",
+        "Family",
+        "Music"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass admits up to four (4) adults at $5 each. Children under the age of 17 are always free. You will be emailed a coupon code. Tickets MUST be purchased online at https://tnew.gardnermuseum.org/events .",
+      "status": "ok"
+    },
+    {
+      "slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "museum_name": "Massachusetts State Parks (Department of Conservation and Recreation)",
+      "address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104",
+      "phone": "617-626-1250",
+      "website": "http://www.mass.gov/eea/agencies/dcr/massparks/",
+      "description": "The Massachusetts State Parks have locations in all regions of the Commonwealth, from Pittsfield to Boston, and from Gloucester to Provincetown. They include beaches, wooded parks, parkways, and reservoirs, each with its own unique activities and amenities like hiking, biking, swimming and boating, camping, and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "This pass allows unlimited parking access at most Massachusetts State Parks for one vehicle. You will need to pick up a physical pass from the Robbins Library on the same day you reserve it. This pass MUST be returned the day after your visit.",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-fine-arts",
+      "museum_name": "Museum of Fine Arts",
+      "address": "465 Huntington Avenue, Boston, MA 02115",
+      "phone": "617-267-9300",
+      "website": "http://www.mfa.org/",
+      "description": "The Boston Museum of Fine Arts, in existence since July 4, 1876, is one of the most comprehensive art museums in the world, with a collection of almost 500,000 works of art, ranging from ancient Egyptian artifacts to contemporary painting, sculpture and video. In addition, there are always special exhibitions on view, opportunities to take advantage of educational programs—some right in the galleries—and a contemplative Japanese garden.",
+      "categories": [
+        "Art",
+        "Family",
+        "History"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass admits up to two (2) adults and four (4) youths (ages 7–17) at $15 per person. Tickets to the MFA are always free for visitors under seven (7) years old. You will receive a promo code, which you can redeem online when you are buying your tickets. You can also redeem the promo code in person, but the Museum strongly recommends buying your tickets in advance.",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-science",
+      "museum_name": "Museum of Science",
+      "address": "1 Science Park, Boston, MA 02114",
+      "phone": "617-723-2500",
+      "website": "http://www.mos.org/",
+      "description": "The Museum of Science in Boston is located on a piece of land that extends the width of the Charles River, connecting Boston and Cambridge. Dedicated to promoting and educating visitors about science and technology, the museum includes a planetarium, the world's largest open-air Van de Graaff generator, an IMAX theatre, a butterfly garden, and permanent and changing exhibits on birds, insects and animals; space; dinosaurs; engineering; nanotechnology; math; biology; and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science",
+        "Technology",
+        "Sky"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass will admit up to four (4) people at half-price admission to the Museum’s Exhibit Halls. Children two years and younger are always admitted for free. You will receive a promo code that you can present at admissions on the day of your visit. This discount cannot be applied to online ticket purchases. To reserve tickets ahead of time, please contact the Museum at 617-723-2500",
+      "status": "ok"
+    },
+    {
+      "slug": "new-england-aquarium",
+      "museum_name": "New England Aquarium",
+      "address": "1 Central Wharf, Boston, MA 02110",
+      "phone": "617-973-5200",
+      "website": "http://www.neaq.org/",
+      "description": "The New England Aquarium is home to thousands of aquatic animals, from the giant Pacific octopus to Northern fur seals to little blue penguins. They offer a wide range of exhibits, including a shark and ray touch tank and the Giant Ocean Tank, a four-story coral reef featuring hundreds of Caribbean animals. In addition, they have an IMAX theatre and run whale watch boat excursions in partnership with Boston Harbor Cruises from April through November.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass admits up to four (4) visitors at half-price admission. You will receive a promo code that can be redeemed on the date of your visit. This code cannot be redeemed online.",
+      "status": "ok"
+    },
+    {
+      "slug": "peabody-essex-museum",
+      "museum_name": "Peabody Essex Museum",
+      "address": "161 Essex Street, Salem, MA 01970-3783",
+      "phone": "978-745-9500",
+      "website": "http://www.pem.org/",
+      "description": "The Peabody Essex Museum grew out of the collection of East India Marine Society, an organization of Salem captains whose charter called for acquisition of “natural and artificial curiosities.” Its permanent collection contains art and artifacts of Africa, Asia, India, China (with a Qing Dynasty house brought from the Huizhou region), Japan, Korea, Pacific Islands, and features objects of maritime art and history that include paintings, drawings, ship models, marine decorative arts, tools, weapons, navigational instruments, and ship and yacht plans. It also has a thriving changing exhibition schedule that sometimes includes important traveling shows.",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass admits up to two (2) adults at $12 each. You will receive a promo code that you can apply when purchasing tickets online. Advance reservations are strongly encouraged.",
+      "status": "ok"
+    },
+    {
+      "slug": "the-trustees-of-the-reservations",
+      "museum_name": "Trustees of Reservations (with deCordova Sculpture Park and Museum)",
+      "website": "http://www.thetrustees.org/",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "This pass provides free admission to Trustees properties that charge an admission free, but many Trustees properties do not. Please visit https://thetrustees.org/places/ to find out more about how this pass applies to different properties. This pass is a physical coupon pass that you can pick up at the Robbins Library, but not the Fox branch. You will need to select a reservation date, but you can apply the coupon discount on any date that you decide to go.",
+      "status": "ok"
+    },
+    {
+      "slug": "zoo-new-england",
+      "museum_name": "Zoo New England",
+      "address": "1 Franklin Park Road, Boston, MA 02121",
+      "phone": "617-541-5466",
+      "website": "http://www.zoonewengland.org/",
+      "description": "Zoo New England operates Franklin Park Zoo, a 72-acre site nestled in Boston's historic Franklin Park, and the Stone Zoo, located on a 26-acre site near Spot Pond reservoir in Stoneham, MA. In addition to animals, both zoos are engaged in wildlife and conservation programs, research, and education.",
+      "categories": [
+        "Family",
+        "Zoo"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Admits up to 6 people at $9 per adult and $6 per child This pass is a physical coupon pass that you can pick up at the Robbins Library, but not the Fox branch. You will need to select a reservation date, but you can apply the coupon discount on any date that you decide to go.",
+      "status": "ok"
+    }
+  ]
+}

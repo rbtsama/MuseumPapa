@@ -1,0 +1,177 @@
+{
+  "url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/",
+  "scraped_at": "2026-05-13T15:56:34+00:00",
+  "meta": {
+    "fetch_status": "ok",
+    "status_summary": {
+      "ok": 9,
+      "empty": 0,
+      "failed": {},
+      "total": 9,
+      "ok_ratio": 1.0
+    }
+  },
+  "passes": [
+    {
+      "slug": "boston-childrens-museum",
+      "museum_name": "Boston Children's Museum",
+      "address": "308 Congress Street, Boston, MA 02210",
+      "phone": "617-426-6500",
+      "website": "http://www.bostonchildrensmuseum.org/",
+      "description": "Founded in 1913 by the Science Teachers' Bureau, the Boston Children's Museum is the second oldest children's museum in the world and one of the few that maintain a collection. Designed for both children and families, the Museum exhibits focus on science, culture, environmental awareness, health & fitness, and the arts, emphasizing hands-on engagement and learning through experience, and employing play as a tool to spark the inherent creativity, curiosity, and imagination of children.",
+      "categories": [
+        "Children",
+        "Crafts",
+        "Family",
+        "Technology"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Boston Children's Museum [e-voucher] Museo de Niño en Boston [electrónica] Admits 4 people at half price. Please check the website for the price of general admission. Admisión para 4 personas a medio precio. Por favor vaya a la página web y verifique el precio general de admisión. Please visit the website for hours of operation. Visite el sitio web para obtener información sobre los horarios.",
+      "status": "ok"
+    },
+    {
+      "slug": "harvard-museums-of-science-and-culture",
+      "museum_name": "Harvard Museums of Science and Culture",
+      "address": "11 Divinity Avenue, Cambridge, MA 02138",
+      "phone": "617-496-1638",
+      "website": "https://hmsc.harvard.edu/",
+      "description": "The Harvard Museums of Science & Culture is a partnership of museums on the Harvard University Cambridge campus dedicated to the natural world, science, and human cultures. They include the Collection of Historical Scientific Instruments, the Harvard Museum of Natural History (comprised of the Harvard University Herbaria, Mineralogical and Geological Museum, and Museum of Comparative Zoology), the Harvard Museum of the Ancient Near East, and the Peabody Museum of Archaeology & Ethnology, all located between Oxford St./Divinity Ave area. Of particular note are the famous glass flowers, models commissioned by Harvard in 1886 to aid in the teaching of botany (and made in Germany over the course of more than eight decades), on display in the Harvard Museum of Natural History.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Harvard Museums of Science & Culture [coupon] Museos de Ciencias y Cultura de Harvard [cupón] Admits 4 people for free. Admisión para 4 personas gratis. Please visit the website for hours of operation. Visite el sitio web para obtener información sobre los horarios.",
+      "status": "ok"
+    },
+    {
+      "slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "museum_name": "Massachusetts State Parks (Department of Conservation and Recreation)",
+      "address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104",
+      "phone": "617-626-1250",
+      "website": "http://www.mass.gov/eea/agencies/dcr/massparks/",
+      "description": "The Massachusetts State Parks have locations in all regions of the Commonwealth, from Pittsfield to Boston, and from Gloucester to Provincetown. They include beaches, wooded parks, parkways, and reservoirs, each with its own unique activities and amenities like hiking, biking, swimming and boating, camping, and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "DCR MA Parks [returnable pass] Parques DCR de Massachusetts [pase retornable] Provides free parking for one vehicle at a Massachusetts State Park. Permite parquear gratis un vehículo. *Returnable passes may be picked up one day in advance and must be returned by 10am the following day.* *Los boletos que son retornables deben recogerse el día antes y devolverse antes de las 10am del próximo dia.* For more information please contact us at 978-620-3600. Para mas información llame a 978-620-3600.",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-fine-arts",
+      "museum_name": "Museum of Fine Arts",
+      "address": "465 Huntington Avenue, Boston, MA 02115",
+      "phone": "617-267-9300",
+      "website": "http://www.mfa.org/",
+      "description": "The Boston Museum of Fine Arts, in existence since July 4, 1876, is one of the most comprehensive art museums in the world, with a collection of almost 500,000 works of art, ranging from ancient Egyptian artifacts to contemporary painting, sculpture and video. In addition, there are always special exhibitions on view, opportunities to take advantage of educational programs—some right in the galleries—and a contemplative Japanese garden.",
+      "categories": [
+        "Art",
+        "Family",
+        "History"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Museum of Fine Arts [e-voucher] Museo de Bellas Artes [electrónico] Admits 2 adults at 10$ per person and up to 4 Children (7-17) at $10 each. Admisión para 2 adultos a $10 por persona y 4 niños (7-17) a $10 por persona. Please visit the website for hours of operation. Visite el sitio web para obtener información sobre los horarios.",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-science",
+      "museum_name": "Museum of Science",
+      "address": "1 Science Park, Boston, MA 02114",
+      "phone": "617-723-2500",
+      "website": "http://www.mos.org/",
+      "description": "The Museum of Science in Boston is located on a piece of land that extends the width of the Charles River, connecting Boston and Cambridge. Dedicated to promoting and educating visitors about science and technology, the museum includes a planetarium, the world's largest open-air Van de Graaff generator, an IMAX theatre, a butterfly garden, and permanent and changing exhibits on birds, insects and animals; space; dinosaurs; engineering; nanotechnology; math; biology; and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science",
+        "Technology",
+        "Sky"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Museum of Science [e-voucher] Museo de Ciencias [electrónico] Admits 4 people at half price. Admisión para 4 personas a medio precio. Please visit the museum of science website for hours of operation. Visite el sitio web para obtener información sobre los horarios.",
+      "status": "ok"
+    },
+    {
+      "slug": "new-england-aquarium",
+      "museum_name": "New England Aquarium",
+      "address": "1 Central Wharf, Boston, MA 02110",
+      "phone": "617-973-5200",
+      "website": "http://www.neaq.org/",
+      "description": "The New England Aquarium is home to thousands of aquatic animals, from the giant Pacific octopus to Northern fur seals to little blue penguins. They offer a wide range of exhibits, including a shark and ray touch tank and the Giant Ocean Tank, a four-story coral reef featuring hundreds of Caribbean animals. In addition, they have an IMAX theatre and run whale watch boat excursions in partnership with Boston Harbor Cruises from April through November.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "The New England Aquarium [e-voucher] Acuario de Nueva Inglaterra [electrónico] Admits up to 4 people at half price. Available all year. Please check the website for price of general admission. Admisión para 4 personas a medio precio. Disponible el año completo. Por favor vaya a la página web y verifique el precio general de admisión. Please visit the website for hours of operation. Visite el sitio web para obtener información sobre los horarios.",
+      "status": "ok"
+    },
+    {
+      "slug": "the-uss-constitution-museum",
+      "museum_name": "USS Constitution Museum",
+      "address": "Charlestown Navy Yard, Building 22, Charlestown, MA 02129",
+      "phone": "617-426-1812",
+      "website": "https://ussconstitutionmuseum.org/",
+      "description": "The museum, a part of the Boston National Historical Park, is located in the Charlestown Navy Yard near the ship USS Constitution (“Old Ironsides”) at the end of Boston's Freedom Trail. The museum provides a detailed look at the history of the ship, information about the war of 1812, and the battle between the ship and HMS Java. Stories are told through interactive exhibits, unique artifacts, archival records, and artwork. The museum also includes a research library which houses a strong collection of manuscripts, books, artifacts, and microfilm of primary source material. The ship itself is maintained by the US Navy, and may be visited free of charge on certain days.",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "USS Constitution Museum[e-voucher] Museo del USS Constitution [electrónico] Admits 5 people for free. Admisión para 5 personas gratis. The Museum is open daily. Please visit the website for more information on hours of operation. El Museo abre todos los días. Visite el sitio web para obtener más información sobre los horarios.",
+      "status": "ok"
+    },
+    {
+      "slug": "wheelock-family-theatre",
+      "museum_name": "Wheelock Family Theatre",
+      "address": "200 The Riverway, Boston, MA 02215",
+      "phone": "617-353-3001",
+      "website": "https://www.wheelockfamilytheatre.org/",
+      "description": "The Wheelock Family Theatre, now a part of Boston University, brings intergenerational and multicultural performances to the stage to provide a shared experience for the whole family. These include classic children's shows, family-friendly musicals, and thought-provoking dramas.",
+      "categories": [
+        "Theatre"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Wheelock Family Theatre Teatro Familia Wheelock Friday night performances : buy one get one free. No pass required: call to reserve. Presentaciones de los viernes en la noche: compra uno, lleva uno gratis. No se requiere un boleto: llame para reservar.",
+      "status": "ok"
+    },
+    {
+      "slug": "zoo-new-england",
+      "museum_name": "Zoo New England",
+      "address": "1 Franklin Park Road, Boston, MA 02121",
+      "phone": "617-541-5466",
+      "website": "http://www.zoonewengland.org/",
+      "description": "Zoo New England operates Franklin Park Zoo, a 72-acre site nestled in Boston's historic Franklin Park, and the Stone Zoo, located on a 26-acre site near Spot Pond reservoir in Stoneham, MA. In addition to animals, both zoos are engaged in wildlife and conservation programs, research, and education.",
+      "categories": [
+        "Family",
+        "Zoo"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Stone or Franklin Park Zoo [coupon] Zoológicos Stone o Franklin Park Zoo [cupón] Admits 6 people at $9 per adult and $6 per child. Admisión para 6 personas a $9 por adulto y $6 por niño. The Museum is open daily. Please visit the website for more information on hours of operation. El Museo abre todos los días. Visite el sitio web para obtener más información sobre los horarios.",
+      "status": "ok"
+    }
+  ]
+}

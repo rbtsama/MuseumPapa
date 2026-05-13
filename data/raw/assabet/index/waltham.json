@@ -1,0 +1,283 @@
+{
+  "url": "https://waltham.assabetinteractive.com/museum-passes/by-museum/",
+  "scraped_at": "2026-05-13T15:56:40+00:00",
+  "meta": {
+    "fetch_status": "ok",
+    "status_summary": {
+      "ok": 15,
+      "empty": 0,
+      "failed": {},
+      "total": 15,
+      "ok_ratio": 1.0
+    }
+  },
+  "passes": [
+    {
+      "slug": "boston-childrens-museum",
+      "museum_name": "Boston Children's Museum",
+      "address": "308 Congress Street, Boston, MA 02210",
+      "phone": "617-426-6500",
+      "website": "http://www.bostonchildrensmuseum.org/",
+      "description": "Founded in 1913 by the Science Teachers' Bureau, the Boston Children's Museum is the second oldest children's museum in the world and one of the few that maintain a collection. Designed for both children and families, the Museum exhibits focus on science, culture, environmental awareness, health & fitness, and the arts, emphasizing hands-on engagement and learning through experience, and employing play as a tool to spark the inherent creativity, curiosity, and imagination of children.",
+      "categories": [
+        "Children",
+        "Crafts",
+        "Family",
+        "Technology"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "The pass admits up to 4 people at 1/2 off the general admission. Free admission for children under 1. *This is an e-pass which will be emailed to you and must be used on the selected date.*",
+      "status": "ok"
+    },
+    {
+      "slug": "boston-harbor-island-ferry",
+      "museum_name": "Boston Harbor Island Ferry",
+      "address": "15 State Street, Suite 1100, Boston, MA 02109",
+      "phone": "617-223-8666",
+      "website": "http://www.bostonharborislands.org/",
+      "description": "The largest recreational open space in Eastern Massachusetts, the Boston Harbor Islands National and State Park is comprised of 34 islands and mainland parks that deliver access to historic sites and provide opportunities to hike and camp. Transportation to the islands is by ferry and, depending on the location, your own boat. Please refer to their website for the most up-to-date information about what is open and how to get there.",
+      "categories": [
+        "Family",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "A discount code will be emailed to you. This pass allows 50% off the ticket price for up to 4 people and does not have to be used on the date selected in the Library's pass system.",
+      "status": "ok"
+    },
+    {
+      "slug": "charles-river-museum-of-industry-and-innovation",
+      "museum_name": "Charles River Museum of Industry & Innovation",
+      "address": "154 Moody Street, Waltham, MA 02453",
+      "phone": "781-893-5410",
+      "website": "https://www.charlesrivermuseum.org/",
+      "description": "The Charles River Museum building, formerly known as the Francis Cabot Lowell Mill, dates back to 1813, when the Boston Manufacturing Company was founded. Visitors may trace the history of this development through the exhibit “The Mill at the Falls: the Evolution of the First Modern Factory.” This and other exhibits present artifacts from the industrial era, such as machines from the Waltham Watch Company, surgical products of the Rudolph Beaver Company, and several early motorized vehicles. The museum also displays contemporary technology and even prototypes, such as the Low Temperature, Low Pressure Plasma Medical Sterilizer by Dr. Adir Jacob. For children, visit the youth-led maker space, the Collaboratory, with 3D printers, Laser cutters, and more onsite. There is no visitor parking at the museum, but there are accessible entrances for wheelchair users and accessible restrooms. There is a gift shop on site.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Technology"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Reduced admission to the museum for up to five guests per visit. ($5 for adults and free for children under 16)",
+      "status": "ok"
+    },
+    {
+      "slug": "the-discovery-museums",
+      "museum_name": "Discovery Museum",
+      "address": "177 Main Street, Acton, MA 01720",
+      "phone": "978-264-4200",
+      "website": "http://www.discoveryacton.org/",
+      "description": "Acton's Discovery Museum, located on a 4-acre campus, is aimed at providing an environment in which play becomes a conduit for learning about science, technology, and nature. The museum's building contains a number of galleries dedicated to teaching scientific concepts in a fun, hands-on environment, as well as themed play spaces for younger visitors. Outdoors, Discovery Woods includes a nature playscape with a cargo net climb, nest swing and beaver lodges, as well as a treehouse with an observation deck and a bouncy bridge. There are opportunities to practice orienteering with provided maps and instructions on trails on the property. A museum shop is on the premises. The museum building is fully ADA compliant, with exhibits based on Universal Design principles.",
+      "categories": [
+        "Children",
+        "Family",
+        "Science"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass admits 3 visitors at 1/2 price admission per person. Any additional visitors must pay the regular admission price. *This is an e-pass which will be emailed to you and must be used on the selected date.* The Discovery Museum offers free admission for all on the first Friday of each month, October to June from 4:30 to 8:00pm.",
+      "status": "ok"
+    },
+    {
+      "slug": "gore-place",
+      "museum_name": "Gore Place",
+      "address": "52 Gore Street, Waltham, MA 02453",
+      "phone": "781-894-2798",
+      "website": "https://www.goreplace.org/",
+      "description": "Gore Place is a historic 19th century country house located in Waltham, MA. Indoor and outdoor tours of the 50-acre estate—which boasts a magnificent Mansion, an authentic 1793 Carriage House, a working farm, and beautiful grounds—are available; check the website for the schedule. Special events include an annual sheepshearing festival and a summer concert series. There is a museum shop on the premises.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Tours"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass is good for: Daytime Mansion Tour admission for two adults at $5 per person, and two children free One Take-a-Walk bag rental at $2/hr Story Time for two children at $5 per child, and an accompanying adult free For available dates and times, please visit goreplace.org/whats-on",
+      "status": "ok"
+    },
+    {
+      "slug": "harvard-museums-of-science-and-culture",
+      "museum_name": "Harvard Museums of Science and Culture",
+      "address": "11 Divinity Avenue, Cambridge, MA 02138",
+      "phone": "617-496-1638",
+      "website": "https://hmsc.harvard.edu/",
+      "description": "The Harvard Museums of Science & Culture is a partnership of museums on the Harvard University Cambridge campus dedicated to the natural world, science, and human cultures. They include the Collection of Historical Scientific Instruments, the Harvard Museum of Natural History (comprised of the Harvard University Herbaria, Mineralogical and Geological Museum, and Museum of Comparative Zoology), the Harvard Museum of the Ancient Near East, and the Peabody Museum of Archaeology & Ethnology, all located between Oxford St./Divinity Ave area. Of particular note are the famous glass flowers, models commissioned by Harvard in 1886 to aid in the teaching of botany (and made in Germany over the course of more than eight decades), on display in the Harvard Museum of Natural History.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Admits up to 4 visitors at 50% off regular museum admission rates. Discount may not be combined with other offers. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the date you've selected in our calendar.*",
+      "status": "ok"
+    },
+    {
+      "slug": "historic-new-england",
+      "museum_name": "Historic New England",
+      "address": "141 Cambridge Street, Administrative Offices: Otis House, Boston, MA 02114",
+      "phone": "",
+      "website": "https://www.historicnewengland.org/",
+      "description": "Historic New England is a historic preservation organization which owns and operates historic house museums and properties open to the public throughout most of New England. The majority of the 36 properties are in Massachusetts, but locations exist in all NE states but Vermont. These include Castle Tucker (Wiscasset, ME), the Jackson House (Portsmouth, NH), the Spencer-Pierce-Little Farm, which (Newbury, MA), Roseland Cottage (Woodstock, CT), the Otis House (Boston, MA), the Lyman Estate (Waltham, MA), Gropius House (Lincoln, MA), and the Arnold House (Lincoln, RI). Styles represented include Federal, Colonial Revival, Victorian, Queen Anne, Arts & Crafts, and Modern, among many others. The website provides much detail, including directions, contact information, and history of each property.",
+      "categories": [
+        "Architecture",
+        "Family",
+        "History",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Free admission for up to 2 adults and their children or grandchildren (under 18) to one Historic New England site. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the date you've selected in our calendar.*",
+      "status": "ok"
+    },
+    {
+      "slug": "isabella-stewart-gardner-museum",
+      "museum_name": "Isabella Stewart Gardner Museum",
+      "address": "25 Evans Way, Boston, MA 02115",
+      "phone": "617-566-1401",
+      "website": "http://www.gardnermuseum.org/home/",
+      "description": "The Gardner Museum houses the collection of Isabella Stewart Gardner, a local patron of the arts who died in 1924, in a building she commissioned to look like a 15th century Venetian palazzo. The center of the original building showcases courtyard plantings that reflect the seasons as they evolve throughout the year. In addition to her collection, which remains displayed exactly as she arranged it per her will, there are changing exhibitions, concerts, lectures, family events, and an artist-in-residence program. In 2012, the museum opened an addition designed by Renzo Piano that houses a space for their concert series.",
+      "categories": [
+        "Art",
+        "Family",
+        "Music"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Admits up to 4 people at $5.00 each. Children under 18 are free. This pass is flexible and does not need to be used on the date it is reserved",
+      "status": "ok"
+    },
+    {
+      "slug": "mass-audubon-drumlin-farm",
+      "museum_name": "Mass Audubon (Drumlin Farm)",
+      "address": "208 South Great Road, Lincoln, MA 01773",
+      "phone": "781-259-2200",
+      "website": "http://www.massaudubon.org/",
+      "description": "Mass Audubon maintains about 100 wildlife sanctuaries in Massachusetts, more than half of which may be visited for walks on trails and visits to nature centers and museums. Among these is Drumlin Farm in Lincoln, a working farm with animals and crops, plus exhibits that include native wildlife, such as owls, foxes and deer. A shop on the premises sells items related to nature, such as bird feeders and binoculars.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This one-day Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary. With this pass, admission is discounted to $2 per visitor over the age of 2. Please visit https://www.massaudubon.org/get-outdoors/wildlife-sanctuaries/trails for the latest information, including safety guidelines. Please Note: Drumlin Farms is only open on Mondays when it is a holiday. Otherwise you can visit Tuesday-Sunday.",
+      "status": "ok"
+    },
+    {
+      "slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "museum_name": "Massachusetts State Parks (Department of Conservation and Recreation)",
+      "address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104",
+      "phone": "617-626-1250",
+      "website": "http://www.mass.gov/eea/agencies/dcr/massparks/",
+      "description": "The Massachusetts State Parks have locations in all regions of the Commonwealth, from Pittsfield to Boston, and from Gloucester to Provincetown. They include beaches, wooded parks, parkways, and reservoirs, each with its own unique activities and amenities like hiking, biking, swimming and boating, camping, and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "This pass allows one vehicle to park for free at any MA State Parks. *This is a paper parking pass which must be picked up at the Ground Floor Circulation Desk and used on the date selected. The pass can be picked up on the day of or day before use and must be returned by the day following use.*",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-fine-arts",
+      "museum_name": "Museum of Fine Arts",
+      "address": "465 Huntington Avenue, Boston, MA 02115",
+      "phone": "617-267-9300",
+      "website": "http://www.mfa.org/",
+      "description": "The Boston Museum of Fine Arts, in existence since July 4, 1876, is one of the most comprehensive art museums in the world, with a collection of almost 500,000 works of art, ranging from ancient Egyptian artifacts to contemporary painting, sculpture and video. In addition, there are always special exhibitions on view, opportunities to take advantage of educational programs—some right in the galleries—and a contemplative Japanese garden.",
+      "categories": [
+        "Art",
+        "Family",
+        "History"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "For visit dates beginning January 20, 2026, each promo code may be redeemed for up to 2 adult tickets for $15 each and 4 youth tickets for $10 each. Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Year’s Day, Patriots’ Day, Independence Day, Thanksgiving Day, and Christmas Day.\" *This is an e-pass which will be emailed to you and must be used on the selected date.*",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-science",
+      "museum_name": "Museum of Science",
+      "address": "1 Science Park, Boston, MA 02114",
+      "phone": "617-723-2500",
+      "website": "http://www.mos.org/",
+      "description": "The Museum of Science in Boston is located on a piece of land that extends the width of the Charles River, connecting Boston and Cambridge. Dedicated to promoting and educating visitors about science and technology, the museum includes a planetarium, the world's largest open-air Van de Graaff generator, an IMAX theatre, a butterfly garden, and permanent and changing exhibits on birds, insects and animals; space; dinosaurs; engineering; nanotechnology; math; biology; and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science",
+        "Technology",
+        "Sky"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass will admit up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. *This is an e-pass which will be emailed to you and must be used on the selected date.* Please bring your library pass confirmation (printed or displayed on a phone) when you visit. When you arrive at the Museum, stop at the Box Office to exchange your library pass and purchase your Exhibit Halls tickets at the discounted rate. If you have any questions or would like to reserve your Exhibit Halls passes in advance to avoid waiting in line the day of your visit, please call 617-723-2500 (9:00 a.m. – 5:00 p.m. daily).",
+      "status": "ok"
+    },
+    {
+      "slug": "new-england-aquarium",
+      "museum_name": "New England Aquarium",
+      "address": "1 Central Wharf, Boston, MA 02110",
+      "phone": "617-973-5200",
+      "website": "http://www.neaq.org/",
+      "description": "The New England Aquarium is home to thousands of aquatic animals, from the giant Pacific octopus to Northern fur seals to little blue penguins. They offer a wide range of exhibits, including a shark and ray touch tank and the Giant Ocean Tank, a four-story coral reef featuring hundreds of Caribbean animals. In addition, they have an IMAX theatre and run whale watch boat excursions in partnership with Boston Harbor Cruises from April through November.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This coupon allows 50% off admission to the New England Aquarium for up to 4 people. Only applies to adult and child pricing. *This is an e-pass which will be emailed to you and must be used on the selected date.*",
+      "status": "ok"
+    },
+    {
+      "slug": "the-trustees-of-the-reservations",
+      "museum_name": "Trustees of Reservations (with deCordova Sculpture Park and Museum)",
+      "website": "http://www.thetrustees.org/",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Benefits vary by location. The GO Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. At the deCordova Museum and Sculpture park, the GO pass allows free admission for 2 people. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the date you've selected in our calendar.*",
+      "status": "ok"
+    },
+    {
+      "slug": "zoo-new-england",
+      "museum_name": "Zoo New England",
+      "address": "1 Franklin Park Road, Boston, MA 02121",
+      "phone": "617-541-5466",
+      "website": "http://www.zoonewengland.org/",
+      "description": "Zoo New England operates Franklin Park Zoo, a 72-acre site nestled in Boston's historic Franklin Park, and the Stone Zoo, located on a 26-acre site near Spot Pond reservoir in Stoneham, MA. In addition to animals, both zoos are engaged in wildlife and conservation programs, research, and education.",
+      "categories": [
+        "Family",
+        "Zoo"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "This pass allows up to 6 people to visit at $9 per adult and $6 per child. Children under 2 are free. Library coupons are not valid for admission to the evening \"Boston Lights\" exhibition. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the date you've selected in our calendar.*",
+      "status": "ok"
+    }
+  ]
+}

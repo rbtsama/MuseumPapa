@@ -1,0 +1,302 @@
+{
+  "url": "https://nevinslibrary.assabetinteractive.com/museum-passes/by-museum/",
+  "scraped_at": "2026-05-13T15:56:34+00:00",
+  "meta": {
+    "fetch_status": "ok",
+    "status_summary": {
+      "ok": 16,
+      "empty": 0,
+      "failed": {},
+      "total": 16,
+      "ok_ratio": 1.0
+    }
+  },
+  "passes": [
+    {
+      "slug": "americas-stonehenge",
+      "museum_name": "America's Stonehenge",
+      "address": "105 Haverhill Road, Salem, NH 03079",
+      "phone": "603-893-8300",
+      "website": "https://www.stonehengeusa.com/",
+      "description": "“America's Stonehenge,” identified as an accurate astronomical calendar, was built over 4,000 years ago. Its man-made chambers, walls, and ceremonial meeting places were constructed by people well-versed in astronomy and stone construction. Visitors explore the site as a self-guided tour. (A phone app can be downloaded before arrival that contains an audio tour and more detailed information that the paper map which may acquired on site.) Note that, because of the uneven and rocky terrain of the site, only the visitor center and gift shop are handicap accessible.",
+      "categories": [
+        "Family",
+        "History",
+        "Science",
+        "Technology"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "This pass entitles the bearer to half-price admission for up to four people to America's Stonehenge on the date noted on the pass. In addition, the pass entitles the bearer to a 10% discount on gift shop purchases, discounts on special programs and events and discounts on snowshoe rentals.",
+      "status": "ok"
+    },
+    {
+      "slug": "the-aviation-museum-of-new-hampshire",
+      "museum_name": "The Aviation Museum of New Hampshire",
+      "address": "27 Navigator Road, Londonderry, NH 03053",
+      "phone": "603-669-4820",
+      "website": "https://aviationmuseumofnh.org/",
+      "description": "The Aviation Museum of New Hampshire is housed in an art deco terminal and control tower building in Londonderry. The historic building was constructed as a WPA project in 1937 and was moved in 2004 to its present location on the southeast side of the Manchester Airport before being renovated. Hands-on exhibits tell the story of New Hampshire aviation history and include a flight simulator, various historical artifacts, and planes and models.",
+      "categories": [
+        "Family",
+        "History",
+        "Technology",
+        "Sky"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Coupon pass admits four visitors to the Aviation Museum of New Hampshire free of charge. Regular admission rates are $15 for people 13 and older, $7.50 for seniors, veterans, and children 6-12. Children 5 years old and younger are always free. Pass is only valid on the day of the reservation.",
+      "status": "ok"
+    },
+    {
+      "slug": "boston-childrens-museum",
+      "museum_name": "Boston Children's Museum",
+      "address": "308 Congress Street, Boston, MA 02210",
+      "phone": "617-426-6500",
+      "website": "http://www.bostonchildrensmuseum.org/",
+      "description": "Founded in 1913 by the Science Teachers' Bureau, the Boston Children's Museum is the second oldest children's museum in the world and one of the few that maintain a collection. Designed for both children and families, the Museum exhibits focus on science, culture, environmental awareness, health & fitness, and the arts, emphasizing hands-on engagement and learning through experience, and employing play as a tool to spark the inherent creativity, curiosity, and imagination of children.",
+      "categories": [
+        "Children",
+        "Crafts",
+        "Family",
+        "Technology"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Admits up to 4 (adults or children) at half price per person. After receiving a library discount pass, you must reserve a visit online with Boston Children’s Museum. Due to safety measures, walk-ins are not allowed. Museum capacity is limited at this time. Patrons must first acquire a dated library discount pass. Then visit https://www.bostonchildrensmuseum.org/ticketing Review the directions for timed tickets Click on the \"Discount Programs\" & drop down arrow Click on \"Half Price Library Timed Ticket \" to book NEW - Online reservations are required to visit PlaySpace. The date on the library discount pass must match the date of your visit. After arriving at the Museum, proceed to the admissions scanning station with your online reservation and the date specific library discount pass. If you have questions about the online ordering system, contact Orders@BostonChildrensMuseum.org. This e-ticket is valid only for one day. You can either print it out and take it with you or display the pass on your phone or device. Either way, please be sure that the pass barcode is visible.",
+      "status": "ok"
+    },
+    {
+      "slug": "currier-museum-of-art",
+      "museum_name": "Currier Museum of Art",
+      "address": "150 Ash Street, Manchester, NH 03104",
+      "phone": "603-669-6144",
+      "website": "http://currier.org/",
+      "description": "The Currier Museum of Art, located in Manchester, NH, features European and American paintings, decorative arts, photographs and sculpture. The permanent collection includes works by Picasso, Matisse, Monet, O'Keeffe, Calder, John Singer Sargent, Frank Lloyd Wright, Andrew Wyeth, and Sol LeWitt. Special exhibitions provide opportunities to present work by contemporary and/or local artists, as well as take in-depth looks at certain objects or areas of the Museum's collection. Public programs include tours, live classical music and “Family Days” which include activities for all ages. The Museum also offers tours of the Frank Lloyd Wright-designed Zimmerman House, now listed on the Register of Historic Places (reservations required). There is a museum store on the premises.",
+      "categories": [
+        "Architecture",
+        "Art",
+        "Family",
+        "History"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Pass will provide 50% off general admission for up to 2 adults (18 years and over). All youth family members (ages 13-17) and children 12 years and under are free with accompanying adults. During their visit, pass holders may participate in any programs which are offered free with general admission (some programs may require a materials fee). Passes are valid any day the museum is open. Passes are not valid for \"just-for-members\" event, member discount at the Museum Shop, for admission to the Frank Lloyd Wright House Tours, or special ticketed events/exhibitions. Tours of the Frank Lloyd Wright Houses are a separate charge and require pre-paid reservations.",
+      "status": "ok"
+    },
+    {
+      "slug": "john-f-kennedy-library-and-museum",
+      "museum_name": "John F. Kennedy Library & Museum",
+      "address": "Columbia Point, Boston, MA 02125",
+      "phone": "617-514-1600",
+      "website": "https://www.jfklibrary.org/",
+      "description": "The John F. Kennedy Presidential Library and Museum, dedicated to the memory of the nation's thirty-fifth president, is located on a ten-acre park which overlooks the sea in an building designed by I.M. Pei. The Museum portrays the life, leadership, and legacy of President Kennedy, conveys his enthusiasm for politics and public service, and illustrates the nature of the office of the President, all through permanent and changing exhibits. The Library is available to students and scholars to conduct research using its collection of historical materials chronicling mid-20th century politics and the life and administration of the institution's namesake.",
+      "categories": [
+        "Family",
+        "Governance",
+        "History"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card to receive the discount. No pass is needed. Visitors aged 12 and under receive free admission. Please reach out to the JFK Library Visitor Services Department with questions at kennedy.groupvisits@nara.gov or 617-514-1600. **You do not need to reserve this pass for the discount - just show a Massachusetts library card for each visitor**",
+      "status": "ok"
+    },
+    {
+      "slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "museum_name": "Massachusetts State Parks (Department of Conservation and Recreation)",
+      "address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104",
+      "phone": "617-626-1250",
+      "website": "http://www.mass.gov/eea/agencies/dcr/massparks/",
+      "description": "The Massachusetts State Parks have locations in all regions of the Commonwealth, from Pittsfield to Boston, and from Gloucester to Provincetown. They include beaches, wooded parks, parkways, and reservoirs, each with its own unique activities and amenities like hiking, biking, swimming and boating, camping, and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "DCR MassParks Pass (Department of Conservation and Recreation)- Entitles the bearer to FREE parking for one vehicle (excluding vans or buses) at Massachusetts parks. Pick up and return to library. Pass may be picked up the day before use. Pass must be returned no later than the day after use. Pass allows 1 car and up to 9 passengers into the state park or beach. Pass is for day use only and CANNOT be used for camping. Pass is available to Massachusetts residents only.",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-fine-arts",
+      "museum_name": "Museum of Fine Arts",
+      "address": "465 Huntington Avenue, Boston, MA 02115",
+      "phone": "617-267-9300",
+      "website": "http://www.mfa.org/",
+      "description": "The Boston Museum of Fine Arts, in existence since July 4, 1876, is one of the most comprehensive art museums in the world, with a collection of almost 500,000 works of art, ranging from ancient Egyptian artifacts to contemporary painting, sculpture and video. In addition, there are always special exhibitions on view, opportunities to take advantage of educational programs—some right in the galleries—and a contemplative Japanese garden.",
+      "categories": [
+        "Art",
+        "Family",
+        "History"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Each pass admits 2 adults at $10 per person (general admission and special exhibition) and up to 4 children ages 7-17 at $10 each for special exhibition only; there is no discount for children 7-17 for general admission. Children 6 and under are admitted free. After reserving this library's pass, you will receive a code that you must use to book timed tickets directly from the MFA website. Please also print this library pass confirmation and bring it with you or display it on a phone when you arrive.",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-printing",
+      "museum_name": "Museum of Printing",
+      "address": "15 Thornton Avenue, Haverhill, MA 01832",
+      "phone": "978-372-0567",
+      "website": "https://www.museumofprinting.org/",
+      "description": "The Museum of Printing, located in Haverhill, MA, is home to the one of the world's largest collections of printing and typesetting hardware and ephemera. In addition to many special collections and small exhibits, the Museum contains hundreds of antique printing, typesetting, and bindery machines, as well as a library of over 7,000 books, periodicals, and media related to the history of paper and printing. It houses the only collection of photo-typesetting machines, fonts, and related artifacts in the world. There is a gift shop on the premises.",
+      "categories": [
+        "Family",
+        "History",
+        "Technology"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "NO RESERVATION NEEDED. Present your Nevins Memorial Library card at the museum to receive free admission! The Museum of Printing is open every Saturday 10am - 4 pm **You do not need to reserve this pass for the discount just show your Nevins Library Card**",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-science",
+      "museum_name": "Museum of Science",
+      "address": "1 Science Park, Boston, MA 02114",
+      "phone": "617-723-2500",
+      "website": "http://www.mos.org/",
+      "description": "The Museum of Science in Boston is located on a piece of land that extends the width of the Charles River, connecting Boston and Cambridge. Dedicated to promoting and educating visitors about science and technology, the museum includes a planetarium, the world's largest open-air Van de Graaff generator, an IMAX theatre, a butterfly garden, and permanent and changing exhibits on birds, insects and animals; space; dinosaurs; engineering; nanotechnology; math; biology; and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science",
+        "Technology",
+        "Sky"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass will admit up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free but must have a timed ticket. Your Library pass can only be used on the date printed on the pass. YOU MUST ALSO CALL THE MUSEUM TO RESERVE A TIMED TICKET. Call 617-723-2500 (daily, 9am – 5pm). Please call at least 1-2 days ahead to reserve your timeslot otherwise the Museum might be fully booked. After you make your timed reservation with the Museum, they will send you an email confirmation with your reservation time. Please bring both your library pass confirmation (printed or displayed on a phone) and your email confirmation from the Museum when you visit. Show both confirmations at the gate to enter. You do not need to stop at the Box Office. If you are not able to show your Library confirmation on a phone or print it from home, request a paper copy at the library. Please visit the Museum's Code of Conduct page for the most up-to-date information on COVID-19 vaccine and mask requirements. https://www.mos.org/visit/code-of-conduct",
+      "status": "ok"
+    },
+    {
+      "slug": "new-england-aquarium",
+      "museum_name": "New England Aquarium",
+      "address": "1 Central Wharf, Boston, MA 02110",
+      "phone": "617-973-5200",
+      "website": "http://www.neaq.org/",
+      "description": "The New England Aquarium is home to thousands of aquatic animals, from the giant Pacific octopus to Northern fur seals to little blue penguins. They offer a wide range of exhibits, including a shark and ray touch tank and the Giant Ocean Tank, a four-story coral reef featuring hundreds of Caribbean animals. In addition, they have an IMAX theatre and run whale watch boat excursions in partnership with Boston Harbor Cruises from April through November.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "*This coupon allows 50% off admission to the New England Aquarium. *Only applies to adult and child pricing. *This is not a ticket. *Redeem this coupon in the General Admission line at the Aquarium’s ticket booth for discounted admission for up to 4 people. *Please visit neaq.org/coupons for details. *Review the Aquarium’s website at www.neaq.org/safety ahead of your visit to ensure a safe and accessible experience. *Valid only for Aquarium admission. *This coupon does not provide any other discounts and cannot be applied to combo tickets. *Library coupons or tickets obtained with library coupons may not be sold. *Void if altered or copied. No cash value. * Hours of operation are subject to change. This coupon is valid only for one day. You can either print it out and take it with you or display the pass on your phone or device. Either way, please be sure that the pass barcode is visible. **Passes are not available from May 22 to September 8**",
+      "status": "ok"
+    },
+    {
+      "slug": "new-hampshire-philharmonic-orchestra",
+      "museum_name": "New Hampshire Philharmonic Orchestra",
+      "address": "44 Geremonty Drive, Seifert Performing Arts Center, Salem, NH 03079",
+      "phone": "603-647-6476",
+      "website": "https://www.nhphil.org/",
+      "description": "The New Hampshire Philharmonic Orchestra has presented classical music concerts with their mix of student, amateur, and professional musicians for over a century in various venues. In 2018, they took up residence in the Seifert Performing Arts Center in Salem, built the previous year. Among the themed concerts that allow them to present well-known pieces of classical repertory, they typically schedule Holiday Pops concerts in December.",
+      "categories": [
+        "Children",
+        "Family",
+        "Music"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "20% discount on tickets purchased per show. Tickets must be purchased on line at nhphil.org with library discount code.",
+      "status": "ok"
+    },
+    {
+      "slug": "peabody-essex-museum",
+      "museum_name": "Peabody Essex Museum",
+      "address": "161 Essex Street, Salem, MA 01970-3783",
+      "phone": "978-745-9500",
+      "website": "http://www.pem.org/",
+      "description": "The Peabody Essex Museum grew out of the collection of East India Marine Society, an organization of Salem captains whose charter called for acquisition of “natural and artificial curiosities.” Its permanent collection contains art and artifacts of Africa, Asia, India, China (with a Qing Dynasty house brought from the Huizhou region), Japan, Korea, Pacific Islands, and features objects of maritime art and history that include paintings, drawings, ship models, marine decorative arts, tools, weapons, navigational instruments, and ship and yacht plans. It also has a thriving changing exhibition schedule that sometimes includes important traveling shows.",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This pass admits 2 people at $12 each. Once you have your pass, you will need to reserve your date and time to visit the Peabody Essex Museum through the museum's website (my.pem.org/events). Your library pass will have a promo code to use with your museum reservation to receive the discounted admission rate.",
+      "status": "ok"
+    },
+    {
+      "slug": "public-health-museum",
+      "museum_name": "Public Health Museum",
+      "address": "297-321 East Street, Tewksbury, MA 01876",
+      "phone": "978-851-7321",
+      "website": "https://www.publichealthmuseum.org/",
+      "description": "The Public Health Museum was opened in 1994 in the old administration building on the grounds of Tewksbury Hospital. The Museum's collection consists of records and artifacts from the nation's public health history. Permanent and temporary exhibits focus on the history of public health hospitals, infectious diseases (tuberculosis, smallpox, and polio), patent medicines, mental health, public health nursing and education, and dental health, among other topics. The building contains a number of WPA murals from the 1930s. Walking tours of the 800-plus acres of the campus, listed on the National Register of Historic Places, are available.",
+      "categories": [
+        "Family",
+        "History",
+        "Science"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "this pass provides free admission to the Public Health Museum indoor exhibits and outdoor campus tour for up to two people.",
+      "status": "ok"
+    },
+    {
+      "slug": "seacoast-science-center",
+      "museum_name": "Seacoast Science Center",
+      "address": "570 Ocean Boulevard, Odiorne Point State Park, Rye, NH 03870",
+      "phone": "603-436-8043",
+      "website": "http://www.seacoastsciencecenter.org/",
+      "description": "Located within Odiorne Point State Park in Rye, NH, the Seacoast Science Center has been providing educational experiences on behalf of New Hampshire State Parks since 1992. The center includes hands-on science exhibits (undersea exploration to marine debris), live animal exhibits which feature creatures that live in the rapidly changing Gulf of Maine ecosystem; and many special events, like “Music-by-the-Sea” concerts and “Sippin' for Seals” (dancing and drinks to support the Marine Mammal rescue Program).",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Each pass allows two adults and up to four children into the Seacoast Science Center at a 50% discount. Pass will need to be presented to the Odiorne Point State Park tollbooth attendant and the Center's greeter even if you already have reservations.",
+      "status": "ok"
+    },
+    {
+      "slug": "the-uss-constitution-museum",
+      "museum_name": "USS Constitution Museum",
+      "address": "Charlestown Navy Yard, Building 22, Charlestown, MA 02129",
+      "phone": "617-426-1812",
+      "website": "https://ussconstitutionmuseum.org/",
+      "description": "The museum, a part of the Boston National Historical Park, is located in the Charlestown Navy Yard near the ship USS Constitution (“Old Ironsides”) at the end of Boston's Freedom Trail. The museum provides a detailed look at the history of the ship, information about the war of 1812, and the battle between the ship and HMS Java. Stories are told through interactive exhibits, unique artifacts, archival records, and artwork. The museum also includes a research library which houses a strong collection of manuscripts, books, artifacts, and microfilm of primary source material. The ship itself is maintained by the US Navy, and may be visited free of charge on certain days.",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Pass holders will receive free admission to the Museum. Each pass may only be used by one party per day. Parties are limited to five (5) or fewer guests. Appropriate for ages 2-99!",
+      "status": "ok"
+    },
+    {
+      "slug": "zoo-new-england",
+      "museum_name": "Zoo New England",
+      "address": "1 Franklin Park Road, Boston, MA 02121",
+      "phone": "617-541-5466",
+      "website": "http://www.zoonewengland.org/",
+      "description": "Zoo New England operates Franklin Park Zoo, a 72-acre site nestled in Boston's historic Franklin Park, and the Stone Zoo, located on a 26-acre site near Spot Pond reservoir in Stoneham, MA. In addition to animals, both zoos are engaged in wildlife and conservation programs, research, and education.",
+      "categories": [
+        "Family",
+        "Zoo"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Each pass admits up to 6 people total at $9.00 per adult and $6.00 per child. Does not include the Christmas Lights display.",
+      "status": "ok"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "url": "https://boxfordlibrary.assabetinteractive.com/museum-passes/by-museum/",
+  "scraped_at": "2026-05-13T15:56:32+00:00",
+  "meta": {
+    "fetch_status": "ok",
+    "status_summary": {
+      "ok": 7,
+      "empty": 0,
+      "failed": {},
+      "total": 7,
+      "ok_ratio": 1.0
+    }
+  },
+  "passes": [
+    {
+      "slug": "isabella-stewart-gardner-museum",
+      "museum_name": "Isabella Stewart Gardner Museum",
+      "address": "25 Evans Way, Boston, MA 02115",
+      "phone": "617-566-1401",
+      "website": "http://www.gardnermuseum.org/home/",
+      "description": "The Gardner Museum houses the collection of Isabella Stewart Gardner, a local patron of the arts who died in 1924, in a building she commissioned to look like a 15th century Venetian palazzo. The center of the original building showcases courtyard plantings that reflect the seasons as they evolve throughout the year. In addition to her collection, which remains displayed exactly as she arranged it per her will, there are changing exhibitions, concerts, lectures, family events, and an artist-in-residence program. In 2012, the museum opened an addition designed by Renzo Piano that houses a space for their concert series.",
+      "categories": [
+        "Art",
+        "Family",
+        "Music"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are not included in the admission count and are always admitted free. Passes are valid only for general admission. The Isabella Stewart Gardner Museum offers a promo code that may be used online to purchase tickets at a discounted price.",
+      "status": "ok"
+    },
+    {
+      "slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "museum_name": "Massachusetts State Parks (Department of Conservation and Recreation)",
+      "address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104",
+      "phone": "617-626-1250",
+      "website": "http://www.mass.gov/eea/agencies/dcr/massparks/",
+      "description": "The Massachusetts State Parks have locations in all regions of the Commonwealth, from Pittsfield to Boston, and from Gloucester to Provincetown. They include beaches, wooded parks, parkways, and reservoirs, each with its own unique activities and amenities like hiking, biking, swimming and boating, camping, and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
+      "pass_type": "physical-circ",
+      "benefits_text": "This pass must be picked up and dropped off at the Boxford Town Library. The pass must be displayed in your vehicle on rear view mirror or dashboard when visiting a Mass. State Park facility where daily parking fees are charged. Pass is not valid for camping.",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-fine-arts",
+      "museum_name": "Museum of Fine Arts",
+      "address": "465 Huntington Avenue, Boston, MA 02115",
+      "phone": "617-267-9300",
+      "website": "http://www.mfa.org/",
+      "description": "The Boston Museum of Fine Arts, in existence since July 4, 1876, is one of the most comprehensive art museums in the world, with a collection of almost 500,000 works of art, ranging from ancient Egyptian artifacts to contemporary painting, sculpture and video. In addition, there are always special exhibitions on view, opportunities to take advantage of educational programs—some right in the galleries—and a contemplative Japanese garden.",
+      "categories": [
+        "Art",
+        "Family",
+        "History"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have made a reservation. Each pass allows admission for 2 adults at $15 each (applicable to general admission and special exhibition tickets) and up to 4 children ages 7–17 at $10 each (applicable to special exhibition only, children's general admission tickets are already $10 and do not receive a discount from the Museum Pass). Children 6 and under are admitted free. BRING THIS PASS TO THE ADMISSIONS DESK at the museum to have the discount applied.",
+      "status": "ok"
+    },
+    {
+      "slug": "museum-of-science",
+      "museum_name": "Museum of Science",
+      "address": "1 Science Park, Boston, MA 02114",
+      "phone": "617-723-2500",
+      "website": "http://www.mos.org/",
+      "description": "The Museum of Science in Boston is located on a piece of land that extends the width of the Charles River, connecting Boston and Cambridge. Dedicated to promoting and educating visitors about science and technology, the museum includes a planetarium, the world's largest open-air Van de Graaff generator, an IMAX theatre, a butterfly garden, and permanent and changing exhibits on birds, insects and animals; space; dinosaurs; engineering; nanotechnology; math; biology; and more.",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science",
+        "Technology",
+        "Sky"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This is a printable pass. 1. This pass will admit up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. 2. Your Library pass can only be used on the date printed on the pass. 3. Please bring your library pass confirmation (printed or displayed on a phone) when you visit. 4. When you arrive at the Museum, stop at the Box Office to exchange your library pass and purchase your Exhibit Halls tickets at the discounted rate. If you have any questions or if you would like to reserve your Exhibit Halls passes in advance to avoid waiting in line the day of your visit, please call 617-723-2500 (9:00 a.m. – 5:00 p.m. daily). 5. If you are unable to show your Library confirmation on a phone, you may print out a copy using the link in the confirmation email or request a paper copy from the library.",
+      "status": "ok"
+    },
+    {
+      "slug": "new-england-aquarium",
+      "museum_name": "New England Aquarium",
+      "address": "1 Central Wharf, Boston, MA 02110",
+      "phone": "617-973-5200",
+      "website": "http://www.neaq.org/",
+      "description": "The New England Aquarium is home to thousands of aquatic animals, from the giant Pacific octopus to Northern fur seals to little blue penguins. They offer a wide range of exhibits, including a shark and ray touch tank and the Giant Ocean Tank, a four-story coral reef featuring hundreds of Caribbean animals. In addition, they have an IMAX theatre and run whale watch boat excursions in partnership with Boston Harbor Cruises from April through November.",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have made a reservation. Library ID: 14237 This coupon allows 50% off admission for 4 people to the New England Aquarium. Only applies to adult and child pricing. This is not a ticket. Redeem this coupon in the General Admission line at the Aquarium’s ticket booth for discounted admission for up to 4 people. Please visit neaq.org/coupons for details. Review the Aquarium’s website at www.neaq.org/safety ahead of your visit to ensure a safe and accessible experience. Valid only for Aquarium admission. This coupon does not provide any other discounts and cannot be applied to combo tickets. Library coupons or tickets obtained with library coupons may not be sold. Void if altered or copied. No cash value. Hours of operation are subject to change.",
+      "status": "ok"
+    },
+    {
+      "slug": "peabody-essex-museum",
+      "museum_name": "Peabody Essex Museum",
+      "address": "161 Essex Street, Salem, MA 01970-3783",
+      "phone": "978-745-9500",
+      "website": "http://www.pem.org/",
+      "description": "The Peabody Essex Museum grew out of the collection of East India Marine Society, an organization of Salem captains whose charter called for acquisition of “natural and artificial curiosities.” Its permanent collection contains art and artifacts of Africa, Asia, India, China (with a Qing Dynasty house brought from the Huizhou region), Japan, Korea, Pacific Islands, and features objects of maritime art and history that include paintings, drawings, ship models, marine decorative arts, tools, weapons, navigational instruments, and ship and yacht plans. It also has a thriving changing exhibition schedule that sometimes includes important traveling shows.",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Ocean"
+      ],
+      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "digital",
+      "benefits_text": "This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have made a reservation. Pass admits 2 people for $12 per person for general admission only. Children age 16 and under are always admitted free. Reservations for your ticket may be made in advance by calling the museum or by going to pem.org/tickets Timed tickets to Yin Yu Tang Chinese House are included with the museum admission and may be selected as part of the online checkout process.",
+      "status": "ok"
+    },
+    {
+      "slug": "zoo-new-england",
+      "museum_name": "Zoo New England",
+      "address": "1 Franklin Park Road, Boston, MA 02121",
+      "phone": "617-541-5466",
+      "website": "http://www.zoonewengland.org/",
+      "description": "Zoo New England operates Franklin Park Zoo, a 72-acre site nestled in Boston's historic Franklin Park, and the Stone Zoo, located on a 26-acre site near Spot Pond reservoir in Stoneham, MA. In addition to animals, both zoos are engaged in wildlife and conservation programs, research, and education.",
+      "categories": [
+        "Family",
+        "Zoo"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "This is a physical pass that needs to be picked up at the library. You may pick it up at any time during library hours. Please check our website for library hours and closures as well as the zoos website for special event closures. This pass doesn't need to be returned. Pass admits 6 people to Franklin Park Zoo (Boston) or Stone Zoo (Stoneham). Discounted rate is $9 per adult; $6 per child. Free admission for children under 2.",
+      "status": "ok"
+    }
+  ]
+}
