@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-11T15:21:05+00:00",
+  "scraped_at": "2026-05-13T16:07:09+00:00",
   "meta": {
     "fetch_status": "ok",
     "status_summary": {
@@ -14,8 +14,6 @@
     "boston-childrens-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "booked",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -40,8 +38,6 @@
     "harvard-museums-of-science-and-culture": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -66,8 +62,6 @@
     "the-house-of-seven-gables": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -92,8 +86,6 @@
     "institute-of-contemporary-art-boston": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "booked",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -118,8 +110,6 @@
     "isabella-stewart-gardner-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "booked",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -144,8 +134,6 @@
     "john-f-kennedy-library-and-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "booked",
-        "2026-05-12": "booked",
         "2026-05-13": "booked",
         "2026-05-14": "booked",
         "2026-05-15": "booked",
@@ -170,8 +158,6 @@
     "mass-audubon": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -196,8 +182,6 @@
     "massachusetts-state-parks-department-of-conservation-and-recreation": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -222,8 +206,6 @@
     "museum-of-fine-arts": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "booked",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -248,8 +230,6 @@
     "museum-of-science": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -274,9 +254,7 @@
     "new-england-aquarium": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
-        "2026-05-13": "available",
+        "2026-05-13": "booked",
         "2026-05-14": "booked",
         "2026-05-15": "booked",
         "2026-05-16": "booked",
@@ -300,8 +278,6 @@
     "north-shore-childrens-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "booked",
-        "2026-05-12": "booked",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -326,8 +302,6 @@
     "peabody-essex-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "booked",
         "2026-05-13": "booked",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -352,8 +326,6 @@
     "plimoth-patuxet-museums": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -378,8 +350,6 @@
     "salem-witch-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "booked",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -404,8 +374,6 @@
     "trustees-of-the-reservations": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -430,8 +398,6 @@
     "the-uss-constitution-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -456,8 +422,6 @@
     "zoo-new-england": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",

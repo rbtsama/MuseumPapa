@@ -1,22 +1,46 @@
 {
-  "scraped_at": "2026-05-13T16:09:25+00:00",
+  "scraped_at": "2026-05-13T16:19:43+00:00",
   "meta": {
     "fetch_status": "ok",
     "status_summary": {
-      "ok": 21,
+      "ok": 25,
       "empty": 0,
       "failed": {},
-      "total": 21,
+      "total": 25,
       "ok_ratio": 1.0
     }
   },
   "passes": {
-    "boston-by-foot": {
+    "boston-childrens-museum": {
+      "status": "ok",
+      "calendar": {
+        "2026-05-13": "booked",
+        "2026-05-14": "available",
+        "2026-05-15": "available",
+        "2026-05-16": "available",
+        "2026-05-17": "available",
+        "2026-05-18": "available",
+        "2026-05-19": "booked",
+        "2026-05-20": "available",
+        "2026-05-21": "available",
+        "2026-05-22": "booked",
+        "2026-05-23": "booked",
+        "2026-05-24": "available",
+        "2026-05-25": "available",
+        "2026-05-26": "booked",
+        "2026-05-27": "available",
+        "2026-05-28": "available",
+        "2026-05-29": "available",
+        "2026-05-30": "available",
+        "2026-05-31": "available"
+      }
+    },
+    "christian-science-plaza": {
       "status": "ok",
       "calendar": {
         "2026-05-13": "available",
         "2026-05-14": "available",
-        "2026-05-15": "booked",
+        "2026-05-15": "available",
         "2026-05-16": "available",
         "2026-05-17": "available",
         "2026-05-18": "available",
@@ -33,30 +57,6 @@
         "2026-05-29": "available",
         "2026-05-30": "available",
         "2026-05-31": "available"
-      }
-    },
-    "boston-childrens-museum": {
-      "status": "ok",
-      "calendar": {
-        "2026-05-13": "booked",
-        "2026-05-14": "available",
-        "2026-05-15": "available",
-        "2026-05-16": "booked",
-        "2026-05-17": "booked",
-        "2026-05-18": "available",
-        "2026-05-19": "booked",
-        "2026-05-20": "booked",
-        "2026-05-21": "available",
-        "2026-05-22": "available",
-        "2026-05-23": "booked",
-        "2026-05-24": "booked",
-        "2026-05-25": "available",
-        "2026-05-26": "booked",
-        "2026-05-27": "available",
-        "2026-05-28": "available",
-        "2026-05-29": "booked",
-        "2026-05-30": "booked",
-        "2026-05-31": "booked"
       }
     },
     "concord-museum": {
@@ -74,7 +74,7 @@
         "2026-05-22": "available",
         "2026-05-23": "available",
         "2026-05-24": "available",
-        "2026-05-25": "booked",
+        "2026-05-25": "available",
         "2026-05-26": "available",
         "2026-05-27": "available",
         "2026-05-28": "available",
@@ -87,32 +87,8 @@
       "status": "ok",
       "calendar": {
         "2026-05-13": "booked",
-        "2026-05-14": "available",
-        "2026-05-15": "available",
-        "2026-05-16": "available",
-        "2026-05-17": "available",
-        "2026-05-18": "available",
-        "2026-05-19": "available",
-        "2026-05-20": "available",
-        "2026-05-21": "available",
-        "2026-05-22": "available",
-        "2026-05-23": "booked",
-        "2026-05-24": "available",
-        "2026-05-25": "available",
-        "2026-05-26": "available",
-        "2026-05-27": "available",
-        "2026-05-28": "available",
-        "2026-05-29": "available",
-        "2026-05-30": "booked",
-        "2026-05-31": "available"
-      }
-    },
-    "griffin-museum-of-photography": {
-      "status": "ok",
-      "calendar": {
-        "2026-05-13": "available",
-        "2026-05-14": "available",
-        "2026-05-15": "available",
+        "2026-05-14": "booked",
+        "2026-05-15": "booked",
         "2026-05-16": "available",
         "2026-05-17": "available",
         "2026-05-18": "booked",
@@ -129,6 +105,54 @@
         "2026-05-29": "available",
         "2026-05-30": "available",
         "2026-05-31": "available"
+      }
+    },
+    "garden-in-the-woods-native-plant-trust": {
+      "status": "ok",
+      "calendar": {
+        "2026-05-13": "available",
+        "2026-05-14": "available",
+        "2026-05-15": "available",
+        "2026-05-16": "available",
+        "2026-05-17": "available",
+        "2026-05-18": "available",
+        "2026-05-19": "available",
+        "2026-05-20": "available",
+        "2026-05-21": "available",
+        "2026-05-22": "available",
+        "2026-05-23": "available",
+        "2026-05-24": "available",
+        "2026-05-25": "available",
+        "2026-05-26": "available",
+        "2026-05-27": "available",
+        "2026-05-28": "available",
+        "2026-05-29": "available",
+        "2026-05-30": "available",
+        "2026-05-31": "available"
+      }
+    },
+    "gore-place": {
+      "status": "ok",
+      "calendar": {
+        "2026-05-13": "available",
+        "2026-05-14": "booked",
+        "2026-05-15": "available",
+        "2026-05-16": "available",
+        "2026-05-17": "booked",
+        "2026-05-18": "available",
+        "2026-05-19": "booked",
+        "2026-05-20": "available",
+        "2026-05-21": "booked",
+        "2026-05-22": "available",
+        "2026-05-23": "available",
+        "2026-05-24": "booked",
+        "2026-05-25": "booked",
+        "2026-05-26": "booked",
+        "2026-05-27": "available",
+        "2026-05-28": "booked",
+        "2026-05-29": "available",
+        "2026-05-30": "available",
+        "2026-05-31": "booked"
       }
     },
     "harvard-museums-of-science-and-culture": {
@@ -161,22 +185,22 @@
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
-        "2026-05-16": "available",
-        "2026-05-17": "available",
+        "2026-05-16": "booked",
+        "2026-05-17": "booked",
         "2026-05-18": "available",
         "2026-05-19": "available",
         "2026-05-20": "available",
         "2026-05-21": "available",
         "2026-05-22": "available",
-        "2026-05-23": "available",
-        "2026-05-24": "available",
+        "2026-05-23": "booked",
+        "2026-05-24": "booked",
         "2026-05-25": "available",
         "2026-05-26": "available",
         "2026-05-27": "available",
         "2026-05-28": "available",
         "2026-05-29": "available",
-        "2026-05-30": "available",
-        "2026-05-31": "available"
+        "2026-05-30": "booked",
+        "2026-05-31": "booked"
       }
     },
     "institute-of-contemporary-art-boston": {
@@ -200,30 +224,30 @@
         "2026-05-28": "available",
         "2026-05-29": "available",
         "2026-05-30": "available",
-        "2026-05-31": "booked"
+        "2026-05-31": "available"
       }
     },
     "isabella-stewart-gardner-museum": {
       "status": "ok",
       "calendar": {
         "2026-05-13": "available",
-        "2026-05-14": "booked",
-        "2026-05-15": "booked",
-        "2026-05-16": "booked",
-        "2026-05-17": "booked",
+        "2026-05-14": "available",
+        "2026-05-15": "available",
+        "2026-05-16": "available",
+        "2026-05-17": "available",
         "2026-05-18": "booked",
         "2026-05-19": "booked",
         "2026-05-20": "available",
         "2026-05-21": "booked",
-        "2026-05-22": "booked",
-        "2026-05-23": "booked",
-        "2026-05-24": "booked",
+        "2026-05-22": "available",
+        "2026-05-23": "available",
+        "2026-05-24": "available",
         "2026-05-25": "available",
         "2026-05-26": "booked",
         "2026-05-27": "available",
         "2026-05-28": "available",
         "2026-05-29": "available",
-        "2026-05-30": "booked",
+        "2026-05-30": "available",
         "2026-05-31": "available"
       }
     },
@@ -251,22 +275,22 @@
         "2026-05-31": "available"
       }
     },
-    "mass-audubon": {
+    "mass-audubon-drumlin-farm": {
       "status": "ok",
       "calendar": {
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
-        "2026-05-16": "booked",
+        "2026-05-16": "available",
         "2026-05-17": "available",
-        "2026-05-18": "available",
+        "2026-05-18": "booked",
         "2026-05-19": "available",
         "2026-05-20": "available",
         "2026-05-21": "available",
         "2026-05-22": "available",
         "2026-05-23": "available",
         "2026-05-24": "available",
-        "2026-05-25": "available",
+        "2026-05-25": "booked",
         "2026-05-26": "available",
         "2026-05-27": "available",
         "2026-05-28": "available",
@@ -278,49 +302,49 @@
     "massachusetts-state-parks-department-of-conservation-and-recreation": {
       "status": "ok",
       "calendar": {
-        "2026-05-13": "booked",
+        "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
-        "2026-05-16": "booked",
-        "2026-05-17": "booked",
+        "2026-05-16": "available",
+        "2026-05-17": "available",
         "2026-05-18": "available",
         "2026-05-19": "available",
         "2026-05-20": "available",
         "2026-05-21": "available",
-        "2026-05-22": "booked",
+        "2026-05-22": "available",
         "2026-05-23": "available",
-        "2026-05-24": "booked",
+        "2026-05-24": "available",
         "2026-05-25": "available",
         "2026-05-26": "available",
         "2026-05-27": "available",
         "2026-05-28": "available",
         "2026-05-29": "available",
         "2026-05-30": "available",
-        "2026-05-31": "booked"
+        "2026-05-31": "available"
       }
     },
     "museum-of-fine-arts": {
       "status": "ok",
       "calendar": {
         "2026-05-13": "available",
-        "2026-05-14": "booked",
+        "2026-05-14": "available",
         "2026-05-15": "booked",
-        "2026-05-16": "booked",
+        "2026-05-16": "available",
         "2026-05-17": "available",
         "2026-05-18": "available",
         "2026-05-19": "booked",
         "2026-05-20": "available",
-        "2026-05-21": "booked",
-        "2026-05-22": "booked",
-        "2026-05-23": "booked",
+        "2026-05-21": "available",
+        "2026-05-22": "available",
+        "2026-05-23": "available",
         "2026-05-24": "available",
-        "2026-05-25": "booked",
+        "2026-05-25": "available",
         "2026-05-26": "booked",
         "2026-05-27": "available",
         "2026-05-28": "available",
         "2026-05-29": "available",
         "2026-05-30": "available",
-        "2026-05-31": "booked"
+        "2026-05-31": "available"
       }
     },
     "museum-of-science": {
@@ -328,14 +352,14 @@
       "calendar": {
         "2026-05-13": "booked",
         "2026-05-14": "available",
-        "2026-05-15": "booked",
-        "2026-05-16": "booked",
-        "2026-05-17": "booked",
+        "2026-05-15": "available",
+        "2026-05-16": "available",
+        "2026-05-17": "available",
         "2026-05-18": "available",
         "2026-05-19": "available",
         "2026-05-20": "available",
         "2026-05-21": "available",
-        "2026-05-22": "booked",
+        "2026-05-22": "available",
         "2026-05-23": "available",
         "2026-05-24": "available",
         "2026-05-25": "available",
@@ -343,7 +367,7 @@
         "2026-05-27": "available",
         "2026-05-28": "available",
         "2026-05-29": "available",
-        "2026-05-30": "booked",
+        "2026-05-30": "available",
         "2026-05-31": "available"
       }
     },
@@ -351,15 +375,15 @@
       "status": "ok",
       "calendar": {
         "2026-05-13": "booked",
-        "2026-05-14": "available",
-        "2026-05-15": "booked",
-        "2026-05-16": "available",
+        "2026-05-14": "booked",
+        "2026-05-15": "available",
+        "2026-05-16": "booked",
         "2026-05-17": "booked",
-        "2026-05-18": "booked",
+        "2026-05-18": "available",
         "2026-05-19": "available",
-        "2026-05-20": "booked",
+        "2026-05-20": "available",
         "2026-05-21": "available",
-        "2026-05-22": "booked",
+        "2026-05-22": "available",
         "2026-05-23": "booked",
         "2026-05-24": "booked",
         "2026-05-25": "booked",
@@ -371,27 +395,27 @@
         "2026-05-31": "booked"
       }
     },
-    "paddle-boston": {
+    "old-sturbridge-village": {
       "status": "ok",
       "calendar": {
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
-        "2026-05-16": "booked",
-        "2026-05-17": "booked",
-        "2026-05-18": "available",
-        "2026-05-19": "available",
+        "2026-05-16": "available",
+        "2026-05-17": "available",
+        "2026-05-18": "booked",
+        "2026-05-19": "booked",
         "2026-05-20": "available",
         "2026-05-21": "available",
         "2026-05-22": "available",
         "2026-05-23": "available",
         "2026-05-24": "available",
         "2026-05-25": "available",
-        "2026-05-26": "available",
+        "2026-05-26": "booked",
         "2026-05-27": "available",
         "2026-05-28": "available",
         "2026-05-29": "available",
-        "2026-05-30": "booked",
+        "2026-05-30": "available",
         "2026-05-31": "available"
       }
     },
@@ -399,9 +423,9 @@
       "status": "ok",
       "calendar": {
         "2026-05-13": "booked",
-        "2026-05-14": "booked",
+        "2026-05-14": "available",
         "2026-05-15": "available",
-        "2026-05-16": "booked",
+        "2026-05-16": "available",
         "2026-05-17": "available",
         "2026-05-18": "available",
         "2026-05-19": "booked",
@@ -415,11 +439,11 @@
         "2026-05-27": "booked",
         "2026-05-28": "available",
         "2026-05-29": "available",
-        "2026-05-30": "booked",
+        "2026-05-30": "available",
         "2026-05-31": "available"
       }
     },
-    "sandmagination": {
+    "plimoth-patuxet-museums": {
       "status": "ok",
       "calendar": {
         "2026-05-13": "available",
@@ -427,20 +451,68 @@
         "2026-05-15": "available",
         "2026-05-16": "booked",
         "2026-05-17": "available",
-        "2026-05-18": "booked",
-        "2026-05-19": "booked",
+        "2026-05-18": "available",
+        "2026-05-19": "available",
         "2026-05-20": "available",
         "2026-05-21": "available",
         "2026-05-22": "available",
-        "2026-05-23": "booked",
+        "2026-05-23": "available",
         "2026-05-24": "available",
-        "2026-05-25": "booked",
-        "2026-05-26": "booked",
+        "2026-05-25": "available",
+        "2026-05-26": "available",
         "2026-05-27": "available",
         "2026-05-28": "available",
         "2026-05-29": "available",
-        "2026-05-30": "booked",
-        "2026-05-31": "booked"
+        "2026-05-30": "available",
+        "2026-05-31": "available"
+      }
+    },
+    "salem-witch-museum": {
+      "status": "ok",
+      "calendar": {
+        "2026-05-13": "booked",
+        "2026-05-14": "available",
+        "2026-05-15": "booked",
+        "2026-05-16": "available",
+        "2026-05-17": "available",
+        "2026-05-18": "booked",
+        "2026-05-19": "available",
+        "2026-05-20": "booked",
+        "2026-05-21": "available",
+        "2026-05-22": "booked",
+        "2026-05-23": "available",
+        "2026-05-24": "available",
+        "2026-05-25": "booked",
+        "2026-05-26": "available",
+        "2026-05-27": "booked",
+        "2026-05-28": "available",
+        "2026-05-29": "booked",
+        "2026-05-30": "available",
+        "2026-05-31": "available"
+      }
+    },
+    "the-spellman-museum-of-stamps-and-postal-history": {
+      "status": "ok",
+      "calendar": {
+        "2026-05-13": "booked",
+        "2026-05-14": "available",
+        "2026-05-15": "available",
+        "2026-05-16": "available",
+        "2026-05-17": "available",
+        "2026-05-18": "booked",
+        "2026-05-19": "booked",
+        "2026-05-20": "booked",
+        "2026-05-21": "available",
+        "2026-05-22": "available",
+        "2026-05-23": "available",
+        "2026-05-24": "available",
+        "2026-05-25": "booked",
+        "2026-05-26": "booked",
+        "2026-05-27": "booked",
+        "2026-05-28": "available",
+        "2026-05-29": "available",
+        "2026-05-30": "available",
+        "2026-05-31": "available"
       }
     },
     "the-trustees-of-the-reservations": {
@@ -449,10 +521,10 @@
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
-        "2026-05-16": "available",
+        "2026-05-16": "booked",
         "2026-05-17": "available",
         "2026-05-18": "available",
-        "2026-05-19": "booked",
+        "2026-05-19": "available",
         "2026-05-20": "available",
         "2026-05-21": "available",
         "2026-05-22": "available",
@@ -470,9 +542,9 @@
     "the-uss-constitution-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-13": "booked",
+        "2026-05-13": "available",
         "2026-05-14": "available",
-        "2026-05-15": "booked",
+        "2026-05-15": "available",
         "2026-05-16": "available",
         "2026-05-17": "available",
         "2026-05-18": "available",
@@ -491,27 +563,51 @@
         "2026-05-31": "available"
       }
     },
+    "worcester-art-museum": {
+      "status": "ok",
+      "calendar": {
+        "2026-05-13": "available",
+        "2026-05-14": "available",
+        "2026-05-15": "available",
+        "2026-05-16": "available",
+        "2026-05-17": "available",
+        "2026-05-18": "booked",
+        "2026-05-19": "booked",
+        "2026-05-20": "available",
+        "2026-05-21": "available",
+        "2026-05-22": "available",
+        "2026-05-23": "available",
+        "2026-05-24": "available",
+        "2026-05-25": "booked",
+        "2026-05-26": "booked",
+        "2026-05-27": "available",
+        "2026-05-28": "available",
+        "2026-05-29": "available",
+        "2026-05-30": "available",
+        "2026-05-31": "available"
+      }
+    },
     "zoo-new-england": {
       "status": "ok",
       "calendar": {
-        "2026-05-13": "booked",
+        "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
-        "2026-05-16": "booked",
-        "2026-05-17": "booked",
+        "2026-05-16": "available",
+        "2026-05-17": "available",
         "2026-05-18": "available",
         "2026-05-19": "available",
-        "2026-05-20": "booked",
-        "2026-05-21": "booked",
-        "2026-05-22": "booked",
-        "2026-05-23": "booked",
-        "2026-05-24": "booked",
-        "2026-05-25": "booked",
+        "2026-05-20": "available",
+        "2026-05-21": "available",
+        "2026-05-22": "available",
+        "2026-05-23": "available",
+        "2026-05-24": "available",
+        "2026-05-25": "available",
         "2026-05-26": "available",
         "2026-05-27": "available",
-        "2026-05-28": "booked",
-        "2026-05-29": "booked",
-        "2026-05-30": "booked",
+        "2026-05-28": "available",
+        "2026-05-29": "available",
+        "2026-05-30": "available",
         "2026-05-31": "available"
       }
     }

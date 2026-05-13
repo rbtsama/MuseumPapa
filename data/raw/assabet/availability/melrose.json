@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-11T15:23:54+00:00",
+  "scraped_at": "2026-05-13T16:08:43+00:00",
   "meta": {
     "fetch_status": "ok",
     "status_summary": {
@@ -14,17 +14,15 @@
     "boston-childrens-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "booked",
         "2026-05-13": "available",
         "2026-05-14": "available",
-        "2026-05-15": "available",
+        "2026-05-15": "booked",
         "2026-05-16": "available",
         "2026-05-17": "available",
         "2026-05-18": "available",
         "2026-05-19": "booked",
         "2026-05-20": "available",
-        "2026-05-21": "available",
+        "2026-05-21": "booked",
         "2026-05-22": "available",
         "2026-05-23": "available",
         "2026-05-24": "available",
@@ -40,8 +38,6 @@
     "harvard-art-museums": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "booked",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -66,8 +62,6 @@
     "harvard-museums-of-science-and-culture": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -82,7 +76,7 @@
         "2026-05-24": "available",
         "2026-05-25": "available",
         "2026-05-26": "available",
-        "2026-05-27": "available",
+        "2026-05-27": "booked",
         "2026-05-28": "available",
         "2026-05-29": "available",
         "2026-05-30": "available",
@@ -92,8 +86,6 @@
     "historic-new-england": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -118,8 +110,6 @@
     "institute-of-contemporary-art-boston": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "booked",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -144,9 +134,7 @@
     "isabella-stewart-gardner-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "booked",
-        "2026-05-12": "booked",
-        "2026-05-13": "available",
+        "2026-05-13": "booked",
         "2026-05-14": "available",
         "2026-05-15": "available",
         "2026-05-16": "available",
@@ -170,8 +158,6 @@
     "john-f-kennedy-library-and-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -196,8 +182,6 @@
     "mass-audubon-drumlin-farm": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "booked",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -222,8 +206,6 @@
     "museum-of-fine-arts": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "booked",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -248,10 +230,8 @@
     "museum-of-science": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "booked",
-        "2026-05-14": "available",
+        "2026-05-14": "booked",
         "2026-05-15": "available",
         "2026-05-16": "booked",
         "2026-05-17": "available",
@@ -274,10 +254,8 @@
     "new-england-aquarium": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "booked",
-        "2026-05-12": "available",
         "2026-05-13": "booked",
-        "2026-05-14": "available",
+        "2026-05-14": "booked",
         "2026-05-15": "available",
         "2026-05-16": "booked",
         "2026-05-17": "booked",
@@ -300,9 +278,7 @@
     "north-shore-childrens-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "booked",
-        "2026-05-12": "booked",
-        "2026-05-13": "available",
+        "2026-05-13": "booked",
         "2026-05-14": "available",
         "2026-05-15": "available",
         "2026-05-16": "booked",
@@ -326,12 +302,10 @@
     "paddle-boston": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "booked",
-        "2026-05-12": "booked",
         "2026-05-13": "booked",
         "2026-05-14": "booked",
         "2026-05-15": "booked",
-        "2026-05-16": "available",
+        "2026-05-16": "booked",
         "2026-05-17": "booked",
         "2026-05-18": "booked",
         "2026-05-19": "booked",
@@ -343,8 +317,8 @@
         "2026-05-25": "booked",
         "2026-05-26": "booked",
         "2026-05-27": "available",
-        "2026-05-28": "available",
-        "2026-05-29": "available",
+        "2026-05-28": "booked",
+        "2026-05-29": "booked",
         "2026-05-30": "booked",
         "2026-05-31": "booked"
       }
@@ -352,8 +326,6 @@
     "paul-revere-house": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "booked",
-        "2026-05-12": "booked",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -378,8 +350,6 @@
     "peabody-essex-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "booked",
         "2026-05-13": "booked",
         "2026-05-14": "booked",
         "2026-05-15": "available",
@@ -404,8 +374,6 @@
     "the-trustees-of-the-reservations": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -430,8 +398,6 @@
     "the-uss-constitution-museum": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
@@ -456,18 +422,16 @@
     "zoo-new-england": {
       "status": "ok",
       "calendar": {
-        "2026-05-11": "available",
-        "2026-05-12": "available",
         "2026-05-13": "available",
         "2026-05-14": "available",
         "2026-05-15": "available",
-        "2026-05-16": "available",
+        "2026-05-16": "booked",
         "2026-05-17": "available",
         "2026-05-18": "available",
         "2026-05-19": "available",
         "2026-05-20": "available",
         "2026-05-21": "available",
-        "2026-05-22": "available",
+        "2026-05-22": "booked",
         "2026-05-23": "available",
         "2026-05-24": "available",
         "2026-05-25": "available",

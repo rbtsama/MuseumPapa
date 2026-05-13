@@ -1,0 +1,49 @@
+{
+  "scraped_at": "2026-05-13T16:12:49+00:00",
+  "meta": {
+    "fetch_status": "ok",
+    "status_summary": {
+      "ok": 0,
+      "empty": 0,
+      "failed": {
+        "HTTPError": 8
+      },
+      "total": 8,
+      "ok_ratio": 0.0
+    }
+  },
+  "passes": {
+    "boston-childrens-museum": {
+      "status": "failed:HTTPError",
+      "calendar": {}
+    },
+    "harvard-museums-of-science-and-culture": {
+      "status": "failed:HTTPError",
+      "calendar": {}
+    },
+    "isabella-stewart-gardner-museum": {
+      "status": "failed:HTTPError",
+      "calendar": {}
+    },
+    "massachusetts-state-parks-department-of-conservation-and-recreation": {
+      "status": "failed:HTTPError",
+      "calendar": {}
+    },
+    "museum-of-fine-arts": {
+      "status": "failed:HTTPError",
+      "calendar": {}
+    },
+    "museum-of-science": {
+      "status": "failed:HTTPError",
+      "calendar": {}
+    },
+    "new-england-aquarium": {
+      "status": "failed:HTTPError",
+      "calendar": {}
+    },
+    "salem-witch-museum": {
+      "status": "failed:HTTPError",
+      "calendar": {}
+    }
+  }
+}
