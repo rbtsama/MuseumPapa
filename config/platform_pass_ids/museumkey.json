@@ -1,0 +1,32 @@
+{
+  "_comment": "MuseumKey 平台配置。每馆有自己的 code + branchID(决定 byMuseum URL);所有馆共享 name → benefit 映射(MuseumKey 用 musID 是 library-specific,所以按 lowercased 馆显示名匹配)。注意:MuseumKey 的可用性日历需登录(图书馆卡 barcode),所以本项目仅抓 catalog,不抓 availability。",
+  "_source": "ported from backup/museumkey_id_map.py (MUSEUMKEY_CONFIG + MUSEUMKEY_NAME_TO_BENEFIT)",
+  "_url_template": "https://www2.museumkey.com/ui/byMuseum/?code={code}&branchID={branchID}",
+  "libraries": {
+    "cohasset": { "code": "paulma02025", "branchID": 231 },
+    "hingham":  { "code": "hingma02043", "branchID": 505 }
+  },
+  "name_to_benefit": {
+    "boston by foot":                            "boston-by-foot",
+    "boston children's museum":                  "boston-childrens-museum",
+    "boston harbor island ferry":                "boston-harbor-islands",
+    "the butterfly place":                       "butterfly-place",
+    "cohasset historical society":               "cohasset-historical-society",
+    "harvard museum of natural history":         "harvard-museums",
+    "heritage museums & gardens":                "heritage-museums-gardens",
+    "institute of contemporary art boston":      "ica-boston",
+    "isabella stewart gardner museum":           "isabella-stewart-gardner",
+    "john f. kennedy presidential library and museum": "jfk-library",
+    "massachusetts state parks":                 "ma-state-parks",
+    "museum of fine arts boston":                "mfa",
+    "museum of science":                         "museum-of-science",
+    "new england aquarium":                      "new-england-aquarium",
+    "the patriots hall of fame":                 "patriots-hall-of-fame",
+    "peabody essex museum":                      "peabody-essex-museum",
+    "plimoth patuxet":                           "plimoth-patuxet",
+    "plimoth patuxet museums":                   "plimoth-patuxet",
+    "the trustees of reservations go pass":      "trustees-of-reservations",
+    "uss constitution museum":                   "uss-constitution-museum",
+    "zoo new england":                           "zoo-new-england"
+  }
+}

@@ -22,8 +22,9 @@
 ### 2.1 地理范围
 
 **仅限 Massachusetts (MA) 州**。
-**初版进一步收窄到 NorthShore 区域**（波士顿北郊，覆盖项目运营方所在的 Wakefield、Reading、Burlington、Wilmington 一带，半径约 20 分钟车程内的图书馆）。
-跑稳之后再考虑扩到 MA 全境，再之后才会考虑别的州。
+**当前抓取范围:eastern MA 共 59 家图书馆**（覆盖 NorthShore + Minuteman 西郊 + MVLC 北郊 + OCLN 南郊 + BPL）。这是 backup/ 上一代代码已经验证跑通的范围,本期照此对齐。
+**产品交付焦点仍是 NorthShore**:运营方住在 Wakefield、主要用 Wakefield/Reading/BPL/Wilmington/Somerville 5 张卡。其他 ~50 家图书馆是顺手收下的"广覆盖底盘",用来跨馆比对凭证形态、跨网络验证可订性,以及问题 3"该办哪张卡"的全样本基线。
+跑稳之后再考虑扩到 MA 全境（中西部 CW MARS 网络等),再之后才会考虑别的州。
 
 ### 2.2 用户画像
 
@@ -159,9 +160,9 @@
 
 | 需要的数据 | 现状 | 怎么补齐 |
 |---|---|---|
-| 哪些景点 × 哪些图书馆有合作 | ✅ 已有 | 已收录 15 家图书馆 × 52 个景点的合作矩阵 |
-| 每个组合的折扣力度（免费 / 半价 / 折扣金额）+ 备注 | ✅ 已有 | 人工整理 |
-| 凭证形态（数字 / 取票 / 取还） | ✅ 已有 | 13 家 Assabet 自动抓取；BPL 22 张票人工分类 |
+| 哪些景点 × 哪些图书馆有合作 | ✅ 已有 | 59 家图书馆 × ~108 个唯一景点的合作矩阵(backup 已抓全;v0.1 还在重抓中) |
+| 每个组合的折扣力度（免费 / 半价 / 折扣金额）+ 备注 | ✅ 已有 | Assabet/LibCal 文本里抓 + `normalize_benefit` 词法归一(backup 已写,本期 port) |
+| 凭证形态（数字 / 取票 / 取还） | ✅ 已有 | 52 家 Assabet 字段化抓取;5 家 LibCal 标题后缀 + availability blurb 识别;2 家 MuseumKey 文本关键词 |
 | 每家图书馆的办卡政策 | ✅ 已有 | 人工整理 |
 | 景点营业时间、每周闭馆日、二次预约模式 | ✅ 已有 | 人工整理 |
 | 距离用户家的开车时间 | ⚠️ 粗略 | 当前是手填的非高峰估计，针对单一起点。后续可接地图 API 算精确值。 |
@@ -210,10 +211,10 @@
 
 ### 8.1 已经做到的事
 
-- 15 家图书馆 + 52 个景点的合作矩阵已结构化
-- 折扣值、备注、凭证形态已结构化
-- 30 天可用性自动抓取（Assabet 13 家 + BPL）能跑
-- 用户持卡组合下"哪天哪张卡能订"能算
+- 59 家图书馆 + ~108 个景点的合作矩阵已抓通(backup 跑过,v0.1 正在按新结构对齐)
+- 折扣值、备注、凭证形态在 backup 已结构化(`normalize_benefit.py` 词法表)
+- 30 天可用性自动抓取覆盖:Assabet 52 家 + LibCal 5 家(含 BPL)。MuseumKey 2 家仅 catalog(日历需登录,故意不抓)
+- 用户持卡组合下"哪天哪张卡能订"能算(5 张卡:Wakefield/Reading/BPL/Wilmington/Somerville)
 - 一键打开预约页 + 自动复制卡号能用
 
 ### 8.2 初版要补齐的事
@@ -258,38 +259,50 @@
 
 ## 附录 A：所有相关网站清单
 
-### A.1 Assabet Interactive 平台（13 家 MA 北郊图书馆共用）
+### A.1 全 59 馆按平台分组(完整列表见 `config/library_seeds.json`)
 
-每家图书馆一个独立子域名。各馆的福利索引页都在 `/museum-passes/by-museum/` 下。
+四个抓取平台 + 一个跳过平台:
 
-| 图书馆 | 城镇 | 网络 | 入口 |
+| 平台 | 馆数 | 索引页规律 | 抓取状态 |
 |---|---|---|---|
-| Wakefield (Lucius Beebe) | Wakefield | NOBLE | https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/ |
-| Stoneham Public Library | Stoneham | NOBLE | https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/ |
-| Reading Public Library | Reading | NOBLE | https://readingpl.assabetinteractive.com/museum-passes/by-museum/ |
-| Woburn Public Library | Woburn | NOBLE | https://woburnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/ |
-| Lynnfield Public Library | Lynnfield | NOBLE | https://lynnfieldlibrary.assabetinteractive.com/museum-passes/by-museum/ |
-| Peabody Institute Library | Peabody | NOBLE | https://peabodylibrary.assabetinteractive.com/museum-passes/by-museum/ |
-| Melrose Public Library | Melrose | NOBLE | https://melrosepubliclibrary.assabetinteractive.com/museum-passes/by-museum/ |
-| Saugus Public Library | Saugus | NOBLE | https://sauguspubliclibrary.assabetinteractive.com/museum-passes/by-museum/ |
-| Malden Public Library | Malden | NOBLE | https://maldenpubliclibrary.assabetinteractive.com/museum-passes/by-museum/ |
-| Medford Public Library | Medford | Minuteman | https://medfordlibrary.assabetinteractive.com/museum-passes/by-museum/ |
-| Burlington Public Library | Burlington | MVLC | https://burlington.assabetinteractive.com/museum-passes/by-museum/ |
-| Flint Memorial (North Reading) | North Reading | NOBLE | https://flintmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/ |
-| Wilmington Memorial Library | Wilmington | MVLC | https://wilmlibrary.assabetinteractive.com/museum-passes/by-museum/ |
+| **Assabet Interactive** | 52 | `<sub>.assabetinteractive.com/museum-passes/by-museum/` | catalog + availability(自动) |
+| **LibCal**(BPL + 4 馆) | 5 | `<sub>.libcal.com/passes` | catalog + availability(自动) |
+| **MuseumKey** | 2 | `www2.museumkey.com/ui/byMuseum/?code=<x>&branchID=<n>` | **仅 catalog**;availability 需登录,故意不抓 |
+| **Winpublib(自研)** | 0 (跳过) | `winpublib.org/museumpasses/` | Winchester 自研系统已迁到 Assabet(`winpublib.assabetinteractive.com`),原 winpublib.org 不再抓 |
 
-### A.2 LibCal 平台（BPL 使用，与 Assabet 完全不同）
+#### A.1.1 LibCal 5 家
 
 | 图书馆 | 城镇 | 入口 |
 |---|---|---|
 | Boston Public Library (BPL) | Boston | https://bpl.libcal.com/passes |
-| BPL 票使用条款总页 | — | https://www.bpl.org/faq/museum-pass-details/ |
+| Cambridge Public Library | Cambridge | https://cambridgepl.libcal.com/passes |
+| Brookline Public Library | Brookline | https://brooklinelibrary.libcal.com/passes |
+| Thayer Public Library | Braintree | https://thayerpubliclibrary.libcal.com/passes |
+| Milton Public Library | Milton | https://miltonlibrary.libcal.com/passes |
 
-### A.3 自研平台（暂不抓取）
+BPL 票使用条款总页:https://www.bpl.org/faq/museum-pass-details/
 
-| 图书馆 | 城镇 | 备注 |
+#### A.1.2 MuseumKey 2 家(catalog-only)
+
+| 图书馆 | 城镇 | 入口 |
 |---|---|---|
-| Winchester Public Library | Winchester | https://www.winpublib.org/museumpasses/ — 自研系统，且仅本镇居民可用，价值低 |
+| Paul Pratt Memorial Library | Cohasset | https://www2.museumkey.com/ui/byMuseum/?code=paulma02025&branchID=231 |
+| Hingham Public Library | Hingham | https://www2.museumkey.com/ui/byMuseum/?code=hingma02043&branchID=505 |
+
+#### A.1.3 Assabet 52 家
+
+详见 `config/library_seeds.json` 中 `platform=="assabet"` 的条目。地理上覆盖:NOBLE 北郊(Wakefield/Reading/Stoneham/Lynnfield/Peabody/Saugus/Malden/Melrose/Woburn/N.Reading + Beverly/Danvers/Lynn/Marblehead/Everett/Chelsea)、MVLC 北郊与梅里马克河谷(Burlington/Wilmington/Billerica/Topsfield/Boxford/Tewksbury/Chelmsford/Haverhill/Lawrence/Methuen/Andover/N.Andover/Middleton)、Minuteman 西郊(Medford/Winchester/Arlington/Newton/Lincoln/Acton/Framingham/Maynard/Carlisle/Wayland/Weston/Sudbury/Belmont/Lexington/Wellesley/Waltham/Watertown/Concord/Bedford/Needham/Natick/Somerville)、OCLN 南郊(Quincy)。
+
+### A.2 平台 pass_id 映射
+
+每平台的 pass_id 命名空间不同,需要手工对照表把 source-side id 映射回项目的 canonical `benefit_id`。这三份手工表放在 `config/platform_pass_ids/{bpl,libcal,museumkey}.json`,Assabet 不需要(slug 即 benefit_id)。
+
+### A.3 已知跳过
+
+| 来源 | 原因 |
+|---|---|
+| 原 Winchester `winpublib.org/museumpasses/` | 已经迁到 Assabet 平台(`winpublib.assabetinteractive.com`),原自研系统下线 |
+| MuseumKey 可用性日历 | 需登录(图书馆卡 barcode),不能匿名抓取;Cohasset/Hingham 仅有 catalog 数据 |
 
 ### A.4 图书馆网络主站（用于查办卡资格、网络政策）
 
@@ -346,9 +359,9 @@
 |---|---|---|---|
 | 图书馆名称、城镇、网络归属 | MBLC 目录 + 各馆主站 | 一次性人工整理 | 各网络主站 |
 | 图书馆办卡政策 | 各馆主站 "Get a Card" 页 | 半人工：抓借阅政策页 + 人工归类成 3 档 | 网络主站政策页 |
-| 图书馆 × 景点合作关系 | Assabet 各馆主索引页 / BPL 福利列表 | 抓主索引页里的景点条目 | 景点官网反向页（仅 3 个景点有） |
-| 折扣力度 | Assabet 主索引页里每张票的描述段；BPL 单票详情页 | 用 AI 从自由文字里读 / 人工核校 | 景点官网 |
-| 凭证形态 | Assabet 主索引页有专门字段；BPL 单票详情页关键词 | Assabet 走结构化提取；BPL 走关键词识别 | — |
+| 图书馆 × 景点合作关系 | Assabet 各馆主索引页 / LibCal 福利列表(BPL + 4 馆)/ MuseumKey byMuseum 页(Cohasset/Hingham) | 抓主索引页里的景点条目 | 景点官网反向页（仅 3 个景点有） |
+| 折扣力度 | Assabet 主索引页里每张票的描述段；LibCal/MuseumKey 单票详情页 | `normalize_benefit.py` 词法表归一(免费/$N per person/half/N% off/...)+ 人工核校 | 景点官网 |
+| 凭证形态 | Assabet 主索引页字段化；LibCal 标题后缀 + availability blurb;MuseumKey 文本关键词 | 三平台各自识别 | — |
 | **非结构化静态数据**（人数、排除项、季节规则、额外居住要求、家庭配额、罚款金额） | Assabet 各馆主索引页的 "Benefits" 自由文字；BPL 单票详情页 | 用 AI 模型从自由文字里逐条读出来（写法不统一，机械文本匹配不可靠） | 景点官网 |
 | 景点营业时间、每周闭馆日 | 景点官网 "Visit"/"Hours" 页 | 用 AI 提取 / 接 Google Places API | 图书馆主索引页（往往过期，仅供交叉验证） |
 | 节假日闭馆 | 景点官网 + 通用美国节假日清单 | 通用清单兜底 + 景点官网年初公告核校 | 用户反馈 |

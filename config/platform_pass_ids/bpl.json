@@ -1,0 +1,29 @@
+{
+  "_comment": "BPL LibCal pass-id 映射: benefit_id → 12-hex pass id (URL: https://bpl.libcal.com/passes/<pass_id>). BPL 是 LibCal 平台的一个实例,但其 pass id 命名空间与其他 LibCal 馆不通用,故单独成文件。手工从 https://bpl.libcal.com/passes 列表抓取,新增/重命名 pass 时手动同步。'hale-education' 在 BPL 是 physical pass,但项目数据里暂无对应 benefit,保留以备未来匹配。",
+  "_source": "ported from backup/bpl_id_map.py (BPL_PASS_ID)",
+  "passes": {
+    "american-rep-theater":     "5bf37dc2bee6",
+    "hale-education":           "27fd343838f2",
+    "boch-center":              "572fd99e65a3",
+    "boston-childrens-museum":  "247124590599",
+    "boston-harbor-islands":    "a6c8020ee3e0",
+    "greenway-carousel":        "85ce3124733e",
+    "harvard-museums":          "92c222667367",
+    "ica-boston":               "ca412b08c3fc",
+    "isabella-stewart-gardner": "3f1a0abfb37f",
+    "larz-anderson":            "c4d127379588",
+    "ma-state-parks":           "96efc267af24",
+    "mapparium":                "ee42fe43a508",
+    "mass-audubon":             "76269f5073ed",
+    "mfa":                      "ced5467b5fe7",
+    "museum-of-science":        "25815fed11ec",
+    "new-england-aquarium":     "5478304b3d42",
+    "paddle-boston":            "7dfc5eb56d0b",
+    "peabody-essex-museum":     "cb71fd360f1d",
+    "revolutionary-spaces":     "a86b0e178ad8",
+    "sandwich-glass":           "c3c3953a4d27",
+    "trustees-of-reservations": "eb6d133c0fb7",
+    "uss-constitution-museum":  "f3fe5e025455",
+    "zoo-new-england":          "b91f556dbfb2"
+  }
+}

@@ -6,13 +6,15 @@ This file provides guidance to Claude Code when working in this repository.
 
 **North Shore Library Benefits — Data Collection (v0.1)**
 
-Massachusetts NorthShore 区域(Wakefield 周边 ~20 分钟车程)的图书馆 museum-pass 福利数据建设项目。本期 v0.1 的目标是把 BRD(`docs/BRD.md`)第 6/7 章列出的所有"应该能拿到"的数据,通过 scraper + Claude 会话内整理拿到本地,产出三份核心结构化 JSON:
+Massachusetts eastern MA 区域的图书馆 museum-pass 福利数据建设项目。抓取范围 59 家图书馆(对齐 backup/ 上一代已跑通的范围),产品交付焦点仍是 NorthShore(运营方住 Wakefield,持 5 张卡:Wakefield/Reading/BPL/Wilmington/Somerville)。本期 v0.1 的目标是把 BRD(`docs/BRD.md`)第 6/7 章列出的所有"应该能拿到"的数据,通过 scraper + Claude 会话内整理拿到本地,产出三份核心结构化 JSON:
 
-- `data/structured/libraries.json` — 15 馆元数据
-- `data/structured/attractions.json` — 52 景元数据
+- `data/structured/libraries.json` — 59 馆元数据
+- `data/structured/attractions.json` — ~108 景元数据
 - `data/structured/passes.json` — (馆 × 景) 矩阵的折扣/凭证/限制字段
 
-**本期不做**:HTML 渲染层、真实预订日志、Google Maps 距离 API、MA 全境扩展、自动下单、JSON Schema 校验框架、正式 README/PRD/chat.md。详细范围见 `docs/BRD.md` 和计划 `C:\Users\Administrator\.claude\plans\fluffy-whistling-lampson.md`。
+中间产物 `data/structured/library_catalog.json` 是全平台规范快照,既给 diff_catalog 当锚点,也供 build 阶段拆出上面三份产物。
+
+**本期不做**:HTML 渲染层、真实预订日志、Google Maps 距离 API、MA 全境扩展(中西部 CW MARS 网络)、自动下单、JSON Schema 校验框架、正式 README/PRD/chat.md。详细范围见 `docs/BRD.md` 和计划 `C:\Users\Administrator\.claude\plans\fluffy-whistling-lampson.md`。
 
 ## Repository Layout
 
@@ -24,14 +26,23 @@ Massachusetts NorthShore 区域(Wakefield 周边 ~20 分钟车程)的图书馆 m
 ├── backup/                    # 上一代代码,只读参考
 ├── docs/BRD.md                # 业务需求文档(权威)
 ├── src/malibbene/             # 主包(MA Library Benefits)
-│   ├── common/                # http / browser / snapshot / status
-│   └── sources/               # 一个数据源一个模块(assabet/bpl/winchester/...)
-├── scripts/                   # CLI 入口
-├── data/raw/                  # scraper 直接产出
-├── data/structured/           # Claude 整理后的最终数据
+│   ├── common/                # http / browser / snapshot / status / normalize
+│   └── sources/               # 一个平台一个模块
+│       ├── assabet/           # 52 馆,catalog + availability
+│       ├── libcal/            # 5 馆(BPL+Cambridge+Brookline+Braintree+Milton),catalog + availability
+│       ├── museumkey/         # 2 馆(Cohasset+Hingham),仅 catalog(availability 需登录)
+│       ├── attractions/       # 景点官网爬虫 + 反向清单
+│       ├── holidays/          # 美国节假日生成
+│       └── policies.py        # 各馆办卡资格抓取
+├── scripts/                   # CLI 入口(scrape_static / scrape_dynamic / snapshot_diff / diff_catalog)
+├── data/raw/<platform>/       # scraper 直接产出
+├── data/structured/           # Claude 整理后的最终数据(含 library_catalog.json 中间快照)
 ├── data/dynamic/              # availability(可频繁覆盖)
 ├── data/snapshots/<日期>/     # 历史快照,供 diff
-└── config/                    # 配置种子(library_seeds.json + benefit_seeds.json + owned_cards.json[私])
+└── config/                    # 配置种子
+    ├── library_seeds.json     # 59 馆元数据
+    ├── platform_pass_ids/     # 三平台手工 pass-id 映射(bpl/libcal/museumkey)
+    └── owned_*.json           # 私(gitignored,卡 barcode 等)
 ```
 
 ## File Naming Convention (CRITICAL)
@@ -77,6 +88,8 @@ playwright install chromium
 - **Playwright**:可选依赖,首次 `render_js=True` 检测缺失才提示安装
 - **状态兜底**:每个 raw JSON 顶层 `meta.status_summary = {ok, empty, failed}`,parser 失败的 cell 标 `status: "failed:<reason>"`,不静默丢失
 - **快照 + diff**:每次主索引页 scraper 跑完先把上一份 raw 移到 `data/snapshots/<日期>/`
+- **平台抽象**:每个 `sources/<platform>/` 模块对外暴露 `index_page.main()`(catalog,必有)和 `availability.main()`(动态,museumkey 不实现)。平台 pass_id 命名空间不通用,各自有手工映射表(`config/platform_pass_ids/*.json`),Assabet 例外(slug 直接是 benefit_id)
+- **Catalog vs availability 分层**:`raw/<platform>/<dataset>/<lib_id>.json` → 合并 + `normalize_benefit` → `structured/library_catalog.json`(规范快照 + diff 锚点)→ 拆分成 BRD §6.1 三大产物 `libraries.json`/`attractions.json`/`passes.json`。`manual_overrides.json` 在最后拆分阶段 merge
 
 ## Reusable code from `backup/`
 
@@ -84,9 +97,17 @@ playwright install chromium
 |---|---|---|
 | `scrape_availability.py` | `sources/assabet/availability.py` | 90% |
 | `scrape_pass_format.py` | `sources/assabet/index_page.py` 切块 | 60% |
-| `scrape_bpl_availability.py` | `sources/bpl/availability.py` | 95% |
-| `slug_map.py` 的 LIB_DOMAIN | `config/library_seeds.json` 初值 | 100% |
-| `library-cards.json` | `config/owned_cards.json` | 100% |
+| `scrape_catalog_assabet.py` | `sources/assabet/index_page.py` 切块 | 70% |
+| `scrape_bpl_availability.py` | `sources/libcal/availability.py`(BPL 是 lib_id) | 95% |
+| `scrape_libcal_availability.py` | `sources/libcal/availability.py`(参数化) | 90% |
+| `scrape_catalog_libcal.py` | `sources/libcal/index_page.py` | 95% |
+| `scrape_catalog_museumkey.py` | `sources/museumkey/index_page.py`(仅 catalog) | 90% |
+| `normalize_benefit.py` | `common/normalize.py`(整文件 port,词法表已带 self-test) | 100% |
+| `diff_catalog.py` | `scripts/diff_catalog.py` | 90% |
+| `bpl_id_map.py` / `libcal_id_map.py` / `museumkey_id_map.py` | `config/platform_pass_ids/{bpl,libcal,museumkey}.json` | 100%(已 port) |
+| `slug_map.py` 的 LIB_DOMAIN | `config/library_seeds.json` `domain` 字段 | 100%(已 port) |
+| `library-cards.json` | `.env`(`<LIB>_BARCODE` 形式) | 100%(已 port) |
+| `library_catalog.json` | 59 馆 + `platform`+`url` 派生 `library_seeds.json` 新增 44 条 | 100%(已 port) |
 
 ## General Rules (来自用户全局配置)
 

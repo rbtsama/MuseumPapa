@@ -1,0 +1,83 @@
+{
+  "_comment": "非 BPL 的 LibCal 馆配置。每馆有自己的 subdomain (<sub>.libcal.com) 和独立的 pass id 命名空间(Cambridge 用 slug-style;Brookline 多数是短代码;Braintree/Milton 多数是 12-hex)。手工维护;新增/重命名 pass 时手动同步。",
+  "_source": "ported from backup/libcal_id_map.py (LIBCAL_PASS_ID + LIBCAL_DOMAIN)",
+  "libraries": {
+    "cambridge": {
+      "domain": "cambridgepl.libcal.com",
+      "passes": {
+        "american-repertory-theater-harvard": "american-rep-theater",
+        "boston-by-foot": "boston-by-foot",
+        "boston-childrens-museum": "boston-childrens-museum",
+        "boston-harbor-islands-ferry": "boston-harbor-islands",
+        "charles-riverboat-tour": "charles-riverboat-tour",
+        "harvard-museums-of-science-and-culture": "harvard-museums",
+        "mapparium": "mapparium",
+        "ica": "ica-boston",
+        "isabella-stewart-gardner": "isabella-stewart-gardner",
+        "museum-of-african-american-history": "maah",
+        "museum-of-fine-arts": "mfa",
+        "museum-of-science": "museum-of-science",
+        "new-england-aquarium": "new-england-aquarium",
+        "royall-house-slave-quarters": "royall-house",
+        "trustees-go-pass": "trustees-of-reservations",
+        "uss-constitution-museum": "uss-constitution-museum",
+        "zoo-new-england": "zoo-new-england"
+      }
+    },
+    "brookline": {
+      "domain": "brooklinelibrary.libcal.com",
+      "passes": {
+        "BCM": "boston-childrens-museum",
+        "bhi": "boston-harbor-islands",
+        "dcr": "ma-state-parks",
+        "hale": "hale-education",
+        "hmsc": "harvard-museums",
+        "ICA": "ica-boston",
+        "isgm": "isabella-stewart-gardner",
+        "jfk": "jfk-library",
+        "larz": "larz-anderson",
+        "maah": "maah",
+        "mfa": "mfa",
+        "mos": "museum-of-science",
+        "nea": "new-england-aquarium",
+        "pem": "peabody-essex-museum",
+        "trustees": "trustees-of-reservations",
+        "ussc": "uss-constitution-museum",
+        "c284e6b3063b": "zoo-new-england"
+      }
+    },
+    "braintree": {
+      "domain": "thayerpubliclibrary.libcal.com",
+      "passes": {
+        "17d847eefff3": "boston-childrens-museum",
+        "boston-harbor-islands-ferry": "boston-harbor-islands",
+        "dcdf3bc1bfa3": "boston-by-foot",
+        "7fbd09b84d9a": "childrens-museum-easton",
+        "2fe05b84d0f2": "harvard-museums",
+        "64c9079e0d98": "heritage-museums-gardens",
+        "e940911422f0": "ica-boston",
+        "687d5badd0f8": "isabella-stewart-gardner",
+        "a71087e41702": "ma-state-parks",
+        "1e43f98d7dfe": "mfa",
+        "d88885878c9e": "museum-of-science",
+        "cb542ce0a1b2": "new-england-aquarium",
+        "914d2e03c512": "plimoth-patuxet",
+        "4c48e57b80c8": "zoo-new-england"
+      }
+    },
+    "milton": {
+      "domain": "miltonlibrary.libcal.com",
+      "passes": {
+        "4707cb1bf482": "boston-childrens-museum",
+        "b4c4da37bf01": "boston-harbor-islands",
+        "277d9fc31a2f": "ica-boston",
+        "63e9141b1726": "isabella-stewart-gardner",
+        "8e90f9026d0e": "maplewood-day-camp",
+        "8aa9f59d5cbf": "mfa",
+        "1f44b99248f4": "museum-of-science",
+        "af5d9c4eb207": "new-england-aquarium",
+        "e9342f073f7b": "zoo-new-england"
+      }
+    }
+  }
+}
