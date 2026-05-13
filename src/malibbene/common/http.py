@@ -78,6 +78,16 @@ def fetch(
                 body = _fetch_urllib(url, headers=headers, timeout=timeout)
             _write_cache(url, body)
             return body
+        except urllib.error.HTTPError as e:
+            # Rate-limit / throttling (429, 503) and other server errors need
+            # a longer backoff than transient connection errors — Cloudflare's
+            # rate-limit window on Assabet subdomains is often 30-60s.
+            last_err = e
+            if e.code in (429, 503) or 500 <= e.code < 600:
+                time.sleep(5 * (3**attempt))  # 5s, 15s, 45s
+            else:
+                # 4xx other than 429: not retriable (404 etc.).
+                break
         except (urllib.error.URLError, TimeoutError, OSError) as e:
             last_err = e
             time.sleep(2**attempt)
