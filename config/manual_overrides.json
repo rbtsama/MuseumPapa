@@ -1,0 +1,11 @@
+{
+  "_comment": "Hand-curated overrides applied during the raw → structured pipeline (planned for v0.2 build step). Each key under 'libraries' / 'attractions' / 'passes' overrides the corresponding field after auto-extraction. Use this for: (a) correcting obviously wrong AI/regex extractions, (b) supplying fields the scraper can't see (e.g. extra residency rules buried in a PDF), (c) marking an attraction as 'closed permanently'. The build script will merge this layer LAST so manual edits always win.",
+  "_schema": {
+    "libraries": "object<lib_id, partial_library_record>",
+    "attractions": "object<benefit_id, partial_attraction_record>",
+    "passes": "object<lib_id, object<benefit_id, partial_pass_record>>"
+  },
+  "libraries": {},
+  "attractions": {},
+  "passes": {}
+}

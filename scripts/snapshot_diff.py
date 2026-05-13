@@ -1,18 +1,25 @@
-"""Snapshot today's Assabet/BPL index files and diff against the prior snapshot.
+"""Snapshot today's per-library index files and diff against the prior snapshot.
 
-Reports new/removed museum passes since the last snapshot — used to catch
-when a library adds or drops a museum from its program. BRD §6.1 calls this
-out as a maintenance signal we explicitly want.
+Covers all 3 scraping platforms via ``data/raw/<platform>/index/<lib_id>.json``:
+  - assabet  (52 libs)
+  - libcal   (5 libs including BPL)
+  - museumkey (2 libs, catalog-only)
+
+Reports two kinds of changes:
+  1. **Structural** — passes added / removed in a library's catalog (BRD §6.1
+     calls this out as a maintenance signal to catch new attractions).
+  2. **Field-level** — same slug present in both snapshots but its
+     ``pass_type``, ``label``, or ``benefits_text`` changed (ported from
+     backup/diff_catalog.py).
 
 Workflow:
-
-  1. For each ``data/raw/{assabet/index,bpl/index.json}`` file we know about,
-     copy it into ``data/snapshots/<YYYY-MM-DD>/<same relative path>``.
+  1. For each per-lib index file, copy it into
+     ``data/snapshots/<YYYY-MM-DD>/<same relative path>``.
   2. Compare today's files against the latest prior snapshot (if any).
-  3. Write a Markdown report to ``data/changelog/<YYYY-MM-DD>.md`` listing
-     added / removed slugs per library.
+  3. Write a Markdown report to ``data/changelog/<YYYY-MM-DD>.md``.
 
-Re-running on the same day is a no-op: today's snapshot dir already exists.
+Re-running on the same day is a no-op (today's snapshot dir already exists).
+First run with no prior snapshot prints "first snapshot" and exits 0.
 """
 
 from __future__ import annotations
@@ -28,16 +35,15 @@ RAW_DIR = REPO_ROOT / "data" / "raw"
 SNAPSHOTS_DIR = REPO_ROOT / "data" / "snapshots"
 CHANGELOG_DIR = REPO_ROOT / "data" / "changelog"
 
+PLATFORMS = ("assabet", "libcal", "museumkey")
+
 
 def index_files() -> list[Path]:
-    """All raw files we treat as 'index' for diffing."""
     out: list[Path] = []
-    assabet_index_dir = RAW_DIR / "assabet" / "index"
-    if assabet_index_dir.exists():
-        out.extend(sorted(assabet_index_dir.glob("*.json")))
-    bpl_index = RAW_DIR / "bpl" / "index.json"
-    if bpl_index.exists():
-        out.append(bpl_index)
+    for platform in PLATFORMS:
+        d = RAW_DIR / platform / "index"
+        if d.exists():
+            out.extend(sorted(d.glob("*.json")))
     return out
 
 
@@ -61,14 +67,61 @@ def latest_prior(today: str) -> Path | None:
     return prior_dirs[-1] if prior_dirs else None
 
 
-def slugs_of(path: Path) -> set[str]:
+def passes_of(path: Path) -> dict[str, dict]:
+    """Read a per-lib index file and return ``{slug: pass_record}`` (slug keys)."""
+    if not path.exists():
+        return {}
     data = json.loads(path.read_text(encoding="utf-8"))
-    if "passes" in data and isinstance(data["passes"], list):
-        return {
-            p.get("slug") or p.get("pass_id") or "?"
-            for p in data["passes"]
-        }
-    return set()
+    passes = data.get("passes")
+    if not isinstance(passes, list):
+        return {}
+    out: dict[str, dict] = {}
+    for p in passes:
+        slug = p.get("slug") or p.get("pass_id")
+        if slug:
+            out[slug] = p
+    return out
+
+
+def _normspace(s: str) -> str:
+    return " ".join((s or "").split()).strip().rstrip(".")
+
+
+def diff_one_file(today_file: Path | None, prior_file: Path | None) -> dict:
+    t = passes_of(today_file) if today_file else {}
+    p = passes_of(prior_file) if prior_file else {}
+    added = sorted(set(t) - set(p))
+    removed = sorted(set(p) - set(t))
+    field_changes: list[dict] = []
+    for slug in sorted(set(t) & set(p)):
+        a, b = t[slug], p[slug]
+        if a.get("pass_type") != b.get("pass_type"):
+            field_changes.append(
+                {
+                    "slug": slug,
+                    "field": "pass_type",
+                    "from": b.get("pass_type"),
+                    "to": a.get("pass_type"),
+                }
+            )
+        if a.get("label") != b.get("label"):
+            field_changes.append(
+                {
+                    "slug": slug,
+                    "field": "label",
+                    "from": b.get("label"),
+                    "to": a.get("label"),
+                }
+            )
+        if _normspace(a.get("benefits_text", "")) != _normspace(b.get("benefits_text", "")):
+            field_changes.append({"slug": slug, "field": "benefits_text"})
+    return {
+        "today_total": len(t),
+        "prior_total": len(p),
+        "added": added,
+        "removed": removed,
+        "field_changes": field_changes,
+    }
 
 
 def diff_index_files(today_dir: Path, prior_dir: Path) -> list[dict]:
@@ -78,20 +131,14 @@ def diff_index_files(today_dir: Path, prior_dir: Path) -> list[dict]:
     for rel in sorted(set(today_files) | set(prior_files)):
         a = today_files.get(rel)
         b = prior_files.get(rel)
-        t_slugs = slugs_of(a) if a else set()
-        p_slugs = slugs_of(b) if b else set()
-        added = sorted(t_slugs - p_slugs)
-        removed = sorted(p_slugs - t_slugs)
-        if added or removed or not a or not b:
+        d = diff_one_file(a, b)
+        if d["added"] or d["removed"] or d["field_changes"] or not a or not b:
             rows.append(
                 {
                     "file": str(rel).replace("\\", "/"),
-                    "today_total": len(t_slugs),
-                    "prior_total": len(p_slugs),
-                    "added": added,
-                    "removed": removed,
                     "missing_today": not a,
                     "missing_prior": not b,
+                    **d,
                 }
             )
     return rows
@@ -107,7 +154,7 @@ def write_report(today: str, prior_date: str | None, rows: list[dict]) -> Path:
         lines.append(f"Compared against prior snapshot: **{prior_date}**")
     lines.append("")
     if not rows:
-        lines.append("_No pass changes detected._")
+        lines.append("_No catalog changes detected._")
     for r in rows:
         lines.append(f"## `{r['file']}`")
         if r["missing_today"]:
@@ -122,6 +169,13 @@ def write_report(today: str, prior_date: str | None, rows: list[dict]) -> Path:
             lines.append("- Added: " + ", ".join(f"`{s}`" for s in r["added"]))
         if r["removed"]:
             lines.append("- Removed: " + ", ".join(f"`{s}`" for s in r["removed"]))
+        for fc in r["field_changes"]:
+            if fc["field"] == "benefits_text":
+                lines.append(f"- ~ `{fc['slug']}`: benefits_text changed")
+            else:
+                lines.append(
+                    f"- ~ `{fc['slug']}`: {fc['field']} {fc.get('from') or '∅'} → {fc.get('to') or '∅'}"
+                )
         lines.append("")
     md_path.write_text("\n".join(lines), encoding="utf-8")
     return md_path
@@ -142,7 +196,14 @@ def main() -> int:
     print(f"Snapshot → {today_dir}", file=sys.stderr)
     print(f"Report   → {md_path}", file=sys.stderr)
     if rows:
-        print(f"Changes detected in {len(rows)} index files.", file=sys.stderr)
+        added = sum(len(r["added"]) for r in rows)
+        removed = sum(len(r["removed"]) for r in rows)
+        field = sum(len(r["field_changes"]) for r in rows)
+        print(
+            f"Changes: {added} added, {removed} removed, {field} field-level changes "
+            f"across {len(rows)} index files.",
+            file=sys.stderr,
+        )
     return 0
 
 
