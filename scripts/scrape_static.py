@@ -1,16 +1,16 @@
 """Run every static-data scraper in dependency order.
 
 Order:
-  1. assabet.index_page       — discovers slugs + pass details (must run first)
-  2. bpl.index_page           — BPL pass list + detail pages
-  3. policies                  — all 15 libraries' Get-a-Card pages
-  4. attractions.sites         — 54 attraction official sites (needs steps 1+2)
-  5. attractions.reverse_lists — 3 museum reverse lists
-  6. holidays.us_federal       — 3-year US holiday calendar (no network)
+  1. assabet.index_page       — 52 Assabet libraries' master indices (must run first)
+  2. libcal.index_page        — 5 LibCal libraries (BPL + Cambridge/Brookline/Braintree/Milton)
+  3. museumkey.index_page     — 2 MuseumKey libraries (Cohasset, Hingham) — catalog only
+  4. policies                  — 59 libraries' Get-a-Card pages
+  5. attractions.sites         — attraction official sites (needs steps 1-3)
+  6. attractions.reverse_lists — museum reverse lists (Discovery / JFK / MASS MoCA)
+  7. holidays.us_federal       — 3-year US holiday calendar (no network)
 
 Static data is intended to be refreshed once per quarter (or whenever an
-Assabet master index changes). For daily availability, use
-``scripts/scrape_dynamic.py``.
+index page changes). For daily availability, use ``scripts/scrape_dynamic.py``.
 """
 
 from __future__ import annotations
@@ -21,12 +21,13 @@ import time
 
 
 STEPS = [
-    ("Assabet master index", "malibbene.sources.assabet.index_page"),
-    ("BPL pass index", "malibbene.sources.bpl.index_page"),
-    ("Library policies", "malibbene.sources.policies"),
-    ("Attraction official sites", "malibbene.sources.attractions.sites"),
-    ("Museum reverse lists", "malibbene.sources.attractions.reverse_lists"),
-    ("US federal holidays", "malibbene.sources.holidays.us_federal"),
+    ("Assabet master index",     "malibbene.sources.assabet.index_page"),
+    ("LibCal pass index",        "malibbene.sources.libcal.index_page"),
+    ("MuseumKey catalog",        "malibbene.sources.museumkey.index_page"),
+    ("Library policies",         "malibbene.sources.policies"),
+    ("Attraction official sites","malibbene.sources.attractions.sites"),
+    ("Museum reverse lists",     "malibbene.sources.attractions.reverse_lists"),
+    ("US federal holidays",      "malibbene.sources.holidays.us_federal"),
 ]
 
 

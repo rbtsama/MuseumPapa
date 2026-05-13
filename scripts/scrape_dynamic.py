@@ -1,13 +1,17 @@
 """Run availability scrapers (frequently re-run).
 
 Order:
-  1. assabet.availability  — 30-day calendar per (library × pass)
-  2. bpl.availability      — 30-day calendar per BPL pass
+  1. assabet.availability  — 52 libraries × ~20 passes each
+  2. libcal.availability   — 5 libraries (BPL + Cambridge/Brookline/Braintree/Milton)
+
+MuseumKey (Cohasset, Hingham) is intentionally not here — its calendar
+requires login (library card barcode) and is documented in BRD §A.3 as
+catalog-only.
 
 Re-run whenever you want fresh availability data. Outputs:
 
   data/raw/assabet/availability/<lib_id>.json
-  data/raw/bpl/availability.json
+  data/raw/libcal/availability/<lib_id>.json
 
 These are also copied to ``data/dynamic/`` at the end so downstream consumers
 have a single canonical location to look (planned for v0.2).
@@ -22,7 +26,7 @@ import time
 
 STEPS = [
     ("Assabet availability", "malibbene.sources.assabet.availability"),
-    ("BPL availability", "malibbene.sources.bpl.availability"),
+    ("LibCal availability",  "malibbene.sources.libcal.availability"),
 ]
 
 
