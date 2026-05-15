@@ -1,12 +1,12 @@
 {
   "slug": "blithewold",
-  "status": "failed:no_extractable_price",
-  "adult": null,
-  "child": null,
+  "status": "ok",
+  "adult": 22,
+  "child": 6,
   "senior": null,
-  "student": null,
-  "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.blithewold.org/"
+  "student": 18,
+  "family": 50,
+  "free_under_age": 5,
+  "notes": "Adult age 17+ $22; Child age 6-10 $6; Youth age 11-16 $11; Family=2 adults+2 children $50; Military/Student $18; under 5 free",
+  "source_url": "https://www.blithewold.org/general-admission"
 }

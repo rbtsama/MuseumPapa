@@ -1,12 +1,12 @@
 {
   "slug": "boston-athenaeum",
-  "status": "failed:no_extractable_price",
-  "adult": null,
-  "child": null,
+  "status": "ok",
+  "adult": 11,
+  "child": 5,
   "senior": null,
-  "student": null,
+  "student": 8,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.bostonathenaeum.org/"
+  "notes": "Visitors 14+ $11; ages 13 and under (with adult) $5; Students/Educators/Military $8; full-access one-day membership $40",
+  "source_url": "https://www.bostonathenaeum.org/visit"
 }

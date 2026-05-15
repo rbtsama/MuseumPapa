@@ -1,12 +1,12 @@
 {
   "slug": "naismith-memorial-basketball-hall-of-fame",
-  "status": "failed:no_extractable_price",
-  "adult": null,
-  "child": null,
-  "senior": null,
+  "status": "ok",
+  "adult": 27,
+  "child": 16,
+  "senior": 20,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.hoophall.com/"
+  "notes": "Lower tier: Adults $27, Youth 5-12 $16, Seniors 65+ $20; premium tier: Adults $34, Youth $20, Seniors $25",
+  "source_url": "https://www.hoophall.com/visit"
 }

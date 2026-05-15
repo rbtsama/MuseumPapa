@@ -1,12 +1,12 @@
 {
   "slug": "new-england-quilt-museum",
-  "status": "failed:no_extractable_price",
-  "adult": null,
+  "status": "ok",
+  "adult": 10,
   "child": null,
   "senior": null,
   "student": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.neqm.org/"
+  "free_under_age": 12,
+  "notes": "Regular Admission $10; Children 12 and under FREE; Museum Members FREE; EBT cardholders and 1 guest FREE",
+  "source_url": "https://www.neqm.org/visit"
 }

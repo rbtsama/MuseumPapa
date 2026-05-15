@@ -1,12 +1,12 @@
 {
   "slug": "the-aviation-museum-of-new-hampshire",
-  "status": "failed:no_extractable_price",
-  "adult": null,
-  "child": null,
-  "senior": null,
+  "status": "ok",
+  "adult": 15,
+  "child": 7.5,
+  "senior": 7.5,
   "student": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "https://aviationmuseumofnh.org/"
+  "free_under_age": 5,
+  "notes": "Adults 13+ $15; Youth 6-12 $7.50; Seniors/veterans/active military $7.50; under 5 FREE; EBT Museums for All $5",
+  "source_url": "https://aviationmuseumofnh.org/hours"
 }

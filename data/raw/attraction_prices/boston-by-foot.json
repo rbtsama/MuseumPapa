@@ -1,12 +1,12 @@
 {
   "slug": "boston-by-foot",
-  "status": "failed:no_extractable_price",
+  "status": "failed:no_general_admission_listed",
   "adult": null,
   "child": null,
   "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": "http://www.bostonbyfoot.org/"
+  "notes": "Tours range $10-$20 (walking) and $20-$49 (boat); no single fixed general admission price",
+  "source_url": "http://www.bostonbyfoot.org/tickets"
 }

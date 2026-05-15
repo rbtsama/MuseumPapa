@@ -1,12 +1,12 @@
 {
   "slug": "revolutionary-spaces",
-  "status": "failed:no_extractable_price",
-  "adult": null,
-  "child": null,
-  "senior": null,
-  "student": null,
+  "status": "ok",
+  "adult": 15,
+  "child": 8,
+  "senior": 13,
+  "student": 13,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "https://revolutionaryspaces.org/tickets"
+  "free_under_age": 5,
+  "notes": "Old State House: Adults $15, Seniors 65+ $13, Students $13, Children 6-12 $8, under 5 free; Old South: Adult 18-64 $18, Senior $16, Youth 6-17 $10",
+  "source_url": "https://revolutionaryspaces.org/hours-admission"
 }
