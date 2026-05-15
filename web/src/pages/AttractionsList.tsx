@@ -4,7 +4,6 @@ import { AttractionCard } from '../components/AttractionCard';
 import { Banner } from '../components/Banner';
 import { DatePicker } from '../components/DatePicker';
 import { SortDropdown, type SortOption } from '../components/SortDropdown';
-import { ZipInput } from '../components/ZipInput';
 import { CategoryChips } from '../components/CategoryChips';
 import { pickTags, type PickedTag } from '../lib/tag-algorithm';
 import { useAuth } from '../auth/store';
@@ -22,23 +21,34 @@ function todayIso(): string {
 export function AttractionsList() {
   const user = useAuth(s => s.currentUser);
   const cardpack = useCardpack(s => s.pack);
-  const favorites = useFavorites(s => s.slugs);
+  const favoritesLive = useFavorites(s => s.slugs);  // re-renders cards when toggled
   const loadCardpack = useCardpack(s => s.load);
   const loadFavorites = useFavorites(s => s.load);
 
   const [signInOpen, setSignInOpen] = useState(false);
   const [date, setDate] = useState(() => todayIso());
-  const [sort, setSort] = useState<SortOption>('favorites');
+  const [sort, setSort] = useState<SortOption>('recommended');
   const [category, setCategory] = useState<string>('all');
   const [userGeo, setUserGeo] = useState<Geo | null>(null);
 
-  // Sync stores to current user (guest -> 'guest' namespace, both work)
+  // Snapshot of favorites used by the SORT logic. Refreshed only when user
+  // changes sort/date/category (or first mount). This prevents the list from
+  // jumping when the user taps a heart — they don't want the card they just
+  // favorited to suddenly vanish to the top.
+  const [favSnapshot, setFavSnapshot] = useState<Set<string>>(() => new Set());
+
   useEffect(() => {
     loadCardpack(user?.username ?? null);
     loadFavorites(user?.username ?? null);
   }, [user, loadCardpack, loadFavorites]);
 
-  // Geocode ZIP if present
+  useEffect(() => {
+    setFavSnapshot(new Set(favoritesLive));
+    // Intentionally NOT depending on favoritesLive — we only want to re-snapshot
+    // when these "structural" inputs change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sort, date, category, user]);
+
   useEffect(() => {
     const zip = cardpack.zip;
     if (!zip || zip.length !== 5) { setUserGeo(null); return; }
@@ -80,84 +90,82 @@ export function AttractionsList() {
     });
   }, [attractions, passesBySlug, libraries, userCardLibIds, date, userGeo, isGuestOrEmpty]);
 
-  // Category filter (single-select)
+  // Category / Favorites filter
   const filteredRows = useMemo(() => {
     if (category === 'all') return rows;
+    if (category === 'favorites') {
+      return rows.filter(r => favoritesLive.has(r.attraction.slug));
+    }
     return rows.filter(r => r.attraction.categories.includes(category));
-  }, [rows, category]);
+  }, [rows, category, favoritesLive]);
 
   const sortedRows = useMemo(() => {
     const copy = [...filteredRows];
-    const isFav = (slug: string) => favorites.has(slug);
-    const compareName = (a: typeof copy[0], b: typeof copy[0]) =>
+    const isFav = (slug: string) => favSnapshot.has(slug);
+    const cmpName = (a: typeof copy[0], b: typeof copy[0]) =>
       a.attraction.museum_name.localeCompare(b.attraction.museum_name);
+    const minDist = (r: typeof copy[0]) => {
+      let best = Infinity;
+      for (const t of r.tags) {
+        if (t.distanceMi != null && t.distanceMi < best) best = t.distanceMi;
+      }
+      return best;
+    };
 
     switch (sort) {
-      case 'favorites':
+      case 'recommended':
         copy.sort((a, b) => {
           const fa = isFav(a.attraction.slug);
           const fb = isFav(b.attraction.slug);
           if (fa !== fb) return fa ? -1 : 1;
-          return compareName(a, b);
+          if (userGeo) {
+            const d = minDist(a) - minDist(b);
+            if (d !== 0) return d;
+          }
+          return cmpName(a, b);
         });
         break;
       case 'alpha':
-        copy.sort(compareName);
+        copy.sort(cmpName);
         break;
-      case 'distance': {
-        const minDist = (r: typeof copy[0]) => {
-          let best = Infinity;
-          for (const t of r.tags) {
-            if (t.distanceMi != null && t.distanceMi < best) best = t.distanceMi;
-          }
-          return best;
-        };
+      case 'distance':
         copy.sort((a, b) => minDist(a) - minDist(b));
         break;
-      }
-      case 'discount': {
-        const rank = (r: typeof copy[0]) => {
-          if (r.tags.length === 0) return 99;
-          const cls = r.tags[0].pass.discount.class;
-          const rankMap: Record<string, number> = {
-            free: 0, half: 1, 'percent-off': 2, 'dollar-off': 3, price: 4, discount: 5, unknown: 99,
-          };
-          return rankMap[cls] ?? 99;
-        };
-        copy.sort((a, b) => rank(a) - rank(b));
-        break;
-      }
     }
-    // "No passes available" sinks to bottom unless Favorited
-    copy.sort((a, b) => {
-      const ea = a.tags.length === 0 && !isFav(a.attraction.slug);
-      const eb = b.tags.length === 0 && !isFav(b.attraction.slug);
-      if (ea !== eb) return ea ? 1 : -1;
-      return 0;
-    });
+    // Attractions with no available passes sink to bottom on Recommended
+    // (but not on A-Z or Distance — those are mechanical sorts users
+    // explicitly opted into).
+    if (sort === 'recommended') {
+      copy.sort((a, b) => {
+        const ea = a.tags.length === 0 && !isFav(a.attraction.slug);
+        const eb = b.tags.length === 0 && !isFav(b.attraction.slug);
+        if (ea !== eb) return ea ? 1 : -1;
+        return 0;
+      });
+    }
     return copy;
-  }, [filteredRows, favorites, sort]);
+  }, [filteredRows, favSnapshot, sort, userGeo]);
 
   return (
     <>
       <Banner onSignInClick={() => setSignInOpen(true)} />
       <SignInModal isOpen={signInOpen} onClose={() => setSignInOpen(false)} />
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 py-4 sm:py-6">
         <h1 className="font-serif mb-3 sm:mb-4" style={{ fontSize: 22, color: 'var(--ink-2)' }}>
           Attractions
         </h1>
 
         <div className="flex flex-wrap gap-3 sm:gap-4 mb-3 items-end">
           <DatePicker value={date} onChange={setDate} />
-          <ZipInput />
           <SortDropdown value={sort} onChange={setSort} distanceEnabled={!!userGeo} />
         </div>
 
-        <div className="mb-4 -mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto">
+        <div className="mb-4">
           <CategoryChips
             attractions={attractions}
             value={category}
             onChange={setCategory}
+            favoritesCount={favoritesLive.size}
           />
         </div>
 

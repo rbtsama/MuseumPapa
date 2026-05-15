@@ -117,7 +117,7 @@ export function AttractionDetail() {
     <div className="max-w-6xl mx-auto px-4 py-6">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
         <Link to="/" style={{ color: 'var(--ink-3)', fontSize: 13 }}>← Back to attractions</Link>
-        <FavoriteButton slug={attraction.slug} size={22} />
+        <FavoriteButton slug={attraction.slug} />
       </div>
       <div style={{ display: 'flex', gap: 24, marginBottom: 24, alignItems: 'flex-start', flexWrap: 'wrap' }}>
         <img src={heroSrc} alt="" style={{
