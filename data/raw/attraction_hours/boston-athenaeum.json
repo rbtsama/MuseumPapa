@@ -1,0 +1,16 @@
+{
+  "slug": "boston-athenaeum",
+  "status": "ok",
+  "regular_hours": {
+    "mon": "9 AM – 8 PM",
+    "tue": "9 AM – 8 PM",
+    "wed": "9 AM – 8 PM",
+    "thu": "9 AM – 8 PM",
+    "fri": "9 AM – 5 PM",
+    "sat": "9 AM – 5 PM",
+    "sun": "Closed"
+  },
+  "notes": null,
+  "source": "admission_html",
+  "source_url": "https://www.bostonathenaeum.org/visit"
+}

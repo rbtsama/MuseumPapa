@@ -1,0 +1,16 @@
+{
+  "slug": "ecotarium",
+  "status": "ok",
+  "regular_hours": {
+    "mon": "Closed",
+    "tue": "10:00 AM – 5:00 PM",
+    "wed": "10:00 AM – 5:00 PM",
+    "thu": "10:00 AM – 5:00 PM",
+    "fri": "10:00 AM – 5:00 PM",
+    "sat": "10:00 AM – 5:00 PM",
+    "sun": "10:00 AM – 5:00 PM"
+  },
+  "notes": "Admission ticket sales close at 4:00 PM daily.",
+  "source": "admission_html",
+  "source_url": "http://www.ecotarium.org/"
+}
