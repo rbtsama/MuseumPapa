@@ -8,12 +8,64 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "src"))
 
+import re
+
 from malibbene.common import geocode as gmod
 
+# Address tokens Nominatim chokes on — strip before sending
+_NOISE_TOKENS = [
+    r"\bSuite\s+\d+[A-Z]?\b",
+    r"\bUnit\s+[A-Z0-9]+\b",
+    r"\bBuilding\s+\d+\b",
+    r"\bSte\.?\s+\d+[A-Z]?\b",
+    r"\bAdministrative Offices:[^,]*",
+    r"\bSeifert Performing Arts Center\b",
+    r"\bOdiorne Point State Park\b",
+    r"\bCharlestown Navy Yard\b",
+]
 
-def _attraction_query(entry: dict) -> str | None:
+
+def _clean_address(addr: str) -> str:
+    for pat in _NOISE_TOKENS:
+        addr = re.sub(pat, "", addr, flags=re.IGNORECASE)
+    # "297-321 East Street" → "297 East Street" (Nominatim wants a single number)
+    addr = re.sub(r"\b(\d+)\s*-\s*\d+\b", r"\1", addr)
+    addr = re.sub(r",\s*,", ",", addr)
+    addr = re.sub(r"\s+", " ", addr).strip(", ")
+    return addr
+
+
+def _clean_name(name: str) -> str:
+    name = re.sub(r"\s*\(.*?\)\s*", " ", name)  # drop parens
+    name = name.split("/")[0]  # "X/Y" → "X"
+    return re.sub(r"\s+", " ", name).strip()
+
+
+def _attraction_queries(entry: dict) -> list[str]:
+    """Yield candidate geocode queries in priority order."""
+    queries: list[str] = []
     addr = (entry.get("address") or "").strip()
-    return addr or None
+    if addr:
+        queries.append(addr)
+        cleaned = _clean_address(addr)
+        if cleaned and cleaned != addr:
+            queries.append(cleaned)
+    name = (entry.get("museum_name") or "").strip()
+    if name:
+        queries.append(f"{name}, Massachusetts, USA")
+        queries.append(name)
+        clean = _clean_name(name)
+        if clean and clean != name:
+            queries.append(f"{clean}, Massachusetts, USA")
+            queries.append(clean)
+    # Dedup preserving order
+    seen: set[str] = set()
+    out: list[str] = []
+    for q in queries:
+        if q not in seen:
+            seen.add(q)
+            out.append(q)
+    return out
 
 
 def _library_query(addr_record: dict) -> str | None:
@@ -44,13 +96,20 @@ def main() -> int:
         if slug.startswith("_"):
             continue  # _meta etc.
         n_attr += 1
-        q = _attraction_query(entry)
-        if not q:
-            out["attractions"][slug] = {"ok": False, "error": "no_address"}
+        queries = _attraction_queries(entry)
+        if not queries:
+            out["attractions"][slug] = {"ok": False, "error": "no_address_or_name"}
             continue
-        r = gmod.geocode(q)
-        out["attractions"][slug] = r
-        if r.get("ok"):
+        result: dict = {"ok": False, "error": "no_results"}
+        for q in queries:
+            r = gmod.geocode(q)
+            if r.get("ok"):
+                result = r
+                result["query"] = q
+                break
+            result = r
+        out["attractions"][slug] = result
+        if result.get("ok"):
             n_ok += 1
     print(f"Attractions: {n_ok}/{n_attr} geocoded")
 

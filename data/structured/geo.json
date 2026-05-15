@@ -3,493 +3,614 @@
     "boston-childrens-museum": {
       "ok": true,
       "lat": 42.3518468,
-      "lon": -71.0496461
+      "lon": -71.0496461,
+      "query": "308 Congress Street, Boston, MA 02210"
     },
     "concord-museum": {
       "ok": true,
       "lat": 42.4576843,
-      "lon": -71.3417122
+      "lon": -71.3417122,
+      "query": "200 Lexington Road, Concord, MA 01742"
     },
     "davis-farmland": {
       "ok": true,
       "lat": 42.4358233,
-      "lon": -71.7275795
+      "lon": -71.7275795,
+      "query": "145 Redstone Hill, Sterling, MA 01564"
     },
     "the-discovery-museums": {
       "ok": true,
       "lat": 42.4641848,
-      "lon": -71.4552672
+      "lon": -71.4552672,
+      "query": "177 Main Street, Acton, MA 01720"
     },
     "ecotarium": {
       "ok": true,
       "lat": 42.2644394,
-      "lon": -71.7667726
+      "lon": -71.7667726,
+      "query": "222 Harrington Way, Worcester, MA 01604"
     },
     "garden-in-the-woods-native-plant-trust": {
       "ok": true,
       "lat": 42.3413805,
-      "lon": -71.4272867
+      "lon": -71.4272867,
+      "query": "180 Hemenway Road, Framingham, MA 01701"
     },
     "harvard-museums-of-science-and-culture": {
       "ok": true,
       "lat": 42.3782138,
-      "lon": -71.1149279
+      "lon": -71.1149279,
+      "query": "11 Divinity Avenue, Cambridge, MA 02138"
     },
     "institute-of-contemporary-art-boston": {
       "ok": true,
       "lat": 42.3528651,
-      "lon": -71.0429628
+      "lon": -71.0429628,
+      "query": "25 Harbor Shore Drive, Boston, MA 02210"
     },
     "isabella-stewart-gardner-museum": {
       "ok": true,
       "lat": 42.338245,
-      "lon": -71.0991538
+      "lon": -71.0991538,
+      "query": "25 Evans Way, Boston, MA 02115"
     },
     "john-f-kennedy-library-and-museum": {
       "ok": true,
       "lat": 42.3320968,
-      "lon": -71.0284871
+      "lon": -71.0284871,
+      "query": "Columbia Point, Boston, MA 02125"
     },
     "mass-audubon-drumlin-farm": {
       "ok": true,
       "lat": 42.4047062,
-      "lon": -71.3208652
+      "lon": -71.3208652,
+      "query": "208 South Great Road, Lincoln, MA 01773"
     },
     "massachusetts-state-parks-department-of-conservation-and-recreation": {
-      "ok": false,
-      "error": "no_results"
+      "ok": true,
+      "lat": 42.3664598,
+      "lon": -71.0589378,
+      "query": "251 Causeway Street, Boston, MA 02114"
     },
     "museum-of-fine-arts": {
       "ok": true,
       "lat": 42.3394573,
-      "lon": -71.093897
+      "lon": -71.093897,
+      "query": "465 Huntington Avenue, Boston, MA 02115"
     },
     "museum-of-science": {
       "ok": true,
       "lat": 42.3674305,
-      "lon": -71.071098
+      "lon": -71.071098,
+      "query": "1 Science Park, Boston, MA 02114"
     },
     "new-england-aquarium": {
-      "ok": false,
-      "error": "no_results"
+      "ok": true,
+      "lat": 42.3592003,
+      "lon": -71.0491841,
+      "query": "New England Aquarium, Massachusetts, USA"
     },
     "new-england-botanic-garden-at-tower-hill": {
       "ok": true,
       "lat": 42.3616083,
-      "lon": -71.7261263
+      "lon": -71.7261263,
+      "query": "11 French Drive, Boylston, MA 01505-0598"
     },
     "peabody-essex-museum": {
       "ok": true,
       "lat": 42.5215925,
-      "lon": -70.8921931
+      "lon": -70.8921931,
+      "query": "161 Essex Street, Salem, MA 01970-3783"
     },
     "the-trustees-of-the-reservations": {
-      "ok": false,
-      "error": "no_address"
+      "ok": true,
+      "lat": 42.5051034,
+      "lon": -73.0370034,
+      "query": "Trustees of Reservations, Massachusetts, USA"
     },
     "zoo-new-england": {
       "ok": true,
       "lat": 42.3028346,
-      "lon": -71.0876281
+      "lon": -71.0876281,
+      "query": "1 Franklin Park Road, Boston, MA 02121"
     },
     "the-aviation-museum-of-new-hampshire": {
       "ok": true,
       "lat": 42.92738,
-      "lon": -71.4280802
+      "lon": -71.4280802,
+      "query": "27 Navigator Road, Londonderry, NH 03053"
     },
     "bedrock-gardens": {
       "ok": true,
       "lat": 43.0962062,
-      "lon": -71.042139
+      "lon": -71.042139,
+      "query": "19 High Road, Lee, NH 03861"
     },
     "boston-harbor-island-ferry": {
-      "ok": false,
-      "error": "no_results"
+      "ok": true,
+      "lat": 42.3585452,
+      "lon": -71.0574559,
+      "query": "15 State Street, Boston, MA 02109"
     },
     "childrens-museum-of-new-hampshire": {
       "ok": true,
       "lat": 43.1948506,
-      "lon": -70.8730038
+      "lon": -70.8730038,
+      "query": "6 Washington Street, Dover, NH 03820"
     },
     "historic-new-england": {
-      "ok": false,
-      "error": "no_results"
+      "ok": true,
+      "lat": 42.3612752,
+      "lon": -71.0661695,
+      "query": "141 Cambridge Street, Boston, MA 02114"
     },
     "the-house-of-seven-gables": {
       "ok": true,
       "lat": 42.5218159,
-      "lon": -70.8838227
+      "lon": -70.8838227,
+      "query": "115 Derby Street, Salem, MA 01970"
     },
     "new-england-quilt-museum": {
       "ok": true,
       "lat": 42.6453702,
-      "lon": -71.3120855
+      "lon": -71.3120855,
+      "query": "18 Shattuck St., Lowell, MA 01852"
     },
     "new-hampshire-philharmonic-orchestra": {
-      "ok": false,
-      "error": "no_results"
+      "ok": true,
+      "lat": 42.7805966,
+      "lon": -71.2124976,
+      "query": "44 Geremonty Drive, Salem, NH 03079"
     },
     "north-shore-childrens-museum": {
       "ok": true,
       "lat": 42.5256092,
-      "lon": -70.9269447
+      "lon": -70.9269447,
+      "query": "10 Main Street, Peabody, MA 01960"
     },
     "plimoth-patuxet-museums": {
       "ok": true,
       "lat": 41.9393938,
-      "lon": -70.625786
+      "lon": -70.625786,
+      "query": "137 Warren Avenue, Plymouth, MA 02360"
     },
     "salem-witch-museum": {
       "ok": true,
       "lat": 42.5237449,
-      "lon": -70.8911625
+      "lon": -70.8911625,
+      "query": "19 1/2 Washington Square, Salem, MA 01970"
     },
     "seacoast-science-center": {
-      "ok": false,
-      "error": "no_results"
+      "ok": true,
+      "lat": 43.0452676,
+      "lon": -70.7141151,
+      "query": "570 Ocean Boulevard, Rye, NH 03870"
     },
     "wenham-museum": {
       "ok": true,
       "lat": 42.6038387,
-      "lon": -70.887136
+      "lon": -70.887136,
+      "query": "132 Main Street, Wenham, MA 01984"
     },
     "mass-audubon": {
       "ok": true,
       "lat": 31.1728205,
-      "lon": -7.3362482
+      "lon": -7.3362482,
+      "query": "MA"
     },
     "armenian-museum-of-america": {
       "ok": true,
       "lat": 42.366366,
-      "lon": -71.1857857
+      "lon": -71.1857857,
+      "query": "65 Main Street, Watertown, MA 02472"
     },
     "boston-by-foot": {
       "ok": true,
       "lat": 42.3584603,
-      "lon": -71.0679578
+      "lon": -71.0679578,
+      "query": "87 Mount Vernon Street, Boston, MA 02108"
     },
     "gore-place": {
       "ok": true,
       "lat": 42.3725738,
-      "lon": -71.2127601
+      "lon": -71.2127601,
+      "query": "52 Gore Street, Waltham, MA 02453"
     },
     "orchard-house": {
       "ok": true,
       "lat": 42.4590881,
-      "lon": -71.3350541
+      "lon": -71.3350541,
+      "query": "399 Lexington Road, Concord, MA 01742"
     },
     "the-uss-constitution-museum": {
-      "ok": false,
-      "error": "no_results"
+      "ok": true,
+      "lat": 42.3778749,
+      "lon": -71.0619957,
+      "query": "Charlestown, MA 02129"
     },
     "american-heritage-museum": {
       "ok": true,
       "lat": 42.3938502,
-      "lon": -71.5383048
+      "lon": -71.5383048,
+      "query": "568 Main Street, Hudson, MA 01749"
     },
     "the-butterfly-place": {
       "ok": true,
       "lat": 42.6419513,
-      "lon": -71.43968
+      "lon": -71.43968,
+      "query": "120 Tyngsboro Road, Westford, MA 01886"
     },
     "trustees-of-the-reservations": {
       "ok": true,
       "lat": 31.1728205,
-      "lon": -7.3362482
+      "lon": -7.3362482,
+      "query": "MA"
     },
     "boston-athenaeum": {
       "ok": true,
       "lat": 42.3579152,
-      "lon": -71.0620806
+      "lon": -71.0620806,
+      "query": "10 1/2 Beacon Street, Boston, MA 02108"
     },
     "the-childrens-piazza": {
-      "ok": false,
-      "error": "no_results"
+      "ok": true,
+      "lat": 42.543688,
+      "lon": -71.0017964,
+      "query": "83 Pine Street, Peabody, MA 01960"
     },
     "griffin-museum-of-photography": {
       "ok": true,
       "lat": 42.4545473,
-      "lon": -71.1358974
+      "lon": -71.1358974,
+      "query": "67 Shore Road, Winchester, MA 01890"
     },
     "naismith-memorial-basketball-hall-of-fame": {
       "ok": true,
       "lat": 42.0937115,
-      "lon": -72.58506
+      "lon": -72.58506,
+      "query": "1000 Hall of Fame Avenue, Springfield, MA 01105"
     },
     "the-danforth": {
       "ok": true,
       "lat": 42.3024928,
-      "lon": -71.4358628
+      "lon": -71.4358628,
+      "query": "14 Vernon Street, Framingham, MA 01701"
     },
     "worcester-art-museum": {
       "ok": true,
       "lat": 42.2730336,
-      "lon": -71.801977
+      "lon": -71.801977,
+      "query": "55 Salisbury Street, Worcester, MA 01609"
     },
     "americas-stonehenge": {
       "ok": true,
       "lat": 42.8432515,
-      "lon": -71.2049436
+      "lon": -71.2049436,
+      "query": "105 Haverhill Road, Salem, NH 03079"
     },
     "currier-museum-of-art": {
       "ok": true,
       "lat": 42.9977038,
-      "lon": -71.455607
+      "lon": -71.455607,
+      "query": "150 Ash Street, Manchester, NH 03104"
     },
     "museum-of-printing": {
       "ok": true,
       "lat": 42.7728423,
-      "lon": -71.1208851
+      "lon": -71.1208851,
+      "query": "15 Thornton Avenue, Haverhill, MA 01832"
     },
     "public-health-museum": {
-      "ok": false,
-      "error": "no_results"
+      "ok": true,
+      "lat": 42.6116085,
+      "lon": -71.221463,
+      "query": "297 East Street, Tewksbury, MA 01876"
     },
     "wheelock-family-theatre": {
-      "ok": false,
-      "error": "no_results"
+      "ok": true,
+      "lat": 42.3420649,
+      "lon": -71.1060693,
+      "query": "Wheelock Family Theatre, Massachusetts, USA"
     },
     "blithewold": {
-      "ok": false,
-      "error": "no_results"
+      "ok": true,
+      "lat": 41.6541951,
+      "lon": -71.2658089,
+      "query": "Blithewold"
     },
     "charles-river-museum-of-industry-and-innovation": {
       "ok": true,
       "lat": 42.3729771,
-      "lon": -71.2335933
+      "lon": -71.2335933,
+      "query": "154 Moody Street, Waltham, MA 02453"
     },
     "harvard-museum-of-natural-history": {
       "ok": true,
       "lat": 42.3782074,
-      "lon": -71.1154484
+      "lon": -71.1154484,
+      "query": "26 Oxford Street, Cambridge, MA 02138"
     },
     "american-repertory-theater": {
       "ok": true,
       "lat": 42.3748602,
-      "lon": -71.1229496
+      "lon": -71.1229496,
+      "query": "64 Brattle Street, Cambridge, MA 02138"
     },
     "paddle-boston": {
       "ok": true,
       "lat": 42.3595414,
-      "lon": -71.2457292
+      "lon": -71.2457292,
+      "query": "160 Riverview Avenue, Waltham, MA 02453"
     },
     "the-icon-museum-and-study-center": {
       "ok": true,
       "lat": 42.4156265,
-      "lon": -71.6835581
+      "lon": -71.6835581,
+      "query": "203 Union Street, Clinton, MA 01510"
     },
     "sandmagination": {
       "ok": true,
       "lat": 42.5411458,
-      "lon": -70.9461642
+      "lon": -70.9461642,
+      "query": "210 Andover Street, Peabody, MA 01960"
     },
     "harvard-art-museums": {
       "ok": true,
       "lat": 42.3742178,
-      "lon": -71.1145269
+      "lon": -71.1145269,
+      "query": "32 Quincy Street, Cambridge, MA 02138"
     },
     "paul-revere-house": {
       "ok": true,
       "lat": 42.3637378,
-      "lon": -71.0536827
+      "lon": -71.0536827,
+      "query": "19 North Square, Boston, MA 02113"
     },
     "animal-adventures": {
       "ok": true,
       "lat": 42.4509712,
-      "lon": -71.5846761
+      "lon": -71.5846761,
+      "query": "336 Sugar Road, Bolton, MA 01740"
     },
     "christian-science-plaza": {
-      "ok": false,
-      "error": "no_address"
+      "ok": true,
+      "lat": 42.3444574,
+      "lon": -71.0833719,
+      "query": "Christian Science Plaza, Massachusetts, USA"
     },
     "real-pirates-salem": {
       "ok": true,
       "lat": 42.5198178,
-      "lon": -70.8912532
+      "lon": -70.8912532,
+      "query": "285 Derby Street, Salem, MA 01970"
     },
     "roger-williams-park-zoo": {
       "ok": true,
       "lat": 41.7886061,
-      "lon": -71.4165508
+      "lon": -71.4165508,
+      "query": "1000 Elmwood Avenue, Providence, RI 02907"
     },
     "strawbery-banke-museum": {
       "ok": true,
       "lat": 43.0753205,
-      "lon": -70.7521466
+      "lon": -70.7521466,
+      "query": "14 Hancock Street, Portsmouth, NH 03801"
     },
     "battleship-cove": {
       "ok": true,
       "lat": 41.7068931,
-      "lon": -71.1629563
+      "lon": -71.1629563,
+      "query": "5 Water Street, Fall River, MA 02721"
     },
     "decordova-sculpture-park-and-museum": {
       "ok": true,
       "lat": 42.4299852,
-      "lon": -71.3111241
+      "lon": -71.3111241,
+      "query": "51 Sandy Pond Road, Lincoln, MA 01773"
     },
     "the-gardens-at-elm-bank": {
       "ok": true,
       "lat": 42.28045,
-      "lon": -71.30787
+      "lon": -71.30787,
+      "query": "900 Washington Street, Wellesley, MA 02482"
     },
     "old-sturbridge-village": {
-      "ok": false,
-      "error": "no_address"
+      "ok": true,
+      "lat": 42.1038149,
+      "lon": -72.1011232,
+      "query": "Old Sturbridge Village, Massachusetts, USA"
     },
     "historic-newton": {
       "ok": true,
       "lat": 42.3300435,
-      "lon": -71.194862
+      "lon": -71.194862,
+      "query": "Newton, MA 02458"
     },
     "larz-anderson-auto-museum": {
       "ok": true,
       "lat": 42.3104567,
-      "lon": -71.134743
+      "lon": -71.134743,
+      "query": "15 Newton Street, Brookline, MA 02445"
     },
     "west-suburban-ymca": {
       "ok": true,
       "lat": 42.3300435,
-      "lon": -71.194862
+      "lon": -71.194862,
+      "query": "Newton, MA"
     },
     "heritage-museums-and-gardens": {
       "ok": true,
       "lat": 41.7486723,
-      "lon": -70.5059897
+      "lon": -70.5059897,
+      "query": "67 Grove Street, Sandwich, MA 02563"
     },
     "new-bedford-whaling-museum": {
       "ok": true,
       "lat": 41.635169,
-      "lon": -70.9231848
+      "lon": -70.9231848,
+      "query": "18 Johnny Cake Hill, New Bedford, MA 02740"
     },
     "sandwich-glass-museum": {
       "ok": true,
       "lat": 41.7586908,
-      "lon": -70.500422
+      "lon": -70.500422,
+      "query": "129 Main Street, Sandwich, MA 02563"
     },
     "greater-boston-stage-company": {
       "ok": true,
       "lat": 42.4791611,
-      "lon": -71.1006441
+      "lon": -71.1006441,
+      "query": "395 Main Street, Stoneham, MA 02180"
     },
     "massachusetts-state-police-museum-and-learning-center": {
       "ok": true,
       "lat": 42.1107574,
-      "lon": -71.6645834
+      "lon": -71.6645834,
+      "query": "1 Memorial Square, Whitinsville, MA 01588"
     },
     "the-spellman-museum-of-stamps-and-postal-history": {
       "ok": true,
       "lat": 42.3484608,
-      "lon": -71.3071015
+      "lon": -71.3071015,
+      "query": "241 Wellesley Street, Weston, MA 02493"
     },
     "einsteins-workshop": {
       "ok": true,
       "lat": 42.4699097,
-      "lon": -71.2136793
+      "lon": -71.2136793,
+      "query": "25 Adams Street, Burlington, MA 01803"
     },
     "patriots-hall-of-fame": {
       "ok": true,
       "lat": 42.0894304,
-      "lon": -71.2603702
+      "lon": -71.2603702,
+      "query": "One Patriot Place, Foxborough, MA 02035"
     },
     "american-rep-theater": {
-      "ok": false,
-      "error": "no_address"
+      "ok": true,
+      "lat": 42.3748602,
+      "lon": -71.1229496,
+      "query": "American Repertory Theatre, Massachusetts, USA"
     },
     "boch-center": {
       "ok": false,
-      "error": "no_address"
+      "error": "no_results"
     },
     "boston-harbor-islands": {
       "ok": true,
       "lat": 42.3601996,
-      "lon": -71.0524197
+      "lon": -71.0524197,
+      "query": "191W Atlantic Avenue, Boston, Massachusetts, 02110"
     },
     "ma-state-parks": {
       "ok": false,
-      "error": "no_address"
+      "error": "no_results"
     },
     "hale-education": {
-      "ok": false,
-      "error": "no_address"
+      "ok": true,
+      "lat": 42.2334515,
+      "lon": -71.2381456,
+      "query": "Hale Education, Massachusetts, USA"
     },
     "harvard-museums": {
       "ok": false,
-      "error": "no_address"
+      "error": "no_results"
     },
     "mapparium": {
       "ok": true,
       "lat": 42.3457649,
-      "lon": -71.0868834
+      "lon": -71.0868834,
+      "query": "210 Massachusetts Avenue, Boston, Massachusetts, 02115"
     },
     "ica-boston": {
       "ok": true,
       "lat": 42.3528651,
-      "lon": -71.0429628
+      "lon": -71.0429628,
+      "query": "25 Harbor Shore Drive, Boston, MA, 02120"
     },
     "isabella-stewart-gardner": {
       "ok": true,
       "lat": 42.338245,
-      "lon": -71.0991538
+      "lon": -71.0991538,
+      "query": "25 Evans Way, Boston, Massachusetts, 02115"
     },
     "larz-anderson": {
-      "ok": false,
-      "error": "no_address"
+      "ok": true,
+      "lat": 42.3104567,
+      "lon": -71.134743,
+      "query": "Larz Anderson Museum, Massachusetts, USA"
     },
     "mfa": {
       "ok": true,
       "lat": 42.3394573,
-      "lon": -71.093897
+      "lon": -71.093897,
+      "query": "465 Huntington Avenue, Boston, MA, 02115"
     },
     "revolutionary-spaces": {
       "ok": false,
-      "error": "no_address"
+      "error": "no_results"
     },
     "sandwich-glass": {
-      "ok": false,
-      "error": "no_address"
+      "ok": true,
+      "lat": 41.7586908,
+      "lon": -70.500422,
+      "query": "Sandwich Glass Museum, Massachusetts, USA"
     },
     "greenway-carousel": {
       "ok": false,
-      "error": "no_address"
+      "error": "no_results"
     },
     "trustees-of-reservations": {
       "ok": false,
-      "error": "no_address"
+      "error": "no_results"
     },
     "uss-constitution-museum": {
       "ok": true,
       "lat": 42.3738878,
-      "lon": -71.0555158
+      "lon": -71.0555158,
+      "query": "USS Constitution Museum Building 22, Charlestown, MA, 02129"
     },
     "maah": {
       "ok": true,
       "lat": 42.359995,
-      "lon": -71.0652097
+      "lon": -71.0652097,
+      "query": "46 Joy St., Boston, MA, 02114"
     },
     "charles-riverboat-tour": {
       "ok": true,
       "lat": 42.3677346,
-      "lon": -71.0761804
+      "lon": -71.0761804,
+      "query": "100 Cambridgeside Pl, Cambridge, MA, 02141"
     },
     "butterfly-place": {
-      "ok": false,
-      "error": "no_address"
+      "ok": true,
+      "lat": 42.6417838,
+      "lon": -71.4400553,
+      "query": "The Butterfly Place, Massachusetts, USA"
     },
     "cohasset-historical-society": {
-      "ok": false,
-      "error": "no_address"
+      "ok": true,
+      "lat": 42.2387652,
+      "lon": -70.7996633,
+      "query": "Cohasset Historical Society, Massachusetts, USA"
     },
     "jfk-library": {
-      "ok": false,
-      "error": "no_address"
+      "ok": true,
+      "lat": 42.3161793,
+      "lon": -71.0340257,
+      "query": "John F. Kennedy Presidential Library and Museum, Massachusetts, USA"
     },
     "plimoth-patuxet": {
-      "ok": false,
-      "error": "no_address"
+      "ok": true,
+      "lat": 41.9372269,
+      "lon": -70.6199489,
+      "query": "Plimoth Patuxet, Massachusetts, USA"
     },
     "heritage-museums-gardens": {
-      "ok": false,
-      "error": "no_address"
+      "ok": true,
+      "lat": 41.7486723,
+      "lon": -70.5059897,
+      "query": "Heritage Museums & Gardens, Massachusetts, USA"
     }
   },
   "libraries": {
