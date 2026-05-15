@@ -11,11 +11,11 @@ interface Props {
   sourceCountForGuest?: number;
 }
 
-const TYPE_STYLE = {
-  'digital':         { icon: '⚡', label: 'Digital',   bg: 'var(--g-pale)',  fg: 'var(--g)'  },
-  'physical-coupon': { icon: '🎫', label: 'Pickup',    bg: 'var(--au-pale)', fg: 'var(--au)' },
-  'loan-card':       { icon: '🔁', label: 'Pickup & return', bg: 'var(--or-pale)', fg: 'var(--or)' },
-  'unknown':         { icon: '?',  label: 'Unknown',   bg: 'var(--paper)',   fg: 'var(--ink-3)' },
+const TYPE_META = {
+  'digital':         { icon: '⚡', word: 'digital',  fg: 'var(--g)'  },
+  'physical-coupon': { icon: '🎫', word: 'pickup',   fg: 'var(--au)' },
+  'loan-card':       { icon: '🔁', word: 'loan',     fg: 'var(--or)' },
+  'unknown':         { icon: '·',  word: 'pass',     fg: 'var(--ink-3)' },
 } as const;
 
 function heroSrc(a: Attraction): string {
@@ -25,8 +25,7 @@ function heroSrc(a: Attraction): string {
   }
   const cat = a.categories?.[0]?.toLowerCase() ?? 'default';
   const known = ['family','children','history','nature','art','science','ocean','recreation'];
-  const slug = known.includes(cat) ? cat : 'default';
-  return `/placeholders/${slug}.svg`;
+  return `/placeholders/${known.includes(cat) ? cat : 'default'}.svg`;
 }
 
 function fmtMoney(v: number | null | undefined): string {
@@ -37,134 +36,193 @@ function fmtMoney(v: number | null | undefined): string {
 }
 
 function townFromAddress(addr: string): string {
-  // Extract town from "123 Main St, Townname, MA 01234" or similar
   const m = addr.match(/,\s*([^,]+?),\s*[A-Z]{2}\s+\d{5}/);
-  return m ? m[1].trim() : '';
+  if (m) return `${m[1].trim()}, MA`;
+  const m2 = addr.match(/,\s*([^,]+?),\s*[A-Z]{2}\b/);
+  return m2 ? `${m2[1].trim()}, MA` : '';
+}
+
+function summarizePassTypes(tags: PickedTag[]) {
+  const buckets = { digital: 0, 'physical-coupon': 0, 'loan-card': 0 };
+  for (const t of tags) {
+    if (t.pass.pass_type in buckets) {
+      buckets[t.pass.pass_type as keyof typeof buckets] += 1;
+    }
+  }
+  return buckets;
 }
 
 export function AttractionCard({
   attraction, pickedTags, isGuestOrEmpty = false, sourceCountForGuest = 0,
 }: Props) {
-  const town = townFromAddress(attraction.address) || (attraction.categories[0] ?? '');
+  const town = townFromAddress(attraction.address);
   const adult = attraction.original_price?.adult ?? null;
   const child = attraction.original_price?.child ?? null;
+  const totalDiscounts = pickedTags.length;
+  const best = pickedTags[0] ?? null;
+  const bestFinal = best ? applyDiscount(attraction.original_price, best.pass.discount) : null;
+  const bestMeta = best ? TYPE_META[best.pass.pass_type] : null;
+  const bucket = summarizePassTypes(pickedTags);
 
   return (
     <Link
       to={`/attractions/${attraction.slug}`}
-      className="block bg-white border border-[color:var(--rule)] rounded-md overflow-hidden mb-4 hover:border-[color:var(--rule-strong)] transition-colors"
-      style={{ color: 'inherit', textDecoration: 'none' }}
+      className="block bg-[color:var(--white)] rounded-lg overflow-hidden mb-3 transition-colors active:bg-[color:var(--paper)]"
+      style={{
+        color: 'inherit',
+        textDecoration: 'none',
+        border: '1px solid var(--rule)',
+      }}
     >
-      {/* Top section: attraction info */}
-      <div className="flex flex-col sm:flex-row">
-        <div className="relative w-full h-48 sm:w-64 sm:h-auto sm:min-h-[200px] flex-shrink-0">
+      {/* Header: image + basic info */}
+      <div className="flex gap-3 p-3">
+        <div className="relative flex-shrink-0">
           <img
             src={heroSrc(attraction)}
             alt=""
             loading="lazy"
-            className="w-full h-full object-cover bg-[color:var(--paper)]"
+            className="rounded-md object-cover bg-[color:var(--paper)]"
+            style={{ width: 110, height: 110 }}
           />
-          <div className="absolute top-2 right-2 bg-white/85 rounded-full px-1 py-0.5">
-            <FavoriteButton slug={attraction.slug} size={20} />
-          </div>
-        </div>
-        <div className="flex-grow min-w-0 p-3 sm:p-4">
-          <h3 className="font-serif" style={{ fontSize: 18, color: 'var(--ink-2)', fontWeight: 700, lineHeight: 1.25 }}>
-            {attraction.museum_name}
-          </h3>
-          {town && (
-            <p className="text-xs mt-1" style={{ color: 'var(--ink-3)' }}>{town}</p>
+          {!isGuestOrEmpty && totalDiscounts > 0 && (
+            <div className="absolute bottom-1 left-1 flex items-center gap-1 px-1.5 py-0.5 rounded"
+              style={{ background: 'var(--white)', fontSize: 10, fontWeight: 500, color: 'var(--g)' }}>
+              <span style={{ width: 6, height: 6, borderRadius: 3, background: 'var(--g)' }} />
+              Available
+            </div>
           )}
+        </div>
+
+        <div className="flex-grow min-w-0">
+          <div className="flex items-start justify-between gap-2">
+            <h3 className="font-serif" style={{
+              fontSize: 16, lineHeight: 1.25, color: 'var(--ink-2)', fontWeight: 700,
+            }}>
+              {attraction.museum_name}
+            </h3>
+            <div className="flex-shrink-0 -mt-1 -mr-1">
+              <FavoriteButton slug={attraction.slug} size={20} />
+            </div>
+          </div>
+
+          {town && (
+            <p className="mt-1" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
+              📍 {town}
+            </p>
+          )}
+
           {attraction.categories.length > 0 && (
-            <div className="mt-2 flex flex-wrap gap-1">
-              {attraction.categories.slice(0, 4).map(c => (
-                <span key={c} className="text-[11px] px-2 py-0.5 rounded-full"
-                  style={{ background: 'var(--paper)', color: 'var(--ink-3)' }}>
+            <div className="mt-1.5 flex flex-wrap gap-1">
+              {attraction.categories.slice(0, 3).map(c => (
+                <span key={c} className="px-1.5 py-0.5 rounded"
+                  style={{
+                    fontSize: 10,
+                    background: 'var(--paper)',
+                    color: 'var(--ink-3)',
+                  }}>
                   {c}
                 </span>
               ))}
             </div>
           )}
+
           {adult != null && (
-            <p className="mt-3 text-sm" style={{ color: 'var(--ink-2)' }}>
-              From <span className="font-semibold">{fmtMoney(adult)}</span>
-              <span style={{ color: 'var(--ink-3)', fontSize: 12 }}>{' '}/ adult</span>
-              {child != null && (
-                <span style={{ color: 'var(--ink-3)', fontSize: 12 }}>{', '}{fmtMoney(child)}{' '}/ child</span>
+            <p className="mt-2" style={{ fontSize: 13, color: 'var(--ink-2)' }}>
+              <span style={{ color: 'var(--ink-3)', fontSize: 11 }}>From </span>
+              <span style={{ fontWeight: 600 }}>{fmtMoney(adult)}</span>
+              <span style={{ color: 'var(--ink-3)', fontSize: 11 }}> / adult</span>
+              {child != null && child !== adult && (
+                <span style={{ color: 'var(--ink-3)', fontSize: 11 }}>
+                  {' · '}{fmtMoney(child)} / child
+                </span>
               )}
             </p>
           )}
         </div>
       </div>
 
-      {/* Bottom section: discount options */}
-      <div style={{ borderTop: '1px solid var(--rule)', background: 'var(--bg)' }}>
-        {isGuestOrEmpty ? (
-          <div className="p-3 sm:p-4 text-xs italic" style={{ color: 'var(--ink-3)' }}>
-            Sign in to view {sourceCountForGuest} discount option{sourceCountForGuest === 1 ? '' : 's'} at this attraction
-          </div>
-        ) : pickedTags.length === 0 ? (
-          <div className="p-3 sm:p-4 text-xs" style={{ color: 'var(--ink-3)' }}>
-            No passes available for the selected date
-          </div>
-        ) : (
-          <div className="p-2 sm:p-3 divide-y" style={{ borderColor: 'var(--rule)' }}>
-            <div className="text-[11px] uppercase tracking-wider px-1 pb-2"
-              style={{ color: 'var(--ink-3)', letterSpacing: '0.08em' }}>
-              Discounts available with your cards
+      {/* Best deal highlight (like TripAdvisor's quote box) */}
+      {isGuestOrEmpty ? (
+        <div className="mx-3 mb-3 rounded-md p-2.5"
+          style={{ background: 'var(--g-pale)', border: '1px solid var(--g-light)' }}>
+          <p style={{ fontSize: 12, color: 'var(--ink-2)' }}>
+            <span aria-hidden>💡</span>{' '}
+            Sign in to view <b>{sourceCountForGuest}</b> discount option{sourceCountForGuest === 1 ? '' : 's'}
+          </p>
+        </div>
+      ) : totalDiscounts === 0 ? (
+        <div className="mx-3 mb-3 rounded-md p-2.5"
+          style={{ background: 'var(--paper)' }}>
+          <p style={{ fontSize: 12, color: 'var(--ink-3)', fontStyle: 'italic' }}>
+            No passes available on this date.
+          </p>
+        </div>
+      ) : (
+        <div className="mx-3 mb-3 rounded-md p-2.5"
+          style={{ background: 'var(--g-pale)', border: '1px solid var(--g-light)' }}>
+          <div className="flex items-start gap-2">
+            <span aria-hidden style={{ fontSize: 16, lineHeight: 1 }}>{bestMeta!.icon}</span>
+            <div className="flex-grow min-w-0">
+              <div style={{ fontSize: 11, color: 'var(--g-2)', fontWeight: 500, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+                Best deal today
+              </div>
+              <div className="mt-0.5" style={{ fontSize: 13, color: 'var(--ink-2)', fontWeight: 500, lineHeight: 1.35 }}>
+                {bestFinal === 0 ? 'Free' : (
+                  best!.pass.discount.label || best!.pass.discount.class
+                )}
+                {' '}
+                <span style={{ color: 'var(--ink-3)', fontWeight: 400 }}>
+                  with {best!.library.name}
+                </span>
+              </div>
+              <div className="mt-1 flex flex-wrap gap-x-2 gap-y-0.5" style={{ fontSize: 11, color: 'var(--ink-3)' }}>
+                {bucket.digital > 0 && (
+                  <span>⚡ {bucket.digital} digital</span>
+                )}
+                {bucket['physical-coupon'] > 0 && (
+                  <span>🎫 {bucket['physical-coupon']} pickup</span>
+                )}
+                {bucket['loan-card'] > 0 && (
+                  <span>🔁 {bucket['loan-card']} loan</span>
+                )}
+              </div>
             </div>
-            {pickedTags.map((t, i) => {
-              const style = TYPE_STYLE[t.pass.pass_type];
-              const finalPrice = applyDiscount(attraction.original_price, t.pass.discount);
-              const showStrike = adult != null && finalPrice != null && finalPrice !== adult;
-              const isDigital = t.pass.pass_type === 'digital';
-              return (
-                <div key={`${t.pass.library_id}-${i}`} className="flex items-center gap-2 sm:gap-3 px-1 py-2"
-                  style={{ borderColor: 'var(--rule)' }}>
-                  <span aria-hidden style={{
-                    background: style.bg, color: style.fg,
-                    width: 28, height: 28, borderRadius: 14,
-                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: 14, flexShrink: 0,
-                  }}>{style.icon}</span>
-                  <div className="flex-grow min-w-0">
-                    <div className="text-[13px] font-medium" style={{ color: 'var(--ink-2)' }}>
-                      {style.label}
-                      {!isDigital && (
-                        <span className="font-normal" style={{ color: 'var(--ink-3)' }}>
-                          {' · '}{t.library.town}
-                          {t.distanceMi != null && ` · ${Math.round(t.distanceMi)} mi`}
-                        </span>
-                      )}
-                    </div>
-                    <div className="text-[11px]" style={{ color: 'var(--ink-3)' }}>
-                      {t.pass.discount.label || t.pass.discount.class}
-                    </div>
-                  </div>
-                  <div className="text-right flex-shrink-0">
-                    {showStrike ? (
-                      <>
-                        <span className="text-[11px] line-through mr-1" style={{ color: 'var(--ink-3)' }}>
-                          {fmtMoney(adult)}
-                        </span>
-                        <span className="text-[14px] font-semibold" style={{ color: style.fg }}>
-                          {fmtMoney(finalPrice)}
-                        </span>
-                      </>
-                    ) : finalPrice === 0 ? (
-                      <span className="text-[14px] font-semibold" style={{ color: style.fg }}>Free</span>
-                    ) : (
-                      <span className="text-[12px]" style={{ color: style.fg, fontWeight: 500 }}>
-                        {t.pass.discount.label || '—'}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
           </div>
-        )}
-      </div>
+        </div>
+      )}
+
+      {/* Footer: price summary + CTA */}
+      {!isGuestOrEmpty && totalDiscounts > 0 && (
+        <div className="flex items-center justify-between gap-2 px-3 py-2.5"
+          style={{ borderTop: '1px solid var(--rule)', background: 'var(--bg)' }}>
+          <div>
+            {adult != null && bestFinal != null && bestFinal !== adult ? (
+              <>
+                <span style={{ fontSize: 12, color: 'var(--ink-3)', textDecoration: 'line-through' }}>
+                  {fmtMoney(adult)}
+                </span>
+                <span className="mx-1.5" style={{ color: 'var(--ink-3)' }}>→</span>
+                <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--g)' }}>
+                  {bestFinal === 0 ? 'Free' : fmtMoney(bestFinal)}
+                </span>
+              </>
+            ) : adult != null ? (
+              <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--ink-2)' }}>
+                {fmtMoney(adult)}
+              </span>
+            ) : (
+              <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--g)' }}>
+                {best?.pass.discount.label}
+              </span>
+            )}
+          </div>
+          <div className="flex items-center gap-1 px-3 py-1.5 rounded-md"
+            style={{ background: 'var(--g)', color: 'var(--white)', fontSize: 12, fontWeight: 500 }}>
+            View {totalDiscounts} option{totalDiscounts === 1 ? '' : 's'}
+            <span aria-hidden>→</span>
+          </div>
+        </div>
+      )}
     </Link>
   );
 }
