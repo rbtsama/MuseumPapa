@@ -1,23 +1,157 @@
+import { useEffect, useMemo, useState } from 'react';
+import { Input, Button, Checkbox } from '@heroui/react';
 import { useAuth } from '../auth/store';
+import { useCardpack, type LibraryCard } from '../stores/cardpack';
 import { getLibraries } from '../data/load';
 
 export function MyPasses() {
   const user = useAuth(s => s.currentUser);
+  const pack = useCardpack(s => s.pack);
+  const load = useCardpack(s => s.load);
+  const saveZip = useCardpack(s => s.saveZip);
+  const saveCard = useCardpack(s => s.saveCard);
+  const removeCard = useCardpack(s => s.removeCard);
+
+  useEffect(() => { load(user?.username ?? null); }, [user, load]);
+
+  const libraries = useMemo(() => {
+    const list = getLibraries();
+    return [...list].sort((a, b) => a.town.localeCompare(b.town));
+  }, []);
+
+  const [zipDraft, setZipDraft] = useState('');
+  useEffect(() => { setZipDraft(pack.zip); }, [pack.zip]);
+
   if (!user) {
-    return <p>Sign in to manage your passes.</p>;
+    return <div className="max-w-3xl mx-auto px-4 py-6">
+      <p>Sign in to manage your passes.</p>
+    </div>;
   }
+
   return (
-    <div>
-      <h1 className="font-serif" style={{ fontSize: '24px', marginBottom: '8px' }}>
+    <div className="max-w-3xl mx-auto px-4 py-6">
+      <h1 className="font-serif" style={{ fontSize: 24, marginBottom: 4, color: 'var(--ink-2)' }}>
         My passes
       </h1>
-      <p style={{ color: 'var(--ink-3)' }}>
-        Signed in as <b>{user.displayName}</b> ({user.persona}).
-        Full settings UI lands in plan-4.
+      <p style={{ color: 'var(--ink-3)', fontSize: 12, marginBottom: 16 }}>
+        Stored only in your browser, namespaced by your username.
       </p>
-      <p style={{ color: 'var(--ink-3)', fontSize: '11px', marginTop: '8px' }}>
-        {getLibraries().length} libraries available.
-      </p>
+
+      <div style={{ borderBottom: '1px solid var(--rule)', paddingBottom: 16, marginBottom: 16 }}>
+        <h2 style={{ fontSize: 14, fontWeight: 500, marginBottom: 8 }}>ZIP code</h2>
+        <div style={{ display: 'flex', gap: 8, alignItems: 'end' }}>
+          <Input
+            size="sm"
+            value={zipDraft}
+            onValueChange={setZipDraft}
+            placeholder="01880"
+            maxLength={5}
+            className="max-w-[160px]"
+          />
+          <Button size="sm" color="primary" onClick={() => saveZip(zipDraft)}>
+            Save
+          </Button>
+        </div>
+        <p style={{ fontSize: 11, color: 'var(--ink-3)', marginTop: 4 }}>
+          Used to calculate distance to pickup libraries.
+        </p>
+      </div>
+
+      <h2 style={{ fontSize: 14, fontWeight: 500, marginBottom: 8 }}>
+        Your library cards ({Object.keys(pack.cards).length})
+      </h2>
+
+      <div>
+        {libraries.map(l => {
+          const card = pack.cards[l.id];
+          const has = !!card;
+          return (
+            <LibraryRow
+              key={l.id}
+              libraryId={l.id}
+              libraryName={l.name}
+              town={l.town}
+              card={card}
+              hasCard={has}
+              onAdd={() => saveCard(l.id, { barcode: '', lastName: '', pin: '' })}
+              onSave={(updates) => saveCard(l.id, updates)}
+              onRemove={() => removeCard(l.id)}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+interface RowProps {
+  libraryId: string;
+  libraryName: string;
+  town: string;
+  card?: LibraryCard;
+  hasCard: boolean;
+  onAdd: () => void;
+  onSave: (updates: LibraryCard) => void;
+  onRemove: () => void;
+}
+
+function LibraryRow({ libraryId: _libraryId, libraryName, town, card, hasCard, onAdd, onSave, onRemove }: RowProps) {
+  const [open, setOpen] = useState(false);
+  const [draft, setDraft] = useState<LibraryCard>(card ?? { barcode: '', lastName: '', pin: '' });
+
+  useEffect(() => {
+    if (card) setDraft(card);
+  }, [card]);
+
+  return (
+    <div style={{ borderBottom: '1px solid var(--rule)', padding: '10px 0' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <Checkbox
+          isSelected={hasCard}
+          onValueChange={(checked) => {
+            if (checked) { onAdd(); setOpen(true); }
+            else onRemove();
+          }}
+        />
+        <button
+          onClick={() => setOpen(o => !o)}
+          style={{
+            flex: 1, textAlign: 'left', background: 'transparent', border: 'none',
+            cursor: 'pointer', font: 'inherit', padding: 0,
+          }}
+        >
+          <span style={{ fontWeight: 500, color: 'var(--ink-2)' }}>{libraryName}</span>
+          <span style={{ color: 'var(--ink-3)', marginLeft: 8 }}>({town})</span>
+        </button>
+      </div>
+      {hasCard && open && (
+        <div style={{ marginLeft: 32, marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <Input
+            label="Barcode"
+            size="sm"
+            value={draft.barcode}
+            onValueChange={(v) => setDraft({ ...draft, barcode: v })}
+            className="max-w-[220px]"
+          />
+          <Input
+            label="Last name"
+            size="sm"
+            value={draft.lastName}
+            onValueChange={(v) => setDraft({ ...draft, lastName: v })}
+            className="max-w-[160px]"
+          />
+          <Input
+            label="PIN (optional)"
+            size="sm"
+            value={draft.pin}
+            onValueChange={(v) => setDraft({ ...draft, pin: v })}
+            className="max-w-[100px]"
+          />
+          <Button size="sm" color="primary" onClick={() => { onSave(draft); setOpen(false); }}>
+            Save
+          </Button>
+        </div>
+      )}
     </div>
   );
 }
