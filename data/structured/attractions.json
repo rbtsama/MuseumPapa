@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "built_at": "2026-05-15T21:33:57Z",
-    "n_attractions": 104,
+    "built_at": "2026-05-15T21:36:12Z",
+    "n_attractions": 107,
     "n_with_price": 58,
     "n_with_image": 104,
     "n_with_geo": 98,
@@ -71,7 +71,10 @@
         "winchester",
         "woburn",
         "bpl",
+        "braintree",
+        "brookline",
         "cambridge",
+        "milton",
         "cohasset",
         "hingham"
       ],
@@ -963,7 +966,10 @@
         "winchester",
         "woburn",
         "bpl",
+        "braintree",
+        "brookline",
         "cambridge",
+        "milton",
         "cohasset",
         "hingham"
       ],
@@ -1066,7 +1072,10 @@
         "winchester",
         "woburn",
         "bpl",
+        "braintree",
+        "brookline",
         "cambridge",
+        "milton",
         "cohasset",
         "hingham"
       ],
@@ -1220,6 +1229,7 @@
         "winchester",
         "woburn",
         "bpl",
+        "brookline",
         "hingham"
       ],
       "original_price": {
@@ -1383,7 +1393,10 @@
         "winchester",
         "woburn",
         "bpl",
+        "braintree",
+        "brookline",
         "cambridge",
+        "milton",
         "cohasset",
         "hingham"
       ],
@@ -2165,6 +2178,7 @@
         "north-reading",
         "reading",
         "wilmington",
+        "braintree",
         "cambridge",
         "hingham"
       ],
@@ -4290,11 +4304,12 @@
     {
       "slug": "american-rep-theater",
       "museum_name": "American Repertory Theatre",
-      "address": "",
-      "website": "",
+      "address": "64 Brattle Street, Cambridge, Massachusetts, 02138",
+      "website": "https://americanrepertorytheater.org/",
       "categories": [],
       "sources": [
-        "bpl"
+        "bpl",
+        "cambridge"
       ],
       "original_price": null,
       "hero_image": {
@@ -4350,6 +4365,10 @@
       "categories": [],
       "sources": [
         "bpl",
+        "braintree",
+        "brookline",
+        "cambridge",
+        "milton",
         "cohasset",
         "hingham"
       ],
@@ -4389,11 +4408,13 @@
     {
       "slug": "ma-state-parks",
       "museum_name": "DCR ParksPass",
-      "address": "",
+      "address": "Various Locations",
       "website": "https://www.mass.gov/visit-massachusetts-state-parks",
       "categories": [],
       "sources": [
         "bpl",
+        "braintree",
+        "brookline",
         "cohasset",
         "hingham"
       ],
@@ -4413,11 +4434,12 @@
     {
       "slug": "hale-education",
       "museum_name": "Hale Education",
-      "address": "",
-      "website": "",
+      "address": "80 Carby Street, Westwood, MA, 02090",
+      "website": "https://hale.education/",
       "categories": [],
       "sources": [
-        "bpl"
+        "bpl",
+        "brookline"
       ],
       "original_price": null,
       "hero_image": {
@@ -4446,11 +4468,14 @@
     {
       "slug": "harvard-museums",
       "museum_name": "Harvard Museums of Science and Culture",
-      "address": "",
+      "address": "26 Oxford Street, Cambridge, MA, 02138",
       "website": "https://hmsc.harvard.edu/visit/",
       "categories": [],
       "sources": [
         "bpl",
+        "braintree",
+        "brookline",
+        "cambridge",
         "hingham"
       ],
       "original_price": {
@@ -4534,6 +4559,10 @@
       "categories": [],
       "sources": [
         "bpl",
+        "braintree",
+        "brookline",
+        "cambridge",
+        "milton",
         "hingham"
       ],
       "original_price": null,
@@ -4568,7 +4597,10 @@
       "categories": [],
       "sources": [
         "bpl",
+        "braintree",
+        "brookline",
         "cambridge",
+        "milton",
         "cohasset",
         "hingham"
       ],
@@ -4608,11 +4640,12 @@
     {
       "slug": "larz-anderson",
       "museum_name": "Larz Anderson Museum",
-      "address": "",
+      "address": "15 Newton Street, Brookline, MA, 02445",
       "website": "https://www.larzanderson.org",
       "categories": [],
       "sources": [
-        "bpl"
+        "bpl",
+        "brookline"
       ],
       "original_price": {
         "adult": 15,
@@ -4655,7 +4688,10 @@
       "categories": [],
       "sources": [
         "bpl",
+        "braintree",
         "brookline",
+        "cambridge",
+        "milton",
         "cohasset",
         "hingham"
       ],
@@ -4788,11 +4824,13 @@
     {
       "slug": "trustees-of-reservations",
       "museum_name": "Trustees GO Pass",
-      "address": "",
-      "website": "",
+      "address": "200 High Street, Boston, MA, 02110",
+      "website": "https://thetrustees.org/",
       "categories": [],
       "sources": [
         "bpl",
+        "brookline",
+        "cambridge",
         "cohasset",
         "hingham"
       ],
@@ -4817,6 +4855,7 @@
       "categories": [],
       "sources": [
         "bpl",
+        "brookline",
         "cambridge",
         "cohasset",
         "hingham"
@@ -4855,13 +4894,131 @@
       }
     },
     {
+      "slug": "childrens-museum-easton",
+      "museum_name": "Children's Museum Easton",
+      "address": "9 Sullivan Ave., North Easton, MA, 02356",
+      "website": "https://www.cmeaston.org/",
+      "categories": [],
+      "sources": [
+        "braintree"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null,
+      "hours": null
+    },
+    {
+      "slug": "heritage-museums-gardens",
+      "museum_name": "Heritage Museums & Gardens",
+      "address": "67 Grove Street, Sandwich, MA, 02563",
+      "website": "https://heritagemuseumsandgardens.org/",
+      "categories": [],
+      "sources": [
+        "braintree",
+        "hingham"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Heritage_Museum_and_Gardens_%283789207677%29.jpg",
+        "local_path": "static/images/heritage-museums-gardens.jpg"
+      },
+      "geo": {
+        "lat": 41.7486723,
+        "lon": -70.5059897
+      },
+      "hours": {
+        "status": "ok",
+        "regular_hours": {
+          "mon": "10 AM – 5 PM",
+          "tue": "10 AM – 5 PM",
+          "wed": "10 AM – 5 PM",
+          "thu": "10 AM – 5 PM",
+          "fri": "10 AM – 5 PM",
+          "sat": "10 AM – 5 PM",
+          "sun": "10 AM – 5 PM"
+        },
+        "notes": "Open daily during season (late April through late October). Hours may vary for special events. Same attraction as heritage-museums-and-gardens.",
+        "source_url": "https://www.heritagemuseumsandgardens.org/plan-your-visit/"
+      }
+    },
+    {
+      "slug": "plimoth-patuxet",
+      "museum_name": "Plimoth Patuxet Museums",
+      "address": "137 Warren Avenue, Plymouth, MA, 02360",
+      "website": "https://plimoth.org/",
+      "categories": [],
+      "sources": [
+        "braintree",
+        "cohasset",
+        "hingham"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Plimoth_Plantation_Fence.JPG/960px-Plimoth_Plantation_Fence.JPG",
+        "local_path": "static/images/plimoth-patuxet.jpg"
+      },
+      "geo": {
+        "lat": 41.9372269,
+        "lon": -70.6199489
+      },
+      "hours": {
+        "status": "ok",
+        "regular_hours": {
+          "mon": "9 AM – 5 PM",
+          "tue": "9 AM – 5 PM",
+          "wed": "9 AM – 5 PM",
+          "thu": "9 AM – 5 PM",
+          "fri": "9 AM – 5 PM",
+          "sat": "9 AM – 5 PM",
+          "sun": "9 AM – 5 PM"
+        },
+        "notes": "Open daily 9 AM–5 PM. Hours may vary seasonally. Same attraction as plimoth-patuxet-museums.",
+        "source_url": "https://plimoth.org/plan-your-visit/hours-directions/"
+      }
+    },
+    {
+      "slug": "jfk-library",
+      "museum_name": "John F. Kennedy Library and Museum",
+      "address": "Columbia Point, Boston, MA, 02125",
+      "website": "https://www.jfklibrary.org/",
+      "categories": [],
+      "sources": [
+        "brookline",
+        "cohasset"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/JFK_library_Stitch_Crop.jpg",
+        "local_path": "static/images/jfk-library.jpg"
+      },
+      "geo": {
+        "lat": 42.3161793,
+        "lon": -71.0340257
+      },
+      "hours": {
+        "status": "ok",
+        "regular_hours": {
+          "mon": "10:00 AM – 5:00 PM",
+          "tue": "10:00 AM – 5:00 PM",
+          "wed": "10:00 AM – 5:00 PM",
+          "thu": "10:00 AM – 5:00 PM",
+          "fri": "10:00 AM – 5:00 PM",
+          "sat": "10:00 AM – 5:00 PM",
+          "sun": "10:00 AM – 5:00 PM"
+        },
+        "notes": "Open daily 10 AM–5 PM. Last entry at 3:30 PM. Closed Thanksgiving, Christmas, and New Year's Day. Same attraction as john-f-kennedy-library-and-museum.",
+        "source_url": "https://www.jfklibrary.org/visit-us/hours-and-directions"
+      }
+    },
+    {
       "slug": "maah",
       "museum_name": "Museum of African American History",
       "address": "46 Joy St., Boston, MA, 02114",
       "website": "https://www.maah.org/",
       "categories": [],
       "sources": [
-        "brookline"
+        "brookline",
+        "cambridge"
       ],
       "original_price": null,
       "hero_image": {
@@ -4919,6 +5076,34 @@
         "notes": "Operating hours vary by season and tour schedule; confirm specific cruise times on the website.",
         "source_url": "https://www.charlesriverboat.com/"
       }
+    },
+    {
+      "slug": "royall-house",
+      "museum_name": "Royall House & Slave Quarters",
+      "address": "15 George St., Medford, MA, 02155",
+      "website": "https://royallhouse.org/",
+      "categories": [],
+      "sources": [
+        "cambridge"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null,
+      "hours": null
+    },
+    {
+      "slug": "maplewood-day-camp",
+      "museum_name": "Maplewood Country Day Camp & Enrichment Center",
+      "address": "150 Foundry Street, South Easton, MA, 02375",
+      "website": "https://www.maplewoodyearround.com/",
+      "categories": [],
+      "sources": [
+        "milton"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null,
+      "hours": null
     },
     {
       "slug": "butterfly-place",
@@ -4984,106 +5169,6 @@
         },
         "notes": "Seasonal summer hours only. Maritime Museum and other properties open in summer (typically July–August); check cohassethistoricalsociety.org for current season schedule. Closed in winter.",
         "source_url": "https://www.cohassethistoricalsociety.org/maritime-museum"
-      }
-    },
-    {
-      "slug": "jfk-library",
-      "museum_name": "John F. Kennedy Presidential Library and Museum",
-      "address": "",
-      "website": "",
-      "categories": [],
-      "sources": [
-        "cohasset"
-      ],
-      "original_price": null,
-      "hero_image": {
-        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/JFK_library_Stitch_Crop.jpg",
-        "local_path": "static/images/jfk-library.jpg"
-      },
-      "geo": {
-        "lat": 42.3161793,
-        "lon": -71.0340257
-      },
-      "hours": {
-        "status": "ok",
-        "regular_hours": {
-          "mon": "10:00 AM – 5:00 PM",
-          "tue": "10:00 AM – 5:00 PM",
-          "wed": "10:00 AM – 5:00 PM",
-          "thu": "10:00 AM – 5:00 PM",
-          "fri": "10:00 AM – 5:00 PM",
-          "sat": "10:00 AM – 5:00 PM",
-          "sun": "10:00 AM – 5:00 PM"
-        },
-        "notes": "Open daily 10 AM–5 PM. Last entry at 3:30 PM. Closed Thanksgiving, Christmas, and New Year's Day. Same attraction as john-f-kennedy-library-and-museum.",
-        "source_url": "https://www.jfklibrary.org/visit-us/hours-and-directions"
-      }
-    },
-    {
-      "slug": "plimoth-patuxet",
-      "museum_name": "Plimoth Patuxet",
-      "address": "",
-      "website": "",
-      "categories": [],
-      "sources": [
-        "cohasset",
-        "hingham"
-      ],
-      "original_price": null,
-      "hero_image": {
-        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Plimoth_Plantation_Fence.JPG/960px-Plimoth_Plantation_Fence.JPG",
-        "local_path": "static/images/plimoth-patuxet.jpg"
-      },
-      "geo": {
-        "lat": 41.9372269,
-        "lon": -70.6199489
-      },
-      "hours": {
-        "status": "ok",
-        "regular_hours": {
-          "mon": "9 AM – 5 PM",
-          "tue": "9 AM – 5 PM",
-          "wed": "9 AM – 5 PM",
-          "thu": "9 AM – 5 PM",
-          "fri": "9 AM – 5 PM",
-          "sat": "9 AM – 5 PM",
-          "sun": "9 AM – 5 PM"
-        },
-        "notes": "Open daily 9 AM–5 PM. Hours may vary seasonally. Same attraction as plimoth-patuxet-museums.",
-        "source_url": "https://plimoth.org/plan-your-visit/hours-directions/"
-      }
-    },
-    {
-      "slug": "heritage-museums-gardens",
-      "museum_name": "Heritage Museums & Gardens",
-      "address": "",
-      "website": "",
-      "categories": [],
-      "sources": [
-        "hingham"
-      ],
-      "original_price": null,
-      "hero_image": {
-        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Heritage_Museum_and_Gardens_%283789207677%29.jpg",
-        "local_path": "static/images/heritage-museums-gardens.jpg"
-      },
-      "geo": {
-        "lat": 41.7486723,
-        "lon": -70.5059897
-      },
-      "hours": {
-        "status": "ok",
-        "regular_hours": {
-          "mon": "10 AM – 5 PM",
-          "tue": "10 AM – 5 PM",
-          "wed": "10 AM – 5 PM",
-          "thu": "10 AM – 5 PM",
-          "fri": "10 AM – 5 PM",
-          "sat": "10 AM – 5 PM",
-          "sun": "10 AM – 5 PM"
-        },
-        "notes": "Open daily during season (late April through late October). Hours may vary for special events. Same attraction as heritage-museums-and-gardens.",
-        "source_url": "https://www.heritagemuseumsandgardens.org/plan-your-visit/"
       }
     }
   ]

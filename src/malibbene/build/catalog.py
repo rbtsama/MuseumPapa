@@ -40,7 +40,11 @@ def _canonical_slug(pass_obj: dict, lib_id: str, platform: str, maps: dict) -> s
     if platform == "libcal":
         if lib_id == "bpl":
             return maps["bpl_inverted"].get(pass_obj.get("pass_id"))
-        return maps["libcal_by_lib"].get(lib_id, {}).get(pass_obj.get("slug"))
+        lib_map = maps["libcal_by_lib"].get(lib_id, {})
+        # Map keys are pass_id-style (12-hex codes for braintree/milton, short
+        # codes for brookline, slug-like for cambridge). Try pass_id first,
+        # fall back to slug to tolerate both manual-map conventions.
+        return lib_map.get(pass_obj.get("pass_id")) or lib_map.get(pass_obj.get("slug"))
     if platform == "museumkey":
         slug = pass_obj.get("slug")
         if slug and slug in maps["museumkey"]["canonical_set"]:
