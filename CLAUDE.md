@@ -48,9 +48,14 @@ Massachusetts eastern MA 区域的图书馆 museum-pass 福利数据建设项目
 │       ├── libraries/         # 图书馆主站爬虫(addresses)
 │       ├── holidays/          # 美国节假日生成
 │       └── policies.py        # 各馆办卡资格抓取
-├── scripts/                   # CLI 入口(scrape_static / scrape_dynamic / snapshot_diff / diff_catalog / geocode_all / fetch_*_pages)
+├── scripts/                   # CLI 入口(scrape_static / scrape_dynamic / snapshot_diff / diff_catalog / geocode_all / fetch_*_pages / build)
 ├── data/raw/<platform>/       # scraper 直接产出
-├── data/structured/           # Claude 整理后的最终数据(含 library_catalog.json 中间快照、geo.json)
+├── data/structured/           # build pipeline 产出
+│   ├── library_catalog.json   # 规范化中间快照 + diff 锚点(每 lib_id → passes by canonical slug,带 benefit_label/calendar)
+│   ├── libraries.json         # 59 馆 final metadata(town/network/card_page/address/geo/eligibility)
+│   ├── attractions.json       # ~104 景 final metadata(slug/name/website/categories/price/image/geo/sources)
+│   ├── passes.json            # ~962 行 (lib × attraction) 矩阵(discount/pass_type/availability)
+│   └── geo.json               # 全 entity 经纬度(plan-1)
 ├── data/dynamic/              # availability(可频繁覆盖)
 ├── data/static/
 │   ├── images/<slug>.<ext>          # hero 图本地缓存(gitignored)
