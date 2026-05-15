@@ -11,6 +11,7 @@ import { useCardpack } from '../stores/cardpack';
 import { useFavorites } from '../stores/favorites';
 import { geocodeZip } from '../lib/distance';
 import { SignInModal } from '../components/SignInModal';
+import { isClosedOn } from '../lib/hours';
 import type { Geo } from '../data/types';
 
 function todayIso(): string {
@@ -176,6 +177,8 @@ export function AttractionsList() {
               pickedTags={r.tags}
               isGuestOrEmpty={isGuestOrEmpty}
               sourceCountForGuest={r.sourceCount}
+              date={date}
+              closedToday={isClosedOn(r.attraction, date)}
             />
           ))}
         </div>

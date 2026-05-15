@@ -11,6 +11,7 @@ import { useFavorites } from '../stores/favorites';
 import { geocodeZip, haversineMiles } from '../lib/distance';
 import { formatPriceLine } from '../lib/price-fallback';
 import { BookingConfirmModal } from '../components/BookingConfirmModal';
+import { weeklyHoursList } from '../lib/hours';
 import type { Geo, Pass, Library } from '../data/types';
 
 function days(start: string, n: number): string[] {
@@ -145,6 +146,39 @@ export function AttractionDetail() {
           )}
         </div>
       </div>
+
+      {attraction.hours && (
+        <div className="mb-6 rounded-md p-3"
+          style={{ border: '1px solid var(--rule)', background: 'var(--white)' }}>
+          <div className="flex items-center gap-2 mb-2">
+            <span aria-hidden style={{ fontSize: 14, color: 'var(--ink-3)' }}>🕘</span>
+            <h2 className="font-serif" style={{ fontSize: 16, color: 'var(--ink-2)' }}>Hours</h2>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-7 gap-x-3 gap-y-1">
+            {weeklyHoursList(attraction.hours).map(row => {
+              const isClosed = row.value.toLowerCase() === 'closed';
+              return (
+                <div key={row.key} className="flex sm:flex-col items-baseline sm:items-start gap-1 sm:gap-0.5">
+                  <span style={{ fontSize: 11, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    {row.label}
+                  </span>
+                  <span style={{
+                    fontSize: 12, fontWeight: 500,
+                    color: isClosed ? 'var(--rd)' : 'var(--ink-2)',
+                  }}>
+                    {row.value}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+          {attraction.hours.notes && (
+            <p className="mt-2" style={{ fontSize: 11, color: 'var(--ink-3)', fontStyle: 'italic' }}>
+              {attraction.hours.notes}
+            </p>
+          )}
+        </div>
+      )}
 
       <h2 className="font-serif" style={{ fontSize: 18, marginBottom: 8, color: 'var(--ink-2)' }}>
         Discount options

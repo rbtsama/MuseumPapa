@@ -1,4 +1,4 @@
-"""Build final attractions.json from catalog + price + image + geo enrichments."""
+"""Build final attractions.json from catalog + price + image + geo + hours enrichments."""
 from __future__ import annotations
 
 import datetime as dt
@@ -34,7 +34,21 @@ def _geo_block(rec: dict | None) -> dict | None:
     return {"lat": rec["lat"], "lon": rec["lon"]}
 
 
-def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict) -> dict:
+def _hours_block(rec: dict | None) -> dict | None:
+    if not rec or rec.get("status") != "ok":
+        return None
+    rh = rec.get("regular_hours")
+    if not rh:
+        return None
+    return {
+        "regular_hours": rh,
+        "notes": rec.get("notes"),
+        "source_url": rec.get("source_url"),
+    }
+
+
+def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
+                       hours: dict | None = None) -> dict:
     """Return {attractions: [...], _meta: {...}}.
 
     Args:
@@ -42,8 +56,10 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict) -> d
         prices: dict slug → parsed data/raw/attraction_prices/<slug>.json
         images: dict slug → parsed data/raw/attraction_images/<slug>.json
         geo: parsed data/structured/geo.json
+        hours: dict slug → parsed data/raw/attraction_hours/<slug>.json (optional)
     """
     attr_geo = geo.get("attractions", {})
+    hours = hours or {}
     accum: dict[str, dict] = {}
     for lib_id, lib_entry in catalog.get("libraries", {}).items():
         for slug, p in lib_entry.get("passes", {}).items():
@@ -71,6 +87,7 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict) -> d
             "original_price": _price_block(prices.get(slug)),
             "hero_image": _image_block(images.get(slug)),
             "geo": _geo_block(attr_geo.get(slug)),
+            "hours": _hours_block(hours.get(slug)),
         })
 
     return {
@@ -80,6 +97,7 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict) -> d
             "n_with_price": sum(1 for x in out if x["original_price"]),
             "n_with_image": sum(1 for x in out if x["hero_image"]),
             "n_with_geo": sum(1 for x in out if x["geo"]),
+            "n_with_hours": sum(1 for x in out if x["hours"]),
         },
         "attractions": out,
     }

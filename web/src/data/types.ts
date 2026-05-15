@@ -39,6 +39,14 @@ export interface HeroImage {
   local_path: string | null;
 }
 
+export type DayKey = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
+
+export interface Hours {
+  regular_hours: Record<DayKey, string>;  // "Closed" or e.g. "9:00 AM – 5:00 PM"
+  notes: string | null;
+  source_url: string | null;
+}
+
 export interface Attraction {
   slug: string;
   museum_name: string;
@@ -49,6 +57,7 @@ export interface Attraction {
   original_price: OriginalPrice | null;
   hero_image: HeroImage | null;
   geo: Geo | null;
+  hours: Hours | null;
 }
 
 export type PassTypeKind = 'digital' | 'physical-coupon' | 'loan-card' | 'unknown';

@@ -70,6 +70,7 @@ def main() -> int:
     addresses = _load_dir_jsons(raw_root / "library_addresses")
     prices = _load_dir_jsons(raw_root / "attraction_prices")
     images = _load_dir_jsons(raw_root / "attraction_images")
+    hours = _load_dir_jsons(raw_root / "attraction_hours")
     seeds = json.loads((config_root / "library_seeds.json").read_text(encoding="utf-8"))
     geo = json.loads((structured / "geo.json").read_text(encoding="utf-8"))
     overrides = json.loads((config_root / "manual_overrides.json").read_text(encoding="utf-8"))
@@ -86,14 +87,14 @@ def main() -> int:
 
     # 3. attractions.json
     print("Building attractions.json...")
-    attr_doc = build_attractions(catalog, prices, images, geo)
+    attr_doc = build_attractions(catalog, prices, images, geo, hours)
     _apply_overrides(attr_doc, "slug", "attractions", overrides.get("attractions", {}))
     (structured / "attractions.json").write_text(
         json.dumps(attr_doc, indent=2, ensure_ascii=False), encoding="utf-8"
     )
     print(f"  {attr_doc['_meta']['n_attractions']} attractions "
           f"({attr_doc['_meta']['n_with_price']} price, {attr_doc['_meta']['n_with_image']} img, "
-          f"{attr_doc['_meta']['n_with_geo']} geo)")
+          f"{attr_doc['_meta']['n_with_geo']} geo, {attr_doc['_meta']['n_with_hours']} hours)")
 
     # 4. passes.json
     print("Building passes.json...")
