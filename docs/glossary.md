@@ -40,6 +40,11 @@
 
 > Internal pass_type enum:`digital` / `physical-coupon` / `loan-card`(数据字段名保留 backup 命名)
 
+| 中文 | English | 中文解释 |
+|---|---|---|
+| 福利策略 | **Policy** | 由 benefits_text 抽取的结构化字段:`max_people`、`max_adults/max_children`、`eligibility`、`free_under_age`、`savings_per_person_usd`;前端用 `formatDiscount(discount, policy, adult)` 渲染。plan-5 新增 |
+| 资格枚举 | **Eligibility enum** | `all / adults_only / vehicle / single_ticket / members / seniors_free / students_only / weekday_only / blackout_dates / reservation_required / id_required`(12 个值);影响 DiscountLine qualifier 文案 |
+
 ---
 
 ## 4. 折扣 & 价格
@@ -47,11 +52,17 @@
 | 中文 | English | 中文解释 |
 |---|---|---|
 | 原价 / 划线价 | **Original price** / Regular admission | 景点官网公开的成人门票标价;UI 划线展示 |
-| 折后价 | **Your price** / Final price | 用 pass 后实际付的价格 |
+| 折后价 | **Your price** / Final price | 用 pass 后实际付的价格(**仅 policy 一致时显示**;party-cap/per-person 等场景只显折扣文案不显 dollar) |
 | 折扣力度 | **Discount tier** | 三档由强到弱:Free / Half-price / $N off |
 | 免费 | **Free** | UI tag 直接显示 "Free" |
 | 半价 | **Half-price** | 50% off;UI 显示 "50% off" 或 "Half-price" |
 | $N 减免 | **$N off** | 固定金额减免,如 "$5 off" |
+| 价格档位 | **Price tier** | OriginalPrice 上的字段:`adult / child / youth / senior / student / military / educator / family`(plan-5 把 youth/military/educator 加入) |
+| 青少年 | **Youth** | 大约 11–16 岁档位,介于 child 与 adult 之间 |
+| 军人 | **Military** | 现役/退伍/急救人员档位,常并入 student 价 |
+| 教师 | **Educator** | 教师档位,常并入 student 价 |
+| 折扣行 | **Discount line** | 卡片选项行右侧那段;形如 `50% off · up to 4 people` 或 `$30 → $15`;由 DiscountLine 组件 + formatDiscount 出 |
+| 限定词 | **Qualifier** | DiscountLine 的灰色小字,如 "up to 4 people"、"per vehicle"、"adults only" |
 | 库存 | **Availability** | 某 (景点 × 馆 × 日期) 有没有票 |
 | 库存日历 | **Availability calendar** | 30 天可订状态网格,详情页用 |
 | 当日满 | **Sold out today** | tag 状态 |
@@ -126,6 +137,18 @@
 | 预约弹窗主 CTA | **Go to library website →** | 跳转 source_url 新标签页 |
 | 预约弹窗 credential 框 | **Card number** / **PIN** | 库卡卡号 / 4 位数 PIN(选填) |
 | Copy 按钮 | **COPY** / **COPIED ✓** | UI 全大写惯例 |
+| 营业时间随场地 | **Hours vary by location** | 多场地组织(Trustees / Mass Audubon / Historic NE)hours.status='varies' 时卡片+详情页文案,替代假"Open today"。plan-5 新增 |
+| 上限人数 | **up to N people** | DiscountLine qualifier,policy.max_people 出 |
+| 限车 | **per vehicle** | DiscountLine qualifier,policy.eligibility='vehicle' 出 |
+| 仅成人 | **adults only** | qualifier,policy.eligibility='adults_only' |
+| 单次门票 | **1 ticket** | qualifier,policy.eligibility='single_ticket' |
+| 仅会员 | **members** | qualifier,policy.eligibility='members' |
+| 周一至周五 | **weekdays only** | qualifier,policy.eligibility='weekday_only' |
+| 黑名单日期 | **some dates excluded** | qualifier,policy.eligibility='blackout_dates' |
+| 需要预约 | **reservation needed** | qualifier,policy.eligibility='reservation_required' |
+| 需要 ID | **ID at gate** | qualifier,policy.eligibility='id_required' |
+| N 岁以下免费 | **Free under N** | DiscountLine detail,policy.free_under_age 出 |
+| 游客锁定行 | **🔒 row + sign-in prompt** | 详情页游客模式:GuestLockedRow 渲染 pass 行,点击弹 SignInModal。plan-5 新增 |
 | favorite 按钮 aria | **Add to favorites** / **Remove from favorites** | 心形 toggle |
 | Book 按钮 | **Book** | option 行右侧 CTA |
 

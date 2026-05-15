@@ -50,11 +50,12 @@ Massachusetts eastern MA 区域的图书馆 museum-pass 福利数据建设项目
 │       └── policies.py        # 各馆办卡资格抓取
 ├── scripts/                   # CLI 入口(scrape_static / scrape_dynamic / snapshot_diff / diff_catalog / geocode_all / fetch_*_pages / build)
 ├── data/raw/<platform>/       # scraper 直接产出
+├── data/raw/pass_policies/    # 1008 个 (lib × attraction) policy JSON(subagent 抽取 benefits_text,plan-5)
 ├── data/structured/           # build pipeline 产出
 │   ├── library_catalog.json   # 规范化中间快照 + diff 锚点(每 lib_id → passes by canonical slug,带 benefit_label/calendar)
 │   ├── libraries.json         # 59 馆 final metadata(town/network/card_page/address/geo/eligibility)
-│   ├── attractions.json       # ~104 景 final metadata(slug/name/website/categories/price/image/geo/sources)
-│   ├── passes.json            # ~962 行 (lib × attraction) 矩阵(discount/pass_type/availability)
+│   ├── attractions.json       # ~107 景 final metadata(slug/name/website/phone/description/categories/price[adult/child/youth/senior/student/military/educator/family]/image/geo/hours/sources)
+│   ├── passes.json            # ~1008 行 (lib × attraction) 矩阵(discount/policy/pass_type/availability)
 │   └── geo.json               # 全 entity 经纬度(plan-1)
 ├── data/dynamic/              # availability(可频繁覆盖)
 ├── data/static/

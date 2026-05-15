@@ -17,6 +17,7 @@ const pass = (
 ): Pass => ({
   library_id, attraction_slug: 'mos', pass_type, pass_type_raw: '',
   discount: { class: discountClass, label, raw: '' },
+  policy: null,
   source_url: '', availability,
 });
 
