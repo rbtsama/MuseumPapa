@@ -64,6 +64,40 @@ def test_build_passes_meta_counts():
     assert "built_at" in out["_meta"]
 
 
+def test_build_passes_attaches_policy_from_dict():
+    """When policies dict has matching {lib_id}_{slug} entry, policy attaches."""
+    from malibbene.build.passes import build_passes
+    catalog = {"libraries": {
+        "wakefield": {"passes": {"mos": {"pass_type": "digital", "benefit_label": "50% off",
+                                          "benefit_class": "half", "benefits_text": "Up to 4",
+                                          "source_url": "", "pass_type_raw": ""}}}
+    }}
+    policies = {"wakefield_mos": {"status": "ok", "max_people": 4, "max_adults": None,
+                                   "max_children": None, "eligibility": None,
+                                   "free_under_age": 3, "savings_per_person_usd": None,
+                                   "notes": None, "raw": "Up to 4 people; under 3 free"}}
+    out = build_passes(catalog, policies=policies)
+    p = out["passes"][0]
+    assert p["policy"]["max_people"] == 4
+    assert p["policy"]["free_under_age"] == 3
+    assert out["_meta"]["n_with_policy"] == 1
+
+
+def test_build_passes_no_policy_when_missing_or_failed():
+    """policy=None when policy entry absent or status != ok."""
+    from malibbene.build.passes import build_passes
+    catalog = {"libraries": {
+        "a": {"passes": {"x": {"pass_type": "digital", "benefit_label": "", "benefit_class": "",
+                                 "benefits_text": "", "source_url": "", "pass_type_raw": ""}}},
+        "b": {"passes": {"y": {"pass_type": "digital", "benefit_label": "", "benefit_class": "",
+                                 "benefits_text": "", "source_url": "", "pass_type_raw": ""}}},
+    }}
+    policies = {"b_y": {"status": "failed:empty", "raw": ""}}
+    out = build_passes(catalog, policies=policies)
+    assert all(p["policy"] is None for p in out["passes"])
+    assert out["_meta"]["n_with_policy"] == 0
+
+
 def test_build_passes_counts_with_availability():
     """Passes with non-empty calendar count toward n_with_availability."""
     from malibbene.build.passes import build_passes

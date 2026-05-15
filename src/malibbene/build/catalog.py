@@ -95,6 +95,8 @@ def build_library_catalog(raw_root: Path, *, config_root: Path | None = None) ->
                     "museum_name": raw_pass.get("museum_name", ""),
                     "address": raw_pass.get("address", ""),
                     "website": raw_pass.get("website", ""),
+                    "phone": raw_pass.get("phone") or None,
+                    "description": raw_pass.get("description") or None,
                     "categories": list(raw_pass.get("categories", [])),
                     "pass_type": raw_pass.get("pass_type", "unknown"),
                     "pass_type_raw": raw_pass.get("pass_type_raw", ""),

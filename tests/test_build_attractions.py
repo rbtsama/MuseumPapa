@@ -25,7 +25,8 @@ def test_build_attractions_merges_price_image_geo():
         }
     }
     prices = {"mos": {"slug": "mos", "status": "ok",
-                       "adult": 33, "child": 28, "senior": 29, "student": None,
+                       "adult": 33, "child": 28, "youth": 25, "senior": 29, "student": None,
+                       "military": 27, "educator": 27,
                        "family": None, "free_under_age": None, "notes": None,
                        "source_url": "https://www.mos.org/visit"}}
     images = {"mos": {"slug": "mos", "status": "ok",
@@ -43,8 +44,36 @@ def test_build_attractions_merges_price_image_geo():
     assert set(a["sources"]) == {"wakefield", "reading"}
     assert a["original_price"]["adult"] == 33
     assert a["original_price"]["child"] == 28
+    assert a["original_price"]["youth"] == 25
+    assert a["original_price"]["military"] == 27
+    assert a["original_price"]["educator"] == 27
     assert a["hero_image"]["og_image_url"] == "https://www.mos.org/og.jpg"
     assert a["geo"]["lat"] == 42.367
+
+
+def test_build_attractions_surfaces_phone_and_description():
+    """phone + description should propagate from catalog pass into attraction."""
+    from malibbene.build.attractions import build_attractions
+    catalog = {
+        "libraries": {
+            "wakefield": {
+                "passes": {
+                    "bcm": {
+                        "museum_name": "Boston Children's Museum",
+                        "address": "308 Congress St, Boston, MA",
+                        "website": "https://bostonchildrensmuseum.org/",
+                        "phone": "617-426-6500",
+                        "description": "Second oldest children's museum in the US.",
+                        "categories": ["Kids"],
+                    }
+                }
+            }
+        }
+    }
+    out = build_attractions(catalog, prices={}, images={}, geo={"attractions": {}})
+    a = out["attractions"][0]
+    assert a["phone"] == "617-426-6500"
+    assert "children's museum" in a["description"].lower()
 
 
 def test_build_attractions_handles_missing_enrichments():

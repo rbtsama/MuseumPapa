@@ -98,13 +98,15 @@ def main() -> int:
 
     # 4. passes.json
     print("Building passes.json...")
-    passes_doc = build_passes(catalog)
+    policies = _load_dir_jsons(raw_root / "pass_policies")
+    passes_doc = build_passes(catalog, policies=policies)
     _apply_pass_overrides(passes_doc, overrides.get("passes", {}))
     (structured / "passes.json").write_text(
         json.dumps(passes_doc, indent=2, ensure_ascii=False), encoding="utf-8"
     )
     print(f"  {passes_doc['_meta']['n_passes']} passes "
-          f"({passes_doc['_meta']['n_with_availability']} with calendar)")
+          f"({passes_doc['_meta']['n_with_availability']} with calendar, "
+          f"{passes_doc['_meta']['n_with_policy']} with policy)")
 
     return 0
 

@@ -10,8 +10,11 @@ def _price_block(rec: dict | None) -> dict | None:
     return {
         "adult": rec.get("adult"),
         "child": rec.get("child"),
+        "youth": rec.get("youth"),
         "senior": rec.get("senior"),
         "student": rec.get("student"),
+        "military": rec.get("military"),
+        "educator": rec.get("educator"),
         "family": rec.get("family"),
         "free_under_age": rec.get("free_under_age"),
         "notes": rec.get("notes"),
@@ -79,13 +82,15 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
                 "museum_name": p.get("museum_name", ""),
                 "address": p.get("address", ""),
                 "website": p.get("website", ""),
+                "phone": p.get("phone"),
+                "description": p.get("description"),
                 "categories": [],
                 "sources": [],
             })
             if lib_id not in entry["sources"]:
                 entry["sources"].append(lib_id)
-            for fld in ("museum_name", "address", "website"):
-                if not entry[fld] and p.get(fld):
+            for fld in ("museum_name", "address", "website", "phone", "description"):
+                if not entry.get(fld) and p.get(fld):
                     entry[fld] = p[fld]
             for c in p.get("categories", []):
                 if c not in entry["categories"]:

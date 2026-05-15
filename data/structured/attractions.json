@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-15T21:36:12Z",
+    "built_at": "2026-05-15T21:37:55Z",
     "n_attractions": 107,
     "n_with_price": 58,
     "n_with_image": 104,
@@ -13,6 +13,8 @@
       "museum_name": "Boston Children's Museum",
       "address": "308 Congress Street, Boston, MA 02210",
       "website": "http://www.bostonchildrensmuseum.org/",
+      "phone": "617-426-6500",
+      "description": "Founded in 1913 by the Science Teachers' Bureau, the Boston Children's Museum is the second oldest children's museum in the world and one of the few that maintain a collection. Designed for both children and families, the Museum exhibits focus on science, culture, environmental awareness, health & fitness, and the arts, emphasizing hands-on engagement and learning through experience, and employing play as a tool to spark the inherent creativity, curiosity, and imagination of children.",
       "categories": [
         "Children",
         "Crafts",
@@ -81,8 +83,11 @@
       "original_price": {
         "adult": 24,
         "child": 24,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 1,
         "notes": "Children 1 and under free; flat rate $24 for ages 1+",
@@ -116,6 +121,8 @@
       "museum_name": "Concord Museum",
       "address": "200 Lexington Road, Concord, MA 01742",
       "website": "http://www.concordmuseum.org/",
+      "phone": "978-369-9763",
+      "description": "Founded in 1886, the Concord Museum is a repository of local history and a gateway to the town of Concord. It educates visitors from around the world about the history of Concord and its continuing influence on American political, literary and cultural life through permanent and changing exhibits, educational programs and publications. Its collection contains a range of unique items from the area, including a Paul Revere lantern; many objects that once belonged to Henry David Thoreau; a reproduction of Ralph Waldo Emerson's study; and furniture, artwork, and objects from the colonial era on.",
       "categories": [
         "Family",
         "History"
@@ -165,6 +172,8 @@
       "museum_name": "Davis Farmland",
       "address": "145 Redstone Hill, Sterling, MA 01564",
       "website": "https://www.davisfarmland.com/",
+      "phone": "978-422-6666",
+      "description": "Davis Farmland is a seven-generation, working family farm, continuously in operation since 1846 in Sterling, MA. Starting in 1996, Davis Farmland has provided opportunities for discovery and play to families with children 12 years old and younger. It has a Waterspray Park; Imagine-Acres; Adventureland; interactions with farm animals; and a “Mega Maze” in the fall. It is also home to the largest sanctuary of endangered farm animals in North America. Special events include hands-on reptile shows. Hours change with the season. Shop with food and souvenirs on the premises.",
       "categories": [
         "Children",
         "Family",
@@ -214,6 +223,8 @@
       "museum_name": "Discovery Museum",
       "address": "177 Main Street, Acton, MA 01720",
       "website": "http://www.discoveryacton.org/",
+      "phone": "978-264-4200",
+      "description": "Acton's Discovery Museum, located on a 4-acre campus, is aimed at providing an environment in which play becomes a conduit for learning about science, technology, and nature. The museum's building contains a number of galleries dedicated to teaching scientific concepts in a fun, hands-on environment, as well as themed play spaces for younger visitors. Outdoors, Discovery Woods includes a nature playscape with a cargo net climb, nest swing and beaver lodges, as well as a treehouse with an observation deck and a bouncy bridge. There are opportunities to practice orienteering with provided maps and instructions on trails on the property. A museum shop is on the premises. The museum building is fully ADA compliant, with exhibits based on Universal Design principles.",
       "categories": [
         "Children",
         "Family",
@@ -256,8 +267,11 @@
       "original_price": {
         "adult": 19,
         "child": 19,
+        "youth": null,
         "senior": 18,
         "student": null,
+        "military": null,
+        "educator": 0,
         "family": null,
         "free_under_age": 1,
         "notes": "ONE price for Discovery Museum and Discovery Woods; Teachers always free; Members free; under 1 year free",
@@ -291,6 +305,8 @@
       "museum_name": "EcoTarium",
       "address": "222 Harrington Way, Worcester, MA 01604",
       "website": "http://www.ecotarium.org/",
+      "phone": "508-929-2700",
+      "description": "The EcoTarium is a unique indoor-outdoor museum in Worcester, MA. Set in an urban oasis, the museum offers a chance to walk through the treetops, take a multimedia journey through the galaxy at a digital planetarium, meet wildlife, stroll nature trails, and get hands-on with family-friendly exhibits.",
       "categories": [
         "Children",
         "Family",
@@ -313,8 +329,11 @@
       "original_price": {
         "adult": null,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": 0,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Senior $6 off regular admission; Student $6 off with valid ID; Active Duty Military and National Guard free",
@@ -348,6 +367,8 @@
       "museum_name": "Garden in the Woods (Native Plant Trust)",
       "address": "180 Hemenway Road, Framingham, MA 01701",
       "website": "http://www.nativeplanttrust.org/",
+      "phone": "508-877-7630",
+      "description": "The Garden in the Woods (Native Plant Trust) displays rare and common native New England plants in a naturalistic setting at its location in Framingham, Massachusetts, attracting visitors from all over the world. Set on 45 acres, it includes two miles of paths that meander over glacier-sculpted ridges and through narrow valleys. A pond, a wooded bog, several springs, and a brook bring a diversity of wildlife into the garden. The garden is maintained by the Native Plant Trust, which works throughout New England to monitor and protect rare and endangered plants, collect and bank seeds for biological diversity, control invasive species, conduct research, and educate the public.",
       "categories": [
         "Family",
         "Nature"
@@ -397,6 +418,8 @@
       "museum_name": "Harvard Museums of Science and Culture",
       "address": "11 Divinity Avenue, Cambridge, MA 02138",
       "website": "https://hmsc.harvard.edu/",
+      "phone": "617-496-1638",
+      "description": "The Harvard Museums of Science & Culture is a partnership of museums on the Harvard University Cambridge campus dedicated to the natural world, science, and human cultures. They include the Collection of Historical Scientific Instruments, the Harvard Museum of Natural History (comprised of the Harvard University Herbaria, Mineralogical and Geological Museum, and Museum of Comparative Zoology), the Harvard Museum of the Ancient Near East, and the Peabody Museum of Archaeology & Ethnology, all located between Oxford St./Divinity Ave area. Of particular note are the famous glass flowers, models commissioned by Harvard in 1886 to aid in the teaching of botany (and made in Germany over the course of more than eight decades), on display in the Harvard Museum of Natural History.",
       "categories": [
         "Children",
         "Family",
@@ -440,8 +463,11 @@
       "original_price": {
         "adult": 15,
         "child": null,
+        "youth": 10,
         "senior": 13,
         "student": 10,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 3,
         "notes": "Children under 3 free; Harvard students/faculty/staff free",
@@ -475,6 +501,8 @@
       "museum_name": "Institute of Contemporary Art/Boston",
       "address": "25 Harbor Shore Drive, Boston, MA 02210",
       "website": "https://www.icaboston.org/",
+      "phone": "617-478-3100",
+      "description": "The building that houses the Institute of Contemporary Art/Boston on Fan Pier is the first in the US designed by the architectural firm of Diller Scofidio + Renfro. The museum was founded in 1936 as a sister institution to New York's MoMA, though it had no permanent collection until starting one after moving into the new building on the waterfront in 2006. In addition to the collection, changing exhibitions, music, dance, film, talks, tours, family activities, and teen programming are offered throughout the year.",
       "categories": [
         "Art",
         "Family",
@@ -540,6 +568,8 @@
       "museum_name": "Isabella Stewart Gardner Museum",
       "address": "25 Evans Way, Boston, MA 02115",
       "website": "http://www.gardnermuseum.org/home/",
+      "phone": "617-566-1401",
+      "description": "The Gardner Museum houses the collection of Isabella Stewart Gardner, a local patron of the arts who died in 1924, in a building she commissioned to look like a 15th century Venetian palazzo. The center of the original building showcases courtyard plantings that reflect the seasons as they evolve throughout the year. In addition to her collection, which remains displayed exactly as she arranged it per her will, there are changing exhibitions, concerts, lectures, family events, and an artist-in-residence program. In 2012, the museum opened an addition designed by Renzo Piano that houses a space for their concert series.",
       "categories": [
         "Art",
         "Family",
@@ -622,6 +652,8 @@
       "museum_name": "John F. Kennedy Library & Museum",
       "address": "Columbia Point, Boston, MA 02125",
       "website": "https://www.jfklibrary.org/",
+      "phone": "617-514-1600",
+      "description": "The John F. Kennedy Presidential Library and Museum, dedicated to the memory of the nation's thirty-fifth president, is located on a ten-acre park which overlooks the sea in an building designed by I.M. Pei. The Museum portrays the life, leadership, and legacy of President Kennedy, conveys his enthusiasm for politics and public service, and illustrates the nature of the office of the President, all through permanent and changing exhibits. The Library is available to students and scholars to conduct research using its collection of historical materials chronicling mid-20th century politics and the life and administration of the institution's namesake.",
       "categories": [
         "Family",
         "Governance",
@@ -681,6 +713,8 @@
       "museum_name": "Mass Audubon (Drumlin Farm)",
       "address": "208 South Great Road, Lincoln, MA 01773",
       "website": "http://www.massaudubon.org/",
+      "phone": "781-259-2200",
+      "description": "Mass Audubon maintains about 100 wildlife sanctuaries in Massachusetts, more than half of which may be visited for walks on trails and visits to nature centers and museums. Among these is Drumlin Farm in Lincoln, a working farm with animals and crops, plus exhibits that include native wildlife, such as owls, foxes and deer. A shop on the premises sells items related to nature, such as bird feeders and binoculars.",
       "categories": [
         "Children",
         "Family",
@@ -706,8 +740,11 @@
       "original_price": {
         "adult": 2,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 2,
         "notes": "Library passes $2 per person (up to 4); children under 2 always free; members free",
@@ -741,6 +778,8 @@
       "museum_name": "Massachusetts State Parks (Department of Conservation and Recreation)",
       "address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104",
       "website": "http://www.mass.gov/eea/agencies/dcr/massparks/",
+      "phone": "617-626-1250",
+      "description": "The Massachusetts State Parks have locations in all regions of the Commonwealth, from Pittsfield to Boston, and from Gloucester to Provincetown. They include beaches, wooded parks, parkways, and reservoirs, each with its own unique activities and amenities like hiking, biking, swimming and boating, camping, and more.",
       "categories": [
         "Children",
         "Family",
@@ -816,6 +855,8 @@
       "museum_name": "Museum of Fine Arts",
       "address": "465 Huntington Avenue, Boston, MA 02115",
       "website": "http://www.mfa.org/",
+      "phone": "617-267-9300",
+      "description": "The Boston Museum of Fine Arts, in existence since July 4, 1876, is one of the most comprehensive art museums in the world, with a collection of almost 500,000 works of art, ranging from ancient Egyptian artifacts to contemporary painting, sculpture and video. In addition, there are always special exhibitions on view, opportunities to take advantage of educational programs—some right in the galleries—and a contemplative Japanese garden.",
       "categories": [
         "Art",
         "Family",
@@ -904,6 +945,8 @@
       "museum_name": "Museum of Science",
       "address": "1 Science Park, Boston, MA 02114",
       "website": "http://www.mos.org/",
+      "phone": "617-723-2500",
+      "description": "The Museum of Science in Boston is located on a piece of land that extends the width of the Charles River, connecting Boston and Cambridge. Dedicated to promoting and educating visitors about science and technology, the museum includes a planetarium, the world's largest open-air Van de Graaff generator, an IMAX theatre, a butterfly garden, and permanent and changing exhibits on birds, insects and animals; space; dinosaurs; engineering; nanotechnology; math; biology; and more.",
       "categories": [
         "Children",
         "Family",
@@ -976,8 +1019,11 @@
       "original_price": {
         "adult": 33,
         "child": 28,
+        "youth": null,
         "senior": 29,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 3,
         "notes": "Children under 3 free; Members free",
@@ -1011,6 +1057,8 @@
       "museum_name": "New England Aquarium",
       "address": "1 Central Wharf, Boston, MA 02110",
       "website": "http://www.neaq.org/",
+      "phone": "617-973-5200",
+      "description": "The New England Aquarium is home to thousands of aquatic animals, from the giant Pacific octopus to Northern fur seals to little blue penguins. They offer a wide range of exhibits, including a shark and ray touch tank and the Giant Ocean Tank, a four-story coral reef featuring hundreds of Caribbean animals. In addition, they have an IMAX theatre and run whale watch boat excursions in partnership with Boston Harbor Cruises from April through November.",
       "categories": [
         "Children",
         "Family",
@@ -1082,8 +1130,11 @@
       "original_price": {
         "adult": 44.95,
         "child": 35.95,
+        "youth": null,
         "senior": 42.95,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 2,
         "notes": "Children under 2 free",
@@ -1117,6 +1168,8 @@
       "museum_name": "New England Botanic Garden at Tower Hill",
       "address": "11 French Drive, Boylston, MA 01505-0598",
       "website": "https://www.nebg.org/",
+      "phone": "508-869-6111",
+      "description": "Located in Boylston, MA, and open year-round, the New England Botanic Garden at Tower Hill features carefully planned gardens and collections of ornamental, edible and native plants, with a number of trails that traverse the 200-acre property. In addition, there are many programs and events, including classes, lectures, art exhibits and concerts. The Garden is run by the Worcester County Horticultural Society, the third oldest active horticultural society in the United States.",
       "categories": [
         "Art",
         "Crafts",
@@ -1176,6 +1229,8 @@
       "museum_name": "Peabody Essex Museum",
       "address": "161 Essex Street, Salem, MA 01970-3783",
       "website": "http://www.pem.org/",
+      "phone": "978-745-9500",
+      "description": "The Peabody Essex Museum grew out of the collection of East India Marine Society, an organization of Salem captains whose charter called for acquisition of “natural and artificial curiosities.” Its permanent collection contains art and artifacts of Africa, Asia, India, China (with a Qing Dynasty house brought from the Huizhou region), Japan, Korea, Pacific Islands, and features objects of maritime art and history that include paintings, drawings, ship models, marine decorative arts, tools, weapons, navigational instruments, and ship and yacht plans. It also has a thriving changing exhibition schedule that sometimes includes important traveling shows.",
       "categories": [
         "Art",
         "Family",
@@ -1235,8 +1290,11 @@
       "original_price": {
         "adult": 25,
         "child": null,
+        "youth": null,
         "senior": 23,
         "student": 15,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 16,
         "notes": "Youth (under 16) free; Salem residents free; Members free",
@@ -1270,6 +1328,8 @@
       "museum_name": "Trustees of Reservations (with deCordova Sculpture Park and Museum)",
       "address": "",
       "website": "http://www.thetrustees.org/",
+      "phone": null,
+      "description": null,
       "categories": [
         "Art",
         "Family",
@@ -1310,8 +1370,11 @@
       "original_price": {
         "adult": 0,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Free admission noted on page; Trustees members always free",
@@ -1337,6 +1400,8 @@
       "museum_name": "Zoo New England",
       "address": "1 Franklin Park Road, Boston, MA 02121",
       "website": "http://www.zoonewengland.org/",
+      "phone": "617-541-5466",
+      "description": "Zoo New England operates Franklin Park Zoo, a 72-acre site nestled in Boston's historic Franklin Park, and the Stone Zoo, located on a 26-acre site near Spot Pond reservoir in Stoneham, MA. In addition to animals, both zoos are engaged in wildlife and conservation programs, research, and education.",
       "categories": [
         "Family",
         "Zoo"
@@ -1429,6 +1494,8 @@
       "museum_name": "The Aviation Museum of New Hampshire",
       "address": "27 Navigator Road, Londonderry, NH 03053",
       "website": "https://aviationmuseumofnh.org/",
+      "phone": "603-669-4820",
+      "description": "The Aviation Museum of New Hampshire is housed in an art deco terminal and control tower building in Londonderry. The historic building was constructed as a WPA project in 1937 and was moved in 2004 to its present location on the southeast side of the Manchester Airport before being renovated. Hands-on exhibits tell the story of New Hampshire aviation history and include a flight simulator, various historical artifacts, and planes and models.",
       "categories": [
         "Family",
         "History",
@@ -1444,8 +1511,11 @@
       "original_price": {
         "adult": 15,
         "child": null,
+        "youth": 7.5,
         "senior": 7.5,
         "student": null,
+        "military": 7.5,
+        "educator": null,
         "family": null,
         "free_under_age": 5,
         "notes": "Youth(6-12) $7.50; Seniors(65+)/veterans/active military $7.50; Children 5 and under free; Aviation Museum members free",
@@ -1479,6 +1549,8 @@
       "museum_name": "Bedrock Gardens",
       "address": "19 High Road, Lee, NH 03861",
       "website": "https://www.bedrockgardens.org/",
+      "phone": "603-659-2993",
+      "description": "Originally an historic farm and private garden, Bedrock Gardens is now a public garden that features unusual botanical specimens and sculpture by co-founder Jill Nooney. The 37-acre site is home to over a thousand different plant species, an 18th century farmhouse, various gardens, a wildlife pond, two miles of woodland paths, a Japanese tea house, and many structural elements that contribute to the uniqueness of the landscape. They are typically closed during the winter months, so check the website for details on the schedule.",
       "categories": [
         "Art",
         "Nature"
@@ -1515,6 +1587,8 @@
       "museum_name": "Boston Harbor Island Ferry",
       "address": "15 State Street, Suite 1100, Boston, MA 02109",
       "website": "http://www.bostonharborislands.org/",
+      "phone": "617-223-8666",
+      "description": "The largest recreational open space in Eastern Massachusetts, the Boston Harbor Islands National and State Park is comprised of 34 islands and mainland parks that deliver access to historic sites and provide opportunities to hike and camp. Transportation to the islands is by ferry and, depending on the location, your own boat. Please refer to their website for the most up-to-date information about what is open and how to get there.",
       "categories": [
         "Family",
         "Nature",
@@ -1558,6 +1632,8 @@
       "museum_name": "Children's Museum of New Hampshire",
       "address": "6 Washington Street, Dover, NH 03820",
       "website": "http://www.childrens-museum.org/",
+      "phone": "603-742-2002",
+      "description": "The Children's Museum of New Hampshire offers opportunities for children and families to explore art, science, and culture through dozens of activities and exhibits. Among these are the Thinkering and Steam Innovation Labs; Dino Detective; Music Matrix & Sound Watch; Naturalist's Study; Cave Explorers; and Post Office. The recently re-opened Dover Adventure Playground features a life-size flat-bottomed vintage gundalow boat; a net climber; swings and slides; a 3-story Garrison tower; a 1,200 pound, 3x8 foot climbable Alewife granite fish sculpture; a splash pad; musical instruments; and a life-sized “whale's tail” sculpture perched on the roof of the Dover Pool. Regularly scheduled special events take place throughout the year, including the Dover Mini Maker Faire; Teddy Bear Clinic + Picnic; Toddlerfest; 5K Road Race + Kid-Venture Course; and Earth Day Celebration; among others. A museum shop is on the premises.",
       "categories": [
         "Children",
         "Family",
@@ -1573,8 +1649,11 @@
       "original_price": {
         "adult": 0,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Free admission; pay what you can",
@@ -1608,6 +1687,8 @@
       "museum_name": "Historic New England",
       "address": "141 Cambridge Street, Administrative Offices: Otis House, Boston, MA 02114",
       "website": "https://www.historicnewengland.org/",
+      "phone": null,
+      "description": "Historic New England is a historic preservation organization which owns and operates historic house museums and properties open to the public throughout most of New England. The majority of the 36 properties are in Massachusetts, but locations exist in all NE states but Vermont. These include Castle Tucker (Wiscasset, ME), the Jackson House (Portsmouth, NH), the Spencer-Pierce-Little Farm, which (Newbury, MA), Roseland Cottage (Woodstock, CT), the Otis House (Boston, MA), the Lyman Estate (Waltham, MA), Gropius House (Lincoln, MA), and the Arnold House (Lincoln, RI). Styles represented include Federal, Colonial Revival, Victorian, Queen Anne, Arts & Crafts, and Modern, among many others. The website provides much detail, including directions, contact information, and history of each property.",
       "categories": [
         "Architecture",
         "Family",
@@ -1648,6 +1729,8 @@
       "museum_name": "The House of Seven Gables",
       "address": "115 Derby Street, Salem, MA 01970",
       "website": "https://www.7gables.org/",
+      "phone": "978-744-0991",
+      "description": "The House of the Seven Gables, one of the oldest surviving timber-framed mansion houses in continental North America, was the setting of Nathaniel Hawthorne's famous 1851 novel of the same name. The historic site which includes the house (a National Historic Landmark District) includes a guided tour of the Turner-Ingersoll Mansion (the House of the Seven Gables) and visits to the Nathaniel Hawthorne Birthplace, the Colonial Revival seaside gardens, and the Counting House, with a maritime discovery zone called “Kids' Cove at The Gables.” (An audio tour of the gardens, grounds, and waterfront is available through the UniGuide App.) Lectures and seasonal living history labs are scheduled throughout the year, and a changing annual exhibition examines various aspects of the institution's 350 years of history. There is a gift shop on the premises. The website has virtual field trips and interactive exhibitions that can provide helpful background information before a visit.",
       "categories": [
         "Children",
         "Family",
@@ -1672,8 +1755,11 @@
       "original_price": {
         "adult": 26,
         "child": 18,
+        "youth": null,
         "senior": 21,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 5,
         "notes": "Children under 5 free; Members free; Salem residents free; NARM passholders free",
@@ -1707,6 +1793,8 @@
       "museum_name": "New England Quilt Museum",
       "address": "18 Shattuck St., Lowell, MA 01852",
       "website": "https://www.neqm.org/",
+      "phone": "978-452-4207",
+      "description": "The New England Quilt Museum, part of the Lowell National Historic Park, is fittingly located not far from the old textile manufacturing plants that made the city famous during the industrial revolution. Since its opening in 1987, it has been committed to both craft and fine arts quilts, with a permanent collection, special exhibitions, a library and resource center, classrooms, and a gift shop.",
       "categories": [
         "Children",
         "Family",
@@ -1726,8 +1814,11 @@
       "original_price": {
         "adult": 10,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 12,
         "notes": "Children 12 and under free; Members free; EBT cardholders and 1 guest free",
@@ -1761,6 +1852,8 @@
       "museum_name": "New Hampshire Philharmonic Orchestra",
       "address": "44 Geremonty Drive, Seifert Performing Arts Center, Salem, NH 03079",
       "website": "https://www.nhphil.org/",
+      "phone": "603-647-6476",
+      "description": "The New Hampshire Philharmonic Orchestra has presented classical music concerts with their mix of student, amateur, and professional musicians for over a century in various venues. In 2018, they took up residence in the Seifert Performing Arts Center in Salem, built the previous year. Among the themed concerts that allow them to present well-known pieces of classical repertory, they typically schedule Holiday Pops concerts in December.",
       "categories": [
         "Children",
         "Family",
@@ -1774,8 +1867,11 @@
       "original_price": {
         "adult": 35,
         "child": null,
+        "youth": null,
         "senior": 30,
         "student": 10,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Adults $35; Seniors $30; Students $10 ($5 for Salem Students); Streaming online $15",
@@ -1801,6 +1897,8 @@
       "museum_name": "North Shore Children's Museum",
       "address": "10 Main Street, Peabody, MA 01960",
       "website": "https://www.nschildrensmuseum.org/",
+      "phone": "978-538-5765",
+      "description": "Located in downtown Peabody, MA, the North Shore Children's Museum offers 15 hands-on exhibits geared towards explorative and imaginative play for children ages 2 to 8. A child may become a superhero in the Comic Room, a builder in the Gross Motor Room, an artist in the Makerspace, and more. All exhibits are in ADA-accessible spaces.",
       "categories": [
         "Children",
         "Family",
@@ -1829,8 +1927,11 @@
       "original_price": {
         "adult": 12,
         "child": 12,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 1,
         "notes": "Adults and Children (12 months+) $12; EBT/WIC $3; Library pass $6; Children under 12 months free",
@@ -1864,6 +1965,8 @@
       "museum_name": "Plimoth Patuxet Museums",
       "address": "137 Warren Avenue, Plymouth, MA 02360",
       "website": "http://www.plimoth.org/",
+      "phone": "508-746-1622",
+      "description": "Plimoth Patuxet Museums offers a living history that tells the story of the English colonists who became known as “Pilgrims” and the Native Americans with whom they interacted. A big draw is the re-creation of the original settlement, populated with interpreters in period dress with whom one may interact that are based on actual historical figures. Native People from various nations in historically accurate dress provide information about the Wampanoag—the first tribe the Pilgrims encountered—at a home site based on how the group would have lived in the 17th century. In addition to the two settlements, the museum includes a visitor center, the Craft Center, barns that contain rare and heritage animal breeds, and a grist mill that manufactures cornmeal. Plymouth Patuxet Museums is also responsible for the replica of the Mayflower, the ship that brought the Pilgrims to the New World.",
       "categories": [
         "Children",
         "Crafts",
@@ -1913,6 +2016,8 @@
       "museum_name": "Salem Witch Museum",
       "address": "19 1/2 Washington Square, Salem, MA 01970",
       "website": "http://www.salemwitchmuseum.com/",
+      "phone": "978-744-1692",
+      "description": "Based on actual trial documents and using life-size stage sets with figures, lighting, and narration, the museum's principle exhibit examines the 1692 Salem witch trials. In a second exhibit, “Witches: Evolving Perceptions,” guides take you through changing interpretations of witches, the truth behind the stereotypes, witchcraft practice today, and witch hunting. A gift shop is on the premises.",
       "categories": [
         "Children",
         "Family",
@@ -1964,6 +2069,8 @@
       "museum_name": "Seacoast Science Center",
       "address": "570 Ocean Boulevard, Odiorne Point State Park, Rye, NH 03870",
       "website": "http://www.seacoastsciencecenter.org/",
+      "phone": "603-436-8043",
+      "description": "Located within Odiorne Point State Park in Rye, NH, the Seacoast Science Center has been providing educational experiences on behalf of New Hampshire State Parks since 1992. The center includes hands-on science exhibits (undersea exploration to marine debris), live animal exhibits which feature creatures that live in the rapidly changing Gulf of Maine ecosystem; and many special events, like “Music-by-the-Sea” concerts and “Sippin' for Seals” (dancing and drinks to support the Marine Mammal rescue Program).",
       "categories": [
         "Children",
         "Family",
@@ -1981,8 +2088,11 @@
       "original_price": {
         "adult": 15,
         "child": 10,
+        "youth": null,
         "senior": 12.5,
         "student": null,
+        "military": 12.5,
+        "educator": null,
         "family": null,
         "free_under_age": 2,
         "notes": "Ages 3-11: $10; Ages 0-2 free; Active Duty Military & Veterans $12.50; Members free",
@@ -2016,6 +2126,8 @@
       "museum_name": "Wenham Museum",
       "address": "132 Main Street, Wenham, MA 01984",
       "website": "http://www.wenhammuseum.org/",
+      "phone": "978-468-2377",
+      "description": "Wenham Museum is a history museum celebrating the treasures of childhood and New England family life across four centuries, with an emphasis on the North Shore. The museum's collections feature a world-renowned doll collection and dollhouses, costumes and textiles, model trains, antique toys, historic photographs, and the interactive Family Discovery Gallery. Admission includes a tour of the historic Claflin-Gerrish-Richards House, built at the end of the 17th century. In addition, there are rotating special programs and exhibitions. A gift shop is on the premises.",
       "categories": [
         "Children",
         "Family",
@@ -2031,8 +2143,11 @@
       "original_price": {
         "adult": 15,
         "child": 10,
+        "youth": null,
         "senior": 10,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 2,
         "notes": "Babies 0-23 months free; Children 2-18 and Seniors same price $10",
@@ -2066,6 +2181,8 @@
       "museum_name": "Mass Audubon",
       "address": "MA",
       "website": "https://www.massaudubon.org/",
+      "phone": "781-259-9500",
+      "description": "Mass Audubon has over 55 wildlife sanctuaries and centers throughout Massachusetts where visitors can learn about and interact with nature. More than 38,000 acres of protected land deliver inspiring hilltop views to breathtaking coastal landscapes, serene woods, and working farms. Visit their website for a list of locations.",
       "categories": [
         "Children",
         "Family",
@@ -2091,8 +2208,11 @@
       "original_price": {
         "adult": 2,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 2,
         "notes": "Library passes $2 per person (up to 4); children under 2 always free; members free",
@@ -2118,6 +2238,8 @@
       "museum_name": "Armenian Museum of America",
       "address": "65 Main Street, Watertown, MA 02472",
       "website": "https://www.armenianmuseum.org/",
+      "phone": "617-926-2562",
+      "description": "With roots going back to the early 1970s, The Armenian Museum of America has occupied its Watertown location since 1988. The largest collection of Armenian cultural artifacts outside of Armenia, the 25,000 objects include five of the first printed bibles in Armenian from 1666, ancient Urartian artifacts, medieval manuscripts, K�tahya ceramics, textiles, liturgical objects, and contemporary art. With such a large collection, the museum estimates that only around 5% of its holding are on view at a given time, through rotating and permanent exhibits, including explorations of modern day Armenian-American culture, artworks by contemporary Armenian and Armenian-American artists, and an exhibit focusing on the Armenian Genocide. All galleries are wheelchair accessible, and there are HEPA Air Purifiers throughout. There is a gift shop featuring work by Armenian vendors.",
       "categories": [
         "Art",
         "Crafts",
@@ -2131,8 +2253,11 @@
       "original_price": {
         "adult": 15,
         "child": null,
+        "youth": null,
         "senior": 5,
         "student": 5,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 18,
         "notes": "Members free",
@@ -2166,6 +2291,8 @@
       "museum_name": "Boston by Foot ",
       "address": "87 Mount Vernon Street, Boston, MA 02108",
       "website": "http://www.bostonbyfoot.org/",
+      "phone": "617-367-2345",
+      "description": "Boston By Foot has presented walking tours of Boston since 1976. Dedicated to promoting public awareness and appreciation of Boston's rich history and architectural heritage, their guided tours and programs are conducted by a dedicated corps of over 200 volunteer tour guides. Check their website for a list of available tours, most of which take 90 minutes.",
       "categories": [
         "Children",
         "Family",
@@ -2211,6 +2338,8 @@
       "museum_name": "Gore Place",
       "address": "52 Gore Street, Waltham, MA 02453",
       "website": "https://www.goreplace.org/",
+      "phone": "781-894-2798",
+      "description": "Gore Place is a historic 19th century country house located in Waltham, MA. Indoor and outdoor tours of the 50-acre estate—which boasts a magnificent Mansion, an authentic 1793 Carriage House, a working farm, and beautiful grounds—are available; check the website for the schedule. Special events include an annual sheepshearing festival and a summer concert series. There is a museum shop on the premises.",
       "categories": [
         "Children",
         "Family",
@@ -2230,8 +2359,11 @@
       "original_price": {
         "adult": 0,
         "child": 0,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Grounds free and open to public; mansion tours have separate admission fee",
@@ -2265,6 +2397,8 @@
       "museum_name": "Orchard House",
       "address": "399 Lexington Road, Concord, MA 01742",
       "website": "http://www.louisamayalcott.org/",
+      "phone": "978-369-4118",
+      "description": null,
       "categories": [
         "Children",
         "Family",
@@ -2279,8 +2413,11 @@
       "original_price": {
         "adult": 15,
         "child": null,
+        "youth": 8,
         "senior": 12,
         "student": 12,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 6,
         "notes": "Children under 6 free; Family rate 20% discount for 4+ people; Card to Culture $3/ticket",
@@ -2314,6 +2451,8 @@
       "museum_name": "USS Constitution Museum",
       "address": "Charlestown Navy Yard, Building 22, Charlestown, MA 02129",
       "website": "https://ussconstitutionmuseum.org/",
+      "phone": "617-426-1812",
+      "description": "The museum, a part of the Boston National Historical Park, is located in the Charlestown Navy Yard near the ship USS Constitution (“Old Ironsides”) at the end of Boston's Freedom Trail. The museum provides a detailed look at the history of the ship, information about the war of 1812, and the battle between the ship and HMS Java. Stories are told through interactive exhibits, unique artifacts, archival records, and artwork. The museum also includes a research library which houses a strong collection of manuscripts, books, artifacts, and microfilm of primary source material. The ship itself is maintained by the US Navy, and may be visited free of charge on certain days.",
       "categories": [
         "Art",
         "Family",
@@ -2358,8 +2497,11 @@
       "original_price": {
         "adult": 0,
         "child": 0,
+        "youth": null,
         "senior": 0,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Pay what you wish; suggested donations apply",
@@ -2393,6 +2535,8 @@
       "museum_name": "American Heritage Museum",
       "address": "568 Main Street, Hudson, MA 01749",
       "website": "https://www.americanheritagemuseum.org/",
+      "phone": "978-562-9182",
+      "description": "The American Heritage Museum, located in Hudson, MA, is dedicated to military history. Exhibits examine conflicts from the Revolutionary War through 9/11 and the “War on Terror.” A good portion of the museum is focused on the sizable Littlefield collection, which includes many rare items from the U.S. and other countries. Among other artifacts, visitors to the museum will encounter aircraft, tanks, guns, and automobiles, some dating from the beginning of the 20th century.",
       "categories": [
         "Family",
         "History",
@@ -2436,6 +2580,8 @@
       "museum_name": "The Butterfly Place",
       "address": "120 Tyngsboro Road, Westford, MA 01886",
       "website": "https://www.butterflyplace-ma.com/",
+      "phone": "978-392-0955",
+      "description": "A winding pathway through an atrium filled with flowers, koi fish, and quail allows visitors to walk among butterflies from all over the world. Staff members are available for questions and “show and tell” demonstrations. A continuously running video explains the butterfly life cycle, and exhibits enable visitors to observe eggs, caterpillars, cocoons and chrysalides with information about each species. A gift shop is on the premises. There is a public picnic area and free parking is available.",
       "categories": [
         "Children",
         "Family",
@@ -2481,6 +2627,8 @@
       "museum_name": "Trustees of the Reservations",
       "address": "MA",
       "website": "http://www.thetrustees.org/",
+      "phone": "978-921-1944",
+      "description": "The Trustees of the Reservations preserve and protect more than 100 special properties of exceptional scenic, historic, and ecological value—nearly 25,000 acres—all around Massachusetts. From Crane's Beach in Ipswich and World's End in Hingham to The Old Manse in Concord and Fruitlands Museum in Harvard, visitors to Trustees sites enjoy local history and nature in its various forms: beaches, meadows, forests, swamps and more.",
       "categories": [
         "Family",
         "History",
@@ -2503,8 +2651,11 @@
       "original_price": {
         "adult": 0,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Free admission noted on page; Trustees members always free",
@@ -2530,6 +2681,8 @@
       "museum_name": "Boston Athenaeum",
       "address": "10 1/2 Beacon Street, Boston, MA 02108",
       "website": "https://www.bostonathenaeum.org/",
+      "phone": "617-227-0270",
+      "description": "Once one of the country's largest libraries, The Boston Athenaeum has been building their collection of books, manuscripts, art and artifacts since the early 1800s. A non-profit independent library, museum and cultural center, the Athenaeum has a circulating library of over half a million books from the 19th century to the present day. In addition, it houses ample special collections of rare books, authors' manuscripts, maps, and art, much of it pertaining to Boston's cultural history. The galleries display highlights of the permanent collections, as well as rotating exhibits focusing on local artists and history. Several dates a week are devoted to events: tours, lectures, and even concerts. Visit the website for the museum's hours, as well as a room-by-room breakdown of accessibility.",
       "categories": [
         "Art",
         "Family",
@@ -2542,8 +2695,11 @@
       "original_price": {
         "adult": 11,
         "child": 5,
+        "youth": null,
         "senior": null,
         "student": 8,
+        "military": 8,
+        "educator": 8,
         "family": null,
         "free_under_age": null,
         "notes": "Students/Educators/Military same price $8; Card to Culture $2; NARM/ROAM free",
@@ -2577,6 +2733,8 @@
       "museum_name": "The Children's Piazza",
       "address": "83 Pine Street, Unit F, Peabody, MA 01960",
       "website": "https://www.thechildrenspiazza.com/",
+      "phone": "978-817-2809",
+      "description": "Located in Peabody, MA, The Children's Piazza is a space is designed for young children—aged 0 to 6—to learn through unstructured play. Organized to optimize social, cognitive and motor development, areas include a large room with a climbing structure, slides, and swings; an arts and crafts room; a room with a train table; a lunch area with appropriately sized furniture; a glow-in-the-dark planet room; among others. There is a coffee shop and free Wi-Fi on the premises. Please check the website for the requirements of entry.",
       "categories": [
         "Children",
         "Family"
@@ -2592,8 +2750,11 @@
       "original_price": {
         "adult": 0,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Free admission; community children's space",
@@ -2627,6 +2788,8 @@
       "museum_name": "Griffin Museum of Photography",
       "address": "67 Shore Road, Winchester, MA 01890",
       "website": "http://www.griffinmuseum.org/",
+      "phone": "781-729-1158",
+      "description": "Opened in 1992, the Griffin Museum of Photography presents exhibitions, programs and lectures that support their mission of encouraging a broader understanding and appreciation of the art of photography. Three galleries are dedicated to changing exhibitions of photography by well-known, emerging, and student photographers. (Three additional satellite galleries can be found in various locations in the Boston area.)",
       "categories": [
         "Art",
         "Family"
@@ -2665,6 +2828,8 @@
       "museum_name": "Naismith Memorial Basketball Hall of Fame",
       "address": "1000 Hall of Fame Avenue, Springfield, MA 01105",
       "website": "https://www.hoophall.com/",
+      "phone": "877-446-6752",
+      "description": "The Naismith Memorial Basketball Hall of Fame, located in Springfield, MA, was established in 1959. The 40,000 sq. ft. museum is dedicated to the history of basketball and maintains a hall of fame dedicated to the most talented players of the game. Interactive exhibits share the spotlight with skills challenges, live clinics, and shooting contests.",
       "categories": [
         "Family",
         "Sports"
@@ -2677,8 +2842,11 @@
       "original_price": {
         "adult": 34,
         "child": null,
+        "youth": 20,
         "senior": 25,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Children 4 and under free per general policy",
@@ -2712,6 +2880,8 @@
       "museum_name": "The Danforth",
       "address": "14 Vernon Street, Framingham, MA 01701",
       "website": "https://danforth.framingham.edu/",
+      "phone": "508-215-5110",
+      "description": "The Danforth is an art museum and school that opened in Framingham in 1975. After a closure of three years, the museum reopened in 2019 in a newly renovated location on Centre Common. It has six galleries, one dedicated to its collection of American art from the 1800s up to the present; a second containing the work of the African-American female sculptor Meta Vaux Warrick Fuller; and four used as spaces for changing exhibitions. The museum's permanent collection includes work by Gilbert Stuart, Charles Sprague Pearce, Eastman Johnson, Albert Bierstadt, and Thomas Hart Benton, as well as work by the Boston Expressionists and contemporary artists such as Faith Ringgold, Richard Yarde, Barbara Grad, Andrew Stevovich, and Jason Berger.",
       "categories": [
         "Art",
         "Children",
@@ -2726,8 +2896,11 @@
       "original_price": {
         "adult": 7,
         "child": null,
+        "youth": null,
         "senior": 6,
         "student": 5,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Framingham residents $6; High school and college students $5",
@@ -2761,6 +2934,8 @@
       "museum_name": "Worcester Art Museum",
       "address": "55 Salisbury Street, Worcester, MA 01609",
       "website": "http://www.worcesterart.org/",
+      "phone": "508-799-4406",
+      "description": "The Worcester Art Museum is recognized for its 35,000-piece collection of paintings, sculpture, decorative arts, photography, prints, drawings and new media created over the last 5 millennia. Works include those by El Greco, Monet, Rembrandt, Gauguin, van Gogh, Renoir, Cézanne, Picasso, Copley, Gilbert Stuart, Paul Revere, and Nam June Paik. Special exhibitions showcase the masterworks, seldom-seen gems, and important works on loan—including some contemporary art. Of note are the floor mosaics from the ancient city of Antioch (Syria) in the entrance, the Japanese print collection, and the “Arms and Armor” collection. There is a café, museum shop, and library on the premises.",
       "categories": [
         "Art",
         "Family",
@@ -2778,8 +2953,11 @@
       "original_price": {
         "adult": 22,
         "child": null,
+        "youth": null,
         "senior": 17,
         "student": 17,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 17,
         "notes": "Youth 17 and under free; Members free; College Partners free",
@@ -2813,6 +2991,8 @@
       "museum_name": "America's Stonehenge",
       "address": "105 Haverhill Road, Salem, NH 03079",
       "website": "https://www.stonehengeusa.com/",
+      "phone": "603-893-8300",
+      "description": "“America's Stonehenge,” identified as an accurate astronomical calendar, was built over 4,000 years ago. Its man-made chambers, walls, and ceremonial meeting places were constructed by people well-versed in astronomy and stone construction. Visitors explore the site as a self-guided tour. (A phone app can be downloaded before arrival that contains an audio tour and more detailed information that the paper map which may acquired on site.) Note that, because of the uneven and rocky terrain of the site, only the visitor center and gift shop are handicap accessible.",
       "categories": [
         "Family",
         "History",
@@ -2826,8 +3006,11 @@
       "original_price": {
         "adult": 19,
         "child": 12,
+        "youth": null,
         "senior": 17,
         "student": null,
+        "military": 15,
+        "educator": null,
         "family": null,
         "free_under_age": 4,
         "notes": null,
@@ -2861,6 +3044,8 @@
       "museum_name": "Currier Museum of Art",
       "address": "150 Ash Street, Manchester, NH 03104",
       "website": "http://currier.org/",
+      "phone": "603-669-6144",
+      "description": "The Currier Museum of Art, located in Manchester, NH, features European and American paintings, decorative arts, photographs and sculpture. The permanent collection includes works by Picasso, Matisse, Monet, O'Keeffe, Calder, John Singer Sargent, Frank Lloyd Wright, Andrew Wyeth, and Sol LeWitt. Special exhibitions provide opportunities to present work by contemporary and/or local artists, as well as take in-depth looks at certain objects or areas of the Museum's collection. Public programs include tours, live classical music and “Family Days” which include activities for all ages. The Museum also offers tours of the Frank Lloyd Wright-designed Zimmerman House, now listed on the Register of Historic Places (reservations required). There is a museum store on the premises.",
       "categories": [
         "Architecture",
         "Art",
@@ -2874,8 +3059,11 @@
       "original_price": {
         "adult": 20,
         "child": null,
+        "youth": 5,
         "senior": 15,
         "student": 15,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 13,
         "notes": "Children under 13 free; Youth (13-17) $5",
@@ -2909,6 +3097,8 @@
       "museum_name": "Museum of Printing",
       "address": "15 Thornton Avenue, Haverhill, MA 01832",
       "website": "https://www.museumofprinting.org/",
+      "phone": "978-372-0567",
+      "description": "The Museum of Printing, located in Haverhill, MA, is home to the one of the world's largest collections of printing and typesetting hardware and ephemera. In addition to many special collections and small exhibits, the Museum contains hundreds of antique printing, typesetting, and bindery machines, as well as a library of over 7,000 books, periodicals, and media related to the history of paper and printing. It houses the only collection of photo-typesetting machines, fonts, and related artifacts in the world. There is a gift shop on the premises.",
       "categories": [
         "Family",
         "History",
@@ -2921,8 +3111,11 @@
       "original_price": {
         "adult": 15,
         "child": null,
+        "youth": null,
         "senior": 10,
         "student": 0,
+        "military": 0,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Military & students free; Haverhill Library cardholders free",
@@ -2956,6 +3149,8 @@
       "museum_name": "Public Health Museum",
       "address": "297-321 East Street, Tewksbury, MA 01876",
       "website": "https://www.publichealthmuseum.org/",
+      "phone": "978-851-7321",
+      "description": "The Public Health Museum was opened in 1994 in the old administration building on the grounds of Tewksbury Hospital. The Museum's collection consists of records and artifacts from the nation's public health history. Permanent and temporary exhibits focus on the history of public health hospitals, infectious diseases (tuberculosis, smallpox, and polio), patent medicines, mental health, public health nursing and education, and dental health, among other topics. The building contains a number of WPA murals from the 1930s. Walking tours of the 800-plus acres of the campus, listed on the National Register of Historic Places, are available.",
       "categories": [
         "Family",
         "History",
@@ -2969,8 +3164,11 @@
       "original_price": {
         "adult": 0,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Free admission; donations welcome",
@@ -3004,6 +3202,8 @@
       "museum_name": "Wheelock Family Theatre",
       "address": "200 The Riverway, Boston, MA 02215",
       "website": "https://www.wheelockfamilytheatre.org/",
+      "phone": "617-353-3001",
+      "description": "The Wheelock Family Theatre, now a part of Boston University, brings intergenerational and multicultural performances to the stage to provide a shared experience for the whole family. These include classic children's shows, family-friendly musicals, and thought-provoking dramas.",
       "categories": [
         "Theatre"
       ],
@@ -3031,6 +3231,8 @@
       "museum_name": "Blithewold",
       "address": "101 Ferry Road, Route 114, Bristol, RI 02809",
       "website": "https://www.blithewold.org/",
+      "phone": "401-253-2707",
+      "description": "Blithewold is a historic, 33-acre summer estate with grand views of Narragansett Bay located in Bristol, RI. It is significant as an example of the Country Place Era in the U.S and for its adoption of Arts and Crafts Movement ideals. The property features a 45-room English style manor house filled with family heirlooms, surrounded by a mature arboretum and a series of gardens that are a combination of historic and contemporary gardening. The 10-acre Great Lawn, Enclosed Garden, Orchard, and Cutting and Vegetable Gardens were laid out in the late 1890s are but the first of many that were developed later. There is a gift shop on the premises.",
       "categories": [
         "Architecture",
         "Family",
@@ -3043,8 +3245,11 @@
       "original_price": {
         "adult": 22,
         "child": 6,
+        "youth": 11,
         "senior": null,
         "student": 18,
+        "military": 18,
+        "educator": null,
         "family": 50,
         "free_under_age": 5,
         "notes": "Military and Student same price $18; SNAP/EBT $2; Members free",
@@ -3078,6 +3283,8 @@
       "museum_name": "Charles River Museum of Industry & Innovation",
       "address": "154 Moody Street, Waltham, MA 02453",
       "website": "https://www.charlesrivermuseum.org/",
+      "phone": "781-893-5410",
+      "description": "The Charles River Museum building, formerly known as the Francis Cabot Lowell Mill, dates back to 1813, when the Boston Manufacturing Company was founded. Visitors may trace the history of this development through the exhibit “The Mill at the Falls: the Evolution of the First Modern Factory.” This and other exhibits present artifacts from the industrial era, such as machines from the Waltham Watch Company, surgical products of the Rudolph Beaver Company, and several early motorized vehicles. The museum also displays contemporary technology and even prototypes, such as the Low Temperature, Low Pressure Plasma Medical Sterilizer by Dr. Adir Jacob. For children, visit the youth-led maker space, the Collaboratory, with 3D printers, Laser cutters, and more onsite. There is no visitor parking at the museum, but there are accessible entrances for wheelchair users and accessible restrooms. There is a gift shop on site.",
       "categories": [
         "Children",
         "Family",
@@ -3091,8 +3298,11 @@
       "original_price": {
         "adult": 10,
         "child": 5,
+        "youth": null,
         "senior": 5,
         "student": 5,
+        "military": null,
+        "educator": 5,
         "family": null,
         "free_under_age": 6,
         "notes": "Children and Teens (6-17), College Students, and Seniors same price $5; Educators (MA education professionals) $5 with work ID; Active Duty Military same as adult; children under 6 free",
@@ -3126,6 +3336,8 @@
       "museum_name": "Harvard Museum of Natural History",
       "address": "26 Oxford Street, Cambridge, MA 02138",
       "website": "https://hmnh.harvard.edu/",
+      "phone": "617-495-3045",
+      "description": "The Harvard Museum of Natural History was established in 1998 as the public face of three separate research museums at Harvard University in Cambridge, MA: the Harvard University Herbaria, the Mineralogical & Geological Museum, and the Museum of Comparative Zoology. The museum is home to the famous “Glass Flowers” collection and a collection of “Sea Creatures in Glass,” made by the same artists (a father and son); a collection of meteorite, mineral and gemstone specimens; and various exhibits on life both big and small: from microbes to dinosaurs—and everything in between. There is a gift shop on the premises.",
       "categories": [
         "Children",
         "Family",
@@ -3141,8 +3353,11 @@
       "original_price": {
         "adult": 15,
         "child": null,
+        "youth": 10,
         "senior": 13,
         "student": 10,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 3,
         "notes": "Children under 3 free; Harvard students/faculty/staff free; Youth here refers to non-Harvard ages 3-18",
@@ -3176,6 +3391,8 @@
       "museum_name": "American Repertory Theater",
       "address": "64 Brattle Street, Cambridge, MA 02138",
       "website": "https://americanrepertorytheater.org/",
+      "phone": "617-547-8300",
+      "description": "Founded in 1979, the American Repertory Theater is associated with Harvard University, where many of its staff teach. Its schedule includes new and neglected plays and musical theatre, many of which have won awards and gone on to other venues after being developed at the theatre. Please check the website for current productions. The theater is fully wheelchair accessible, and the lobby and entrance to the theater are at sidewalk level. An all-gender, wheelchair-accessible bathroom is on the premises. The theater makes headsets and loops available for the hard of hearing.",
       "categories": [
         "Children",
         "Family",
@@ -3213,6 +3430,8 @@
       "museum_name": "Paddle Boston",
       "address": "160 Riverview Avenue, Waltham, MA 02453",
       "website": "https://www.paddleboston.com/",
+      "phone": "617-965-5110",
+      "description": "Paddle Boston provides a number of opportunities for paddling at various places in the eastern part of Massachusetts. There is much to explore at all of their waterfront locations, with canoes, kayaks, and paddleboards available at each.",
       "categories": [
         "Children",
         "Family",
@@ -3255,6 +3474,8 @@
       "museum_name": "The Icon Museum & Study Center",
       "address": "203 Union Street, Clinton, MA 01510",
       "website": "https://www.iconmuseum.org/",
+      "phone": "978-598-5000",
+      "description": "Housed in a 150-year-old former mill building in Clinton, MA, the Icon Museum and Study Center is the largest collection of icons outside of Russia, and the only one solely dedicated to them in the USA. Three floors of galleries display the permanent collection, with another gallery dedicated to special exhibitions, ranging from contemporary Russian art to icons from other Orthodox cultures. There is a museum shop and a tea room on the premises.",
       "categories": [
         "Art",
         "Family",
@@ -3267,8 +3488,11 @@
       "original_price": {
         "adult": 15,
         "child": null,
+        "youth": null,
         "senior": 12,
         "student": 0,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 17,
         "notes": "Students free with ID; Children and youth (0-17) free; First Sunday of each month free",
@@ -3302,6 +3526,8 @@
       "museum_name": "Sandmagination",
       "address": "210 Andover Street, Peabody, MA 01960",
       "website": "https://sandmagination.com/",
+      "phone": "978-482-4297",
+      "description": "Sandmagination is home to a number of sandboxes at the North Shore Mall in Peabody, MA. Aimed at children 10 and under, the sandboxes provide a hands-on, play-based learning experience, with STEAM-inspired activities like construction and tool usage. Toys and space are sanitized “constantly,” and the box is filled with allergen-free sand. There are also air purifiers onsite. While your child is playing, you can visit the café for coffee and free Wi-FI. Sandmagination is ADA-compliant. Check the website for hours, FAQs, or to sign the online waiver.",
       "categories": [
         "Children",
         "Recreation"
@@ -3316,8 +3542,11 @@
       "original_price": {
         "adult": 4,
         "child": 18,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Sandy Explorer (1-10 years) $18; First Adult in party free; Additional Adults $4; Under 1 free with sibling else $5",
@@ -3351,6 +3580,8 @@
       "museum_name": "Harvard Art Museums",
       "address": "32 Quincy Street, Cambridge, MA 02138",
       "website": "http://www.harvardartmuseums.org/",
+      "phone": "617-495-9400",
+      "description": "The Harvard Art Museums include three different institutions, all located near each other on the Cambridge campus of the university. The Fogg Museum's holdings include Western paintings, sculpture, decorative arts, photographs, prints, and drawings dating from the Middle Ages to the present. The Busch-Reisinger Museum contains Austrian Secession art, German expressionism, 1920s abstraction, and materials related to the Bauhaus, as well as late-medieval sculpture, eighteenth-century art, and noteworthy postwar and contemporary art from German-speaking Europe. The Arthur M. Sackler Museum is dedicated to works from Asia, the Middle East, and the Mediterranean.",
       "categories": [
         "Art",
         "Family",
@@ -3362,8 +3593,11 @@
       "original_price": {
         "adult": 0,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Free admission to all",
@@ -3397,6 +3631,8 @@
       "museum_name": "Paul Revere House",
       "address": "19 North Square, Boston, MA 02113",
       "website": "https://www.paulreverehouse.org/",
+      "phone": "617-523-2338",
+      "description": "Built in 1680, the Paul Revere House is a National Historic Landmark located in Boston's North End. It is the oldest remaining house in the area and where the silversmith lived during the American Revolution when he made his famous midnight ride. The museum at this site is comprised of the house, the Pierce�Hichborn house (built in 1711 and seen by guided tour only), and a visitor and education center that provides information about the life and times of Paul Revere. There is a gift shop on the premises.",
       "categories": [
         "Children",
         "Family",
@@ -3409,8 +3645,11 @@
       "original_price": {
         "adult": 6,
         "child": 1,
+        "youth": null,
         "senior": 5.5,
         "student": 5.5,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 5,
         "notes": "Seniors and College Students same price $5.50; children under 5 free",
@@ -3444,6 +3683,8 @@
       "museum_name": "Animal Adventures",
       "address": "336 Sugar Road, Bolton, MA 01740",
       "website": "http://www.animaladventures.net/",
+      "phone": "978-779-8988",
+      "description": "Begun in 1997, Animal Adventures is a an exotic animal rescue center located in Bolton, MA. These animals are the basis of educational programs and a family-run zoo. Live animal shows take place daily, and private tours of different types of animals may be booked. For more information, please visit the website.",
       "categories": [
         "Children",
         "Family",
@@ -3455,8 +3696,11 @@
       "original_price": {
         "adult": 17.44,
         "child": 7.63,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 2,
         "notes": "General admission ages 4+ $17.44; Toddlers 2-3 $7.63; Under 2 free; Various other tours available at different prices",
@@ -3490,6 +3734,8 @@
       "museum_name": "Christian Science Plaza",
       "address": "",
       "website": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza",
+      "phone": null,
+      "description": null,
       "categories": [
         "Children",
         "Family",
@@ -3503,8 +3749,11 @@
       "original_price": {
         "adult": 0,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Free admission to plaza; Mapparium has separate paid admission",
@@ -3538,6 +3787,8 @@
       "museum_name": "Real Pirates Salem",
       "address": "285 Derby Street, Salem, MA 01970",
       "website": "https://www.realpiratessalem.com/",
+      "phone": "978-259-1717",
+      "description": "This museum centers on the history of the Whydah Gally—a slave ship that went down over 250 years ago off Cape Cod—and the artifacts and “treasure” recovered from the wreck in 1984. Exhibits and interactive activities focus on the story of Black Sam Bellamy, a famous pirate from the early 1700s, and his capture of the slave ship and its sinking. Items in the collection include coins, jewelry, weapons, and other valuable objects that sank with the Whydah Galley in the early 1700s. Their Discovery Lab teaches visitors about the archeological preservation efforts that went into recovering the shipwreck. There is a gift shop on the premises.",
       "categories": [
         "Children",
         "Family",
@@ -3578,6 +3829,8 @@
       "museum_name": "Roger Williams Park Zoo",
       "address": "1000 Elmwood Avenue, Providence, RI 02907",
       "website": "http://www.rwpzoo.org/",
+      "phone": "401-785-3510",
+      "description": "Founded in 1872, the 40-acre zoo is one of the nation's oldest. It's home to over 100 species of rare and interesting animals from all over the world presented in naturalistic settings, including many endangered species. Themed programs and events are offered throughout the year, some of them focused on hands-on conservation. Nearby, within the park, is an operational Victorian-style carousel.",
       "categories": [
         "Children",
         "Family",
@@ -3589,8 +3842,11 @@
       "original_price": {
         "adult": 25,
         "child": 19,
+        "youth": null,
         "senior": 21,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 1,
         "notes": "Toddlers 1 year and younger free; Members free",
@@ -3624,6 +3880,8 @@
       "museum_name": "Strawbery Banke Museum",
       "address": "14 Hancock Street, Portsmouth, NH 03801",
       "website": "http://www.strawberybanke.org/",
+      "phone": "603-433-1100",
+      "description": "Strawbery Banke Museum is located in the South End Historic District of Portsmouth, NH, on a 10-acre campus that features more than 37 restored buildings built between the 17th and 19th centuries. Visitors may visit the historic buildings, some with staff in period dress engaged in traditional crafts such as boat-building, coopering, and wood-working; enjoy interactive exhibits about the history of the neighborhood and its preservation; and stroll and appreciate the heritage gardens and orchards, various heirloom breeds, and beehives. Themed centers provide different pathways for understanding the history. A museum store and a couple of restaurants are on the premises.",
       "categories": [
         "Architecture",
         "Children",
@@ -3664,6 +3922,8 @@
       "museum_name": "Battleship Cove",
       "address": "5 Water Street, Fall River, MA 02721",
       "website": "https://www.battleshipcove.org/",
+      "phone": "508-678-1100",
+      "description": "Battleship Cove is a war memorial and historic military museum located in Fall River, Massachusetts. It is home to five National Historic Landmark ships, and other craft, including the USS Massachusetts, USS Joseph P. Kennedy Jr., USS Lionfish, Hiddensee, and two PT boats. Their collection of aircraft includes two Bell helicopters that saw combat in the Vietnam War—the Bell UH-1 “Huey” Iroquois and the Bell AH-1 Cobra—as well as two of the first drone unmanned aerial vehicles used by the military. In addition to exhibits focused on military history, the Maritime Museum presents the history of the RMS Titanic and the famous Fall River Line.",
       "categories": [
         "Children",
         "Family",
@@ -3704,6 +3964,8 @@
       "museum_name": "deCordova Sculpture Park and Museum",
       "address": "51 Sandy Pond Road, Lincoln, MA 01773",
       "website": "http://www.decordova.org/",
+      "phone": "781-259-8355",
+      "description": "Established in 1950, the deCordova Sculpture Park and Museum is the largest park of its kind in New England, encompassing 30 acres in Lincoln, MA, 20 miles west of Boston. Providing a constantly changing landscape of large-scale, outdoor, modern and contemporary sculpture and site-specific installations, the Sculpture Park hosts more than 60 works, the majority of which are on loan to the Museum. Inside, the Museum features a robust slate of rotating exhibitions and innovative interpretive programming.",
       "categories": [
         "Art",
         "Family"
@@ -3714,8 +3976,11 @@
       "original_price": {
         "adult": 14,
         "child": null,
+        "youth": null,
         "senior": 12,
         "student": 12,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 12,
         "notes": "Children 12 and under free; Lincoln residents free; EBT/WIC/MassHealth free",
@@ -3749,6 +4014,8 @@
       "museum_name": "The Gardens at Elm Bank",
       "address": "900 Washington Street, Wellesley, MA 02482",
       "website": "https://www.masshort.org/",
+      "phone": "617-933-4900",
+      "description": "The Gardens at Elm Bank are located on the Massachusetts Horticultural Society's 36 acres on the Elm Bank Reservation in Wellesley, MA. The site includes open fields and meadows, streams and pools, wooded areas and formal gardens. Among these are the Bressingham Garden designed by Adrian Bloom; the historic Italianate Garden; the Garden to Table Chef's Garden; an educational New England Trial Garden; and Weezie's Garden for Children, each with its own unique theme. Regularly scheduled children's activities take place Tuesday through Sunday. Please check the website for a downloadable map of the grounds and a schedule of events, lectures, and classes. The grounds and gardens of Elm Bank are handicap-accessible.",
       "categories": [
         "Children",
         "Family",
@@ -3762,8 +4029,11 @@
       "original_price": {
         "adult": 14,
         "child": null,
+        "youth": 5,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 2,
         "notes": "Youth(3-17) $5; Kids 2 and under free; Members free; EBT/WIC $5 per adult (children free)",
@@ -3797,6 +4067,8 @@
       "museum_name": "Old Sturbridge Village/Coggeshall Farm",
       "address": "",
       "website": "https://www.osv.org/",
+      "phone": null,
+      "description": null,
       "categories": [
         "Architecture",
         "Children",
@@ -3811,8 +4083,11 @@
       "original_price": {
         "adult": 27,
         "child": null,
+        "youth": 12,
         "senior": 25,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 3,
         "notes": "Online prices; at door $3 more; children 3 and under free",
@@ -3846,6 +4121,8 @@
       "museum_name": "Historic Newton",
       "address": "Newton, MA 02458",
       "website": "https://www.newtonma.gov/government/historic-newton",
+      "phone": "617-796-1450",
+      "description": "Historic Newton manages two museums and three historic burying grounds. The first of the museums —the Jackson Homestead and Museum—is located in a federal style house built in 1809, which was a stop on the Underground Railroad. Exhibits there focus on the history of food, farming, and family life; slavery and anti-slavery; and notable people and events in Newton. The second museum—the Durant-Kenrick House and Grounds—is home to a farmhouse built in 1734 with period rooms, interactive games and puzzles. The grounds feature fruit and ornamental tree varieties from the nursery of the original owners. Please refer to the website for the schedules of the museums, since they differ slightly.",
       "categories": [
         "Architecture",
         "Family",
@@ -3884,6 +4161,8 @@
       "museum_name": "Larz Anderson Auto Museum",
       "address": "15 Newton Street, Brookline, MA 02445",
       "website": "https://www.larzanderson.org/",
+      "phone": "617-522-6547",
+      "description": "The museum is located in an imposing carriage house built in 1888 (listed on the National Register of Historic Places) on the grounds of beautiful Larz Anderson Park. In addition to 14 autos from “America's Oldest Car Collection,” originally assembled by the Andersons, the museum features revolving annual exhibits, horse-drawn carriages and sleighs, a vintage bicycle collection, and changing lawn exhibits of show cars that typically include Italian, German, British, American, Custom, Tuner, Alternative Fuels, Trucks, Hot Rods and European Motorcycles from May to October. (Check the website for the schedule.)",
       "categories": [
         "Architecture",
         "Family",
@@ -3896,8 +4175,11 @@
       "original_price": {
         "adult": 15,
         "child": 10,
+        "youth": null,
         "senior": 10,
         "student": 10,
+        "military": 10,
+        "educator": null,
         "family": null,
         "free_under_age": 6,
         "notes": "Seniors/Students/Military/Children(6-12) same price $10; Children under 6 free; Members always free",
@@ -3931,6 +4213,8 @@
       "museum_name": "West Suburban YMCA",
       "address": "Newton, MA",
       "website": "https://wsymca.org/",
+      "phone": null,
+      "description": "The West Suburban YMCA has two locations in Newton, MA. The Church St. YMCA (276 Church St.) features two indoor pools, an outdoor playground, an indoor track, cardio deck, full basketball court, a men's locker room with whirlpool and showers, a women's locker room with steam shower, a sauna, and private changing rooms with showers. The Wells Ave. YMCA (135 Wells Ave.) features a 4-lane 25-yard lap pool; four multi-purpose courts for basketball, volleyball, and pickleball; a fitness center; a cardio deck; a work lounge; and men's and women's locker rooms with showers. For schedules, please consult the website.",
       "categories": [
         "Family",
         "Recreation"
@@ -3967,6 +4251,8 @@
       "museum_name": "Heritage Museums & Gardens",
       "address": "67 Grove Street, Sandwich, MA 02563",
       "website": "https://heritagemuseumsandgardens.org/",
+      "phone": "508-888-3300",
+      "description": "Heritage Museums & Gardens is located on 100 acres on the banks of Shawme Pond in Sandwich, MA. The gardens feature internationally important collections of rhododendrons, a comprehensive collection of hydrangeas, a collection of over 1,000 varieties of daylilies, hostas, herb, heather gardens, and more than a thousand varieties of trees, shrubs and flowers along paths. An outdoor “Nature Explore Classroom” facilitates encounters with nature and STEM concepts for children ages 2 through 10. In addition, three gallery buildings house permanent exhibits of world-class automobiles, a working vintage carousel, American folk art, and special exhibitions. There is a café and gift shop on the premises.",
       "categories": [
         "Children",
         "Family",
@@ -3979,8 +4265,11 @@
       "original_price": {
         "adult": 26,
         "child": 0,
+        "youth": 16,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 2,
         "notes": "Members free; child (0-2) free",
@@ -4014,6 +4303,8 @@
       "museum_name": "New Bedford Whaling Museum",
       "address": "18 Johnny Cake Hill, New Bedford, MA 02740",
       "website": "https://www.whalingmuseum.org/",
+      "phone": "508-997-0046",
+      "description": "Opened in 1907, the New Bedford Whaling Museum is focused on the history and culture of the whaling industry as practiced internationally and in the “Old Dartmouth” region of Massachusetts. Over the years, the museum has grown as it absorbed other institutions with similar mandates. The collections boast over 750,000 items which fall into a broad range of categories—fine and decorative art, folk art, photography, domestic artifacts, artifacts that represent the history of technology and industry, books, manuscripts, maps and charts, ethnographic materials, clothing and textiles, and extensive personal, business, and financial records. Highlights include half-scale models of the whaling ship Lagoda and an Azorean whaleboat; five skeletons of various types of whales, including that of a pregnant mother; and art by major American artists such as Albert Bierstadt and Albert Pinkham Ryder. The museum's holdings also include the world's largest collections of scrimshaw and whaling ship logbooks. The Whaling Museum entrance and galleries are accessible to people using wheelchairs and walking aids. Wheelchair accessible restrooms are located on the first floor.",
       "categories": [
         "Art",
         "Children",
@@ -4028,8 +4319,11 @@
       "original_price": {
         "adult": 24,
         "child": null,
+        "youth": 14,
         "senior": 22,
         "student": null,
+        "military": 0,
+        "educator": 0,
         "family": null,
         "free_under_age": 3,
         "notes": "Active military free; Massachusetts Teachers free; children under 3 free; Museum members free",
@@ -4063,6 +4357,8 @@
       "museum_name": "Sandwich Glass Museum",
       "address": "129 Main Street, Sandwich, MA 02563",
       "website": "https://sandwichglassmuseum.org/",
+      "phone": "508-888-0251",
+      "description": "The Sandwich Glass Museum is dedicated to the history of the town in which it is located, with a special emphasis on the glass that made it famous in the 19th century. Thirteen galleries display their collection of old and modern examples of glass objects, including roughly 6,000 pieces produced at the Boston & Sandwich Glass Company in the 1800s on the site where the museum sits today. In addition, the museum hosts live demonstrations of glass-blowing. There is a gift store on the premises, which includes work by local glass-blowers.",
       "categories": [
         "Children",
         "Family",
@@ -4074,8 +4370,11 @@
       "original_price": {
         "adult": 15,
         "child": 5,
+        "youth": null,
         "senior": 13,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 5,
         "notes": "Ages 6-14: $5; Age 5 and under free",
@@ -4109,6 +4408,8 @@
       "museum_name": "Greater Boston Stage Company",
       "address": "395 Main Street, Stoneham, MA 02180",
       "website": "https://www.greaterbostonstage.org/",
+      "phone": "781-279-2200",
+      "description": "The Greater Boston Stage Company is a not-for-profit regional theatre located in Stoneham, MA. They produce six to seven shows each year—world and regional premieres alongside fresh interpretations of familiar work—as part of their Mainstage series.",
       "categories": [
         "Family",
         "Music",
@@ -4139,6 +4440,8 @@
       "museum_name": "Massachusetts State Police Museum & Learning Center",
       "address": "1 Memorial Square, Whitinsville, MA 01588",
       "website": "https://www.mspmlc.org/ ",
+      "phone": "508-839-0001",
+      "description": "The Massachusetts State Police Museum and Learning Center is located on the site of an old state police barracks built in 1931 in in Grafton, MA. Visitors may explore the agency's past, as well as learn about current law enforcement methods and public safety efforts. Exhibits include a range of State Police-related items and historic memorabilia.",
       "categories": [
         "Children",
         "Family",
@@ -4176,6 +4479,8 @@
       "museum_name": "The Spellman Museum of Stamps & Postal History",
       "address": "241 Wellesley Street, Weston, MA 02493",
       "website": "https://www.spellmanmuseum.org/",
+      "phone": "781-768-8367",
+      "description": "Founded in 1960, the Spellman Museum of Stamps & Postal History in Weston, MA celebrates the history of stamps, the U.S. Postal Service, and stamp collecting through various permanent and changing exhibits. Their holdings include stamps and artifacts donated or loaned by Cardinal Francis Spellman, the Philadelphia National Philatelic Museum, President Dwight Eisenhower, musician Jascha Heifetz, and General Matthew Ridgway. There is a functioning post office and a store offering philatelic supplies, stamps, first day covers, books, and collectors' items on the premises.",
       "categories": [
         "Children",
         "Family",
@@ -4187,8 +4492,11 @@
       "original_price": {
         "adult": 0,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Free admission; museum admission included in ticket cost for events",
@@ -4222,6 +4530,8 @@
       "museum_name": "Einstein's Workshop",
       "address": "25 Adams Street, Burlington, MA 01803",
       "website": "http://www.einsteinsworkshop.com/",
+      "phone": "781-202-5645",
+      "description": "Einstein's Workshop provides hands-on STEAM Learning (Science, Technology, Engineering, the Arts and Mathematics) for children K-8 at weekly classes and a drop-in exploration space. The drop-in space has a variety of tools and toys, which include LEGOs, K'nex, Zome, Snap Circuits, Kapla blocks, Anker blocks, MagnaTiles, and more. Access to innovative tools, such as 3D printers and a laser cutter, is provided through classes and workshops on such topics as robotics, electronics design, Minecraft engineering and architecture, and 3D design and programming.",
       "categories": [
         "Children",
         "Science",
@@ -4259,6 +4569,8 @@
       "museum_name": "Patriots Hall of Fame",
       "address": "One Patriot Place, Foxborough, MA 02035",
       "website": "https://www.patriotshalloffame.com/",
+      "phone": "508-698-4800",
+      "description": "The Patriots Hall of Fame is an interactive museum located next to Gillette Stadium and the home of the New England Patriots. The Hall's ten galleries tell the story of the team through interactive exhibits, video, and historic artifacts. A feature is the film Patriots Way, which plays on a 45-foot wide panoramic screen in a 150-seat theatre. A shop selling exclusive Patriots merchandise is on the premises.",
       "categories": [
         "Family",
         "History",
@@ -4271,8 +4583,11 @@
       "original_price": {
         "adult": 10,
         "child": 5,
+        "youth": null,
         "senior": 7,
         "student": 7,
+        "military": 0,
+        "educator": null,
         "family": null,
         "free_under_age": 5,
         "notes": "Active Military and Veterans free with ID; children under 5 free",
@@ -4306,6 +4621,8 @@
       "museum_name": "American Repertory Theatre",
       "address": "64 Brattle Street, Cambridge, Massachusetts, 02138",
       "website": "https://americanrepertorytheater.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl",
@@ -4340,6 +4657,8 @@
       "museum_name": "Boch Center Tours",
       "address": "",
       "website": "",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl"
@@ -4362,6 +4681,8 @@
       "museum_name": "Boston Harbor Islands",
       "address": "191W Atlantic Avenue, Boston, Massachusetts, 02110",
       "website": "https://www.bostonharborislands.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl",
@@ -4375,8 +4696,11 @@
       "original_price": {
         "adult": 0,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Islands free; ferry ticket required (~$25 adult); Free Ferry Weekend events available",
@@ -4410,6 +4734,8 @@
       "museum_name": "DCR ParksPass",
       "address": "Various Locations",
       "website": "https://www.mass.gov/visit-massachusetts-state-parks",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl",
@@ -4436,6 +4762,8 @@
       "museum_name": "Hale Education",
       "address": "80 Carby Street, Westwood, MA, 02090",
       "website": "https://hale.education/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl",
@@ -4470,6 +4798,8 @@
       "museum_name": "Harvard Museums of Science and Culture",
       "address": "26 Oxford Street, Cambridge, MA, 02138",
       "website": "https://hmsc.harvard.edu/visit/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl",
@@ -4481,8 +4811,11 @@
       "original_price": {
         "adult": 15,
         "child": null,
+        "youth": 10,
         "senior": 13,
         "student": 10,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 3,
         "notes": "Children under 3 free; Harvard students/faculty/staff free",
@@ -4513,6 +4846,8 @@
       "museum_name": "How Do You See the World + Mapparium™ Globe",
       "address": "210 Massachusetts Avenue, Boston, Massachusetts, 02115",
       "website": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl",
@@ -4521,8 +4856,11 @@
       "original_price": {
         "adult": 6,
         "child": null,
+        "youth": null,
         "senior": null,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 17,
         "notes": "Youth 0-17 free",
@@ -4556,6 +4894,8 @@
       "museum_name": "Institute of Contemporary Art",
       "address": "25 Harbor Shore Drive, Boston, MA, 02120",
       "website": "https://www.icaboston.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl",
@@ -4594,6 +4934,8 @@
       "museum_name": "Isabella Stewart Gardner Museum",
       "address": "25 Evans Way, Boston, Massachusetts, 02115",
       "website": "https://www.gardnermuseum.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl",
@@ -4607,8 +4949,11 @@
       "original_price": {
         "adult": 22,
         "child": null,
+        "youth": null,
         "senior": 20,
         "student": 15,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 17,
         "notes": "Children 17 and under free; members free; Museum Pass $5/pass for up to 4 adults",
@@ -4642,6 +4987,8 @@
       "museum_name": "Larz Anderson Museum",
       "address": "15 Newton Street, Brookline, MA, 02445",
       "website": "https://www.larzanderson.org",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl",
@@ -4650,8 +4997,11 @@
       "original_price": {
         "adult": 15,
         "child": 10,
+        "youth": null,
         "senior": 10,
         "student": 10,
+        "military": 10,
+        "educator": null,
         "family": null,
         "free_under_age": 6,
         "notes": "Seniors/Students/Military/Children(6-12) same price $10; Children under 6 free; Members always free",
@@ -4685,6 +5035,8 @@
       "museum_name": "Museum of Fine Arts",
       "address": "465 Huntington Avenue, Boston, MA, 02115",
       "website": "https://www.mfa.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl",
@@ -4724,6 +5076,8 @@
       "museum_name": "Revolutionary Spaces",
       "address": "",
       "website": "https://revolutionaryspaces.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl"
@@ -4731,8 +5085,11 @@
       "original_price": {
         "adult": 15,
         "child": 8,
+        "youth": null,
         "senior": 13,
         "student": 13,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": 5,
         "notes": "Children 5 and under free; Members free; New prices starting July 2, 2026: Adult $18, Senior $16, Youth(6-17) $10",
@@ -4763,6 +5120,8 @@
       "museum_name": "Sandwich Glass Museum",
       "address": "",
       "website": "",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl"
@@ -4796,6 +5155,8 @@
       "museum_name": "The Greenway Carousel",
       "address": "",
       "website": "",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl"
@@ -4826,6 +5187,8 @@
       "museum_name": "Trustees GO Pass",
       "address": "200 High Street, Boston, MA, 02110",
       "website": "https://thetrustees.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl",
@@ -4852,6 +5215,8 @@
       "museum_name": "USS Constitution Museum",
       "address": "USS Constitution Museum Building 22, Charlestown, MA, 02129",
       "website": "https://ussconstitutionmuseum.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "bpl",
@@ -4863,8 +5228,11 @@
       "original_price": {
         "adult": 0,
         "child": 0,
+        "youth": null,
         "senior": 0,
         "student": null,
+        "military": null,
+        "educator": null,
         "family": null,
         "free_under_age": null,
         "notes": "Pay what you wish; suggested donations apply",
@@ -4898,6 +5266,8 @@
       "museum_name": "Children's Museum Easton",
       "address": "9 Sullivan Ave., North Easton, MA, 02356",
       "website": "https://www.cmeaston.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "braintree"
@@ -4912,6 +5282,8 @@
       "museum_name": "Heritage Museums & Gardens",
       "address": "67 Grove Street, Sandwich, MA, 02563",
       "website": "https://heritagemuseumsandgardens.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "braintree",
@@ -4946,6 +5318,8 @@
       "museum_name": "Plimoth Patuxet Museums",
       "address": "137 Warren Avenue, Plymouth, MA, 02360",
       "website": "https://plimoth.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "braintree",
@@ -4981,6 +5355,8 @@
       "museum_name": "John F. Kennedy Library and Museum",
       "address": "Columbia Point, Boston, MA, 02125",
       "website": "https://www.jfklibrary.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "brookline",
@@ -5015,6 +5391,8 @@
       "museum_name": "Museum of African American History",
       "address": "46 Joy St., Boston, MA, 02114",
       "website": "https://www.maah.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "brookline",
@@ -5049,6 +5427,8 @@
       "museum_name": "Charles River Boat Tour",
       "address": "100 Cambridgeside Pl, Cambridge, MA, 02141",
       "website": "https://charlesriverboat.com/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "cambridge"
@@ -5082,6 +5462,8 @@
       "museum_name": "Royall House & Slave Quarters",
       "address": "15 George St., Medford, MA, 02155",
       "website": "https://royallhouse.org/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "cambridge"
@@ -5096,6 +5478,8 @@
       "museum_name": "Maplewood Country Day Camp & Enrichment Center",
       "address": "150 Foundry Street, South Easton, MA, 02375",
       "website": "https://www.maplewoodyearround.com/",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "milton"
@@ -5110,6 +5494,8 @@
       "museum_name": "The Butterfly Place",
       "address": "",
       "website": "",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "cohasset"
@@ -5143,6 +5529,8 @@
       "museum_name": "Cohasset Historical Society",
       "address": "",
       "website": "",
+      "phone": null,
+      "description": null,
       "categories": [],
       "sources": [
         "cohasset"
