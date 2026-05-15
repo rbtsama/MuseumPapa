@@ -36,7 +36,10 @@ def _rate_limit() -> None:
 def _load_cache(cache_path: Path) -> dict:
     if not cache_path.exists():
         return {}
-    return json.loads(cache_path.read_text(encoding="utf-8"))
+    try:
+        return json.loads(cache_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
 
 
 def _save_cache(cache_path: Path, cache: dict) -> None:
@@ -47,8 +50,9 @@ def _save_cache(cache_path: Path, cache: dict) -> None:
 def geocode(query: str, *, cache_path: Path = DEFAULT_CACHE) -> dict:
     """Geocode a free-form address; return {lat, lon, ok} or {ok: False, error}.
 
-    Results (success AND failure) are persisted to ``cache_path`` so repeated
-    runs avoid re-querying Nominatim. Cache key is the query string verbatim.
+    Successful results and 'no_results' (semantic miss) are persisted to
+    ``cache_path``. Network / parse errors are returned but NOT cached, so a
+    later run after the transient issue passes will retry.
     """
     cache = _load_cache(cache_path)
     if query in cache:
@@ -61,12 +65,14 @@ def geocode(query: str, *, cache_path: Path = DEFAULT_CACHE) -> dict:
         with _urlopen(req, timeout=30) as resp:
             body = resp.read()
         results = json.loads(body)
-        if not results:
-            entry = {"ok": False, "error": "no_results"}
-        else:
-            entry = {"ok": True, "lat": float(results[0]["lat"]), "lon": float(results[0]["lon"])}
     except Exception as e:
-        entry = {"ok": False, "error": str(e)}
+        # Transient failure — do NOT cache, so a future run can retry.
+        return {"ok": False, "error": f"transient:{e}"}
+
+    if not results:
+        entry = {"ok": False, "error": "no_results"}
+    else:
+        entry = {"ok": True, "lat": float(results[0]["lat"]), "lon": float(results[0]["lon"])}
 
     cache[query] = entry
     _save_cache(cache_path, cache)
