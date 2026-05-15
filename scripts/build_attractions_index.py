@@ -11,22 +11,73 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 
 
-def _load_platform_map(config_root: Path, platform: str) -> dict[str, dict[str, str]]:
+def _load_platform_map(config_root: Path, platform: str) -> dict:
+    """Return a normalized lookup dict for each platform.
+
+    bpl       -> {"_inverted_passes": {hex_pass_id: canonical_slug}}
+    libcal    -> {<lib_id>: {libcal_side_slug: canonical_slug}}
+    museumkey -> {"name_to_benefit": {lower_name: canonical},
+                   "canonical_set": set(canonical_slugs)}
+    """
     p = config_root / "platform_pass_ids" / f"{platform}.json"
     if not p.exists():
         return {}
-    return json.loads(p.read_text(encoding="utf-8"))
+    raw = json.loads(p.read_text(encoding="utf-8"))
+
+    if platform == "bpl":
+        passes = raw.get("passes", {})
+        return {"_inverted_passes": {v: k for k, v in passes.items()}}
+
+    if platform == "libcal":
+        out: dict[str, dict[str, str]] = {}
+        for lib_id, lib_cfg in (raw.get("libraries") or {}).items():
+            out[lib_id] = dict(lib_cfg.get("passes") or {})
+        return out
+
+    if platform == "museumkey":
+        n2b = {k.lower(): v for k, v in (raw.get("name_to_benefit") or {}).items()}
+        return {
+            "name_to_benefit": n2b,
+            "canonical_set": set(n2b.values()),
+        }
+
+    return {}
 
 
-def _canonical_slug(pass_obj: dict, lib_id: str, platform: str, pmap: dict) -> str | None:
+def _canonical_slug(
+    pass_obj: dict,
+    lib_id: str,
+    platform: str,
+    pmap: dict,
+    bpl_map: dict | None = None,
+) -> str | None:
+    """Resolve a raw pass record to its canonical attraction slug.
+
+    Returns None if the lookup fails (caller should skip the pass).
+    """
     if platform == "assabet":
         return pass_obj.get("slug")
+
     if platform == "libcal":
-        sid = pass_obj.get("libcal_pass_id") or pass_obj.get("pass_id")
-        return pmap.get(lib_id, {}).get(str(sid))
+        if lib_id == "bpl":
+            # BPL uses the dedicated bpl.json map (inverted: pass_id -> canonical).
+            if not bpl_map:
+                return None
+            return bpl_map.get("_inverted_passes", {}).get(pass_obj.get("pass_id"))
+        # Other libcal libs: pmap[lib_id][libcal-side slug] -> canonical
+        return pmap.get(lib_id, {}).get(pass_obj.get("slug"))
+
     if platform == "museumkey":
-        sid = pass_obj.get("museum_id") or pass_obj.get("pass_id")
-        return pmap.get(lib_id, {}).get(str(sid))
+        n2b = pmap.get("name_to_benefit", {})
+        canonical_set = pmap.get("canonical_set", set())
+        slug = pass_obj.get("slug")
+        if slug and slug in canonical_set:
+            return slug
+        name = pass_obj.get("museum_name") or ""
+        if name:
+            return n2b.get(name.lower())
+        return None
+
     return None
 
 
@@ -34,9 +85,20 @@ def build_index(raw_root: Path, config_root: Path | None = None) -> dict:
     if config_root is None:
         config_root = REPO / "config"
 
+    # Pre-load platform maps.
+    bpl_map = _load_platform_map(config_root, "bpl")
+    libcal_map = _load_platform_map(config_root, "libcal")
+    museumkey_map = _load_platform_map(config_root, "museumkey")
+
+    platform_maps = {
+        "assabet": {},
+        "libcal": libcal_map,
+        "museumkey": museumkey_map,
+    }
+
     out: dict[str, dict] = {}
     for platform in ("assabet", "libcal", "museumkey"):
-        pmap = _load_platform_map(config_root, platform)
+        pmap = platform_maps[platform]
         platform_dir = raw_root / platform / "index"
         if not platform_dir.exists():
             continue
@@ -46,7 +108,7 @@ def build_index(raw_root: Path, config_root: Path | None = None) -> dict:
             for p in data.get("passes", []):
                 if str(p.get("status", "")).startswith("failed"):
                     continue
-                slug = _canonical_slug(p, lib_id, platform, pmap)
+                slug = _canonical_slug(p, lib_id, platform, pmap, bpl_map=bpl_map)
                 if not slug:
                     continue
                 entry = out.setdefault(slug, {
