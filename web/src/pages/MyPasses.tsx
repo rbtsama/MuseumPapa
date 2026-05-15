@@ -22,6 +22,18 @@ export function MyPasses() {
   const [zipDraft, setZipDraft] = useState('');
   useEffect(() => { setZipDraft(pack.zip); }, [pack.zip]);
 
+  const [search, setSearch] = useState('');
+  const [onlyMine, setOnlyMine] = useState(false);
+
+  const visibleLibraries = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    return libraries.filter(l => {
+      if (onlyMine && !pack.cards[l.id]) return false;
+      if (!q) return true;
+      return l.name.toLowerCase().includes(q) || l.town.toLowerCase().includes(q);
+    });
+  }, [libraries, search, onlyMine, pack.cards]);
+
   if (!user) {
     return <div className="max-w-3xl mx-auto px-4 py-6">
       <p>Sign in to manage your passes.</p>
@@ -61,8 +73,29 @@ export function MyPasses() {
         Your library cards ({Object.keys(pack.cards).length})
       </h2>
 
+      <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 8, flexWrap: 'wrap' }}>
+        <Input
+          size="sm"
+          value={search}
+          onValueChange={setSearch}
+          placeholder="Search libraries by name or town…"
+          className="max-w-[320px]"
+          aria-label="Search libraries"
+        />
+        <Checkbox
+          size="sm"
+          isSelected={onlyMine}
+          onValueChange={setOnlyMine}
+        >
+          Only my cards
+        </Checkbox>
+        <span style={{ fontSize: 11, color: 'var(--ink-3)' }}>
+          {visibleLibraries.length} of {libraries.length} shown
+        </span>
+      </div>
+
       <div>
-        {libraries.map(l => {
+        {visibleLibraries.map(l => {
           const card = pack.cards[l.id];
           const has = !!card;
           return (
