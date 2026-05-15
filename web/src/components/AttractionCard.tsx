@@ -99,19 +99,17 @@ export function AttractionCard({
             className="rounded-md object-cover bg-[color:var(--paper)]"
             style={{ width: 110, height: 110 }}
           />
+          <div className="absolute" style={{ top: -6, right: -6 }}>
+            <FavoriteButton slug={attraction.slug} variant="overlay" />
+          </div>
         </div>
 
         <div className="flex-grow min-w-0">
-          <div className="flex items-start justify-between gap-2">
-            <h3 className="font-serif" style={{
-              fontSize: 16, lineHeight: 1.25, color: 'var(--ink-2)', fontWeight: 700,
-            }}>
-              {attraction.museum_name}
-            </h3>
-            <div className="flex-shrink-0 -mt-1 -mr-1">
-              <FavoriteButton slug={attraction.slug} size={20} />
-            </div>
-          </div>
+          <h3 className="font-serif" style={{
+            fontSize: 16, lineHeight: 1.25, color: 'var(--ink-2)', fontWeight: 700,
+          }}>
+            {attraction.museum_name}
+          </h3>
 
           {town && (
             <p className="mt-1" style={{ fontSize: 12, color: 'var(--ink-3)' }}>📍 {town}</p>
