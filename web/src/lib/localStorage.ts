@@ -25,3 +25,16 @@ export function lsRemove(key: string): void {
     // swallow
   }
 }
+
+function userKey(username: string | null, key: string): string {
+  const ns = username ?? 'guest';
+  return `${ns}.${key}`;
+}
+
+export function lsGetUser<T>(username: string | null, key: string, fallback: T): T {
+  return lsGet(userKey(username, key), fallback);
+}
+
+export function lsSetUser<T>(username: string | null, key: string, value: T): void {
+  lsSet(userKey(username, key), value);
+}
