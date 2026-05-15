@@ -18,8 +18,8 @@ export function TopBar() {
 
   return (
     <header
-      className="px-3 sm:px-4 py-2.5 flex items-center justify-between gap-3"
-      style={{ background: 'var(--g)' }}
+      className="px-3 sm:px-4 py-2.5 flex items-center justify-between gap-3 sticky top-0"
+      style={{ background: 'var(--g)', zIndex: 50 }}
     >
       <Link to="/" className="font-serif truncate flex-shrink-0"
         style={{ fontSize: 17, color: 'var(--white)' }}>

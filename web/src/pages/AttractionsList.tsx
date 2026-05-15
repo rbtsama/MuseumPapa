@@ -4,6 +4,7 @@ import { AttractionCard } from '../components/AttractionCard';
 import { Banner } from '../components/Banner';
 import { DatePicker } from '../components/DatePicker';
 import { SortDropdown, type SortOption } from '../components/SortDropdown';
+import { SearchBox } from '../components/SearchBox';
 import { CategoryChips } from '../components/CategoryChips';
 import { pickTags, type PickedTag } from '../lib/tag-algorithm';
 import { useAuth } from '../auth/store';
@@ -31,6 +32,7 @@ export function AttractionsList() {
   const [date, setDate] = useState(() => todayIso());
   const [sort, setSort] = useState<SortOption>('recommended');
   const [category, setCategory] = useState<string>('all');
+  const [search, setSearch] = useState<string>('');
   const [userGeo, setUserGeo] = useState<Geo | null>(null);
   const [bookingPass, setBookingPass] = useState<Pass | null>(null);
 
@@ -93,14 +95,29 @@ export function AttractionsList() {
     });
   }, [attractions, passesBySlug, libraries, userCardLibIds, date, userGeo, isGuestOrEmpty]);
 
-  // Category / Favorites filter
+  // Search query — case-insensitive token substring across name, address, categories
+  const searchTokens = useMemo(
+    () => search.trim().toLowerCase().split(/\s+/).filter(Boolean),
+    [search],
+  );
+
+  // Category / Favorites / Search filter
   const filteredRows = useMemo(() => {
-    if (category === 'all') return rows;
+    let out = rows;
     if (category === 'favorites') {
-      return rows.filter(r => favoritesLive.has(r.attraction.slug));
+      out = out.filter(r => favoritesLive.has(r.attraction.slug));
+    } else if (category !== 'all') {
+      out = out.filter(r => r.attraction.categories.includes(category));
     }
-    return rows.filter(r => r.attraction.categories.includes(category));
-  }, [rows, category, favoritesLive]);
+    if (searchTokens.length > 0) {
+      out = out.filter(r => {
+        const a = r.attraction;
+        const hay = `${a.museum_name} ${a.address} ${a.categories.join(' ')}`.toLowerCase();
+        return searchTokens.every(t => hay.includes(t));
+      });
+    }
+    return out;
+  }, [rows, category, favoritesLive, searchTokens]);
 
   const sortedRows = useMemo(() => {
     const copy = [...filteredRows];
@@ -153,13 +170,25 @@ export function AttractionsList() {
     <>
       <Banner onSignInClick={() => setSignInOpen(true)} />
       <SignInModal isOpen={signInOpen} onClose={() => setSignInOpen(false)} />
-      <div className="max-w-6xl mx-auto px-3 sm:px-6 py-3 sm:py-4">
-        <div className="flex flex-wrap gap-2 mb-3 items-center">
-          <DatePicker value={date} onChange={setDate} />
-          <SortDropdown value={sort} onChange={setSort} distanceEnabled={!!userGeo} />
-        </div>
 
-        <div className="mb-4">
+      {/* Sticky filter strip — pinned to viewport just under the TopBar.
+          Background opaque so card content scrolling underneath doesn't show through.
+          top: 48px ≈ TopBar height; small visual gap is acceptable. */}
+      <div
+        className="sticky px-3 sm:px-6 py-3"
+        style={{
+          top: 48,
+          zIndex: 40,
+          background: 'var(--bg)',
+          borderBottom: '1px solid var(--rule)',
+        }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-wrap gap-2 mb-3 items-center">
+            <SearchBox value={search} onChange={setSearch} />
+            <DatePicker value={date} onChange={setDate} />
+            <SortDropdown value={sort} onChange={setSort} distanceEnabled={!!userGeo} />
+          </div>
           <CategoryChips
             attractions={attractions}
             value={category}
@@ -167,7 +196,9 @@ export function AttractionsList() {
             favoritesCount={favoritesLive.size}
           />
         </div>
+      </div>
 
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 py-3 sm:py-4">
         <p className="mb-3" style={{ color: 'var(--ink-3)', fontSize: 11 }}>
           Showing {sortedRows.length} attractions for {date}
         </p>
