@@ -14,14 +14,12 @@ function App() {
   return (
     <BrowserRouter>
       <TopBar />
-      <main className="max-w-6xl mx-auto px-4 py-6">
-        <Routes>
-          <Route path="/" element={<AttractionsList />} />
-          <Route path="/attractions/:slug" element={<AttractionDetail />} />
-          <Route path="/settings/passes" element={<MyPasses />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<AttractionsList />} />
+        <Route path="/attractions/:slug" element={<AttractionDetail />} />
+        <Route path="/settings/passes" element={<MyPasses />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </BrowserRouter>
   );
 }
