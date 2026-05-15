@@ -1,12 +1,15 @@
 """Test extracting unique attractions across all platforms."""
 import json
-import sys
 from pathlib import Path
 
 import pytest
 
-REPO = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(REPO))
+from scripts.build_attractions_index import build_index
+
+
+def _attraction_keys(idx: dict) -> set:
+    """Return slug keys, excluding the ``_meta`` block."""
+    return {k for k in idx if not k.startswith("_")}
 
 
 @pytest.fixture
@@ -36,11 +39,9 @@ def fake_raw_root(tmp_path):
 
 
 def test_build_attractions_index_dedupes_across_libraries(fake_raw_root):
-    from scripts.build_attractions_index import build_index
-
     idx = build_index(fake_raw_root / "raw")
 
-    assert set(idx.keys()) == {"mos", "neaq"}
+    assert _attraction_keys(idx) == {"mos", "neaq"}
     assert idx["mos"]["museum_name"] == "Museum of Science"
     assert idx["mos"]["website"] == "https://www.mos.org/visit"
     assert set(idx["mos"]["sources"]) == {"wakefield", "reading"}
@@ -55,7 +56,6 @@ def test_build_attractions_index_skips_failed_passes(fake_raw_root):
         ],
     }), encoding="utf-8")
 
-    from scripts.build_attractions_index import build_index
     idx = build_index(fake_raw_root / "raw")
     assert "ghost" not in idx
 
@@ -77,7 +77,6 @@ def test_libcal_bpl_uses_inverted_pass_id_map(tmp_path):
         "passes": {"mos": "abc123"}
     }), encoding="utf-8")
 
-    from scripts.build_attractions_index import build_index
     idx = build_index(tmp_path / "raw", config_root=tmp_path / "config")
     assert "mos" in idx
     assert "bpl" in idx["mos"]["sources"]
@@ -104,7 +103,6 @@ def test_libcal_non_bpl_uses_nested_slug_map(tmp_path):
         }
     }), encoding="utf-8")
 
-    from scripts.build_attractions_index import build_index
     idx = build_index(tmp_path / "raw", config_root=tmp_path / "config")
     assert "canonical-slug" in idx
     assert "cambridge" in idx["canonical-slug"]["sources"]
@@ -126,7 +124,6 @@ def test_museumkey_uses_name_to_benefit(tmp_path):
         "name_to_benefit": {"museum of science": "museum-of-science"}
     }), encoding="utf-8")
 
-    from scripts.build_attractions_index import build_index
     idx = build_index(tmp_path / "raw", config_root=tmp_path / "config")
     assert "museum-of-science" in idx
     assert "cohasset" in idx["museum-of-science"]["sources"]
@@ -149,7 +146,26 @@ def test_museumkey_slug_used_when_already_canonical(tmp_path):
         "name_to_benefit": {"boston children's museum": "boston-childrens-museum"}
     }), encoding="utf-8")
 
-    from scripts.build_attractions_index import build_index
     idx = build_index(tmp_path / "raw", config_root=tmp_path / "config")
     assert "boston-childrens-museum" in idx
     assert "hingham" in idx["boston-childrens-museum"]["sources"]
+
+
+def test_meta_reports_unmapped_counts(tmp_path):
+    """An unmapped libcal pass should be counted in _meta.unmapped_passes_per_platform."""
+    libcal = tmp_path / "raw" / "libcal" / "index"
+    libcal.mkdir(parents=True)
+    (libcal / "cambridge.json").write_text(json.dumps({
+        "passes": [
+            {"pass_id": "ignored", "slug": "no-mapping-for-this",
+             "museum_name": "Unknown", "status": "ok"},
+        ],
+    }), encoding="utf-8")
+    cfg = tmp_path / "config" / "platform_pass_ids"
+    cfg.mkdir(parents=True)
+    # libcal.json exists but has no entry for cambridge -> pass is unmappable.
+    (cfg / "libcal.json").write_text(json.dumps({"libraries": {}}), encoding="utf-8")
+
+    idx = build_index(tmp_path / "raw", config_root=tmp_path / "config")
+    assert "_meta" in idx
+    assert idx["_meta"]["unmapped_passes_per_platform"]["libcal"] >= 1

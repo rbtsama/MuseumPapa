@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import json
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
@@ -97,6 +98,8 @@ def build_index(raw_root: Path, config_root: Path | None = None) -> dict:
     }
 
     out: dict[str, dict] = {}
+    unmapped = {"assabet": 0, "libcal": 0, "museumkey": 0}
+    n_libs_scanned = 0
     for platform in ("assabet", "libcal", "museumkey"):
         pmap = platform_maps[platform]
         platform_dir = raw_root / platform / "index"
@@ -104,12 +107,14 @@ def build_index(raw_root: Path, config_root: Path | None = None) -> dict:
             continue
         for lib_file in sorted(platform_dir.glob("*.json")):
             lib_id = lib_file.stem
+            n_libs_scanned += 1
             data = json.loads(lib_file.read_text(encoding="utf-8"))
             for p in data.get("passes", []):
                 if str(p.get("status", "")).startswith("failed"):
                     continue
                 slug = _canonical_slug(p, lib_id, platform, pmap, bpl_map=bpl_map)
                 if not slug:
+                    unmapped[platform] += 1
                     continue
                 entry = out.setdefault(slug, {
                     "slug": slug,
@@ -127,6 +132,12 @@ def build_index(raw_root: Path, config_root: Path | None = None) -> dict:
                 for c in p.get("categories", []):
                     if c not in entry["categories"]:
                         entry["categories"].append(c)
+    out["_meta"] = {
+        "built_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "n_attractions": len(out),
+        "n_libraries_scanned": n_libs_scanned,
+        "unmapped_passes_per_platform": unmapped,
+    }
     return out
 
 
@@ -136,7 +147,12 @@ def main() -> int:
     out_path = REPO / "data" / "structured" / "_tmp_attractions_index.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(idx, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"Wrote {len(idx)} attractions to {out_path}")
+    n_attractions = sum(1 for k in idx if not k.startswith("_"))
+    print(f"Wrote {n_attractions} attractions to {out_path}")
+    unmapped = idx.get("_meta", {}).get("unmapped_passes_per_platform", {})
+    for platform, n in unmapped.items():
+        if n > 0:
+            print(f"WARNING: {n} {platform} passes had no canonical mapping", file=sys.stderr)
     return 0
 
 
