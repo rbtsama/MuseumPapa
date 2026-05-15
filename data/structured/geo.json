@@ -614,281 +614,65 @@
     }
   },
   "libraries": {
-    "acton": {
+    "wakefield": {
       "ok": true,
-      "lat": 42.4866602,
-      "lon": -71.43342
-    },
-    "andover": {
-      "ok": true,
-      "lat": 42.656828,
-      "lon": -71.1414112
-    },
-    "arlington": {
-      "ok": false,
-      "error": "no_address"
-    },
-    "bedford": {
-      "ok": true,
-      "lat": 42.4923139,
-      "lon": -71.2841881
-    },
-    "belmont": {
-      "ok": true,
-      "lat": 42.3946196,
-      "lon": -71.1722221
-    },
-    "beverly": {
-      "ok": true,
-      "lat": 42.5509176,
-      "lon": -70.8766929
-    },
-    "billerica": {
-      "ok": true,
-      "lat": 42.5583785,
-      "lon": -71.2699681
-    },
-    "boxford": {
-      "ok": true,
-      "lat": 42.6941048,
-      "lon": -71.0145511
-    },
-    "bpl": {
-      "ok": true,
-      "lat": 42.3493298,
-      "lon": -71.0786547
-    },
-    "braintree": {
-      "ok": true,
-      "lat": 42.2056618,
-      "lon": -71.0042666
-    },
-    "brookline": {
-      "ok": true,
-      "lat": 42.3346378,
-      "lon": -71.1213843
-    },
-    "burlington": {
-      "ok": true,
-      "lat": 42.5061899,
-      "lon": -71.1938589
-    },
-    "cambridge": {
-      "ok": true,
-      "lat": 42.3671148,
-      "lon": -71.1056283
-    },
-    "carlisle": {
-      "ok": true,
-      "lat": 42.528797,
-      "lon": -71.3481427
-    },
-    "chelmsford": {
-      "ok": true,
-      "lat": 42.5940049,
-      "lon": -71.3521057
-    },
-    "chelsea": {
-      "ok": false,
-      "error": "no_address"
-    },
-    "cohasset": {
-      "ok": true,
-      "lat": 42.242198,
-      "lon": -70.8090953
-    },
-    "concord": {
-      "ok": true,
-      "lat": 42.4588186,
-      "lon": -71.3534425
-    },
-    "danvers": {
-      "ok": true,
-      "lat": 42.5616613,
-      "lon": -70.9410042
-    },
-    "everett": {
-      "ok": true,
-      "lat": 42.4060155,
-      "lon": -71.0568179
-    },
-    "framingham": {
-      "ok": true,
-      "lat": 42.2819343,
-      "lon": -71.4167413
-    },
-    "haverhill": {
-      "ok": true,
-      "lat": 42.7772317,
-      "lon": -71.0767573
-    },
-    "hingham": {
-      "ok": true,
-      "lat": 42.2355903,
-      "lon": -70.8749023
-    },
-    "lawrence": {
-      "ok": true,
-      "lat": 42.7107211,
-      "lon": -71.1622146
-    },
-    "lexington": {
-      "ok": true,
-      "lat": 42.4481135,
-      "lon": -71.2296888
-    },
-    "lincoln": {
-      "ok": true,
-      "lat": 42.4260627,
-      "lon": -71.3030615
-    },
-    "lynn": {
-      "ok": true,
-      "lat": 42.4644621,
-      "lon": -70.9536275
-    },
-    "lynnfield": {
-      "ok": true,
-      "lat": 42.5392872,
-      "lon": -71.0477596
-    },
-    "malden": {
-      "ok": true,
-      "lat": 42.4276751,
-      "lon": -71.0660775
-    },
-    "marblehead": {
-      "ok": true,
-      "lat": 42.4964016,
-      "lon": -70.8632383
-    },
-    "maynard": {
-      "ok": true,
-      "lat": 42.4342628,
-      "lon": -71.4520731
-    },
-    "medford": {
-      "ok": true,
-      "lat": 42.4197301,
-      "lon": -71.1135494
-    },
-    "melrose": {
-      "ok": true,
-      "lat": 42.4592463,
-      "lon": -71.0665931
-    },
-    "methuen": {
-      "ok": true,
-      "lat": 42.7303934,
-      "lon": -71.1890986
-    },
-    "middleton": {
-      "ok": true,
-      "lat": 42.594723,
-      "lon": -71.0161341
-    },
-    "milton": {
-      "ok": true,
-      "lat": 42.2538412,
-      "lon": -71.0773573
-    },
-    "natick": {
-      "ok": true,
-      "lat": 42.2846114,
-      "lon": -71.345821
-    },
-    "needham": {
-      "ok": true,
-      "lat": 42.2882044,
-      "lon": -71.2350162
-    },
-    "newton": {
-      "ok": true,
-      "lat": 42.3359129,
-      "lon": -71.2078175
-    },
-    "north-andover": {
-      "ok": true,
-      "lat": 42.6962001,
-      "lon": -71.1263051
-    },
-    "north-reading": {
-      "ok": true,
-      "lat": 42.5746953,
-      "lon": -71.07628
-    },
-    "peabody": {
-      "ok": true,
-      "lat": 42.5249222,
-      "lon": -70.9242115
-    },
-    "quincy": {
-      "ok": true,
-      "lat": 42.2515107,
-      "lon": -71.0008246
-    },
-    "reading": {
-      "ok": true,
-      "lat": 42.5260974,
-      "lon": -71.1101767
-    },
-    "saugus": {
-      "ok": true,
-      "lat": 42.4653264,
-      "lon": -71.0101808
-    },
-    "somerville": {
-      "ok": true,
-      "lat": 42.3857881,
-      "lon": -71.0944054
+      "lat": 42.5045951,
+      "lon": -71.071918
     },
     "stoneham": {
       "ok": true,
       "lat": 42.4779077,
       "lon": -71.1006445
     },
-    "sudbury": {
+    "reading": {
       "ok": true,
-      "lat": 42.3632821,
-      "lon": -71.4169226
+      "lat": 42.5260974,
+      "lon": -71.1101767
     },
-    "tewksbury": {
-      "ok": false,
-      "error": "no_address"
-    },
-    "topsfield": {
+    "woburn": {
       "ok": true,
-      "lat": 42.6409094,
-      "lon": -70.949669
+      "lat": 42.4793008,
+      "lon": -71.1545179
     },
-    "wakefield": {
+    "lynnfield": {
       "ok": true,
-      "lat": 42.5045951,
-      "lon": -71.071918
+      "lat": 42.5392872,
+      "lon": -71.0477596
     },
-    "waltham": {
+    "peabody": {
       "ok": true,
-      "lat": 42.3766046,
-      "lon": -71.2394861
+      "lat": 42.5249222,
+      "lon": -70.9242115
     },
-    "watertown": {
-      "ok": false,
-      "error": "no_address"
-    },
-    "wayland": {
+    "melrose": {
       "ok": true,
-      "lat": 42.3651526,
-      "lon": -71.3608951
+      "lat": 42.4592463,
+      "lon": -71.0665931
     },
-    "wellesley": {
+    "saugus": {
       "ok": true,
-      "lat": 42.2968319,
-      "lon": -71.2906479
+      "lat": 42.4653264,
+      "lon": -71.0101808
     },
-    "weston": {
+    "malden": {
       "ok": true,
-      "lat": 42.3621029,
-      "lon": -71.294617
+      "lat": 42.4276751,
+      "lon": -71.0660775
+    },
+    "medford": {
+      "ok": true,
+      "lat": 42.4197301,
+      "lon": -71.1135494
+    },
+    "burlington": {
+      "ok": true,
+      "lat": 42.5061899,
+      "lon": -71.1938589
+    },
+    "north-reading": {
+      "ok": true,
+      "lat": 42.5746953,
+      "lon": -71.07628
     },
     "wilmington": {
       "ok": true,
@@ -900,10 +684,230 @@
       "lat": 42.4523015,
       "lon": -71.1341417
     },
-    "woburn": {
+    "bpl": {
       "ok": true,
-      "lat": 42.4793008,
-      "lon": -71.1545179
+      "lat": 42.3493298,
+      "lon": -71.0786547
+    },
+    "beverly": {
+      "ok": true,
+      "lat": 42.5509176,
+      "lon": -70.8766929
+    },
+    "danvers": {
+      "ok": true,
+      "lat": 42.5616613,
+      "lon": -70.9410042
+    },
+    "lynn": {
+      "ok": true,
+      "lat": 42.4644621,
+      "lon": -70.9536275
+    },
+    "marblehead": {
+      "ok": true,
+      "lat": 42.4964016,
+      "lon": -70.8632383
+    },
+    "everett": {
+      "ok": true,
+      "lat": 42.4060155,
+      "lon": -71.0568179
+    },
+    "chelsea": {
+      "ok": true,
+      "lat": 42.393559,
+      "lon": -71.0320598
+    },
+    "billerica": {
+      "ok": true,
+      "lat": 42.5583785,
+      "lon": -71.2699681
+    },
+    "topsfield": {
+      "ok": true,
+      "lat": 42.6409094,
+      "lon": -70.949669
+    },
+    "boxford": {
+      "ok": true,
+      "lat": 42.6941048,
+      "lon": -71.0145511
+    },
+    "tewksbury": {
+      "ok": true,
+      "lat": 42.6067193,
+      "lon": -71.2252445
+    },
+    "chelmsford": {
+      "ok": true,
+      "lat": 42.5940049,
+      "lon": -71.3521057
+    },
+    "haverhill": {
+      "ok": true,
+      "lat": 42.7772317,
+      "lon": -71.0767573
+    },
+    "lawrence": {
+      "ok": true,
+      "lat": 42.7107211,
+      "lon": -71.1622146
+    },
+    "methuen": {
+      "ok": true,
+      "lat": 42.7303934,
+      "lon": -71.1890986
+    },
+    "andover": {
+      "ok": true,
+      "lat": 42.656828,
+      "lon": -71.1414112
+    },
+    "north-andover": {
+      "ok": true,
+      "lat": 42.6962001,
+      "lon": -71.1263051
+    },
+    "middleton": {
+      "ok": true,
+      "lat": 42.594723,
+      "lon": -71.0161341
+    },
+    "arlington": {
+      "ok": true,
+      "lat": 42.41623,
+      "lon": -71.157052
+    },
+    "newton": {
+      "ok": true,
+      "lat": 42.3359129,
+      "lon": -71.2078175
+    },
+    "lincoln": {
+      "ok": true,
+      "lat": 42.4260627,
+      "lon": -71.3030615
+    },
+    "acton": {
+      "ok": true,
+      "lat": 42.4866602,
+      "lon": -71.43342
+    },
+    "framingham": {
+      "ok": true,
+      "lat": 42.2819343,
+      "lon": -71.4167413
+    },
+    "maynard": {
+      "ok": true,
+      "lat": 42.4342628,
+      "lon": -71.4520731
+    },
+    "carlisle": {
+      "ok": true,
+      "lat": 42.528797,
+      "lon": -71.3481427
+    },
+    "wayland": {
+      "ok": true,
+      "lat": 42.3651526,
+      "lon": -71.3608951
+    },
+    "weston": {
+      "ok": true,
+      "lat": 42.3621029,
+      "lon": -71.294617
+    },
+    "sudbury": {
+      "ok": true,
+      "lat": 42.3632821,
+      "lon": -71.4169226
+    },
+    "belmont": {
+      "ok": true,
+      "lat": 42.3946196,
+      "lon": -71.1722221
+    },
+    "lexington": {
+      "ok": true,
+      "lat": 42.4481135,
+      "lon": -71.2296888
+    },
+    "wellesley": {
+      "ok": true,
+      "lat": 42.2968319,
+      "lon": -71.2906479
+    },
+    "waltham": {
+      "ok": true,
+      "lat": 42.3766046,
+      "lon": -71.2394861
+    },
+    "watertown": {
+      "ok": true,
+      "lat": 42.3675505,
+      "lon": -71.1867442
+    },
+    "concord": {
+      "ok": true,
+      "lat": 42.4588186,
+      "lon": -71.3534425
+    },
+    "bedford": {
+      "ok": true,
+      "lat": 42.4923139,
+      "lon": -71.2841881
+    },
+    "needham": {
+      "ok": true,
+      "lat": 42.2882044,
+      "lon": -71.2350162
+    },
+    "natick": {
+      "ok": true,
+      "lat": 42.2846114,
+      "lon": -71.345821
+    },
+    "somerville": {
+      "ok": true,
+      "lat": 42.3857881,
+      "lon": -71.0944054
+    },
+    "quincy": {
+      "ok": true,
+      "lat": 42.2515107,
+      "lon": -71.0008246
+    },
+    "cambridge": {
+      "ok": true,
+      "lat": 42.3671148,
+      "lon": -71.1056283
+    },
+    "brookline": {
+      "ok": true,
+      "lat": 42.3346378,
+      "lon": -71.1213843
+    },
+    "braintree": {
+      "ok": true,
+      "lat": 42.2056618,
+      "lon": -71.0042666
+    },
+    "milton": {
+      "ok": true,
+      "lat": 42.2538412,
+      "lon": -71.0773573
+    },
+    "cohasset": {
+      "ok": true,
+      "lat": 42.242198,
+      "lon": -70.8090953
+    },
+    "hingham": {
+      "ok": true,
+      "lat": 42.2355903,
+      "lon": -70.8749023
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "built_at": "2026-05-15T17:48:55Z",
+    "built_at": "2026-05-15T21:31:40Z",
     "n_attractions": 104,
-    "n_with_price": 54,
+    "n_with_price": 58,
     "n_with_image": 104,
-    "n_with_geo": 75,
+    "n_with_geo": 98,
     "n_with_hours": 93
   },
   "attractions": [
@@ -81,8 +81,8 @@
         "senior": null,
         "student": null,
         "family": null,
-        "free_under_age": 2,
-        "notes": "Members free",
+        "free_under_age": 1,
+        "notes": "Children 1 and under free; flat rate $24 for ages 1+",
         "source_url": "http://www.bostonchildrensmuseum.org/"
       },
       "hero_image": {
@@ -253,8 +253,8 @@
         "senior": 18,
         "student": null,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 1,
+        "notes": "ONE price for Discovery Museum and Discovery Woods; Teachers always free; Members free; under 1 year free",
         "source_url": "http://www.discoveryacton.org/"
       },
       "hero_image": {
@@ -303,7 +303,16 @@
         "wayland",
         "wellesley"
       ],
-      "original_price": null,
+      "original_price": {
+        "adult": null,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Senior $6 off regular admission; Student $6 off with valid ID; Active Duty Military and National Guard free",
+        "source_url": "http://www.ecotarium.org/visit"
+      },
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/28_01112017_CityScience-by-Charlene_Leith-Bushey.jpg/960px-28_01112017_CityScience-by-Charlene_Leith-Bushey.jpg",
         "local_path": "static/images/ecotarium.jpg"
@@ -423,10 +432,10 @@
         "adult": 15,
         "child": null,
         "senior": 13,
-        "student": null,
+        "student": 10,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 3,
+        "notes": "Children under 3 free; Harvard students/faculty/staff free",
         "source_url": "https://hmsc.harvard.edu/"
       },
       "hero_image": {
@@ -681,7 +690,16 @@
         "winchester",
         "woburn"
       ],
-      "original_price": null,
+      "original_price": {
+        "adult": 2,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": 2,
+        "notes": "Library passes $2 per person (up to 4); children under 2 always free; members free",
+        "source_url": "http://www.massaudubon.org/admission"
+      },
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Red_Barn_for_cattle_at_Drumlin_Farm_Wildlife_Sanctuary_of_Audubon_Society_in_Lincoln_Massachusetts.jpg/960px-Red_Barn_for_cattle_at_Drumlin_Farm_Wildlife_Sanctuary_of_Audubon_Society_in_Lincoln_Massachusetts.jpg",
         "local_path": "static/images/mass-audubon-drumlin-farm.jpg"
@@ -768,7 +786,10 @@
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Halibut_point_state_park_rockport.JPG",
         "local_path": "static/images/massachusetts-state-parks-department-of-conservation-and-recreation.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.3664598,
+        "lon": -71.0589378
+      },
       "hours": null
     },
     {
@@ -929,7 +950,16 @@
         "cohasset",
         "hingham"
       ],
-      "original_price": null,
+      "original_price": {
+        "adult": 33,
+        "child": 28,
+        "senior": 29,
+        "student": null,
+        "family": null,
+        "free_under_age": 3,
+        "notes": "Children under 3 free; Members free",
+        "source_url": "https://www.mos.org/visit/hours"
+      },
       "hero_image": {
         "og_image_url": "https://www.mos.org/sites/default/files/styles/1200x675_16_9_lg_/public/2024-02/Museum-Exterior-1x1.jpg?itok=d_Y1X48L",
         "local_path": "static/images/museum-of-science.jpg"
@@ -1028,15 +1058,18 @@
         "senior": 42.95,
         "student": null,
         "family": null,
-        "free_under_age": null,
-        "notes": null,
+        "free_under_age": 2,
+        "notes": "Children under 2 free",
         "source_url": "http://www.neaq.org/"
       },
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/New_England_Aquarium_%2854960820818%29.jpg/960px-New_England_Aquarium_%2854960820818%29.jpg",
         "local_path": "static/images/new-england-aquarium.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.3592003,
+        "lon": -71.0491841
+      },
       "hours": {
         "regular_hours": {
           "mon": "9:00 AM – 5:00 PM",
@@ -1176,8 +1209,8 @@
         "student": 15,
         "family": null,
         "free_under_age": 16,
-        "notes": "Adults $25; Seniors 65+ $23; Students with ID $15; Youth under 16 FREE; Salem residents FREE",
-        "source_url": "http://www.pem.org/visit"
+        "notes": "Youth (under 16) free; Salem residents free; Members free",
+        "source_url": "https://www.pem.org/visit"
       },
       "hero_image": {
         "og_image_url": "https://s3.us-east-1.amazonaws.com/pem-org/images/_1200x630_crop_center-center_82_none/atriumintcoll001_2017.jpg?mtime=1704389621",
@@ -1250,14 +1283,17 @@
         "student": null,
         "family": null,
         "free_under_age": null,
-        "notes": "Members free",
+        "notes": "Free admission noted on page; Trustees members always free",
         "source_url": "http://www.thetrustees.org/"
       },
       "hero_image": {
         "og_image_url": "https://thetrustees.org/wp-content/uploads/2020/07/Metadata.jpg",
         "local_path": "static/images/the-trustees-of-the-reservations.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.5051034,
+        "lon": -73.0370034
+      },
       "hours": null
     },
     {
@@ -1367,12 +1403,12 @@
       ],
       "original_price": {
         "adult": 15,
-        "child": 7.5,
+        "child": null,
         "senior": 7.5,
         "student": null,
         "family": null,
         "free_under_age": 5,
-        "notes": "Adults 13+ $15; Youth 6-12 $7.50; Seniors/veterans/active military $7.50; under 5 FREE; EBT Museums for All $5",
+        "notes": "Youth(6-12) $7.50; Seniors(65+)/veterans/active military $7.50; Children 5 and under free; Aviation Museum members free",
         "source_url": "https://aviationmuseumofnh.org/hours"
       },
       "hero_image": {
@@ -1456,7 +1492,10 @@
         "og_image_url": "https://www.bostonharborislands.org/wp-content/uploads/opengraph.jpg",
         "local_path": "static/images/boston-harbor-island-ferry.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.3585452,
+        "lon": -71.0574559
+      },
       "hours": {
         "regular_hours": {
           "mon": "Dawn – Dusk",
@@ -1489,13 +1528,13 @@
         "haverhill"
       ],
       "original_price": {
-        "adult": 14.5,
-        "child": 14.5,
-        "senior": 12.5,
+        "adult": 0,
+        "child": null,
+        "senior": null,
         "student": null,
         "family": null,
         "free_under_age": null,
-        "notes": "Members free",
+        "notes": "Free admission; pay what you can",
         "source_url": "http://www.childrens-museum.org/"
       },
       "hero_image": {
@@ -1549,7 +1588,10 @@
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Lyman_Estate%2C_Waltham%2C_Massachusetts_-_front_facade.JPG",
         "local_path": "static/images/historic-new-england.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.3612752,
+        "lon": -71.0661695
+      },
       "hours": null
     },
     {
@@ -1582,10 +1624,10 @@
         "adult": 26,
         "child": 18,
         "senior": 21,
-        "student": 21,
+        "student": null,
         "family": null,
-        "free_under_age": 2,
-        "notes": "Members free",
+        "free_under_age": 5,
+        "notes": "Children under 5 free; Members free; Salem residents free; NARM passholders free",
         "source_url": "https://www.7gables.org/"
       },
       "hero_image": {
@@ -1638,7 +1680,7 @@
         "student": null,
         "family": null,
         "free_under_age": 12,
-        "notes": "Regular Admission $10; Children 12 and under FREE; Museum Members FREE; EBT cardholders and 1 guest FREE",
+        "notes": "Children 12 and under free; Members free; EBT cardholders and 1 guest free",
         "source_url": "https://www.neqm.org/visit"
       },
       "hero_image": {
@@ -1679,20 +1721,23 @@
         "methuen"
       ],
       "original_price": {
-        "adult": 30,
+        "adult": 35,
         "child": null,
-        "senior": 10,
-        "student": 15,
+        "senior": 30,
+        "student": 10,
         "family": null,
         "free_under_age": null,
-        "notes": null,
+        "notes": "Adults $35; Seniors $30; Students $10 ($5 for Salem Students); Streaming online $15",
         "source_url": "https://www.nhphil.org/"
       },
       "hero_image": {
         "og_image_url": "https://static.wixstatic.com/media/f87796_2d5317377a7149c6857e250b2408831a%7Emv2.png/v1/fit/w_2500,h_1330,al_c/f87796_2d5317377a7149c6857e250b2408831a%7Emv2.png",
         "local_path": "static/images/new-hampshire-philharmonic-orchestra.png"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.7805966,
+        "lon": -71.2124976
+      },
       "hours": null
     },
     {
@@ -1732,7 +1777,7 @@
         "student": null,
         "family": null,
         "free_under_age": 1,
-        "notes": "Adults & Children (age 12 months+) $12.00; EBT/WIC $3.00; Library Passes $6.00; Under 12 months FREE",
+        "notes": "Adults and Children (12 months+) $12; EBT/WIC $3; Library pass $6; Children under 12 months free",
         "source_url": "https://www.nschildrensmuseum.org/buy-tickets"
       },
       "hero_image": {
@@ -1876,19 +1921,22 @@
       ],
       "original_price": {
         "adult": 15,
-        "child": null,
+        "child": 10,
         "senior": 12.5,
         "student": null,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 2,
+        "notes": "Ages 3-11: $10; Ages 0-2 free; Active Duty Military & Veterans $12.50; Members free",
         "source_url": "http://www.seacoastsciencecenter.org/"
       },
       "hero_image": {
         "og_image_url": "https://www.seacoastsciencecenter.org/wp-content/uploads/2022/12/wave-lines-white_1px.svg",
         "local_path": "static/images/seacoast-science-center.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 43.0452676,
+        "lon": -70.7141151
+      },
       "hours": {
         "regular_hours": {
           "mon": "Closed",
@@ -1921,13 +1969,13 @@
         "topsfield"
       ],
       "original_price": {
-        "adult": 10,
+        "adult": 15,
         "child": 10,
         "senior": 10,
         "student": null,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 2,
+        "notes": "Babies 0-23 months free; Children 2-18 and Seniors same price $10",
         "source_url": "http://www.wenhammuseum.org/"
       },
       "hero_image": {
@@ -1979,7 +2027,16 @@
         "wellesley",
         "bpl"
       ],
-      "original_price": null,
+      "original_price": {
+        "adult": 2,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": 2,
+        "notes": "Library passes $2 per person (up to 4); children under 2 always free; members free",
+        "source_url": "https://www.massaudubon.org/admission"
+      },
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Gordon_Hall%2C_Massachusetts_Audubon_Society%2C_Lincoln_MA.jpg/960px-Gordon_Hall%2C_Massachusetts_Audubon_Society%2C_Lincoln_MA.jpg",
         "local_path": "static/images/mass-audubon.jpg"
@@ -2007,11 +2064,11 @@
       ],
       "original_price": {
         "adult": 15,
-        "child": 5,
+        "child": null,
         "senior": 5,
         "student": 5,
         "family": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "notes": "Members free",
         "source_url": "https://www.armenianmuseum.org/"
       },
@@ -2108,7 +2165,7 @@
         "student": null,
         "family": null,
         "free_under_age": null,
-        "notes": "Grounds free; mansion tours extra",
+        "notes": "Grounds free and open to public; mansion tours have separate admission fee",
         "source_url": "https://www.goreplace.org/"
       },
       "hero_image": {
@@ -2152,11 +2209,11 @@
       "original_price": {
         "adult": 15,
         "child": null,
-        "senior": null,
+        "senior": 12,
         "student": 12,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 6,
+        "notes": "Children under 6 free; Family rate 20% discount for 4+ people; Card to Culture $3/ticket",
         "source_url": "http://www.louisamayalcott.org/"
       },
       "hero_image": {
@@ -2241,7 +2298,10 @@
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/USS_Constitution_Museum.jpg",
         "local_path": "static/images/the-uss-constitution-museum.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.3778749,
+        "lon": -71.0619957
+      },
       "hours": {
         "regular_hours": {
           "mon": "9:30 AM – 5:00 PM",
@@ -2373,7 +2433,7 @@
         "student": null,
         "family": null,
         "free_under_age": null,
-        "notes": "Members free",
+        "notes": "Free admission noted on page; Trustees members always free",
         "source_url": "http://www.thetrustees.org/"
       },
       "hero_image": {
@@ -2407,7 +2467,7 @@
         "student": 8,
         "family": null,
         "free_under_age": null,
-        "notes": "Visitors 14+ $11; ages 13 and under (with adult) $5; Students/Educators/Military $8; full-access one-day membership $40",
+        "notes": "Students/Educators/Military same price $8; Card to Culture $2; NARM/ROAM free",
         "source_url": "https://www.bostonathenaeum.org/visit"
       },
       "hero_image": {
@@ -2463,7 +2523,10 @@
         "og_image_url": "https://www.thechildrenspiazza.com/uploads/b/7ba6f940-a408-11e9-9a28-67bb30306769/Piazza%20circle%20gray%20no%20lines%20w%20white_NzQwNj.png",
         "local_path": "static/images/the-childrens-piazza.png"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.543688,
+        "lon": -71.0017964
+      },
       "hours": {
         "regular_hours": {
           "mon": "8:30 AM – 5:00 PM",
@@ -2530,13 +2593,13 @@
         "wilmington"
       ],
       "original_price": {
-        "adult": 27,
-        "child": 16,
-        "senior": 20,
+        "adult": 34,
+        "child": null,
+        "senior": 25,
         "student": null,
         "family": null,
         "free_under_age": null,
-        "notes": "Lower tier: Adults $27, Youth 5-12 $16, Seniors 65+ $20; premium tier: Adults $34, Youth $20, Seniors $25",
+        "notes": "Children 4 and under free per general policy",
         "source_url": "https://www.hoophall.com/visit"
       },
       "hero_image": {
@@ -2580,11 +2643,11 @@
       "original_price": {
         "adult": 7,
         "child": null,
-        "senior": 7,
+        "senior": 6,
         "student": 5,
         "family": null,
         "free_under_age": null,
-        "notes": null,
+        "notes": "Framingham residents $6; High school and college students $5",
         "source_url": "https://danforth.framingham.edu/"
       },
       "hero_image": {
@@ -2630,12 +2693,12 @@
       ],
       "original_price": {
         "adult": 22,
-        "child": 17,
+        "child": null,
         "senior": 17,
         "student": 17,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 17,
+        "notes": "Youth 17 and under free; Members free; College Partners free",
         "source_url": "http://www.worcesterart.org/"
       },
       "hero_image": {
@@ -2676,14 +2739,14 @@
         "methuen"
       ],
       "original_price": {
-        "adult": 15,
-        "child": 15,
-        "senior": 19,
+        "adult": 19,
+        "child": 12,
+        "senior": 17,
         "student": null,
         "family": null,
-        "free_under_age": null,
+        "free_under_age": 4,
         "notes": null,
-        "source_url": "https://www.stonehengeusa.com/"
+        "source_url": "https://www.stonehengeusa.com/admission"
       },
       "hero_image": {
         "og_image_url": "https://static.wixstatic.com/media/b7955c_72a02c53128c46c48e41f394b2585372%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/b7955c_72a02c53128c46c48e41f394b2585372%7Emv2.jpg",
@@ -2724,12 +2787,12 @@
       ],
       "original_price": {
         "adult": 20,
-        "child": 5,
-        "senior": 20,
+        "child": null,
+        "senior": 15,
         "student": 15,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 13,
+        "notes": "Children under 13 free; Youth (13-17) $5",
         "source_url": "http://currier.org/"
       },
       "hero_image": {
@@ -2771,11 +2834,11 @@
       "original_price": {
         "adult": 15,
         "child": null,
-        "senior": null,
-        "student": null,
+        "senior": 10,
+        "student": 0,
         "family": null,
         "free_under_age": null,
-        "notes": "Members free",
+        "notes": "Military & students free; Haverhill Library cardholders free",
         "source_url": "https://www.museumofprinting.org/"
       },
       "hero_image": {
@@ -2829,7 +2892,10 @@
         "og_image_url": "https://www.publichealthmuseum.org/uploads/1/2/6/9/126956945/phm-photo-front-outside-summer_orig.jpg",
         "local_path": "static/images/public-health-museum.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.6116085,
+        "lon": -71.221463
+      },
       "hours": {
         "regular_hours": {
           "mon": "Closed",
@@ -2860,7 +2926,10 @@
         "og_image_url": "https://www.wheelockfamilytheatre.org/wp-content/uploads/2020/10/cropped-wftlogo_1-wftlogo39.5.png",
         "local_path": "static/images/wheelock-family-theatre.png"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.3420649,
+        "lon": -71.1060693
+      },
       "hours": null
     },
     {
@@ -2884,14 +2953,17 @@
         "student": 18,
         "family": 50,
         "free_under_age": 5,
-        "notes": "Adult age 17+ $22; Child age 6-10 $6; Youth age 11-16 $11; Family=2 adults+2 children $50; Military/Student $18; under 5 free",
+        "notes": "Military and Student same price $18; SNAP/EBT $2; Members free",
         "source_url": "https://www.blithewold.org/general-admission"
       },
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Blithewold_Mansion.jpg/960px-Blithewold_Mansion.jpg",
         "local_path": "static/images/blithewold.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 41.6541951,
+        "lon": -71.2658089
+      },
       "hours": {
         "regular_hours": {
           "mon": "Closed",
@@ -2924,11 +2996,11 @@
       "original_price": {
         "adult": 10,
         "child": 5,
-        "senior": null,
-        "student": null,
+        "senior": 5,
+        "student": 5,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 6,
+        "notes": "Children and Teens (6-17), College Students, and Seniors same price $5; Educators (MA education professionals) $5 with work ID; Active Duty Military same as adult; children under 6 free",
         "source_url": "https://www.charlesrivermuseum.org/"
       },
       "hero_image": {
@@ -2974,10 +3046,10 @@
         "adult": 15,
         "child": null,
         "senior": 13,
-        "student": null,
+        "student": 10,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 3,
+        "notes": "Children under 3 free; Harvard students/faculty/staff free; Youth here refers to non-Harvard ages 3-18",
         "source_url": "https://hmnh.harvard.edu/"
       },
       "hero_image": {
@@ -3094,13 +3166,13 @@
         "natick"
       ],
       "original_price": {
-        "adult": 0,
+        "adult": 15,
         "child": null,
-        "senior": 15,
-        "student": null,
+        "senior": 12,
+        "student": 0,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 17,
+        "notes": "Students free with ID; Children and youth (0-17) free; First Sunday of each month free",
         "source_url": "https://www.iconmuseum.org/"
       },
       "hero_image": {
@@ -3148,7 +3220,7 @@
         "student": null,
         "family": null,
         "free_under_age": null,
-        "notes": "Children-focused sand play: Sandy Explorer 1-10 yrs $18.00; First adult in party FREE; Additional adults $4.00; Under 1 yr with sibling $0, without $5",
+        "notes": "Sandy Explorer (1-10 years) $18; First Adult in party free; Additional Adults $4; Under 1 free with sibling else $5",
         "source_url": "https://sandmagination.com/admission"
       },
       "hero_image": {
@@ -3193,7 +3265,7 @@
         "student": null,
         "family": null,
         "free_under_age": null,
-        "notes": "Free admission",
+        "notes": "Free admission to all",
         "source_url": "http://www.harvardartmuseums.org/"
       },
       "hero_image": {
@@ -3238,8 +3310,8 @@
         "senior": 5.5,
         "student": 5.5,
         "family": null,
-        "free_under_age": null,
-        "notes": "Adults $6.00; Seniors and College Students $5.50; Children ages 5-17 $1.00",
+        "free_under_age": 5,
+        "notes": "Seniors and College Students same price $5.50; children under 5 free",
         "source_url": "https://www.paulreverehouse.org/hours"
       },
       "hero_image": {
@@ -3278,13 +3350,13 @@
         "middleton"
       ],
       "original_price": {
-        "adult": 2,
-        "child": 2,
+        "adult": 17.44,
+        "child": 7.63,
         "senior": null,
         "student": null,
         "family": null,
-        "free_under_age": null,
-        "notes": "Suggested donation; prices may vary",
+        "free_under_age": 2,
+        "notes": "General admission ages 4+ $17.44; Toddlers 2-3 $7.63; Under 2 free; Various other tours available at different prices",
         "source_url": "http://www.animaladventures.net/"
       },
       "hero_image": {
@@ -3331,14 +3403,17 @@
         "student": null,
         "family": null,
         "free_under_age": null,
-        "notes": "Free admission (Mapparium costs $6)",
+        "notes": "Free admission to plaza; Mapparium has separate paid admission",
         "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza"
       },
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/USA_09562_Boston_Luca_Galuzzi_2007.jpg/960px-USA_09562_Boston_Luca_Galuzzi_2007.jpg",
         "local_path": "static/images/christian-science-plaza.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.3444574,
+        "lon": -71.0833719
+      },
       "hours": {
         "regular_hours": {
           "mon": "10:00 AM – 5:00 PM",
@@ -3411,8 +3486,8 @@
         "senior": 21,
         "student": null,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 1,
+        "notes": "Toddlers 1 year and younger free; Members free",
         "source_url": "http://www.rwpzoo.org/tickets"
       },
       "hero_image": {
@@ -3528,13 +3603,13 @@
         "natick"
       ],
       "original_price": {
-        "adult": 12,
-        "child": 12,
+        "adult": 14,
+        "child": null,
         "senior": 12,
-        "student": null,
+        "student": 12,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 12,
+        "notes": "Children 12 and under free; Lincoln residents free; EBT/WIC/MassHealth free",
         "source_url": "http://www.decordova.org/admission"
       },
       "hero_image": {
@@ -3576,12 +3651,12 @@
       ],
       "original_price": {
         "adult": 14,
-        "child": 2,
+        "child": null,
         "senior": null,
         "student": null,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 2,
+        "notes": "Youth(3-17) $5; Kids 2 and under free; Members free; EBT/WIC $5 per adult (children free)",
         "source_url": "https://www.masshort.org/visit"
       },
       "hero_image": {
@@ -3624,19 +3699,22 @@
       ],
       "original_price": {
         "adult": 27,
-        "child": 25,
+        "child": null,
         "senior": 25,
         "student": null,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 3,
+        "notes": "Online prices; at door $3 more; children 3 and under free",
         "source_url": "https://www.osv.org/plan-your-visit"
       },
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Center_Meetinghouse%2C_Old_Sturbridge_Village%2C_Massachusetts_%2854221596305%29.jpg",
         "local_path": "static/images/old-sturbridge-village.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.1038149,
+        "lon": -72.1011232
+      },
       "hours": {
         "regular_hours": {
           "mon": "Closed",
@@ -3703,13 +3781,13 @@
         "newton"
       ],
       "original_price": {
-        "adult": 0,
-        "child": 6,
-        "senior": null,
-        "student": null,
+        "adult": 15,
+        "child": 10,
+        "senior": 10,
+        "student": 10,
         "family": null,
-        "free_under_age": 2,
-        "notes": "Members free",
+        "free_under_age": 6,
+        "notes": "Seniors/Students/Military/Children(6-12) same price $10; Children under 6 free; Members always free",
         "source_url": "https://www.larzanderson.org/plan-your-visit"
       },
       "hero_image": {
@@ -3785,12 +3863,12 @@
       ],
       "original_price": {
         "adult": 26,
-        "child": 16,
+        "child": 0,
         "senior": null,
         "student": null,
         "family": null,
-        "free_under_age": 3,
-        "notes": "Adults $26; Youth 3-17 $16; Child 0-2 free; Members free",
+        "free_under_age": 2,
+        "notes": "Members free; child (0-2) free",
         "source_url": "https://heritagemuseumsandgardens.org/visit"
       },
       "hero_image": {
@@ -3833,12 +3911,12 @@
       ],
       "original_price": {
         "adult": 24,
-        "child": 14,
+        "child": null,
         "senior": 22,
         "student": null,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 3,
+        "notes": "Active military free; Massachusetts Teachers free; children under 3 free; Museum members free",
         "source_url": "https://www.whalingmuseum.org/tickets"
       },
       "hero_image": {
@@ -3878,12 +3956,12 @@
       ],
       "original_price": {
         "adult": 15,
-        "child": null,
-        "senior": 65,
+        "child": 5,
+        "senior": 13,
         "student": null,
         "family": null,
-        "free_under_age": null,
-        "notes": null,
+        "free_under_age": 5,
+        "notes": "Ages 6-14: $5; Age 5 and under free",
         "source_url": "https://sandwichglassmuseum.org/"
       },
       "hero_image": {
@@ -3989,7 +4067,7 @@
         "student": null,
         "family": null,
         "free_under_age": null,
-        "notes": "Free admission; donations welcome",
+        "notes": "Free admission; museum admission included in ticket cost for events",
         "source_url": "https://www.spellmanmuseum.org/"
       },
       "hero_image": {
@@ -4070,8 +4148,8 @@
         "senior": 7,
         "student": 7,
         "family": null,
-        "free_under_age": 2,
-        "notes": "Members free",
+        "free_under_age": 5,
+        "notes": "Active Military and Veterans free with ID; children under 5 free",
         "source_url": "https://www.patriotshalloffame.com/admission"
       },
       "hero_image": {
@@ -4110,7 +4188,10 @@
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/American_Repertory_Theater_-_Loeb_Drama_Center_%2854939977987%29.jpg/960px-American_Repertory_Theater_-_Loeb_Drama_Center_%2854939977987%29.jpg",
         "local_path": "static/images/american-rep-theater.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.3748602,
+        "lon": -71.1229496
+      },
       "hours": {
         "regular_hours": {
           "mon": "Closed",
@@ -4160,7 +4241,7 @@
         "student": null,
         "family": null,
         "free_under_age": null,
-        "notes": "Islands free; ferry ticket required (~$25 adult)",
+        "notes": "Islands free; ferry ticket required (~$25 adult); Free Ferry Weekend events available",
         "source_url": "https://www.bostonharborislands.org/"
       },
       "hero_image": {
@@ -4218,7 +4299,10 @@
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hale_Beach_P1080423.jpg/960px-Hale_Beach_P1080423.jpg",
         "local_path": "static/images/hale-education.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.2334515,
+        "lon": -71.2381456
+      },
       "hours": {
         "regular_hours": {
           "mon": "8:00 AM – 5:00 PM",
@@ -4247,10 +4331,10 @@
         "adult": 15,
         "child": null,
         "senior": 13,
-        "student": null,
+        "student": 10,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 3,
+        "notes": "Children under 3 free; Harvard students/faculty/staff free",
         "source_url": "https://hmsc.harvard.edu/visit/visit"
       },
       "hero_image": {
@@ -4288,8 +4372,8 @@
         "senior": null,
         "student": null,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 17,
+        "notes": "Youth 0-17 free",
         "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience/"
       },
       "hero_image": {
@@ -4361,12 +4445,12 @@
       ],
       "original_price": {
         "adult": 22,
-        "child": 22,
+        "child": null,
         "senior": 20,
         "student": 15,
         "family": null,
-        "free_under_age": null,
-        "notes": "Members free",
+        "free_under_age": 17,
+        "notes": "Children 17 and under free; members free; Museum Pass $5/pass for up to 4 adults",
         "source_url": "https://www.gardnermuseum.org/visit"
       },
       "hero_image": {
@@ -4401,20 +4485,23 @@
         "bpl"
       ],
       "original_price": {
-        "adult": 0,
-        "child": 6,
-        "senior": null,
-        "student": null,
+        "adult": 15,
+        "child": 10,
+        "senior": 10,
+        "student": 10,
         "family": null,
-        "free_under_age": 2,
-        "notes": "Members free",
+        "free_under_age": 6,
+        "notes": "Seniors/Students/Military/Children(6-12) same price $10; Children under 6 free; Members always free",
         "source_url": "https://www.larzanderson.org/plan-your-visit"
       },
       "hero_image": {
         "og_image_url": "https://static.wixstatic.com/media/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png/v1/fit/w_2500,h_1330,al_c/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png",
         "local_path": "static/images/larz-anderson.png"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.3104567,
+        "lon": -71.134743
+      },
       "hours": {
         "regular_hours": {
           "mon": "Closed",
@@ -4480,7 +4567,7 @@
         "student": 13,
         "family": null,
         "free_under_age": 5,
-        "notes": "Old State House: Adults $15, Seniors 65+ $13, Students $13, Children 6-12 $8, under 5 free; Old South: Adult 18-64 $18, Senior $16, Youth 6-17 $10",
+        "notes": "Children 5 and under free; Members free; New prices starting July 2, 2026: Adult $18, Senior $16, Youth(6-17) $10",
         "source_url": "https://revolutionaryspaces.org/hours-admission"
       },
       "hero_image": {
@@ -4516,7 +4603,10 @@
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Glass_Museum_in_Sandwich%2C_Massachusetts.jpg/960px-Glass_Museum_in_Sandwich%2C_Massachusetts.jpg",
         "local_path": "static/images/sandwich-glass.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 41.7586908,
+        "lon": -70.500422
+      },
       "hours": {
         "regular_hours": {
           "mon": "9:30 AM – 5:00 PM",
@@ -4701,7 +4791,10 @@
         "og_image_url": "https://butterflyplace-ma.com/images/Atrium-Telegraph.jpg",
         "local_path": "static/images/butterfly-place.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.6417838,
+        "lon": -71.4400553
+      },
       "hours": {
         "regular_hours": {
           "mon": "10:00 AM – 4:00 PM",
@@ -4730,7 +4823,10 @@
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Pratt_Historic_Building%3B2009-08-21.JPG/960px-Pratt_Historic_Building%3B2009-08-21.JPG",
         "local_path": "static/images/cohasset-historical-society.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.2387652,
+        "lon": -70.7996633
+      },
       "hours": {
         "regular_hours": {
           "mon": "Closed",
@@ -4759,7 +4855,10 @@
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/JFK_library_Stitch_Crop.jpg",
         "local_path": "static/images/jfk-library.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 42.3161793,
+        "lon": -71.0340257
+      },
       "hours": {
         "regular_hours": {
           "mon": "10:00 AM – 5:00 PM",
@@ -4789,7 +4888,10 @@
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Plimoth_Plantation_Fence.JPG/960px-Plimoth_Plantation_Fence.JPG",
         "local_path": "static/images/plimoth-patuxet.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 41.9372269,
+        "lon": -70.6199489
+      },
       "hours": {
         "regular_hours": {
           "mon": "9 AM – 5 PM",
@@ -4818,7 +4920,10 @@
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Heritage_Museum_and_Gardens_%283789207677%29.jpg",
         "local_path": "static/images/heritage-museums-gardens.jpg"
       },
-      "geo": null,
+      "geo": {
+        "lat": 41.7486723,
+        "lon": -70.5059897
+      },
       "hours": {
         "regular_hours": {
           "mon": "10 AM – 5 PM",

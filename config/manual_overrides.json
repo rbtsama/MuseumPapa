@@ -5,7 +5,20 @@
     "attractions": "object<benefit_id, partial_attraction_record>",
     "passes": "object<lib_id, object<benefit_id, partial_pass_record>>"
   },
-  "libraries": {},
+  "libraries": {
+    "tewksbury": {
+      "address": { "street": "300 Chandler Street", "city": "Tewksbury", "state": "MA", "zip": "01876" }
+    },
+    "arlington": {
+      "address": { "street": "700 Massachusetts Avenue", "city": "Arlington", "state": "MA", "zip": "02476" }
+    },
+    "chelsea": {
+      "address": { "street": "569 Broadway", "city": "Chelsea", "state": "MA", "zip": "02150" }
+    },
+    "watertown": {
+      "address": { "street": "123 Main Street", "city": "Watertown", "state": "MA", "zip": "02472" }
+    }
+  },
   "attractions": {},
   "passes": {}
 }

@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "built_at": "2026-05-15T17:48:55Z",
+    "built_at": "2026-05-15T21:31:40Z",
     "n_libraries": 59,
     "n_with_address": 55,
-    "n_with_geo": 55
+    "n_with_geo": 59
   },
   "libraries": [
     {
@@ -415,8 +415,16 @@
       "card_page": "https://www.chelseama.gov/departments/library/",
       "eligibility": "unknown",
       "supports_availability": true,
-      "address": null,
-      "geo": null
+      "address": {
+        "street": "569 Broadway",
+        "city": "Chelsea",
+        "state": "MA",
+        "zip": "02150"
+      },
+      "geo": {
+        "lat": 42.393559,
+        "lon": -71.0320598
+      }
     },
     {
       "id": "billerica",
@@ -487,8 +495,16 @@
       "card_page": "https://www.tewksburypl.org/",
       "eligibility": "unknown",
       "supports_availability": true,
-      "address": null,
-      "geo": null
+      "address": {
+        "street": "300 Chandler Street",
+        "city": "Tewksbury",
+        "state": "MA",
+        "zip": "01876"
+      },
+      "geo": {
+        "lat": 42.6067193,
+        "lon": -71.2252445
+      }
     },
     {
       "id": "chelmsford",
@@ -639,8 +655,16 @@
       "card_page": "https://www.robbinslibrary.org/",
       "eligibility": "unknown",
       "supports_availability": true,
-      "address": null,
-      "geo": null
+      "address": {
+        "street": "700 Massachusetts Avenue",
+        "city": "Arlington",
+        "state": "MA",
+        "zip": "02476"
+      },
+      "geo": {
+        "lat": 42.41623,
+        "lon": -71.157052
+      }
     },
     {
       "id": "newton",
@@ -911,8 +935,16 @@
       "card_page": "https://www.watertownlib.org/",
       "eligibility": "unknown",
       "supports_availability": true,
-      "address": null,
-      "geo": null
+      "address": {
+        "street": "123 Main Street",
+        "city": "Watertown",
+        "state": "MA",
+        "zip": "02472"
+      },
+      "geo": {
+        "lat": 42.3675505,
+        "lon": -71.1867442
+      }
     },
     {
       "id": "concord",

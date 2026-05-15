@@ -113,13 +113,28 @@ def main() -> int:
             n_ok += 1
     print(f"Attractions: {n_ok}/{n_attr} geocoded")
 
-    # Libraries
+    # Libraries — prefer structured/libraries.json (includes manual overrides)
     n_ok = 0
     n_total = 0
-    if libaddr_dir.exists():
+    libs_path = structured / "libraries.json"
+    if libs_path.exists():
+        libs_doc = json.loads(libs_path.read_text(encoding="utf-8"))
+        for lib in libs_doc.get("libraries", []):
+            n_total += 1
+            addr = lib.get("address") or {}
+            parts = [addr.get("street"), addr.get("city"), addr.get("state"), addr.get("zip")]
+            q = ", ".join(p for p in parts if p)
+            if not q:
+                out["libraries"][lib["id"]] = {"ok": False, "error": "no_address"}
+                continue
+            r = gmod.geocode(q)
+            out["libraries"][lib["id"]] = r
+            if r.get("ok"):
+                n_ok += 1
+    elif libaddr_dir.exists():
         for f in sorted(libaddr_dir.glob("*.json")):
             if f.name.startswith("_"):
-                continue  # _fetch_log.json
+                continue
             n_total += 1
             rec = json.loads(f.read_text(encoding="utf-8"))
             q = _library_query(rec)
