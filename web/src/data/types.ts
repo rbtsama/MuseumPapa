@@ -26,12 +26,39 @@ export interface Library {
 export interface OriginalPrice {
   adult: number | null;
   child: number | null;
+  youth: number | null;
   senior: number | null;
   student: number | null;
+  military: number | null;
+  educator: number | null;
   family: number | null;
   free_under_age: number | null;
   notes: string | null;
   source_url: string | null;
+}
+
+export type Eligibility =
+  | 'all'
+  | 'adults_only'
+  | 'vehicle'
+  | 'single_ticket'
+  | 'members'
+  | 'seniors_free'
+  | 'students_only'
+  | 'weekday_only'
+  | 'blackout_dates'
+  | 'reservation_required'
+  | 'id_required';
+
+export interface Policy {
+  max_people: number | null;
+  max_adults: number | null;
+  max_children: number | null;
+  eligibility: Eligibility | null;
+  free_under_age: number | null;
+  savings_per_person_usd: number | null;
+  notes: string | null;
+  raw: string | null;
 }
 
 export interface HeroImage {
@@ -53,6 +80,8 @@ export interface Attraction {
   museum_name: string;
   address: string;
   website: string;
+  phone: string | null;
+  description: string | null;
   categories: string[];
   sources: string[];
   original_price: OriginalPrice | null;
@@ -76,6 +105,7 @@ export interface Pass {
   pass_type: PassTypeKind;
   pass_type_raw: string;
   discount: Discount;
+  policy: Policy | null;
   source_url: string;
   availability: Record<string, string> | null;
 }

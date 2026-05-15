@@ -3,7 +3,7 @@ import type { Attraction, Pass } from '../data/types';
 import type { PickedTag } from '../lib/tag-algorithm';
 import { FavoriteButton } from './FavoriteButton';
 import { PassTypeLabel } from './PassTypeLabel';
-import { applyDiscount } from '../lib/price-fallback';
+import { DiscountLine } from './DiscountLine';
 import { hoursDisplay } from '../lib/hours';
 
 interface Props {
@@ -19,14 +19,6 @@ interface Props {
 }
 
 const MAX_ROWS_VISIBLE = 4;
-
-// Uniform money typography for option-row prices (per user feedback: bold + larger + brand green)
-const MONEY_STYLE: React.CSSProperties = {
-  fontSize: 16,
-  fontWeight: 700,
-  color: 'var(--g)',
-  lineHeight: 1.1,
-};
 
 function heroSrc(a: Attraction): string {
   if (a.hero_image?.local_path) {
@@ -57,9 +49,17 @@ export function AttractionCard({
   closedToday = false, date, onBookPass,
 }: Props) {
   const town = townFromAddress(attraction.address);
-  const adult = attraction.original_price?.adult ?? null;
-  const child = attraction.original_price?.child ?? null;
+  const op = attraction.original_price;
+  const adult = op?.adult ?? null;
   const total = pickedTags.length;
+
+  // Up to 4 known tiers, in display priority order. "adult" is shown without label.
+  const tiers: Array<{ label: string | null; value: number }> = [];
+  if (op?.adult != null) tiers.push({ label: 'adult', value: op.adult });
+  if (op?.youth != null) tiers.push({ label: 'youth', value: op.youth });
+  if (op?.child != null) tiers.push({ label: 'kids', value: op.child });
+  if (op?.senior != null && tiers.length < 4) tiers.push({ label: 'senior', value: op.senior });
+  if (op?.student != null && tiers.length < 4) tiers.push({ label: 'student', value: op.student });
   const hoursInfo = date ? hoursDisplay(attraction, date) : null;
 
   const dim = closedToday ? { filter: 'grayscale(0.7)', opacity: 0.55 } : {};
@@ -124,24 +124,22 @@ export function AttractionCard({
             </div>
           )}
 
-          {/* Attraction's own admission price — calm, just bold black, not the
-              attention-grabber. Real-money emphasis belongs on the discounted
-              option rows below. */}
-          {adult != null && (
+          {/* Multi-tier admission price line — surface up to 4 known tiers
+              (adult / youth / kids / senior or student). Calm bold black; the
+              real-money attention belongs on the discounted option rows below. */}
+          {tiers.length > 0 && (
             <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5" style={{ fontSize: 12 }}>
-              <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink-2)' }}>
-                {fmtMoney(adult)}
-              </span>
-              <span style={{ color: 'var(--ink-3)' }}>adult</span>
-              {child != null && (
-                <>
-                  <span style={{ color: 'var(--ink-3)' }}>·</span>
+              {tiers.slice(0, 4).map((t, i) => (
+                <span key={`${t.label}-${i}`} className="inline-flex items-baseline gap-1">
+                  {i > 0 && <span style={{ color: 'var(--ink-3)' }}>·</span>}
                   <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink-2)' }}>
-                    {fmtMoney(child)}
+                    {fmtMoney(t.value)}
                   </span>
-                  <span style={{ color: 'var(--ink-3)' }}>kids</span>
-                </>
-              )}
+                  {t.label && tiers.length > 1 && (
+                    <span style={{ color: 'var(--ink-3)' }}>{t.label}</span>
+                  )}
+                </span>
+              ))}
             </p>
           )}
 
@@ -168,8 +166,6 @@ export function AttractionCard({
       ) : (
         <div className="border-t" style={{ borderColor: 'var(--rule)' }}>
           {pickedTags.slice(0, MAX_ROWS_VISIBLE).map((t, i) => {
-            const finalPrice = applyDiscount(attraction.original_price, t.pass.discount);
-            const showStrike = adult != null && finalPrice != null && finalPrice !== adult;
             const isDigital = t.pass.pass_type === 'digital';
 
             return (
@@ -192,26 +188,7 @@ export function AttractionCard({
                   </div>
                 </div>
 
-                <div className="text-right flex-shrink-0">
-                  {showStrike ? (
-                    <div className="flex items-baseline gap-1.5 justify-end">
-                      <span style={{ fontSize: 11, color: 'var(--ink-3)', textDecoration: 'line-through' }}>
-                        {fmtMoney(adult)}
-                      </span>
-                      <span style={MONEY_STYLE}>
-                        {finalPrice === 0 ? 'Free' : fmtMoney(finalPrice)}
-                      </span>
-                    </div>
-                  ) : finalPrice === 0 ? (
-                    <span style={MONEY_STYLE}>Free</span>
-                  ) : finalPrice != null ? (
-                    <span style={MONEY_STYLE}>{fmtMoney(finalPrice)}</span>
-                  ) : (
-                    <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--g)' }}>
-                      {t.pass.discount.label || '—'}
-                    </span>
-                  )}
-                </div>
+                <DiscountLine discount={t.pass.discount} policy={t.pass.policy} adult={adult} />
 
                 <button
                   type="button"

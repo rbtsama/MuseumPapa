@@ -4,6 +4,7 @@ import {
   getAttractionBySlug, getPassesForAttraction, getLibraries,
 } from '../data/load';
 import { PassTypeLabel } from '../components/PassTypeLabel';
+import { DiscountLine } from '../components/DiscountLine';
 import { FavoriteButton } from '../components/FavoriteButton';
 import { useAuth } from '../auth/store';
 import { useCardpack } from '../stores/cardpack';
@@ -254,8 +255,12 @@ export function AttractionDetail() {
                           </span>
                         )}
                       </span>
-                      <span className="ml-auto" style={{ fontSize: 13, fontWeight: 700, color: 'var(--g)' }}>
-                        {r.pass.discount.label || r.pass.discount.class}
+                      <span className="ml-auto">
+                        <DiscountLine
+                          discount={r.pass.discount}
+                          policy={r.pass.policy}
+                          adult={attraction.original_price?.adult ?? null}
+                        />
                       </span>
                     </button>
                   );
