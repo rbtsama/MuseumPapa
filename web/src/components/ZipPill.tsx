@@ -1,103 +1,89 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCardpack } from '../stores/cardpack';
+import { geocodeZip } from '../lib/distance';
 
 /**
- * Confirmed-state ZIP display for the TopBar.
+ * Static layout: [your location] [BOX with ZIP]
  *
- * Default look: "📍 Your location · 01880 ✏"
- * Click to edit:  "📍 Your location · [01880] ✓"
+ * The box is always an <input>: empty shows the placeholder, populated
+ * shows the digits in bold. No icons, no edit-mode toggle — the box's
+ * border conveys editability.
  *
- * Persists via the cardpack store, namespaced by the current user (or 'guest').
- * Click anywhere in the pill (default mode) or the pencil icon to enter edit mode.
+ * Validation is permissive: we save whatever the user types, but if the
+ * value is incomplete (<5 digits) or the geocoder can't find a match,
+ * the box and text turn red so the user knows something's off without
+ * being blocked from continuing.
  */
 export function ZipPill() {
   const zip = useCardpack(s => s.pack.zip);
   const saveZip = useCardpack(s => s.saveZip);
-  const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(zip);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [geoMissing, setGeoMissing] = useState(false);
 
   useEffect(() => { setDraft(zip); }, [zip]);
+
+  // Check whether the saved ZIP can actually be geocoded. Result is cached
+  // by geocodeZip itself, so repeated checks are free after the first hit.
   useEffect(() => {
-    if (editing) inputRef.current?.select();
-  }, [editing]);
+    if (!zip || zip.length !== 5) { setGeoMissing(false); return; }
+    let cancelled = false;
+    geocodeZip(zip).then(g => { if (!cancelled) setGeoMissing(!g); });
+    return () => { cancelled = true; };
+  }, [zip]);
 
   const commit = () => {
     const cleaned = draft.replace(/\D/g, '').slice(0, 5);
-    if (cleaned.length === 0 || cleaned.length === 5) {
-      saveZip(cleaned);
-      setEditing(false);
-    }
+    setDraft(cleaned);
+    if (cleaned !== zip) saveZip(cleaned);
   };
 
-  const cancel = () => {
-    setDraft(zip);
-    setEditing(false);
-  };
-
-  if (editing) {
-    return (
-      <div
-        className="flex items-center gap-1.5 rounded-md"
-        style={{
-          background: 'var(--white)',
-          border: '1px solid var(--g)',
-          padding: '4px 8px',
-          fontSize: 12,
-        }}
-      >
-        <span style={{ color: 'var(--ink-3)', fontSize: 10 }}>your location</span>
-        <input
-          ref={inputRef}
-          value={draft}
-          onChange={(e) => setDraft(e.target.value.replace(/\D/g, '').slice(0, 5))}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') commit();
-            if (e.key === 'Escape') cancel();
-          }}
-          onBlur={commit}
-          placeholder="01880"
-          maxLength={5}
-          inputMode="numeric"
-          autoFocus
-          style={{
-            width: 56,
-            background: 'transparent',
-            border: 'none',
-            outline: 'none',
-            fontSize: 13,
-            fontWeight: 500,
-            color: 'var(--ink-2)',
-            padding: 0,
-          }}
-        />
-      </div>
-    );
-  }
+  const isIncomplete = draft.length > 0 && draft.length < 5;
+  const isInvalid = isIncomplete || (draft.length === 5 && geoMissing);
 
   return (
-    <button
-      type="button"
-      onClick={() => setEditing(true)}
-      aria-label="Edit your ZIP code"
-      className="flex items-center gap-1.5 rounded-md"
-      style={{
-        background: 'transparent',
-        border: '1px solid var(--rule)',
-        padding: '4px 8px',
-        cursor: 'pointer',
-      }}
-    >
-      <span aria-hidden style={{ fontSize: 12, color: 'var(--ink-3)' }}>📍</span>
-      <div className="flex flex-col items-start leading-tight">
-        <span style={{ fontSize: 9, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-          your location
-        </span>
-        <span style={{ fontSize: 12, fontWeight: 600, color: zip ? 'var(--ink-2)' : 'var(--ink-3)' }}>
-          {zip || 'set ZIP'}
-        </span>
-      </div>
-      <span aria-hidden style={{ fontSize: 11, color: 'var(--ink-3)', marginLeft: 2 }}>✏</span>
-    </button>
+    <div className="inline-flex items-center gap-2">
+      <span
+        style={{
+          fontSize: 10,
+          color: 'var(--ink-3)',
+          textTransform: 'uppercase',
+          letterSpacing: '0.06em',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        your location
+      </span>
+      <input
+        value={draft}
+        onChange={(e) => setDraft(e.target.value.replace(/\D/g, '').slice(0, 5))}
+        onBlur={commit}
+        onKeyDown={(e) => { if (e.key === 'Enter') (e.target as HTMLInputElement).blur(); }}
+        placeholder="01880"
+        inputMode="numeric"
+        maxLength={5}
+        aria-invalid={isInvalid}
+        aria-label="Your ZIP code"
+        style={{
+          width: 70,
+          padding: '5px 8px',
+          border: `1px solid ${isInvalid ? 'var(--rd)' : 'var(--rule)'}`,
+          borderRadius: 4,
+          fontSize: 13,
+          fontWeight: 600,
+          textAlign: 'center',
+          color: isInvalid ? 'var(--rd)' : 'var(--ink-2)',
+          background: 'var(--white)',
+          outline: 'none',
+          transition: 'border-color 0.12s, color 0.12s',
+        }}
+        onFocus={(e) => {
+          // light visual cue that it's now actively editable
+          if (!isInvalid) e.currentTarget.style.borderColor = 'var(--g)';
+        }}
+        onBlurCapture={(e) => {
+          if (!isInvalid) e.currentTarget.style.borderColor = 'var(--rule)';
+        }}
+      />
+    </div>
   );
 }
