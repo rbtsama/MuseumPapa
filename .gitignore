@@ -19,3 +19,13 @@ data/.cache/
 
 # 旧版预览截图
 preview-*.png
+
+# 静态图片资源(本地缓存,不入库)
+data/static/images/
+
+# 临时结构化产物
+data/structured/_tmp_*
+
+# 抓取过程中保存的中间 HTML 页面
+data/raw/library_addresses/_pages/
+data/raw/attraction_prices/_pages/
