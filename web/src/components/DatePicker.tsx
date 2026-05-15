@@ -10,11 +10,11 @@ export function DatePicker({ value, onChange }: Props) {
     <Input
       type="date"
       label="Date"
-      labelPlacement="outside-left"
+      labelPlacement="outside"
       size="sm"
       value={value}
       onValueChange={onChange}
-      className="max-w-xs"
+      classNames={{ base: 'max-w-[170px]' }}
     />
   );
 }

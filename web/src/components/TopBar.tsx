@@ -10,15 +10,11 @@ export function TopBar() {
   const [signInOpen, setSignInOpen] = useState(false);
 
   return (
-    <header style={{
-      borderBottom: '1px solid var(--rule)',
-      background: 'var(--white)',
-      padding: '12px 24px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-    }}>
-      <Link to="/" className="font-serif" style={{ fontSize: '20px', color: 'var(--g)' }}>
+    <header
+      className="px-4 sm:px-6 py-3 flex items-center justify-between gap-3"
+      style={{ borderBottom: '1px solid var(--rule)', background: 'var(--white)' }}
+    >
+      <Link to="/" className="font-serif truncate" style={{ fontSize: 18, color: 'var(--g)' }}>
         MuseumPass MA
       </Link>
       {user ? (

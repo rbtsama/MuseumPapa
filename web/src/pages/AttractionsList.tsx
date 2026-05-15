@@ -142,20 +142,18 @@ export function AttractionsList() {
     <>
       <Banner onSignInClick={() => setSignInOpen(true)} />
       <SignInModal isOpen={signInOpen} onClose={() => setSignInOpen(false)} />
-      <div className="max-w-6xl mx-auto px-4 py-6">
-        <h1 className="font-serif" style={{ fontSize: 24, marginBottom: 12, color: 'var(--ink-2)' }}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
+        <h1 className="font-serif mb-3 sm:mb-4" style={{ fontSize: 22, color: 'var(--ink-2)' }}>
           Attractions
         </h1>
 
-        <div style={{
-          display: 'flex', gap: 24, marginBottom: 16, flexWrap: 'wrap', alignItems: 'flex-end',
-        }}>
+        <div className="flex flex-wrap gap-3 sm:gap-4 mb-3 items-end">
           <DatePicker value={date} onChange={setDate} />
           <ZipInput />
           <SortDropdown value={sort} onChange={setSort} distanceEnabled={!!userGeo} />
         </div>
 
-        <div style={{ marginBottom: 16 }}>
+        <div className="mb-4 -mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto">
           <CategoryChips
             attractions={attractions}
             value={category}
@@ -163,7 +161,7 @@ export function AttractionsList() {
           />
         </div>
 
-        <p style={{ color: 'var(--ink-3)', fontSize: 11, marginBottom: 12 }}>
+        <p className="mb-3" style={{ color: 'var(--ink-3)', fontSize: 11 }}>
           Showing {sortedRows.length} attractions for {date}
         </p>
         <div>

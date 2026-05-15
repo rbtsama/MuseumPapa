@@ -12,14 +12,14 @@ export function SortDropdown({ value, onChange, distanceEnabled }: Props) {
   return (
     <Select
       label="Sort by"
-      labelPlacement="outside-left"
+      labelPlacement="outside"
       size="sm"
       selectedKeys={new Set([value])}
       onSelectionChange={(keys) => {
         const first = Array.from(keys)[0] as SortOption | undefined;
         if (first) onChange(first);
       }}
-      className="max-w-xs"
+      classNames={{ base: 'max-w-[200px]' }}
     >
       <SelectItem key="favorites">Favorites first</SelectItem>
       <SelectItem key="alpha">A–Z</SelectItem>

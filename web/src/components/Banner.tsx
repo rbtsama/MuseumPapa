@@ -14,29 +14,26 @@ export function Banner({ onSignInClick }: Props) {
   if (user && hasCards) return null;
 
   const text = user
-    ? 'Set up your library passes to see your discounts →'
-    : 'Add your library pass to unlock discounts →';
+    ? 'Set up your library passes to see discounts'
+    : 'Add your library pass to unlock discounts';
   const action = user
-    ? <Link to="/settings/passes" style={{ color: 'var(--g)', fontWeight: 500 }}>Open My passes</Link>
-    : <button onClick={onSignInClick} style={{
-        background: 'transparent', border: 'none', color: 'var(--g)',
-        fontWeight: 500, cursor: 'pointer', font: 'inherit',
-      }}>Sign in</button>;
+    ? <Link to="/settings/passes" className="font-medium whitespace-nowrap"
+        style={{ color: 'var(--g)' }}>Open My passes →</Link>
+    : <button onClick={onSignInClick} className="font-medium whitespace-nowrap"
+        style={{ background: 'transparent', border: 'none', color: 'var(--g)', cursor: 'pointer', font: 'inherit' }}>
+        Sign in →
+      </button>;
 
   return (
-    <div style={{
-      borderBottom: '1px solid var(--g-light)',
-      background: 'var(--g-pale)',
-      padding: '10px 24px',
-      fontSize: 13,
-      color: 'var(--ink-2)',
-      display: 'flex',
-      gap: 12,
-      alignItems: 'center',
-    }}>
-      <span style={{ color: 'var(--g)' }}>ⓘ</span>
-      <span>{text}</span>
-      <span style={{ marginLeft: 'auto' }}>{action}</span>
+    <div className="px-4 sm:px-6 py-2.5 text-[13px] flex flex-wrap gap-x-3 gap-y-1 items-center"
+      style={{
+        borderBottom: '1px solid var(--g-light)',
+        background: 'var(--g-pale)',
+        color: 'var(--ink-2)',
+      }}>
+      <span style={{ color: 'var(--g)' }} aria-hidden>ⓘ</span>
+      <span className="flex-grow min-w-0">{text}</span>
+      {action}
     </div>
   );
 }

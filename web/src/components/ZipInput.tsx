@@ -3,9 +3,8 @@ import { Input } from '@heroui/react';
 import { useCardpack } from '../stores/cardpack';
 
 /**
- * Small ZIP input that lives in the filter bar.
- * Writes through to the cardpack store, which persists to localStorage —
- * namespaced by username (or 'guest' if not signed in).
+ * Always-visible ZIP input. Persists to the cardpack store (per-user, or
+ * 'guest' namespace if not signed in).
  */
 export function ZipInput() {
   const zip = useCardpack(s => s.pack.zip);
@@ -25,14 +24,13 @@ export function ZipInput() {
   return (
     <Input
       label="Your ZIP"
-      labelPlacement="outside-left"
+      labelPlacement="outside"
       size="sm"
       value={draft}
       onValueChange={commit}
       placeholder="01880"
       maxLength={5}
-      className="max-w-[180px]"
-      description={zip && zip.length === 5 ? undefined : 'Enables distance sort'}
+      classNames={{ base: 'max-w-[150px]' }}
     />
   );
 }
