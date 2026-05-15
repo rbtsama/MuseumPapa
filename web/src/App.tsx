@@ -1,14 +1,28 @@
-import { Button } from '@heroui/react';
+import { BrowserRouter, Routes, Route } from 'react-router';
+import { useEffect } from 'react';
+import { TopBar } from './components/TopBar';
+import { AttractionsList } from './pages/AttractionsList';
+import { AttractionDetail } from './pages/AttractionDetail';
+import { MyPasses } from './pages/MyPasses';
+import { NotFound } from './pages/NotFound';
+import { useAuth } from './auth/store';
 
 function App() {
+  const loadFromStorage = useAuth(s => s.loadFromStorage);
+  useEffect(() => { loadFromStorage(); }, [loadFromStorage]);
+
   return (
-    <div className="p-8">
-      <h1 className="font-serif" style={{ fontSize: '32px', color: 'var(--g)' }}>
-        MuseumPass MA
-      </h1>
-      <p style={{ color: 'var(--ink-3)' }}>Visual smoke test</p>
-      <Button color="primary" className="mt-4">HeroUI button</Button>
-    </div>
+    <BrowserRouter>
+      <TopBar />
+      <main className="max-w-6xl mx-auto px-4 py-6">
+        <Routes>
+          <Route path="/" element={<AttractionsList />} />
+          <Route path="/attractions/:slug" element={<AttractionDetail />} />
+          <Route path="/settings/passes" element={<MyPasses />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 }
 
