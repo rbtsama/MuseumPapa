@@ -1,0 +1,3445 @@
+{
+  "_meta": {
+    "built_at": "2026-05-15T11:56:13Z",
+    "n_attractions": 104,
+    "n_with_price": 54,
+    "n_with_image": 47,
+    "n_with_geo": 75
+  },
+  "attractions": [
+    {
+      "slug": "boston-childrens-museum",
+      "museum_name": "Boston Children's Museum",
+      "address": "308 Congress Street, Boston, MA 02210",
+      "website": "http://www.bostonchildrensmuseum.org/",
+      "categories": [
+        "Children",
+        "Crafts",
+        "Family",
+        "Technology"
+      ],
+      "sources": [
+        "acton",
+        "andover",
+        "arlington",
+        "bedford",
+        "belmont",
+        "beverly",
+        "billerica",
+        "burlington",
+        "carlisle",
+        "chelmsford",
+        "chelsea",
+        "concord",
+        "danvers",
+        "everett",
+        "framingham",
+        "haverhill",
+        "lawrence",
+        "lexington",
+        "lincoln",
+        "lynn",
+        "lynnfield",
+        "malden",
+        "marblehead",
+        "maynard",
+        "medford",
+        "melrose",
+        "methuen",
+        "natick",
+        "needham",
+        "newton",
+        "north-andover",
+        "north-reading",
+        "peabody",
+        "quincy",
+        "reading",
+        "saugus",
+        "somerville",
+        "stoneham",
+        "sudbury",
+        "tewksbury",
+        "topsfield",
+        "wakefield",
+        "waltham",
+        "watertown",
+        "wayland",
+        "wellesley",
+        "weston",
+        "wilmington",
+        "winchester",
+        "woburn",
+        "bpl",
+        "cambridge",
+        "cohasset",
+        "hingham"
+      ],
+      "original_price": {
+        "adult": 24,
+        "child": 24,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": 2,
+        "notes": "Members free",
+        "source_url": "http://www.bostonchildrensmuseum.org/"
+      },
+      "hero_image": {
+        "og_image_url": "https://bostonchildrensmuseum.org/wp-content/uploads/2021/07/logoblue.png",
+        "local_path": "static/images/boston-childrens-museum.png"
+      },
+      "geo": {
+        "lat": 42.3518468,
+        "lon": -71.0496461
+      }
+    },
+    {
+      "slug": "concord-museum",
+      "museum_name": "Concord Museum",
+      "address": "200 Lexington Road, Concord, MA 01742",
+      "website": "http://www.concordmuseum.org/",
+      "categories": [
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "acton",
+        "andover",
+        "bedford",
+        "burlington",
+        "carlisle",
+        "concord",
+        "lexington",
+        "lincoln",
+        "maynard",
+        "medford",
+        "needham",
+        "reading",
+        "weston",
+        "woburn"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://concordmuseum.org/wp-content/uploads/2023/09/share-fb_concord-museum.jpg",
+        "local_path": "static/images/concord-museum.jpg"
+      },
+      "geo": {
+        "lat": 42.4576843,
+        "lon": -71.3417122
+      }
+    },
+    {
+      "slug": "davis-farmland",
+      "museum_name": "Davis Farmland",
+      "address": "145 Redstone Hill, Sterling, MA 01564",
+      "website": "https://www.davisfarmland.com/",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Zoo"
+      ],
+      "sources": [
+        "acton",
+        "billerica",
+        "carlisle",
+        "chelmsford",
+        "framingham",
+        "lexington",
+        "middleton",
+        "natick",
+        "peabody",
+        "sudbury",
+        "wayland",
+        "wilmington"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://wp-cdn-davisfarmland.s3.amazonaws.com/prod/uploads/2025/05/logo-davis-farmland-1x.png",
+        "local_path": "static/images/davis-farmland.png"
+      },
+      "geo": {
+        "lat": 42.4358233,
+        "lon": -71.7275795
+      }
+    },
+    {
+      "slug": "the-discovery-museums",
+      "museum_name": "Discovery Museum",
+      "address": "177 Main Street, Acton, MA 01720",
+      "website": "http://www.discoveryacton.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "Science"
+      ],
+      "sources": [
+        "acton",
+        "andover",
+        "arlington",
+        "bedford",
+        "belmont",
+        "billerica",
+        "burlington",
+        "carlisle",
+        "chelmsford",
+        "concord",
+        "framingham",
+        "lexington",
+        "lincoln",
+        "maynard",
+        "medford",
+        "natick",
+        "needham",
+        "newton",
+        "north-reading",
+        "reading",
+        "somerville",
+        "stoneham",
+        "sudbury",
+        "tewksbury",
+        "waltham",
+        "watertown",
+        "wayland",
+        "wellesley",
+        "weston",
+        "wilmington",
+        "winchester",
+        "woburn"
+      ],
+      "original_price": {
+        "adult": 19,
+        "child": 19,
+        "senior": 18,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "http://www.discoveryacton.org/"
+      },
+      "hero_image": {
+        "og_image_url": "https://www.discoveryacton.org/sites/default/files/styles/scaled_original_wide/public/images/IMLS%20National%20Medal-staff%20pic-cropped.jpg?itok=Wo945sGF",
+        "local_path": "static/images/the-discovery-museums.jpg"
+      },
+      "geo": {
+        "lat": 42.4641848,
+        "lon": -71.4552672
+      }
+    },
+    {
+      "slug": "ecotarium",
+      "museum_name": "EcoTarium",
+      "address": "222 Harrington Way, Worcester, MA 01604",
+      "website": "http://www.ecotarium.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science"
+      ],
+      "sources": [
+        "acton",
+        "burlington",
+        "carlisle",
+        "maynard",
+        "natick",
+        "newton",
+        "reading",
+        "sudbury",
+        "tewksbury",
+        "wayland",
+        "wellesley"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.2644394,
+        "lon": -71.7667726
+      }
+    },
+    {
+      "slug": "garden-in-the-woods-native-plant-trust",
+      "museum_name": "Garden in the Woods (Native Plant Trust)",
+      "address": "180 Hemenway Road, Framingham, MA 01701",
+      "website": "http://www.nativeplanttrust.org/",
+      "categories": [
+        "Family",
+        "Nature"
+      ],
+      "sources": [
+        "acton",
+        "burlington",
+        "chelmsford",
+        "framingham",
+        "lincoln",
+        "maynard",
+        "natick",
+        "needham",
+        "reading",
+        "sudbury",
+        "watertown",
+        "wayland",
+        "weston",
+        "winchester"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3413805,
+        "lon": -71.4272867
+      }
+    },
+    {
+      "slug": "harvard-museums-of-science-and-culture",
+      "museum_name": "Harvard Museums of Science and Culture",
+      "address": "11 Divinity Avenue, Cambridge, MA 02138",
+      "website": "https://hmsc.harvard.edu/",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science"
+      ],
+      "sources": [
+        "acton",
+        "andover",
+        "arlington",
+        "belmont",
+        "burlington",
+        "carlisle",
+        "chelsea",
+        "danvers",
+        "everett",
+        "haverhill",
+        "lawrence",
+        "lexington",
+        "lincoln",
+        "medford",
+        "melrose",
+        "middleton",
+        "natick",
+        "needham",
+        "newton",
+        "quincy",
+        "saugus",
+        "somerville",
+        "sudbury",
+        "wakefield",
+        "waltham",
+        "watertown",
+        "wayland",
+        "wellesley",
+        "weston",
+        "winchester",
+        "woburn"
+      ],
+      "original_price": {
+        "adult": 15,
+        "child": null,
+        "senior": 13,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "https://hmsc.harvard.edu/"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3782138,
+        "lon": -71.1149279
+      }
+    },
+    {
+      "slug": "institute-of-contemporary-art-boston",
+      "museum_name": "Institute of Contemporary Art/Boston",
+      "address": "25 Harbor Shore Drive, Boston, MA 02210",
+      "website": "https://www.icaboston.org/",
+      "categories": [
+        "Art",
+        "Family",
+        "Music",
+        "Dance"
+      ],
+      "sources": [
+        "acton",
+        "andover",
+        "arlington",
+        "belmont",
+        "carlisle",
+        "concord",
+        "lexington",
+        "lincoln",
+        "malden",
+        "marblehead",
+        "maynard",
+        "medford",
+        "melrose",
+        "natick",
+        "needham",
+        "newton",
+        "north-reading",
+        "quincy",
+        "reading",
+        "somerville",
+        "sudbury",
+        "wakefield",
+        "watertown",
+        "wayland",
+        "wellesley",
+        "weston",
+        "wilmington",
+        "winchester"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3528651,
+        "lon": -71.0429628
+      }
+    },
+    {
+      "slug": "isabella-stewart-gardner-museum",
+      "museum_name": "Isabella Stewart Gardner Museum",
+      "address": "25 Evans Way, Boston, MA 02115",
+      "website": "http://www.gardnermuseum.org/home/",
+      "categories": [
+        "Art",
+        "Family",
+        "Music"
+      ],
+      "sources": [
+        "acton",
+        "andover",
+        "arlington",
+        "bedford",
+        "belmont",
+        "beverly",
+        "billerica",
+        "boxford",
+        "burlington",
+        "carlisle",
+        "chelmsford",
+        "chelsea",
+        "concord",
+        "danvers",
+        "everett",
+        "framingham",
+        "haverhill",
+        "lincoln",
+        "lynn",
+        "lynnfield",
+        "malden",
+        "marblehead",
+        "maynard",
+        "medford",
+        "melrose",
+        "middleton",
+        "natick",
+        "needham",
+        "newton",
+        "north-andover",
+        "north-reading",
+        "peabody",
+        "quincy",
+        "reading",
+        "stoneham",
+        "sudbury",
+        "topsfield",
+        "wakefield",
+        "waltham",
+        "watertown",
+        "wayland",
+        "wellesley",
+        "weston",
+        "wilmington",
+        "winchester",
+        "woburn"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.338245,
+        "lon": -71.0991538
+      }
+    },
+    {
+      "slug": "john-f-kennedy-library-and-museum",
+      "museum_name": "John F. Kennedy Library & Museum",
+      "address": "Columbia Point, Boston, MA 02125",
+      "website": "https://www.jfklibrary.org/",
+      "categories": [
+        "Family",
+        "Governance",
+        "History"
+      ],
+      "sources": [
+        "acton",
+        "belmont",
+        "billerica",
+        "burlington",
+        "carlisle",
+        "danvers",
+        "haverhill",
+        "lincoln",
+        "maynard",
+        "medford",
+        "melrose",
+        "methuen",
+        "middleton",
+        "natick",
+        "north-andover",
+        "reading",
+        "somerville",
+        "stoneham",
+        "topsfield",
+        "wakefield",
+        "wayland",
+        "wellesley",
+        "weston"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3320968,
+        "lon": -71.0284871
+      }
+    },
+    {
+      "slug": "mass-audubon-drumlin-farm",
+      "museum_name": "Mass Audubon (Drumlin Farm)",
+      "address": "208 South Great Road, Lincoln, MA 01773",
+      "website": "http://www.massaudubon.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature"
+      ],
+      "sources": [
+        "acton",
+        "belmont",
+        "billerica",
+        "burlington",
+        "chelmsford",
+        "concord",
+        "lexington",
+        "lincoln",
+        "maynard",
+        "melrose",
+        "waltham",
+        "weston",
+        "wilmington",
+        "winchester",
+        "woburn"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.4047062,
+        "lon": -71.3208652
+      }
+    },
+    {
+      "slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "museum_name": "Massachusetts State Parks (Department of Conservation and Recreation)",
+      "address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104",
+      "website": "http://www.mass.gov/eea/agencies/dcr/massparks/",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Recreation"
+      ],
+      "sources": [
+        "acton",
+        "andover",
+        "arlington",
+        "bedford",
+        "belmont",
+        "billerica",
+        "boxford",
+        "burlington",
+        "carlisle",
+        "chelmsford",
+        "chelsea",
+        "concord",
+        "everett",
+        "framingham",
+        "haverhill",
+        "lawrence",
+        "lexington",
+        "lincoln",
+        "lynnfield",
+        "malden",
+        "maynard",
+        "medford",
+        "methuen",
+        "middleton",
+        "natick",
+        "needham",
+        "newton",
+        "north-andover",
+        "north-reading",
+        "peabody",
+        "quincy",
+        "reading",
+        "saugus",
+        "stoneham",
+        "sudbury",
+        "tewksbury",
+        "topsfield",
+        "wakefield",
+        "waltham",
+        "watertown",
+        "wayland",
+        "wellesley",
+        "weston",
+        "wilmington",
+        "winchester",
+        "woburn"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "museum-of-fine-arts",
+      "museum_name": "Museum of Fine Arts",
+      "address": "465 Huntington Avenue, Boston, MA 02115",
+      "website": "http://www.mfa.org/",
+      "categories": [
+        "Art",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "acton",
+        "andover",
+        "arlington",
+        "bedford",
+        "belmont",
+        "beverly",
+        "billerica",
+        "boxford",
+        "burlington",
+        "carlisle",
+        "chelmsford",
+        "chelsea",
+        "concord",
+        "danvers",
+        "everett",
+        "framingham",
+        "haverhill",
+        "lawrence",
+        "lexington",
+        "lincoln",
+        "lynn",
+        "lynnfield",
+        "malden",
+        "marblehead",
+        "maynard",
+        "medford",
+        "melrose",
+        "methuen",
+        "middleton",
+        "natick",
+        "needham",
+        "newton",
+        "north-andover",
+        "north-reading",
+        "peabody",
+        "quincy",
+        "reading",
+        "saugus",
+        "somerville",
+        "stoneham",
+        "sudbury",
+        "tewksbury",
+        "topsfield",
+        "wakefield",
+        "waltham",
+        "watertown",
+        "wayland",
+        "wellesley",
+        "weston",
+        "wilmington",
+        "winchester",
+        "woburn"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3394573,
+        "lon": -71.093897
+      }
+    },
+    {
+      "slug": "museum-of-science",
+      "museum_name": "Museum of Science",
+      "address": "1 Science Park, Boston, MA 02114",
+      "website": "http://www.mos.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Science",
+        "Technology",
+        "Sky"
+      ],
+      "sources": [
+        "acton",
+        "andover",
+        "arlington",
+        "bedford",
+        "belmont",
+        "beverly",
+        "billerica",
+        "boxford",
+        "burlington",
+        "carlisle",
+        "chelmsford",
+        "chelsea",
+        "concord",
+        "danvers",
+        "everett",
+        "framingham",
+        "haverhill",
+        "lawrence",
+        "lexington",
+        "lincoln",
+        "lynnfield",
+        "malden",
+        "marblehead",
+        "maynard",
+        "medford",
+        "melrose",
+        "methuen",
+        "middleton",
+        "natick",
+        "needham",
+        "newton",
+        "north-andover",
+        "north-reading",
+        "peabody",
+        "quincy",
+        "reading",
+        "saugus",
+        "somerville",
+        "stoneham",
+        "sudbury",
+        "tewksbury",
+        "topsfield",
+        "wakefield",
+        "waltham",
+        "watertown",
+        "wayland",
+        "wellesley",
+        "weston",
+        "wilmington",
+        "winchester",
+        "woburn",
+        "bpl",
+        "cambridge",
+        "cohasset",
+        "hingham"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://www.mos.org/sites/default/files/styles/1200x675_16_9_lg_/public/2024-02/Museum-Exterior-1x1.jpg?itok=d_Y1X48L",
+        "local_path": "static/images/museum-of-science.jpg"
+      },
+      "geo": {
+        "lat": 42.3674305,
+        "lon": -71.071098
+      }
+    },
+    {
+      "slug": "new-england-aquarium",
+      "museum_name": "New England Aquarium",
+      "address": "1 Central Wharf, Boston, MA 02110",
+      "website": "http://www.neaq.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science",
+        "Ocean"
+      ],
+      "sources": [
+        "acton",
+        "andover",
+        "arlington",
+        "bedford",
+        "belmont",
+        "beverly",
+        "billerica",
+        "boxford",
+        "burlington",
+        "carlisle",
+        "chelmsford",
+        "chelsea",
+        "concord",
+        "danvers",
+        "everett",
+        "framingham",
+        "haverhill",
+        "lawrence",
+        "lexington",
+        "lincoln",
+        "lynn",
+        "lynnfield",
+        "malden",
+        "marblehead",
+        "maynard",
+        "medford",
+        "melrose",
+        "methuen",
+        "middleton",
+        "natick",
+        "needham",
+        "newton",
+        "north-andover",
+        "north-reading",
+        "peabody",
+        "quincy",
+        "reading",
+        "saugus",
+        "somerville",
+        "stoneham",
+        "sudbury",
+        "tewksbury",
+        "topsfield",
+        "wakefield",
+        "waltham",
+        "watertown",
+        "wayland",
+        "wellesley",
+        "weston",
+        "wilmington",
+        "winchester",
+        "woburn",
+        "bpl",
+        "cambridge",
+        "cohasset",
+        "hingham"
+      ],
+      "original_price": {
+        "adult": 44.95,
+        "child": 35.95,
+        "senior": 42.95,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": null,
+        "source_url": "http://www.neaq.org/"
+      },
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "new-england-botanic-garden-at-tower-hill",
+      "museum_name": "New England Botanic Garden at Tower Hill",
+      "address": "11 French Drive, Boylston, MA 01505-0598",
+      "website": "https://www.nebg.org/",
+      "categories": [
+        "Art",
+        "Crafts",
+        "Family",
+        "Nature"
+      ],
+      "sources": [
+        "acton",
+        "andover",
+        "bedford",
+        "belmont",
+        "billerica",
+        "burlington",
+        "carlisle",
+        "chelmsford",
+        "concord",
+        "framingham",
+        "haverhill",
+        "lexington",
+        "lincoln",
+        "maynard",
+        "natick",
+        "needham",
+        "newton",
+        "sudbury",
+        "tewksbury",
+        "wayland",
+        "wilmington",
+        "woburn"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://nebg.org/wp-content/uploads/2022/10/entry-garden.jpg",
+        "local_path": "static/images/new-england-botanic-garden-at-tower-hill.jpg"
+      },
+      "geo": {
+        "lat": 42.3616083,
+        "lon": -71.7261263
+      }
+    },
+    {
+      "slug": "peabody-essex-museum",
+      "museum_name": "Peabody Essex Museum",
+      "address": "161 Essex Street, Salem, MA 01970-3783",
+      "website": "http://www.pem.org/",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Ocean"
+      ],
+      "sources": [
+        "acton",
+        "arlington",
+        "bedford",
+        "belmont",
+        "beverly",
+        "billerica",
+        "boxford",
+        "burlington",
+        "carlisle",
+        "chelmsford",
+        "concord",
+        "danvers",
+        "everett",
+        "framingham",
+        "haverhill",
+        "lexington",
+        "lincoln",
+        "lynn",
+        "lynnfield",
+        "malden",
+        "marblehead",
+        "maynard",
+        "medford",
+        "melrose",
+        "methuen",
+        "middleton",
+        "natick",
+        "needham",
+        "newton",
+        "north-andover",
+        "north-reading",
+        "peabody",
+        "quincy",
+        "reading",
+        "somerville",
+        "stoneham",
+        "sudbury",
+        "tewksbury",
+        "topsfield",
+        "wakefield",
+        "watertown",
+        "weston",
+        "wilmington",
+        "winchester",
+        "woburn",
+        "bpl",
+        "hingham"
+      ],
+      "original_price": {
+        "adult": 25,
+        "child": null,
+        "senior": 23,
+        "student": 15,
+        "family": null,
+        "free_under_age": 16,
+        "notes": "Adults $25; Seniors 65+ $23; Students with ID $15; Youth under 16 FREE; Salem residents FREE",
+        "source_url": "http://www.pem.org/visit"
+      },
+      "hero_image": {
+        "og_image_url": "https://s3.us-east-1.amazonaws.com/pem-org/images/_1200x630_crop_center-center_82_none/atriumintcoll001_2017.jpg?mtime=1704389621",
+        "local_path": "static/images/peabody-essex-museum.jpg"
+      },
+      "geo": {
+        "lat": 42.5215925,
+        "lon": -70.8921931
+      }
+    },
+    {
+      "slug": "the-trustees-of-the-reservations",
+      "museum_name": "Trustees of Reservations (with deCordova Sculpture Park and Museum)",
+      "address": "",
+      "website": "http://www.thetrustees.org/",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Nature",
+        "Recreation"
+      ],
+      "sources": [
+        "acton",
+        "andover",
+        "arlington",
+        "bedford",
+        "belmont",
+        "chelmsford",
+        "concord",
+        "lexington",
+        "lynnfield",
+        "malden",
+        "maynard",
+        "medford",
+        "melrose",
+        "needham",
+        "newton",
+        "north-reading",
+        "peabody",
+        "reading",
+        "somerville",
+        "sudbury",
+        "waltham",
+        "watertown",
+        "wayland",
+        "wellesley",
+        "weston",
+        "wilmington",
+        "winchester",
+        "woburn"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "http://www.thetrustees.org/"
+      },
+      "hero_image": {
+        "og_image_url": "https://thetrustees.org/wp-content/uploads/2020/07/Metadata.jpg",
+        "local_path": "static/images/the-trustees-of-the-reservations.jpg"
+      },
+      "geo": null
+    },
+    {
+      "slug": "zoo-new-england",
+      "museum_name": "Zoo New England",
+      "address": "1 Franklin Park Road, Boston, MA 02121",
+      "website": "http://www.zoonewengland.org/",
+      "categories": [
+        "Family",
+        "Zoo"
+      ],
+      "sources": [
+        "acton",
+        "andover",
+        "arlington",
+        "bedford",
+        "belmont",
+        "beverly",
+        "billerica",
+        "boxford",
+        "burlington",
+        "carlisle",
+        "chelmsford",
+        "concord",
+        "danvers",
+        "everett",
+        "framingham",
+        "haverhill",
+        "lawrence",
+        "lexington",
+        "lincoln",
+        "lynn",
+        "lynnfield",
+        "malden",
+        "marblehead",
+        "maynard",
+        "medford",
+        "melrose",
+        "methuen",
+        "middleton",
+        "natick",
+        "needham",
+        "newton",
+        "north-andover",
+        "north-reading",
+        "peabody",
+        "quincy",
+        "reading",
+        "saugus",
+        "stoneham",
+        "sudbury",
+        "tewksbury",
+        "topsfield",
+        "wakefield",
+        "waltham",
+        "watertown",
+        "wayland",
+        "wellesley",
+        "weston",
+        "wilmington",
+        "winchester",
+        "woburn",
+        "bpl",
+        "cambridge",
+        "cohasset",
+        "hingham"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "http://www.zoonewengland.org/media/1259935/zoo-new-england.jpg",
+        "local_path": "static/images/zoo-new-england.jpg"
+      },
+      "geo": {
+        "lat": 42.3028346,
+        "lon": -71.0876281
+      }
+    },
+    {
+      "slug": "the-aviation-museum-of-new-hampshire",
+      "museum_name": "The Aviation Museum of New Hampshire",
+      "address": "27 Navigator Road, Londonderry, NH 03053",
+      "website": "https://aviationmuseumofnh.org/",
+      "categories": [
+        "Family",
+        "History",
+        "Technology",
+        "Sky"
+      ],
+      "sources": [
+        "andover",
+        "methuen",
+        "north-reading",
+        "stoneham"
+      ],
+      "original_price": {
+        "adult": 15,
+        "child": 7.5,
+        "senior": 7.5,
+        "student": null,
+        "family": null,
+        "free_under_age": 5,
+        "notes": "Adults 13+ $15; Youth 6-12 $7.50; Seniors/veterans/active military $7.50; under 5 FREE; EBT Museums for All $5",
+        "source_url": "https://aviationmuseumofnh.org/hours"
+      },
+      "hero_image": {
+        "og_image_url": "https://aviationmuseumofnh.org/wp-content/uploads/2023/06/AVNH-FINAL-LOGO-0214-1-scaled.jpg",
+        "local_path": "static/images/the-aviation-museum-of-new-hampshire.jpg"
+      },
+      "geo": {
+        "lat": 42.92738,
+        "lon": -71.4280802
+      }
+    },
+    {
+      "slug": "bedrock-gardens",
+      "museum_name": "Bedrock Gardens",
+      "address": "19 High Road, Lee, NH 03861",
+      "website": "https://www.bedrockgardens.org/",
+      "categories": [
+        "Art",
+        "Nature"
+      ],
+      "sources": [
+        "andover"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://www.bedrockgardens.org/uploads/1/4/4/7/144727098/published/bg-one-line2.png?1710945518",
+        "local_path": "static/images/bedrock-gardens.png"
+      },
+      "geo": {
+        "lat": 43.0962062,
+        "lon": -71.042139
+      }
+    },
+    {
+      "slug": "boston-harbor-island-ferry",
+      "museum_name": "Boston Harbor Island Ferry",
+      "address": "15 State Street, Suite 1100, Boston, MA 02109",
+      "website": "http://www.bostonharborislands.org/",
+      "categories": [
+        "Family",
+        "Nature",
+        "Recreation"
+      ],
+      "sources": [
+        "andover",
+        "everett",
+        "malden",
+        "middleton",
+        "waltham",
+        "wilmington",
+        "winchester"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://www.bostonharborislands.org/wp-content/uploads/opengraph.jpg",
+        "local_path": "static/images/boston-harbor-island-ferry.jpg"
+      },
+      "geo": null
+    },
+    {
+      "slug": "childrens-museum-of-new-hampshire",
+      "museum_name": "Children's Museum of New Hampshire",
+      "address": "6 Washington Street, Dover, NH 03820",
+      "website": "http://www.childrens-museum.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Music",
+        "Science",
+        "Technology"
+      ],
+      "sources": [
+        "andover",
+        "haverhill"
+      ],
+      "original_price": {
+        "adult": 14.5,
+        "child": 14.5,
+        "senior": 12.5,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "http://www.childrens-museum.org/"
+      },
+      "hero_image": {
+        "og_image_url": "https://childrens-museum.org/wp-content/uploads/2024/09/Instagram-logo.jpg",
+        "local_path": "static/images/childrens-museum-of-new-hampshire.jpg"
+      },
+      "geo": {
+        "lat": 43.1948506,
+        "lon": -70.8730038
+      }
+    },
+    {
+      "slug": "historic-new-england",
+      "museum_name": "Historic New England",
+      "address": "141 Cambridge Street, Administrative Offices: Otis House, Boston, MA 02114",
+      "website": "https://www.historicnewengland.org/",
+      "categories": [
+        "Architecture",
+        "Family",
+        "History",
+        "Nature",
+        "Recreation"
+      ],
+      "sources": [
+        "andover",
+        "belmont",
+        "danvers",
+        "haverhill",
+        "lincoln",
+        "maynard",
+        "melrose",
+        "reading",
+        "stoneham",
+        "waltham"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "the-house-of-seven-gables",
+      "museum_name": "The House of Seven Gables",
+      "address": "115 Derby Street, Salem, MA 01970",
+      "website": "https://www.7gables.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "Science"
+      ],
+      "sources": [
+        "andover",
+        "burlington",
+        "chelmsford",
+        "lynn",
+        "lynnfield",
+        "malden",
+        "medford",
+        "natick",
+        "peabody",
+        "stoneham",
+        "wakefield",
+        "weston",
+        "wilmington",
+        "woburn"
+      ],
+      "original_price": {
+        "adult": 26,
+        "child": 18,
+        "senior": 21,
+        "student": 21,
+        "family": null,
+        "free_under_age": 2,
+        "notes": "Members free",
+        "source_url": "https://www.7gables.org/"
+      },
+      "hero_image": {
+        "og_image_url": "https://7gables.org/wp-content/uploads/2022/05/MainImage_TonyHealy@2x-scaled.jpg",
+        "local_path": "static/images/the-house-of-seven-gables.jpg"
+      },
+      "geo": {
+        "lat": 42.5218159,
+        "lon": -70.8838227
+      }
+    },
+    {
+      "slug": "new-england-quilt-museum",
+      "museum_name": "New England Quilt Museum",
+      "address": "18 Shattuck St., Lowell, MA 01852",
+      "website": "https://www.neqm.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "andover",
+        "burlington",
+        "chelmsford",
+        "lexington",
+        "natick",
+        "needham",
+        "newton",
+        "wellesley",
+        "wilmington"
+      ],
+      "original_price": {
+        "adult": 10,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": 12,
+        "notes": "Regular Admission $10; Children 12 and under FREE; Museum Members FREE; EBT cardholders and 1 guest FREE",
+        "source_url": "https://www.neqm.org/visit"
+      },
+      "hero_image": {
+        "og_image_url": "http://static1.squarespace.com/static/65958663bca4b21bc541fb73/t/659834bde6f3db569ac29e75/1704473789312/logo-header.png?format=1500w",
+        "local_path": "static/images/new-england-quilt-museum.png"
+      },
+      "geo": {
+        "lat": 42.6453702,
+        "lon": -71.3120855
+      }
+    },
+    {
+      "slug": "new-hampshire-philharmonic-orchestra",
+      "museum_name": "New Hampshire Philharmonic Orchestra",
+      "address": "44 Geremonty Drive, Seifert Performing Arts Center, Salem, NH 03079",
+      "website": "https://www.nhphil.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "Music"
+      ],
+      "sources": [
+        "andover",
+        "haverhill",
+        "methuen"
+      ],
+      "original_price": {
+        "adult": 30,
+        "child": null,
+        "senior": 10,
+        "student": 15,
+        "family": null,
+        "free_under_age": null,
+        "notes": null,
+        "source_url": "https://www.nhphil.org/"
+      },
+      "hero_image": {
+        "og_image_url": "https://static.wixstatic.com/media/f87796_2d5317377a7149c6857e250b2408831a%7Emv2.png/v1/fit/w_2500,h_1330,al_c/f87796_2d5317377a7149c6857e250b2408831a%7Emv2.png",
+        "local_path": "static/images/new-hampshire-philharmonic-orchestra.png"
+      },
+      "geo": null
+    },
+    {
+      "slug": "north-shore-childrens-museum",
+      "museum_name": "North Shore Children's Museum",
+      "address": "10 Main Street, Peabody, MA 01960",
+      "website": "https://www.nschildrensmuseum.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "Science"
+      ],
+      "sources": [
+        "andover",
+        "beverly",
+        "burlington",
+        "danvers",
+        "haverhill",
+        "lynn",
+        "lynnfield",
+        "melrose",
+        "middleton",
+        "north-andover",
+        "north-reading",
+        "peabody",
+        "reading",
+        "saugus",
+        "topsfield",
+        "wakefield",
+        "wilmington",
+        "winchester"
+      ],
+      "original_price": {
+        "adult": 12,
+        "child": 12,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": 1,
+        "notes": "Adults & Children (age 12 months+) $12.00; EBT/WIC $3.00; Library Passes $6.00; Under 12 months FREE",
+        "source_url": "https://www.nschildrensmuseum.org/buy-tickets"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.5256092,
+        "lon": -70.9269447
+      }
+    },
+    {
+      "slug": "plimoth-patuxet-museums",
+      "museum_name": "Plimoth Patuxet Museums",
+      "address": "137 Warren Avenue, Plymouth, MA 02360",
+      "website": "http://www.plimoth.org/",
+      "categories": [
+        "Children",
+        "Crafts",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "andover",
+        "belmont",
+        "chelmsford",
+        "lexington",
+        "natick",
+        "needham",
+        "peabody",
+        "quincy",
+        "wakefield",
+        "wellesley",
+        "weston",
+        "winchester"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://plimoth.nyc3.digitaloceanspaces.com/_1200x630_crop_center-center_82_none/General-Fallback-1.png?mtime=1624287484",
+        "local_path": "static/images/plimoth-patuxet-museums.png"
+      },
+      "geo": {
+        "lat": 41.9393938,
+        "lon": -70.625786
+      }
+    },
+    {
+      "slug": "salem-witch-museum",
+      "museum_name": "Salem Witch Museum",
+      "address": "19 1/2 Washington Square, Salem, MA 01970",
+      "website": "http://www.salemwitchmuseum.com/",
+      "categories": [
+        "Children",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "andover",
+        "billerica",
+        "burlington",
+        "carlisle",
+        "chelsea",
+        "danvers",
+        "lynn",
+        "middleton",
+        "reading",
+        "stoneham",
+        "topsfield",
+        "wakefield",
+        "weston",
+        "wilmington",
+        "woburn"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.5237449,
+        "lon": -70.8911625
+      }
+    },
+    {
+      "slug": "seacoast-science-center",
+      "museum_name": "Seacoast Science Center",
+      "address": "570 Ocean Boulevard, Odiorne Point State Park, Rye, NH 03870",
+      "website": "http://www.seacoastsciencecenter.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science",
+        "Ocean"
+      ],
+      "sources": [
+        "andover",
+        "billerica",
+        "haverhill",
+        "methuen",
+        "middleton"
+      ],
+      "original_price": {
+        "adult": 15,
+        "child": null,
+        "senior": 12.5,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "http://www.seacoastsciencecenter.org/"
+      },
+      "hero_image": {
+        "og_image_url": "https://www.seacoastsciencecenter.org/wp-content/uploads/2022/12/wave-lines-white_1px.svg",
+        "local_path": "static/images/seacoast-science-center.jpg"
+      },
+      "geo": null
+    },
+    {
+      "slug": "wenham-museum",
+      "museum_name": "Wenham Museum",
+      "address": "132 Main Street, Wenham, MA 01984",
+      "website": "http://www.wenhammuseum.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "andover",
+        "beverly",
+        "danvers",
+        "peabody",
+        "topsfield"
+      ],
+      "original_price": {
+        "adult": 10,
+        "child": 10,
+        "senior": 10,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "http://www.wenhammuseum.org/"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.6038387,
+        "lon": -70.887136
+      }
+    },
+    {
+      "slug": "mass-audubon",
+      "museum_name": "Mass Audubon",
+      "address": "MA",
+      "website": "https://www.massaudubon.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Recreation"
+      ],
+      "sources": [
+        "bedford",
+        "carlisle",
+        "danvers",
+        "medford",
+        "natick",
+        "needham",
+        "newton",
+        "peabody",
+        "sudbury",
+        "wakefield",
+        "watertown",
+        "wayland",
+        "wellesley",
+        "bpl"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 31.1728205,
+        "lon": -7.3362482
+      }
+    },
+    {
+      "slug": "armenian-museum-of-america",
+      "museum_name": "Armenian Museum of America",
+      "address": "65 Main Street, Watertown, MA 02472",
+      "website": "https://www.armenianmuseum.org/",
+      "categories": [
+        "Art",
+        "Crafts",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "belmont",
+        "watertown"
+      ],
+      "original_price": {
+        "adult": 15,
+        "child": 5,
+        "senior": 5,
+        "student": 5,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "https://www.armenianmuseum.org/"
+      },
+      "hero_image": {
+        "og_image_url": "http://static1.squarespace.com/static/5963d44e03596ece54830d99/t/59b6ae8c46c3c498eb23d45b/1505144461135/facebook.png?format=1500w",
+        "local_path": "static/images/armenian-museum-of-america.png"
+      },
+      "geo": {
+        "lat": 42.366366,
+        "lon": -71.1857857
+      }
+    },
+    {
+      "slug": "boston-by-foot",
+      "museum_name": "Boston by Foot ",
+      "address": "87 Mount Vernon Street, Boston, MA 02108",
+      "website": "http://www.bostonbyfoot.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Tours"
+      ],
+      "sources": [
+        "belmont",
+        "medford",
+        "north-reading",
+        "reading",
+        "wilmington",
+        "cambridge",
+        "hingham"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://bostonbyfoot.org/images/home/2192790797_0f349d3cb0_b.jpg",
+        "local_path": "static/images/boston-by-foot.jpg"
+      },
+      "geo": {
+        "lat": 42.3584603,
+        "lon": -71.0679578
+      }
+    },
+    {
+      "slug": "gore-place",
+      "museum_name": "Gore Place",
+      "address": "52 Gore Street, Waltham, MA 02453",
+      "website": "https://www.goreplace.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Tours"
+      ],
+      "sources": [
+        "belmont",
+        "burlington",
+        "lexington",
+        "lincoln",
+        "waltham",
+        "watertown",
+        "wayland",
+        "weston"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": 0,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Grounds free; mansion tours extra",
+        "source_url": "https://www.goreplace.org/"
+      },
+      "hero_image": {
+        "og_image_url": "https://goreplace.org/images/made/images/uploads/IMG_6800_600_315_s_c1.jpeg",
+        "local_path": "static/images/gore-place.jpg"
+      },
+      "geo": {
+        "lat": 42.3725738,
+        "lon": -71.2127601
+      }
+    },
+    {
+      "slug": "orchard-house",
+      "museum_name": "Orchard House",
+      "address": "399 Lexington Road, Concord, MA 01742",
+      "website": "http://www.louisamayalcott.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Tours"
+      ],
+      "sources": [
+        "belmont",
+        "carlisle",
+        "concord"
+      ],
+      "original_price": {
+        "adult": 15,
+        "child": null,
+        "senior": null,
+        "student": 12,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "http://www.louisamayalcott.org/"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.4590881,
+        "lon": -71.3350541
+      }
+    },
+    {
+      "slug": "the-uss-constitution-museum",
+      "museum_name": "USS Constitution Museum",
+      "address": "Charlestown Navy Yard, Building 22, Charlestown, MA 02129",
+      "website": "https://ussconstitutionmuseum.org/",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Ocean"
+      ],
+      "sources": [
+        "beverly",
+        "billerica",
+        "burlington",
+        "carlisle",
+        "chelmsford",
+        "everett",
+        "framingham",
+        "haverhill",
+        "lawrence",
+        "lynn",
+        "lynnfield",
+        "malden",
+        "maynard",
+        "medford",
+        "melrose",
+        "methuen",
+        "natick",
+        "needham",
+        "north-andover",
+        "north-reading",
+        "peabody",
+        "quincy",
+        "reading",
+        "saugus",
+        "somerville",
+        "sudbury",
+        "topsfield",
+        "wakefield",
+        "watertown",
+        "wayland",
+        "weston",
+        "wilmington",
+        "woburn"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": 0,
+        "senior": 0,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Pay what you wish; suggested donations apply",
+        "source_url": "https://ussconstitutionmuseum.org/"
+      },
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "american-heritage-museum",
+      "museum_name": "American Heritage Museum",
+      "address": "568 Main Street, Hudson, MA 01749",
+      "website": "https://www.americanheritagemuseum.org/",
+      "categories": [
+        "Family",
+        "History",
+        "Military"
+      ],
+      "sources": [
+        "billerica",
+        "burlington",
+        "concord",
+        "maynard",
+        "natick",
+        "stoneham",
+        "sudbury"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3938502,
+        "lon": -71.5383048
+      }
+    },
+    {
+      "slug": "the-butterfly-place",
+      "museum_name": "The Butterfly Place",
+      "address": "120 Tyngsboro Road, Westford, MA 01886",
+      "website": "https://www.butterflyplace-ma.com/",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science"
+      ],
+      "sources": [
+        "billerica",
+        "burlington",
+        "carlisle",
+        "haverhill",
+        "north-reading",
+        "tewksbury",
+        "wilmington",
+        "woburn"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.6419513,
+        "lon": -71.43968
+      }
+    },
+    {
+      "slug": "trustees-of-the-reservations",
+      "museum_name": "Trustees of the Reservations",
+      "address": "MA",
+      "website": "http://www.thetrustees.org/",
+      "categories": [
+        "Family",
+        "History",
+        "Nature",
+        "Recreation"
+      ],
+      "sources": [
+        "billerica",
+        "burlington",
+        "carlisle",
+        "everett",
+        "lincoln",
+        "natick",
+        "north-andover",
+        "stoneham",
+        "tewksbury",
+        "topsfield",
+        "wakefield"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "http://www.thetrustees.org/"
+      },
+      "hero_image": {
+        "og_image_url": "https://thetrustees.org/wp-content/uploads/2020/07/Metadata.jpg",
+        "local_path": "static/images/trustees-of-the-reservations.jpg"
+      },
+      "geo": {
+        "lat": 31.1728205,
+        "lon": -7.3362482
+      }
+    },
+    {
+      "slug": "boston-athenaeum",
+      "museum_name": "Boston Athenaeum",
+      "address": "10 1/2 Beacon Street, Boston, MA 02108",
+      "website": "https://www.bostonathenaeum.org/",
+      "categories": [
+        "Art",
+        "Family",
+        "Governance",
+        "History"
+      ],
+      "sources": [
+        "concord"
+      ],
+      "original_price": {
+        "adult": 11,
+        "child": 5,
+        "senior": null,
+        "student": 8,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Visitors 14+ $11; ages 13 and under (with adult) $5; Students/Educators/Military $8; full-access one-day membership $40",
+        "source_url": "https://www.bostonathenaeum.org/visit"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3579152,
+        "lon": -71.0620806
+      }
+    },
+    {
+      "slug": "the-childrens-piazza",
+      "museum_name": "The Children's Piazza",
+      "address": "83 Pine Street, Unit F, Peabody, MA 01960",
+      "website": "https://www.thechildrenspiazza.com/",
+      "categories": [
+        "Children",
+        "Family"
+      ],
+      "sources": [
+        "danvers",
+        "lynn",
+        "peabody",
+        "reading",
+        "saugus",
+        "topsfield"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Free admission; community children's space",
+        "source_url": "https://www.thechildrenspiazza.com/"
+      },
+      "hero_image": {
+        "og_image_url": "https://www.thechildrenspiazza.com/uploads/b/7ba6f940-a408-11e9-9a28-67bb30306769/Piazza%20circle%20gray%20no%20lines%20w%20white_NzQwNj.png",
+        "local_path": "static/images/the-childrens-piazza.png"
+      },
+      "geo": null
+    },
+    {
+      "slug": "griffin-museum-of-photography",
+      "museum_name": "Griffin Museum of Photography",
+      "address": "67 Shore Road, Winchester, MA 01890",
+      "website": "http://www.griffinmuseum.org/",
+      "categories": [
+        "Art",
+        "Family"
+      ],
+      "sources": [
+        "danvers",
+        "medford",
+        "winchester"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.4545473,
+        "lon": -71.1358974
+      }
+    },
+    {
+      "slug": "naismith-memorial-basketball-hall-of-fame",
+      "museum_name": "Naismith Memorial Basketball Hall of Fame",
+      "address": "1000 Hall of Fame Avenue, Springfield, MA 01105",
+      "website": "https://www.hoophall.com/",
+      "categories": [
+        "Family",
+        "Sports"
+      ],
+      "sources": [
+        "danvers",
+        "lexington",
+        "wilmington"
+      ],
+      "original_price": {
+        "adult": 27,
+        "child": 16,
+        "senior": 20,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Lower tier: Adults $27, Youth 5-12 $16, Seniors 65+ $20; premium tier: Adults $34, Youth $20, Seniors $25",
+        "source_url": "https://www.hoophall.com/visit"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.0937115,
+        "lon": -72.58506
+      }
+    },
+    {
+      "slug": "the-danforth",
+      "museum_name": "The Danforth",
+      "address": "14 Vernon Street, Framingham, MA 01701",
+      "website": "https://danforth.framingham.edu/",
+      "categories": [
+        "Art",
+        "Children",
+        "Family"
+      ],
+      "sources": [
+        "framingham",
+        "lincoln",
+        "needham",
+        "sudbury"
+      ],
+      "original_price": {
+        "adult": 7,
+        "child": null,
+        "senior": 7,
+        "student": 5,
+        "family": null,
+        "free_under_age": null,
+        "notes": null,
+        "source_url": "https://danforth.framingham.edu/"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3024928,
+        "lon": -71.4358628
+      }
+    },
+    {
+      "slug": "worcester-art-museum",
+      "museum_name": "Worcester Art Museum",
+      "address": "55 Salisbury Street, Worcester, MA 01609",
+      "website": "http://www.worcesterart.org/",
+      "categories": [
+        "Art",
+        "Family",
+        "History",
+        "Military"
+      ],
+      "sources": [
+        "framingham",
+        "maynard",
+        "natick",
+        "needham",
+        "newton",
+        "weston"
+      ],
+      "original_price": {
+        "adult": 22,
+        "child": 17,
+        "senior": 17,
+        "student": 17,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "http://www.worcesterart.org/"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.2730336,
+        "lon": -71.801977
+      }
+    },
+    {
+      "slug": "americas-stonehenge",
+      "museum_name": "America's Stonehenge",
+      "address": "105 Haverhill Road, Salem, NH 03079",
+      "website": "https://www.stonehengeusa.com/",
+      "categories": [
+        "Family",
+        "History",
+        "Science",
+        "Technology"
+      ],
+      "sources": [
+        "haverhill",
+        "methuen"
+      ],
+      "original_price": {
+        "adult": 15,
+        "child": 15,
+        "senior": 19,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": null,
+        "source_url": "https://www.stonehengeusa.com/"
+      },
+      "hero_image": {
+        "og_image_url": "https://static.wixstatic.com/media/b7955c_72a02c53128c46c48e41f394b2585372%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/b7955c_72a02c53128c46c48e41f394b2585372%7Emv2.jpg",
+        "local_path": "static/images/americas-stonehenge.jpg"
+      },
+      "geo": {
+        "lat": 42.8432515,
+        "lon": -71.2049436
+      }
+    },
+    {
+      "slug": "currier-museum-of-art",
+      "museum_name": "Currier Museum of Art",
+      "address": "150 Ash Street, Manchester, NH 03104",
+      "website": "http://currier.org/",
+      "categories": [
+        "Architecture",
+        "Art",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "haverhill",
+        "methuen"
+      ],
+      "original_price": {
+        "adult": 20,
+        "child": 5,
+        "senior": 20,
+        "student": 15,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "http://currier.org/"
+      },
+      "hero_image": {
+        "og_image_url": "https://static.wixstatic.com/media/9ff7cc_d4721beb3ef34bdba26ba0ea1d019d73~mv2.png/v1/fill/w_1920,h_1080,al_c/9ff7cc_d4721beb3ef34bdba26ba0ea1d019d73~mv2.png",
+        "local_path": "static/images/currier-museum-of-art.png"
+      },
+      "geo": {
+        "lat": 42.9977038,
+        "lon": -71.455607
+      }
+    },
+    {
+      "slug": "museum-of-printing",
+      "museum_name": "Museum of Printing",
+      "address": "15 Thornton Avenue, Haverhill, MA 01832",
+      "website": "https://www.museumofprinting.org/",
+      "categories": [
+        "Family",
+        "History",
+        "Technology"
+      ],
+      "sources": [
+        "haverhill",
+        "methuen"
+      ],
+      "original_price": {
+        "adult": 15,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "https://www.museumofprinting.org/"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.7728423,
+        "lon": -71.1208851
+      }
+    },
+    {
+      "slug": "public-health-museum",
+      "museum_name": "Public Health Museum",
+      "address": "297-321 East Street, Tewksbury, MA 01876",
+      "website": "https://www.publichealthmuseum.org/",
+      "categories": [
+        "Family",
+        "History",
+        "Science"
+      ],
+      "sources": [
+        "haverhill",
+        "methuen",
+        "tewksbury"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Free admission; donations welcome",
+        "source_url": "https://www.publichealthmuseum.org/"
+      },
+      "hero_image": {
+        "og_image_url": "https://www.publichealthmuseum.org/uploads/1/2/6/9/126956945/phm-photo-front-outside-summer_orig.jpg",
+        "local_path": "static/images/public-health-museum.jpg"
+      },
+      "geo": null
+    },
+    {
+      "slug": "wheelock-family-theatre",
+      "museum_name": "Wheelock Family Theatre",
+      "address": "200 The Riverway, Boston, MA 02215",
+      "website": "https://www.wheelockfamilytheatre.org/",
+      "categories": [
+        "Theatre"
+      ],
+      "sources": [
+        "lawrence"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://www.wheelockfamilytheatre.org/wp-content/uploads/2020/10/cropped-wftlogo_1-wftlogo39.5.png",
+        "local_path": "static/images/wheelock-family-theatre.png"
+      },
+      "geo": null
+    },
+    {
+      "slug": "blithewold",
+      "museum_name": "Blithewold",
+      "address": "101 Ferry Road, Route 114, Bristol, RI 02809",
+      "website": "https://www.blithewold.org/",
+      "categories": [
+        "Architecture",
+        "Family",
+        "History",
+        "Nature"
+      ],
+      "sources": [
+        "lexington"
+      ],
+      "original_price": {
+        "adult": 22,
+        "child": 6,
+        "senior": null,
+        "student": 18,
+        "family": 50,
+        "free_under_age": 5,
+        "notes": "Adult age 17+ $22; Child age 6-10 $6; Youth age 11-16 $11; Family=2 adults+2 children $50; Military/Student $18; under 5 free",
+        "source_url": "https://www.blithewold.org/general-admission"
+      },
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "charles-river-museum-of-industry-and-innovation",
+      "museum_name": "Charles River Museum of Industry & Innovation",
+      "address": "154 Moody Street, Waltham, MA 02453",
+      "website": "https://www.charlesrivermuseum.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Technology"
+      ],
+      "sources": [
+        "lincoln",
+        "waltham"
+      ],
+      "original_price": {
+        "adult": 10,
+        "child": 5,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "https://www.charlesrivermuseum.org/"
+      },
+      "hero_image": {
+        "og_image_url": "http://static1.squarespace.com/static/559f7e16e4b009271a8fa1b5/t/61e84257793dec0bef3e12e2/1642611287979/Screen+Shot+2018-10-02+at+11.40.35+AM.png?format=1500w",
+        "local_path": "static/images/charles-river-museum-of-industry-and-innovation.png"
+      },
+      "geo": {
+        "lat": 42.3729771,
+        "lon": -71.2335933
+      }
+    },
+    {
+      "slug": "harvard-museum-of-natural-history",
+      "museum_name": "Harvard Museum of Natural History",
+      "address": "26 Oxford Street, Cambridge, MA 02138",
+      "website": "https://hmnh.harvard.edu/",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Science"
+      ],
+      "sources": [
+        "lynn",
+        "lynnfield",
+        "malden",
+        "reading"
+      ],
+      "original_price": {
+        "adult": 15,
+        "child": null,
+        "senior": 13,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "https://hmnh.harvard.edu/"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3782074,
+        "lon": -71.1154484
+      }
+    },
+    {
+      "slug": "american-repertory-theater",
+      "museum_name": "American Repertory Theater",
+      "address": "64 Brattle Street, Cambridge, MA 02138",
+      "website": "https://americanrepertorytheater.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "Entertainment"
+      ],
+      "sources": [
+        "malden"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://assets.americanrepertorytheater.org/wp-content/uploads/2018/04/130109ARTPippStudMatEVE-104-e1525912630656.jpg?fit=1024%2C1024",
+        "local_path": "static/images/american-repertory-theater.jpg"
+      },
+      "geo": {
+        "lat": 42.3748602,
+        "lon": -71.1229496
+      }
+    },
+    {
+      "slug": "paddle-boston",
+      "museum_name": "Paddle Boston",
+      "address": "160 Riverview Avenue, Waltham, MA 02453",
+      "website": "https://www.paddleboston.com/",
+      "categories": [
+        "Children",
+        "Family",
+        "Recreation"
+      ],
+      "sources": [
+        "malden",
+        "medford",
+        "melrose",
+        "reading",
+        "stoneham",
+        "bpl"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3595414,
+        "lon": -71.2457292
+      }
+    },
+    {
+      "slug": "the-icon-museum-and-study-center",
+      "museum_name": "The Icon Museum & Study Center",
+      "address": "203 Union Street, Clinton, MA 01510",
+      "website": "https://www.iconmuseum.org/",
+      "categories": [
+        "Art",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "maynard",
+        "natick"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": null,
+        "senior": 15,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "https://www.iconmuseum.org/"
+      },
+      "hero_image": {
+        "og_image_url": "https://www.iconmuseum.org/wp-content/uploads/2026/05/Greek-Gallery-Event-edited-scaled.jpg",
+        "local_path": "static/images/the-icon-museum-and-study-center.jpg"
+      },
+      "geo": {
+        "lat": 42.4156265,
+        "lon": -71.6835581
+      }
+    },
+    {
+      "slug": "sandmagination",
+      "museum_name": "Sandmagination",
+      "address": "210 Andover Street, Peabody, MA 01960",
+      "website": "https://sandmagination.com/",
+      "categories": [
+        "Children",
+        "Recreation"
+      ],
+      "sources": [
+        "medford",
+        "middleton",
+        "north-reading",
+        "topsfield",
+        "wilmington"
+      ],
+      "original_price": {
+        "adult": 4,
+        "child": 18,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Children-focused sand play: Sandy Explorer 1-10 yrs $18.00; First adult in party FREE; Additional adults $4.00; Under 1 yr with sibling $0, without $5",
+        "source_url": "https://sandmagination.com/admission"
+      },
+      "hero_image": {
+        "og_image_url": "https://sandmagination.com/wp-content/uploads/2025/01/Kids-Playing-Sandmagination.com_.webp",
+        "local_path": "static/images/sandmagination.webp"
+      },
+      "geo": {
+        "lat": 42.5411458,
+        "lon": -70.9461642
+      }
+    },
+    {
+      "slug": "harvard-art-museums",
+      "museum_name": "Harvard Art Museums",
+      "address": "32 Quincy Street, Cambridge, MA 02138",
+      "website": "http://www.harvardartmuseums.org/",
+      "categories": [
+        "Art",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "melrose"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Free admission",
+        "source_url": "http://www.harvardartmuseums.org/"
+      },
+      "hero_image": {
+        "og_image_url": "http://www.harvardartmuseums.org/assets/icons/fb-og-image-400x400.png",
+        "local_path": "static/images/harvard-art-museums.png"
+      },
+      "geo": {
+        "lat": 42.3742178,
+        "lon": -71.1145269
+      }
+    },
+    {
+      "slug": "paul-revere-house",
+      "museum_name": "Paul Revere House",
+      "address": "19 North Square, Boston, MA 02113",
+      "website": "https://www.paulreverehouse.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Tours"
+      ],
+      "sources": [
+        "melrose"
+      ],
+      "original_price": {
+        "adult": 6,
+        "child": 1,
+        "senior": 5.5,
+        "student": 5.5,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Adults $6.00; Seniors and College Students $5.50; Children ages 5-17 $1.00",
+        "source_url": "https://www.paulreverehouse.org/hours"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3637378,
+        "lon": -71.0536827
+      }
+    },
+    {
+      "slug": "animal-adventures",
+      "museum_name": "Animal Adventures",
+      "address": "336 Sugar Road, Bolton, MA 01740",
+      "website": "http://www.animaladventures.net/",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature"
+      ],
+      "sources": [
+        "middleton"
+      ],
+      "original_price": {
+        "adult": 2,
+        "child": 2,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Suggested donation; prices may vary",
+        "source_url": "http://www.animaladventures.net/"
+      },
+      "hero_image": {
+        "og_image_url": "http://static1.squarespace.com/static/6749ecca8f2ea01242d8a812/t/674a2425dc1b9d0a3f23aa1b/1732912165376/AA_Color+Logo_With+Aligator+-+Copy.png?format=1500w",
+        "local_path": "static/images/animal-adventures.png"
+      },
+      "geo": {
+        "lat": 42.4509712,
+        "lon": -71.5846761
+      }
+    },
+    {
+      "slug": "christian-science-plaza",
+      "museum_name": "Christian Science Plaza",
+      "address": "",
+      "website": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza",
+      "categories": [
+        "Children",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "middleton",
+        "natick",
+        "weston"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Free admission (Mapparium costs $6)",
+        "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza"
+      },
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "real-pirates-salem",
+      "museum_name": "Real Pirates Salem",
+      "address": "285 Derby Street, Salem, MA 01970",
+      "website": "https://www.realpiratessalem.com/",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Science",
+        "Technology",
+        "Ocean"
+      ],
+      "sources": [
+        "middleton"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.5198178,
+        "lon": -70.8912532
+      }
+    },
+    {
+      "slug": "roger-williams-park-zoo",
+      "museum_name": "Roger Williams Park Zoo",
+      "address": "1000 Elmwood Avenue, Providence, RI 02907",
+      "website": "http://www.rwpzoo.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "Zoo"
+      ],
+      "sources": [
+        "middleton"
+      ],
+      "original_price": {
+        "adult": 25,
+        "child": 19,
+        "senior": 21,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "http://www.rwpzoo.org/tickets"
+      },
+      "hero_image": {
+        "og_image_url": "https://www.rwpzoo.org/wp-content/uploads/2022/09/cheetah-pair-2022-1024x575.jpg",
+        "local_path": "static/images/roger-williams-park-zoo.jpg"
+      },
+      "geo": {
+        "lat": 41.7886061,
+        "lon": -71.4165508
+      }
+    },
+    {
+      "slug": "strawbery-banke-museum",
+      "museum_name": "Strawbery Banke Museum",
+      "address": "14 Hancock Street, Portsmouth, NH 03801",
+      "website": "http://www.strawberybanke.org/",
+      "categories": [
+        "Architecture",
+        "Children",
+        "Crafts",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "middleton",
+        "tewksbury"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "http://static1.squarespace.com/static/646b893e7e6f891975ed0113/t/650dce30566b222b690ed9ea/1695403568372/SBM+Logo+White+%281%29.png?format=1500w",
+        "local_path": "static/images/strawbery-banke-museum.png"
+      },
+      "geo": {
+        "lat": 43.0753205,
+        "lon": -70.7521466
+      }
+    },
+    {
+      "slug": "battleship-cove",
+      "museum_name": "Battleship Cove",
+      "address": "5 Water Street, Fall River, MA 02721",
+      "website": "https://www.battleshipcove.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Military",
+        "Technology"
+      ],
+      "sources": [
+        "natick",
+        "winchester"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://static.wixstatic.com/media/43b907_ced4b6a5db5c4d7e854ba744b5a37aa4~mv2.jpg/v1/fill/w_1000,h_773,al_c/43b907_ced4b6a5db5c4d7e854ba744b5a37aa4~mv2.jpg",
+        "local_path": "static/images/battleship-cove.jpg"
+      },
+      "geo": {
+        "lat": 41.7068931,
+        "lon": -71.1629563
+      }
+    },
+    {
+      "slug": "decordova-sculpture-park-and-museum",
+      "museum_name": "deCordova Sculpture Park and Museum",
+      "address": "51 Sandy Pond Road, Lincoln, MA 01773",
+      "website": "http://www.decordova.org/",
+      "categories": [
+        "Art",
+        "Family"
+      ],
+      "sources": [
+        "natick"
+      ],
+      "original_price": {
+        "adult": 12,
+        "child": 12,
+        "senior": 12,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "http://www.decordova.org/admission"
+      },
+      "hero_image": {
+        "og_image_url": "https://thetrustees.org/wp-content/uploads/2020/06/Decordova-4-1-scaled.jpg",
+        "local_path": "static/images/decordova-sculpture-park-and-museum.jpg"
+      },
+      "geo": {
+        "lat": 42.4299852,
+        "lon": -71.3111241
+      }
+    },
+    {
+      "slug": "the-gardens-at-elm-bank",
+      "museum_name": "The Gardens at Elm Bank",
+      "address": "900 Washington Street, Wellesley, MA 02482",
+      "website": "https://www.masshort.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "Nature",
+        "Science",
+        "Recreation"
+      ],
+      "sources": [
+        "natick"
+      ],
+      "original_price": {
+        "adult": 14,
+        "child": 2,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "https://www.masshort.org/visit"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.28045,
+        "lon": -71.30787
+      }
+    },
+    {
+      "slug": "old-sturbridge-village",
+      "museum_name": "Old Sturbridge Village/Coggeshall Farm",
+      "address": "",
+      "website": "https://www.osv.org/",
+      "categories": [
+        "Architecture",
+        "Children",
+        "Family",
+        "History",
+        "Nature"
+      ],
+      "sources": [
+        "natick",
+        "weston"
+      ],
+      "original_price": {
+        "adult": 27,
+        "child": 25,
+        "senior": 25,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "https://www.osv.org/plan-your-visit"
+      },
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "historic-newton",
+      "museum_name": "Historic Newton",
+      "address": "Newton, MA 02458",
+      "website": "https://www.newtonma.gov/government/historic-newton",
+      "categories": [
+        "Architecture",
+        "Family",
+        "History",
+        "Nature"
+      ],
+      "sources": [
+        "newton"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3300435,
+        "lon": -71.194862
+      }
+    },
+    {
+      "slug": "larz-anderson-auto-museum",
+      "museum_name": "Larz Anderson Auto Museum",
+      "address": "15 Newton Street, Brookline, MA 02445",
+      "website": "https://www.larzanderson.org/",
+      "categories": [
+        "Architecture",
+        "Family",
+        "History",
+        "Technology"
+      ],
+      "sources": [
+        "newton"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": 6,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": 2,
+        "notes": "Members free",
+        "source_url": "https://www.larzanderson.org/plan-your-visit"
+      },
+      "hero_image": {
+        "og_image_url": "https://static.wixstatic.com/media/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png/v1/fit/w_2500,h_1330,al_c/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png",
+        "local_path": "static/images/larz-anderson-auto-museum.png"
+      },
+      "geo": {
+        "lat": 42.3104567,
+        "lon": -71.134743
+      }
+    },
+    {
+      "slug": "west-suburban-ymca",
+      "museum_name": "West Suburban YMCA",
+      "address": "Newton, MA",
+      "website": "https://wsymca.org/",
+      "categories": [
+        "Family",
+        "Recreation"
+      ],
+      "sources": [
+        "newton"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3300435,
+        "lon": -71.194862
+      }
+    },
+    {
+      "slug": "heritage-museums-and-gardens",
+      "museum_name": "Heritage Museums & Gardens",
+      "address": "67 Grove Street, Sandwich, MA 02563",
+      "website": "https://heritagemuseumsandgardens.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "History",
+        "Nature"
+      ],
+      "sources": [
+        "quincy"
+      ],
+      "original_price": {
+        "adult": 26,
+        "child": 16,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": 3,
+        "notes": "Adults $26; Youth 3-17 $16; Child 0-2 free; Members free",
+        "source_url": "https://heritagemuseumsandgardens.org/visit"
+      },
+      "hero_image": {
+        "og_image_url": "https://bunny-wp-pullzone-94pwz2rapx.b-cdn.net/wp-content/uploads/2021/04/Logo_HMG-Full-Color-Horizontal.png",
+        "local_path": "static/images/heritage-museums-and-gardens.png"
+      },
+      "geo": {
+        "lat": 41.7486723,
+        "lon": -70.5059897
+      }
+    },
+    {
+      "slug": "new-bedford-whaling-museum",
+      "museum_name": "New Bedford Whaling Museum",
+      "address": "18 Johnny Cake Hill, New Bedford, MA 02740",
+      "website": "https://www.whalingmuseum.org/",
+      "categories": [
+        "Art",
+        "Children",
+        "Family",
+        "History",
+        "Nature",
+        "Ocean"
+      ],
+      "sources": [
+        "quincy"
+      ],
+      "original_price": {
+        "adult": 24,
+        "child": 14,
+        "senior": 22,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "https://www.whalingmuseum.org/tickets"
+      },
+      "hero_image": {
+        "og_image_url": "https://www.whalingmuseum.org/wp-content/uploads/2022/05/Whaling-Museum-exterior-2.png",
+        "local_path": "static/images/new-bedford-whaling-museum.png"
+      },
+      "geo": {
+        "lat": 41.635169,
+        "lon": -70.9231848
+      }
+    },
+    {
+      "slug": "sandwich-glass-museum",
+      "museum_name": "Sandwich Glass Museum",
+      "address": "129 Main Street, Sandwich, MA 02563",
+      "website": "https://sandwichglassmuseum.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "quincy"
+      ],
+      "original_price": {
+        "adult": 15,
+        "child": null,
+        "senior": 65,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": null,
+        "source_url": "https://sandwichglassmuseum.org/"
+      },
+      "hero_image": {
+        "og_image_url": "http://sandwichglassmuseum.org/cdn/shop/files/Website_Home_Image_1200x628_99a4cee4-6479-4c61-bfad-51b9fc604874.png?v=1741960376",
+        "local_path": "static/images/sandwich-glass-museum.png"
+      },
+      "geo": {
+        "lat": 41.7586908,
+        "lon": -70.500422
+      }
+    },
+    {
+      "slug": "greater-boston-stage-company",
+      "museum_name": "Greater Boston Stage Company",
+      "address": "395 Main Street, Stoneham, MA 02180",
+      "website": "https://www.greaterbostonstage.org/",
+      "categories": [
+        "Family",
+        "Music",
+        "Dance",
+        "Theatre"
+      ],
+      "sources": [
+        "stoneham"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.4791611,
+        "lon": -71.1006441
+      }
+    },
+    {
+      "slug": "massachusetts-state-police-museum-and-learning-center",
+      "museum_name": "Massachusetts State Police Museum & Learning Center",
+      "address": "1 Memorial Square, Whitinsville, MA 01588",
+      "website": "https://www.mspmlc.org/ ",
+      "categories": [
+        "Children",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "wayland"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://static.wixstatic.com/media/55c59e_802caba4df9f4a8db7fbed0b8b2ce5cb%7Emv2.png/v1/fit/w_2500,h_1330,al_c/55c59e_802caba4df9f4a8db7fbed0b8b2ce5cb%7Emv2.png",
+        "local_path": "static/images/massachusetts-state-police-museum-and-learning-center.png"
+      },
+      "geo": {
+        "lat": 42.1107574,
+        "lon": -71.6645834
+      }
+    },
+    {
+      "slug": "the-spellman-museum-of-stamps-and-postal-history",
+      "museum_name": "The Spellman Museum of Stamps & Postal History",
+      "address": "241 Wellesley Street, Weston, MA 02493",
+      "website": "https://www.spellmanmuseum.org/",
+      "categories": [
+        "Children",
+        "Family",
+        "History"
+      ],
+      "sources": [
+        "weston"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Free admission; donations welcome",
+        "source_url": "https://www.spellmanmuseum.org/"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3484608,
+        "lon": -71.3071015
+      }
+    },
+    {
+      "slug": "einsteins-workshop",
+      "museum_name": "Einstein's Workshop",
+      "address": "25 Adams Street, Burlington, MA 01803",
+      "website": "http://www.einsteinsworkshop.com/",
+      "categories": [
+        "Children",
+        "Science",
+        "Technology"
+      ],
+      "sources": [
+        "wilmington"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.4699097,
+        "lon": -71.2136793
+      }
+    },
+    {
+      "slug": "patriots-hall-of-fame",
+      "museum_name": "Patriots Hall of Fame",
+      "address": "One Patriot Place, Foxborough, MA 02035",
+      "website": "https://www.patriotshalloffame.com/",
+      "categories": [
+        "Family",
+        "History",
+        "Sports"
+      ],
+      "sources": [
+        "wilmington",
+        "hingham"
+      ],
+      "original_price": {
+        "adult": 10,
+        "child": 5,
+        "senior": 7,
+        "student": 7,
+        "family": null,
+        "free_under_age": 2,
+        "notes": "Members free",
+        "source_url": "https://www.patriotshalloffame.com/admission"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.0894304,
+        "lon": -71.2603702
+      }
+    },
+    {
+      "slug": "american-rep-theater",
+      "museum_name": "American Repertory Theatre",
+      "address": "",
+      "website": "",
+      "categories": [],
+      "sources": [
+        "bpl"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "boch-center",
+      "museum_name": "Boch Center Tours",
+      "address": "",
+      "website": "",
+      "categories": [],
+      "sources": [
+        "bpl"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "boston-harbor-islands",
+      "museum_name": "Boston Harbor Islands",
+      "address": "191W Atlantic Avenue, Boston, Massachusetts, 02110",
+      "website": "https://www.bostonharborislands.org/",
+      "categories": [],
+      "sources": [
+        "bpl",
+        "cohasset",
+        "hingham"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Islands free; ferry ticket required (~$25 adult)",
+        "source_url": "https://www.bostonharborislands.org/"
+      },
+      "hero_image": {
+        "og_image_url": "https://www.bostonharborislands.org/wp-content/uploads/opengraph.jpg",
+        "local_path": "static/images/boston-harbor-islands.jpg"
+      },
+      "geo": {
+        "lat": 42.3601996,
+        "lon": -71.0524197
+      }
+    },
+    {
+      "slug": "ma-state-parks",
+      "museum_name": "DCR ParksPass",
+      "address": "",
+      "website": "https://www.mass.gov/visit-massachusetts-state-parks",
+      "categories": [],
+      "sources": [
+        "bpl",
+        "cohasset",
+        "hingham"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "hale-education",
+      "museum_name": "Hale Education",
+      "address": "",
+      "website": "",
+      "categories": [],
+      "sources": [
+        "bpl"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "harvard-museums",
+      "museum_name": "Harvard Museums of Science and Culture",
+      "address": "",
+      "website": "https://hmsc.harvard.edu/visit/",
+      "categories": [],
+      "sources": [
+        "bpl",
+        "hingham"
+      ],
+      "original_price": {
+        "adult": 15,
+        "child": null,
+        "senior": 13,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "https://hmsc.harvard.edu/visit/visit"
+      },
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "mapparium",
+      "museum_name": "How Do You See the World + Mapparium™ Globe",
+      "address": "210 Massachusetts Avenue, Boston, Massachusetts, 02115",
+      "website": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience",
+      "categories": [],
+      "sources": [
+        "bpl",
+        "cambridge"
+      ],
+      "original_price": {
+        "adult": 6,
+        "child": null,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience/"
+      },
+      "hero_image": {
+        "og_image_url": "https://www.christianscience.com/var/cscom/storage/images/media/images/find-us-images/hdystw-tryptich-3-a/382920-1-eng-US/hdystw-tryptich-3-a.jpg",
+        "local_path": "static/images/mapparium.jpg"
+      },
+      "geo": {
+        "lat": 42.3457649,
+        "lon": -71.0868834
+      }
+    },
+    {
+      "slug": "ica-boston",
+      "museum_name": "Institute of Contemporary Art",
+      "address": "25 Harbor Shore Drive, Boston, MA, 02120",
+      "website": "https://www.icaboston.org/",
+      "categories": [],
+      "sources": [
+        "bpl",
+        "hingham"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3528651,
+        "lon": -71.0429628
+      }
+    },
+    {
+      "slug": "isabella-stewart-gardner",
+      "museum_name": "Isabella Stewart Gardner Museum",
+      "address": "25 Evans Way, Boston, Massachusetts, 02115",
+      "website": "https://www.gardnermuseum.org/",
+      "categories": [],
+      "sources": [
+        "bpl",
+        "cambridge",
+        "cohasset",
+        "hingham"
+      ],
+      "original_price": {
+        "adult": 22,
+        "child": 22,
+        "senior": 20,
+        "student": 15,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Members free",
+        "source_url": "https://www.gardnermuseum.org/visit"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.338245,
+        "lon": -71.0991538
+      }
+    },
+    {
+      "slug": "larz-anderson",
+      "museum_name": "Larz Anderson Museum",
+      "address": "",
+      "website": "https://www.larzanderson.org",
+      "categories": [],
+      "sources": [
+        "bpl"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": 6,
+        "senior": null,
+        "student": null,
+        "family": null,
+        "free_under_age": 2,
+        "notes": "Members free",
+        "source_url": "https://www.larzanderson.org/plan-your-visit"
+      },
+      "hero_image": {
+        "og_image_url": "https://static.wixstatic.com/media/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png/v1/fit/w_2500,h_1330,al_c/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png",
+        "local_path": "static/images/larz-anderson.png"
+      },
+      "geo": null
+    },
+    {
+      "slug": "mfa",
+      "museum_name": "Museum of Fine Arts",
+      "address": "465 Huntington Avenue, Boston, MA, 02115",
+      "website": "https://www.mfa.org/",
+      "categories": [],
+      "sources": [
+        "bpl",
+        "brookline",
+        "cohasset",
+        "hingham"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3394573,
+        "lon": -71.093897
+      }
+    },
+    {
+      "slug": "revolutionary-spaces",
+      "museum_name": "Revolutionary Spaces",
+      "address": "",
+      "website": "https://revolutionaryspaces.org/",
+      "categories": [],
+      "sources": [
+        "bpl"
+      ],
+      "original_price": {
+        "adult": 15,
+        "child": 8,
+        "senior": 13,
+        "student": 13,
+        "family": null,
+        "free_under_age": 5,
+        "notes": "Old State House: Adults $15, Seniors 65+ $13, Students $13, Children 6-12 $8, under 5 free; Old South: Adult 18-64 $18, Senior $16, Youth 6-17 $10",
+        "source_url": "https://revolutionaryspaces.org/hours-admission"
+      },
+      "hero_image": {
+        "og_image_url": "https://revolutionaryspaces.org/wp-content/uploads/icn-revolutionary-spaces.png",
+        "local_path": "static/images/revolutionary-spaces.png"
+      },
+      "geo": null
+    },
+    {
+      "slug": "sandwich-glass",
+      "museum_name": "Sandwich Glass Museum",
+      "address": "",
+      "website": "",
+      "categories": [],
+      "sources": [
+        "bpl"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "greenway-carousel",
+      "museum_name": "The Greenway Carousel",
+      "address": "",
+      "website": "",
+      "categories": [],
+      "sources": [
+        "bpl"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "trustees-of-reservations",
+      "museum_name": "Trustees GO Pass",
+      "address": "",
+      "website": "",
+      "categories": [],
+      "sources": [
+        "bpl",
+        "cohasset",
+        "hingham"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "uss-constitution-museum",
+      "museum_name": "USS Constitution Museum",
+      "address": "USS Constitution Museum Building 22, Charlestown, MA, 02129",
+      "website": "https://ussconstitutionmuseum.org/",
+      "categories": [],
+      "sources": [
+        "bpl",
+        "cambridge",
+        "cohasset",
+        "hingham"
+      ],
+      "original_price": {
+        "adult": 0,
+        "child": 0,
+        "senior": 0,
+        "student": null,
+        "family": null,
+        "free_under_age": null,
+        "notes": "Pay what you wish; suggested donations apply",
+        "source_url": "https://ussconstitutionmuseum.org/admission"
+      },
+      "hero_image": null,
+      "geo": {
+        "lat": 42.3738878,
+        "lon": -71.0555158
+      }
+    },
+    {
+      "slug": "maah",
+      "museum_name": "Museum of African American History",
+      "address": "46 Joy St., Boston, MA, 02114",
+      "website": "https://www.maah.org/",
+      "categories": [],
+      "sources": [
+        "brookline"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": {
+        "lat": 42.359995,
+        "lon": -71.0652097
+      }
+    },
+    {
+      "slug": "charles-riverboat-tour",
+      "museum_name": "Charles River Boat Tour",
+      "address": "100 Cambridgeside Pl, Cambridge, MA, 02141",
+      "website": "https://charlesriverboat.com/",
+      "categories": [],
+      "sources": [
+        "cambridge"
+      ],
+      "original_price": null,
+      "hero_image": {
+        "og_image_url": "https://charlesriverboat.com/wp-content/uploads/2024/04/high-res-logos.png",
+        "local_path": "static/images/charles-riverboat-tour.png"
+      },
+      "geo": {
+        "lat": 42.3677346,
+        "lon": -71.0761804
+      }
+    },
+    {
+      "slug": "butterfly-place",
+      "museum_name": "The Butterfly Place",
+      "address": "",
+      "website": "",
+      "categories": [],
+      "sources": [
+        "cohasset"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "cohasset-historical-society",
+      "museum_name": "Cohasset Historical Society",
+      "address": "",
+      "website": "",
+      "categories": [],
+      "sources": [
+        "cohasset"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "jfk-library",
+      "museum_name": "John F. Kennedy Presidential Library and Museum",
+      "address": "",
+      "website": "",
+      "categories": [],
+      "sources": [
+        "cohasset"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "plimoth-patuxet",
+      "museum_name": "Plimoth Patuxet",
+      "address": "",
+      "website": "",
+      "categories": [],
+      "sources": [
+        "cohasset",
+        "hingham"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    },
+    {
+      "slug": "heritage-museums-gardens",
+      "museum_name": "Heritage Museums & Gardens",
+      "address": "",
+      "website": "",
+      "categories": [],
+      "sources": [
+        "hingham"
+      ],
+      "original_price": null,
+      "hero_image": null,
+      "geo": null
+    }
+  ]
+}
