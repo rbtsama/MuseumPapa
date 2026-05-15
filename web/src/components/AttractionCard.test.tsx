@@ -1,0 +1,197 @@
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { screen, fireEvent } from '@testing-library/react';
+import { renderApp } from '../test-utils';
+import { AttractionCard } from './AttractionCard';
+import { useFavorites } from '../stores/favorites';
+import type { Attraction, Pass, Library } from '../data/types';
+import type { PickedTag } from '../lib/tag-algorithm';
+
+beforeEach(() => {
+  useFavorites.setState({ slugs: new Set() });
+});
+
+function makeAttraction(overrides: Partial<Attraction> = {}): Attraction {
+  return {
+    slug: 'test-zoo',
+    museum_name: 'Test Zoo',
+    address: '100 Zoo Rd, Boston, MA 02101',
+    website: 'https://example.com',
+    phone: null,
+    description: null,
+    categories: ['Animals', 'Family'],
+    sources: [],
+    original_price: {
+      adult: 30,
+      child: 20,
+      youth: null,
+      senior: null,
+      student: null,
+      military: null,
+      educator: null,
+      family: null,
+      free_under_age: null,
+      notes: null,
+      source_url: null,
+    },
+    hero_image: null,
+    geo: null,
+    hours: null,
+    ...overrides,
+  };
+}
+
+function makePass(overrides: Partial<Pass> = {}): Pass {
+  return {
+    library_id: 'wakefield',
+    attraction_slug: 'test-zoo',
+    pass_type: 'digital',
+    pass_type_raw: 'digital',
+    discount: { class: 'free', label: 'Free', raw: 'Free' },
+    policy: null,
+    source_url: 'https://example.com/book',
+    availability: null,
+    ...overrides,
+  };
+}
+
+function makeLibrary(overrides: Partial<Library> = {}): Library {
+  return {
+    id: 'wakefield',
+    name: 'Wakefield Public Library',
+    town: 'Wakefield',
+    network: 'assabet',
+    platform: 'assabet',
+    card_page: 'https://wakefield.com/cards',
+    eligibility: 'Wakefield residents',
+    supports_availability: true,
+    address: null,
+    geo: null,
+    ...overrides,
+  };
+}
+
+function makePickedTag(passOverrides: Partial<Pass> = {}, libOverrides: Partial<Library> = {}): PickedTag {
+  return {
+    pass: makePass(passOverrides),
+    library: makeLibrary(libOverrides),
+    distanceMi: null,
+  };
+}
+
+describe('AttractionCard', () => {
+  it('renders attraction name', () => {
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        pickedTags={[]}
+        isGuestOrEmpty={false}
+      />
+    );
+    expect(screen.getByText('Test Zoo')).toBeInTheDocument();
+  });
+
+  it('renders guest state with sign-in message', () => {
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        pickedTags={[]}
+        isGuestOrEmpty
+        sourceCountForGuest={3}
+      />
+    );
+    expect(screen.getByText(/Sign in to view/)).toBeInTheDocument();
+    expect(screen.getByText('3')).toBeInTheDocument();
+  });
+
+  it('renders pass options for logged-in user', () => {
+    const tags = [makePickedTag()];
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        pickedTags={tags}
+        isGuestOrEmpty={false}
+      />
+    );
+    expect(screen.getByText('E-pass')).toBeInTheDocument();
+    expect(screen.getByText('Book')).toBeInTheDocument();
+  });
+
+  it('clicking Book button fires onBookPass with the pass', () => {
+    const onBookPass = vi.fn();
+    const pass = makePass();
+    const tags = [makePickedTag()];
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        pickedTags={tags}
+        isGuestOrEmpty={false}
+        onBookPass={onBookPass}
+      />
+    );
+    const bookBtn = screen.getByText('Book');
+    fireEvent.click(bookBtn);
+    expect(onBookPass).toHaveBeenCalledWith(pass);
+  });
+
+  it('renders "No coupons available today" when no tags and not guest', () => {
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        pickedTags={[]}
+        isGuestOrEmpty={false}
+      />
+    );
+    expect(screen.getByText('No coupons available today')).toBeInTheDocument();
+  });
+
+  it('renders closed state when closedToday=true', () => {
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        pickedTags={[makePickedTag()]}
+        isGuestOrEmpty={false}
+        closedToday
+      />
+    );
+    expect(screen.getByText('Closed today')).toBeInTheDocument();
+    // Book buttons should not appear when closed
+    expect(screen.queryByText('Book')).not.toBeInTheDocument();
+  });
+
+  it('renders location from address', () => {
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        pickedTags={[]}
+        isGuestOrEmpty={false}
+      />
+    );
+    expect(screen.getByText(/Boston, MA/)).toBeInTheDocument();
+  });
+
+  it('renders adult price from original_price', () => {
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        pickedTags={[]}
+        isGuestOrEmpty={false}
+      />
+    );
+    // $30 adult price shown in admission section
+    expect(screen.getByText('$30')).toBeInTheDocument();
+  });
+
+  it('shows "+ N more" when more than 4 tags', () => {
+    const tags = Array.from({ length: 6 }, (_, i) =>
+      makePickedTag({ library_id: `lib-${i}`, pass_type: 'physical-coupon' }, { id: `lib-${i}`, town: `Town${i}` })
+    );
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        pickedTags={tags}
+        isGuestOrEmpty={false}
+      />
+    );
+    expect(screen.getByText(/\+ 2 more options/)).toBeInTheDocument();
+  });
+});
