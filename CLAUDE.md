@@ -44,13 +44,17 @@ Massachusetts eastern MA 区域的图书馆 museum-pass 福利数据建设项目
 │       ├── assabet/           # 52 馆,catalog + availability
 │       ├── libcal/            # 5 馆(BPL+Cambridge+Brookline+Braintree+Milton),catalog + availability
 │       ├── museumkey/         # 2 馆(Cohasset+Hingham),仅 catalog(availability 需登录)
-│       ├── attractions/       # 景点官网爬虫 + 反向清单
+│       ├── attractions/       # 景点官网爬虫(prices / images 等)
+│       ├── libraries/         # 图书馆主站爬虫(addresses)
 │       ├── holidays/          # 美国节假日生成
 │       └── policies.py        # 各馆办卡资格抓取
-├── scripts/                   # CLI 入口(scrape_static / scrape_dynamic / snapshot_diff / diff_catalog)
+├── scripts/                   # CLI 入口(scrape_static / scrape_dynamic / snapshot_diff / diff_catalog / geocode_all / fetch_*_pages)
 ├── data/raw/<platform>/       # scraper 直接产出
-├── data/structured/           # Claude 整理后的最终数据(含 library_catalog.json 中间快照)
+├── data/structured/           # Claude 整理后的最终数据(含 library_catalog.json 中间快照、geo.json)
 ├── data/dynamic/              # availability(可频繁覆盖)
+├── data/static/
+│   ├── images/<slug>.<ext>          # hero 图本地缓存(gitignored)
+│   └── placeholders/<category>.svg  # category fallback SVG(入 git)
 ├── data/snapshots/<日期>/     # 历史快照,供 diff
 └── config/                    # 配置种子
     ├── library_seeds.json     # 59 馆元数据
@@ -103,6 +107,9 @@ playwright install chromium
 - **快照 + diff**:每次主索引页 scraper 跑完先把上一份 raw 移到 `data/snapshots/<日期>/`
 - **平台抽象**:每个 `sources/<platform>/` 模块对外暴露 `index_page.main()`(catalog,必有)和 `availability.main()`(动态,museumkey 不实现)。平台 pass_id 命名空间不通用,各自有手工映射表(`config/platform_pass_ids/*.json`),Assabet 例外(slug 直接是 benefit_id)
 - **Catalog vs availability 分层**:`raw/<platform>/<dataset>/<lib_id>.json` → 合并 + `normalize_benefit` → `structured/library_catalog.json`(规范快照 + diff 锚点)→ 拆分成 BRD §6.1 三大产物 `libraries.json`/`attractions.json`/`passes.json`。`manual_overrides.json` 在最后拆分阶段 merge
+- **Geocoding**:OSM Nominatim(免费、1 req/sec)via `malibbene.common.geocode.geocode(query)`,结果缓存到 `data/.cache/geocode.json`。直线距离用 `haversine_miles`。失败区分:`no_results`(语义命中,缓存)vs 网络异常(瞬时,不缓存,下次重试)
+- **LLM 提取**(铁律:不调 Anthropic API):需要 LLM 时,Python fetcher 只把 HTML 落盘到 `_pages/`,extraction 通过 subagent dispatch 完成(controller 派 Sonnet),subagent 用 Read/Grep 读 HTML、Write 落 JSON
+- **Hero images**:从景点官网 `<meta property="og:image">` 抓,缓存到 `data/static/images/<slug>.<ext>`(gitignored,体积大);抓不到时前端 fallback `data/static/placeholders/<category>.svg`
 
 ## Reusable code from `backup/`
 
