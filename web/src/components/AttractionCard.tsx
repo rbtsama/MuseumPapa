@@ -127,14 +127,20 @@ export function AttractionCard({
           )}
 
           {adult != null && (
-            <p className="mt-2" style={{ fontSize: 13, color: 'var(--ink-2)' }}>
-              <span style={{ color: 'var(--ink-3)', fontSize: 11 }}>From </span>
-              <span style={{ fontWeight: 600 }}>{fmtMoney(adult)}</span>
-              <span style={{ color: 'var(--ink-3)', fontSize: 11 }}> / adult</span>
-              {child != null && child !== adult && (
-                <span style={{ color: 'var(--ink-3)', fontSize: 11 }}>
-                  {' · '}{fmtMoney(child)} / child
-                </span>
+            <p className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-0.5" style={{ fontSize: 12 }}>
+              <span style={{ color: 'var(--ink-3)' }}>Adult</span>
+              <span style={{ fontWeight: 700, fontSize: 14,
+                color: adult === 0 ? 'var(--g)' : 'var(--ink-2)' }}>
+                {fmtMoney(adult)}
+              </span>
+              {child != null && (
+                <>
+                  <span className="ml-1" style={{ color: 'var(--ink-3)' }}>Child</span>
+                  <span style={{ fontWeight: 700, fontSize: 14,
+                    color: child === 0 ? 'var(--g)' : 'var(--ink-2)' }}>
+                    {fmtMoney(child)}
+                  </span>
+                </>
               )}
             </p>
           )}
