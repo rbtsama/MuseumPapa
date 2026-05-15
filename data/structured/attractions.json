@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "built_at": "2026-05-15T11:56:13Z",
+    "built_at": "2026-05-15T16:35:05Z",
     "n_attractions": 104,
     "n_with_price": 54,
-    "n_with_image": 47,
+    "n_with_image": 104,
     "n_with_geo": 75
   },
   "attractions": [
@@ -251,7 +251,10 @@
         "wellesley"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/28_01112017_CityScience-by-Charlene_Leith-Bushey.jpg/960px-28_01112017_CityScience-by-Charlene_Leith-Bushey.jpg",
+        "local_path": "static/images/ecotarium.jpg"
+      },
       "geo": {
         "lat": 42.2644394,
         "lon": -71.7667726
@@ -283,7 +286,10 @@
         "winchester"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Garden_in_the_Woods_-_IMG_2462.JPG/960px-Garden_in_the_Woods_-_IMG_2462.JPG",
+        "local_path": "static/images/garden-in-the-woods-native-plant-trust.jpg"
+      },
       "geo": {
         "lat": 42.3413805,
         "lon": -71.4272867
@@ -344,7 +350,10 @@
         "notes": "Members free",
         "source_url": "https://hmsc.harvard.edu/"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Harvard_Museum_of_Natural_History_%2854940853196%29.jpg/960px-Harvard_Museum_of_Natural_History_%2854940853196%29.jpg",
+        "local_path": "static/images/harvard-museums-of-science-and-culture.jpg"
+      },
       "geo": {
         "lat": 42.3782138,
         "lon": -71.1149279
@@ -392,7 +401,10 @@
         "winchester"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Institute_of_Contemporary_Art%2C_Boston.jpg/960px-Institute_of_Contemporary_Art%2C_Boston.jpg",
+        "local_path": "static/images/institute-of-contemporary-art-boston.jpg"
+      },
       "geo": {
         "lat": 42.3528651,
         "lon": -71.0429628
@@ -457,7 +469,10 @@
         "woburn"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/IsabellaStewartGardenerMuseumMainLobby.jpg/960px-IsabellaStewartGardenerMuseumMainLobby.jpg",
+        "local_path": "static/images/isabella-stewart-gardner-museum.jpg"
+      },
       "geo": {
         "lat": 42.338245,
         "lon": -71.0991538
@@ -499,7 +514,10 @@
         "weston"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/JFK_library_Stitch_Crop.jpg",
+        "local_path": "static/images/john-f-kennedy-library-and-museum.jpg"
+      },
       "geo": {
         "lat": 42.3320968,
         "lon": -71.0284871
@@ -533,7 +551,10 @@
         "woburn"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Red_Barn_for_cattle_at_Drumlin_Farm_Wildlife_Sanctuary_of_Audubon_Society_in_Lincoln_Massachusetts.jpg/960px-Red_Barn_for_cattle_at_Drumlin_Farm_Wildlife_Sanctuary_of_Audubon_Society_in_Lincoln_Massachusetts.jpg",
+        "local_path": "static/images/mass-audubon-drumlin-farm.jpg"
+      },
       "geo": {
         "lat": 42.4047062,
         "lon": -71.3208652
@@ -599,7 +620,10 @@
         "woburn"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Halibut_point_state_park_rockport.JPG",
+        "local_path": "static/images/massachusetts-state-parks-department-of-conservation-and-recreation.jpg"
+      },
       "geo": null
     },
     {
@@ -667,7 +691,10 @@
         "woburn"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Museum_of_Fine_Arts%2C_Boston_%2854954248311%29.jpg/960px-Museum_of_Fine_Arts%2C_Boston_%2854954248311%29.jpg",
+        "local_path": "static/images/museum-of-fine-arts.jpg"
+      },
       "geo": {
         "lat": 42.3394573,
         "lon": -71.093897
@@ -834,7 +861,10 @@
         "notes": null,
         "source_url": "http://www.neaq.org/"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/New_England_Aquarium_%2854960820818%29.jpg/960px-New_England_Aquarium_%2854960820818%29.jpg",
+        "local_path": "static/images/new-england-aquarium.jpg"
+      },
       "geo": null
     },
     {
@@ -1239,7 +1269,10 @@
         "waltham"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Lyman_Estate%2C_Waltham%2C_Massachusetts_-_front_facade.JPG",
+        "local_path": "static/images/historic-new-england.jpg"
+      },
       "geo": null
     },
     {
@@ -1398,7 +1431,10 @@
         "notes": "Adults & Children (age 12 months+) $12.00; EBT/WIC $3.00; Library Passes $6.00; Under 12 months FREE",
         "source_url": "https://www.nschildrensmuseum.org/buy-tickets"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://www.nschildrensmuseum.org/wp-content/uploads/2026/05/Birthday-Parties-May-2026.jpg",
+        "local_path": "static/images/north-shore-childrens-museum.jpg"
+      },
       "geo": {
         "lat": 42.5256092,
         "lon": -70.9269447
@@ -1467,7 +1503,10 @@
         "woburn"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Salem_Witch_Museum%2C_January_2021.jpg/960px-Salem_Witch_Museum%2C_January_2021.jpg",
+        "local_path": "static/images/salem-witch-museum.jpg"
+      },
       "geo": {
         "lat": 42.5237449,
         "lon": -70.8911625
@@ -1535,7 +1574,10 @@
         "notes": "Members free",
         "source_url": "http://www.wenhammuseum.org/"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Wenham_Museum_and_Claflin-Gerrish-Richards_House.jpg/960px-Wenham_Museum_and_Claflin-Gerrish-Richards_House.jpg",
+        "local_path": "static/images/wenham-museum.jpg"
+      },
       "geo": {
         "lat": 42.6038387,
         "lon": -70.887136
@@ -1569,7 +1611,10 @@
         "bpl"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Gordon_Hall%2C_Massachusetts_Audubon_Society%2C_Lincoln_MA.jpg/960px-Gordon_Hall%2C_Massachusetts_Audubon_Society%2C_Lincoln_MA.jpg",
+        "local_path": "static/images/mass-audubon.jpg"
+      },
       "geo": {
         "lat": 31.1728205,
         "lon": -7.3362482
@@ -1705,7 +1750,10 @@
         "notes": "Members free",
         "source_url": "http://www.louisamayalcott.org/"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Orchard_House_from_Little_Women.jpeg",
+        "local_path": "static/images/orchard-house.jpg"
+      },
       "geo": {
         "lat": 42.4590881,
         "lon": -71.3350541
@@ -1767,7 +1815,10 @@
         "notes": "Pay what you wish; suggested donations apply",
         "source_url": "https://ussconstitutionmuseum.org/"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/USS_Constitution_Museum.jpg",
+        "local_path": "static/images/the-uss-constitution-museum.jpg"
+      },
       "geo": null
     },
     {
@@ -1790,7 +1841,10 @@
         "sudbury"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Jagdpanzer_38_-_Battle_for_the_Airfield%2C_2017_-_Collings_Foundation_-_Massachusetts_-_DSC07006.jpg/960px-Jagdpanzer_38_-_Battle_for_the_Airfield%2C_2017_-_Collings_Foundation_-_Massachusetts_-_DSC07006.jpg",
+        "local_path": "static/images/american-heritage-museum.jpg"
+      },
       "geo": {
         "lat": 42.3938502,
         "lon": -71.5383048
@@ -1818,7 +1872,10 @@
         "woburn"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://butterflyplace-ma.com/images/Atrium-Telegraph.jpg",
+        "local_path": "static/images/the-butterfly-place.jpg"
+      },
       "geo": {
         "lat": 42.6419513,
         "lon": -71.43968
@@ -1891,7 +1948,10 @@
         "notes": "Visitors 14+ $11; ages 13 and under (with adult) $5; Students/Educators/Military $8; full-access one-day membership $40",
         "source_url": "https://www.bostonathenaeum.org/visit"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Boston_Athenaeum.jpg/960px-Boston_Athenaeum.jpg",
+        "local_path": "static/images/boston-athenaeum.jpg"
+      },
       "geo": {
         "lat": 42.3579152,
         "lon": -71.0620806
@@ -1945,7 +2005,10 @@
         "winchester"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://narmassociation.org/wp-content/uploads/2024/09/GMP_JudkinsPondView_web.jpg",
+        "local_path": "static/images/griffin-museum-of-photography.jpg"
+      },
       "geo": {
         "lat": 42.4545473,
         "lon": -71.1358974
@@ -1975,7 +2038,10 @@
         "notes": "Lower tier: Adults $27, Youth 5-12 $16, Seniors 65+ $20; premium tier: Adults $34, Youth $20, Seniors $25",
         "source_url": "https://www.hoophall.com/visit"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Naismith_Memorial_Basketball_Hall_of_Fame_%28Springfield%2C_MA%29.jpg",
+        "local_path": "static/images/naismith-memorial-basketball-hall-of-fame.jpg"
+      },
       "geo": {
         "lat": 42.0937115,
         "lon": -72.58506
@@ -2007,7 +2073,10 @@
         "notes": null,
         "source_url": "https://danforth.framingham.edu/"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Jonathan_Maynard_Building_-_Framingham%2C_Massachusetts_-_DSC00478.JPG/960px-Jonathan_Maynard_Building_-_Framingham%2C_Massachusetts_-_DSC00478.JPG",
+        "local_path": "static/images/the-danforth.jpg"
+      },
       "geo": {
         "lat": 42.3024928,
         "lon": -71.4358628
@@ -2042,7 +2111,10 @@
         "notes": "Members free",
         "source_url": "http://www.worcesterart.org/"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Worcester_Art_Museum_%28Massachusetts%29.jpg/960px-Worcester_Art_Museum_%28Massachusetts%29.jpg",
+        "local_path": "static/images/worcester-art-museum.jpg"
+      },
       "geo": {
         "lat": 42.2730336,
         "lon": -71.801977
@@ -2140,7 +2212,10 @@
         "notes": "Members free",
         "source_url": "https://www.museumofprinting.org/"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Print_forme.jpg/960px-Print_forme.jpg",
+        "local_path": "static/images/museum-of-printing.jpg"
+      },
       "geo": {
         "lat": 42.7728423,
         "lon": -71.1208851
@@ -2219,7 +2294,10 @@
         "notes": "Adult age 17+ $22; Child age 6-10 $6; Youth age 11-16 $11; Family=2 adults+2 children $50; Military/Student $18; under 5 free",
         "source_url": "https://www.blithewold.org/general-admission"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Blithewold_Mansion.jpg/960px-Blithewold_Mansion.jpg",
+        "local_path": "static/images/blithewold.jpg"
+      },
       "geo": null
     },
     {
@@ -2283,7 +2361,10 @@
         "notes": "Members free",
         "source_url": "https://hmnh.harvard.edu/"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Harvard_Museum_of_Natural_History_%2854940853196%29.jpg/960px-Harvard_Museum_of_Natural_History_%2854940853196%29.jpg",
+        "local_path": "static/images/harvard-museum-of-natural-history.jpg"
+      },
       "geo": {
         "lat": 42.3782074,
         "lon": -71.1154484
@@ -2331,7 +2412,10 @@
         "bpl"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/WATER_DIVERSIONS_OF_ALL_KINDS_ARE_ENJOYED_IN_THE_FRESH%2C_CLEAN_WATERS_OF_THE_SQUANNACOOK_RIVER._IT_IS_A_MAIN_TRIBUTARY..._-_NARA_-_553334.jpg/960px-WATER_DIVERSIONS_OF_ALL_KINDS_ARE_ENJOYED_IN_THE_FRESH%2C_CLEAN_WATERS_OF_THE_SQUANNACOOK_RIVER._IT_IS_A_MAIN_TRIBUTARY..._-_NARA_-_553334.jpg",
+        "local_path": "static/images/paddle-boston.jpg"
+      },
       "geo": {
         "lat": 42.3595414,
         "lon": -71.2457292
@@ -2461,7 +2545,10 @@
         "notes": "Adults $6.00; Seniors and College Students $5.50; Children ages 5-17 $1.00",
         "source_url": "https://www.paulreverehouse.org/hours"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/2017_Paul_Revere_House_from_east.jpg",
+        "local_path": "static/images/paul-revere-house.jpg"
+      },
       "geo": {
         "lat": 42.3637378,
         "lon": -71.0536827
@@ -2524,7 +2611,10 @@
         "notes": "Free admission (Mapparium costs $6)",
         "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/USA_09562_Boston_Luca_Galuzzi_2007.jpg/960px-USA_09562_Boston_Luca_Galuzzi_2007.jpg",
+        "local_path": "static/images/christian-science-plaza.jpg"
+      },
       "geo": null
     },
     {
@@ -2544,7 +2634,10 @@
         "middleton"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://realpiratessalem.com/wp-content/uploads/2023/07/RPS2022_PB-401-700x400.jpg",
+        "local_path": "static/images/real-pirates-salem.jpg"
+      },
       "geo": {
         "lat": 42.5198178,
         "lon": -70.8912532
@@ -2690,7 +2783,10 @@
         "notes": "Members free",
         "source_url": "https://www.masshort.org/visit"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Elm_Bank%2C_Wellesley%2C_MA_-_Goddesses_and_Mansion.JPG/960px-Elm_Bank%2C_Wellesley%2C_MA_-_Goddesses_and_Mansion.JPG",
+        "local_path": "static/images/the-gardens-at-elm-bank.jpg"
+      },
       "geo": {
         "lat": 42.28045,
         "lon": -71.30787
@@ -2722,7 +2818,10 @@
         "notes": "Members free",
         "source_url": "https://www.osv.org/plan-your-visit"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Center_Meetinghouse%2C_Old_Sturbridge_Village%2C_Massachusetts_%2854221596305%29.jpg",
+        "local_path": "static/images/old-sturbridge-village.jpg"
+      },
       "geo": null
     },
     {
@@ -2740,7 +2839,10 @@
         "newton"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Jackson_Homestead_%28Front%29.jpg/960px-Jackson_Homestead_%28Front%29.jpg",
+        "local_path": "static/images/historic-newton.jpg"
+      },
       "geo": {
         "lat": 42.3300435,
         "lon": -71.194862
@@ -2792,7 +2894,10 @@
         "newton"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://jwt-sites-files.storage.googleapis.com/wsymca-org/s3fs-public/styles/hero_banner_desktop/public/2025-09/a738b6fe7373feb5c4803d5b29859123-%281%29.gif.webp?itok=wk3Kk5gF",
+        "local_path": "static/images/west-suburban-ymca.webp"
+      },
       "geo": {
         "lat": 42.3300435,
         "lon": -71.194862
@@ -2913,7 +3018,10 @@
         "stoneham"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://www.broadwayandmain.com/media/com_jbusinessdirectory/pictures/companies/398/GBS_thumbnail.png",
+        "local_path": "static/images/greater-boston-stage-company.png"
+      },
       "geo": {
         "lat": 42.4791611,
         "lon": -71.1006441
@@ -2965,7 +3073,10 @@
         "notes": "Free admission; donations welcome",
         "source_url": "https://www.spellmanmuseum.org/"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Spellman_Museum_of_Stamps_and_Postal_History%2C_Weston_MA.jpg/960px-Spellman_Museum_of_Stamps_and_Postal_History%2C_Weston_MA.jpg",
+        "local_path": "static/images/the-spellman-museum-of-stamps-and-postal-history.jpg"
+      },
       "geo": {
         "lat": 42.3484608,
         "lon": -71.3071015
@@ -2985,7 +3096,10 @@
         "wilmington"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://cdn-new.gis.beakid.com/photos/18352/a-group-of-people-in-a-classroom--thumbnail-small.webp",
+        "local_path": "static/images/einsteins-workshop.webp"
+      },
       "geo": {
         "lat": 42.4699097,
         "lon": -71.2136793
@@ -3015,7 +3129,10 @@
         "notes": "Members free",
         "source_url": "https://www.patriotshalloffame.com/admission"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Patriot_Place_in_Foxborough%2C_Massachusetts.jpg/960px-Patriot_Place_in_Foxborough%2C_Massachusetts.jpg",
+        "local_path": "static/images/patriots-hall-of-fame.jpg"
+      },
       "geo": {
         "lat": 42.0894304,
         "lon": -71.2603702
@@ -3031,7 +3148,10 @@
         "bpl"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/American_Repertory_Theater_-_Loeb_Drama_Center_%2854939977987%29.jpg/960px-American_Repertory_Theater_-_Loeb_Drama_Center_%2854939977987%29.jpg",
+        "local_path": "static/images/american-rep-theater.jpg"
+      },
       "geo": null
     },
     {
@@ -3044,7 +3164,10 @@
         "bpl"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Wang_Theatre_-_Boch_Center_%2854954249101%29.jpg/960px-Wang_Theatre_-_Boch_Center_%2854954249101%29.jpg",
+        "local_path": "static/images/boch-center.jpg"
+      },
       "geo": null
     },
     {
@@ -3089,7 +3212,10 @@
         "hingham"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Halibut_point_state_park_rockport.JPG",
+        "local_path": "static/images/ma-state-parks.jpg"
+      },
       "geo": null
     },
     {
@@ -3102,7 +3228,10 @@
         "bpl"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hale_Beach_P1080423.jpg/960px-Hale_Beach_P1080423.jpg",
+        "local_path": "static/images/hale-education.jpg"
+      },
       "geo": null
     },
     {
@@ -3125,7 +3254,10 @@
         "notes": "Members free",
         "source_url": "https://hmsc.harvard.edu/visit/visit"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Harvard_Museum_of_Natural_History_%2854940853196%29.jpg/960px-Harvard_Museum_of_Natural_History_%2854940853196%29.jpg",
+        "local_path": "static/images/harvard-museums.jpg"
+      },
       "geo": null
     },
     {
@@ -3168,7 +3300,10 @@
         "hingham"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Institute_of_Contemporary_Art%2C_Boston.jpg/960px-Institute_of_Contemporary_Art%2C_Boston.jpg",
+        "local_path": "static/images/ica-boston.jpg"
+      },
       "geo": {
         "lat": 42.3528651,
         "lon": -71.0429628
@@ -3196,7 +3331,10 @@
         "notes": "Members free",
         "source_url": "https://www.gardnermuseum.org/visit"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/IsabellaStewartGardenerMuseumMainLobby.jpg/960px-IsabellaStewartGardenerMuseumMainLobby.jpg",
+        "local_path": "static/images/isabella-stewart-gardner.jpg"
+      },
       "geo": {
         "lat": 42.338245,
         "lon": -71.0991538
@@ -3240,7 +3378,10 @@
         "hingham"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Museum_of_Fine_Arts%2C_Boston_%2854954248311%29.jpg/960px-Museum_of_Fine_Arts%2C_Boston_%2854954248311%29.jpg",
+        "local_path": "static/images/mfa.jpg"
+      },
       "geo": {
         "lat": 42.3394573,
         "lon": -71.093897
@@ -3281,7 +3422,10 @@
         "bpl"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Glass_Museum_in_Sandwich%2C_Massachusetts.jpg/960px-Glass_Museum_in_Sandwich%2C_Massachusetts.jpg",
+        "local_path": "static/images/sandwich-glass.jpg"
+      },
       "geo": null
     },
     {
@@ -3294,7 +3438,10 @@
         "bpl"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Greenway_Carousel_-_Rose_Kennedy_Greenway_-_Boston%2C_MA_-_DSC05445.JPG/960px-Greenway_Carousel_-_Rose_Kennedy_Greenway_-_Boston%2C_MA_-_DSC05445.JPG",
+        "local_path": "static/images/greenway-carousel.jpg"
+      },
       "geo": null
     },
     {
@@ -3309,7 +3456,10 @@
         "hingham"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Great_House_-_Castle_Hill_on_the_Crane_Estate_-_Ipswich%2C_Massachusetts_-_DSC06125.jpg/960px-Great_House_-_Castle_Hill_on_the_Crane_Estate_-_Ipswich%2C_Massachusetts_-_DSC06125.jpg",
+        "local_path": "static/images/trustees-of-reservations.jpg"
+      },
       "geo": null
     },
     {
@@ -3334,7 +3484,10 @@
         "notes": "Pay what you wish; suggested donations apply",
         "source_url": "https://ussconstitutionmuseum.org/admission"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/USS_Constitution_Museum.jpg",
+        "local_path": "static/images/uss-constitution-museum.jpg"
+      },
       "geo": {
         "lat": 42.3738878,
         "lon": -71.0555158
@@ -3350,7 +3503,10 @@
         "brookline"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/African_Meeting_House.jpg/960px-African_Meeting_House.jpg",
+        "local_path": "static/images/maah.jpg"
+      },
       "geo": {
         "lat": 42.359995,
         "lon": -71.0652097
@@ -3385,7 +3541,10 @@
         "cohasset"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://butterflyplace-ma.com/images/Atrium-Telegraph.jpg",
+        "local_path": "static/images/butterfly-place.jpg"
+      },
       "geo": null
     },
     {
@@ -3398,7 +3557,10 @@
         "cohasset"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Pratt_Historic_Building%3B2009-08-21.JPG/960px-Pratt_Historic_Building%3B2009-08-21.JPG",
+        "local_path": "static/images/cohasset-historical-society.jpg"
+      },
       "geo": null
     },
     {
@@ -3411,7 +3573,10 @@
         "cohasset"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/JFK_library_Stitch_Crop.jpg",
+        "local_path": "static/images/jfk-library.jpg"
+      },
       "geo": null
     },
     {
@@ -3425,7 +3590,10 @@
         "hingham"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Plimoth_Plantation_Fence.JPG/960px-Plimoth_Plantation_Fence.JPG",
+        "local_path": "static/images/plimoth-patuxet.jpg"
+      },
       "geo": null
     },
     {
@@ -3438,7 +3606,10 @@
         "hingham"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Heritage_Museum_and_Gardens_%283789207677%29.jpg",
+        "local_path": "static/images/heritage-museums-gardens.jpg"
+      },
       "geo": null
     }
   ]

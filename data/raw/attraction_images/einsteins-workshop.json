@@ -1,4 +1,8 @@
 {
   "slug": "einsteins-workshop",
-  "status": "failed:fetch:<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+  "status": "ok",
+  "og_image_url": "https://cdn-new.gis.beakid.com/photos/18352/a-group-of-people-in-a-classroom--thumbnail-small.webp",
+  "local_path": "static/images/einsteins-workshop.webp",
+  "bytes": 27990,
+  "source": "official_site"
 }

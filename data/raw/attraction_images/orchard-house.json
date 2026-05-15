@@ -1,5 +1,8 @@
 {
   "slug": "orchard-house",
-  "status": "failed:download:<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Basic Constraints of CA cert not marked critical (_ssl.c:1081)>",
-  "og_image_url": "https://img1.wsimg.com/isteam/ip/856fd03b-c594-497c-b644-a8652bdc6bcd/OH-and-2-Tims-for-web.png"
+  "status": "ok",
+  "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Orchard_House_from_Little_Women.jpeg",
+  "local_path": "static/images/orchard-house.jpg",
+  "bytes": 3860424,
+  "source": "wikipedia"
 }
