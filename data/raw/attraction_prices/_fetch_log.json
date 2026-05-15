@@ -1,0 +1,468 @@
+{
+  "boston-childrens-museum": {
+    "slug": "boston-childrens-museum",
+    "status": "ok_resumed"
+  },
+  "concord-museum": {
+    "slug": "concord-museum",
+    "status": "ok_resumed"
+  },
+  "davis-farmland": {
+    "slug": "davis-farmland",
+    "status": "ok_resumed"
+  },
+  "the-discovery-museums": {
+    "slug": "the-discovery-museums",
+    "status": "ok_resumed"
+  },
+  "ecotarium": {
+    "slug": "ecotarium",
+    "status": "ok_resumed"
+  },
+  "garden-in-the-woods-native-plant-trust": {
+    "slug": "garden-in-the-woods-native-plant-trust",
+    "status": "ok_resumed"
+  },
+  "harvard-museums-of-science-and-culture": {
+    "slug": "harvard-museums-of-science-and-culture",
+    "status": "ok_resumed"
+  },
+  "institute-of-contemporary-art-boston": {
+    "slug": "institute-of-contemporary-art-boston",
+    "status": "ok_resumed"
+  },
+  "isabella-stewart-gardner-museum": {
+    "slug": "isabella-stewart-gardner-museum",
+    "status": "ok_resumed"
+  },
+  "john-f-kennedy-library-and-museum": {
+    "slug": "john-f-kennedy-library-and-museum",
+    "status": "failed:fetch_failed:HTTP Error 403: Forbidden"
+  },
+  "mass-audubon-drumlin-farm": {
+    "slug": "mass-audubon-drumlin-farm",
+    "status": "ok_resumed"
+  },
+  "massachusetts-state-parks-department-of-conservation-and-recreation": {
+    "slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+    "status": "failed:fetch_failed:HTTP Error 403: Forbidden"
+  },
+  "museum-of-fine-arts": {
+    "slug": "museum-of-fine-arts",
+    "status": "ok_resumed"
+  },
+  "museum-of-science": {
+    "slug": "museum-of-science",
+    "status": "ok_resumed"
+  },
+  "new-england-aquarium": {
+    "slug": "new-england-aquarium",
+    "status": "ok_resumed"
+  },
+  "new-england-botanic-garden-at-tower-hill": {
+    "slug": "new-england-botanic-garden-at-tower-hill",
+    "status": "ok_resumed"
+  },
+  "peabody-essex-museum": {
+    "slug": "peabody-essex-museum",
+    "status": "ok_resumed"
+  },
+  "the-trustees-of-the-reservations": {
+    "slug": "the-trustees-of-the-reservations",
+    "status": "ok_resumed"
+  },
+  "zoo-new-england": {
+    "slug": "zoo-new-england",
+    "status": "ok_resumed"
+  },
+  "the-aviation-museum-of-new-hampshire": {
+    "slug": "the-aviation-museum-of-new-hampshire",
+    "status": "ok_resumed"
+  },
+  "bedrock-gardens": {
+    "slug": "bedrock-gardens",
+    "status": "ok_resumed"
+  },
+  "boston-harbor-island-ferry": {
+    "slug": "boston-harbor-island-ferry",
+    "status": "ok_resumed"
+  },
+  "childrens-museum-of-new-hampshire": {
+    "slug": "childrens-museum-of-new-hampshire",
+    "status": "ok_resumed"
+  },
+  "historic-new-england": {
+    "slug": "historic-new-england",
+    "status": "failed:fetch_failed:HTTP Error 403: Forbidden"
+  },
+  "the-house-of-seven-gables": {
+    "slug": "the-house-of-seven-gables",
+    "status": "ok_resumed"
+  },
+  "new-england-quilt-museum": {
+    "slug": "new-england-quilt-museum",
+    "status": "ok_resumed"
+  },
+  "new-hampshire-philharmonic-orchestra": {
+    "slug": "new-hampshire-philharmonic-orchestra",
+    "status": "ok_resumed"
+  },
+  "north-shore-childrens-museum": {
+    "slug": "north-shore-childrens-museum",
+    "status": "ok_resumed"
+  },
+  "plimoth-patuxet-museums": {
+    "slug": "plimoth-patuxet-museums",
+    "status": "ok_resumed"
+  },
+  "salem-witch-museum": {
+    "slug": "salem-witch-museum",
+    "status": "ok_resumed"
+  },
+  "seacoast-science-center": {
+    "slug": "seacoast-science-center",
+    "status": "ok_resumed"
+  },
+  "wenham-museum": {
+    "slug": "wenham-museum",
+    "status": "ok_resumed"
+  },
+  "mass-audubon": {
+    "slug": "mass-audubon",
+    "status": "ok_resumed"
+  },
+  "armenian-museum-of-america": {
+    "slug": "armenian-museum-of-america",
+    "status": "ok_resumed"
+  },
+  "boston-by-foot": {
+    "slug": "boston-by-foot",
+    "status": "ok_resumed"
+  },
+  "gore-place": {
+    "slug": "gore-place",
+    "status": "ok_resumed"
+  },
+  "orchard-house": {
+    "slug": "orchard-house",
+    "status": "ok_resumed"
+  },
+  "the-uss-constitution-museum": {
+    "slug": "the-uss-constitution-museum",
+    "status": "ok_resumed"
+  },
+  "american-heritage-museum": {
+    "slug": "american-heritage-museum",
+    "status": "ok_resumed"
+  },
+  "the-butterfly-place": {
+    "slug": "the-butterfly-place",
+    "status": "ok_resumed"
+  },
+  "trustees-of-the-reservations": {
+    "slug": "trustees-of-the-reservations",
+    "status": "ok_resumed"
+  },
+  "boston-athenaeum": {
+    "slug": "boston-athenaeum",
+    "status": "ok_resumed"
+  },
+  "the-childrens-piazza": {
+    "slug": "the-childrens-piazza",
+    "status": "ok_resumed"
+  },
+  "griffin-museum-of-photography": {
+    "slug": "griffin-museum-of-photography",
+    "status": "ok_resumed"
+  },
+  "naismith-memorial-basketball-hall-of-fame": {
+    "slug": "naismith-memorial-basketball-hall-of-fame",
+    "status": "ok_resumed"
+  },
+  "the-danforth": {
+    "slug": "the-danforth",
+    "status": "ok_resumed"
+  },
+  "worcester-art-museum": {
+    "slug": "worcester-art-museum",
+    "status": "ok_resumed"
+  },
+  "americas-stonehenge": {
+    "slug": "americas-stonehenge",
+    "status": "ok_resumed"
+  },
+  "currier-museum-of-art": {
+    "slug": "currier-museum-of-art",
+    "status": "ok_resumed"
+  },
+  "museum-of-printing": {
+    "slug": "museum-of-printing",
+    "status": "ok_resumed"
+  },
+  "public-health-museum": {
+    "slug": "public-health-museum",
+    "status": "ok_resumed"
+  },
+  "wheelock-family-theatre": {
+    "slug": "wheelock-family-theatre",
+    "status": "ok_resumed"
+  },
+  "blithewold": {
+    "slug": "blithewold",
+    "status": "ok_resumed"
+  },
+  "charles-river-museum-of-industry-and-innovation": {
+    "slug": "charles-river-museum-of-industry-and-innovation",
+    "status": "ok_resumed"
+  },
+  "harvard-museum-of-natural-history": {
+    "slug": "harvard-museum-of-natural-history",
+    "status": "ok_resumed"
+  },
+  "american-repertory-theater": {
+    "slug": "american-repertory-theater",
+    "status": "ok_resumed"
+  },
+  "paddle-boston": {
+    "slug": "paddle-boston",
+    "status": "ok_resumed"
+  },
+  "the-icon-museum-and-study-center": {
+    "slug": "the-icon-museum-and-study-center",
+    "status": "ok_resumed"
+  },
+  "sandmagination": {
+    "slug": "sandmagination",
+    "status": "ok_resumed"
+  },
+  "harvard-art-museums": {
+    "slug": "harvard-art-museums",
+    "status": "ok_resumed"
+  },
+  "paul-revere-house": {
+    "slug": "paul-revere-house",
+    "status": "ok_resumed"
+  },
+  "animal-adventures": {
+    "slug": "animal-adventures",
+    "status": "ok_resumed"
+  },
+  "christian-science-plaza": {
+    "slug": "christian-science-plaza",
+    "status": "ok_resumed"
+  },
+  "real-pirates-salem": {
+    "slug": "real-pirates-salem",
+    "status": "ok_resumed"
+  },
+  "roger-williams-park-zoo": {
+    "slug": "roger-williams-park-zoo",
+    "status": "ok",
+    "source_url": "http://www.rwpzoo.org/tickets",
+    "bytes": 228614
+  },
+  "strawbery-banke-museum": {
+    "slug": "strawbery-banke-museum",
+    "status": "ok",
+    "source_url": "http://www.strawberybanke.org/tickets",
+    "bytes": 331237
+  },
+  "battleship-cove": {
+    "slug": "battleship-cove",
+    "status": "ok",
+    "source_url": "https://www.battleshipcove.org/",
+    "bytes": 786045
+  },
+  "decordova-sculpture-park-and-museum": {
+    "slug": "decordova-sculpture-park-and-museum",
+    "status": "ok",
+    "source_url": "http://www.decordova.org/admission",
+    "bytes": 372489
+  },
+  "the-gardens-at-elm-bank": {
+    "slug": "the-gardens-at-elm-bank",
+    "status": "ok",
+    "source_url": "https://www.masshort.org/visit",
+    "bytes": 208802
+  },
+  "old-sturbridge-village": {
+    "slug": "old-sturbridge-village",
+    "status": "ok",
+    "source_url": "https://www.osv.org/plan-your-visit",
+    "bytes": 123238
+  },
+  "historic-newton": {
+    "slug": "historic-newton",
+    "status": "failed:fetch_failed:HTTP Error 403: Forbidden"
+  },
+  "larz-anderson-auto-museum": {
+    "slug": "larz-anderson-auto-museum",
+    "status": "ok",
+    "source_url": "https://www.larzanderson.org/plan-your-visit",
+    "bytes": 959505
+  },
+  "west-suburban-ymca": {
+    "slug": "west-suburban-ymca",
+    "status": "ok",
+    "source_url": "https://wsymca.org/",
+    "bytes": 346140
+  },
+  "heritage-museums-and-gardens": {
+    "slug": "heritage-museums-and-gardens",
+    "status": "ok",
+    "source_url": "https://heritagemuseumsandgardens.org/admission",
+    "bytes": 211134
+  },
+  "new-bedford-whaling-museum": {
+    "slug": "new-bedford-whaling-museum",
+    "status": "ok",
+    "source_url": "https://www.whalingmuseum.org/tickets",
+    "bytes": 140100
+  },
+  "sandwich-glass-museum": {
+    "slug": "sandwich-glass-museum",
+    "status": "ok",
+    "source_url": "https://sandwichglassmuseum.org/",
+    "bytes": 142910
+  },
+  "greater-boston-stage-company": {
+    "slug": "greater-boston-stage-company",
+    "status": "ok",
+    "source_url": "https://www.greaterbostonstage.org/plan-your-visit",
+    "bytes": 104845
+  },
+  "massachusetts-state-police-museum-and-learning-center": {
+    "slug": "massachusetts-state-police-museum-and-learning-center",
+    "status": "failed:fetch_failed:URL can't contain control characters. '/ /' (found at least ' ')"
+  },
+  "the-spellman-museum-of-stamps-and-postal-history": {
+    "slug": "the-spellman-museum-of-stamps-and-postal-history",
+    "status": "ok",
+    "source_url": "https://www.spellmanmuseum.org/",
+    "bytes": 548006
+  },
+  "einsteins-workshop": {
+    "slug": "einsteins-workshop",
+    "status": "failed:fetch_failed:<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>"
+  },
+  "patriots-hall-of-fame": {
+    "slug": "patriots-hall-of-fame",
+    "status": "ok",
+    "source_url": "https://www.patriotshalloffame.com/admission",
+    "bytes": 83051
+  },
+  "american-rep-theater": {
+    "slug": "american-rep-theater",
+    "status": "failed:no_website"
+  },
+  "boch-center": {
+    "slug": "boch-center",
+    "status": "failed:no_website"
+  },
+  "boston-harbor-islands": {
+    "slug": "boston-harbor-islands",
+    "status": "ok",
+    "source_url": "https://www.bostonharborislands.org/",
+    "bytes": 147693
+  },
+  "ma-state-parks": {
+    "slug": "ma-state-parks",
+    "status": "failed:fetch_failed:HTTP Error 403: Forbidden"
+  },
+  "hale-education": {
+    "slug": "hale-education",
+    "status": "failed:no_website"
+  },
+  "harvard-museums": {
+    "slug": "harvard-museums",
+    "status": "ok",
+    "source_url": "https://hmsc.harvard.edu/visit/visit",
+    "bytes": 145792
+  },
+  "mapparium": {
+    "slug": "mapparium",
+    "status": "ok",
+    "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience/",
+    "bytes": 109087
+  },
+  "ica-boston": {
+    "slug": "ica-boston",
+    "status": "ok",
+    "source_url": "https://www.icaboston.org/tickets",
+    "bytes": 51975
+  },
+  "isabella-stewart-gardner": {
+    "slug": "isabella-stewart-gardner",
+    "status": "ok",
+    "source_url": "https://www.gardnermuseum.org/visit",
+    "bytes": 103356
+  },
+  "larz-anderson": {
+    "slug": "larz-anderson",
+    "status": "ok",
+    "source_url": "https://www.larzanderson.org/plan-your-visit",
+    "bytes": 959505
+  },
+  "mfa": {
+    "slug": "mfa",
+    "status": "ok",
+    "source_url": "https://www.mfa.org/tickets",
+    "bytes": 83414
+  },
+  "revolutionary-spaces": {
+    "slug": "revolutionary-spaces",
+    "status": "ok",
+    "source_url": "https://revolutionaryspaces.org/tickets",
+    "bytes": 274727
+  },
+  "sandwich-glass": {
+    "slug": "sandwich-glass",
+    "status": "failed:no_website"
+  },
+  "greenway-carousel": {
+    "slug": "greenway-carousel",
+    "status": "failed:no_website"
+  },
+  "trustees-of-reservations": {
+    "slug": "trustees-of-reservations",
+    "status": "failed:no_website"
+  },
+  "uss-constitution-museum": {
+    "slug": "uss-constitution-museum",
+    "status": "ok",
+    "source_url": "https://ussconstitutionmuseum.org/admission",
+    "bytes": 243321
+  },
+  "maah": {
+    "slug": "maah",
+    "status": "ok",
+    "source_url": "https://www.maah.org/",
+    "bytes": 69703
+  },
+  "charles-riverboat-tour": {
+    "slug": "charles-riverboat-tour",
+    "status": "ok",
+    "source_url": "https://charlesriverboat.com/",
+    "bytes": 408559
+  },
+  "butterfly-place": {
+    "slug": "butterfly-place",
+    "status": "failed:no_website"
+  },
+  "cohasset-historical-society": {
+    "slug": "cohasset-historical-society",
+    "status": "failed:no_website"
+  },
+  "jfk-library": {
+    "slug": "jfk-library",
+    "status": "failed:no_website"
+  },
+  "plimoth-patuxet": {
+    "slug": "plimoth-patuxet",
+    "status": "failed:no_website"
+  },
+  "heritage-museums-gardens": {
+    "slug": "heritage-museums-gardens",
+    "status": "failed:no_website"
+  }
+}
