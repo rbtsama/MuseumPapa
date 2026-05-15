@@ -3,10 +3,13 @@
   "status": "failed:no_extractable_price",
   "adult": null,
   "child": null,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Group rate ($6/person for 15+) is commented out in HTML; no active general admission prices in HTML",
+  "notes": "Group visits (15+) $6 per person; individual prices not in HTML",
   "source_url": "https://www.butterflyplace-ma.com/admission"
 }

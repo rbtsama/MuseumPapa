@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 25,
   "child": null,
+  "youth": null,
   "senior": 23,
   "student": 15,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": 16,
-  "notes": "Adults $25; Seniors 65+ $23; Students with ID $15; Youth under 16 FREE; Salem residents FREE",
-  "source_url": "http://www.pem.org/visit"
+  "notes": "Youth (under 16) free; Salem residents free; Members free",
+  "source_url": "https://www.pem.org/visit"
 }

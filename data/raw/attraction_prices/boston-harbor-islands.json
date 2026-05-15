@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 0,
   "child": null,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Islands free; ferry ticket required (~$25 adult)",
+  "notes": "Islands free; ferry ticket required (~$25 adult); Free Ferry Weekend events available",
   "source_url": "https://www.bostonharborislands.org/"
 }

@@ -1,12 +1,15 @@
 {
   "slug": "new-hampshire-philharmonic-orchestra",
   "status": "ok",
-  "adult": 30,
+  "adult": 35,
   "child": null,
-  "senior": 10,
-  "student": 15,
+  "youth": null,
+  "senior": 30,
+  "student": 10,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
+  "notes": "Adults $35; Seniors $30; Students $10 ($5 for Salem Students); Streaming online $15",
   "source_url": "https://www.nhphil.org/"
 }

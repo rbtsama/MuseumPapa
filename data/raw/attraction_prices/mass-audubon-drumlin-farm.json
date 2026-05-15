@@ -1,12 +1,15 @@
 {
   "slug": "mass-audubon-drumlin-farm",
-  "status": "failed:no_extractable_price",
-  "adult": null,
+  "status": "ok",
+  "adult": 2,
   "child": null,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Same page as mass-audubon; no specific dollar prices in HTML",
+  "free_under_age": 2,
+  "notes": "Library passes $2 per person (up to 4); children under 2 always free; members free",
   "source_url": "http://www.massaudubon.org/admission"
 }

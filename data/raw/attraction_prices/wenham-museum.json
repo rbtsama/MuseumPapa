@@ -1,12 +1,15 @@
 {
   "slug": "wenham-museum",
   "status": "ok",
-  "adult": 10,
+  "adult": 15,
   "child": 10,
+  "youth": null,
   "senior": 10,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 2,
+  "notes": "Babies 0-23 months free; Children 2-18 and Seniors same price $10",
   "source_url": "http://www.wenhammuseum.org/"
 }

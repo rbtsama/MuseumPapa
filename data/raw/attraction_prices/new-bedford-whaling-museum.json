@@ -2,11 +2,14 @@
   "slug": "new-bedford-whaling-museum",
   "status": "ok",
   "adult": 24,
-  "child": 14,
+  "child": null,
+  "youth": 14,
   "senior": 22,
   "student": null,
+  "military": 0,
+  "educator": 0,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 3,
+  "notes": "Active military free; Massachusetts Teachers free; children under 3 free; Museum members free",
   "source_url": "https://www.whalingmuseum.org/tickets"
 }

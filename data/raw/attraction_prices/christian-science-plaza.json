@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 0,
   "child": null,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Free admission (Mapparium costs $6)",
+  "notes": "Free admission to plaza; Mapparium has separate paid admission",
   "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza"
 }

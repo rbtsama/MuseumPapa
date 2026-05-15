@@ -1,12 +1,15 @@
 {
   "slug": "animal-adventures",
   "status": "ok",
-  "adult": 2,
-  "child": 2,
+  "adult": 17.44,
+  "child": 7.63,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Suggested donation; prices may vary",
+  "free_under_age": 2,
+  "notes": "General admission ages 4+ $17.44; Toddlers 2-3 $7.63; Under 2 free; Various other tours available at different prices",
   "source_url": "http://www.animaladventures.net/"
 }

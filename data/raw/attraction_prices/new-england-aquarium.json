@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 44.95,
   "child": 35.95,
+  "youth": null,
   "senior": 42.95,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
+  "free_under_age": 2,
+  "notes": "Children under 2 free",
   "source_url": "http://www.neaq.org/"
 }

@@ -2,11 +2,14 @@
   "slug": "old-sturbridge-village",
   "status": "ok",
   "adult": 27,
-  "child": 25,
+  "child": null,
+  "youth": 12,
   "senior": 25,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 3,
+  "notes": "Online prices; at door $3 more; children 3 and under free",
   "source_url": "https://www.osv.org/plan-your-visit"
 }

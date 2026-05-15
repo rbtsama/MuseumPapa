@@ -3,10 +3,13 @@
   "status": "failed:no_extractable_price",
   "adult": null,
   "child": null,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "HTML only mentions $2 online discount; no ticket prices visible in rendered HTML",
+  "notes": null,
   "source_url": "http://www.strawberybanke.org/tickets"
 }

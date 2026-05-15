@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 12,
   "child": 12,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": 1,
-  "notes": "Adults & Children (age 12 months+) $12.00; EBT/WIC $3.00; Library Passes $6.00; Under 12 months FREE",
+  "notes": "Adults and Children (12 months+) $12; EBT/WIC $3; Library pass $6; Children under 12 months free",
   "source_url": "https://www.nschildrensmuseum.org/buy-tickets"
 }

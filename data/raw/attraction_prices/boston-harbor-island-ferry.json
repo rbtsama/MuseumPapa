@@ -3,10 +3,13 @@
   "status": "failed:no_extractable_price",
   "adult": null,
   "child": null,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Homepage only; no ferry ticket prices listed in HTML",
+  "notes": "Ferry prices vary; see official schedule",
   "source_url": "http://www.bostonharborislands.org/"
 }

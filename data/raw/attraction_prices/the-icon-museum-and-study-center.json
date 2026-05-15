@@ -1,12 +1,15 @@
 {
   "slug": "the-icon-museum-and-study-center",
   "status": "ok",
-  "adult": 0,
+  "adult": 15,
   "child": null,
-  "senior": 15,
-  "student": null,
+  "youth": null,
+  "senior": 12,
+  "student": 0,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 17,
+  "notes": "Students free with ID; Children and youth (0-17) free; First Sunday of each month free",
   "source_url": "https://www.iconmuseum.org/"
 }

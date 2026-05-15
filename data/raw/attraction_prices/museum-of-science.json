@@ -1,12 +1,15 @@
 {
   "slug": "museum-of-science",
-  "status": "failed:no_extractable_price",
-  "adult": null,
-  "child": null,
-  "senior": null,
+  "status": "ok",
+  "adult": 33,
+  "child": 28,
+  "youth": null,
+  "senior": 29,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "http://www.mos.org/"
+  "free_under_age": 3,
+  "notes": "Children under 3 free; Members free",
+  "source_url": "https://www.mos.org/visit/hours"
 }

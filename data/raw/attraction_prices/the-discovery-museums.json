@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 19,
   "child": 19,
+  "youth": null,
   "senior": 18,
   "student": null,
+  "military": null,
+  "educator": 0,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 1,
+  "notes": "ONE price for Discovery Museum and Discovery Woods; Teachers always free; Members free; under 1 year free",
   "source_url": "http://www.discoveryacton.org/"
 }

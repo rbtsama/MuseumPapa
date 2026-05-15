@@ -2,11 +2,14 @@
   "slug": "worcester-art-museum",
   "status": "ok",
   "adult": 22,
-  "child": 17,
+  "child": null,
+  "youth": null,
   "senior": 17,
   "student": 17,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 17,
+  "notes": "Youth 17 and under free; Members free; College Partners free",
   "source_url": "http://www.worcesterart.org/"
 }

@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 15,
   "child": 8,
+  "youth": null,
   "senior": 13,
   "student": 13,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": 5,
-  "notes": "Old State House: Adults $15, Seniors 65+ $13, Students $13, Children 6-12 $8, under 5 free; Old South: Adult 18-64 $18, Senior $16, Youth 6-17 $10",
+  "notes": "Children 5 and under free; Members free; New prices starting July 2, 2026: Adult $18, Senior $16, Youth(6-17) $10",
   "source_url": "https://revolutionaryspaces.org/hours-admission"
 }

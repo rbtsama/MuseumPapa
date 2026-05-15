@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 7,
   "child": null,
-  "senior": 7,
+  "youth": null,
+  "senior": 6,
   "student": 5,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
+  "notes": "Framingham residents $6; High school and college students $5",
   "source_url": "https://danforth.framingham.edu/"
 }

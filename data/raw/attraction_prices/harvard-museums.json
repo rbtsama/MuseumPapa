@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 15,
   "child": null,
+  "youth": 10,
   "senior": 13,
-  "student": null,
+  "student": 10,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 3,
+  "notes": "Children under 3 free; Harvard students/faculty/staff free",
   "source_url": "https://hmsc.harvard.edu/visit/visit"
 }

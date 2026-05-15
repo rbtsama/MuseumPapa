@@ -3,10 +3,13 @@
   "status": "failed:no_extractable_price",
   "adult": null,
   "child": null,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Page uses FareHarbor embedded booking; no admission prices in HTML",
+  "notes": "Prices via FareHarbor booking system",
   "source_url": "https://charlesriverboat.com/admission"
 }

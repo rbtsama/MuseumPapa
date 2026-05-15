@@ -1,12 +1,15 @@
 {
   "slug": "larz-anderson",
   "status": "ok",
-  "adult": 0,
-  "child": 6,
-  "senior": null,
-  "student": null,
+  "adult": 15,
+  "child": 10,
+  "youth": null,
+  "senior": 10,
+  "student": 10,
+  "military": 10,
+  "educator": null,
   "family": null,
-  "free_under_age": 2,
-  "notes": "Members free",
+  "free_under_age": 6,
+  "notes": "Seniors/Students/Military/Children(6-12) same price $10; Children under 6 free; Members always free",
   "source_url": "https://www.larzanderson.org/plan-your-visit"
 }

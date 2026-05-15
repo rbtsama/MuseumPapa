@@ -1,12 +1,15 @@
 {
   "slug": "ecotarium",
-  "status": "failed:no_extractable_price",
+  "status": "ok",
   "adult": null,
   "child": null,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": 0,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "HTML shows only discount amounts ($5 EBT/Wonderfund, $6 off senior/student); no base ticket prices listed",
+  "notes": "Senior $6 off regular admission; Student $6 off with valid ID; Active Duty Military and National Guard free",
   "source_url": "http://www.ecotarium.org/visit"
 }

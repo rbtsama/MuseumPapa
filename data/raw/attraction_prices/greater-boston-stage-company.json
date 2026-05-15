@@ -3,10 +3,13 @@
   "status": "failed:no_extractable_price",
   "adult": null,
   "child": null,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
+  "notes": "Theater ticket prices vary by show",
   "source_url": "https://www.greaterbostonstage.org/plan-your-visit"
 }

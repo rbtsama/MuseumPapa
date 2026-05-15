@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 22,
   "child": 6,
+  "youth": 11,
   "senior": null,
   "student": 18,
+  "military": 18,
+  "educator": null,
   "family": 50,
   "free_under_age": 5,
-  "notes": "Adult age 17+ $22; Child age 6-10 $6; Youth age 11-16 $11; Family=2 adults+2 children $50; Military/Student $18; under 5 free",
+  "notes": "Military and Student same price $18; SNAP/EBT $2; Members free",
   "source_url": "https://www.blithewold.org/general-admission"
 }

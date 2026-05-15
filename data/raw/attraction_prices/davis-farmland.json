@@ -3,10 +3,13 @@
   "status": "failed:no_extractable_price",
   "adult": null,
   "child": null,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Page fetched was admission policy FAQ; only describes who can visit; no dollar prices in HTML",
+  "notes": "Admission page is FAQ about age restrictions; actual prices not in this HTML",
   "source_url": "https://www.davisfarmland.com/admission"
 }

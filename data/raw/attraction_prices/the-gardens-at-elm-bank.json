@@ -2,11 +2,14 @@
   "slug": "the-gardens-at-elm-bank",
   "status": "ok",
   "adult": 14,
-  "child": 2,
+  "child": null,
+  "youth": 5,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 2,
+  "notes": "Youth(3-17) $5; Kids 2 and under free; Members free; EBT/WIC $5 per adult (children free)",
   "source_url": "https://www.masshort.org/visit"
 }

@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 15,
   "child": null,
-  "senior": null,
+  "youth": 8,
+  "senior": 12,
   "student": 12,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 6,
+  "notes": "Children under 6 free; Family rate 20% discount for 4+ people; Card to Culture $3/ticket",
   "source_url": "http://www.louisamayalcott.org/"
 }

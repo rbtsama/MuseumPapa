@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 15,
   "child": null,
-  "senior": null,
-  "student": null,
+  "youth": null,
+  "senior": 10,
+  "student": 0,
+  "military": 0,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Members free",
+  "notes": "Military & students free; Haverhill Library cardholders free",
   "source_url": "https://www.museumofprinting.org/"
 }

@@ -2,11 +2,14 @@
   "slug": "sandwich-glass-museum",
   "status": "ok",
   "adult": 15,
-  "child": null,
-  "senior": 65,
+  "child": 5,
+  "youth": null,
+  "senior": 13,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
+  "free_under_age": 5,
+  "notes": "Ages 6-14: $5; Age 5 and under free",
   "source_url": "https://sandwichglassmuseum.org/"
 }

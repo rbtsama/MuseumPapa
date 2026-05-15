@@ -3,10 +3,13 @@
   "status": "failed:no_extractable_price",
   "adult": null,
   "child": null,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Page fetched was admission-discounts page; only $2 EBT/WIC discount amounts present, no base admission prices",
+  "notes": "EBT/WIC $2 each for up to 6 daytime passes; standard admission prices not in this HTML",
   "source_url": "https://www.nebg.org/admission"
 }

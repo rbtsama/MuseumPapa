@@ -2,11 +2,14 @@
   "slug": "currier-museum-of-art",
   "status": "ok",
   "adult": 20,
-  "child": 5,
-  "senior": 20,
+  "child": null,
+  "youth": 5,
+  "senior": 15,
   "student": 15,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 13,
+  "notes": "Children under 13 free; Youth (13-17) $5",
   "source_url": "http://currier.org/"
 }

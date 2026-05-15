@@ -2,11 +2,14 @@
   "slug": "seacoast-science-center",
   "status": "ok",
   "adult": 15,
-  "child": null,
+  "child": 10,
+  "youth": null,
   "senior": 12.5,
   "student": null,
+  "military": 12.5,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 2,
+  "notes": "Ages 3-11: $10; Ages 0-2 free; Active Duty Military & Veterans $12.50; Members free",
   "source_url": "http://www.seacoastsciencecenter.org/"
 }

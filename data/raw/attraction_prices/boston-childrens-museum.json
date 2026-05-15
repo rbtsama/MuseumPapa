@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 24,
   "child": 24,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": 2,
-  "notes": "Members free",
+  "free_under_age": 1,
+  "notes": "Children 1 and under free; flat rate $24 for ages 1+",
   "source_url": "http://www.bostonchildrensmuseum.org/"
 }

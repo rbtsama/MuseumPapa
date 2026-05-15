@@ -1,12 +1,15 @@
 {
   "slug": "american-repertory-theater",
-  "status": "failed:price_behind_widget",
+  "status": "failed:no_extractable_price",
   "adult": null,
   "child": null,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Theater; ticket prices vary by show and seating",
+  "notes": "Ticket prices vary by show and season; no fixed admission prices",
   "source_url": "https://americanrepertorytheater.org/"
 }

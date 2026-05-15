@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 6,
   "child": 1,
+  "youth": null,
   "senior": 5.5,
   "student": 5.5,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Adults $6.00; Seniors and College Students $5.50; Children ages 5-17 $1.00",
+  "free_under_age": 5,
+  "notes": "Seniors and College Students same price $5.50; children under 5 free",
   "source_url": "https://www.paulreverehouse.org/hours"
 }

@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 11,
   "child": 5,
+  "youth": null,
   "senior": null,
   "student": 8,
+  "military": 8,
+  "educator": 8,
   "family": null,
   "free_under_age": null,
-  "notes": "Visitors 14+ $11; ages 13 and under (with adult) $5; Students/Educators/Military $8; full-access one-day membership $40",
+  "notes": "Students/Educators/Military same price $8; Card to Culture $2; NARM/ROAM free",
   "source_url": "https://www.bostonathenaeum.org/visit"
 }

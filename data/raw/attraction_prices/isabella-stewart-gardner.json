@@ -2,11 +2,14 @@
   "slug": "isabella-stewart-gardner",
   "status": "ok",
   "adult": 22,
-  "child": 22,
+  "child": null,
+  "youth": null,
   "senior": 20,
   "student": 15,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 17,
+  "notes": "Children 17 and under free; members free; Museum Pass $5/pass for up to 4 adults",
   "source_url": "https://www.gardnermuseum.org/visit"
 }

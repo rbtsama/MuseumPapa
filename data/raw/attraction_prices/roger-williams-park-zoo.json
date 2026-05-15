@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 25,
   "child": 19,
+  "youth": null,
   "senior": 21,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 1,
+  "notes": "Toddlers 1 year and younger free; Members free",
   "source_url": "http://www.rwpzoo.org/tickets"
 }

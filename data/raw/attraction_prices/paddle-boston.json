@@ -1,12 +1,15 @@
 {
   "slug": "paddle-boston",
-  "status": "failed:no_general_admission_listed",
+  "status": "failed:no_extractable_price",
   "adult": null,
   "child": null,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Kayak/canoe rental, not museum admission",
+  "notes": "Rental prices vary by equipment type",
   "source_url": "https://www.paddleboston.com/"
 }

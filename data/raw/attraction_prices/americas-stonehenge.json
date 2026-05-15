@@ -1,12 +1,15 @@
 {
   "slug": "americas-stonehenge",
   "status": "ok",
-  "adult": 15,
-  "child": 15,
-  "senior": 19,
+  "adult": 19,
+  "child": 12,
+  "youth": null,
+  "senior": 17,
   "student": null,
+  "military": 15,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
+  "free_under_age": 4,
   "notes": null,
-  "source_url": "https://www.stonehengeusa.com/"
+  "source_url": "https://www.stonehengeusa.com/admission"
 }

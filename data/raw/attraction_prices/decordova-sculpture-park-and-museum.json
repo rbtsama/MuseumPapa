@@ -1,12 +1,15 @@
 {
   "slug": "decordova-sculpture-park-and-museum",
   "status": "ok",
-  "adult": 12,
-  "child": 12,
+  "adult": 14,
+  "child": null,
+  "youth": null,
   "senior": 12,
-  "student": null,
+  "student": 12,
+  "military": null,
+  "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 12,
+  "notes": "Children 12 and under free; Lincoln residents free; EBT/WIC/MassHealth free",
   "source_url": "http://www.decordova.org/admission"
 }

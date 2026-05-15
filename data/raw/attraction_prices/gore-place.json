@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 0,
   "child": 0,
+  "youth": null,
   "senior": null,
   "student": null,
+  "military": null,
+  "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Grounds free; mansion tours extra",
+  "notes": "Grounds free and open to public; mansion tours have separate admission fee",
   "source_url": "https://www.goreplace.org/"
 }

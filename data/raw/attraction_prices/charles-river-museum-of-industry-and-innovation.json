@@ -3,10 +3,13 @@
   "status": "ok",
   "adult": 10,
   "child": 5,
-  "senior": null,
-  "student": null,
+  "youth": null,
+  "senior": 5,
+  "student": 5,
+  "military": null,
+  "educator": 5,
   "family": null,
-  "free_under_age": null,
-  "notes": "Members free",
+  "free_under_age": 6,
+  "notes": "Children and Teens (6-17), College Students, and Seniors same price $5; Educators (MA education professionals) $5 with work ID; Active Duty Military same as adult; children under 6 free",
   "source_url": "https://www.charlesrivermuseum.org/"
 }
