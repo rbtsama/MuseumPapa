@@ -4,6 +4,8 @@ import { AttractionCard } from '../components/AttractionCard';
 import { Banner } from '../components/Banner';
 import { DatePicker } from '../components/DatePicker';
 import { SortDropdown, type SortOption } from '../components/SortDropdown';
+import { ZipInput } from '../components/ZipInput';
+import { CategoryChips } from '../components/CategoryChips';
 import { pickTags, type PickedTag } from '../lib/tag-algorithm';
 import { useAuth } from '../auth/store';
 import { useCardpack } from '../stores/cardpack';
@@ -27,9 +29,10 @@ export function AttractionsList() {
   const [signInOpen, setSignInOpen] = useState(false);
   const [date, setDate] = useState(() => todayIso());
   const [sort, setSort] = useState<SortOption>('favorites');
+  const [category, setCategory] = useState<string>('all');
   const [userGeo, setUserGeo] = useState<Geo | null>(null);
 
-  // Sync stores to current user
+  // Sync stores to current user (guest -> 'guest' namespace, both work)
   useEffect(() => {
     loadCardpack(user?.username ?? null);
     loadFavorites(user?.username ?? null);
@@ -49,9 +52,9 @@ export function AttractionsList() {
   const libraries = useMemo(() => getLibraries(), []);
 
   const userCardLibIds = useMemo(() => {
-    if (!user) return null;  // guest
+    if (!user) return null;
     const ids = new Set(Object.keys(cardpack.cards));
-    if (ids.size === 0) return null;  // admin/empty: behave like guest for tag picking
+    if (ids.size === 0) return null;
     return ids;
   }, [user, cardpack.cards]);
 
@@ -67,7 +70,6 @@ export function AttractionsList() {
     return m;
   }, [allPasses]);
 
-  // Compute picked tags per attraction
   const rows = useMemo(() => {
     return attractions.map(a => {
       const passes = passesBySlug.get(a.slug) ?? [];
@@ -78,9 +80,14 @@ export function AttractionsList() {
     });
   }, [attractions, passesBySlug, libraries, userCardLibIds, date, userGeo, isGuestOrEmpty]);
 
-  // Sort
+  // Category filter (single-select)
+  const filteredRows = useMemo(() => {
+    if (category === 'all') return rows;
+    return rows.filter(r => r.attraction.categories.includes(category));
+  }, [rows, category]);
+
   const sortedRows = useMemo(() => {
-    const copy = [...rows];
+    const copy = [...filteredRows];
     const isFav = (slug: string) => favorites.has(slug);
     const compareName = (a: typeof copy[0], b: typeof copy[0]) =>
       a.attraction.museum_name.localeCompare(b.attraction.museum_name);
@@ -98,7 +105,6 @@ export function AttractionsList() {
         copy.sort(compareName);
         break;
       case 'distance': {
-        // sort by min distance among picked tags (or Infinity)
         const minDist = (r: typeof copy[0]) => {
           let best = Infinity;
           for (const t of r.tags) {
@@ -130,7 +136,7 @@ export function AttractionsList() {
       return 0;
     });
     return copy;
-  }, [rows, favorites, sort]);
+  }, [filteredRows, favorites, sort]);
 
   return (
     <>
@@ -140,10 +146,23 @@ export function AttractionsList() {
         <h1 className="font-serif" style={{ fontSize: 24, marginBottom: 12, color: 'var(--ink-2)' }}>
           Attractions
         </h1>
-        <div style={{ display: 'flex', gap: 24, marginBottom: 16, flexWrap: 'wrap' }}>
+
+        <div style={{
+          display: 'flex', gap: 24, marginBottom: 16, flexWrap: 'wrap', alignItems: 'flex-end',
+        }}>
           <DatePicker value={date} onChange={setDate} />
+          <ZipInput />
           <SortDropdown value={sort} onChange={setSort} distanceEnabled={!!userGeo} />
         </div>
+
+        <div style={{ marginBottom: 16 }}>
+          <CategoryChips
+            attractions={attractions}
+            value={category}
+            onChange={setCategory}
+          />
+        </div>
+
         <p style={{ color: 'var(--ink-3)', fontSize: 11, marginBottom: 12 }}>
           Showing {sortedRows.length} attractions for {date}
         </p>
