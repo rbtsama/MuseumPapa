@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router';
 import {
   getAttractionBySlug, getPassesForAttraction, getLibraries,
 } from '../data/load';
-import { PassTag } from '../components/PassTag';
+import { PassTypeLabel } from '../components/PassTypeLabel';
 import { FavoriteButton } from '../components/FavoriteButton';
 import { useAuth } from '../auth/store';
 import { useCardpack } from '../stores/cardpack';
@@ -216,21 +216,37 @@ export function AttractionDetail() {
                 No passes available on this day.
               </div>
             ) : (
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                {rows.slice(0, 10).map((r, i) => (
-                  <button
-                    key={`${r.pass.library_id}-${i}`}
-                    onClick={() => setBookingPass(r.pass)}
-                    style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}
-                  >
-                    <PassTag
-                      passType={r.pass.pass_type}
-                      discountLabel={r.pass.discount.label || r.pass.discount.class}
-                      libraryTown={r.library.town}
-                      distanceMi={r.distanceMi}
-                    />
-                  </button>
-                ))}
+              <div className="flex flex-col gap-1.5">
+                {rows.slice(0, 10).map((r, i) => {
+                  const isDigital = r.pass.pass_type === 'digital';
+                  return (
+                    <button
+                      key={`${r.pass.library_id}-${i}`}
+                      type="button"
+                      onClick={() => setBookingPass(r.pass)}
+                      className="flex items-center gap-2 rounded-md text-left"
+                      style={{
+                        background: 'var(--white)',
+                        border: '1px solid var(--rule)',
+                        padding: '8px 12px',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <PassTypeLabel type={r.pass.pass_type} />
+                      <span style={{ fontSize: 13, color: 'var(--ink-2)', fontWeight: 500 }}>
+                        {isDigital ? r.library.name : r.library.town}
+                        {!isDigital && r.distanceMi != null && (
+                          <span style={{ fontSize: 11, color: 'var(--ink-3)', fontWeight: 400 }}>
+                            {' '}· {Math.round(r.distanceMi)} mi
+                          </span>
+                        )}
+                      </span>
+                      <span className="ml-auto" style={{ fontSize: 13, fontWeight: 700, color: 'var(--g)' }}>
+                        {r.pass.discount.label || r.pass.discount.class}
+                      </span>
+                    </button>
+                  );
+                })}
                 {rows.length > 10 && (
                   <span style={{ fontSize: 12, color: 'var(--ink-3)' }}>+{rows.length - 10} more</span>
                 )}
