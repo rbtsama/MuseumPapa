@@ -11,8 +11,9 @@ import { useCardpack } from '../stores/cardpack';
 import { useFavorites } from '../stores/favorites';
 import { geocodeZip } from '../lib/distance';
 import { SignInModal } from '../components/SignInModal';
+import { BookingConfirmModal } from '../components/BookingConfirmModal';
 import { isClosedOn } from '../lib/hours';
-import type { Geo } from '../data/types';
+import type { Geo, Pass } from '../data/types';
 
 function todayIso(): string {
   const d = new Date();
@@ -31,6 +32,7 @@ export function AttractionsList() {
   const [sort, setSort] = useState<SortOption>('recommended');
   const [category, setCategory] = useState<string>('all');
   const [userGeo, setUserGeo] = useState<Geo | null>(null);
+  const [bookingPass, setBookingPass] = useState<Pass | null>(null);
 
   // Snapshot of favorites used by the SORT logic. Refreshed only when user
   // changes sort/date/category (or first mount). This prevents the list from
@@ -179,10 +181,17 @@ export function AttractionsList() {
               sourceCountForGuest={r.sourceCount}
               date={date}
               closedToday={isClosedOn(r.attraction, date)}
+              onBookPass={setBookingPass}
             />
           ))}
         </div>
       </div>
+      <BookingConfirmModal
+        pass={bookingPass}
+        library={bookingPass ? (libraries.find(l => l.id === bookingPass.library_id) ?? null) : null}
+        cardpack={cardpack}
+        onClose={() => setBookingPass(null)}
+      />
     </>
   );
 }

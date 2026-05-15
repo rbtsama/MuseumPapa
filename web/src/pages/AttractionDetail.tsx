@@ -254,6 +254,7 @@ export function AttractionDetail() {
 
       <BookingConfirmModal
         pass={bookingPass}
+        library={bookingPass ? (libById.get(bookingPass.library_id) ?? null) : null}
         cardpack={cardpack}
         onClose={() => setBookingPass(null)}
       />

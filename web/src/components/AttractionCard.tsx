@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import type { Attraction } from '../data/types';
+import type { Attraction, Pass } from '../data/types';
 import type { PickedTag } from '../lib/tag-algorithm';
 import { FavoriteButton } from './FavoriteButton';
 import { PassTypeLabel } from './PassTypeLabel';
@@ -14,9 +14,19 @@ interface Props {
   closedToday?: boolean;
   /** Selected date (ISO) — used to look up today's hours. */
   date?: string;
+  /** Called when user taps a per-pass "Book" button. List page opens the modal. */
+  onBookPass?: (pass: Pass) => void;
 }
 
 const MAX_ROWS_VISIBLE = 4;
+
+// Uniform money typography for option-row prices (per user feedback: bold + larger + brand green)
+const MONEY_STYLE: React.CSSProperties = {
+  fontSize: 16,
+  fontWeight: 700,
+  color: 'var(--g)',
+  lineHeight: 1.1,
+};
 
 function heroSrc(a: Attraction): string {
   if (a.hero_image?.local_path) {
@@ -44,7 +54,7 @@ function townFromAddress(addr: string): string {
 
 export function AttractionCard({
   attraction, pickedTags, isGuestOrEmpty = false, sourceCountForGuest = 0,
-  closedToday = false, date,
+  closedToday = false, date, onBookPass,
 }: Props) {
   const town = townFromAddress(attraction.address);
   const adult = attraction.original_price?.adult ?? null;
@@ -53,6 +63,12 @@ export function AttractionCard({
   const todayHours = date ? hoursForDate(attraction, date) : null;
 
   const dim = closedToday ? { filter: 'grayscale(0.7)', opacity: 0.55 } : {};
+
+  const handleBook = (e: React.MouseEvent, pass: Pass) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onBookPass?.(pass);
+  };
 
   return (
     <Link
@@ -66,8 +82,6 @@ export function AttractionCard({
         border: '1px solid var(--rule)',
       }}
     >
-      {/* Favorite — top-right of the CARD (per Booking.com/Airbnb mobile pattern, but
-          attached to the card frame rather than the image so it doesn't overlap the photo) */}
       <div className="absolute" style={{ top: 6, right: 6, zIndex: 1 }}>
         <FavoriteButton slug={attraction.slug} variant="overlay" />
       </div>
@@ -83,7 +97,6 @@ export function AttractionCard({
         />
 
         <div className="flex-grow min-w-0 pr-9">
-          {/* pr-9 reserves space for the favorite button overlay */}
           <h3 className="font-serif" style={{
             fontSize: 16, lineHeight: 1.25, color: 'var(--ink-2)', fontWeight: 700,
           }}>
@@ -111,18 +124,19 @@ export function AttractionCard({
             </div>
           )}
 
+          {/* Attraction's own admission price — calm, just bold black, not the
+              attention-grabber. Real-money emphasis belongs on the discounted
+              option rows below. */}
           {adult != null && (
             <p className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-0.5" style={{ fontSize: 12 }}>
               <span style={{ color: 'var(--ink-3)' }}>Adult</span>
-              <span style={{ fontWeight: 700, fontSize: 14,
-                color: adult === 0 ? 'var(--g)' : 'var(--ink-2)' }}>
+              <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink-2)' }}>
                 {fmtMoney(adult)}
               </span>
               {child != null && (
                 <>
                   <span className="ml-1" style={{ color: 'var(--ink-3)' }}>Child</span>
-                  <span style={{ fontWeight: 700, fontSize: 14,
-                    color: child === 0 ? 'var(--g)' : 'var(--ink-2)' }}>
+                  <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink-2)' }}>
                     {fmtMoney(child)}
                   </span>
                 </>
@@ -160,10 +174,8 @@ export function AttractionCard({
             return (
               <div
                 key={`${t.pass.library_id}-${i}`}
-                className="flex items-center gap-2.5 px-3 py-2"
-                style={{
-                  borderTop: i === 0 ? 'none' : '1px solid var(--rule)',
-                }}
+                className="flex items-center gap-2 px-3 py-2"
+                style={{ borderTop: i === 0 ? 'none' : '1px solid var(--rule)' }}
               >
                 <PassTypeLabel type={t.pass.pass_type} />
 
@@ -179,24 +191,45 @@ export function AttractionCard({
                   </div>
                 </div>
 
+                {/* Price — uniform bold/large/green for both 'Free' and dollar amounts */}
                 <div className="text-right flex-shrink-0">
                   {showStrike ? (
-                    <div className="flex items-baseline gap-1.5">
+                    <div className="flex items-baseline gap-1.5 justify-end">
                       <span style={{ fontSize: 11, color: 'var(--ink-3)', textDecoration: 'line-through' }}>
                         {fmtMoney(adult)}
                       </span>
-                      <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--ink-2)' }}>
+                      <span style={MONEY_STYLE}>
                         {finalPrice === 0 ? 'Free' : fmtMoney(finalPrice)}
                       </span>
                     </div>
                   ) : finalPrice === 0 ? (
-                    <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--g)' }}>Free</span>
+                    <span style={MONEY_STYLE}>Free</span>
+                  ) : finalPrice != null ? (
+                    <span style={MONEY_STYLE}>{fmtMoney(finalPrice)}</span>
                   ) : (
-                    <span style={{ fontSize: 12, fontWeight: 500, color: 'var(--ink-2)' }}>
+                    <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--g)' }}>
                       {t.pass.discount.label || '—'}
                     </span>
                   )}
                 </div>
+
+                {/* Book button */}
+                <button
+                  type="button"
+                  onClick={(e) => handleBook(e, t.pass)}
+                  className="flex-shrink-0 rounded-md"
+                  style={{
+                    background: 'var(--g)',
+                    color: 'var(--white)',
+                    fontSize: 12,
+                    fontWeight: 600,
+                    padding: '6px 10px',
+                    border: 'none',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Book
+                </button>
               </div>
             );
           })}
