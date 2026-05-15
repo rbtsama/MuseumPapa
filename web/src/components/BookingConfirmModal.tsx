@@ -99,7 +99,7 @@ export function BookingConfirmModal({ pass, library, cardpack, onClose }: Props)
             fontSize: 11, color: 'var(--ink-3)',
             textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 500,
           }}>
-            Reserve at
+            Get pass from
           </span>
           <span className="font-serif" style={{ fontSize: 17, color: 'var(--ink-2)' }}>
             {libraryName}

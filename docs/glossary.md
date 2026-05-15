@@ -11,7 +11,7 @@
 
 | 中文 | English | 中文解释 |
 |---|---|---|
-| 产品名(暂定) | **MuseumPass MA** | 服务范围是 Massachusetts 全境;Logo / 浏览器标题 / 顶部 brand 用此名 |
+| 产品名 | **MuseumPapa** | 服务范围是 Massachusetts 全境;Logo / 浏览器标题 / 顶部 brand 用此名。原名 MuseumPass MA 已弃用(2026-05-16) |
 | 项目代号(内部) | North Shore Library Benefits | 仓库名 / 内部文档名仍沿用;不出现在 UI |
 | 折扣指南 | Discount guide / Pass finder | 产品定位描述,不是 UI 文案 |
 
@@ -34,9 +34,9 @@
 
 | 中文 | English | 中文解释 |
 |---|---|---|
-| 电子券 | **Digital pass** | 在线领取的 coupon,链接发邮箱或浏览器内出示;**距离成本 = 0** |
-| 纸质 | **Physical pickup** | 用户必须去对应图书馆 pickup 拿到实体凭证;**单程距离成本** |
-| 取还 | **Pickup & return** | 去图书馆 pickup,使用后还要 return;**双程距离成本** |
+| 电子券 | **E-pass** (UI 显示) / Digital pass (内部) | 在线领取的 coupon,链接发邮箱或浏览器内出示;**距离成本 = 0**。UI 弃用 "Online" (2026-05-16:不够地道) |
+| 纸质 | **Pickup** | 用户必须去对应图书馆 pickup 拿到实体凭证;**单程距离成本** |
+| 取还 | **Pickup & Return** | 去图书馆 pickup,使用后还要 return;**双程距离成本** |
 
 > Internal pass_type enum:`digital` / `physical-coupon` / `loan-card`(数据字段名保留 backup 命名)
 
@@ -107,7 +107,7 @@
 
 ---
 
-## 8. 状态文案
+## 8. 状态文案 / 关键 UI 文案
 
 | 中文 | English | 中文解释 |
 |---|---|---|
@@ -115,8 +115,19 @@
 | 即将开放 | **Opens soon** | 库存日历状态 |
 | 已售罄 | **Booked / Sold out** | 库存状态 |
 | 未知 | **Unknown** | scraper 失败时,避免误判为"满" |
-| 登录后可见 | **Sign in to view X discount options** | 游客/admin 卡片底部小字,X = 该景点合作馆数 |
+| 登录后可见 | **Sign in to view X discount options** | 游客/admin 卡片底部小字 |
 | 添加你的 library pass | **Add your library pass to unlock discounts →** | 顶部 banner 文案(游客/admin) |
+| 当日没 coupon | **No coupons available today** | 卡片底部弱化提示 |
+| 当日不营业 | **Closed today** | 卡片角标 + 整卡置灰 |
+| 价格行 | **$30 adult · $25 kids** | 景点 header 原价(2026-05-16 弃用 "Adult $30 Child $25" 误读形式) |
+| 详情页 section 标题 | **Available coupons** | 替代 "Discount options"(2026-05-16) |
+| 详情页 per-date 计数 | **N coupons available** | 替代 "N options"(2026-05-16) |
+| 预约弹窗 header | **GET PASS FROM** + Library Name | 替代 "Reserve at"(2026-05-16:NA museum pass 程序的标准动词) |
+| 预约弹窗主 CTA | **Go to library website →** | 跳转 source_url 新标签页 |
+| 预约弹窗 credential 框 | **Card number** / **PIN** | 库卡卡号 / 4 位数 PIN(选填) |
+| Copy 按钮 | **COPY** / **COPIED ✓** | UI 全大写惯例 |
+| favorite 按钮 aria | **Add to favorites** / **Remove from favorites** | 心形 toggle |
+| Book 按钮 | **Book** | option 行右侧 CTA |
 
 ---
 

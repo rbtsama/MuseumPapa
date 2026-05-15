@@ -128,17 +128,18 @@ export function AttractionCard({
               attention-grabber. Real-money emphasis belongs on the discounted
               option rows below. */}
           {adult != null && (
-            <p className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-0.5" style={{ fontSize: 12 }}>
-              <span style={{ color: 'var(--ink-3)' }}>Adult</span>
+            <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5" style={{ fontSize: 12 }}>
               <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink-2)' }}>
                 {fmtMoney(adult)}
               </span>
+              <span style={{ color: 'var(--ink-3)' }}>adult</span>
               {child != null && (
                 <>
-                  <span className="ml-1" style={{ color: 'var(--ink-3)' }}>Child</span>
+                  <span style={{ color: 'var(--ink-3)' }}>·</span>
                   <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink-2)' }}>
                     {fmtMoney(child)}
                   </span>
+                  <span style={{ color: 'var(--ink-3)' }}>kids</span>
                 </>
               )}
             </p>

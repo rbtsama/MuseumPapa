@@ -31,7 +31,7 @@ export function SignInModal({ isOpen, onClose }: Props) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalContent>
-        <ModalHeader>Sign in to MuseumPass MA</ModalHeader>
+        <ModalHeader>Sign in to MuseumPapa</ModalHeader>
         <ModalBody>
           {error && <p style={{ color: 'var(--rd)' }}>{error}</p>}
           <Input

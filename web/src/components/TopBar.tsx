@@ -23,7 +23,7 @@ export function TopBar() {
     >
       <Link to="/" className="font-serif truncate flex-shrink-0"
         style={{ fontSize: 17, color: 'var(--white)' }}>
-        MuseumPass MA
+        MuseumPapa
       </Link>
 
       <div className="flex items-center gap-2 sm:gap-3 flex-shrink min-w-0">

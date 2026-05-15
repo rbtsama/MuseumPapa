@@ -181,7 +181,7 @@ export function AttractionDetail() {
       )}
 
       <h2 className="font-serif" style={{ fontSize: 18, marginBottom: 8, color: 'var(--ink-2)' }}>
-        Discount options
+        Available coupons
       </h2>
       <div style={{ display: 'flex', gap: 12, marginBottom: 16, alignItems: 'center', flexWrap: 'wrap' }}>
         <label style={{ fontSize: 12, color: 'var(--ink-3)' }}>From:</label>
@@ -209,7 +209,7 @@ export function AttractionDetail() {
         return (
           <div key={date} style={{ marginBottom: 16, borderBottom: '1px solid var(--rule)', paddingBottom: 12 }}>
             <div style={{ fontSize: 13, color: 'var(--ink-3)', marginBottom: 6 }}>
-              {date} · {rows.length} option{rows.length === 1 ? '' : 's'}
+              {date} · {rows.length} coupon{rows.length === 1 ? '' : 's'} available
             </div>
             {rows.length === 0 ? (
               <div style={{ fontSize: 12, color: 'var(--ink-3)', fontStyle: 'italic' }}>
