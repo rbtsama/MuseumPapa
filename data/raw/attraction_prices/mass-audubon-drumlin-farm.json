@@ -1,12 +1,12 @@
 {
   "slug": "mass-audubon-drumlin-farm",
-  "status": "ok",
-  "adult": 8,
-  "child": 6,
-  "senior": 7,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Mass Audubon member discount; prices from massaudubon.org",
+  "notes": null,
   "source_url": "http://www.massaudubon.org/"
 }

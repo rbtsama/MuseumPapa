@@ -1,12 +1,12 @@
 {
   "slug": "boston-by-foot",
-  "status": "ok",
-  "adult": 20,
-  "child": 10,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
   "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Walking tour prices from bostonbyfoot.org; prices on booking page",
+  "notes": null,
   "source_url": "http://www.bostonbyfoot.org/"
 }

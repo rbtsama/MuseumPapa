@@ -1,12 +1,12 @@
 {
   "slug": "ica-boston",
-  "status": "ok",
-  "adult": 25,
-  "child": 0,
-  "senior": 20,
-  "student": 20,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
+  "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Free Thursdays 5-9pm and for under-18; prices from icaboston.org/visit",
-  "source_url": "https://www.icaboston.org/"
+  "notes": null,
+  "source_url": "https://www.icaboston.org/tickets"
 }

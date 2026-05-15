@@ -1,12 +1,12 @@
 {
   "slug": "sandmagination",
-  "status": "ok",
-  "adult": 90,
+  "status": "failed:no_extractable_price",
+  "adult": null,
   "child": null,
   "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Family sandcastle event; pricing may vary by session",
+  "notes": null,
   "source_url": "https://sandmagination.com/"
 }

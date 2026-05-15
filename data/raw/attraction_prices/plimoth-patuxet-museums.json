@@ -1,12 +1,12 @@
 {
   "slug": "plimoth-patuxet-museums",
-  "status": "ok",
-  "adult": 32,
-  "child": 20,
-  "senior": 30,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Prices from plimoth.org; page had no prices in HTML",
+  "notes": null,
   "source_url": "http://www.plimoth.org/"
 }

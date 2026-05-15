@@ -1,12 +1,12 @@
 {
   "slug": "zoo-new-england",
-  "status": "ok",
-  "adult": 26,
-  "child": 18,
-  "senior": 21,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Franklin Park Zoo prices; from zoonewengland.org",
+  "notes": null,
   "source_url": "http://www.zoonewengland.org/"
 }

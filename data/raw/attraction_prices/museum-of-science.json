@@ -1,12 +1,12 @@
 {
   "slug": "museum-of-science",
-  "status": "ok",
-  "adult": 33,
-  "child": 28,
-  "senior": 29,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
-  "free_under_age": 2,
-  "notes": "Members free",
+  "free_under_age": null,
+  "notes": null,
   "source_url": "http://www.mos.org/"
 }

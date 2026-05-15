@@ -1,12 +1,12 @@
 {
   "slug": "real-pirates-salem",
-  "status": "ok",
-  "adult": 18,
-  "child": 12,
-  "senior": 16,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Prices from realpiratessalem.com; booking widget not rendered",
+  "notes": null,
   "source_url": "https://www.realpiratessalem.com/"
 }

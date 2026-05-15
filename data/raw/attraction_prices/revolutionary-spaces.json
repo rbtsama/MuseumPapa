@@ -1,12 +1,12 @@
 {
   "slug": "revolutionary-spaces",
-  "status": "ok",
-  "adult": 16,
-  "child": 8,
-  "senior": 14,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Prices from revolutionaryspaces.org; page had no prices in HTML",
-  "source_url": "https://revolutionaryspaces.org/"
+  "notes": null,
+  "source_url": "https://revolutionaryspaces.org/tickets"
 }

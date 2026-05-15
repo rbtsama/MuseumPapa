@@ -1,12 +1,12 @@
 {
   "slug": "the-aviation-museum-of-new-hampshire",
-  "status": "ok",
-  "adult": 12,
-  "child": 8,
-  "senior": 10,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Prices from aviationmuseumofnh.org; page had no prices in HTML",
+  "notes": null,
   "source_url": "https://aviationmuseumofnh.org/"
 }

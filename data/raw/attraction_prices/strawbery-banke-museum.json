@@ -1,12 +1,12 @@
 {
   "slug": "strawbery-banke-museum",
-  "status": "ok",
-  "adult": 25,
-  "child": 15,
-  "senior": 23,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Prices from strawberybanke.org; free text was about membership",
-  "source_url": "http://www.strawberybanke.org/"
+  "notes": null,
+  "source_url": "http://www.strawberybanke.org/tickets"
 }

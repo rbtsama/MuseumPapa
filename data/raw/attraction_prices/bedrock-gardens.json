@@ -1,12 +1,12 @@
 {
   "slug": "bedrock-gardens",
-  "status": "ok",
-  "adult": 15,
-  "child": 8,
-  "senior": 13,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Prices from bedrockgardens.org; page had no prices in HTML",
+  "notes": null,
   "source_url": "https://www.bedrockgardens.org/"
 }

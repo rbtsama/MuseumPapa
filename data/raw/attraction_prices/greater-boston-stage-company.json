@@ -1,12 +1,12 @@
 {
   "slug": "greater-boston-stage-company",
-  "status": "ok",
-  "adult": 35,
-  "child": 20,
-  "senior": 32,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Prices from greaterbostonstage.org; vary by show/seating",
-  "source_url": "https://www.greaterbostonstage.org/"
+  "notes": null,
+  "source_url": "https://www.greaterbostonstage.org/plan-your-visit"
 }

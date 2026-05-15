@@ -1,12 +1,12 @@
 {
   "slug": "heritage-museums-and-gardens",
-  "status": "ok",
-  "adult": 22,
-  "child": 10,
-  "senior": 20,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Prices from heritagemuseumsandgardens.org; page had no prices in HTML",
-  "source_url": "https://heritagemuseumsandgardens.org/"
+  "notes": null,
+  "source_url": "https://heritagemuseumsandgardens.org/admission"
 }

@@ -1,12 +1,12 @@
 {
   "slug": "mfa",
-  "status": "ok",
-  "adult": 30,
-  "child": 0,
-  "senior": 27,
-  "student": 27,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
+  "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Youth under 18 free; Wed evening free for MA residents. Prices from mfa.org",
-  "source_url": "https://www.mfa.org/"
+  "notes": null,
+  "source_url": "https://www.mfa.org/tickets"
 }

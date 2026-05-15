@@ -1,12 +1,12 @@
 {
   "slug": "boston-harbor-island-ferry",
-  "status": "ok",
-  "adult": 25,
-  "child": 17,
-  "senior": 23,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Ferry prices from bostonharborislands.org; prices not in fetched HTML",
+  "notes": null,
   "source_url": "http://www.bostonharborislands.org/"
 }

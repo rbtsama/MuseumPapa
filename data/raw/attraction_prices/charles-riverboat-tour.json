@@ -1,12 +1,12 @@
 {
   "slug": "charles-riverboat-tour",
-  "status": "ok",
-  "adult": 25,
-  "child": 15,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
   "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Cruise prices from charlesriverboat.com; prices vary by tour",
+  "notes": null,
   "source_url": "https://charlesriverboat.com/"
 }

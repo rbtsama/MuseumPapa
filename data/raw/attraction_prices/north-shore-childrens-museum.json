@@ -1,12 +1,12 @@
 {
   "slug": "north-shore-childrens-museum",
-  "status": "ok",
-  "adult": 8,
-  "child": 8,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
   "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Prices from northshorechildrensmuseum.org; free text was for under 1",
+  "notes": null,
   "source_url": "https://www.nschildrensmuseum.org/"
 }

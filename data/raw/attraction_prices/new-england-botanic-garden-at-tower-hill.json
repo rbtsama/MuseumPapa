@@ -1,12 +1,12 @@
 {
   "slug": "new-england-botanic-garden-at-tower-hill",
-  "status": "ok",
-  "adult": 22,
-  "child": 6,
-  "senior": 20,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Prices from nebg.org; discount page fetched, not main admission page",
+  "notes": null,
   "source_url": "https://www.nebg.org/"
 }

@@ -1,12 +1,12 @@
 {
   "slug": "paul-revere-house",
-  "status": "ok",
-  "adult": 6,
-  "child": 2,
-  "senior": 5,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Prices from paulreverehouse.org",
+  "notes": null,
   "source_url": "https://www.paulreverehouse.org/"
 }

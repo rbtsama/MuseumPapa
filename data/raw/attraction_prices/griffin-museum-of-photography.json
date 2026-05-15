@@ -1,12 +1,12 @@
 {
   "slug": "griffin-museum-of-photography",
-  "status": "ok",
-  "adult": 10,
-  "child": 0,
-  "senior": 8,
-  "student": 8,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
+  "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Prices from griffinmuseum.org; ticket checkout page loaded without prices",
+  "notes": null,
   "source_url": "http://www.griffinmuseum.org/"
 }

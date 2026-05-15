@@ -1,12 +1,12 @@
 {
   "slug": "garden-in-the-woods-native-plant-trust",
-  "status": "ok",
-  "adult": 18,
-  "child": 5,
-  "senior": 16,
+  "status": "failed:no_extractable_price",
+  "adult": null,
+  "child": null,
+  "senior": null,
   "student": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Prices from nativeplanttrust.org; page had no prices in HTML",
+  "notes": null,
   "source_url": "http://www.nativeplanttrust.org/"
 }
