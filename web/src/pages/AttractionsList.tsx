@@ -150,12 +150,8 @@ export function AttractionsList() {
     <>
       <Banner onSignInClick={() => setSignInOpen(true)} />
       <SignInModal isOpen={signInOpen} onClose={() => setSignInOpen(false)} />
-      <div className="max-w-6xl mx-auto px-3 sm:px-6 py-4 sm:py-6">
-        <h1 className="font-serif mb-3 sm:mb-4" style={{ fontSize: 22, color: 'var(--ink-2)' }}>
-          Attractions
-        </h1>
-
-        <div className="flex flex-wrap gap-3 sm:gap-4 mb-3 items-end">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 py-3 sm:py-4">
+        <div className="flex flex-wrap gap-2 mb-3 items-center">
           <DatePicker value={date} onChange={setDate} />
           <SortDropdown value={sort} onChange={setSort} distanceEnabled={!!userGeo} />
         </div>
