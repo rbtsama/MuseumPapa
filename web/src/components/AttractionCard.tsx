@@ -3,6 +3,7 @@ import type { Attraction, Pass } from '../data/types';
 import type { PickedTag } from '../lib/tag-algorithm';
 import { FavoriteButton } from './FavoriteButton';
 import { PassTypeLabel } from './PassTypeLabel';
+import { DiscountBadge } from './DiscountBadge';
 import { applyDiscount } from '../lib/price-fallback';
 import { hoursForDate } from '../lib/hours';
 
@@ -174,28 +175,32 @@ export function AttractionCard({
             return (
               <div
                 key={`${t.pass.library_id}-${i}`}
-                className="flex items-center gap-2 px-3 py-2"
+                className="px-3 py-2.5"
                 style={{ borderTop: i === 0 ? 'none' : '1px solid var(--rule)' }}
               >
-                <PassTypeLabel type={t.pass.pass_type} />
+                <div className="flex items-center gap-2">
+                  <PassTypeLabel type={t.pass.pass_type} />
 
-                <div className="flex-grow min-w-0">
-                  <div style={{ fontSize: 13, color: 'var(--ink-2)', fontWeight: 500,
-                    overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                    {isDigital ? t.library.name : t.library.town}
-                    {!isDigital && t.distanceMi != null && (
-                      <span style={{ fontSize: 11, color: 'var(--ink-3)', fontWeight: 400 }}>
-                        {' '}· {Math.round(t.distanceMi)} mi
-                      </span>
-                    )}
+                  <div className="flex-grow min-w-0">
+                    <div style={{ fontSize: 13, color: 'var(--ink-2)', fontWeight: 500,
+                      overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {isDigital ? t.library.name : t.library.town}
+                      {!isDigital && t.distanceMi != null && (
+                        <span style={{ fontSize: 11, color: 'var(--ink-3)', fontWeight: 400 }}>
+                          {' '}· {Math.round(t.distanceMi)} mi
+                        </span>
+                      )}
+                    </div>
                   </div>
+
+                  <DiscountBadge discount={t.pass.discount} originalPrice={attraction.original_price} />
                 </div>
 
-                {/* Price — uniform bold/large/green for both 'Free' and dollar amounts */}
-                <div className="text-right flex-shrink-0">
+                <div className="mt-1.5 flex items-center justify-end gap-3">
+                  {/* Price — uniform bold/large/green for both 'Free' and dollar amounts */}
                   {showStrike ? (
-                    <div className="flex items-baseline gap-1.5 justify-end">
-                      <span style={{ fontSize: 11, color: 'var(--ink-3)', textDecoration: 'line-through' }}>
+                    <div className="flex items-baseline gap-1.5">
+                      <span style={{ fontSize: 12, color: 'var(--ink-3)', textDecoration: 'line-through' }}>
                         {fmtMoney(adult)}
                       </span>
                       <span style={MONEY_STYLE}>
@@ -207,29 +212,28 @@ export function AttractionCard({
                   ) : finalPrice != null ? (
                     <span style={MONEY_STYLE}>{fmtMoney(finalPrice)}</span>
                   ) : (
-                    <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--g)' }}>
+                    <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--g)' }}>
                       {t.pass.discount.label || '—'}
                     </span>
                   )}
+                  <button
+                    type="button"
+                    onClick={(e) => handleBook(e, t.pass)}
+                    className="flex-shrink-0 rounded-md"
+                    style={{
+                      background: 'var(--g)',
+                      color: 'var(--white)',
+                      fontSize: 12,
+                      fontWeight: 600,
+                      padding: '7px 14px',
+                      border: 'none',
+                      cursor: 'pointer',
+                      letterSpacing: '0.02em',
+                    }}
+                  >
+                    Book →
+                  </button>
                 </div>
-
-                {/* Book button */}
-                <button
-                  type="button"
-                  onClick={(e) => handleBook(e, t.pass)}
-                  className="flex-shrink-0 rounded-md"
-                  style={{
-                    background: 'var(--g)',
-                    color: 'var(--white)',
-                    fontSize: 12,
-                    fontWeight: 600,
-                    padding: '6px 10px',
-                    border: 'none',
-                    cursor: 'pointer',
-                  }}
-                >
-                  Book
-                </button>
               </div>
             );
           })}
