@@ -5,6 +5,8 @@ import {
 } from '../data/load';
 import { PassTypeLabel } from '../components/PassTypeLabel';
 import { DiscountLine } from '../components/DiscountLine';
+import { GuestLockedRow } from '../components/GuestLockedRow';
+import { SignInModal } from '../components/SignInModal';
 import { FavoriteButton } from '../components/FavoriteButton';
 import { useAuth } from '../auth/store';
 import { useCardpack } from '../stores/cardpack';
@@ -48,6 +50,7 @@ export function AttractionDetail() {
   const [startDate, setStartDate] = useState(() => todayIso());
   const [windowSize, setWindowSize] = useState(7);
   const [bookingPass, setBookingPass] = useState<Pass | null>(null);
+  const [signInOpen, setSignInOpen] = useState(false);
 
   useEffect(() => {
     loadCardpack(user?.username ?? null);
@@ -135,11 +138,24 @@ export function AttractionDetail() {
           <p style={{ color: 'var(--ink-3)', fontSize: 12, marginTop: 4 }}>
             Categories: {attraction.categories.join(' · ')}
           </p>
+          {attraction.description && (
+            <p style={{ marginTop: 12, fontSize: 13, color: 'var(--ink-3)', lineHeight: 1.55 }}>
+              {attraction.description}
+            </p>
+          )}
           <p style={{ marginTop: 12, fontSize: 13 }}>
             {formatPriceLine(attraction.original_price, null) || 'Price unavailable'}
           </p>
+          {attraction.phone && (
+            <p style={{ marginTop: 8, fontSize: 12, color: 'var(--ink-3)' }}>
+              📞 <a
+                href={`tel:${attraction.phone.replace(/[^\d+]/g, '')}`}
+                style={{ color: 'var(--g)' }}
+              >{attraction.phone}</a>
+            </p>
+          )}
           {attraction.website && (
-            <p style={{ marginTop: 12, fontSize: 13 }}>
+            <p style={{ marginTop: 8, fontSize: 13 }}>
               <a href={attraction.website} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--g)' }}>
                 Visit official site →
               </a>
@@ -232,6 +248,16 @@ export function AttractionDetail() {
             ) : (
               <div className="flex flex-col gap-1.5">
                 {rows.slice(0, 10).map((r, i) => {
+                  if (!user) {
+                    return (
+                      <GuestLockedRow
+                        key={`${r.pass.library_id}-${i}`}
+                        pass={r.pass}
+                        library={r.library}
+                        onSignInRequest={() => setSignInOpen(true)}
+                      />
+                    );
+                  }
                   const isDigital = r.pass.pass_type === 'digital';
                   return (
                     <button
@@ -292,6 +318,7 @@ export function AttractionDetail() {
         cardpack={cardpack}
         onClose={() => setBookingPass(null)}
       />
+      <SignInModal isOpen={signInOpen} onClose={() => setSignInOpen(false)} />
     </div>
   );
 }
