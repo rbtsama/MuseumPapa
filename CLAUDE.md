@@ -61,6 +61,9 @@ Massachusetts eastern MA 区域的图书馆 museum-pass 福利数据建设项目
 │   ├── images/<slug>.<ext>          # hero 图本地缓存(gitignored)
 │   └── placeholders/<category>.svg  # category fallback SVG(入 git)
 ├── data/snapshots/<日期>/     # 历史快照,供 diff
+├── web/                       # 前端 (React + Vite + TS + HeroUI),plan-3 scaffold,plan-4 实现 UI
+│   ├── src/{pages,components,data,auth,lib,styles}/
+│   └── public/{images,placeholders}/   # 拷贝自 data/static/(gitignored 二进制)
 └── config/                    # 配置种子
     ├── library_seeds.json     # 59 馆元数据
     ├── platform_pass_ids/     # 三平台手工 pass-id 映射(bpl/libcal/museumkey)
@@ -102,6 +105,11 @@ python scripts/snapshot_diff.py
 ```bash
 pip install playwright
 playwright install chromium
+```
+
+```bash
+# Frontend dev server
+cd web && pnpm install && pnpm run dev
 ```
 
 ## Key Technical Decisions

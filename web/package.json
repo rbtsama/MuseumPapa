@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "copy:assets": "node -e \"const fs=require('fs');const path=require('path');for(const [s,d] of [['../data/static/images','public/images'],['../data/static/placeholders','public/placeholders']]){if(fs.existsSync(d))fs.rmSync(d,{recursive:true,force:true});if(fs.existsSync(s)){fs.cpSync(s,d,{recursive:true});console.log(s+' -> '+d+': '+fs.readdirSync(d).length+' files');}}\""
   },
   "dependencies": {
     "@heroui/react": "^2",
