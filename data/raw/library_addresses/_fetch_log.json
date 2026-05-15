@@ -1,0 +1,352 @@
+{
+  "wakefield": {
+    "lib_id": "wakefield",
+    "status": "ok",
+    "source_url": "https://www.wakefieldlibrary.org/visit",
+    "bytes": 141441
+  },
+  "stoneham": {
+    "lib_id": "stoneham",
+    "status": "ok",
+    "source_url": "https://stonehamlibrary.org/hours",
+    "bytes": 216236
+  },
+  "reading": {
+    "lib_id": "reading",
+    "status": "ok",
+    "source_url": "https://www.readingpl.org/",
+    "bytes": 95980
+  },
+  "woburn": {
+    "lib_id": "woburn",
+    "status": "ok",
+    "source_url": "https://www.woburnpubliclibrary.org/contact",
+    "bytes": 104279
+  },
+  "lynnfield": {
+    "lib_id": "lynnfield",
+    "status": "ok",
+    "source_url": "https://www.lynnfieldlibrary.org/about",
+    "bytes": 119704
+  },
+  "peabody": {
+    "lib_id": "peabody",
+    "status": "ok",
+    "source_url": "https://peabodylibrary.org/about",
+    "bytes": 163550
+  },
+  "melrose": {
+    "lib_id": "melrose",
+    "status": "ok",
+    "source_url": "https://melrosepubliclibrary.org/",
+    "bytes": 68058
+  },
+  "saugus": {
+    "lib_id": "saugus",
+    "status": "ok",
+    "source_url": "https://sauguspubliclibrary.org/visit",
+    "bytes": 105703
+  },
+  "malden": {
+    "lib_id": "malden",
+    "status": "ok",
+    "source_url": "https://maldenpubliclibrary.org/about",
+    "bytes": 61279
+  },
+  "medford": {
+    "lib_id": "medford",
+    "status": "ok",
+    "source_url": "https://medfordlibrary.org/hours",
+    "bytes": 125566
+  },
+  "burlington": {
+    "lib_id": "burlington",
+    "status": "ok",
+    "source_url": "https://www.burlington.org/",
+    "bytes": 110014
+  },
+  "north-reading": {
+    "lib_id": "north-reading",
+    "status": "ok",
+    "source_url": "https://www.flintmemoriallibrary.org/hours",
+    "bytes": 78898
+  },
+  "wilmington": {
+    "lib_id": "wilmington",
+    "status": "ok",
+    "source_url": "https://wilmlibrary.org/visit",
+    "bytes": 68863
+  },
+  "winchester": {
+    "lib_id": "winchester",
+    "status": "ok",
+    "source_url": "https://www.winpublib.org/hours",
+    "bytes": 110386
+  },
+  "bpl": {
+    "lib_id": "bpl",
+    "status": "ok",
+    "source_url": "https://www.bpl.org/visit",
+    "bytes": 426872
+  },
+  "beverly": {
+    "lib_id": "beverly",
+    "status": "ok",
+    "source_url": "https://beverlypubliclibrary.org/hours",
+    "bytes": 93445
+  },
+  "danvers": {
+    "lib_id": "danvers",
+    "status": "ok",
+    "source_url": "https://danverslibrary.org/hours",
+    "bytes": 281993
+  },
+  "lynn": {
+    "lib_id": "lynn",
+    "status": "ok",
+    "source_url": "https://lynnpubliclibrary.org/hours",
+    "bytes": 47684
+  },
+  "marblehead": {
+    "lib_id": "marblehead",
+    "status": "ok",
+    "source_url": "https://www.abbotlibrary.org/about",
+    "bytes": 451767
+  },
+  "everett": {
+    "lib_id": "everett",
+    "status": "ok",
+    "source_url": "https://www.everettpubliclibraries.org/about",
+    "bytes": 142304
+  },
+  "chelsea": {
+    "lib_id": "chelsea",
+    "status": "ok",
+    "source_url": "https://www.chelseama.gov/contact",
+    "bytes": 82417
+  },
+  "billerica": {
+    "lib_id": "billerica",
+    "status": "ok",
+    "source_url": "https://billericalibrary.org/contact",
+    "bytes": 141024
+  },
+  "topsfield": {
+    "lib_id": "topsfield",
+    "status": "ok",
+    "source_url": "https://www.topsfieldlibrary.org/contact",
+    "bytes": 244855
+  },
+  "boxford": {
+    "lib_id": "boxford",
+    "status": "ok",
+    "source_url": "https://boxfordlibrary.org/",
+    "bytes": 87680
+  },
+  "tewksbury": {
+    "lib_id": "tewksbury",
+    "status": "failed:fetch_failed:HTTP Error 403: Forbidden"
+  },
+  "chelmsford": {
+    "lib_id": "chelmsford",
+    "status": "ok",
+    "source_url": "https://chelmsfordlibrary.org/hours",
+    "bytes": 69443
+  },
+  "haverhill": {
+    "lib_id": "haverhill",
+    "status": "ok",
+    "source_url": "https://www.haverhillpl.org/hours",
+    "bytes": 89756
+  },
+  "lawrence": {
+    "lib_id": "lawrence",
+    "status": "ok",
+    "source_url": "https://www.lawrencefreelibrary.org/",
+    "bytes": 1855978
+  },
+  "methuen": {
+    "lib_id": "methuen",
+    "status": "ok",
+    "source_url": "https://www.nevinslibrary.org/contact",
+    "bytes": 104911
+  },
+  "andover": {
+    "lib_id": "andover",
+    "status": "ok",
+    "source_url": "https://mhl.org/visit",
+    "bytes": 135544
+  },
+  "north-andover": {
+    "lib_id": "north-andover",
+    "status": "ok",
+    "source_url": "https://www.stevensmemlib.org/hours",
+    "bytes": 29565
+  },
+  "middleton": {
+    "lib_id": "middleton",
+    "status": "ok",
+    "source_url": "https://flintlibrary.org/",
+    "bytes": 252815
+  },
+  "arlington": {
+    "lib_id": "arlington",
+    "status": "failed:fetch_failed:HTTP Error 403: Forbidden"
+  },
+  "newton": {
+    "lib_id": "newton",
+    "status": "ok",
+    "source_url": "https://www.newtonfreelibrary.net/hours",
+    "bytes": 103583
+  },
+  "lincoln": {
+    "lib_id": "lincoln",
+    "status": "ok",
+    "source_url": "https://lincolnpl.org/hours",
+    "bytes": 184911
+  },
+  "acton": {
+    "lib_id": "acton",
+    "status": "ok",
+    "source_url": "https://actonmemoriallibrary.org/about",
+    "bytes": 116725
+  },
+  "framingham": {
+    "lib_id": "framingham",
+    "status": "ok",
+    "source_url": "https://framinghamlibrary.org/about",
+    "bytes": 43228
+  },
+  "maynard": {
+    "lib_id": "maynard",
+    "status": "ok",
+    "source_url": "https://www.maynardpubliclibrary.org/",
+    "bytes": 897073
+  },
+  "carlisle": {
+    "lib_id": "carlisle",
+    "status": "ok",
+    "source_url": "https://gleasonlibrary.org/hours",
+    "bytes": 87223
+  },
+  "wayland": {
+    "lib_id": "wayland",
+    "status": "ok",
+    "source_url": "https://www.waylandlibrary.org/about",
+    "bytes": 193391
+  },
+  "weston": {
+    "lib_id": "weston",
+    "status": "ok",
+    "source_url": "https://www.westonlibrary.org/",
+    "bytes": 128377
+  },
+  "sudbury": {
+    "lib_id": "sudbury",
+    "status": "ok",
+    "source_url": "https://goodnowlibrary.org/contact",
+    "bytes": 78832
+  },
+  "belmont": {
+    "lib_id": "belmont",
+    "status": "ok",
+    "source_url": "https://www.belmontpubliclibrary.net/visit",
+    "bytes": 113955
+  },
+  "lexington": {
+    "lib_id": "lexington",
+    "status": "ok",
+    "source_url": "https://www.carylibrary.org/hours",
+    "bytes": 101227
+  },
+  "wellesley": {
+    "lib_id": "wellesley",
+    "status": "ok",
+    "source_url": "https://www.wellesleyfreelibrary.org/contact",
+    "bytes": 120085
+  },
+  "waltham": {
+    "lib_id": "waltham",
+    "status": "ok",
+    "source_url": "https://walthampubliclibrary.org/hours",
+    "bytes": 134806
+  },
+  "watertown": {
+    "lib_id": "watertown",
+    "status": "ok",
+    "source_url": "https://www.watertownlib.org/visit",
+    "bytes": 246304
+  },
+  "concord": {
+    "lib_id": "concord",
+    "status": "ok",
+    "source_url": "https://concordlibrary.org/visit",
+    "bytes": 33616
+  },
+  "bedford": {
+    "lib_id": "bedford",
+    "status": "ok",
+    "source_url": "https://bedfordlibrary.net/hours",
+    "bytes": 72246
+  },
+  "needham": {
+    "lib_id": "needham",
+    "status": "ok",
+    "source_url": "https://needhamlibrary.org/hours",
+    "bytes": 114991
+  },
+  "natick": {
+    "lib_id": "natick",
+    "status": "ok",
+    "source_url": "https://www.morseinstitute.org/",
+    "bytes": 95081
+  },
+  "somerville": {
+    "lib_id": "somerville",
+    "status": "ok",
+    "source_url": "https://www.somervillepubliclibrary.org/hours",
+    "bytes": 399086
+  },
+  "quincy": {
+    "lib_id": "quincy",
+    "status": "ok",
+    "source_url": "https://thomascranelibrary.org/locations",
+    "bytes": 151521
+  },
+  "cambridge": {
+    "lib_id": "cambridge",
+    "status": "ok",
+    "source_url": "https://www.cambridgema.gov/hours",
+    "bytes": 142695
+  },
+  "brookline": {
+    "lib_id": "brookline",
+    "status": "ok",
+    "source_url": "https://brooklinelibrary.org/visit",
+    "bytes": 73854
+  },
+  "braintree": {
+    "lib_id": "braintree",
+    "status": "ok",
+    "source_url": "https://www.thayerpubliclibrary.org/hours",
+    "bytes": 1454760
+  },
+  "milton": {
+    "lib_id": "milton",
+    "status": "ok",
+    "source_url": "https://www.miltonlibrary.org/about",
+    "bytes": 63121
+  },
+  "cohasset": {
+    "lib_id": "cohasset",
+    "status": "ok",
+    "source_url": "https://www.cohassetlibrary.org/",
+    "bytes": 134103
+  },
+  "hingham": {
+    "lib_id": "hingham",
+    "status": "ok",
+    "source_url": "https://hinghamlibrary.org/",
+    "bytes": 98712
+  }
+}
