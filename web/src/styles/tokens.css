@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  /* Background */
+  --bg: #F4F3EF;
+  --paper: #ECEAE4;
+  --white: #FAFAF7;
+
+  /* Ink */
+  --ink: #000000;
+  --ink-2: #1A1917;
+  --ink-3: #4A4845;
+
+  /* Primary green */
+  --g: #1B5740;
+  --g-2: #2A7055;
+  --g-light: #C4DDCF;
+  --g-pale: #EAF1EE;
+
+  /* Amber */
+  --au: #8C6018;
+  --au-pale: #F4EFE8;
+
+  /* Orange */
+  --or: #D97706;
+  --or-pale: #FDF1E2;
+
+  /* Red */
+  --rd: #8C2A1E;
+  --rd-pale: #F4EAE9;
+
+  /* Rules */
+  --rule: #D0CEC6;
+  --rule-strong: #B5B2A8;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink-2);
+  font-family: 'DM Sans', 'PingFang SC', 'Helvetica Neue', sans-serif;
+  font-size: 13px;
+  line-height: 1.78;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-serif {
+  font-family: 'Libre Baskerville', Georgia, serif;
+}
