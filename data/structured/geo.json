@@ -1,0 +1,788 @@
+{
+  "attractions": {
+    "boston-childrens-museum": {
+      "ok": true,
+      "lat": 42.3518468,
+      "lon": -71.0496461
+    },
+    "concord-museum": {
+      "ok": true,
+      "lat": 42.4576843,
+      "lon": -71.3417122
+    },
+    "davis-farmland": {
+      "ok": true,
+      "lat": 42.4358233,
+      "lon": -71.7275795
+    },
+    "the-discovery-museums": {
+      "ok": true,
+      "lat": 42.4641848,
+      "lon": -71.4552672
+    },
+    "ecotarium": {
+      "ok": true,
+      "lat": 42.2644394,
+      "lon": -71.7667726
+    },
+    "garden-in-the-woods-native-plant-trust": {
+      "ok": true,
+      "lat": 42.3413805,
+      "lon": -71.4272867
+    },
+    "harvard-museums-of-science-and-culture": {
+      "ok": true,
+      "lat": 42.3782138,
+      "lon": -71.1149279
+    },
+    "institute-of-contemporary-art-boston": {
+      "ok": true,
+      "lat": 42.3528651,
+      "lon": -71.0429628
+    },
+    "isabella-stewart-gardner-museum": {
+      "ok": true,
+      "lat": 42.338245,
+      "lon": -71.0991538
+    },
+    "john-f-kennedy-library-and-museum": {
+      "ok": true,
+      "lat": 42.3320968,
+      "lon": -71.0284871
+    },
+    "mass-audubon-drumlin-farm": {
+      "ok": true,
+      "lat": 42.4047062,
+      "lon": -71.3208652
+    },
+    "massachusetts-state-parks-department-of-conservation-and-recreation": {
+      "ok": false,
+      "error": "no_results"
+    },
+    "museum-of-fine-arts": {
+      "ok": true,
+      "lat": 42.3394573,
+      "lon": -71.093897
+    },
+    "museum-of-science": {
+      "ok": true,
+      "lat": 42.3674305,
+      "lon": -71.071098
+    },
+    "new-england-aquarium": {
+      "ok": false,
+      "error": "no_results"
+    },
+    "new-england-botanic-garden-at-tower-hill": {
+      "ok": true,
+      "lat": 42.3616083,
+      "lon": -71.7261263
+    },
+    "peabody-essex-museum": {
+      "ok": true,
+      "lat": 42.5215925,
+      "lon": -70.8921931
+    },
+    "the-trustees-of-the-reservations": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "zoo-new-england": {
+      "ok": true,
+      "lat": 42.3028346,
+      "lon": -71.0876281
+    },
+    "the-aviation-museum-of-new-hampshire": {
+      "ok": true,
+      "lat": 42.92738,
+      "lon": -71.4280802
+    },
+    "bedrock-gardens": {
+      "ok": true,
+      "lat": 43.0962062,
+      "lon": -71.042139
+    },
+    "boston-harbor-island-ferry": {
+      "ok": false,
+      "error": "no_results"
+    },
+    "childrens-museum-of-new-hampshire": {
+      "ok": true,
+      "lat": 43.1948506,
+      "lon": -70.8730038
+    },
+    "historic-new-england": {
+      "ok": false,
+      "error": "no_results"
+    },
+    "the-house-of-seven-gables": {
+      "ok": true,
+      "lat": 42.5218159,
+      "lon": -70.8838227
+    },
+    "new-england-quilt-museum": {
+      "ok": true,
+      "lat": 42.6453702,
+      "lon": -71.3120855
+    },
+    "new-hampshire-philharmonic-orchestra": {
+      "ok": false,
+      "error": "no_results"
+    },
+    "north-shore-childrens-museum": {
+      "ok": true,
+      "lat": 42.5256092,
+      "lon": -70.9269447
+    },
+    "plimoth-patuxet-museums": {
+      "ok": true,
+      "lat": 41.9393938,
+      "lon": -70.625786
+    },
+    "salem-witch-museum": {
+      "ok": true,
+      "lat": 42.5237449,
+      "lon": -70.8911625
+    },
+    "seacoast-science-center": {
+      "ok": false,
+      "error": "no_results"
+    },
+    "wenham-museum": {
+      "ok": true,
+      "lat": 42.6038387,
+      "lon": -70.887136
+    },
+    "mass-audubon": {
+      "ok": true,
+      "lat": 31.1728205,
+      "lon": -7.3362482
+    },
+    "armenian-museum-of-america": {
+      "ok": true,
+      "lat": 42.366366,
+      "lon": -71.1857857
+    },
+    "boston-by-foot": {
+      "ok": true,
+      "lat": 42.3584603,
+      "lon": -71.0679578
+    },
+    "gore-place": {
+      "ok": true,
+      "lat": 42.3725738,
+      "lon": -71.2127601
+    },
+    "orchard-house": {
+      "ok": true,
+      "lat": 42.4590881,
+      "lon": -71.3350541
+    },
+    "the-uss-constitution-museum": {
+      "ok": false,
+      "error": "no_results"
+    },
+    "american-heritage-museum": {
+      "ok": true,
+      "lat": 42.3938502,
+      "lon": -71.5383048
+    },
+    "the-butterfly-place": {
+      "ok": true,
+      "lat": 42.6419513,
+      "lon": -71.43968
+    },
+    "trustees-of-the-reservations": {
+      "ok": true,
+      "lat": 31.1728205,
+      "lon": -7.3362482
+    },
+    "boston-athenaeum": {
+      "ok": true,
+      "lat": 42.3579152,
+      "lon": -71.0620806
+    },
+    "the-childrens-piazza": {
+      "ok": false,
+      "error": "no_results"
+    },
+    "griffin-museum-of-photography": {
+      "ok": true,
+      "lat": 42.4545473,
+      "lon": -71.1358974
+    },
+    "naismith-memorial-basketball-hall-of-fame": {
+      "ok": true,
+      "lat": 42.0937115,
+      "lon": -72.58506
+    },
+    "the-danforth": {
+      "ok": true,
+      "lat": 42.3024928,
+      "lon": -71.4358628
+    },
+    "worcester-art-museum": {
+      "ok": true,
+      "lat": 42.2730336,
+      "lon": -71.801977
+    },
+    "americas-stonehenge": {
+      "ok": true,
+      "lat": 42.8432515,
+      "lon": -71.2049436
+    },
+    "currier-museum-of-art": {
+      "ok": true,
+      "lat": 42.9977038,
+      "lon": -71.455607
+    },
+    "museum-of-printing": {
+      "ok": true,
+      "lat": 42.7728423,
+      "lon": -71.1208851
+    },
+    "public-health-museum": {
+      "ok": false,
+      "error": "no_results"
+    },
+    "wheelock-family-theatre": {
+      "ok": false,
+      "error": "no_results"
+    },
+    "blithewold": {
+      "ok": false,
+      "error": "no_results"
+    },
+    "charles-river-museum-of-industry-and-innovation": {
+      "ok": true,
+      "lat": 42.3729771,
+      "lon": -71.2335933
+    },
+    "harvard-museum-of-natural-history": {
+      "ok": true,
+      "lat": 42.3782074,
+      "lon": -71.1154484
+    },
+    "american-repertory-theater": {
+      "ok": true,
+      "lat": 42.3748602,
+      "lon": -71.1229496
+    },
+    "paddle-boston": {
+      "ok": true,
+      "lat": 42.3595414,
+      "lon": -71.2457292
+    },
+    "the-icon-museum-and-study-center": {
+      "ok": true,
+      "lat": 42.4156265,
+      "lon": -71.6835581
+    },
+    "sandmagination": {
+      "ok": true,
+      "lat": 42.5411458,
+      "lon": -70.9461642
+    },
+    "harvard-art-museums": {
+      "ok": true,
+      "lat": 42.3742178,
+      "lon": -71.1145269
+    },
+    "paul-revere-house": {
+      "ok": true,
+      "lat": 42.3637378,
+      "lon": -71.0536827
+    },
+    "animal-adventures": {
+      "ok": true,
+      "lat": 42.4509712,
+      "lon": -71.5846761
+    },
+    "christian-science-plaza": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "real-pirates-salem": {
+      "ok": true,
+      "lat": 42.5198178,
+      "lon": -70.8912532
+    },
+    "roger-williams-park-zoo": {
+      "ok": true,
+      "lat": 41.7886061,
+      "lon": -71.4165508
+    },
+    "strawbery-banke-museum": {
+      "ok": true,
+      "lat": 43.0753205,
+      "lon": -70.7521466
+    },
+    "battleship-cove": {
+      "ok": true,
+      "lat": 41.7068931,
+      "lon": -71.1629563
+    },
+    "decordova-sculpture-park-and-museum": {
+      "ok": true,
+      "lat": 42.4299852,
+      "lon": -71.3111241
+    },
+    "the-gardens-at-elm-bank": {
+      "ok": true,
+      "lat": 42.28045,
+      "lon": -71.30787
+    },
+    "old-sturbridge-village": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "historic-newton": {
+      "ok": true,
+      "lat": 42.3300435,
+      "lon": -71.194862
+    },
+    "larz-anderson-auto-museum": {
+      "ok": true,
+      "lat": 42.3104567,
+      "lon": -71.134743
+    },
+    "west-suburban-ymca": {
+      "ok": true,
+      "lat": 42.3300435,
+      "lon": -71.194862
+    },
+    "heritage-museums-and-gardens": {
+      "ok": true,
+      "lat": 41.7486723,
+      "lon": -70.5059897
+    },
+    "new-bedford-whaling-museum": {
+      "ok": true,
+      "lat": 41.635169,
+      "lon": -70.9231848
+    },
+    "sandwich-glass-museum": {
+      "ok": true,
+      "lat": 41.7586908,
+      "lon": -70.500422
+    },
+    "greater-boston-stage-company": {
+      "ok": true,
+      "lat": 42.4791611,
+      "lon": -71.1006441
+    },
+    "massachusetts-state-police-museum-and-learning-center": {
+      "ok": true,
+      "lat": 42.1107574,
+      "lon": -71.6645834
+    },
+    "the-spellman-museum-of-stamps-and-postal-history": {
+      "ok": true,
+      "lat": 42.3484608,
+      "lon": -71.3071015
+    },
+    "einsteins-workshop": {
+      "ok": true,
+      "lat": 42.4699097,
+      "lon": -71.2136793
+    },
+    "patriots-hall-of-fame": {
+      "ok": true,
+      "lat": 42.0894304,
+      "lon": -71.2603702
+    },
+    "american-rep-theater": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "boch-center": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "boston-harbor-islands": {
+      "ok": true,
+      "lat": 42.3601996,
+      "lon": -71.0524197
+    },
+    "ma-state-parks": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "hale-education": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "harvard-museums": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "mapparium": {
+      "ok": true,
+      "lat": 42.3457649,
+      "lon": -71.0868834
+    },
+    "ica-boston": {
+      "ok": true,
+      "lat": 42.3528651,
+      "lon": -71.0429628
+    },
+    "isabella-stewart-gardner": {
+      "ok": true,
+      "lat": 42.338245,
+      "lon": -71.0991538
+    },
+    "larz-anderson": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "mfa": {
+      "ok": true,
+      "lat": 42.3394573,
+      "lon": -71.093897
+    },
+    "revolutionary-spaces": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "sandwich-glass": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "greenway-carousel": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "trustees-of-reservations": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "uss-constitution-museum": {
+      "ok": true,
+      "lat": 42.3738878,
+      "lon": -71.0555158
+    },
+    "maah": {
+      "ok": true,
+      "lat": 42.359995,
+      "lon": -71.0652097
+    },
+    "charles-riverboat-tour": {
+      "ok": true,
+      "lat": 42.3677346,
+      "lon": -71.0761804
+    },
+    "butterfly-place": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "cohasset-historical-society": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "jfk-library": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "plimoth-patuxet": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "heritage-museums-gardens": {
+      "ok": false,
+      "error": "no_address"
+    }
+  },
+  "libraries": {
+    "acton": {
+      "ok": true,
+      "lat": 42.4866602,
+      "lon": -71.43342
+    },
+    "andover": {
+      "ok": true,
+      "lat": 42.656828,
+      "lon": -71.1414112
+    },
+    "arlington": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "bedford": {
+      "ok": true,
+      "lat": 42.4923139,
+      "lon": -71.2841881
+    },
+    "belmont": {
+      "ok": true,
+      "lat": 42.3946196,
+      "lon": -71.1722221
+    },
+    "beverly": {
+      "ok": true,
+      "lat": 42.5509176,
+      "lon": -70.8766929
+    },
+    "billerica": {
+      "ok": true,
+      "lat": 42.5583785,
+      "lon": -71.2699681
+    },
+    "boxford": {
+      "ok": true,
+      "lat": 42.6941048,
+      "lon": -71.0145511
+    },
+    "bpl": {
+      "ok": true,
+      "lat": 42.3493298,
+      "lon": -71.0786547
+    },
+    "braintree": {
+      "ok": true,
+      "lat": 42.2056618,
+      "lon": -71.0042666
+    },
+    "brookline": {
+      "ok": true,
+      "lat": 42.3346378,
+      "lon": -71.1213843
+    },
+    "burlington": {
+      "ok": true,
+      "lat": 42.5061899,
+      "lon": -71.1938589
+    },
+    "cambridge": {
+      "ok": true,
+      "lat": 42.3671148,
+      "lon": -71.1056283
+    },
+    "carlisle": {
+      "ok": true,
+      "lat": 42.528797,
+      "lon": -71.3481427
+    },
+    "chelmsford": {
+      "ok": true,
+      "lat": 42.5940049,
+      "lon": -71.3521057
+    },
+    "chelsea": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "cohasset": {
+      "ok": true,
+      "lat": 42.242198,
+      "lon": -70.8090953
+    },
+    "concord": {
+      "ok": true,
+      "lat": 42.4588186,
+      "lon": -71.3534425
+    },
+    "danvers": {
+      "ok": true,
+      "lat": 42.5616613,
+      "lon": -70.9410042
+    },
+    "everett": {
+      "ok": true,
+      "lat": 42.4060155,
+      "lon": -71.0568179
+    },
+    "framingham": {
+      "ok": true,
+      "lat": 42.2819343,
+      "lon": -71.4167413
+    },
+    "haverhill": {
+      "ok": true,
+      "lat": 42.7772317,
+      "lon": -71.0767573
+    },
+    "hingham": {
+      "ok": true,
+      "lat": 42.2355903,
+      "lon": -70.8749023
+    },
+    "lawrence": {
+      "ok": true,
+      "lat": 42.7107211,
+      "lon": -71.1622146
+    },
+    "lexington": {
+      "ok": true,
+      "lat": 42.4481135,
+      "lon": -71.2296888
+    },
+    "lincoln": {
+      "ok": true,
+      "lat": 42.4260627,
+      "lon": -71.3030615
+    },
+    "lynn": {
+      "ok": true,
+      "lat": 42.4644621,
+      "lon": -70.9536275
+    },
+    "lynnfield": {
+      "ok": true,
+      "lat": 42.5392872,
+      "lon": -71.0477596
+    },
+    "malden": {
+      "ok": true,
+      "lat": 42.4276751,
+      "lon": -71.0660775
+    },
+    "marblehead": {
+      "ok": true,
+      "lat": 42.4964016,
+      "lon": -70.8632383
+    },
+    "maynard": {
+      "ok": true,
+      "lat": 42.4342628,
+      "lon": -71.4520731
+    },
+    "medford": {
+      "ok": true,
+      "lat": 42.4197301,
+      "lon": -71.1135494
+    },
+    "melrose": {
+      "ok": true,
+      "lat": 42.4592463,
+      "lon": -71.0665931
+    },
+    "methuen": {
+      "ok": true,
+      "lat": 42.7303934,
+      "lon": -71.1890986
+    },
+    "middleton": {
+      "ok": true,
+      "lat": 42.594723,
+      "lon": -71.0161341
+    },
+    "milton": {
+      "ok": true,
+      "lat": 42.2538412,
+      "lon": -71.0773573
+    },
+    "natick": {
+      "ok": true,
+      "lat": 42.2846114,
+      "lon": -71.345821
+    },
+    "needham": {
+      "ok": true,
+      "lat": 42.2882044,
+      "lon": -71.2350162
+    },
+    "newton": {
+      "ok": true,
+      "lat": 42.3359129,
+      "lon": -71.2078175
+    },
+    "north-andover": {
+      "ok": true,
+      "lat": 42.6962001,
+      "lon": -71.1263051
+    },
+    "north-reading": {
+      "ok": true,
+      "lat": 42.5746953,
+      "lon": -71.07628
+    },
+    "peabody": {
+      "ok": true,
+      "lat": 42.5249222,
+      "lon": -70.9242115
+    },
+    "quincy": {
+      "ok": true,
+      "lat": 42.2515107,
+      "lon": -71.0008246
+    },
+    "reading": {
+      "ok": true,
+      "lat": 42.5260974,
+      "lon": -71.1101767
+    },
+    "saugus": {
+      "ok": true,
+      "lat": 42.4653264,
+      "lon": -71.0101808
+    },
+    "somerville": {
+      "ok": true,
+      "lat": 42.3857881,
+      "lon": -71.0944054
+    },
+    "stoneham": {
+      "ok": true,
+      "lat": 42.4779077,
+      "lon": -71.1006445
+    },
+    "sudbury": {
+      "ok": true,
+      "lat": 42.3632821,
+      "lon": -71.4169226
+    },
+    "tewksbury": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "topsfield": {
+      "ok": true,
+      "lat": 42.6409094,
+      "lon": -70.949669
+    },
+    "wakefield": {
+      "ok": true,
+      "lat": 42.5045951,
+      "lon": -71.071918
+    },
+    "waltham": {
+      "ok": true,
+      "lat": 42.3766046,
+      "lon": -71.2394861
+    },
+    "watertown": {
+      "ok": false,
+      "error": "no_address"
+    },
+    "wayland": {
+      "ok": true,
+      "lat": 42.3651526,
+      "lon": -71.3608951
+    },
+    "wellesley": {
+      "ok": true,
+      "lat": 42.2968319,
+      "lon": -71.2906479
+    },
+    "weston": {
+      "ok": true,
+      "lat": 42.3621029,
+      "lon": -71.294617
+    },
+    "wilmington": {
+      "ok": true,
+      "lat": 42.5575285,
+      "lon": -71.1640026
+    },
+    "winchester": {
+      "ok": true,
+      "lat": 42.4523015,
+      "lon": -71.1341417
+    },
+    "woburn": {
+      "ok": true,
+      "lat": 42.4793008,
+      "lon": -71.1545179
+    }
+  }
+}

@@ -77,3 +77,70 @@ def test_geocode_haversine_distance():
 
 def test_geocode_haversine_zero_distance():
     assert haversine_miles(42.0, -71.0, 42.0, -71.0) < 0.001
+
+
+def test_geocode_all_writes_geojson(tmp_path, monkeypatch):
+    """End-to-end: read attractions index + library addresses, write geo.json."""
+    import json
+    import sys
+    from pathlib import Path
+
+    structured = tmp_path / "data" / "structured"
+    structured.mkdir(parents=True)
+    (structured / "_tmp_attractions_index.json").write_text(json.dumps({
+        "mos": {"slug": "mos", "address": "1 Science Park, Boston, MA 02114"},
+        "_meta": {"n_attractions": 1},  # should be skipped
+    }), encoding="utf-8")
+
+    libaddr = tmp_path / "data" / "raw" / "library_addresses"
+    libaddr.mkdir(parents=True)
+    (libaddr / "wakefield.json").write_text(json.dumps({
+        "lib_id": "wakefield", "status": "ok",
+        "street": "60 Main Street", "city": "Wakefield", "state": "MA", "zip": "01880",
+    }), encoding="utf-8")
+    (libaddr / "tewksbury.json").write_text(json.dumps({
+        "lib_id": "tewksbury", "status": "failed:no_html_fetched",
+    }), encoding="utf-8")
+    (libaddr / "_fetch_log.json").write_text(json.dumps({}), encoding="utf-8")  # ignored
+
+    from malibbene.common import geocode as gmod
+
+    def fake_geocode(query, **kw):
+        return {"ok": True, "lat": 42.0 + len(query) * 0.001, "lon": -71.0}
+
+    monkeypatch.setattr(gmod, "geocode", fake_geocode)
+    import scripts.geocode_all as ga
+    monkeypatch.setattr(ga, "REPO", tmp_path)
+    ga.main()
+
+    out = json.loads((tmp_path / "data" / "structured" / "geo.json").read_text(encoding="utf-8"))
+    assert "mos" in out["attractions"]
+    assert "_meta" not in out["attractions"]  # skipped from index
+    assert "wakefield" in out["libraries"]
+    assert out["attractions"]["mos"]["ok"] is True
+    # tewksbury (failed library) should appear with ok=False, not crash
+    assert out["libraries"]["tewksbury"]["ok"] is False
+
+
+def test_geocode_all_skips_files_starting_with_underscore(tmp_path, monkeypatch):
+    """_fetch_log.json must not be processed as a library record."""
+    import json
+    import sys
+    from pathlib import Path
+
+    structured = tmp_path / "data" / "structured"
+    structured.mkdir(parents=True)
+    (structured / "_tmp_attractions_index.json").write_text(json.dumps({}), encoding="utf-8")
+
+    libaddr = tmp_path / "data" / "raw" / "library_addresses"
+    libaddr.mkdir(parents=True)
+    (libaddr / "_fetch_log.json").write_text(json.dumps({"foo": "bar"}), encoding="utf-8")
+
+    from malibbene.common import geocode as gmod
+    monkeypatch.setattr(gmod, "geocode", lambda q, **kw: {"ok": True, "lat": 0, "lon": 0})
+    import scripts.geocode_all as ga
+    monkeypatch.setattr(ga, "REPO", tmp_path)
+    ga.main()
+
+    out = json.loads((tmp_path / "data" / "structured" / "geo.json").read_text(encoding="utf-8"))
+    assert "_fetch_log" not in out["libraries"]
