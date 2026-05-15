@@ -1,11 +1,11 @@
 {
   "_meta": {
-    "built_at": "2026-05-15T21:31:40Z",
+    "built_at": "2026-05-15T21:33:57Z",
     "n_attractions": 104,
     "n_with_price": 58,
     "n_with_image": 104,
     "n_with_geo": 98,
-    "n_with_hours": 93
+    "n_with_hours": 104
   },
   "attractions": [
     {
@@ -94,6 +94,7 @@
         "lon": -71.0496461
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:00 AM – 4:00 PM",
           "tue": "Closed",
@@ -142,6 +143,7 @@
         "lon": -71.3417122
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "10:00 AM – 4:00 PM",
@@ -190,6 +192,7 @@
         "lon": -71.7275795
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:30 AM – 4:00 PM",
           "tue": "9:30 AM – 4:00 PM",
@@ -266,6 +269,7 @@
         "lon": -71.4552672
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "9:00 AM – 4:30 PM",
@@ -322,6 +326,7 @@
         "lon": -71.7667726
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "10:00 AM – 5:00 PM",
@@ -370,6 +375,7 @@
         "lon": -71.4272867
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10 AM – 5 PM",
           "tue": "10 AM – 5 PM",
@@ -447,6 +453,7 @@
         "lon": -71.1149279
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:00 AM – 5:00 PM",
           "tue": "9:00 AM – 5:00 PM",
@@ -511,6 +518,7 @@
         "lon": -71.0429628
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "10 AM – 5 PM",
@@ -592,6 +600,7 @@
         "lon": -71.0991538
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "11:00 AM – 5:00 PM",
           "tue": "Closed",
@@ -650,6 +659,7 @@
         "lon": -71.0284871
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10:00 AM – 5:00 PM",
           "tue": "10:00 AM – 5:00 PM",
@@ -709,6 +719,7 @@
         "lon": -71.3208652
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "9:00 AM – 5:00 PM",
@@ -790,7 +801,12 @@
         "lat": 42.3664598,
         "lon": -71.0589378
       },
-      "hours": null
+      "hours": {
+        "status": "varies",
+        "regular_hours": null,
+        "notes": "Massachusetts DCR operates 450+ parks, beaches, and forests across the state, each with different hours. No single schedule applies. Most outdoor spaces are open dawn to dusk; visitor centers have limited hours. See mass.gov/dcr for specific park hours.",
+        "source_url": "https://www.mass.gov/orgs/department-of-conservation-and-recreation"
+      }
     },
     {
       "slug": "museum-of-fine-arts",
@@ -866,6 +882,7 @@
         "lon": -71.093897
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10 AM – 5 PM",
           "tue": "Closed",
@@ -969,6 +986,7 @@
         "lon": -71.071098
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:00 AM – 5:00 PM",
           "tue": "9:00 AM – 5:00 PM",
@@ -1071,6 +1089,7 @@
         "lon": -71.0491841
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:00 AM – 5:00 PM",
           "tue": "9:00 AM – 5:00 PM",
@@ -1129,6 +1148,7 @@
         "lon": -71.7261263
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10 AM – 5 PM",
           "tue": "10 AM – 5 PM",
@@ -1221,6 +1241,7 @@
         "lon": -70.8921931
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10 AM – 5 PM",
           "tue": "Closed",
@@ -1294,7 +1315,12 @@
         "lat": 42.5051034,
         "lon": -73.0370034
       },
-      "hours": null
+      "hours": {
+        "status": "varies",
+        "regular_hours": null,
+        "notes": "The Trustees operates 120+ properties across Massachusetts, each with its own hours. No single schedule applies. See individual property pages at thetrustees.org.",
+        "source_url": "https://thetrustees.org/places/"
+      }
     },
     {
       "slug": "zoo-new-england",
@@ -1371,6 +1397,7 @@
         "lon": -71.0876281
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:00 AM – 5:00 PM",
           "tue": "9:00 AM – 5:00 PM",
@@ -1420,6 +1447,7 @@
         "lon": -71.4280802
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -1455,6 +1483,7 @@
         "lon": -71.042139
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "10:00 AM – 4:00 PM",
@@ -1497,6 +1526,7 @@
         "lon": -71.0574559
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Dawn – Dusk",
           "tue": "Dawn – Dusk",
@@ -1546,6 +1576,7 @@
         "lon": -70.8730038
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "9:00 AM – 12:00 PM",
@@ -1592,7 +1623,12 @@
         "lat": 42.3612752,
         "lon": -71.0661695
       },
-      "hours": null
+      "hours": {
+        "status": "varies",
+        "regular_hours": null,
+        "notes": "Multiple properties with varying hours; no single schedule applies.",
+        "source_url": "https://www.historicnewengland.org/visit/plan-your-visit/"
+      }
     },
     {
       "slug": "the-house-of-seven-gables",
@@ -1639,6 +1675,7 @@
         "lon": -70.8838227
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10 AM – 4 PM",
           "tue": "10 AM – 4 PM",
@@ -1692,6 +1729,7 @@
         "lon": -71.3120855
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "10 AM – 4 PM",
@@ -1738,7 +1776,12 @@
         "lat": 42.7805966,
         "lon": -71.2124976
       },
-      "hours": null
+      "hours": {
+        "status": "varies",
+        "regular_hours": null,
+        "notes": "Concert series venue — no fixed visiting hours. Concerts typically begin at 2:00 PM on scheduled performance dates. Held at Seifert PAC, Salem NH.",
+        "source_url": "https://www.nhphil.org/"
+      }
     },
     {
       "slug": "north-shore-childrens-museum",
@@ -1789,6 +1832,7 @@
         "lon": -70.9269447
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -1837,6 +1881,7 @@
         "lon": -70.625786
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9 AM – 5 PM",
           "tue": "9 AM – 5 PM",
@@ -1887,6 +1932,7 @@
         "lon": -70.8911625
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10:00 AM – 5:00 PM",
           "tue": "10:00 AM – 5:00 PM",
@@ -1938,6 +1984,7 @@
         "lon": -70.7141151
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -1987,6 +2034,7 @@
         "lon": -70.887136
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -2045,7 +2093,12 @@
         "lat": 31.1728205,
         "lon": -7.3362482
       },
-      "hours": null
+      "hours": {
+        "status": "varies",
+        "regular_hours": null,
+        "notes": "Mass Audubon pass provides access to 60+ wildlife sanctuaries across Massachusetts, each with different hours. No single schedule applies. See individual sanctuary pages at massaudubon.org/places-to-explore.",
+        "source_url": "https://www.massaudubon.org/places-to-explore/admission-expanding-access"
+      }
     },
     {
       "slug": "armenian-museum-of-america",
@@ -2081,6 +2134,7 @@
         "lon": -71.1857857
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -2124,6 +2178,7 @@
         "lon": -71.0679578
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:00 AM – 5:00 PM",
           "tue": "9:00 AM – 5:00 PM",
@@ -2177,6 +2232,7 @@
         "lon": -71.2127601
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Dawn – Dusk",
           "tue": "Dawn – Dusk",
@@ -2225,6 +2281,7 @@
         "lon": -71.3350541
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "11:00 AM – 3:30 PM",
           "tue": "11:00 AM – 3:30 PM",
@@ -2303,6 +2360,7 @@
         "lon": -71.0619957
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:30 AM – 5:00 PM",
           "tue": "9:30 AM – 5:00 PM",
@@ -2345,6 +2403,7 @@
         "lon": -71.5383048
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -2389,6 +2448,7 @@
         "lon": -71.43968
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10:00 AM – 4:00 PM",
           "tue": "10:00 AM – 4:00 PM",
@@ -2444,7 +2504,12 @@
         "lat": 31.1728205,
         "lon": -7.3362482
       },
-      "hours": null
+      "hours": {
+        "status": "varies",
+        "regular_hours": null,
+        "notes": "The Trustees operates 120+ properties across Massachusetts, each with its own hours. No single schedule applies. See individual property pages at thetrustees.org.",
+        "source_url": "https://thetrustees.org/places/"
+      }
     },
     {
       "slug": "boston-athenaeum",
@@ -2479,6 +2544,7 @@
         "lon": -71.0620806
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9 AM – 8 PM",
           "tue": "9 AM – 8 PM",
@@ -2528,6 +2594,7 @@
         "lon": -71.0017964
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "8:30 AM – 5:00 PM",
           "tue": "8:30 AM – 5:00 PM",
@@ -2565,6 +2632,7 @@
         "lon": -71.1358974
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "12:00 PM – 4:00 PM",
@@ -2611,6 +2679,7 @@
         "lon": -72.58506
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10 AM – 4 PM",
           "tue": "10 AM – 4 PM",
@@ -2659,6 +2728,7 @@
         "lon": -71.4358628
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "12:00 PM – 5:00 PM",
@@ -2710,6 +2780,7 @@
         "lon": -71.801977
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -2757,6 +2828,7 @@
         "lon": -71.2049436
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:00 AM – 4:00 PM",
           "tue": "9:00 AM – 4:00 PM",
@@ -2804,6 +2876,7 @@
         "lon": -71.455607
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -2850,6 +2923,7 @@
         "lon": -71.1208851
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -2897,6 +2971,7 @@
         "lon": -71.221463
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -2930,7 +3005,12 @@
         "lat": 42.3420649,
         "lon": -71.1060693
       },
-      "hours": null
+      "hours": {
+        "status": "varies",
+        "regular_hours": null,
+        "notes": "Performance venue — no fixed visiting hours. Shows and box office hours vary by production schedule.",
+        "source_url": "https://www.wheelockfamilytheatre.org/"
+      }
     },
     {
       "slug": "blithewold",
@@ -2965,6 +3045,7 @@
         "lon": -71.2658089
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "10 AM – 4 PM",
@@ -3012,6 +3093,7 @@
         "lon": -71.2335933
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -3061,6 +3143,7 @@
         "lon": -71.1154484
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:00 AM – 5:00 PM",
           "tue": "9:00 AM – 5:00 PM",
@@ -3097,6 +3180,7 @@
         "lon": -71.1229496
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "12:00 PM – 5:00 PM",
@@ -3138,6 +3222,7 @@
         "lon": -71.2457292
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "8:30 AM – 7:30 PM",
           "tue": "8:30 AM – 7:30 PM",
@@ -3184,6 +3269,7 @@
         "lon": -71.6835581
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -3232,6 +3318,7 @@
         "lon": -70.9461642
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9 AM – 6 PM",
           "tue": "9 AM – 6 PM",
@@ -3277,6 +3364,7 @@
         "lon": -71.1145269
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "10 AM – 5 PM",
@@ -3323,6 +3411,7 @@
         "lon": -71.0536827
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10:00 AM – 5:15 PM",
           "tue": "10:00 AM – 5:15 PM",
@@ -3368,6 +3457,7 @@
         "lon": -71.5846761
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10:00 AM – 5:00 PM",
           "tue": "10:00 AM – 5:00 PM",
@@ -3415,6 +3505,7 @@
         "lon": -71.0833719
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10:00 AM – 5:00 PM",
           "tue": "10:00 AM – 5:00 PM",
@@ -3454,6 +3545,7 @@
         "lon": -70.8912532
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -3499,6 +3591,7 @@
         "lon": -71.4165508
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10:00 AM – 4:00 PM",
           "tue": "10:00 AM – 4:00 PM",
@@ -3538,6 +3631,7 @@
         "lon": -70.7521466
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10 AM – 4 PM",
           "tue": "10 AM – 4 PM",
@@ -3577,6 +3671,7 @@
         "lon": -71.1629563
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:00 AM – 5:00 PM",
           "tue": "9:00 AM – 5:00 PM",
@@ -3621,6 +3716,7 @@
         "lon": -71.3111241
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "10 AM – 4 PM",
@@ -3668,6 +3764,7 @@
         "lon": -71.30787
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10:00 AM – 7:00 PM",
           "tue": "10:00 AM – 7:00 PM",
@@ -3716,6 +3813,7 @@
         "lon": -72.1011232
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -3753,6 +3851,7 @@
         "lon": -71.194862
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -3799,6 +3898,7 @@
         "lon": -71.134743
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "10 AM – 3 PM",
@@ -3834,6 +3934,7 @@
         "lon": -71.194862
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "5:30 AM – 10:00 PM",
           "tue": "5:30 AM – 10:00 PM",
@@ -3880,6 +3981,7 @@
         "lon": -70.5059897
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10 AM – 5 PM",
           "tue": "10 AM – 5 PM",
@@ -3928,6 +4030,7 @@
         "lon": -70.9231848
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9 AM – 5 PM",
           "tue": "9 AM – 5 PM",
@@ -3973,6 +4076,7 @@
         "lon": -70.500422
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:30 AM – 5:00 PM",
           "tue": "9:30 AM – 5:00 PM",
@@ -4009,7 +4113,12 @@
         "lat": 42.4791611,
         "lon": -71.1006441
       },
-      "hours": null
+      "hours": {
+        "status": "varies",
+        "regular_hours": null,
+        "notes": "Performance venue — no fixed visiting hours. Show schedules vary by production. Box office hours vary seasonally.",
+        "source_url": "https://www.greaterbostonstage.org/"
+      }
     },
     {
       "slug": "massachusetts-state-police-museum-and-learning-center",
@@ -4034,6 +4143,7 @@
         "lon": -71.6645834
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "11:00 AM – 4:00 PM",
@@ -4079,6 +4189,7 @@
         "lon": -71.3071015
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -4115,6 +4226,7 @@
         "lon": -71.2136793
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10:00 AM – 6:00 PM",
           "tue": "10:00 AM – 6:00 PM",
@@ -4161,6 +4273,7 @@
         "lon": -71.2603702
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10:00 AM – 5:00 PM",
           "tue": "10:00 AM – 5:00 PM",
@@ -4193,6 +4306,7 @@
         "lon": -71.1229496
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "12:00 PM – 5:00 PM",
@@ -4221,7 +4335,12 @@
         "local_path": "static/images/boch-center.jpg"
       },
       "geo": null,
-      "hours": null
+      "hours": {
+        "status": "varies",
+        "regular_hours": null,
+        "notes": "Large performance venue (Wang Theatre, Shubert Theatre) — no fixed visiting hours. Open for ticketed performances only; schedule varies by production.",
+        "source_url": "https://www.bochcenter.org/"
+      }
     },
     {
       "slug": "boston-harbor-islands",
@@ -4253,6 +4372,7 @@
         "lon": -71.0524197
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Dawn – Dusk",
           "tue": "Dawn – Dusk",
@@ -4283,7 +4403,12 @@
         "local_path": "static/images/ma-state-parks.jpg"
       },
       "geo": null,
-      "hours": null
+      "hours": {
+        "status": "varies",
+        "regular_hours": null,
+        "notes": "Massachusetts DCR operates 450+ parks, beaches, and forests, each with different hours. No single schedule applies. Most outdoor spaces are open dawn to dusk. Same as massachusetts-state-parks-department-of-conservation-and-recreation.",
+        "source_url": "https://www.mass.gov/orgs/department-of-conservation-and-recreation"
+      }
     },
     {
       "slug": "hale-education",
@@ -4304,6 +4429,7 @@
         "lon": -71.2381456
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "8:00 AM – 5:00 PM",
           "tue": "8:00 AM – 5:00 PM",
@@ -4343,6 +4469,7 @@
       },
       "geo": null,
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:00 AM – 5:00 PM",
           "tue": "9:00 AM – 5:00 PM",
@@ -4385,6 +4512,7 @@
         "lon": -71.0868834
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "10 AM – 5 PM",
@@ -4418,6 +4546,7 @@
         "lon": -71.0429628
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "10 AM – 5 PM",
@@ -4462,6 +4591,7 @@
         "lon": -71.0991538
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "11:00 AM – 5:00 PM",
           "tue": "Closed",
@@ -4503,6 +4633,7 @@
         "lon": -71.134743
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "10 AM – 3 PM",
@@ -4538,6 +4669,7 @@
         "lon": -71.093897
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10 AM – 5 PM",
           "tue": "Closed",
@@ -4576,6 +4708,7 @@
       },
       "geo": null,
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10:00 AM – 5:00 PM",
           "tue": "10:00 AM – 5:00 PM",
@@ -4608,6 +4741,7 @@
         "lon": -70.500422
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:30 AM – 5:00 PM",
           "tue": "9:30 AM – 5:00 PM",
@@ -4637,6 +4771,7 @@
       },
       "geo": null,
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -4667,7 +4802,12 @@
         "local_path": "static/images/trustees-of-reservations.jpg"
       },
       "geo": null,
-      "hours": null
+      "hours": {
+        "status": "varies",
+        "regular_hours": null,
+        "notes": "The Trustees GO Pass covers 120+ properties across Massachusetts, each with its own hours. No single schedule applies. See individual property pages at thetrustees.org.",
+        "source_url": "https://thetrustees.org/places/"
+      }
     },
     {
       "slug": "uss-constitution-museum",
@@ -4700,6 +4840,7 @@
         "lon": -71.0555158
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:30 AM – 5:00 PM",
           "tue": "9:30 AM – 5:00 PM",
@@ -4732,6 +4873,7 @@
         "lon": -71.0652097
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "10:00 AM – 4:00 PM",
@@ -4764,6 +4906,7 @@
         "lon": -71.0761804
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9:00 AM – 5:30 PM",
           "tue": "9:00 AM – 5:30 PM",
@@ -4796,6 +4939,7 @@
         "lon": -71.4400553
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10:00 AM – 4:00 PM",
           "tue": "10:00 AM – 4:00 PM",
@@ -4828,6 +4972,7 @@
         "lon": -70.7996633
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "Closed",
           "tue": "Closed",
@@ -4860,6 +5005,7 @@
         "lon": -71.0340257
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10:00 AM – 5:00 PM",
           "tue": "10:00 AM – 5:00 PM",
@@ -4893,6 +5039,7 @@
         "lon": -70.6199489
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "9 AM – 5 PM",
           "tue": "9 AM – 5 PM",
@@ -4925,6 +5072,7 @@
         "lon": -70.5059897
       },
       "hours": {
+        "status": "ok",
         "regular_hours": {
           "mon": "10 AM – 5 PM",
           "tue": "10 AM – 5 PM",

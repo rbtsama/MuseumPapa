@@ -17,7 +17,7 @@ export function dayKeyOf(iso: string): DayKey {
 
 /** True iff the attraction has explicit hours data marking the given ISO date as Closed. */
 export function isClosedOn(attraction: Attraction, iso: string): boolean {
-  if (!attraction.hours) return false;
+  if (!attraction.hours || attraction.hours.status === 'varies' || !attraction.hours.regular_hours) return false;
   const day = dayKeyOf(iso);
   const v = attraction.hours.regular_hours[day];
   if (!v) return false;
@@ -26,15 +26,26 @@ export function isClosedOn(attraction: Attraction, iso: string): boolean {
 
 /** Return the human-readable hours string for the given ISO date, or null if unknown. */
 export function hoursForDate(attraction: Attraction, iso: string): string | null {
-  if (!attraction.hours) return null;
+  if (!attraction.hours || !attraction.hours.regular_hours) return null;
   return attraction.hours.regular_hours[dayKeyOf(iso)] ?? null;
+}
+
+/** Display info for a date — handles 'varies' (multi-property) attractions. */
+export function hoursDisplay(attraction: Attraction, iso: string): { value: string; varies: boolean } | null {
+  if (!attraction.hours) return null;
+  if (attraction.hours.status === 'varies') {
+    return { value: attraction.hours.notes ?? 'Hours vary by location', varies: true };
+  }
+  const v = hoursForDate(attraction, iso);
+  return v ? { value: v, varies: false } : null;
 }
 
 /** Iterate weekly hours in display order with friendly labels. */
 export function weeklyHoursList(hours: Hours): Array<{ key: DayKey; label: string; value: string }> {
+  if (!hours.regular_hours) return [];
   return DAY_ORDER.map(k => ({
     key: k,
     label: DAY_LABEL[k],
-    value: hours.regular_hours[k] ?? '—',
+    value: hours.regular_hours![k] ?? '—',
   }));
 }

@@ -4,7 +4,7 @@ import type { PickedTag } from '../lib/tag-algorithm';
 import { FavoriteButton } from './FavoriteButton';
 import { PassTypeLabel } from './PassTypeLabel';
 import { applyDiscount } from '../lib/price-fallback';
-import { hoursForDate } from '../lib/hours';
+import { hoursDisplay } from '../lib/hours';
 
 interface Props {
   attraction: Attraction;
@@ -60,7 +60,7 @@ export function AttractionCard({
   const adult = attraction.original_price?.adult ?? null;
   const child = attraction.original_price?.child ?? null;
   const total = pickedTags.length;
-  const todayHours = date ? hoursForDate(attraction, date) : null;
+  const hoursInfo = date ? hoursDisplay(attraction, date) : null;
 
   const dim = closedToday ? { filter: 'grayscale(0.7)', opacity: 0.55 } : {};
 
@@ -107,9 +107,9 @@ export function AttractionCard({
             <p className="mt-1" style={{ fontSize: 12, color: 'var(--ink-3)' }}>📍 {town}</p>
           )}
 
-          {todayHours && !closedToday && (
+          {hoursInfo && !closedToday && (
             <p className="mt-0.5" style={{ fontSize: 11, color: 'var(--ink-3)' }}>
-              🕘 Open today · <span style={{ color: 'var(--ink-2)' }}>{todayHours}</span>
+              🕘 {hoursInfo.varies ? <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span> : <>Open today · <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span></>}
             </p>
           )}
 

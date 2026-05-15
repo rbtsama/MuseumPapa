@@ -42,7 +42,8 @@ export interface HeroImage {
 export type DayKey = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 
 export interface Hours {
-  regular_hours: Record<DayKey, string>;  // "Closed" or e.g. "9:00 AM – 5:00 PM"
+  status?: 'ok' | 'varies';
+  regular_hours: Record<DayKey, string> | null;  // "Closed" or e.g. "9:00 AM – 5:00 PM"; null when status='varies'
   notes: string | null;
   source_url: string | null;
 }

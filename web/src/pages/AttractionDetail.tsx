@@ -147,7 +147,20 @@ export function AttractionDetail() {
         </div>
       </div>
 
-      {attraction.hours && (
+      {attraction.hours && attraction.hours.status === 'varies' && (
+        <div className="mb-6 rounded-md p-3"
+          style={{ border: '1px solid var(--rule)', background: 'var(--white)' }}>
+          <div className="flex items-center gap-2 mb-1">
+            <span aria-hidden style={{ fontSize: 14, color: 'var(--ink-3)' }}>🕘</span>
+            <h2 className="font-serif" style={{ fontSize: 16, color: 'var(--ink-2)' }}>Hours vary by location</h2>
+          </div>
+          {attraction.hours.notes && (
+            <p style={{ fontSize: 12, color: 'var(--ink-3)' }}>{attraction.hours.notes}</p>
+          )}
+        </div>
+      )}
+
+      {attraction.hours && attraction.hours.status !== 'varies' && attraction.hours.regular_hours && (
         <div className="mb-6 rounded-md p-3"
           style={{ border: '1px solid var(--rule)', background: 'var(--white)' }}>
           <div className="flex items-center gap-2 mb-2">

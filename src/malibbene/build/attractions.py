@@ -35,12 +35,23 @@ def _geo_block(rec: dict | None) -> dict | None:
 
 
 def _hours_block(rec: dict | None) -> dict | None:
-    if not rec or rec.get("status") != "ok":
+    if not rec:
+        return None
+    status = rec.get("status")
+    if status == "varies":
+        return {
+            "status": "varies",
+            "regular_hours": None,
+            "notes": rec.get("notes"),
+            "source_url": rec.get("source_url"),
+        }
+    if status != "ok":
         return None
     rh = rec.get("regular_hours")
     if not rh:
         return None
     return {
+        "status": "ok",
         "regular_hours": rh,
         "notes": rec.get("notes"),
         "source_url": rec.get("source_url"),
