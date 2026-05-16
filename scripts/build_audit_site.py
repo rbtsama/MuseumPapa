@@ -1024,11 +1024,38 @@ def page_attractions(attr_data) -> str:
         "bucket_varies":     "Varies by property · 景点本身有多 property(非图书馆分馆问题)",
         "bucket_nodata":     "No data · 无数据",
     }
-    # Categories
-    cat_counter = Counter()
+    # Categories — display-time normalization: 21 raw labels → 7 essential ones
+    # Rule: merge by essential subject matter, not by row count.
+    #   Sports kept distinct (Naismith/Patriots are sports museums — sports-fan
+    #     families specifically search for these, even though only 2 rows).
+    #   Tours dropped: all 4 also tagged History; 'guided walk through historic
+    #     site' is a presentation format, not a subject.
+    #   Recreation dropped: 7/10 also tagged Nature; the rest (YMCA, Sandmagination)
+    #     fall under Family/Children which they're already tagged with.
+    CAT_NORMALIZE = {
+        "Art": "Art", "Crafts": "Art",
+        "Family": "Children", "Children": "Children",
+        "History": "History", "Architecture": "History", "Governance": "History",
+        "Military": "History", "Tours": "History",
+        "Nature": "Nature", "Ocean": "Nature", "Sky": "Nature", "Zoo": "Nature",
+        "Recreation": "Nature",
+        "Music": "Performance", "Theatre": "Performance", "Dance": "Performance",
+        "Entertainment": "Performance",
+        "Science": "Science", "Technology": "Science",
+        "Sports": "Sports",
+    }
+    CANON_CATEGORIES = ["Children", "History", "Nature", "Science", "Art", "Performance", "Sports"]
+
+    cat_counter = Counter()       # raw 21 labels
+    cat_canon_counter = Counter() # normalized 7 labels
     for A in attrs:
-        for c in (A.get("categories") or []):
+        raw_cats = A.get("categories") or []
+        for c in raw_cats:
             cat_counter[c] += 1
+        canon = {CAT_NORMALIZE.get(c) for c in raw_cats}
+        canon.discard(None)
+        for c in canon:
+            cat_canon_counter[c] += 1
     # Coverage of non-price fields
     cov_counter = Counter()
     for A in attrs:
@@ -1081,10 +1108,15 @@ def page_attractions(attr_data) -> str:
     </p>
   </div>
   <div class="panel dist-panel">
-    <h3>类别分布 · Categories</h3>
-    {histogram_table(cat_counter, n_attrs, max_rows=15)}
+    <h3>类别分布 · Categories(7 个粗类)</h3>
+    {histogram_table(cat_canon_counter, n_attrs)}
     <p class="methodology" style="margin-top:8px">
-      每个景点可属多类,加起来 &gt; 100%。展示前 15。产品筛选器应该按这个频次排序。
+      <b>显示规则</b>:原 21 个 Assabet 标签按"本质归属"合并到 7 个干净的粗类(每个 1 个英文单词)。
+      合并规则不按数量、按主题:<br>
+      ① <b>Tours / Recreation 被吸收</b> — Tours 4 条 100% 同时标 History(导览只是表现形式),Recreation 7/10 同时标 Nature(都是户外空间)<br>
+      ② <b>Sports 保留</b> — 虽然仅 2 条(Naismith / Patriots Hall of Fame),但体育主题独特,sports-fan 家庭会专门搜<br>
+      ③ <b>Family ↔ Children 合并</b> — 我们产品本来就是给家庭用户,Family 标签信息量低<br>
+      合并映射表:Art ← Art+Crafts · Children ← Family+Children · History ← History+Architecture+Governance+Military+Tours · Nature ← Nature+Ocean+Sky+Zoo+Recreation · Performance ← Music+Theatre+Dance+Entertainment · Science ← Science+Technology · Sports ← Sports
     </p>
   </div>
   <div class="panel dist-panel">
