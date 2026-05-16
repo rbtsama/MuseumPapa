@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import datetime as dt
 
+from .coupons import coupon_block, restrictions_block
+
 # pass_type values from normalize_benefit that imply a physical pickup at the
 # library branch (vs. an email-delivered digital coupon).
 _PHYSICAL_PASS_TYPES = {"physical-circ", "physical-coupon"}
@@ -71,28 +73,9 @@ def _resolve_pass_type(
     return original_pass_type or "unknown"
 
 
-def _policy_block(rec: dict | None) -> dict | None:
-    if not rec or rec.get("status") != "ok":
-        return None
-    return {
-        "max_people": rec.get("max_people"),
-        "max_adults": rec.get("max_adults"),
-        "max_children": rec.get("max_children"),
-        "free_under_age": rec.get("free_under_age"),
-        "savings_per_person_usd": rec.get("savings_per_person_usd"),
-        "discount_percent": rec.get("discount_percent"),
-        "discount_dollar_off": rec.get("discount_dollar_off"),
-        "eligibility_tags": rec.get("eligibility_tags") or [],
-        "exclusions": rec.get("exclusions") or [],
-        "boosts": rec.get("boosts") or [],
-        "notes": rec.get("notes"),
-        "raw": rec.get("raw"),
-    }
-
-
 def build_passes(
     catalog: dict,
-    policies: dict | None = None,
+    coupons: dict | None = None,
     *,
     classifications: dict | None = None,
     branches_doc: dict | None = None,
@@ -100,19 +83,19 @@ def build_passes(
     """Return {passes: [...], _meta: {...}}.
 
     Each element of `passes` is a (library_id, attraction_slug) row carrying
-    discount, pass_type, pickup_method, pickup_branches, source_url, availability
-    calendar, and policy.
+    coupon, restrictions, pass_type, pickup_method, pickup_branches, source_url,
+    and availability calendar.
 
     Args:
         catalog: parsed library_catalog.json
-        policies: optional dict "{lib_id}_{slug}" → parsed
-                  data/raw/pass_policies/{lib_id}_{slug}.json
+        coupons: optional dict "{lib_id}_{slug}" → parsed
+                 data/raw/pass_coupons/{lib_id}_{slug}.json
         classifications: optional {lib_id: {pass_id: {pickup_method, pickup_branches, ...}}}
                   produced by plan-6 subagent classifiers (BPL/Cambridge/Brookline).
         branches_doc: optional structured/branches.json — used to enumerate
                   branch ids per parent_lib for the single-branch fallback.
     """
-    policies = policies or {}
+    coupons = coupons or {}
     classifications = classifications or {}
     branch_ids_by_lib: dict[str, list[str]] = {}
     if branches_doc:
@@ -124,7 +107,8 @@ def build_passes(
     for lib_id, lib_entry in catalog.get("libraries", {}).items():
         for slug, p in lib_entry.get("passes", {}).items():
             cal = p.get("calendar")
-            policy_key = f"{lib_id}_{slug}"
+            coupon_key = f"{lib_id}_{slug}"
+            coupon_rec = coupons.get(coupon_key)
             pass_type = p.get("pass_type", "unknown")
             pickup_method, pickup_branches = _resolve_pickup(
                 library_id=lib_id,
@@ -147,12 +131,8 @@ def build_passes(
                 "pass_type_raw": p.get("pass_type_raw", ""),
                 "pickup_method": pickup_method,
                 "pickup_branches": pickup_branches,
-                "discount": {
-                    "class": p.get("benefit_class", "unknown"),
-                    "label": p.get("benefit_label", ""),
-                    "raw": p.get("benefits_text", ""),
-                },
-                "policy": _policy_block(policies.get(policy_key)),
+                "coupon": coupon_block(coupon_rec),
+                "restrictions": restrictions_block(coupon_rec),
                 "source_url": p.get("source_url", ""),
                 "availability": cal if cal else None,
             })
@@ -161,7 +141,8 @@ def build_passes(
             "built_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "n_passes": len(out),
             "n_with_availability": sum(1 for x in out if x["availability"]),
-            "n_with_policy": sum(1 for x in out if x["policy"]),
+            "n_with_coupon": sum(1 for x in out if x["coupon"]["audience_policies"]),
+            "n_with_restrictions": sum(1 for x in out if x["restrictions"] is not None),
             "n_physical_at_branch": n_physical,
             "n_digital": len(out) - n_physical,
         },

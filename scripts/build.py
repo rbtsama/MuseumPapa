@@ -113,7 +113,7 @@ def main() -> int:
 
     # 4. passes.json
     print("Building passes.json...")
-    policies = _load_dir_jsons(raw_root / "pass_policies")
+    coupons = _load_dir_jsons(raw_root / "pass_coupons")
     # Subagent (plan-6, LibCal) and deterministic (plan-7, Assabet) classifications:
     # {lib_id: {pass_id: {pickup_method, pickup_branches, evidence}}}.
     # Glob auto-discovers any lib that has a _classified.json — no per-lib enum to maintain.
@@ -124,7 +124,7 @@ def main() -> int:
         classifications[lib] = {p["pass_id"]: p for p in data.get("passes", [])}
     passes_doc = build_passes(
         catalog,
-        policies=policies,
+        coupons=coupons,
         classifications=classifications,
         branches_doc=branches_doc,
     )
@@ -134,7 +134,7 @@ def main() -> int:
     )
     print(f"  {passes_doc['_meta']['n_passes']} passes "
           f"({passes_doc['_meta']['n_with_availability']} with calendar, "
-          f"{passes_doc['_meta']['n_with_policy']} with policy, "
+          f"{passes_doc['_meta']['n_with_coupon']} with coupon, "
           f"{passes_doc['_meta']['n_physical_at_branch']} physical_at_branch)")
 
     return 0
