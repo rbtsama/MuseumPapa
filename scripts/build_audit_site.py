@@ -386,6 +386,11 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
             rows.append(f'<tr><td>{esc(lab)}</td><td class="bar-cell"><span class="bar">{"█"*bar_w}</span></td><td class="num">{n}</td><td class="pct">{pct}%</td></tr>')
         return f'<table class="histogram">{"".join(rows)}</table>'
 
+    # Coverage for multi-valued tag fields (how many policies carry ≥1 tag etc.)
+    n_with_any_elig = sum(1 for p in passes if (p.get("policy") or {}).get("eligibility_tags"))
+    n_with_any_excl = sum(1 for p in passes if (p.get("policy") or {}).get("exclusions"))
+    n_with_any_boost = sum(1 for p in passes if (p.get("policy") or {}).get("boosts"))
+
     plat_counter = Counter(libcat["libraries"][lid]["platform"] for lid in libcat["libraries"])
 
     anomalies = []
@@ -403,16 +408,37 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
             n_no_src += 1
         if pol.get("max_people") is None and pol.get("discount_percent") is None and not (pol.get("eligibility_tags") or []) and raw:
             n_unexpl_null += 1
-    anomalies.append(f"<li>{n_no_src} passes with raw text but no extracted source_phrases — <a href='policies.html'>see Policies</a></li>")
-    anomalies.append(f"<li>{n_unexpl_null} passes with raw text but no extracted policy fields</li>")
+    anomalies.append(
+        f"<li><b>{n_no_src}</b> 条 pass 的 raw 原文存在,但 AI 没给出任何 source_phrases 引用 — "
+        f"含义:AI 抽出了字段却没注明引自原文哪一句,**审计抽查首选项**(可能是 AI 偷懒或 raw 过短) — "
+        f"<a href='policies.html'>see Policies</a></li>"
+    )
+    anomalies.append(
+        f"<li><b>{n_unexpl_null}</b> 条 pass 的 raw 原文存在,但 policy 的所有数值字段(人数上限/折扣百分比/标签等)都为空 — "
+        f"含义:AI 完全没抽出任何结构化信息,可能 raw 过短或措辞特殊</li>"
+    )
     n_unknown_pt = sum(1 for p in passes if p.get("pass_type") == "unknown")
-    anomalies.append(f"<li>{n_unknown_pt} passes with pass_type = unknown</li>")
+    anomalies.append(
+        f"<li><b>{n_unknown_pt}</b> 条 pass 的 pass_type 是 unknown(没归类成 digital/physical/loan-card 中的任一个) — "
+        f"含义:从原始 HTML 抓不到明确的 pass 类型标识符</li>"
+    )
     n_dup = len(KNOWN_DUPLICATES)
-    anomalies.append(f"<li>{n_dup} duplicate attraction slug pairs — <a href='duplicates.html'>see Duplicates</a></li>")
+    anomalies.append(
+        f"<li><b>{n_dup}</b> 对 attraction slug 重复(同一景点被存了两条记录) — "
+        f"含义:数据建模历史遗留 bug,前端会显示成两张不同的卡,需合并 — "
+        f"<a href='duplicates.html'>see Duplicates</a></li>"
+    )
     n_missing_price = n_attrs - attr_cov["price (any)"]
-    anomalies.append(f"<li>{n_missing_price} attractions missing price data — <a href='gaps.html'>see Gaps</a></li>")
+    anomalies.append(
+        f"<li><b>{n_missing_price}</b> 个景点没有任何价格层级(adult/child/youth/senior/...)— "
+        f"含义:景点官网无公开标价,或票价是 per-show / per-vehicle 浮动 — "
+        f"<a href='gaps.html'>see Gaps</a></li>"
+    )
     n_missing_desc = n_attrs - attr_cov["description"]
-    anomalies.append(f"<li>{n_missing_desc} attractions missing description</li>")
+    anomalies.append(
+        f"<li><b>{n_missing_desc}</b> 个景点没有简介文字 — "
+        f"含义:景点官网无 og:description / about 页 抓取失败 / 网站 403 拦截</li>"
+    )
 
     body = f"""
 <h1 class="page-title">MuseumPapa <span class="font-serif">数据审计 Data Audit</span></h1>
@@ -431,12 +457,21 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
 </section>
 
 <section class="panel">
-  <h3>Eligibility tags · histogram</h3>
+  <h3>Eligibility tags · 适用人群标签 直方图</h3>
+  <p class="methodology">
+    口径:分母 = 全部 {n_passes} 条 pass。分子 = 含该标签的 pass 数(每条 pass 可有 0 或多个标签,所以加总通常 &gt; 100%)。<br>
+    含标签 ≥ 1 的 pass:<b>{n_with_any_elig}</b> 条 ({round(100*n_with_any_elig/n_passes)}%)。其余 {n_passes - n_with_any_elig} 条 policy 未标任何 eligibility tag,
+    通常意味着 raw 原文未声明特别人群限制(隐含"任何人均可"),或 AI 因 raw 过短未抽取出标签。
+  </p>
   {histogram(tag_counter, ELIG_LABEL, n_passes)}
 </section>
 
 <section class="panel">
-  <h3>Restrictions · histogram</h3>
+  <h3>Restrictions · 限制条款 直方图</h3>
+  <p class="methodology">
+    口径:分母 = 全部 {n_passes} 条 pass。分子 = 含该限制的 pass 数(每条 pass 可有 0 或多个限制)。<br>
+    含限制 ≥ 1 的 pass:<b>{n_with_any_excl}</b> 条 ({round(100*n_with_any_excl/n_passes)}%)。其余 {n_passes - n_with_any_excl} 条无任何时间/日期/身份限制。
+  </p>
   {histogram(excl_counter, EXCL_LABEL, n_passes)}
 </section>
 
@@ -450,7 +485,11 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
 </section>
 
 <section class="panel">
-  <h3>异常 Top 信号 · Anomalies</h3>
+  <h3>数据质量信号 · 优先抽查项</h3>
+  <p class="methodology">
+    这一节列出 AI 抽取过程中可能值得人工抽查的"可疑点"。每条都说明了"是什么/含义/怎么追溯"。
+    数字旁的链接跳转到相应专题页,可逐条核对 raw 原文与 AI 输出。
+  </p>
   <ul class="anomaly-list">{"".join(anomalies)}</ul>
 </section>
 
@@ -1082,8 +1121,12 @@ main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
 .platform-row { list-style: none; padding: 0; margin: 0; display: flex; gap: 32px; }
 .platform-row .num { color: var(--g); font-weight: 700; font-size: 24px; margin: 0 8px; }
 
-.anomaly-list { padding-left: 18px; }
-.anomaly-list li { padding: 4px 0; }
+.anomaly-list { padding-left: 18px; margin: 0; }
+.anomaly-list li { padding: 6px 0; line-height: 1.7; }
+.anomaly-list li b { color: var(--rd); font-weight: 700; }
+
+.methodology { color: var(--ink-3); font-size: 11.5px; line-height: 1.6; margin: 0 0 12px; padding: 8px 12px; background: var(--paper); border-left: 3px solid var(--rule-strong); border-radius: 0 4px 4px 0; }
+.methodology b { color: var(--ink-2); }
 
 .page-foot { color: var(--ink-3); margin-top: 32px; font-size: 12px; text-align: center; }
 

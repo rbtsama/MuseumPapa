@@ -51,8 +51,12 @@ main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
 .platform-row { list-style: none; padding: 0; margin: 0; display: flex; gap: 32px; }
 .platform-row .num { color: var(--g); font-weight: 700; font-size: 24px; margin: 0 8px; }
 
-.anomaly-list { padding-left: 18px; }
-.anomaly-list li { padding: 4px 0; }
+.anomaly-list { padding-left: 18px; margin: 0; }
+.anomaly-list li { padding: 6px 0; line-height: 1.7; }
+.anomaly-list li b { color: var(--rd); font-weight: 700; }
+
+.methodology { color: var(--ink-3); font-size: 11.5px; line-height: 1.6; margin: 0 0 12px; padding: 8px 12px; background: var(--paper); border-left: 3px solid var(--rule-strong); border-radius: 0 4px 4px 0; }
+.methodology b { color: var(--ink-2); }
 
 .page-foot { color: var(--ink-3); margin-top: 32px; font-size: 12px; text-align: center; }
 
