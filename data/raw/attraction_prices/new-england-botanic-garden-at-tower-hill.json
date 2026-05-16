@@ -1,6 +1,6 @@
 {
   "slug": "new-england-botanic-garden-at-tower-hill",
-  "status": "failed:no_extractable_price",
+  "status": "failed:not_published",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "EBT/WIC $2 each for up to 6 daytime passes; standard admission prices not in this HTML",
-  "source_url": "https://www.nebg.org/admission"
+  "notes": "New England Botanic Garden at Tower Hill (nebg.org) — all page fetches return truncated content due to length; no admission prices extracted from any URL tried (/, /visit, /visit/, /admission, /tickets, /plan-your-visit, /tower-hill, etc.). Discount programs known: EBT $2 each (Sept-May) or free (June-Aug); military 25% off or free (Blue Star May-Sep); MTA educators free; library passes half-price for 2 tickets; Boylston residents free.",
+  "source_url": "https://www.nebg.org"
 }

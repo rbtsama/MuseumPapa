@@ -1,6 +1,6 @@
 {
   "slug": "ma-state-parks",
-  "status": "failed:no_html_fetched",
+  "status": "failed:fetch_failed",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
+  "notes": "mass.gov returned 403 Forbidden for all URLs attempted including /visit-massachusetts-state-parks, /parkspass, /massparks-pass, /how-to/get-a-massparks-pass, /how-to/purchase-a-massparks-pass, /info-details/massachusetts-state-parks-passess-and-stickers. Site blocking automated fetch.",
   "source_url": "https://www.mass.gov/visit-massachusetts-state-parks"
 }

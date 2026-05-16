@@ -1,8 +1,8 @@
 {
   "slug": "einsteins-workshop",
-  "status": "failed:no_html_fetched",
+  "status": "ok",
   "adult": null,
-  "child": null,
+  "child": 20.0,
   "youth": null,
   "senior": null,
   "student": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": "http://www.einsteinsworkshop.com/"
+  "notes": "Drop-In STEAM Play Space (Saturdays & Sundays 10 AM - 6 PM): $20 for first child, $5 for each additional child. Adults and children 2 and under are complimentary when accompanying a paying guest. Individual pricing: $20/person.",
+  "source_url": "https://www.einsteinsworkshop.com/drop-ins"
 }

@@ -1,6 +1,6 @@
 {
   "slug": "historic-new-england",
-  "status": "failed:no_html_fetched",
+  "status": "failed:fetch_failed",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.historicnewengland.org/"
+  "notes": "historicnewengland.org returned 403 Forbidden for all URLs attempted including /visit/, /admission, /plan-your-visit/, /plan-your-visit/admission, /plan-your-visit/tour-tickets/, individual property pages. Site is blocking automated fetch.",
+  "source_url": "https://www.historicnewengland.org"
 }

@@ -1,15 +1,15 @@
 {
   "slug": "boston-harbor-island-ferry",
-  "status": "failed:no_extractable_price",
-  "adult": null,
-  "child": null,
+  "status": "ok",
+  "adult": 24.95,
+  "child": 17.95,
   "youth": null,
-  "senior": null,
-  "student": null,
-  "military": null,
+  "senior": 22.95,
+  "student": 22.95,
+  "military": 22.95,
   "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Ferry prices vary; see official schedule",
-  "source_url": "http://www.bostonharborislands.org/"
+  "free_under_age": 3,
+  "notes": "2025 fares (round trip ferry to park): Adult $24.95; Child $17.95; Senior $22.95; Student/Military $22.95; Child under 3: free. Ride Pass (unlimited): $100. Free and reduced-cost access available through library passes and other programs.",
+  "source_url": "https://www.bostonharborislands.org/ferryschedule2023/"
 }

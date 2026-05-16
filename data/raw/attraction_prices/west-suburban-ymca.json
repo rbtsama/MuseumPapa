@@ -1,15 +1,15 @@
 {
   "slug": "west-suburban-ymca",
-  "status": "failed:no_extractable_price",
-  "adult": null,
+  "status": "ok",
+  "adult": 30.0,
   "child": null,
-  "youth": null,
-  "senior": null,
-  "student": null,
-  "military": null,
+  "youth": 15.0,
+  "senior": 20.0,
+  "student": 20.0,
+  "military": 0.0,
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "YMCA membership facility; no fixed admission",
-  "source_url": "https://wsymca.org/"
+  "notes": "Day pass rates (non-members): Youth (0-19 years): $15; Adult (20-64 years): $30; Senior (65+ years): $20; College Student (with ID): $20; Adult Guest with Member: $25; Active Military (with ID): free. Day pass cost credited toward membership if joined within same week.",
+  "source_url": "https://wsymca.org/membership"
 }

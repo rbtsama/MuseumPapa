@@ -1,6 +1,6 @@
 {
   "slug": "american-repertory-theater",
-  "status": "failed:no_extractable_price",
+  "status": "failed:event_pricing",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Ticket prices vary by show and season; no fixed admission prices",
-  "source_url": "https://americanrepertorytheater.org/"
+  "notes": "Per-show pricing varies by seat zone and performance. Discounts found: Senior (62+): $5 off; Harvard faculty/staff: $5 off; Military/Veterans (Blue Star): $5 off; Student & Under 25 advance: $38 inclusive of fees; Student & Under 25 rush: $20 no fees; Take Five: $5. Ticket fee: $8/ticket. Base price not published.",
+  "source_url": "https://americanrepertorytheater.org/tickets"
 }

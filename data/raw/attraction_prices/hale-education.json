@@ -1,7 +1,7 @@
 {
   "slug": "hale-education",
-  "status": "failed:no_html_fetched",
-  "adult": null,
+  "status": "ok",
+  "adult": 15.0,
   "child": null,
   "youth": null,
   "senior": null,
@@ -9,7 +9,7 @@
   "military": null,
   "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": ""
+  "free_under_age": 2,
+  "notes": "South Beach Day Pass: $15/person/day, up to $50/passenger vehicle max. After 5 PM: $5/person. Babies and toddlers under age 2: free. Main entrance parking: free year-round. South Beach currently closed seasonally.",
+  "source_url": "https://hale.education/visit"
 }

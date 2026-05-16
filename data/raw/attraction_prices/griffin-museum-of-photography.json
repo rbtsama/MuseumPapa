@@ -1,6 +1,6 @@
 {
   "slug": "griffin-museum-of-photography",
-  "status": "failed:no_extractable_price",
+  "status": "failed:fetch_failed",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": "http://www.griffinmuseum.org/"
+  "notes": "griffinmuseum.org returned 403 Forbidden for all sub-pages tried (/visit, /visit/admission, /admission, /plan-your-visit, /hours-and-admission). Main site also blocked.",
+  "source_url": "https://griffinmuseum.org"
 }

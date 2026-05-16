@@ -1,15 +1,15 @@
 {
   "slug": "institute-of-contemporary-art-boston",
-  "status": "failed:no_extractable_price",
-  "adult": null,
+  "status": "ok",
+  "adult": 20.0,
   "child": null,
   "youth": null,
-  "senior": null,
-  "student": null,
+  "senior": 17.0,
+  "student": 15.0,
   "military": null,
   "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.icaboston.org/admission"
+  "free_under_age": 18,
+  "notes": "Adults: $20; Students: $15; Seniors (65+): $17; Ages 18 and under: free; BPS students: free. Free every Thursday 5-9 PM. Library pass: $10/person.",
+  "source_url": "https://www.icaboston.org/visit"
 }

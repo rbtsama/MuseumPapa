@@ -1,6 +1,6 @@
 {
   "slug": "zoo-new-england",
-  "status": "failed:no_extractable_price",
+  "status": "failed:not_published",
   "adult": null,
   "child": null,
   "youth": null,
@@ -9,7 +9,7 @@
   "military": null,
   "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "http://www.zoonewengland.org/"
+  "free_under_age": 2,
+  "notes": "Dynamic 'Plan Ahead Pricing' — prices vary by date and advance purchase. Standard prices not published; only shown after selecting a date in the ticketing system. Known discounts: ConnectorCare $10/person; EBT/WIC $5/person (MA residents); Military: 50% off; Teachers (MTA/BTU/AFT-MA): 50% off; Children under 2: free.",
+  "source_url": "https://www.zoonewengland.org/franklin-park-zoo/buy-tickets.aspx"
 }

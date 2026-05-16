@@ -1,6 +1,6 @@
 {
   "slug": "boston-by-foot",
-  "status": "failed:no_extractable_price",
+  "status": "ok",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Walking tour prices vary by tour type",
-  "source_url": "http://www.bostonbyfoot.org/tickets"
+  "notes": "HTML FAQ states: 'Scheduled walking tours range in price from $10 to $20 and boat tours range in price from $20 to $49.' No single fixed adult price. Members receive free or discounted pricing. Adult set to null because price varies by tour.",
+  "source_url": "https://bostonbyfoot.org/faq/"
 }

@@ -1,15 +1,15 @@
 {
   "slug": "battleship-cove",
-  "status": "failed:no_extractable_price",
-  "adult": null,
-  "child": null,
+  "status": "ok",
+  "adult": 25.0,
+  "child": 15.0,
   "youth": null,
-  "senior": null,
+  "senior": 23.0,
   "student": null,
-  "military": null,
+  "military": 16.0,
   "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.battleshipcove.org/"
+  "free_under_age": 4,
+  "notes": "General Admission includes Maritime Museum. Adults: $25; Senior (65+): $23; Active Military (with ID): $16; US Military Veteran (with ID): $16; Children 4-12: $15; Children 3 and under: free. Maritime Museum only: Adults $10; Children 4-12 $8; Children 3 and under free.",
+  "source_url": "https://www.battleshipcove.org/hours-and-admission"
 }

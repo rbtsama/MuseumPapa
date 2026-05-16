@@ -1,15 +1,15 @@
 {
   "slug": "isabella-stewart-gardner-museum",
-  "status": "failed:no_extractable_price",
-  "adult": null,
+  "status": "ok",
+  "adult": 22.0,
   "child": null,
   "youth": null,
-  "senior": null,
-  "student": null,
-  "military": null,
+  "senior": 20.0,
+  "student": 15.0,
+  "military": 0.0,
   "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "http://www.gardnermuseum.org/home/"
+  "free_under_age": 18,
+  "notes": "Adult: $22; Senior (65+): $20; Student (with current ID): $15; Children 17 and under: free. US Military with valid ID: free. Museum Pass Program: $5. Massachusetts Teachers Association: half off. Card to Culture holders: $2 discount. Free First Thursdays (3-9 PM). People named Isabella with valid ID: free.",
+  "source_url": "https://www.gardnermuseum.org/visit"
 }

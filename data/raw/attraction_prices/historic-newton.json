@@ -1,6 +1,6 @@
 {
   "slug": "historic-newton",
-  "status": "failed:no_html_fetched",
+  "status": "failed:fetch_failed",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
+  "notes": "newtonma.gov returned 403 Forbidden for all sub-pages of /government/historic-newton attempted (admissions, tours, events, about, Jackson Homestead, Woodward-Halliday House). City site blocking automated fetch.",
   "source_url": "https://www.newtonma.gov/government/historic-newton"
 }

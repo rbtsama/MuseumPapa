@@ -1,6 +1,6 @@
 {
   "slug": "concord-museum",
-  "status": "failed:no_extractable_price",
+  "status": "failed:not_published",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": "http://www.concordmuseum.org/"
+  "notes": "Concord Museum (concordmuseum.org) — admission prices not published on website. Multiple URL patterns attempted (/, /visit, /admission, /visit/, /plan-your-visit, /plan-your-visit/admission, /tickets, /buy-tickets, /hours-admission, /plan-your-visit/buy-tickets, /info, /exhibitions, /plan-your-visit/tickets, /admission-hours) — all returned 404 or no price content. Museum is likely only ticketing through an external system.",
+  "source_url": "https://concordmuseum.org"
 }

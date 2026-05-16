@@ -1,15 +1,15 @@
 {
   "slug": "strawbery-banke-museum",
-  "status": "failed:no_extractable_price",
-  "adult": null,
-  "child": null,
+  "status": "ok",
+  "adult": 25.0,
+  "child": 12.5,
   "youth": null,
-  "senior": null,
-  "student": null,
+  "senior": 23.0,
+  "student": 23.0,
   "military": null,
   "educator": null,
-  "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "http://www.strawberybanke.org/tickets"
+  "family": 62.5,
+  "free_under_age": 5,
+  "notes": "Adult: $25; Senior (65+)/Student: $23; Child (ages 5-17): $12.50; Child (under 5): free; Family (2 Adults + Children): $62.50. Members: free.",
+  "source_url": "https://www.strawberybanke.org/visit"
 }

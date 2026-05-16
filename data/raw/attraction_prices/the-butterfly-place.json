@@ -1,6 +1,6 @@
 {
   "slug": "the-butterfly-place",
-  "status": "failed:no_extractable_price",
+  "status": "failed:not_published",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Group visits (15+) $6 per person; individual prices not in HTML",
-  "source_url": "https://www.butterflyplace-ma.com/admission"
+  "notes": "The Butterfly Place — admission prices not published on website. Multiple URL patterns tried (/, /admission, /plan-your-visit, /visit, /hours-rates, /hours-admission) all returned 404 or no price content. Site mentions 'Hours & Rates' section but that page returned 404.",
+  "source_url": "https://www.butterflyplace-ma.com"
 }

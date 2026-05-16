@@ -1,6 +1,6 @@
 {
   "slug": "john-f-kennedy-library-and-museum",
-  "status": "failed:no_html_fetched",
+  "status": "failed:fetch_failed",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.jfklibrary.org/"
+  "notes": "jfklibrary.org returned 403 Forbidden for all URLs attempted including /visit-the-museum/tickets-and-admission, /plan-your-visit/admission, /plan-your-visit/tickets, /visit-the-museum, /visit-the-museum/museum, /plan-your-visit/visiting-the-library-museum. Site blocking automated fetch.",
+  "source_url": "https://www.jfklibrary.org"
 }

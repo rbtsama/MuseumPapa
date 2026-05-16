@@ -1,15 +1,15 @@
 {
   "slug": "plimoth-patuxet",
-  "status": "failed:no_html_fetched",
-  "adult": null,
-  "child": null,
+  "status": "ok",
+  "adult": 35.0,
+  "child": 20.0,
   "youth": null,
-  "senior": null,
+  "senior": 31.5,
   "student": null,
   "military": null,
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": ""
+  "notes": "Duplicate of plimoth-patuxet-museums. Plimoth Patuxent Only: Adult $35, Senior $31.50, Child $20. Heritage Pass (all sites, 2 days): Adult $46, Senior $41.40, Child $29. Combination Pass (2 days): Adult $44, Senior $39.60, Child $27. Mayflower II only: Adult $19, Senior $17.10, Child $13.",
+  "source_url": "https://plimoth.org/plan-your-visit/hours-tickets-directions"
 }

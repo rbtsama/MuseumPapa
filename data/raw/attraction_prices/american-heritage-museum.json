@@ -1,15 +1,15 @@
 {
   "slug": "american-heritage-museum",
-  "status": "failed:no_extractable_price",
-  "adult": null,
-  "child": null,
+  "status": "ok",
+  "adult": 23.0,
+  "child": 12.0,
   "youth": null,
-  "senior": null,
+  "senior": 20.0,
   "student": null,
-  "military": null,
-  "educator": null,
+  "military": 20.0,
+  "educator": 0.0,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.americanheritagemuseum.org/"
+  "free_under_age": 3,
+  "notes": "Adults: $23; Children (16 and under): $12; Seniors (62+): $20; Active Duty Military/Veterans (with ID): $20; Children 3 and under: free; WWII & Korean War Veterans: free; MA Teachers (with MTA Card): free. EBT/WIC/ConnectorCare: $3 adult + free for up to 4 children under 18. Online discount: $2/ticket.",
+  "source_url": "https://www.americanheritagemuseum.org/plan-your-visit/hours-admission/"
 }

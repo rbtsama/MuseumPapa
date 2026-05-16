@@ -1,6 +1,6 @@
 {
   "slug": "american-rep-theater",
-  "status": "failed:no_html_fetched",
+  "status": "failed:event_pricing",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": ""
+  "notes": "Duplicate of american-repertory-theater. Per-show pricing varies by seat zone and performance. Discounts: Senior (62+): $5 off; Student & Under 25 advance: $38; Student rush: $20; Military: $5 off. Base price not published.",
+  "source_url": "https://americanrepertorytheater.org/tickets"
 }

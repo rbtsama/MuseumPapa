@@ -1,6 +1,6 @@
 {
   "slug": "maah",
-  "status": "failed:no_extractable_price",
+  "status": "failed:not_published",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.maah.org/"
+  "notes": "Museum of African American History (Boston + Nantucket locations). No admission prices published on website. Site directs to 'Reserve Your Ticket' but prices not shown on any accessible page. All fetched URLs returned no price data.",
+  "source_url": "https://www.maah.org"
 }

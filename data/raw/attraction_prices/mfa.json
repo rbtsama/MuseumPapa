@@ -1,15 +1,15 @@
 {
   "slug": "mfa",
-  "status": "failed:no_extractable_price",
-  "adult": null,
+  "status": "ok",
+  "adult": 30.0,
   "child": null,
-  "youth": null,
+  "youth": 14.0,
   "senior": null,
   "student": null,
   "military": null,
   "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.mfa.org/tickets"
+  "free_under_age": 7,
+  "notes": "Duplicate of museum-of-fine-arts. Adults: $30; Youths 7-17: $14; Youths 0-6: free. Members: free.",
+  "source_url": "https://www.mfa.org/visit/plan-your-visit"
 }

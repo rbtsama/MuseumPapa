@@ -1,15 +1,15 @@
 {
   "slug": "davis-farmland",
-  "status": "failed:no_extractable_price",
-  "adult": null,
+  "status": "ok",
+  "adult": 28.95,
   "child": null,
   "youth": null,
-  "senior": null,
+  "senior": 25.95,
   "student": null,
   "military": null,
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Admission page is FAQ about age restrictions; actual prices not in this HTML",
-  "source_url": "https://www.davisfarmland.com/admission"
+  "notes": "General admission (ages 2-59): $28.95 weekday / $31.95 weekend. Senior (60+): $25.95 weekday / $28.95 weekend. All visitors ages 2+ pay general admission. Online discount: save $4/ticket.",
+  "source_url": "https://davisfarmland.com/plan-your-visit/hours-tickets/"
 }

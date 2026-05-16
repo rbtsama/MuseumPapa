@@ -1,6 +1,6 @@
 {
   "slug": "greater-boston-stage-company",
-  "status": "failed:no_extractable_price",
+  "status": "failed:event_pricing",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Theater ticket prices vary by show",
-  "source_url": "https://www.greaterbostonstage.org/plan-your-visit"
+  "notes": "Per-show ticket pricing. Discount programs found: 26 FOR $26 (limited for those who can't afford regular prices), Frugal Fridays $26 (code FRUGAL), Savvy Saturdays $45 (code SAVVY), Card to Culture EBT: $6, Student: $26 (code STUDENT), $5 off for seniors (62+)/military/MTA members. Standard adult price not published.",
+  "source_url": "https://www.greaterbostonstage.org/pricing"
 }

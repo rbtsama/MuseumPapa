@@ -1,6 +1,6 @@
 {
   "slug": "paddle-boston",
-  "status": "failed:no_extractable_price",
+  "status": "failed:fetch_failed",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Rental prices vary by equipment type",
-  "source_url": "https://www.paddleboston.com/"
+  "notes": "paddleboston.com returned 403 Forbidden for all sub-pages tried (/pricing, /rates, /boat-rentals, /kayak-rentals, /charles-river-canoe-kayak-rentals, /locations). Main page also 403. Site blocking automated fetch.",
+  "source_url": "https://www.paddleboston.com"
 }

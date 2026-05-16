@@ -1,6 +1,6 @@
 {
   "slug": "jfk-library",
-  "status": "failed:no_html_fetched",
+  "status": "failed:fetch_failed",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": ""
+  "notes": "Duplicate of john-f-kennedy-library-and-museum. jfklibrary.org returned 403 Forbidden for all URLs attempted. Site blocking automated fetch.",
+  "source_url": "https://www.jfklibrary.org"
 }

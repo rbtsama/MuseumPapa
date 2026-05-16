@@ -1,7 +1,7 @@
 {
   "slug": "bedrock-gardens",
-  "status": "failed:no_extractable_price",
-  "adult": null,
+  "status": "ok",
+  "adult": 15.0,
   "child": null,
   "youth": null,
   "senior": null,
@@ -9,7 +9,7 @@
   "military": null,
   "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.bedrockgardens.org/"
+  "free_under_age": 12,
+  "notes": "Adults: $15. Children 12 and under: free.",
+  "source_url": "https://www.bedrockgardens.org/visiting.html"
 }

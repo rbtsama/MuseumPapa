@@ -1,15 +1,15 @@
 {
   "slug": "salem-witch-museum",
-  "status": "failed:no_extractable_price",
-  "adult": null,
-  "child": null,
+  "status": "ok",
+  "adult": 19.0,
+  "child": 16.0,
   "youth": null,
-  "senior": null,
+  "senior": 17.5,
   "student": null,
   "military": null,
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": "http://www.salemwitchmuseum.com/"
+  "notes": "Adult: $19.00; Senior Citizen (62+): $17.50; Children (6-14): $16.00. October tickets are sold online only. Tickets at in-person during slower seasons.",
+  "source_url": "http://www.salemwitchmuseum.com/cost"
 }

@@ -1,15 +1,15 @@
 {
   "slug": "massachusetts-state-police-museum-and-learning-center",
-  "status": "failed:no_html_fetched",
-  "adult": null,
+  "status": "ok",
+  "adult": 5.0,
   "child": null,
   "youth": null,
   "senior": null,
   "student": null,
-  "military": null,
+  "military": 0.0,
   "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.mspmlc.org/ "
+  "free_under_age": 16,
+  "notes": "Adults: $5; Children under 16: free; Museum Members: free; Military/Veterans: free; EBT/WIC cardholders: free admission for up to 4 people per card.",
+  "source_url": "https://www.mspmlc.org/visit"
 }

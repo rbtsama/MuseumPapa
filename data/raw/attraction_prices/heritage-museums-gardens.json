@@ -1,15 +1,15 @@
 {
   "slug": "heritage-museums-gardens",
-  "status": "failed:no_html_fetched",
-  "adult": null,
+  "status": "ok",
+  "adult": 26.0,
   "child": null,
-  "youth": null,
+  "youth": 16.0,
   "senior": null,
   "student": null,
   "military": null,
   "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": null,
-  "source_url": ""
+  "free_under_age": 3,
+  "notes": "Adults: $26; Youth (ages 3-17): $16; Child (ages 0-2): free. Members: free. Includes access to three indoor gallery spaces, all gardens, and outdoor features.",
+  "source_url": "https://heritagemuseumsandgardens.org/visit/"
 }

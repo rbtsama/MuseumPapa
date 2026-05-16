@@ -1,6 +1,6 @@
 {
   "slug": "real-pirates-salem",
-  "status": "failed:no_extractable_price",
+  "status": "failed:not_published",
   "adult": null,
   "child": null,
   "youth": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": null,
-  "source_url": "https://www.realpiratessalem.com/"
+  "notes": "Real Pirates Salem — prices only visible through FareHarbor booking widget which does not render for automated fetch. Site offers Museum Experience, Director's Tour, and Group Experience but no dollar amounts on any accessible page.",
+  "source_url": "https://www.realpiratessalem.com"
 }
