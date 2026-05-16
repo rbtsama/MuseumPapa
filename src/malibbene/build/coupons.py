@@ -4,6 +4,8 @@ Reads data/raw/pass_coupons/<lib>_<slug>.json files written by Task 2.
 """
 from __future__ import annotations
 
+from malibbene.build.coupon_summary import format_summary
+
 
 def coupon_block(rec: dict | None) -> dict:
     """Return a Coupon dict for a pass. If rec is missing/failed, return a
@@ -15,13 +17,15 @@ def coupon_block(rec: dict | None) -> dict:
             "summary": "",
         }
     cap = rec.get("capacity") or {}
+    cap_block = {
+        "kind": cap.get("kind", "unspecified"),
+        "n": cap.get("n"),
+    }
+    aps = list(rec.get("audience_policies") or [])
     return {
-        "capacity": {
-            "kind": cap.get("kind", "unspecified"),
-            "n": cap.get("n"),
-        },
-        "audience_policies": list(rec.get("audience_policies") or []),
-        "summary": "",   # filled by coupon_summary.format() in Task 4
+        "capacity": cap_block,
+        "audience_policies": aps,
+        "summary": format_summary(cap_block, aps),
     }
 
 
