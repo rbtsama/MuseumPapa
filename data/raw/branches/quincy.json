@@ -1,0 +1,54 @@
+{
+  "lib_id": "quincy",
+  "source_url": "https://tcplquincy.org/visit/locations/",
+  "branches": [
+    {
+      "branch_id": "quincy--main",
+      "name": "Main Library",
+      "address": {
+        "street": "40 Washington Street",
+        "city": "Quincy",
+        "state": "MA",
+        "zip": "02169"
+      },
+      "hours_raw": "Monday 9 AM − 9 PM; Tuesday 9 AM − 9 PM; Wednesday 9 AM − 9 PM; Thursday 9 AM − 9 PM; Friday 9 AM − 5 PM; Saturday 9 AM − 5 PM; Sunday 1 PM − 5 PM",
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "quincy--north-quincy",
+      "name": "North Quincy",
+      "address": {
+        "street": "381 Hancock Street",
+        "city": "Quincy",
+        "state": "MA",
+        "zip": "02171"
+      },
+      "hours_raw": "Monday 9 AM − 5 PM; Tuesday 1 PM − 9 PM; Wednesday 9 AM − 5 PM; Thursday 1 PM − 5 PM; Friday 1 PM − 5 PM; Saturday 9 AM − 5 PM; Sunday Closed",
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "quincy--adams-shore",
+      "name": "Adams Shore",
+      "address": {
+        "street": "519 Sea Street",
+        "city": "Quincy",
+        "state": "MA",
+        "zip": "02169"
+      },
+      "hours_raw": "Monday 1 PM − 9 PM; Tuesday 9 AM − 5 PM; Wednesday 1 PM − 5 PM; Thursday 1 PM − 5 PM; Friday Closed; Saturday Closed; Sunday Closed",
+      "extraction_notes": "Adams Shore branch appears active in HTML with full address and hours as of snapshot date."
+    },
+    {
+      "branch_id": "quincy--wollaston",
+      "name": "Wollaston",
+      "address": {
+        "street": "41 Beale Street",
+        "city": "Quincy",
+        "state": "MA",
+        "zip": "02171"
+      },
+      "hours_raw": "Monday 9 AM − 1 PM; Tuesday 1 PM − 5 PM; Wednesday 1 PM − 5 PM; Thursday 9 AM − 1 PM; Friday Closed; Saturday Closed; Sunday Closed",
+      "extraction_notes": ""
+    }
+  ]
+}

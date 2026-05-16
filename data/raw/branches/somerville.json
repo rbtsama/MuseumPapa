@@ -1,0 +1,42 @@
+{
+  "lib_id": "somerville",
+  "source_url": "https://www.somervillepubliclibrary.org/library/hours-locations/",
+  "branches": [
+    {
+      "branch_id": "somerville--central",
+      "name": "Central Library",
+      "address": {
+        "street": "79 Highland Ave.",
+        "city": "Somerville",
+        "state": "MA",
+        "zip": "02143"
+      },
+      "hours_raw": null,
+      "extraction_notes": "Address from footer widget (line 1491). No hours block on this hub page; hours are on the sub-page /library/hours-locations/central-library/."
+    },
+    {
+      "branch_id": "somerville--east",
+      "name": "East Branch",
+      "address": {
+        "street": "115 Broadway",
+        "city": "Somerville",
+        "state": "MA",
+        "zip": "02145"
+      },
+      "hours_raw": "Monday: 9:00 AM — 9:00 PM; Tuesday - Wednesday: 9:00 AM — 6:00 PM; Thursday: 9:00 AM — 9:00 PM; Friday: 9:00 AM — 6:00 PM; Saturday: 9:00 AM — 1:00 PM; Sunday: Closed. Closed on all state and federal holidays.",
+      "extraction_notes": "Address and hours from sub-page /library/hours-locations/east-branch/ (somerville_east-branch.html line 1359 for address, line 1347 for hours table). Zip 02145 from Google Maps URL in the Location link."
+    },
+    {
+      "branch_id": "somerville--west",
+      "name": "West Branch",
+      "address": {
+        "street": "40 College Ave",
+        "city": "Somerville",
+        "state": "MA",
+        "zip": "02144"
+      },
+      "hours_raw": "Monday: 9:00 AM — 9:00 PM; Tuesday: 9:00 AM — 6:00 PM; Wednesday: 9:00 AM — 9:00 PM; Thursday - Friday: 9:00 AM — 6:00 PM; Saturday: 9:00 AM — 1:00 PM; Sunday: Closed. Closed on all state and federal holidays.",
+      "extraction_notes": "Address and hours from sub-page /library/hours-locations/west-branch/ (somerville_west-branch.html line 1359 for address, line 1347 for hours table). Zip 02144 from Google Maps URL in the Location link."
+    }
+  ]
+}

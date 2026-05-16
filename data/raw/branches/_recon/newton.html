@@ -1,0 +1,2015 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--Google Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&family=Open+Sans:wght@300;700;800&display=swap" rel="stylesheet">
+  <title>Newton Free Library &#8211; Official Website of the Newton Free Library</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://newtonfreelibrary.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnewtonfreelibrary.net%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://newtonfreelibrary.net/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnewtonfreelibrary.net%2F&#038;format=xml" />
+		<!-- This site uses the Google Analytics by ExactMetrics plugin v9.1.3 - Using Analytics tracking - https://www.exactmetrics.com/ -->
+							<script src="//www.googletagmanager.com/gtag/js?id=G-7FL2QKY1S2"  data-cfasync="false" data-wpfc-render="false" type="text/javascript" async></script>
+			<script data-cfasync="false" data-wpfc-render="false" type="text/javascript">
+				var em_version = '9.1.3';
+				var em_track_user = true;
+				var em_no_track_reason = '';
+								var ExactMetricsDefaultLocations = {"page_location":"https:\/\/newtonfreelibrary.net\/"};
+								if ( typeof ExactMetricsPrivacyGuardFilter === 'function' ) {
+					var ExactMetricsLocations = (typeof ExactMetricsExcludeQuery === 'object') ? ExactMetricsPrivacyGuardFilter( ExactMetricsExcludeQuery ) : ExactMetricsPrivacyGuardFilter( ExactMetricsDefaultLocations );
+				} else {
+					var ExactMetricsLocations = (typeof ExactMetricsExcludeQuery === 'object') ? ExactMetricsExcludeQuery : ExactMetricsDefaultLocations;
+				}
+
+								var disableStrs = [
+										'ga-disable-G-7FL2QKY1S2',
+									];
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						if (document.cookie.indexOf(disableStrs[index] + '=true') > -1) {
+							return true;
+						}
+					}
+
+					return false;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if (__gtagTrackerIsOptedOut()) {
+					for (var index = 0; index < disableStrs.length; index++) {
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						document.cookie = disableStrs[index] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				if ('undefined' === typeof gaOptout) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+
+				window.ExactMetricsDualTracker = {
+					helpers: {},
+					trackers: {},
+				};
+				if (em_track_user) {
+					function __gtagDataLayer() {
+						dataLayer.push(arguments);
+					}
+
+					function __gtagTracker(type, name, parameters) {
+						if (!parameters) {
+							parameters = {};
+						}
+
+						if (parameters.send_to) {
+							__gtagDataLayer.apply(null, arguments);
+							return;
+						}
+
+						if (type === 'event') {
+														parameters.send_to = exactmetrics_frontend.v4_id;
+							var hookName = name;
+							if (typeof parameters['event_category'] !== 'undefined') {
+								hookName = parameters['event_category'] + ':' + name;
+							}
+
+							if (typeof ExactMetricsDualTracker.trackers[hookName] !== 'undefined') {
+								ExactMetricsDualTracker.trackers[hookName](parameters);
+							} else {
+								__gtagDataLayer('event', name, parameters);
+							}
+							
+						} else {
+							__gtagDataLayer.apply(null, arguments);
+						}
+					}
+
+					__gtagTracker('js', new Date());
+					__gtagTracker('set', {
+						'developer_id.dNDMyYj': true,
+											});
+					if ( ExactMetricsLocations.page_location ) {
+						__gtagTracker('set', ExactMetricsLocations);
+					}
+										__gtagTracker('config', 'G-7FL2QKY1S2', {"forceSSL":"true","link_attribution":"true"} );
+										window.gtag = __gtagTracker;										(function () {
+						/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+						/* ga and __gaTracker compatibility shim. */
+						var noopfn = function () {
+							return null;
+						};
+						var newtracker = function () {
+							return new Tracker();
+						};
+						var Tracker = function () {
+							return null;
+						};
+						var p = Tracker.prototype;
+						p.get = noopfn;
+						p.set = noopfn;
+						p.send = function () {
+							var args = Array.prototype.slice.call(arguments);
+							args.unshift('send');
+							__gaTracker.apply(null, args);
+						};
+						var __gaTracker = function () {
+							var len = arguments.length;
+							if (len === 0) {
+								return;
+							}
+							var f = arguments[len - 1];
+							if (typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function') {
+								if ('send' === arguments[0]) {
+									var hitConverted, hitObject = false, action;
+									if ('event' === arguments[1]) {
+										if ('undefined' !== typeof arguments[3]) {
+											hitObject = {
+												'eventAction': arguments[3],
+												'eventCategory': arguments[2],
+												'eventLabel': arguments[4],
+												'value': arguments[5] ? arguments[5] : 1,
+											}
+										}
+									}
+									if ('pageview' === arguments[1]) {
+										if ('undefined' !== typeof arguments[2]) {
+											hitObject = {
+												'eventAction': 'page_view',
+												'page_path': arguments[2],
+											}
+										}
+									}
+									if (typeof arguments[2] === 'object') {
+										hitObject = arguments[2];
+									}
+									if (typeof arguments[5] === 'object') {
+										Object.assign(hitObject, arguments[5]);
+									}
+									if ('undefined' !== typeof arguments[1].hitType) {
+										hitObject = arguments[1];
+										if ('pageview' === hitObject.hitType) {
+											hitObject.eventAction = 'page_view';
+										}
+									}
+									if (hitObject) {
+										action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+										hitConverted = mapArgs(hitObject);
+										__gtagTracker('event', action, hitConverted);
+									}
+								}
+								return;
+							}
+
+							function mapArgs(args) {
+								var arg, hit = {};
+								var gaMap = {
+									'eventCategory': 'event_category',
+									'eventAction': 'event_action',
+									'eventLabel': 'event_label',
+									'eventValue': 'event_value',
+									'nonInteraction': 'non_interaction',
+									'timingCategory': 'event_category',
+									'timingVar': 'name',
+									'timingValue': 'value',
+									'timingLabel': 'event_label',
+									'page': 'page_path',
+									'location': 'page_location',
+									'title': 'page_title',
+									'referrer' : 'page_referrer',
+								};
+								for (arg in args) {
+																		if (!(!args.hasOwnProperty(arg) || !gaMap.hasOwnProperty(arg))) {
+										hit[gaMap[arg]] = args[arg];
+									} else {
+										hit[arg] = args[arg];
+									}
+								}
+								return hit;
+							}
+
+							try {
+								f.hitCallback();
+							} catch (ex) {
+							}
+						};
+						__gaTracker.create = newtracker;
+						__gaTracker.getByName = newtracker;
+						__gaTracker.getAll = function () {
+							return [];
+						};
+						__gaTracker.remove = noopfn;
+						__gaTracker.loaded = true;
+						window['__gaTracker'] = __gaTracker;
+					})();
+									} else {
+										console.log("");
+					(function () {
+						function __gtagTracker() {
+							return null;
+						}
+
+						window['__gtagTracker'] = __gtagTracker;
+						window['gtag'] = __gtagTracker;
+					})();
+									}
+			</script>
+							<!-- / Google Analytics by ExactMetrics -->
+				<!-- This site uses the Google Analytics by MonsterInsights plugin v10.1.3 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+							<script src="//www.googletagmanager.com/gtag/js?id=G-D1JMGC1Q81"  data-cfasync="false" data-wpfc-render="false" type="text/javascript" async></script>
+			<script data-cfasync="false" data-wpfc-render="false" type="text/javascript">
+				var mi_version = '10.1.3';
+				var mi_track_user = true;
+				var mi_no_track_reason = '';
+								var MonsterInsightsDefaultLocations = {"page_location":"https:\/\/newtonfreelibrary.net\/"};
+								if ( typeof MonsterInsightsPrivacyGuardFilter === 'function' ) {
+					var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsPrivacyGuardFilter( MonsterInsightsExcludeQuery ) : MonsterInsightsPrivacyGuardFilter( MonsterInsightsDefaultLocations );
+				} else {
+					var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsExcludeQuery : MonsterInsightsDefaultLocations;
+				}
+
+								var disableStrs = [
+										'ga-disable-G-D1JMGC1Q81',
+									];
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						if (document.cookie.indexOf(disableStrs[index] + '=true') > -1) {
+							return true;
+						}
+					}
+
+					return false;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if (__gtagTrackerIsOptedOut()) {
+					for (var index = 0; index < disableStrs.length; index++) {
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						document.cookie = disableStrs[index] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				if ('undefined' === typeof gaOptout) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+
+				window.MonsterInsightsDualTracker = {
+					helpers: {},
+					trackers: {},
+				};
+				if (mi_track_user) {
+					function __gtagDataLayer() {
+						dataLayer.push(arguments);
+					}
+
+					function __gtagTracker(type, name, parameters) {
+						if (!parameters) {
+							parameters = {};
+						}
+
+						if (parameters.send_to) {
+							__gtagDataLayer.apply(null, arguments);
+							return;
+						}
+
+						if (type === 'event') {
+														parameters.send_to = monsterinsights_frontend.v4_id;
+							var hookName = name;
+							if (typeof parameters['event_category'] !== 'undefined') {
+								hookName = parameters['event_category'] + ':' + name;
+							}
+
+							if (typeof MonsterInsightsDualTracker.trackers[hookName] !== 'undefined') {
+								MonsterInsightsDualTracker.trackers[hookName](parameters);
+							} else {
+								__gtagDataLayer('event', name, parameters);
+							}
+							
+						} else {
+							__gtagDataLayer.apply(null, arguments);
+						}
+					}
+
+					__gtagTracker('js', new Date());
+					__gtagTracker('set', {
+						'developer_id.dZGIzZG': true,
+											});
+					if ( MonsterInsightsLocations.page_location ) {
+						__gtagTracker('set', MonsterInsightsLocations);
+					}
+										__gtagTracker('config', 'G-D1JMGC1Q81', {"forceSSL":"true","link_attribution":"true"} );
+										window.gtag = __gtagTracker;										(function () {
+						/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+						/* ga and __gaTracker compatibility shim. */
+						var noopfn = function () {
+							return null;
+						};
+						var newtracker = function () {
+							return new Tracker();
+						};
+						var Tracker = function () {
+							return null;
+						};
+						var p = Tracker.prototype;
+						p.get = noopfn;
+						p.set = noopfn;
+						p.send = function () {
+							var args = Array.prototype.slice.call(arguments);
+							args.unshift('send');
+							__gaTracker.apply(null, args);
+						};
+						var __gaTracker = function () {
+							var len = arguments.length;
+							if (len === 0) {
+								return;
+							}
+							var f = arguments[len - 1];
+							if (typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function') {
+								if ('send' === arguments[0]) {
+									var hitConverted, hitObject = false, action;
+									if ('event' === arguments[1]) {
+										if ('undefined' !== typeof arguments[3]) {
+											hitObject = {
+												'eventAction': arguments[3],
+												'eventCategory': arguments[2],
+												'eventLabel': arguments[4],
+												'value': arguments[5] ? arguments[5] : 1,
+											}
+										}
+									}
+									if ('pageview' === arguments[1]) {
+										if ('undefined' !== typeof arguments[2]) {
+											hitObject = {
+												'eventAction': 'page_view',
+												'page_path': arguments[2],
+											}
+										}
+									}
+									if (typeof arguments[2] === 'object') {
+										hitObject = arguments[2];
+									}
+									if (typeof arguments[5] === 'object') {
+										Object.assign(hitObject, arguments[5]);
+									}
+									if ('undefined' !== typeof arguments[1].hitType) {
+										hitObject = arguments[1];
+										if ('pageview' === hitObject.hitType) {
+											hitObject.eventAction = 'page_view';
+										}
+									}
+									if (hitObject) {
+										action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+										hitConverted = mapArgs(hitObject);
+										__gtagTracker('event', action, hitConverted);
+									}
+								}
+								return;
+							}
+
+							function mapArgs(args) {
+								var arg, hit = {};
+								var gaMap = {
+									'eventCategory': 'event_category',
+									'eventAction': 'event_action',
+									'eventLabel': 'event_label',
+									'eventValue': 'event_value',
+									'nonInteraction': 'non_interaction',
+									'timingCategory': 'event_category',
+									'timingVar': 'name',
+									'timingValue': 'value',
+									'timingLabel': 'event_label',
+									'page': 'page_path',
+									'location': 'page_location',
+									'title': 'page_title',
+									'referrer' : 'page_referrer',
+								};
+								for (arg in args) {
+																		if (!(!args.hasOwnProperty(arg) || !gaMap.hasOwnProperty(arg))) {
+										hit[gaMap[arg]] = args[arg];
+									} else {
+										hit[arg] = args[arg];
+									}
+								}
+								return hit;
+							}
+
+							try {
+								f.hitCallback();
+							} catch (ex) {
+							}
+						};
+						__gaTracker.create = newtracker;
+						__gaTracker.getByName = newtracker;
+						__gaTracker.getAll = function () {
+							return [];
+						};
+						__gaTracker.remove = noopfn;
+						__gaTracker.loaded = true;
+						window['__gaTracker'] = __gaTracker;
+					})();
+									} else {
+										console.log("");
+					(function () {
+						function __gtagTracker() {
+							return null;
+						}
+
+						window['__gtagTracker'] = __gtagTracker;
+						window['gtag'] = __gtagTracker;
+					})();
+									}
+			</script>
+							<!-- / Google Analytics by MonsterInsights -->
+		<style id='wp-img-auto-sizes-contain-inline-css' type='text/css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='wp-block-library-inline-css' type='text/css'>
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<link rel='stylesheet' id='simple-banner-style-css' href='https://newtonfreelibrary.net/wp-content/plugins/simple-banner/simple-banner.css?ver=3.2.1' type='text/css' media='all' />
+<link rel='stylesheet' id='megamenu-css' href='https://newtonfreelibrary.net/wp-content/uploads/maxmegamenu/style.css?ver=fed03c' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css' href='https://newtonfreelibrary.net/wp-includes/css/dashicons.min.css?ver=6.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='megamenu-fontawesome-css' href='https://newtonfreelibrary.net/wp-content/plugins/megamenu-pro/icons/fontawesome/css/font-awesome.min.css?ver=1.6.5' type='text/css' media='all' />
+<link rel='stylesheet' id='megamenu-genericons-css' href='https://newtonfreelibrary.net/wp-content/plugins/megamenu-pro/icons/genericons/genericons/genericons.css?ver=1.6.5' type='text/css' media='all' />
+<link rel='stylesheet' id='url-shortify-css' href='https://newtonfreelibrary.net/wp-content/plugins/url-shortify/lite/dist/styles/url-shortify.css?ver=2.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='sage/main.css-css' href='https://newtonfreelibrary.net/wp-content/themes/newtonpl/dist/styles/main_bdfd53bf.css' type='text/css' media='all' />
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-content/plugins/google-analytics-dashboard-for-wp/assets/js/frontend-gtag.min.js?ver=9.1.3" id="exactmetrics-frontend-script-js" async="async" data-wp-strategy="async"></script>
+<script data-cfasync="false" data-wpfc-render="false" type="text/javascript" id='exactmetrics-frontend-script-js-extra'>/* <![CDATA[ */
+var exactmetrics_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/newtonfreelibrary.net","hash_tracking":"false","v4_id":"G-7FL2QKY1S2"};/* ]]> */
+</script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend-gtag.min.js?ver=10.1.3" id="monsterinsights-frontend-script-js" async="async" data-wp-strategy="async"></script>
+<script data-cfasync="false" data-wpfc-render="false" type="text/javascript" id='monsterinsights-frontend-script-js-extra'>/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/newtonfreelibrary.net","hash_tracking":"false","v4_id":"G-D1JMGC1Q81"};/* ]]> */
+</script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-content/plugins/assabet-interactive/js/iframeResizer.min.js?ver=6.9.4" id="assabetinteractive-js"></script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="simple-banner-script-js-before">
+/* <![CDATA[ */
+const simpleBannerScriptParams = {"pro_version_enabled":"","debug_mode":"","id":6,"version":"3.2.1","banner_params":[{"hide_simple_banner":"no","simple_banner_prepend_element":"body","simple_banner_position":"","header_margin":"","header_padding":"","wp_body_open_enabled":"","wp_body_open":true,"simple_banner_z_index":"","simple_banner_text":"","disabled_on_current_page":false,"disabled_pages_array":[],"is_current_page_a_post":false,"disabled_on_posts":"","simple_banner_disabled_page_paths":"","simple_banner_font_size":"","simple_banner_color":"#ffd438","simple_banner_text_color":"#000000","simple_banner_link_color":"#1d1c1b","simple_banner_close_color":"","simple_banner_custom_css":"","simple_banner_scrolling_custom_css":"","simple_banner_text_custom_css":"","simple_banner_button_css":"","site_custom_css":"","keep_site_custom_css":"","site_custom_js":"","keep_site_custom_js":"","close_button_enabled":"","close_button_expiration":"","close_button_cookie_set":false,"current_date":{"date":"2026-05-16 15:54:48.260030","timezone_type":3,"timezone":"UTC"},"start_date":{"date":"2026-05-16 15:54:48.260037","timezone_type":3,"timezone":"UTC"},"end_date":{"date":"2026-05-16 15:54:48.260040","timezone_type":3,"timezone":"UTC"},"simple_banner_start_after_date":"","simple_banner_remove_after_date":"","simple_banner_insert_inside_element":""}]}
+//# sourceURL=simple-banner-script-js-before
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-content/plugins/simple-banner/simple-banner.js?ver=3.2.1" id="simple-banner-script-js"></script>
+<script type="text/javascript" id="url-shortify-js-extra">
+/* <![CDATA[ */
+var usParams = {"ajaxurl":"https://newtonfreelibrary.net/wp-admin/admin-ajax.php"};
+//# sourceURL=url-shortify-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-content/plugins/url-shortify/lite/dist/scripts/url-shortify.js?ver=2.2.2" id="url-shortify-js"></script>
+<link rel="https://api.w.org/" href="https://newtonfreelibrary.net/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://newtonfreelibrary.net/wp-json/wp/v2/pages/6" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://newtonfreelibrary.net/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.9.4" />
+<link rel="canonical" href="https://newtonfreelibrary.net/" />
+<link rel='shortlink' href='https://newtonfreelibrary.net/' />
+<style id="simple-banner-background-color" type="text/css">.simple-banner{background:#ffd438;}</style><style id="simple-banner-text-color" type="text/css">.simple-banner .simple-banner-text{color:#000000;}</style><style id="simple-banner-link-color" type="text/css">.simple-banner .simple-banner-text a{color:#1d1c1b;}</style><style id="simple-banner-z-index" type="text/css">.simple-banner{z-index: 99999;}</style><style id="simple-banner-site-custom-css-dummy" type="text/css"></style><script id="simple-banner-site-custom-js-dummy" type="text/javascript"></script>	<style>img#wpstats{display:none}</style>
+		<style class="wpcode-css-snippet">.count-heading {
+    padding: 1rem;
+    border-radius: 5rem;
+	background: none repeat scroll 0 0 #0b8eaf;
+    color: #ffffff;
+    text-shadow: none;
+    line-height: 10px;
+}
+.count-row{
+	margin-bottom:1rem !important;
+}</style><style type="text/css">.blue-message {
+background: none repeat scroll 0 0 #3399ff;
+    color: #ffffff;
+    text-shadow: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+}.green-message {
+background: none repeat scroll 0 0 #8cc14c;
+    color: #ffffff;
+    text-shadow: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+}.orange-message {
+background: none repeat scroll 0 0 #faa732;
+    color: #ffffff;
+    text-shadow: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+}.red-message {
+background: none repeat scroll 0 0 #da4d31;
+    color: #ffffff;
+    text-shadow: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+}.grey-message {
+background: none repeat scroll 0 0 #53555c;
+    color: #ffffff;
+    text-shadow: none;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px;
+}.left-block {
+background: none repeat scroll 0 0px, radial-gradient(ellipse at center center, #ffffff 0%, #f2f2f2 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #8b8e97;
+    padding: 10px;
+    margin: 10px;
+    float: left;
+}.right-block {
+background: none repeat scroll 0 0px, radial-gradient(ellipse at center center, #ffffff 0%, #f2f2f2 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #8b8e97;
+    padding: 10px;
+    margin: 10px;
+    float: right;
+}.blockquotes {
+background: none;
+    border-left: 5px solid #f1f1f1;
+    color: #8B8E97;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 22px;
+    padding-left: 15px;
+    padding: 10px;
+    width: 60%;
+    float: left;
+}</style><link rel="icon" href="https://newtonfreelibrary.net/wp-content/uploads/2021/06/favicon.png" sizes="32x32" />
+<link rel="icon" href="https://newtonfreelibrary.net/wp-content/uploads/2021/06/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://newtonfreelibrary.net/wp-content/uploads/2021/06/favicon.png" />
+<meta name="msapplication-TileImage" content="https://newtonfreelibrary.net/wp-content/uploads/2021/06/favicon.png" />
+<style>.shorten_url { 
+	   padding: 10px 10px 10px 10px ; 
+	   border: 1px solid #AAAAAA ; 
+	   background-color: #EEEEEE ;
+}</style>		<style type="text/css" id="wp-custom-css">
+			/* override background color on buttons */
+.wp-block-button .wp-block-button__link:not(.has-background) {
+    background:unset;
+}
+.dropdown--tabs .dropdown-menu {
+	z-index: 2 !important;
+}
+
+.dropdown--tabs .btn--dropdown-toggle {
+	z-index: 3 !important;
+}
+
+.slider-wrapper--hero .slick-dots--libby>li {
+	overflow: hidden;
+	width: 20px;
+	height: 20px;
+}
+
+.wp-block-image {
+	padding: 1rem;
+}
+
+.wp-block-media-text__media img, .wp-block-media-text__media video {
+	height: auto !important;
+}
+
+.quicklink--rounded img {
+	max-width: 45px;
+	max-height: 45px;
+}
+
+/* Safari 7.1+ fix */
+
+_::-webkit-full-page-media, _:future, :root .quicklinks-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+_::-webkit-full-page-media, _:future, :root .home .quicklinks-wrapper .quicklink {
+	max-height: 140px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+@media only screen and (min-width: 748px) {
+.anchor-link-offset {
+	padding-top: 120px; 
+	margin-top: -120px;
+}
+}
+
+.search-overlay__inner .radio-styled--faded:checked:before {
+	background-color: #6b993d
+}
+
+/*Adjust zindex on LoT items*/
+.page-template-template-card-list .card {
+	position: relative;
+	z-index: 3;
+}
+
+.sidebar--styled.border-blue  h5 a {
+	color: black !important;
+}
+
+.sidebar--styled.border-blue {
+	background-color:white !important;
+}
+
+.sidebar__related .page_item>a {
+	color: black;
+}		</style>
+		<style type="text/css">/** Mega Menu CSS: fs **/</style>
+</head>
+
+<body class="home wp-singular page-template-default page page-id-6 wp-theme-newtonplresources mega-menu-primary-navigation app-data index-data singular-data page-data page-6-data page-home-data front-page-data">
+  <div class="alert alert-warning alert-dismissible fade show mb-0 alert--banner" role="alert">
+  <div class="container">
+    <div class="alert__inner">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.085 23.085" class="alert__icon alert__icon--info">
+        <path
+          d="M11.543 0a11.543 11.543 0 1011.542 11.543A11.543 11.543 0 0011.543 0zm0 17.314A1.154 1.154 0 1112.7 16.16a1.154 1.154 0 01-1.157 1.154zM12.7 12.7a1.155 1.155 0 11-2.309 0V6.926a1.155 1.155 0 012.309 0z"
+          fill="#fff" />
+      </svg>
+      <span class="alert__message">May 17, 2026 - Due to the Memorial Day Parade and KidsFest, the Library parking lot will be extremely busy on Sunday, May 17.</span>
+            <button type="button" class="alert__close" data-dismiss="alert" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.473 14.472" class="alert__icon alert__icon--close">
+          <path
+            d="M1.651.283A.967.967 0 10.283 1.65l5.585 5.585-5.585 5.588a.967.967 0 101.368 1.368l5.586-5.585 5.587 5.582a.967.967 0 101.365-1.365L8.604 7.236l5.585-5.585A.967.967 0 1012.824.283L7.239 5.868 1.651.282z"
+            fill="#000" />
+        </svg> <span style="color: #000;">CLOSE</span>
+      </button>
+          </div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="secondary-menu-wrapper">
+    <div class="position-relative d-block d-md-none text-center text-uppercase text-white font-weight-bold bg-green py-2">
+      <a href="https://newtonfreelibrary.net/about/our-library/hours-directions/" class="d-block text-decoration-none w-100 text-white">
+        9:00 am - 5:00 pm | Open now
+      </a>
+    </div>
+    <div class="container-sm">
+      <ul class="nav nav--secondary">
+                <li id="menu-item-215" class="nav-link-icon nav-link-icon__catalog menu-item menu-item-type-custom menu-item-object-custom menu-item-215"><a href="https://newton.minlib.net/?browseCategory=new_books_library_newton">Catalog</a></li>
+<li id="menu-item-216" class="nav-link-icon nav-link-icon__account menu-item menu-item-type-custom menu-item-object-custom menu-item-216"><a href="https://newton.minlib.net/MyAccount/Home">Account</a></li>
+
+                <li class="menu-item">
+	<div class="dropdown">
+	  <button class="dropdown-toggle menu-icon-link menu-icon-link--translate appearance-none border-0 py-0 pr-0 bg-transparent text-white" type="button" id="translateDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    Translate
+	  </button>
+	  <div class="dropdown-menu" aria-labelledby="translateDropDown">
+	    <form class="px-2">
+	    	<div id="google_translate_element"></div>
+	    	<script>
+	        function googleTranslateElementInit() {
+	          new google.translate.TranslateElement({
+	            pageLanguage: 'en'
+	          }, 'google_translate_element');
+	        }
+	    	</script>
+	     	<script defer async src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	    </form>
+	  </div>
+	</div>
+</li>        <li class="menu-item menu-item--ztop">
+	<button class="menu-icon-link menu-icon-link--search appearance-none bg-transparent border-0 py-0 pr-0 text-white menu-item__search-btn collapsed" title="Toggle the search visiblity" type="button" data-toggle="collapse" data-target="#toggleSearch" aria-expanded="false" aria-controls="toggleSearch"></button>
+</li>        <li class="menu-item--hours position-relative d-none d-md-block">
+  <button
+    class="btn--hours appearance-none border-0 bg-green text-white pt-3 pr-4 pb-2 text-left d-block w-100 collapsed"
+    type="button" data-toggle="collapse" data-target="#collapseHours" aria-expanded="false"
+    aria-controls="collapseHours">
+    <i class="libby-icon libby-icon--clock"></i>
+    <span class="menu-item--hours__status text-uppercase font-weight-bold font-heading">
+      Open now
+    </span>
+  </button>
+  <div class="hours-dropdown-wrap text-white collapse w-100 bg-green" id="collapseHours">
+    <ul class="nav nav-tabs libpress--hours-tab-header" role="tablist"><li role="presentation" class="active"><a href="#newton-free-library" aria-controls="newton-free-library" role="tab" data-toggle="tab">Newton Free Library</a></li></ul><div class="tab-content libpress--hours-tabs-container"><div role="tabpanel" class="tab-pane libpress--hours-tab-content active" id="newton-free-library"><table class="libpress--hours"><tbody><tr class=""><td>Monday</td><td>9:00 AM - 9:00 PM</td></tr><tr class=""><td>Tuesday</td><td>9:00 AM - 9:00 PM</td></tr><tr class=""><td>Wednesday</td><td>9:00 AM - 9:00 PM</td></tr><tr class=""><td>Thursday</td><td>9:00 AM - 9:00 PM</td></tr><tr class=""><td>Friday</td><td>9:00 AM - 6:00 PM</td></tr><tr class="current"><td>Saturday</td><td>9:00 AM - 5:00 PM</td></tr><tr class=""><td>Sunday</td><td>1:00 PM - 5:00 PM</td></tr></tbody></table></div></div>
+  </div>
+</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+        <nav class="nav-primary">
+      <div id="mega-menu-wrap-primary_navigation" class="mega-menu-wrap"><div class="mega-menu-toggle"><div class="mega-toggle-blocks-left"><div class='mega-toggle-block mega-logo-block mega-toggle-block-1' id='mega-toggle-block-1'><a class='mega-menu-logo' href='https://newtonfreelibrary.net' target='_self'><img class='mega-menu-logo' src='https://newtonfreelibrary.net/wp-content/uploads/2021/08/NFL_Logo_Condensed_White.svg' /></a></div></div><div class="mega-toggle-blocks-center"></div><div class="mega-toggle-blocks-right"><div class='mega-toggle-block mega-menu-toggle-animated-block mega-toggle-block-2' id='mega-toggle-block-2'><button aria-label="Toggle Menu" class="mega-toggle-animated mega-toggle-animated-slider" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mega-menu-primary_navigation">
+                  <span class="mega-toggle-animated-box">
+                    <span class="mega-toggle-animated-inner"></span>
+                  </span>
+                </button></div></div></div><ul id="mega-menu-primary_navigation" class="mega-menu max-mega-menu mega-menu-horizontal mega-no-js" data-event="click" data-effect="disabled" data-effect-speed="200" data-effect-mobile="disabled" data-effect-speed-mobile="0" data-mobile-force-width="body" data-second-click="go" data-document-click="collapse" data-vertical-behaviour="standard" data-breakpoint="768" data-unbind="true" data-mobile-state="collapse_all" data-mobile-direction="vertical" data-hover-intent-timeout="300" data-hover-intent-interval="100" data-sticky-enabled="true" data-sticky-mobile="false" data-sticky-offset="0" data-sticky-expand="true"><li class="mega-main-menu-logo mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-home mega-current-menu-item mega-page_item mega-page-item-6 mega-current_page_item mega-align-bottom-left mega-menu-flyout mega-hide-on-mobile mega-menu-item-16292 main-menu-logo" id="mega-menu-item-16292"><a class='mega-menu-link mega-menu-logo' href='https://newtonfreelibrary.net/'><img class='mega-menu-logo' width='210' height='70' src='https://newtonfreelibrary.net/wp-content/uploads/2023/08/cropped-NFL_Logo_Condensed_White-210x70.png' alt='Newton Free Library Logo' srcset='https://newtonfreelibrary.net/wp-content/uploads/2023/08/cropped-NFL_Logo_Condensed_White-420x140.png 2x' /></a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-megamenu mega-align-bottom-left mega-menu-megamenu mega-menu-item-48" id="mega-menu-item-48"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/" aria-expanded="false" aria-controls="mega-sub-menu-48">About<span class="mega-indicator" aria-hidden="true"></span></a>
+<ul class="mega-sub-menu" id='mega-sub-menu-48'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-3 mega-menu-item-49" style="--columns:3; --span:1" id="mega-menu-item-49"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/our-library/">Using the Library<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-49'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-1855" id="mega-menu-item-1855"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/our-library/accessibility/">Accessibility</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-51" id="mega-menu-item-51"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/our-library/contact-us/">Contact &amp; Feedback</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-53" id="mega-menu-item-53"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/our-library/hours-directions/">Directions, Hours, and Parking</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-13149" id="mega-menu-item-13149"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/our-library/library-building-maps/">Library Building Maps</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-52" id="mega-menu-item-52"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/our-library/library-card-borrowing/">Library Cards &#038; Borrowing</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-4860" id="mega-menu-item-4860"><a class="mega-menu-link" href="https://newtonfreelibrary.net/library-newsletter/">Library Newsletter</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-55" id="mega-menu-item-55"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/our-library/policies/">Policies</a></li>	</ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-3 mega-menu-item-102" style="--columns:3; --span:1" id="mega-menu-item-102"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/get-involved/">Get Involved<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-102'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-item-104" id="mega-menu-item-104"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/get-involved/donate/" aria-expanded="false" aria-controls="mega-sub-menu-104">Donate<span class="mega-indicator" aria-hidden="true"></span></a>
+		<ul class="mega-sub-menu" id='mega-sub-menu-104'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-7065" id="mega-menu-item-7065"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/get-involved/donate/spring-fling/">Spring Fling Gala</a></li>		</ul>
+</li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-item-22028" id="mega-menu-item-22028"><a class="mega-menu-link" href="https://www.friendsofthenewtonfreelibrary.org/" aria-expanded="false" aria-controls="mega-sub-menu-22028">Friends of the Library<span class="mega-indicator" aria-hidden="true"></span></a>
+		<ul class="mega-sub-menu" id='mega-sub-menu-22028'>
+<li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-22029" id="mega-menu-item-22029"><a class="mega-menu-link" href="https://www.friendsofthenewtonfreelibrary.org/book-sale">Book Sale & Donations</a></li>		</ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-106" id="mega-menu-item-106"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/get-involved/volunteer/">Volunteer</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-21024" id="mega-menu-item-21024"><a class="mega-menu-link" href="https://newtonfreelibrary.net/150th-anniversary/">150th Anniversary</a></li>	</ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-3 mega-menu-item-98" style="--columns:3; --span:1" id="mega-menu-item-98"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/more-information/">More Information<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-98'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-99" id="mega-menu-item-99"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/more-information/art-exhibits/">Art Exhibits &amp; Displays</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-50" id="mega-menu-item-50"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/more-information/board-of-trustees/">Board of Trustees</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-19805" id="mega-menu-item-19805"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/more-information/history-of-the-library/">History</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-21789" id="mega-menu-item-21789"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/more-information/library-news/">Library News</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-100" id="mega-menu-item-100"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/more-information/meeting-rooms/">Meeting Rooms</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-54" id="mega-menu-item-54"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/more-information/mission-plans/">Mission, Plans & Report</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-item-23571" id="mega-menu-item-23571"><a class="mega-menu-link" href="#" aria-expanded="false" aria-controls="mega-sub-menu-23571">Program Proposal Forms<span class="mega-indicator" aria-hidden="true"></span></a>
+		<ul class="mega-sub-menu" id='mega-sub-menu-23571'>
+<li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-6032" id="mega-menu-item-6032"><a class="mega-menu-link" href="https://docs.google.com/forms/d/e/1FAIpQLSc-D19O4fjyNAAhmfxMDo_RpvWrLFWeYsAiQOG3eWF_n1RVXw/viewform?pli=1">Adult Program Proposal Form</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-23641" id="mega-menu-item-23641"><a class="mega-menu-link" href="https://newtonfreelibrary.net/about/more-information/youth-services-program-proposal-form/">Youth Services Program Proposal Form</a></li>		</ul>
+</li>	</ul>
+</li></ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-megamenu mega-align-bottom-left mega-menu-megamenu mega-menu-item-56" id="mega-menu-item-56"><a class="mega-menu-link" href="https://newtonfreelibrary.net/collections/" aria-expanded="false" aria-controls="mega-sub-menu-56">Collections<span class="mega-indicator" aria-hidden="true"></span></a>
+<ul class="mega-sub-menu" id='mega-sub-menu-56'>
+<li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-3 mega-menu-item-3644" style="--columns:3; --span:1" id="mega-menu-item-3644"><a class="mega-menu-link" href="https://newtonfreelibrary.net/?page_id=1172">Browse<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-3644'>
+<li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-119" id="mega-menu-item-119"><a class="mega-menu-link" href="https://newton.minlib.net/?browseCategory=new_books_library_newton">Catalog</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-6058" id="mega-menu-item-6058"><a class="mega-menu-link" href="https://newtonfreelibrary.net/collections/local-history-genealogy/">Local History &#038; Genealogy</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-110" id="mega-menu-item-110"><a class="mega-menu-link" href="https://newtonfreelibrary.net/collections/magazines-newspapers/">Magazines &#038; Newspapers</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-114" id="mega-menu-item-114"><a class="mega-menu-link" href="https://newtonfreelibrary.net/collections/purchase-request/">Suggest a Purchase</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-115" id="mega-menu-item-115"><a class="mega-menu-link" href="https://newtonfreelibrary.net/collections/world-language/">World Languages</a></li>	</ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-3 mega-menu-item-108" style="--columns:3; --span:1" id="mega-menu-item-108"><a class="mega-menu-link" href="https://newtonfreelibrary.net/collections/24-7-library/">24/7 Library Access<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-108'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-118" id="mega-menu-item-118"><a class="mega-menu-link" href="https://newtonfreelibrary.net/collections/24-7-library/digital-resources/">All Digital Resources</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-1942" id="mega-menu-item-1942"><a class="mega-menu-link" href="https://newtonfreelibrary.net/collections/24-7-library/ebooks-streaming-more/">eBooks, Streaming &#038; More</a></li>	</ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-3 mega-menu-item-111" style="--columns:3; --span:1" id="mega-menu-item-111"><a class="mega-menu-link" href="https://newtonfreelibrary.net/collections/more-than-books/">More Than Books<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-111'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-112" id="mega-menu-item-112"><a class="mega-menu-link" href="https://newtonfreelibrary.net/collections/more-than-books/library-of-things/">Library of Things</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-1206" id="mega-menu-item-1206"><a class="mega-menu-link" href="https://newtonfreelibrary.net/museum-passes/">Museum & Recreation Passes</a></li>	</ul>
+</li></ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-megamenu mega-align-bottom-left mega-menu-megamenu mega-menu-item-59" id="mega-menu-item-59"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/" aria-expanded="false" aria-controls="mega-sub-menu-59">Services<span class="mega-indicator" aria-hidden="true"></span></a>
+<ul class="mega-sub-menu" id='mega-sub-menu-59'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-3 mega-menu-item-141" style="--columns:3; --span:1" id="mega-menu-item-141"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/services/">Our Services<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-141'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-11510" id="mega-menu-item-11510"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/services/book-clubs/">Book Clubs</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-144" id="mega-menu-item-144"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/services/curbside-pickup/">Curbside Holds Pickup</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-22279" id="mega-menu-item-22279"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/services/lockers/">Holds Pickup Lockers</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-147" id="mega-menu-item-147"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/services/home-delivery/">Home Delivery</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-143" id="mega-menu-item-143"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/services/interlibrary-loan/">Interlibrary Loan</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-145" id="mega-menu-item-145"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/services/recommendations-for-you/">Recommendations for You</a></li>	</ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-3 mega-menu-item-150" style="--columns:3; --span:1" id="mega-menu-item-150"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/in-the-library/">In the Library<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-150'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-item-169" id="mega-menu-item-169"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/in-the-library/computers-technology/" aria-expanded="false" aria-controls="mega-sub-menu-169">Computers &#038; Technology<span class="mega-indicator" aria-hidden="true"></span></a>
+		<ul class="mega-sub-menu" id='mega-sub-menu-169'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-2003" id="mega-menu-item-2003"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/in-the-library/computers-technology/laptops-hotspots/">Laptops &#038; Hotspots</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-13860" id="mega-menu-item-13860"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/in-the-library/computers-technology/wireless-printing/">Wireless Printing</a></li>		</ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-101" id="mega-menu-item-101"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/in-the-library/study-rooms/">Study Rooms</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-22987" id="mega-menu-item-22987"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/in-the-library/tech-time/">Tech Time</a></li>	</ul>
+</li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-has-children mega-menu-column-standard mega-menu-columns-1-of-3 mega-menu-item-149" style="--columns:3; --span:1" id="mega-menu-item-149"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/explore/">Explore<span class="mega-indicator" aria-hidden="true"></span></a>
+	<ul class="mega-sub-menu" id='mega-sub-menu-149'>
+<li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-4890" id="mega-menu-item-4890"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/explore/business-investing/">Business &#038; Investing</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-165" id="mega-menu-item-165"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/explore/ell/">English Language Learning Program</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-1862" id="mega-menu-item-1862"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/explore/older-adults/">Resources for Older Adults</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-14918" id="mega-menu-item-14918"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/explore/summer-reading/">Summer Reading Program</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-16677" id="mega-menu-item-16677"><a class="mega-menu-link" href="https://newtonfreelibrary.net/services/explore/tax-resources/">Tax Resources</a></li>	</ul>
+</li></ul>
+</li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-megamenu mega-align-bottom-left mega-menu-megamenu mega-menu-item-62" id="mega-menu-item-62"><a class="mega-menu-link" href="https://newtonfreelibrary.net/kids-tweens-teens/">Kids, Tweens & Teens</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-align-bottom-left mega-menu-flyout mega-menu-item-1663" id="mega-menu-item-1663"><a class="mega-menu-link" href="https://newtonfreelibrary.libcal.com/calendar?cid=3836&#038;t=g&#038;d=0000-00-00&#038;cal=3836&#038;inc=0" aria-expanded="false" aria-controls="mega-sub-menu-1663">Events<span class="mega-indicator" aria-hidden="true"></span></a>
+<ul class="mega-sub-menu" id='mega-sub-menu-1663'>
+<li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-1664" id="mega-menu-item-1664"><a class="mega-menu-link" href="https://newtonfreelibrary.libcal.com/calendar?cid=3836&#038;t=g&#038;d=0000-00-00&#038;cal=3836&#038;inc=0">All Events</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-3711" id="mega-menu-item-3711"><a class="mega-menu-link" href="https://newtonfreelibrary.libcal.com/calendar?cid=3836&#038;t=g&#038;d=0000-00-00&#038;cal=3836&#038;audience=1098&#038;inc=0">For Adults</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-1666" id="mega-menu-item-1666"><a class="mega-menu-link" href="https://newtonfreelibrary.libcal.com/calendar?cid=3836&#038;t=g&#038;d=0000-00-00&#038;cal=3836&#038;audience=1093&#038;inc=0">For Kids</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-1668" id="mega-menu-item-1668"><a class="mega-menu-link" href="https://newtonfreelibrary.libcal.com/calendar?cid=3836&#038;t=g&#038;d=0000-00-00&#038;cal=3836&#038;audience=1094&#038;inc=0">For Tweens</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-1667" id="mega-menu-item-1667"><a class="mega-menu-link" href="https://newtonfreelibrary.libcal.com/calendar?cid=3836&#038;t=g&#038;d=0000-00-00&#038;cal=3836&#038;audience=1095&#038;inc=0">For Teens</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-1669" id="mega-menu-item-1669"><a class="mega-menu-link" href="https://newtonfreelibrary.libcal.com/calendar?cid=3836&#038;t=g&#038;d=0000-00-00&#038;cal=3836&#038;audience=1096&#038;inc=0">For English Learners</a></li></ul>
+</li></ul></div>
+    </nav>
+      </div>
+</header>
+<section class="search-overlay-wrapper position-absolute collapse w-100 h-100" id="toggleSearch">
+	<div class="search-overlay position-absolute bg-indigo">
+		<div class="search-overlay__inner">
+			<div class="container">
+				<h1 class="text-white mb-5 font-weight-bold">I am looking for...</h1>
+				<div>
+					<form class="searchform" method="POST" action="https://newtonfreelibrary.net/wp-admin/admin-post.php">
+  <div class="row">
+    <div class="col-12 col-md-8 col-lg-9">
+      <input type="text" class="form-control p-4" type="text" name="s" id="s" placeholder="Search..."
+        value="" />
+      <ul class="list-unstyled list-inline p-0 my-3 ml-3">
+        <li class="list-inline-item">
+          <input class="radio radio-styled radio-styled--white radio-styled--faded button_catalog" type="radio"
+            name="search_select" value="catalog" id="button_catalog" checked>
+          <label class="radio-label-styled radio-label-styled--faded text-white pl-2" for="button_catalog">
+            Catalog</label>
+        </li>
+        <li class="list-inline-item ml-4">
+          <input class="radio-styled radio-styled--white radio-styled--faded button_site" type="radio"
+            name="search_select" value="site" id="button_site">
+          <label class="radio-label-styled radio-label-styled--faded text-white pl-2" for="button_site"> Website</label>
+        </li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3">
+      <button type="submit" class="btn btn-special btn-special--white text-white">
+        Search
+      </button>
+    </div>
+  </div>
+  <input type="hidden" name="action" value="libby_search" />
+</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><main class="main">
+   <section class="hero hero--lg">
+  <div class="slider-wrapper slider-wrapper--hero">
+    <div class="container position-relative">
+  <div class="libby-slider__progress-wrapper">
+    <div class="libby-slider__progress">
+    </div>
+    <div class="libby-slider__progress-round__wrap">
+      <svg class="libby-slider__progress__svg">
+        <circle r="22" cx="28" cy="25"/>
+      </svg>
+    </div>
+  </div>
+</div>
+    <div class="js-hero-slider hero-slider">
+              <div class="hero-slider__slide">
+  <div class="container">
+    <div class="hero-slider__slide__content mt-5 pl-3 pl-md-5 ml-md-5">
+      <div class="row">
+        <div class="col-12 col-md-5 col-lg-7">
+          <h6 class="hero-slider__slide__cat text-white text-uppercase">Library Information</h6>          <h1 class="hero-slider__slide__title text-white text-shadow">Library Newsletter</h1>          <div class="hero-slider__slide__subtitle text-white text-shadow">Newton Free Library wants to keep you informed about what’s new at your library. Be the first to know about important updates to our services or building. Discover new materials, exciting programs, and helpful services and resources. There’s so much to enjoy through Newton Free Library and we don’t want you to miss a thing!</div>                    <a href="https://newtonfreelibrary.net/library-newsletter/"
+            class="btn btn-special btn-special--pale-blue text-white mt-4 mb-2">
+            Learn More
+          </a>
+                  </div>
+      </div>
+    </div>
+        <div class="hero-slider__slide__bg-color"
+      style="background: transparent radial-gradient(closest-side at 58% 48%, #438CAC0D 0%, #034f72 100%) 0% 0% no-repeat padding-box;; ">
+    </div>
+            <div class="hero-slider__slide__img-wrap">
+      <img width="5616" height="3744" src="https://newtonfreelibrary.net/wp-content/uploads/2023/01/Untitled-designgreqf.png" class="hero-slider__slide__img" alt="a photo of a brown paper envelope with a 1 symbol on the top right corner, indicating a new unread message" decoding="async" fetchpriority="high" srcset="https://newtonfreelibrary.net/wp-content/uploads/2023/01/Untitled-designgreqf.png 5616w, https://newtonfreelibrary.net/wp-content/uploads/2023/01/Untitled-designgreqf-300x200.png 300w, https://newtonfreelibrary.net/wp-content/uploads/2023/01/Untitled-designgreqf-1024x683.png 1024w, https://newtonfreelibrary.net/wp-content/uploads/2023/01/Untitled-designgreqf-768x512.png 768w, https://newtonfreelibrary.net/wp-content/uploads/2023/01/Untitled-designgreqf-1536x1024.png 1536w" sizes="(max-width: 5616px) 100vw, 5616px" />
+    </div>
+      </div>
+</div>
+              <div class="hero-slider__slide">
+  <div class="container">
+    <div class="hero-slider__slide__content mt-5 pl-3 pl-md-5 ml-md-5">
+      <div class="row">
+        <div class="col-12 col-md-5 col-lg-7">
+          <h6 class="hero-slider__slide__cat text-white text-uppercase">Library Services</h6>          <h1 class="hero-slider__slide__title text-white text-shadow">Curbside Pickup</h1>          <div class="hero-slider__slide__subtitle text-white text-shadow">The Newton Free Library continues to offer Curbside Holds Pickup services! Schedule an appointment for your "Ready for Pickup" items today. </div>                    <a href="https://newtonfreelibrary.net/services/services/curbside-pickup/"
+            class="btn btn-special btn-special--pale-blue text-white mt-4 mb-2">
+            Learn More
+          </a>
+                  </div>
+      </div>
+    </div>
+        <div class="hero-slider__slide__bg-color"
+      style="background: transparent radial-gradient(closest-side at 58% 48%, #438CAC0D 0%, #034f72 100%) 0% 0% no-repeat padding-box;; ">
+    </div>
+            <div class="hero-slider__slide__img-wrap">
+      <img width="5870" height="3913" src="https://newtonfreelibrary.net/wp-content/uploads/2023/01/Untitled-design-2.png" class="hero-slider__slide__img" alt="stock photograph of 3 brown paper bags in the trunk of a car with a sign that says &quot;curbside pickup&quot;" decoding="async" srcset="https://newtonfreelibrary.net/wp-content/uploads/2023/01/Untitled-design-2.png 5870w, https://newtonfreelibrary.net/wp-content/uploads/2023/01/Untitled-design-2-300x200.png 300w, https://newtonfreelibrary.net/wp-content/uploads/2023/01/Untitled-design-2-1024x683.png 1024w, https://newtonfreelibrary.net/wp-content/uploads/2023/01/Untitled-design-2-768x512.png 768w, https://newtonfreelibrary.net/wp-content/uploads/2023/01/Untitled-design-2-1536x1024.png 1536w" sizes="(max-width: 5870px) 100vw, 5870px" />
+    </div>
+      </div>
+</div>
+              <div class="hero-slider__slide">
+  <div class="container">
+    <div class="hero-slider__slide__content mt-5 pl-3 pl-md-5 ml-md-5">
+      <div class="row">
+        <div class="col-12 col-md-5 col-lg-7">
+          <h6 class="hero-slider__slide__cat text-white text-uppercase">Library Events</h6>          <h1 class="hero-slider__slide__title text-white text-shadow">Sunday Concert</h1>          <div class="hero-slider__slide__subtitle text-white text-shadow">On Sunday, May 31 at 2pm, pianist Anastasia Seifetdinova presents an engaging program of Romantic piano music by Brahms and Schumann as well as by Ukrainian composers from the 20th century, Revutsky and Lyatoshinsky.</div>                    <a href="https://newtonfreelibrary.libcal.com/event/15623267"
+            class="btn btn-special btn-special--pale-blue text-white mt-4 mb-2">
+            Learn More
+          </a>
+                  </div>
+      </div>
+    </div>
+        <div class="hero-slider__slide__bg-color"
+      style="background: transparent radial-gradient(closest-side at 58% 48%, #438CAC0D 0%, #065c73 100%) 0% 0% no-repeat padding-box;; ">
+    </div>
+            <div class="hero-slider__slide__img-wrap">
+      <img width="2560" height="1438" src="https://newtonfreelibrary.net/wp-content/uploads/2025/09/concert-slider-scaled.png" class="hero-slider__slide__img" alt="" decoding="async" srcset="https://newtonfreelibrary.net/wp-content/uploads/2025/09/concert-slider-scaled.png 2560w, https://newtonfreelibrary.net/wp-content/uploads/2025/09/concert-slider-300x169.png 300w, https://newtonfreelibrary.net/wp-content/uploads/2025/09/concert-slider-1024x575.png 1024w, https://newtonfreelibrary.net/wp-content/uploads/2025/09/concert-slider-768x431.png 768w, https://newtonfreelibrary.net/wp-content/uploads/2025/09/concert-slider-1536x863.png 1536w, https://newtonfreelibrary.net/wp-content/uploads/2025/09/concert-slider-2048x1150.png 2048w" sizes="(max-width: 2560px) 100vw, 2560px" />
+    </div>
+      </div>
+</div>
+          </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-end">
+      <div class="col-lg-4 quicklinks quicklinks--light">
+        <div class="quicklinks-wrapper">
+    <a href="https://newtonfreelibrary.net/about/our-library/library-card-borrowing/" title=""
+  class="quicklink quicklink--rounded py-3 px-3 shadow text-center text-decoration-none">
+  <img width="150" height="150" src="https://newtonfreelibrary.net/wp-content/uploads/2021/07/driver-license-3.svg" class="quicklink__img mx-auto mt-2" alt="this icon indicates that a library card is required to use this database" decoding="async" loading="lazy" srcset="https://newtonfreelibrary.net/wp-content/uploads//2021/07/driver-license-3.svg 150w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/driver-license-3.svg 300w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/driver-license-3.svg 1024w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/driver-license-3.svg 1536w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/driver-license-3.svg 2048w" sizes="auto, (max-width: 150px) 100vw, 150px" />
+  <p class="quicklink__title text-dark mt-2 mb-0">Get a <br /> Library Card</p>
+</a>
+    <a href="https://newtonfreelibrary.net/museum-passes/" title=""
+  class="quicklink quicklink--rounded py-3 px-3 shadow text-center text-decoration-none">
+  <img width="150" height="150" src="https://newtonfreelibrary.net/wp-content/uploads/2021/07/ticket-5.svg" class="quicklink__img mx-auto mt-2" alt="null" decoding="async" loading="lazy" srcset="https://newtonfreelibrary.net/wp-content/uploads//2021/07/ticket-5.svg 150w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/ticket-5.svg 300w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/ticket-5.svg 1024w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/ticket-5.svg 1536w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/ticket-5.svg 2048w" sizes="auto, (max-width: 150px) 100vw, 150px" />
+  <p class="quicklink__title text-dark mt-2 mb-0">Reserve Museum &amp; <br /> Recreation Passes</p>
+</a>
+    <a href="https://newtonfreelibrary.net/services/in-the-library/study-rooms/" title=""
+  class="quicklink quicklink--rounded py-3 px-3 shadow text-center text-decoration-none">
+  <img width="150" height="150" src="https://newtonfreelibrary.net/wp-content/uploads/2021/07/interview-5.svg" class="quicklink__img mx-auto mt-2" alt="null" decoding="async" loading="lazy" srcset="https://newtonfreelibrary.net/wp-content/uploads//2021/07/interview-5.svg 150w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/interview-5.svg 300w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/interview-5.svg 1024w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/interview-5.svg 1536w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/interview-5.svg 2048w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/interview-5.svg 40w" sizes="auto, (max-width: 150px) 100vw, 150px" />
+  <p class="quicklink__title text-dark mt-2 mb-0">Reserve a <br /> Study Room</p>
+</a>
+    <a href="https://newtonfreelibrary.net/collections/24-7-library/digital-resources/" title=""
+  class="quicklink quicklink--rounded py-3 px-3 shadow text-center text-decoration-none">
+  <img width="150" height="150" src="https://newtonfreelibrary.net/wp-content/uploads/2021/07/media-4.svg" class="quicklink__img mx-auto mt-2" alt="null" decoding="async" loading="lazy" srcset="https://newtonfreelibrary.net/wp-content/uploads//2021/07/media-4.svg 150w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/media-4.svg 300w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/media-4.svg 1024w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/media-4.svg 1536w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/media-4.svg 2048w" sizes="auto, (max-width: 150px) 100vw, 150px" />
+  <p class="quicklink__title text-dark mt-2 mb-0">Browse Digital Resources</p>
+</a>
+    <a href="https://newtonfreelibrary.net/services/services/curbside-pickup/" title=""
+  class="quicklink quicklink--rounded py-3 px-3 shadow text-center text-decoration-none">
+  <img width="150" height="150" src="https://newtonfreelibrary.net/wp-content/uploads/2022/07/shopping-bag16.svg" class="quicklink__img mx-auto mt-2" alt="null" decoding="async" loading="lazy" srcset="https://newtonfreelibrary.net/wp-content/uploads/2022/07/shopping-bag16.svg 150w, https://newtonfreelibrary.net/wp-content/uploads/2022/07/shopping-bag16.svg 300w, https://newtonfreelibrary.net/wp-content/uploads/2022/07/shopping-bag16.svg 1024w, https://newtonfreelibrary.net/wp-content/uploads/2022/07/shopping-bag16.svg 1536w, https://newtonfreelibrary.net/wp-content/uploads/2022/07/shopping-bag16.svg 2048w, https://newtonfreelibrary.net/wp-content/uploads/2022/07/shopping-bag16.svg 442w" sizes="auto, (max-width: 150px) 100vw, 150px" />
+  <p class="quicklink__title text-dark mt-2 mb-0">Curbside Holds Pickup</p>
+</a>
+    <a href="https://newtonfreelibrary.net/services/education/ell/" title=""
+  class="quicklink quicklink--rounded py-3 px-3 shadow text-center text-decoration-none">
+  <img width="150" height="150" src="https://newtonfreelibrary.net/wp-content/uploads/2021/07/language.svg" class="quicklink__img mx-auto mt-2" alt="null" decoding="async" loading="lazy" srcset="https://newtonfreelibrary.net/wp-content/uploads//2021/07/language.svg 150w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/language.svg 300w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/language.svg 1024w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/language.svg 1536w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/language.svg 2048w, https://newtonfreelibrary.net/wp-content/uploads//2021/07/language.svg 40w" sizes="auto, (max-width: 150px) 100vw, 150px" />
+  <p class="quicklink__title text-dark mt-2 mb-0">English Language Learning Program</p>
+</a>
+  </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="Events"
+           class="events-section  bg-white section--sq-bg  py-5"
+           >
+
+        <div class="container position-relative mb-4">
+      <div class="row justify-content-sm-between align-items-center">
+                  <div class="  col-sm-5 col-md-8 mb-4 mb-sm-0 ">
+            <h2 class="events-title"
+                >Attend</h2>
+          </div>
+                                      <div class="col-auto mb-2 mb-sm-0 btn-container">
+              <a href="https://newtonfreelibrary.libcal.com/calendar?cid=3836&t=g&d=0000-00-00&cal=3836&inc=0" class="btn btn-special mt-n2">
+                View Calendar
+              </a>
+            </div>
+                        </div>
+    </div>
+          <div class="container  clearfix">
+        <div
+          class="events-slider  js-event-slider ">
+                      <div class="px-2">
+              <div class="events-slider__slide">
+                <div class="event-card position-relative bg-white mb-3 pb-2 shadow overflow-hidden">
+  <div class="event-card__date bg-indigo text-white text-uppercase px-3 py-2 h5">
+    May 16, 2026
+  </div>
+  <div class="event-card__time mx-3 mt-2 pb-2 mb-2 text-gray border-bottom">
+    10:30am -
+    11:00am
+  </div>
+  <h4 class="event-card__title m-3">
+    <a href="https://newtonfreelibrary.libcal.com/event/16714440"
+      class="stretched-link text-dark-gray text-decoration-none">Our Stories: Bilingual Spanish Storytime</a></h4>
+    <div class="event-card__category mx-3 font-weight-xbold mb-2 event-card__category--Kids">
+    Kids
+  </div>
+  </div>
+              </div>
+            </div>
+                      <div class="px-2">
+              <div class="events-slider__slide">
+                <div class="event-card position-relative bg-white mb-3 pb-2 shadow overflow-hidden">
+  <div class="event-card__date bg-indigo text-white text-uppercase px-3 py-2 h5">
+    May 16, 2026
+  </div>
+  <div class="event-card__time mx-3 mt-2 pb-2 mb-2 text-gray border-bottom">
+    2:30pm -
+    3:30pm
+  </div>
+  <h4 class="event-card__title m-3">
+    <a href="https://newtonfreelibrary.libcal.com/event/16714929"
+      class="stretched-link text-dark-gray text-decoration-none">Character Draw Along</a></h4>
+    <div class="event-card__category mx-3 font-weight-xbold mb-2 event-card__category--Tween">
+    Tween
+  </div>
+  </div>
+              </div>
+            </div>
+                      <div class="px-2">
+              <div class="events-slider__slide">
+                <div class="event-card position-relative bg-white mb-3 pb-2 shadow overflow-hidden">
+  <div class="event-card__date bg-indigo text-white text-uppercase px-3 py-2 h5">
+    May 16, 2026
+  </div>
+  <div class="event-card__time mx-3 mt-2 pb-2 mb-2 text-gray border-bottom">
+    2:30pm -
+    4:30pm
+  </div>
+  <h4 class="event-card__title m-3">
+    <a href="https://newtonfreelibrary.libcal.com/event/16315364"
+      class="stretched-link text-dark-gray text-decoration-none">Movie Matinee at the Library</a></h4>
+    <div class="event-card__category mx-3 font-weight-xbold mb-2 event-card__category--Kids">
+    Kids
+  </div>
+  </div>
+              </div>
+            </div>
+                      <div class="px-2">
+              <div class="events-slider__slide">
+                <div class="event-card position-relative bg-white mb-3 pb-2 shadow overflow-hidden">
+  <div class="event-card__date bg-indigo text-white text-uppercase px-3 py-2 h5">
+    May 17, 2026
+  </div>
+  <div class="event-card__time mx-3 mt-2 pb-2 mb-2 text-gray border-bottom">
+    3:00pm -
+    3:45pm
+  </div>
+  <h4 class="event-card__title m-3">
+    <a href="https://newtonfreelibrary.libcal.com/event/16714469"
+      class="stretched-link text-dark-gray text-decoration-none">CANCELLED - Israeli Dance Troupe Performance</a></h4>
+    <div class="event-card__category mx-3 font-weight-xbold mb-2 event-card__category--Kids">
+    Kids
+  </div>
+  </div>
+              </div>
+            </div>
+                      <div class="px-2">
+              <div class="events-slider__slide">
+                <div class="event-card position-relative bg-white mb-3 pb-2 shadow overflow-hidden">
+  <div class="event-card__date bg-indigo text-white text-uppercase px-3 py-2 h5">
+    May 18, 2026
+  </div>
+  <div class="event-card__time mx-3 mt-2 pb-2 mb-2 text-gray border-bottom">
+    9:00am -
+    10:00am
+  </div>
+  <h4 class="event-card__title m-3">
+    <a href="https://newtonfreelibrary.libcal.com/event/16559849"
+      class="stretched-link text-dark-gray text-decoration-none">[CLASS FULL] ELL - Coffee Hour</a></h4>
+    <div class="event-card__category mx-3 font-weight-xbold mb-2 event-card__category--ELL">
+    ELL
+  </div>
+  </div>
+              </div>
+            </div>
+                      <div class="px-2">
+              <div class="events-slider__slide">
+                <div class="event-card position-relative bg-white mb-3 pb-2 shadow overflow-hidden">
+  <div class="event-card__date bg-indigo text-white text-uppercase px-3 py-2 h5">
+    May 18, 2026
+  </div>
+  <div class="event-card__time mx-3 mt-2 pb-2 mb-2 text-gray border-bottom">
+    10:00am -
+    11:00am
+  </div>
+  <h4 class="event-card__title m-3">
+    <a href="https://newtonfreelibrary.libcal.com/event/16556929"
+      class="stretched-link text-dark-gray text-decoration-none">[CLASS FULL] ELL - Small Talk, Storytelling, and Getting to Know One Another</a></h4>
+    <div class="event-card__category mx-3 font-weight-xbold mb-2 event-card__category--ELL">
+    ELL
+  </div>
+  </div>
+              </div>
+            </div>
+                      <div class="px-2">
+              <div class="events-slider__slide">
+                <div class="event-card position-relative bg-white mb-3 pb-2 shadow overflow-hidden">
+  <div class="event-card__date bg-indigo text-white text-uppercase px-3 py-2 h5">
+    May 18, 2026
+  </div>
+  <div class="event-card__time mx-3 mt-2 pb-2 mb-2 text-gray border-bottom">
+    11:30am -
+    12:45pm
+  </div>
+  <h4 class="event-card__title m-3">
+    <a href="https://newtonfreelibrary.libcal.com/event/16569102"
+      class="stretched-link text-dark-gray text-decoration-none">ELL - Talking About True Stories</a></h4>
+    <div class="event-card__category mx-3 font-weight-xbold mb-2 event-card__category--ELL">
+    ELL
+  </div>
+  </div>
+              </div>
+            </div>
+                      <div class="px-2">
+              <div class="events-slider__slide">
+                <div class="event-card position-relative bg-white mb-3 pb-2 shadow overflow-hidden">
+  <div class="event-card__date bg-indigo text-white text-uppercase px-3 py-2 h5">
+    May 18, 2026
+  </div>
+  <div class="event-card__time mx-3 mt-2 pb-2 mb-2 text-gray border-bottom">
+    2:00pm -
+    4:00pm
+  </div>
+  <h4 class="event-card__title m-3">
+    <a href="https://newtonfreelibrary.libcal.com/event/16601490"
+      class="stretched-link text-dark-gray text-decoration-none">Local History Office Hours</a></h4>
+    <div class="event-card__category mx-3 font-weight-xbold mb-2 event-card__category--Adult">
+    Adult
+  </div>
+  </div>
+              </div>
+            </div>
+                      <div class="px-2">
+              <div class="events-slider__slide">
+                <div class="event-card position-relative bg-white mb-3 pb-2 shadow overflow-hidden">
+  <div class="event-card__date bg-indigo text-white text-uppercase px-3 py-2 h5">
+    May 18, 2026
+  </div>
+  <div class="event-card__time mx-3 mt-2 pb-2 mb-2 text-gray border-bottom">
+    7:00pm -
+    8:00pm
+  </div>
+  <h4 class="event-card__title m-3">
+    <a href="https://newtonfreelibrary.libcal.com/event/16511734"
+      class="stretched-link text-dark-gray text-decoration-none">Photographing Bullough&#039;s Pond: Artist Talk with Ellen Foust</a></h4>
+    <div class="event-card__category mx-3 font-weight-xbold mb-2 event-card__category--Adult">
+    Adult
+  </div>
+  </div>
+              </div>
+            </div>
+                      <div class="px-2">
+              <div class="events-slider__slide">
+                <div class="event-card position-relative bg-white mb-3 pb-2 shadow overflow-hidden">
+  <div class="event-card__date bg-indigo text-white text-uppercase px-3 py-2 h5">
+    May 18, 2026
+  </div>
+  <div class="event-card__time mx-3 mt-2 pb-2 mb-2 text-gray border-bottom">
+    7:00pm -
+    8:30pm
+  </div>
+  <h4 class="event-card__title m-3">
+    <a href="https://newtonfreelibrary.libcal.com/event/16384406"
+      class="stretched-link text-dark-gray text-decoration-none">Handicraft Hangout</a></h4>
+    <div class="event-card__category mx-3 font-weight-xbold mb-2 event-card__category--Adult">
+    Adult
+  </div>
+  </div>
+              </div>
+            </div>
+                      <div class="px-2">
+              <div class="events-slider__slide">
+                <div class="event-card position-relative bg-white mb-3 pb-2 shadow overflow-hidden">
+  <div class="event-card__date bg-indigo text-white text-uppercase px-3 py-2 h5">
+    May 19, 2026
+  </div>
+  <div class="event-card__time mx-3 mt-2 pb-2 mb-2 text-gray border-bottom">
+    10:00am -
+    10:30am
+  </div>
+  <h4 class="event-card__title m-3">
+    <a href="https://newtonfreelibrary.libcal.com/event/16261035"
+      class="stretched-link text-dark-gray text-decoration-none">Make Way for Storytime</a></h4>
+    <div class="event-card__category mx-3 font-weight-xbold mb-2 event-card__category--Kids">
+    Kids
+  </div>
+  </div>
+              </div>
+            </div>
+                      <div class="px-2">
+              <div class="events-slider__slide">
+                <div class="event-card position-relative bg-white mb-3 pb-2 shadow overflow-hidden">
+  <div class="event-card__date bg-indigo text-white text-uppercase px-3 py-2 h5">
+    May 19, 2026
+  </div>
+  <div class="event-card__time mx-3 mt-2 pb-2 mb-2 text-gray border-bottom">
+    10:30am -
+    12:00pm
+  </div>
+  <h4 class="event-card__title m-3">
+    <a href="https://newtonfreelibrary.libcal.com/event/16562650"
+      class="stretched-link text-dark-gray text-decoration-none">[CLASS FULL] ELL - Being a Parent in America</a></h4>
+    <div class="event-card__category mx-3 font-weight-xbold mb-2 event-card__category--ELL">
+    ELL
+  </div>
+  </div>
+              </div>
+            </div>
+                      <div class="px-2">
+              <div class="events-slider__slide">
+                <div class="event-card position-relative bg-white mb-3 pb-2 shadow overflow-hidden">
+  <div class="event-card__date bg-indigo text-white text-uppercase px-3 py-2 h5">
+    May 19, 2026
+  </div>
+  <div class="event-card__time mx-3 mt-2 pb-2 mb-2 text-gray border-bottom">
+    11:00am -
+    11:30am
+  </div>
+  <h4 class="event-card__title m-3">
+    <a href="https://newtonfreelibrary.libcal.com/event/16261100"
+      class="stretched-link text-dark-gray text-decoration-none">Make Way for Storytime</a></h4>
+    <div class="event-card__category mx-3 font-weight-xbold mb-2 event-card__category--Kids">
+    Kids
+  </div>
+  </div>
+              </div>
+            </div>
+                  </div>
+      </div>
+            </section>
+<section id="Resources" class="bg-pale-blue bg-white-bottom position-relative py-5">
+  <div class="container">
+        <h2 class="text-center">Your 24/7 Library</h2>
+            <p class="text-center mb-5">Access countless digital resources for free from anywhere, at anytime!</p>
+        <div class="row d-flex w-100 bg-white border shadow position-relative nav-tab-wrapper mx-auto mb-4">
+  <div class="nav nav--tabs pr-0 pr-md-3 flex-column col-12 col-md-4" id="v-pills-tab" role="tablist"
+    aria-orientation="vertical">
+        <a class="nav-link nav-link--tabs  active  text-uppercase position-relative"
+      id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab"
+      aria-controls="v-pills-1" aria-selected="true">EBOOKS & AUDIOBOOKS</a>
+        <a class="nav-link nav-link--tabs  text-uppercase position-relative"
+      id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab"
+      aria-controls="v-pills-2" aria-selected="true">TV & MOVIES</a>
+        <a class="nav-link nav-link--tabs  text-uppercase position-relative"
+      id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab"
+      aria-controls="v-pills-3" aria-selected="true">ARTS & MUSIC</a>
+        <a class="nav-link nav-link--tabs  text-uppercase position-relative"
+      id="v-pills-4-tab" data-toggle="pill" href="#v-pills-4" role="tab"
+      aria-controls="v-pills-4" aria-selected="true">LOCAL HISTORY & GENEALOGY</a>
+        <a class="nav-link nav-link--tabs  text-uppercase position-relative"
+      id="v-pills-5-tab" data-toggle="pill" href="#v-pills-5" role="tab"
+      aria-controls="v-pills-5" aria-selected="true">KIDS, TWEENS & TEENS</a>
+      </div>
+  <div class="tab-content col-12 col-md-8" id="v-pills-tabContent">
+        <div class="tab-pane py-4 px-2 fade show  active " id="v-pills-1"
+      role="tabpanel" aria-labelledby="v-pills-1-tab">
+            <div class="tab-pane__content-wrapper position-relative">
+                <p>Download eBooks and audiobooks directly to your devices for free with your library card using the following resources:</p>
+<p><a href="https://minuteman.overdrive.com/">Overdrive/Libby</a></p>
+<p><a href="https://www.hoopladigital.com/">Hoopla</a></p>
+
+              </div>
+      <div class="tab-pane__img-wrapper">
+        <img width="957" height="1024" src="https://newtonfreelibrary.net/wp-content/uploads/2021/08/eBook-iso-01-2-957x1024.png" class="tab-pane__img position-relative" alt="eBook on Tablet" decoding="async" loading="lazy" srcset="https://newtonfreelibrary.net/wp-content/uploads/2021/08/eBook-iso-01-2-957x1024.png 957w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/eBook-iso-01-2-280x300.png 280w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/eBook-iso-01-2-768x821.png 768w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/eBook-iso-01-2.png 1250w" sizes="auto, (max-width: 957px) 100vw, 957px" />
+      </div>
+          </div>
+        <div class="tab-pane py-4 px-2 fade show " id="v-pills-2"
+      role="tabpanel" aria-labelledby="v-pills-2-tab">
+            <div class="tab-pane__content-wrapper position-relative">
+                <p>Watch your favorite TV shows and movies for FREE! Enter your library card and PIN for access through these resources:</p>
+<p><a href="http://newtonfreelibrary.kanopy.com/">Kanopy</a></p>
+<p><a href="https://www.hoopladigital.com/">Hoopla</a></p>
+
+              </div>
+      <div class="tab-pane__img-wrapper">
+        <img width="958" height="1024" src="https://newtonfreelibrary.net/wp-content/uploads/2021/08/Home-iso_tv_movies-958x1024.png" class="tab-pane__img position-relative" alt="" decoding="async" loading="lazy" srcset="https://newtonfreelibrary.net/wp-content/uploads/2021/08/Home-iso_tv_movies-958x1024.png 958w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/Home-iso_tv_movies-281x300.png 281w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/Home-iso_tv_movies-768x821.png 768w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/Home-iso_tv_movies-1437x1536.png 1437w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/Home-iso_tv_movies-1916x2048.png 1916w" sizes="auto, (max-width: 958px) 100vw, 958px" />
+      </div>
+          </div>
+        <div class="tab-pane py-4 px-2 fade show " id="v-pills-3"
+      role="tabpanel" aria-labelledby="v-pills-3-tab">
+            <div class="tab-pane__content-wrapper position-relative">
+                <p>Access tutorials, inspiration and more with these free creative resources:</p>
+<p><a href="http://ntnproxy.minlib.net/login?url=https://www.creativebug.com/lib/newtonfreelibrary">Creativebug</a></p>
+<p><a href="http://ntnproxy.minlib.net/login?url=http://newtonfree.naxosmusiclibrary.com/">Naxos Music Library</a></p>
+<p><a href="https://www.hoopladigital.com/">Hoopla</a></p>
+
+              </div>
+      <div class="tab-pane__img-wrapper">
+        <img width="958" height="1024" src="https://newtonfreelibrary.net/wp-content/uploads/2021/08/home-iso_music-art-958x1024.png" class="tab-pane__img position-relative" alt="paint brushes" decoding="async" loading="lazy" srcset="https://newtonfreelibrary.net/wp-content/uploads/2021/08/home-iso_music-art-958x1024.png 958w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/home-iso_music-art-281x300.png 281w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/home-iso_music-art-768x821.png 768w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/home-iso_music-art-1437x1536.png 1437w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/home-iso_music-art-1916x2048.png 1916w" sizes="auto, (max-width: 958px) 100vw, 958px" />
+      </div>
+          </div>
+        <div class="tab-pane py-4 px-2 fade show " id="v-pills-4"
+      role="tabpanel" aria-labelledby="v-pills-4-tab">
+            <div class="tab-pane__content-wrapper position-relative">
+                <p>Discover your true roots with our history &amp; genealogy resources:</p>
+<p><a href="http://ntnproxy.minlib.net/login?url=https://ancestrylibrary.proquest.com/aleweb/ale/do/login/refurl">Ancestry</a></p>
+<p><a href="http://www.americanancestors.org/">American Ancestors</a></p>
+<p><a href="https://archive.org/details/newtonfreelibraryma?&amp;and[]=subject%3A%22Historical%20Newspapers%22">Newton Graphic, 1886-1972</a></p>
+
+              </div>
+      <div class="tab-pane__img-wrapper">
+        <img width="958" height="1024" src="https://newtonfreelibrary.net/wp-content/uploads/2021/08/eBook-iso_history-958x1024.png" class="tab-pane__img position-relative" alt="tree and circle background" decoding="async" loading="lazy" srcset="https://newtonfreelibrary.net/wp-content/uploads/2021/08/eBook-iso_history-958x1024.png 958w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/eBook-iso_history-281x300.png 281w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/eBook-iso_history-768x821.png 768w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/eBook-iso_history-1437x1536.png 1437w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/eBook-iso_history-1916x2048.png 1916w" sizes="auto, (max-width: 958px) 100vw, 958px" />
+      </div>
+          </div>
+        <div class="tab-pane py-4 px-2 fade show " id="v-pills-5"
+      role="tabpanel" aria-labelledby="v-pills-5-tab">
+            <div class="tab-pane__content-wrapper position-relative">
+                <p>Check out these great resources specifically just for kids, tweens, and teens:</p>
+<p><a href="http://www.tumblebooklibrary.com/auto_login.aspx?u=newtonfreelib&amp;p=libra">TumbleBook Library</a></p>
+<p><a href="https://library.eb.com/levels/children" target="_blank" rel="noopener">Britannica Public Library Edition for Kids</a></p>
+
+              </div>
+      <div class="tab-pane__img-wrapper">
+        <img width="958" height="1024" src="https://newtonfreelibrary.net/wp-content/uploads/2021/08/homepage-iso_tweens-958x1024.png" class="tab-pane__img position-relative" alt="backpack with circle background" decoding="async" loading="lazy" srcset="https://newtonfreelibrary.net/wp-content/uploads/2021/08/homepage-iso_tweens-958x1024.png 958w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/homepage-iso_tweens-281x300.png 281w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/homepage-iso_tweens-768x821.png 768w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/homepage-iso_tweens-1437x1536.png 1437w, https://newtonfreelibrary.net/wp-content/uploads/2021/08/homepage-iso_tweens-1916x2048.png 1916w" sizes="auto, (max-width: 958px) 100vw, 958px" />
+      </div>
+          </div>
+      </div>
+</div>
+        <div class="text-right mt-3 mb-3">
+      <a href="https://newtonfreelibrary.net/collections/24-7-library/digital-resources/" class="btn btn-special">
+        All Resources
+      </a>
+    </div>
+      </div>
+</section>
+<section class="bg-white py-5 section--sq-bg section--sq-bg--reverse section--sq-bg--long">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-sm-8 col-lg-9">
+                                  <h2 class="mt-lg-3 text-center pb-3 pb-md-0 text-md-left"
+                      >
+                  Discover
+                  </h2>
+                              </div>
+              <div class="col-12 col-sm-4 col-lg-3">
+                <div class="dropdown dropdown--tabs shadow mt-lg-3">
+                  <button class="btn--dropdown-toggle appearance-none bg-white border-0 dropdown-toggle w-100"
+                          type="button"
+                          id="viewGenresBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Featured Book Lists
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="viewGenresBtn">
+                    <nav class="w-100">
+                      <div class="nav" id="nav-tab" role="tablist">
+                                                  <a
+                            class="nav-item nav-link nav-link--radio d-block position-relative text-dark d-block w-100  active "
+                            id="nav-1-tab" data-toggle="tab" href="#nav-1"
+                            role="tab"
+                            aria-controls="nav-1"
+                            aria-selected="true">Hooked on Books Club 2026</a>
+                                                  <a
+                            class="nav-item nav-link nav-link--radio d-block position-relative text-dark d-block w-100 "
+                            id="nav-2-tab" data-toggle="tab" href="#nav-2"
+                            role="tab"
+                            aria-controls="nav-2"
+                            aria-selected="true">Murder by the Book Club 2026</a>
+                                                  <a
+                            class="nav-item nav-link nav-link--radio d-block position-relative text-dark d-block w-100 "
+                            id="nav-3-tab" data-toggle="tab" href="#nav-3"
+                            role="tab"
+                            aria-controls="nav-3"
+                            aria-selected="true">Cookbook Club 2026</a>
+                                                  <a
+                            class="nav-item nav-link nav-link--radio d-block position-relative text-dark d-block w-100 "
+                            id="nav-4-tab" data-toggle="tab" href="#nav-4"
+                            role="tab"
+                            aria-controls="nav-4"
+                            aria-selected="true">New Kids Books</a>
+                                              </div>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-content pt-5 my-3" id="nav-tabContent">
+                              <div class="tab-pane fade show  active " id="nav-1"
+                     role="tabpanel"
+                     aria-labelledby="nav-1-tab">        <a href="#carousel_6a0893484ade0_end" class="visually-hidden ">Skip to End of Carousel</a>
+    <div class="book-carousel-wrapper" id="carousel_6a0893484ade0">
+        <div class="book-carousel">
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(The%20Wager)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=Zn41EQAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of The Wager by David Grann"
+                            data-author="David Grann"
+                            data-description="A “TOUR DE FORCE OF NARRATIVE NONFICTION” (WSJ) WITH OVER ONE YEAR ON THE NYT BEST SELLER LIST From the author of Killers of the Flower Moon, a page-turning story of shipwreck, survival, and savagery, culminating in a court martial that reveals a shocking truth. The powerful narrative reveals the deeper meaning of the events on The Wager, showing that it was not only the captain and crew who ended up on trial, but the very idea of empire. A Best Book of the Year: The New York Times, The Wall Street Journal, The New Yorker, TIME, Smithsonian, NPR, Vulture “Riveting...Reads like a thriller, tackling a multilayered history—and imperialism—with gusto.” —Time On January 28, 1742, a ramshackle vessel of patched-together wood and cloth washed up on the coast of Brazil. Inside were thirty emaciated men, barely alive, and they had an extraordinary tale to tell. They were survivors of His Majesty’s Ship the Wager, a British vessel that had left England in 1740 on a secret mission during an imperial war with Spain. While the Wager had been chasing a Spanish treasure-filled galleon known as “the prize of all the oceans,” it had wrecked on a desolate island off the coast of Patagonia. The men, after being marooned for months and facing starvation, built the flimsy craft and sailed for more than a hundred days, traversing nearly 3,000 miles of storm-wracked seas. They were greeted as heroes. But then ... six months later, another, even more decrepit craft landed on the coast of Chile. This boat contained just three castaways, and they told a very different story. The thirty sailors who landed in Brazil were not heroes – they were mutineers. The first group responded with countercharges of their own, of a tyrannical and murderous senior officer and his henchmen. It became clear that while stranded on the island the crew had fallen into anarchy, with warring factions fighting for dominion over the barren wilderness. As accusations of treachery and murder flew, the Admiralty convened a court martial to determine who was telling the truth. The stakes were life-and-death—for whomever the court found guilty could hang. The Wager is a grand tale of human behavior at the extremes told by one of our greatest nonfiction writers. Grann’s recreation of the hidden world on a British warship rivals the work of Patrick O’Brian, his portrayal of the castaways’ desperate straits stands up to the classics of survival writing such as The Endurance, and his account of the court martial has the savvy of a Scott Turow thriller. As always with Grann’s work, the incredible twists of the narrative hold the reader spellbound." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>The Wager</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(North%20Woods)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=fFihEAAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of North Woods by Daniel Mason"
+                            data-author="Daniel Mason"
+                            data-description="NATIONAL BESTSELLER • A NEW YORK TIMES BOOK REVIEW TOP TEN BOOK OF THE YEAR A WASHINGTON POST TOP TEN BOOK OF THE YEAR • FINALIST FOR THE NATIONAL BOOK CRITICS CIRCLE AWARD AND THE MARK TWAIN AMERICAN VOICE IN LITERATURE AWARD A sweeping novel about a single house in the woods of New England, told through the lives of those who inhabit it across the centuries—“a time-spanning, genre-blurring work of storytelling magic” (The Washington Post) from the Pulitzer Prize finalist and author of The Piano Tuner and The Winter Soldier. “With the expansiveness and immersive feeling of two-time Booker Prize nominee David Mitchell’s fiction (Cloud Atlas), the wicked creepiness of Edgar Allan Poe, and Mason’s bone-deep knowledge of and appreciation for the natural world that’s on par with that of Thoreau, North Woods fires on all cylinders.”—San Francisco Chronicle New York Times Book Review Editors’ Choice • A BEST BOOK OF THE YEAR: Time, The Boston Globe, NPR, Chicago Public Library, The Star Tribune, The Economist, The Christian Science Monitor, Real Simple, Kirkus Reviews, Publishers Weekly, Library Journal, Bookreporter When two young lovers abscond from a Puritan colony, little do they know that their humble cabin in the woods will become the home of an extraordinary succession of human and nonhuman characters alike. An English soldier, destined for glory, abandons the battlefields of the New World to devote himself to growing apples. A pair of spinster twins navigate war and famine, envy and desire. A crime reporter unearths an ancient mass grave—only to discover that the earth refuse to give up their secrets. A lovelorn painter, a sinister con man, a stalking panther, a lusty beetle: As the inhabitants confront the wonder and mystery around them, they begin to realize that the dark, raucous, beautiful past is very much alive. This magisterial and highly inventive novel from Pulitzer Prize finalist Daniel Mason brims with love and madness, humor and hope. Following the cycles of history, nature, and even language, North Woods shows the myriad, magical ways in which we’re connected to our environment, to history, and to one another. It is not just an unforgettable novel about secrets and destinies, but a way of looking at the world that asks the timeless question: How do we live on, even after we’re gone?" 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>North Woods</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(Who%20Is%20Government%3F)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=7jclEQAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of Who Is Government? by Michael Lewis"
+                            data-author="Michael Lewis"
+                            data-description="A NEW YORK TIMES BESTSELLER ONE OF PRESIDENT OBAMA’S 2025 SUMMER READS AS SEEN ON CBS MORNINGS, CNN ANDERSON COOPER, ABC NEWS LIVE, MSNBC MORNING JOE, AND MANY MORE &quot;This eye-opening, multifaceted ode to public service. . . feels both urgent and moving.&quot; —The Guardian &quot;Terrific.&quot; —New York Times An all-star team of writers and storytellers go in search of the essential public servant Who works for the government and why does their work matter? Michael Lewis invited his favorite writers, including Casey Cep, Dave Eggers, John Lanchester, Geraldine Brooks, Sarah Vowell, and W. Kamau Bell, to join him in writing about someone doing an interesting job for the government. The stories they found are unexpected, riveting, and inspiring, including a former coal miner devoted to making mine roofs less likely to collapse, saving thousands of lives; an IRS agent straight out of a crime thriller; and the manager who made the National Cemetery Administration the best-run organization, public or private, in the entire country. Each essay shines a spotlight on the essential behind-the-scenes work of exemplary federal employees. Whether they’re digitizing archives, chasing down cybercriminals, or discovering new planets, these public servants are committed to their work and universally reluctant to take credit. Expanding on the celebrated Washington Post series, these vivid profiles show how the essential business of government makes our lives possible." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Who Is Government?</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(Intermezzo)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=qH32EAAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of Intermezzo by Sally Rooney"
+                            data-author="Sally Rooney"
+                            data-description="AN INSTANT NEW YORK TIMES BESTSELLER | A National Indie Bestseller Short-listed for the An Post Irish Book Awards Novel of the Year Finalist for the Barnes and Noble Book of the Year Named a Best Book of the Year and a Critics’ Pick by The New York Times Named an Essential Read by The New Yorker Named a Best Book of the Year by The Washington Post, Time, Financial Times, Vogue, The Guardian, Harper’s Bazaar, Vox, The Times (UK), Apple Books, and more A USA Today, People, and Associated Press Top 10 Book of the Year One of Barack Obama’s favorite books of 2024 One of Chicago Public Library’s Favorite Books of the Year An exquisitely moving story about grief, love, and family—but especially love—from the global phenomenon Sally Rooney. Aside from the fact that they are brothers, Peter and Ivan Koubek seem to have little in common. Peter is a Dublin lawyer in his thirties—successful, competent, and apparently unassailable. But in the wake of their father’s death, he’s medicating himself to sleep and struggling to manage his relationships with two very different women—his enduring first love, Sylvia, and Naomi, a college student for whom life is one long joke. Ivan is a twenty-two-year-old competitive chess player. He has always seen himself as socially awkward, a loner, the antithesis of his glib elder brother. Now, in the early weeks of his bereavement, Ivan meets Margaret, an older woman emerging from her own turbulent past, and their lives become rapidly and intensely intertwined. For two grieving brothers and the people they love, this is a new interlude—a period of desire, despair, and possibility; a chance to find out how much one life might hold inside itself without breaking." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Intermezzo</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(The%20Bookshop)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=N5ThEAAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of The Bookshop by Evan Friss"
+                            data-author="Evan Friss"
+                            data-description="A NEW YORK TIMES BESTSELLER Goodreads Choice Award Winner in History &amp; Biography One of Time’s 100 Must-Read Books of 2024 &quot;A spirited defense of this important, odd and odds-defying American retail category.&quot; —The New York Times &quot;It is a delight to wander through the bookstores of American history in this warm, generous book.&quot; —Emma Straub, New York Times bestselling author and owner of Books Are Magic An affectionate and engaging history of the American bookstore and its central place in American cultural life, from department stores to indies, from highbrow dealers trading in first editions to sidewalk vendors, and from chains to special-interest community destinations Bookstores have always been unlike any other kind of store, shaping readers and writers, and influencing our tastes, thoughts, and politics. They nurture local communities while creating new ones of their own. Bookshops are powerful spaces, but they are also endangered ones. In The Bookshop, we see the stakes: what has been, and what might be lost. Evan Friss’s history of the bookshop draws on oral histories, archival collections, municipal records, diaries, letters, and interviews with leading booksellers to offer a fascinating look at this institution beloved by so many. The story begins with Benjamin Franklin’s first bookstore in Philadelphia and takes us to a range of booksellers including the Strand, Chicago’s Marshall Field &amp; Company, the Gotham Book Mart, specialty stores like Oscar Wilde and Drum and Spear, sidewalk sellers of used books, Barnes &amp; Noble, Amazon Books, and Parnassus. The Bookshop is also a history of the leading figures in American bookselling, often impassioned eccentrics, and a history of how books have been marketed and sold over the course of more than two centuries—including, for example, a 3,000-pound elephant who signed books at Marshall Field’s in 1944. The Bookshop is a love letter to bookstores, a charming chronicle for anyone who cherishes these sanctuaries of literature, and essential reading to understand how these vital institutions have shaped American life—and why we still need them." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>The Bookshop</p>
+                        </a>                </div>
+                    </div>
+        <a id="carousel_6a0893484ade0_end"></a>
+        <div class="share-list">
+            <button type="button" class="print" tabindex="0" data-post-type="book" data-taxonomy="booklist" data-term-slug="hooked-on-books-2026">Print</button>
+            <button type="button" class="email" tabindex="0" aria-controls="shareWindow-carousel_6a0893484ade0" aria-expanded="false">Email</button>
+        </div>
+        <div class="share-window" id="shareWindow-carousel_6a0893484ade0">
+            <button type="button" class="close" tabindex=0 aria-label="Close">&times;</button>
+                <p>Share via Email</p>
+                <form method="POST" class="share-by-email">
+                    <label class="visually-hidden" for="from_email">From Email</label>
+                    <input type="email" id="from_email" name="from_email" class="share-email" placeholder="From Email" required>
+                    <label class="visually-hidden" for="to_email">To Email</label>
+                    <input type="email" id="to_email" name="to_email" class="share-email" placeholder="To Email" required>
+                    <label class="visually-hidden" for="message">Your message (optional)</label>
+                    <textarea name="message" id="message" placeholder="Your message (optional)"></textarea>
+                    <input type="hidden" name="post_type" value="book" />
+                    <input type="hidden" name="taxonomy" value="booklist" />
+                    <input type="hidden" name="term_slug" value="hooked-on-books-2026" />
+                    <button type="submit" name="submit" id="share-submit">Send</button>
+                </form>
+        </div>
+    </div>
+<script>
+    jQuery(document).ready(function() {
+        jQuery('#carousel_6a0893484ade0 .book-carousel').owlCarousel({
+            navigation: false,
+            items: 4,
+            autoPlay: true,
+            scrollPerPage: true
+        });
+    });
+</script>
+<script type="text/html" id="tmpl-popover-content">
+    <div class="webui-popover-meta-wrapper">
+        <div class="cover-thumb">
+            <img src="{{{data.thumb}}}" loading="lazy" /><br />
+            <small style="font-weight:bold;line-height:1.2;">{{data.caption}}</small>
+        </div>
+        <div>
+            <span class="title">{{{data.title}}}</span><br />
+            <span class="author">{{{data.author}}}</span>
+            <p class="description">{{{data.description}}}</p>
+        </div>
+    </div>
+    <# if (data.catalogLink) { #>
+        <a class="button button-catalog" href="{{data.catalogLink}}" target="_blank">View in Catalog</a>
+        <# } #>
+</script>
+
+</div>
+                              <div class="tab-pane fade show " id="nav-2"
+                     role="tabpanel"
+                     aria-labelledby="nav-2-tab">        <a href="#carousel_6a0893484c319_end" class="visually-hidden ">Skip to End of Carousel</a>
+    <div class="book-carousel-wrapper" id="carousel_6a0893484c319">
+        <div class="book-carousel">
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(A%20Deadly%20Walk%20in%20Devon)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=FPj8EAAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of A Deadly Walk in Devon by Nicholas George"
+                            data-author="Nicholas George"
+                            data-description="For fans of M.C. Beaton, Martha Grimes, and Alexander McCall Smith, the first in a charming new mystery series set in the English countryside, as a retired San Diego police detective embarks upon group walking tours in England’s most scenic counties… Still grieving the death of his long-time partner, Chase reunites with his dear friend and fellow Anglophile Billie Mondreau for a seacoast holiday of historic sightseeing. Assigned a pair of guides from the tour company, Wanderers, Chase and Billie join seven other like-minded Americans looking forward to an English getaway. All except for Ronald Gretz. The wealthy entrepreneur behind the international Golden Sunset nursing home chain doesn’t like anything about walking, touring, or England. Coarse and opinionated, Gretz’s complaints get on the nerves of his fellow Wanderers—and his long-suffering trophy wife. But Gretz’s gripes are tied to his own nerves being frayed. He has been receiving threatening texts and emails signed “An Avenger.” Convinced someone means him harm, Gretz asks Chase to watch his back. Soon, Gretz falls afoul of several “accidents,” until one final “accident” results in Gretz dead at the bottom of a cliff. While helping the police investigate, Chase discovers that members of the tour group not only disliked the victim but had legitimate motives for wanting him dead. Now, he just has to uncover who among them is willing to kill . . ." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>A Deadly Walk in Devon</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(The%20Man%20Who%20Died%20Seven%20Times)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=jV5CEQAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of The Man Who Died Seven Times by Yasuhiko Nishizawa"
+                            data-author="Yasuhiko Nishizawa"
+                            data-description="A subversively cozy Japanese crime novel with an ingenious Groundhog Day twist: a teenager’s time-loop race to solve—and possibly prevent—his grandfather’s murder! Contemporary Japanese legend Yasuhiko Nishizawa makes his English-language debut with this slick, funny murder mystery which adds a sci-fi twist to an age-old setup: a murder in a wealthy family with an inheritance at stake. Hisataro, a young member of the wealthy Fuchigami family, has a mysterious ability. Every now and then, against his will, he falls into a time-loop in which he is obliged to re-live the same day a total of 9 times. Little does he know how useful this ability will be, until one day, his grandfather mysteriously dies... As he returns to the day of the murder time and again, Hisataro begins to unravel its secrets. With a sizeable inheritance up for grabs, motives abound, and everyone is a suspect. Can Hisataro solve the mystery of his grandfather’s death before his powers run out? Written in a witty, lighthearted voice, this clever and playful book will appeal to fans of both traditional murder mysteries as well as readers of cozy mysteries. It&#039;s a delightful treat for fans of the intricate plotting of Agatha Christie, the gentle humor of Richard Osman, and audacious inventiveness of Stuart Turton." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>The Man Who Died Seven Times</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(Three%20Bags%20Full)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=1MK1DlcNYXoC&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of Three Bags Full by Leonie Swann"
+                            data-author="Leonie Swann"
+                            data-description="A witty philosophical murder mystery with a charming twist: the crack detectives are sheep determined to discover who killed their beloved shepherd. On a hillside near the cozy Irish village of Glennkill, a flock of sheep gathers around their shepherd, George, whose body lies pinned to the ground with a spade. George has cared devotedly for the flock, even reading them books every night. Led by Miss Maple, the smartest sheep in Glennkill (and possibly the world), they set out to find George’s killer. The A-team of investigators includes Othello, the “bad-boy” black ram; Mopple the Whale, a Merino who eats a lot and remembers everything; and Zora, a pensive black-faced ewe with a weakness for abysses. Joined by other members of the richly talented flock, they engage in nightlong discussions about the crime, wild metaphysical speculations, and embark on reconnaissance missions into the village, where they encounter some likely suspects. Along the way, the sheep confront their own all-too-human struggles with guilt, misdeeds, and unrequited love. Funny, fresh, and endearing, it introduces a wonderful new breed of detectives to Canadian readers." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Three Bags Full</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(One%20by%20One%20ware)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=hIRSzQEACAAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;source=gbs_api"
+                            alt="Cover Image of One by One by Ruth Ware"
+                            data-author="Ruth Ware"
+                            data-description="&#039;The sense of dread deepens as the snow falls in Ruth Ware&#039;s tensely plotted and deliciously cast alpine thriller&#039; Louise Candlish, bestselling author of Our House **The unmissable new thriller from the queen of the modern-day murder mystery.** Snow is falling in the exclusive alpine ski resort of Saint Antoine, as the shareholders and directors of Snoop, the hottest new music app, gather for a make or break corporate retreat to decide the future of the company. At stake is a billion-dollar dot com buyout that could make them all millionaires, or leave some of them out in the cold. The clock is ticking on the offer, and with the group irrevocably split, tensions are running high. When an avalanche cuts the chalet off from help, and one board member goes missing in the snow, the group is forced to ask - would someone resort to murder, to get what they want? PRAISE FOR ONE BY ONE: &#039;A chilling, edge-of-your-seat thriller. Agatha Christie would have been up all night reading this one!&#039; Shari Lapena, author of The Couple Next Door &#039;The queen of just-one-more-chapter has done it again&#039; Clare Mackintosh &#039;Impossible to put down and perfectly claustrophobic and gorgeously atmospheric&#039; Gytha Lodge, author of She Lies in Wait &#039;So fast paced, action packed, twisty-turny, modern, clever, scary and ingenious!&#039; Lisa Jewell, author of The People Upstairs &#039;A fab psychological thriller and I loved the snowy setting! Incredibly tense and kept me guessing to the end&#039; Emily Koch, author of If I Die Before I Wake &#039;Chilling, claustrophobic and clever. This is Ruth Ware&#039;s best yet&#039; Jo Jakeman, author of Safe House &#039;One By One has all the elements of a classic crime novel, brilliantly reinvented for the modern era with a dramatic setting, pin-sharp characterisation and up-to-the-minute plotting. It is fast-paced, astute and utterly compelling.&#039; Jane Casey, author of The Cutting Place" 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>One by One</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(The%20Examiner)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=t4nyEAAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of The Examiner by Janice Hallett"
+                            data-author="Janice Hallett"
+                            data-description="Told in emails, text messages, and essays, this unputdownable mystery follows a group of students in an art master’s program that goes dangerously awry, from the internationally bestselling “new queen of crime” (Electric Literature) Janice Hallett. Gela Nathaniel, head of Royal Hastings University’s new Multimedia Art course, must find six students from all walks of life across the United Kingdom for her new master’s program before the university cuts her funding. The students are nothing but trouble from day one. There’s Jem, a talented sculptor recently graduated from her university program and eager to make her mark as an artist at any cost. Jonathan, who has little experience aside from running his family’s gallery. Patrick manages an art supply store, but can barely operate his phone, much less design software. Ludya is a single mother and graphic designer more interested in a paycheck than homework. Cameron is a marketing executive in search of a hobby or a career change. And Alyson, already a successful artist, seems to be overqualified. When the examiner, the man hired to grade students’ final workssifts through the students’ final essays, texts, and message boards, he becomes convinced that someone is in danger…or already dead. With her trademark “witty, original” (The New York Times) voice, Janice Hallett weaves a fresh and mind-bending page-turner that will keep you guessing until the final page." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>The Examiner</p>
+                        </a>                </div>
+                    </div>
+        <a id="carousel_6a0893484c319_end"></a>
+        <div class="share-list">
+            <button type="button" class="print" tabindex="0" data-post-type="book" data-taxonomy="booklist" data-term-slug="murder-by-the-book-group-2026">Print</button>
+            <button type="button" class="email" tabindex="0" aria-controls="shareWindow-carousel_6a0893484c319" aria-expanded="false">Email</button>
+        </div>
+        <div class="share-window" id="shareWindow-carousel_6a0893484c319">
+            <button type="button" class="close" tabindex=0 aria-label="Close">&times;</button>
+                <p>Share via Email</p>
+                <form method="POST" class="share-by-email">
+                    <label class="visually-hidden" for="from_email">From Email</label>
+                    <input type="email" id="from_email" name="from_email" class="share-email" placeholder="From Email" required>
+                    <label class="visually-hidden" for="to_email">To Email</label>
+                    <input type="email" id="to_email" name="to_email" class="share-email" placeholder="To Email" required>
+                    <label class="visually-hidden" for="message">Your message (optional)</label>
+                    <textarea name="message" id="message" placeholder="Your message (optional)"></textarea>
+                    <input type="hidden" name="post_type" value="book" />
+                    <input type="hidden" name="taxonomy" value="booklist" />
+                    <input type="hidden" name="term_slug" value="murder-by-the-book-group-2026" />
+                    <button type="submit" name="submit" id="share-submit">Send</button>
+                </form>
+        </div>
+    </div>
+<script>
+    jQuery(document).ready(function() {
+        jQuery('#carousel_6a0893484c319 .book-carousel').owlCarousel({
+            navigation: false,
+            items: 4,
+            autoPlay: true,
+            scrollPerPage: true
+        });
+    });
+</script>
+<script type="text/html" id="tmpl-popover-content">
+    <div class="webui-popover-meta-wrapper">
+        <div class="cover-thumb">
+            <img src="{{{data.thumb}}}" loading="lazy" /><br />
+            <small style="font-weight:bold;line-height:1.2;">{{data.caption}}</small>
+        </div>
+        <div>
+            <span class="title">{{{data.title}}}</span><br />
+            <span class="author">{{{data.author}}}</span>
+            <p class="description">{{{data.description}}}</p>
+        </div>
+    </div>
+    <# if (data.catalogLink) { #>
+        <a class="button button-catalog" href="{{data.catalogLink}}" target="_blank">View in Catalog</a>
+        <# } #>
+</script>
+
+</div>
+                              <div class="tab-pane fade show " id="nav-3"
+                     role="tabpanel"
+                     aria-labelledby="nav-3-tab">        <a href="#carousel_6a0893484da97_end" class="visually-hidden ">Skip to End of Carousel</a>
+    <div class="book-carousel-wrapper" id="carousel_6a0893484da97">
+        <div class="book-carousel">
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(Christopher%20Kimball&#039;s%20Milk%20Street%20new%20home)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=fW5FDgAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of Christopher Kimball&#039;s Milk Street by Christopher Kimball"
+                            data-author="Christopher Kimball"
+                            data-description="One of the New York Times Book Review&#039;s Best Books of the Year: Change the way you cook with easy new techniques and simple, healthy recipes from a &quot;revolutionary&quot; culinary trailblazer (Houston Chronicle). For more than twenty-five years, Christopher Kimball has delivered delicious and easy recipes for home cooks. Now, with his team of cooks and editors at Milk Street, he promises that a new approach in the kitchen can elevate the quality of your cooking far beyond anything you thought possible. Christopher Kimball&#039;s Milk Street, the first cookbook connected to Milk Street&#039;s public television show, delivers more than 125 new recipes full of timesaving cooking techniques arranged by type of dish: from grains and salads to simple dinners and twenty-first-century desserts. At Milk Street, there are no long lists of hard-to-find ingredients, strange cookware, or all-day methods. Deliver big flavors without learning a new culinary language with these mouthwatering dishes: Skillet-Charred Brussels sprouts Japanese fried chicken Rum-soaked chocolate cake Thai-style coleslaw Mexican chicken soup These recipes are more than delicious. They teach a simpler, bolder, healthier way to cook that will change your cooking forever. And cooking will become an act of pure pleasure, not a chore. Welcome to the new home cooking. Welcome to Milk Street." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Christopher Kimball's Milk Street</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(Soframiz)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=dUlmCwAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of Soframiz by Ana Sortun, Maura Kilpatrick"
+                            data-author="Ana Sortun, Maura Kilpatrick"
+                            data-description="This charming collection of 100 recipes for everyday cooking and entertaining from Cambridge&#039;s Sofra Bakery and Cafe, showcases modern Middle Eastern spices and flavors through exotic yet accessible dishes both sweet and savory. Ana Sortun and Maura Kilpatrick have traveled extensively throughout Turkey and the Middle East, researching recipes and gaining inspiration for their popular cafe and bakery, Sofra. In their first cookbook together, the two demystify and explore the flavors of this popular region, creating accessible, fun recipes for everyday eating and entertaining. With a primer on essential ingredients and techniques, and recipes such as Morning Buns with Orange Blossom Glaze, Whipped Feta with Sweet and Hot Peppers, Eggplant Manoushe with Labne and Za&#039;atar, and Sesame Caramel Cashews, Soframiz will transport readers to the markets and kitchens of the Middle East." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Soframiz</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(Preppy%20Kitchen%20Super%20Easy)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=7bYVEQAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of Preppy Kitchen Super Easy by John Kanell"
+                            data-author="John Kanell"
+                            data-description="&quot;John Kanell is beloved for his aspirational lifestyle and food recipes that feed the eye first. As his kids get older and life gets busier, John recognizes the need that all busy families have for food that is at once practical to prepare and delicious.&quot;--" 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Preppy Kitchen Super Easy</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(Mooncakes%20and%20Milk%20Bread)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=R_sIEAAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of Mooncakes and Milk Bread by Kristina Cho"
+                            data-author="Kristina Cho"
+                            data-description="2022 JAMES BEARD AWARD WINNER • Baking and Desserts 2022 JAMES BEARD AWARD WINNER • Emerging Voice, Books ONE OF THE TEN BEST COOKBOOKS OF THE YEAR: The New Yorker Magazine, The New York Times ONE OF THE BEST COOKBOOKS OF THE YEAR: Time Out, Glamour, Taste of Home Food blogger Kristina Cho (eatchofood.com) introduces you to Chinese bakery cooking with fresh, simple interpretations of classic recipes for the modern baker. Inside, you’ll find sweet and savory baked buns, steamed buns, Chinese breads, unique cookies, whimsical cakes, juicy dumplings, Chinese breakfast dishes, and drinks. Recipes for steamed BBQ pork buns, pineapple buns with a thick slice of butter, silky smooth milk tea, and chocolate Swiss rolls all make an appearance--because a book about Chinese bakeries wouldn’t be complete without them In Mooncakes &amp; Milk Bread, Kristina teaches you to whip up these delicacies like a pro, including how to: Knead dough without a stand mixer Avoid collapsed steamed buns Infuse creams and custards with aromatic tea flavors Mix the most workable dumpling dough Pleat dumplings like an Asian grandma This is the first book to exclusively focus on Chinese bakeries and cafés, but it isn’t just for those nostalgic for Chinese bakeshop foods--it’s for all home bakers who want exciting new recipes to add to their repertoires." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Mooncakes and Milk Bread</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(The%20Wok)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=jl83EAAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of The Wok by J. Kenji López-Alt"
+                            data-author="J. Kenji López-Alt"
+                            data-description="#1 New York Times Bestseller • #1 Washington Post Bestseller • Winner of the 2023 James Beard Award for Single Subject Cookbooks • One of Time&#039;s 10 Most Anticipated Cookbooks of 2022 One of NPR&#039;s Books We Love in 2022 • A Bon Appétit, Tasting Table, Vice, Here &amp; Now, Publishers Weekly, and Inside Hook Best Cookbook of 2022 From J. Kenji López-Alt, the author of the best-selling cookbook The Food Lab: the definitive guide to the science and technique of cooking in a wok. J. Kenji López-Alt’s debut cookbook, The Food Lab, revolutionized home cooking, selling more than half a million copies with its science-based approach to everyday foods. And for fast, fresh cooking for his family, there’s one pan López-Alt reaches for more than any other: the wok. Whether stir-frying, deep frying, steaming, simmering, or braising, the wok is the most versatile pan in the kitchen. Once you master the basics—the mechanics of a stir-fry, and how to get smoky wok hei at home—you’re ready to cook home-style and restaurant-style dishes from across Asia and the United States, including Kung Pao Chicken, Pad Thai, and San Francisco–Style Garlic Noodles. López-Alt also breaks down the science behind beloved Beef Chow Fun, fried rice, dumplings, tempura vegetables or seafood, and dashi-simmered dishes. Featuring more than 200 recipes—including simple no-cook sides—explanations of knife skills and how to stock a pantry, and more than 1,000 color photographs, The Wok provides endless ideas for brightening up dinner." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>The Wok</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Union/Search?view=list&#038;showCovers=on&#038;lookfor=(Comfort%20Ottolenghi)" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=HNgjEQAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of Comfort by Yotam Ottolenghi, Helen Goh, Verena Lochmuller, Tara Wigley"
+                            data-author="Yotam Ottolenghi, Helen Goh, Verena Lochmuller, Tara Wigley"
+                            data-description="Più di 100 ricette che includono classiche rivisitazioni di pasta, patate, preparazioni in teglia e zuppe. COMFORT è ricco di piatti che sono al contempo nostalgici e rivelatori, familiari e freschi. Con COMFORT, Yotam Ottolenghi e i suoi co-autori celebrano il cibo e la casa, i legami che stringiamo e tramandiamo grazie alla cucina, da un luogo all&#039;altro e da una generazione all&#039;altra." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Comfort</p>
+                        </a>                </div>
+                    </div>
+        <a id="carousel_6a0893484da97_end"></a>
+        <div class="share-list">
+            <button type="button" class="print" tabindex="0" data-post-type="book" data-taxonomy="booklist" data-term-slug="cookbook-club-2026">Print</button>
+            <button type="button" class="email" tabindex="0" aria-controls="shareWindow-carousel_6a0893484da97" aria-expanded="false">Email</button>
+        </div>
+        <div class="share-window" id="shareWindow-carousel_6a0893484da97">
+            <button type="button" class="close" tabindex=0 aria-label="Close">&times;</button>
+                <p>Share via Email</p>
+                <form method="POST" class="share-by-email">
+                    <label class="visually-hidden" for="from_email">From Email</label>
+                    <input type="email" id="from_email" name="from_email" class="share-email" placeholder="From Email" required>
+                    <label class="visually-hidden" for="to_email">To Email</label>
+                    <input type="email" id="to_email" name="to_email" class="share-email" placeholder="To Email" required>
+                    <label class="visually-hidden" for="message">Your message (optional)</label>
+                    <textarea name="message" id="message" placeholder="Your message (optional)"></textarea>
+                    <input type="hidden" name="post_type" value="book" />
+                    <input type="hidden" name="taxonomy" value="booklist" />
+                    <input type="hidden" name="term_slug" value="cookbook-club-2026" />
+                    <button type="submit" name="submit" id="share-submit">Send</button>
+                </form>
+        </div>
+    </div>
+<script>
+    jQuery(document).ready(function() {
+        jQuery('#carousel_6a0893484da97 .book-carousel').owlCarousel({
+            navigation: false,
+            items: 4,
+            autoPlay: true,
+            scrollPerPage: true
+        });
+    });
+</script>
+<script type="text/html" id="tmpl-popover-content">
+    <div class="webui-popover-meta-wrapper">
+        <div class="cover-thumb">
+            <img src="{{{data.thumb}}}" loading="lazy" /><br />
+            <small style="font-weight:bold;line-height:1.2;">{{data.caption}}</small>
+        </div>
+        <div>
+            <span class="title">{{{data.title}}}</span><br />
+            <span class="author">{{{data.author}}}</span>
+            <p class="description">{{{data.description}}}</p>
+        </div>
+    </div>
+    <# if (data.catalogLink) { #>
+        <a class="button button-catalog" href="{{data.catalogLink}}" target="_blank">View in Catalog</a>
+        <# } #>
+</script>
+
+</div>
+                              <div class="tab-pane fade show " id="nav-4"
+                     role="tabpanel"
+                     aria-labelledby="nav-4-tab">        <a href="#carousel_6a0893484f731_end" class="visually-hidden ">Skip to End of Carousel</a>
+    <div class="book-carousel-wrapper" id="carousel_6a0893484f731">
+        <div class="book-carousel">
+                            <div>
+                    <a href="https://newton.minlib.net/Record/.b43783193?searchId=67453345&#038;recordIndex=1&#038;page=1" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=qpRkEQAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of Loops by Jashar Awan"
+                            data-author="Jashar Awan"
+                            data-description="Two starred reviews! From Caldecott Honor– and Theodor Seuss Geisel Honor–winning author-illustrator Jashar Awan comes a hilarious and “confidence-boosting” (Publishers Weekly, starred review) picture book about the perseverance and positive self-talk needed to learn to tie your shoelaces! This big kid is wearing his first pair of big-kid shoes, the kind with laces! Even though they’re a little on the roomy side—shoes to grow into, of course—he knows he can take care of them. Except they keep falling off! Not to worry, he’ll just tie them up again, because he knows how to tie those loops! But wait a second, where did that darn shoe go? Nothing is ever truly easy when you’re just starting something new; but, just like with any stage in childhood, whether it’s making your first steps, or going down the really big slide, with persistence, doing anything scary or overwhelming quickly becomes a piece of cake! And before you know it, you’re a BIG KID!" 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Loops</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Record/.b43818730?searchId=67453278&#038;recordIndex=1&#038;page=1" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=gYve0QEACAAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;source=gbs_api"
+                            alt="Cover Image of Broccoli Is Trying to Kill Me by Katie Evans"
+                            data-author="Katie Evans"
+                            data-description="Although her dad says they are good for her, a young girl knows bettershe is sure the vegetables in the fridge are out to get her, with broccoli being the biggest and baddest of all." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Broccoli Is Trying to Kill Me</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Record/.b43896121?searchId=67453151&#038;recordIndex=1&#038;page=1" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=W_aK0QEACAAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;source=gbs_api"
+                            alt="Cover Image of Arthurs Cat by Leynaud, Johan"
+                            data-author="Leynaud, Johan"
+                            data-description="" 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Arthurs Cat</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Record/.b43815406?searchId=67453039&#038;recordIndex=4&#038;page=1" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=N7V3EQAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of The Big Green: A Story About the Great Green Wall of Africa by Ken Wilson-Max"
+                            data-author="Ken Wilson-Max"
+                            data-description="In an upbeat story with bright, welcoming illustrations, Ken Wilson-Max conveys the excitement and hope created by a vast, community-powered project to bring more trees to sub-Saharan Africa. It’s another hot day in Mali, at the edge of the desert, and Mariam and Issa know something special is about to happen. As they play in the shade and make clapping rhythms with their hands, Mum and Dad make their own kind of music with shovels, poking holes in the dry earth. When Uncle Cedric arrives, the children ask him what all the plants and baby trees in the back of his car will be for. “The future,” he says, with a smile. Taking part in creating this future is a whole community of people: neighbors balancing buckets of water on their heads, children carrying unplanted seedlings into the cool shade, grown-ups planting and watering over and over again. It’s all part of the Great Green Wall, a project intended to stretch across the African continent at the edge of the Sahara, affecting millions of people in eleven countries. As readers learn in a final informational spread, planting more trees not only helps reduce carbon in the air, it also helps prevent desertification, preserving the rainforest and all the living creatures who rely on it to survive." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>The Big Green: A Story About the Grea...</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/GroupedWork/173b1295-0f90-2029-27c6-d993e5ecb73e-eng/Home?searchId=67452963&#038;recordIndex=1&#038;page=1&#038;searchSource=local" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=SMBkEQAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of Queso, Just in Time by Ernesto Cisneros"
+                            data-author="Ernesto Cisneros"
+                            data-description="Pura Belpré Award-winning author Ernesto Cisneros takes readers “back to the future” in this funny and heartfelt time-travel tale about family, grief, and love that stretches across the years. Give to readers who love Erin Entrada Kelly, Gordan Korman, and Jason Reynolds! Quetzalcóatl Castillo—Queso for short—has had an ache in his heart that won’t go away ever since his father’s death. More than anything, he wishes he could spend time with his dad again. After whispering that wish one night under the light of the moon, Queso wakes up the next morning in 1985. With twelve-year-old Pancho—the kid who will grow up to be his dad. Even though he has no idea what to do, Queso is just happy to be by his dad’s side again. But while Pancho is confident when scoring on the foosball table or standing up to bullies, he doesn’t think he’s smart enough to reach for his dreams. If only Pancho believed in himself the way Queso does, who knows what his story could be?" 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Queso, Just in Time</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Record/.b43862755?searchId=67452891&#038;recordIndex=1&#038;page=1" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=7k6HEQAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of The Froggy Library by Julie Fiveash"
+                            data-author="Julie Fiveash"
+                            data-description="Spend your summer on Soggy Stump! This cozy, colorful, and amphibious graphic novel adventure draws inspiration from the author&#039;s background as a Diné librarian. Anura is a young frog spending the summer back home with their grandmother. With some...er...gentle prodding from Grandma, they get a job working at the local library. It&#039;s about 11 minutes in when they&#039;re tasked with a big project: create an archive that captures what makes Soggy Stump so special. What the heck is even an archive?! And so begins a summer full of fry bread, weaving, zines, community gardens, manga, and (maybe) an answer to the question of: how do we preserve the knowledge, wisdom, and memories of the ones we love? Inspired by Julie Fiveash&#039;s Diné background and career as a librarian, and infused throughout with the colors of the Southwest, The Froggy Library is a love letter to Native communities, summers with friends and family, and libraries everywhere." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>The Froggy Library</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Record/.b43849209?searchId=67452817&#038;recordIndex=1&#038;page=1" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=B0-NEQAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of Red River Rose by Carole Lindstrom"
+                            data-author="Carole Lindstrom"
+                            data-description="This adventurous historical novel by bestselling author of We Are Water Protectors Carole Lindstrom offers readers a dramatic portrayal of a young Métis girl who takes a stand to protect her way of life. Perfect for fans of Linda Sue Park and Pam Muñoz Ryan." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Red River Rose</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/Record/.b43849192?searchId=67452739&#038;recordIndex=1&#038;page=1" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=_pRkEQAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of Bravepaw and the Heartstone of Alluria by L. M. Wilkinson"
+                            data-author="L. M. Wilkinson"
+                            data-description="A humble mouse learns she has the same magical abilities as her favorite fabled hero and must save the world from grave danger in this first book in the cozy illustrated middle grade fantasy series Bravepaw that’s perfect for fans of The Tale of Despereaux and Kelly Barnhill. Titch Proudleaf has always dreamed of adventure, just like in the legends of gallant mouse hero Bravepaw. But nothing ever happens to small mice living in quiet villages…until a lost prince and dark magic find their way into the Plateau. When Titch saves the prince from the brink of death, she finds out that the world of Alluria is in grave danger, and by a twist of fate, it’s up to her to make things right. And so, equipped with a magical staff that sometimes works and accompanied by her best friend Huckleberry, Titch sets out on a quest that will change her life and the world of Alluria forever. But Titch knows she’s no Bravepaw—how can she ever hope to live up to the legend?" 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Bravepaw and the Heartstone of Alluria</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/GroupedWork/81411413-ae2a-3e35-afdb-caa9e759df28-eng/Home?searchId=67452680&#038;recordIndex=1&#038;page=1&#038;searchSource=local" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=dRFv0QEACAAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;source=gbs_api"
+                            alt="Cover Image of Building Homes for All by Elaine Kachala"
+                            data-author="Elaine Kachala"
+                            data-description="Part of the nonfiction Orca Think series for middle-grade readers, this illustrated book introduces young readers to innovative building techniques that will make homes sustainable and accessible to everyone." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Building Homes for All</p>
+                        </a>                </div>
+                            <div>
+                    <a href="https://newton.minlib.net/GroupedWork/3f84e99a-f4aa-1204-c458-4cbb8eb3d115-eng/Home?searchId=67452595&#038;recordIndex=3&#038;page=1&#038;searchSource=local" class="catalog-link" target="_blank">                        <img 
+                            src="//books.google.com/books/content?id=mpVkEQAAQBAJ&#038;printsec=frontcover&#038;img=1&#038;zoom=1&#038;edge=curl&#038;source=gbs_api"
+                            alt="Cover Image of Talking Books by Jenny Lacika"
+                            data-author="Jenny Lacika"
+                            data-description="A captivating picture book biography of determined innovator Dr. Robert B. Irwin, who invented the audiobook and revolutionized the way stories are shared, opening the door for people of all abilities to become readers. Robert Benjamin Irwin loves to learn and explore. But when he’s five, his eyes grow red and painful from fever, and he loses his sight. Since he can no longer see, Robert focuses instead on what he can do: discovering new ways to learn and experience the world through sound. As he grows up, Robert learns to read books written in Braille, a system of raised dots that can be read with fingers. But as much as he loves stories, he finds finger-reading Braille slow and difficult. He wishes he could listen to a story like he listens to the birds. So, with a team of audio engineers, Robert sets out to make it happen—and revolutionizes reading for people around the world." 
+                            data-caption=""
+                            loading="lazy" />
+                        <p>Talking Books</p>
+                        </a>                </div>
+                    </div>
+        <a id="carousel_6a0893484f731_end"></a>
+        <div class="share-list">
+            <button type="button" class="print" tabindex="0" data-post-type="book" data-taxonomy="booklist" data-term-slug="kids-new">Print</button>
+            <button type="button" class="email" tabindex="0" aria-controls="shareWindow-carousel_6a0893484f731" aria-expanded="false">Email</button>
+        </div>
+        <div class="share-window" id="shareWindow-carousel_6a0893484f731">
+            <button type="button" class="close" tabindex=0 aria-label="Close">&times;</button>
+                <p>Share via Email</p>
+                <form method="POST" class="share-by-email">
+                    <label class="visually-hidden" for="from_email">From Email</label>
+                    <input type="email" id="from_email" name="from_email" class="share-email" placeholder="From Email" required>
+                    <label class="visually-hidden" for="to_email">To Email</label>
+                    <input type="email" id="to_email" name="to_email" class="share-email" placeholder="To Email" required>
+                    <label class="visually-hidden" for="message">Your message (optional)</label>
+                    <textarea name="message" id="message" placeholder="Your message (optional)"></textarea>
+                    <input type="hidden" name="post_type" value="book" />
+                    <input type="hidden" name="taxonomy" value="booklist" />
+                    <input type="hidden" name="term_slug" value="kids-new" />
+                    <button type="submit" name="submit" id="share-submit">Send</button>
+                </form>
+        </div>
+    </div>
+<script>
+    jQuery(document).ready(function() {
+        jQuery('#carousel_6a0893484f731 .book-carousel').owlCarousel({
+            navigation: false,
+            items: 4,
+            autoPlay: true,
+            scrollPerPage: true
+        });
+    });
+</script>
+<script type="text/html" id="tmpl-popover-content">
+    <div class="webui-popover-meta-wrapper">
+        <div class="cover-thumb">
+            <img src="{{{data.thumb}}}" loading="lazy" /><br />
+            <small style="font-weight:bold;line-height:1.2;">{{data.caption}}</small>
+        </div>
+        <div>
+            <span class="title">{{{data.title}}}</span><br />
+            <span class="author">{{{data.author}}}</span>
+            <p class="description">{{{data.description}}}</p>
+        </div>
+    </div>
+    <# if (data.catalogLink) { #>
+        <a class="button button-catalog" href="{{data.catalogLink}}" target="_blank">View in Catalog</a>
+        <# } #>
+</script>
+
+</div>
+                          </div>
+                          <div class="row pt-3">
+                <div class="col-12 col-sm-4">
+                                      <a href="https://newton.minlib.net" class="btn btn-special"
+                       title="BROWSE CATALOG">
+                      BROWSE CATALOG
+                    </a>
+                                  </div>
+                                  <div class="col-12 col-sm-8 mt-5 mt-md-0"><h3>Need a Suggestion?</h3>
+<p>Get personalized recommendations hand-picked just for you! Complete a form to get recommendations on books and movies for all ages.</p>
+<p><a href="https://newtonfreelibrary.net/services/services/recommendations-for-you/">RECOMMENDATIONS FOR YOU</a></p>
+</div>
+                              </div>
+                      </div>
+        </section>
+  <section class="split-cta bg-white pt-5 overflow-hidden">
+	<div class="split-cta__bg bg-pale-teal position-relative">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<div class="cta-block cta-block--pale-blue py-5 pb-3">						<h2 class="cta-block__title text-uppercase">CONNECT</h2>
+												<div class="my-3">
+															<a href="https://www.facebook.com/NewtonFreeLibrary" class="social-menu__link text-center bg-blue d-inline-block text-white ml-1" title="Like Us on Facebook"><i class="footer__social__icon fa fa-facebook" aria-hidden="true"></i></a>
+																						<a href="https://x.com/NewtonFreeLib" class="social-menu__link text-center bg-blue d-inline-block text-white ml-1" title="Follow Us on Twitter"><i class="footer__social__icon fa fa-twitter" aria-hidden="true"></i></a>
+																						<a href="https://www.youtube.com/channel/UCIGq0ATc2M_uqjdIMRNlHQQ" class="social-menu__link text-center bg-blue d-inline-block text-white ml-1" title="Watch Us on Youtube"><i class="footer__social__icon fa fa-youtube-play" aria-hidden="true"></i></a>
+																						<a href="https://www.instagram.com/newtonfreelibrary" class="social-menu__link text-center bg-blue d-inline-block text-white ml-1" title="Follow Us on Instagram"><i class="footer__social__icon fa fa-instagram" aria-hidden="true"></i></a>
+													</div>
+												<div><p>Stay updated on the latest news and events by following our social media and subscribing to our email newsletter.</p>
+<p><a class="btn btn-special" href="https://newtonfreelibrary.net/library-newsletter/">Subscribe to Newsletter</a></p>
+</div>					</div>
+				</div>
+								<div class="col-12 col-md-6 bg-teal">
+					<div class="cta-block cta-block--bright-blue position-relative py-5 pb-3">
+						<h2 class="cta-block__title text-uppercase text-white">SUPPORT</h2>						<div class="text-white"><p>Each year thousands of donors, Friends members and volunteers contribute to making our Library extraordinary. Find out more:</p>
+<p><a href="https://newtonfreelibrary.net/about/get-involved/donate/">DONATE</a></p>
+<p><a href="https://newtonfreelibrary.net/about/get-involved/friends-of-the-library/">JOIN THE FRIENDS</a></p>
+<p><a href="https://newtonfreelibrary.net/about/get-involved/volunteer/">VOLUNTEER</a></p>
+</div>					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</section>
+<div class="bg-white">
+  <div class="container">
+      </div>
+</div>
+</main>
+<footer class="site-footer position-relative bg-teal text-white">
+  <div class="container">
+    <div class="row">
+	<div class="col-12 col-md-3">
+		<a href="https://newtonfreelibrary.net/" class="site-footer__logo d-block">
+			<img src="https://newtonfreelibrary.net/wp-content/uploads/2023/08/NFL_Logo_Condensed_White.png" alt="Newton Free Library Logo" class="site-footer__logo__img w-100" />
+		</a>
+	</div>
+		<div class="col-12 col-md-9">
+      <div class="menu-footer-container"><ul id="menu-footer" class="list-unstyled site-footer__main-menu"><li id="menu-item-972" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-972"><a href="https://newtonfreelibrary.net/about/our-library/hours-directions/">Directions, Hours, and Parking</a></li>
+<li id="menu-item-974" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-974"><a href="https://newtonfreelibrary.net/about/our-library/contact-us/">Contact &amp; Feedback</a></li>
+<li id="menu-item-22057" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22057"><a href="https://newtonfreelibrary.net/library-newsletter/">Newsletter</a></li>
+<li id="menu-item-973" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-973"><a href="https://newtonfreelibrary.net/about/our-library/policies/">Policies</a></li>
+<li id="menu-item-975" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-975"><a href="https://newtonma.gov/">City of Newton</a></li>
+</ul></div>
+	</div>
+	</div>        <div class="pt-2">
+      <div class="row">
+        <div class="col-12 col-md-9">
+  <ul class="site-footer__contact-list list-unstyled">
+    <li class="site-footer__contact-list__item position-relative mb-2">
+            <a class="text-white streched-link" href="https://maps.google.com?daddr=330+Homer+Street%2C+Newton+Centre%2C+Newton%2C+MA+02459%2C+USA"
+        title="Directons to the Library">
+        <address class="m-0 p-0">
+          <span class="mr-1">330 Homer Street</span>
+          <span>Newton, Massachusetts 02459</span>
+        </address>
+      </a>
+    </li>
+            <li class="site-footer__contact-list__item mb-2">
+      <span class="text-uppercase font-weight-bold mr-1">Phone:</span>
+      <a href="tel:(617) 796-1360" class="text-white">(617) 796-1360</a>
+    </li>
+          </ul>
+</div>
+        <div class="col-12 col-md-3 social-menu-wrapper">
+	<div class="social-menu">
+			<a href="https://www.facebook.com/NewtonFreeLibrary" class="social-menu__link text-center bg-white d-inline-block text-teal ml-1" title="Like Us on Facebook"><i class="footer__social__icon fa fa-facebook" aria-hidden="true"></i></a>
+				<a href="https://x.com/NewtonFreeLib" class="social-menu__link text-center bg-white d-inline-block text-teal ml-1" title="Follow Us on Twitter"><i class="footer__social__icon fa fa-twitter" aria-hidden="true"></i></a>
+				<a href="https://www.youtube.com/channel/UCIGq0ATc2M_uqjdIMRNlHQQ" class="social-menu__link text-center bg-white d-inline-block text-teal ml-1" title="Watch Us on Youtube"><i class="footer__social__icon fa fa-youtube-play" aria-hidden="true"></i></a>
+				<a href="https://www.instagram.com/newtonfreelibrary" class="social-menu__link text-center bg-white d-inline-block text-teal ml-1" title="Follow Us on Instagram"><i class="footer__social__icon fa fa-instagram" aria-hidden="true"></i></a>
+		</div>
+</div>
+      </div>
+    </div>
+          </div>
+  <div class="site-footer__copyright bg-dark-gray text-white text-center py-2 position-relative">
+    <div class="container">
+      &copy; 2026 Newton Free Library, All Rights Reserved.
+    </div>
+  </div>
+</footer>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/newtonpl/resources/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<div class="simple-banner simple-banner-text" style="display:none !important"></div><link rel='stylesheet' id='st-media-manager-css' href='https://newtonfreelibrary.net/wp-content/plugins/st-media-carousels-1.4.5/public/css/public.css?ver=1.2.0' type='text/css' media='all' />
+<link rel='stylesheet' id='st-media-manager-owl-theme-css' href='https://newtonfreelibrary.net/wp-content/plugins/st-media-carousels-1.4.5/public/css/owl.theme.css?ver=1.2.0' type='text/css' media='all' />
+<link rel='stylesheet' id='st-media-manager-owl-carousel-css' href='https://newtonfreelibrary.net/wp-content/plugins/st-media-carousels-1.4.5/public/css/owl.carousel.css?ver=1.2.0' type='text/css' media='all' />
+<link rel='stylesheet' id='st-media-manager-webui-popover-css' href='https://newtonfreelibrary.net/wp-content/plugins/st-media-carousels-1.4.5/public/css/jquery.webui-popover.min.css?ver=1.2.0' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--indigo: #034f72;--wp--preset--color--teal: #065c73;--wp--preset--color--blue: #0b8eaf;--wp--preset--color--green: #6b993d;--wp--preset--color--purple: #512873;--wp--preset--color--pink: #cc296;--wp--preset--color--yellow: #e5cf00;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){margin-left: auto !important;margin-right: auto !important;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}a:where(:not(.wp-element-button)){text-decoration: underline;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-indigo-color{color: var(--wp--preset--color--indigo) !important;}.has-teal-color{color: var(--wp--preset--color--teal) !important;}.has-blue-color{color: var(--wp--preset--color--blue) !important;}.has-green-color{color: var(--wp--preset--color--green) !important;}.has-purple-color{color: var(--wp--preset--color--purple) !important;}.has-pink-color{color: var(--wp--preset--color--pink) !important;}.has-yellow-color{color: var(--wp--preset--color--yellow) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-indigo-background-color{background-color: var(--wp--preset--color--indigo) !important;}.has-teal-background-color{background-color: var(--wp--preset--color--teal) !important;}.has-blue-background-color{background-color: var(--wp--preset--color--blue) !important;}.has-green-background-color{background-color: var(--wp--preset--color--green) !important;}.has-purple-background-color{background-color: var(--wp--preset--color--purple) !important;}.has-pink-background-color{background-color: var(--wp--preset--color--pink) !important;}.has-yellow-background-color{background-color: var(--wp--preset--color--yellow) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-indigo-border-color{border-color: var(--wp--preset--color--indigo) !important;}.has-teal-border-color{border-color: var(--wp--preset--color--teal) !important;}.has-blue-border-color{border-color: var(--wp--preset--color--blue) !important;}.has-green-border-color{border-color: var(--wp--preset--color--green) !important;}.has-purple-border-color{border-color: var(--wp--preset--color--purple) !important;}.has-pink-border-color{border-color: var(--wp--preset--color--pink) !important;}.has-yellow-border-color{border-color: var(--wp--preset--color--yellow) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-content/plugins/libby-core/public/js/footerAppend.js?ver=1.1.0" id="siteworks-footer-js"></script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-content/themes/newtonpl/dist/scripts/main_bdfd53bf.js" id="sage/main.js-js"></script>
+<script type="text/javascript" id="jetpack-stats-js-before">
+/* <![CDATA[ */
+_stq = window._stq || [];
+_stq.push([ "view", {"v":"ext","blog":"198400996","post":"6","tz":"-4","srv":"newtonfreelibrary.net","j":"1:15.7.1"} ]);
+_stq.push([ "clickTrackerInit", "198400996", "6" ]);
+//# sourceURL=jetpack-stats-js-before
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://stats.wp.com/e-202620.js" id="jetpack-stats-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-includes/js/hoverIntent.min.js?ver=1.10.2" id="hoverIntent-js"></script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-content/plugins/megamenu/js/maxmegamenu.js?ver=3.8.1" id="megamenu-js"></script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-content/plugins/megamenu-pro/assets/public.js?ver=1.6.5" id="megamenu-pro-js"></script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-content/plugins/st-media-carousels-1.4.5/public/js/jquery.webui-popover.min.js?ver=1.2.0" id="st-media-manager-webui-popover-js"></script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-includes/js/underscore.min.js?ver=1.13.7" id="underscore-js"></script>
+<script type="text/javascript" id="wp-util-js-extra">
+/* <![CDATA[ */
+var _wpUtilSettings = {"ajax":{"url":"/wp-admin/admin-ajax.php"}};
+//# sourceURL=wp-util-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-includes/js/wp-util.min.js?ver=6.9.4" id="wp-util-js"></script>
+<script type="text/javascript" id="st-media-manager-js-extra">
+/* <![CDATA[ */
+var mcFeVars = {"ajaxUrl":"https://newtonfreelibrary.net/wp-admin/admin-ajax.php"};
+var mcFeVars = {"ajaxUrl":"https://newtonfreelibrary.net/wp-admin/admin-ajax.php"};
+var carouselPopoverArgs = [];
+var carouselPopoverArgs = [];
+var carouselPopoverArgs = [];
+var carouselPopoverArgs = [];
+//# sourceURL=st-media-manager-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-content/plugins/st-media-carousels-1.4.5/public/js/public.js?ver=1.2.0" id="st-media-manager-js"></script>
+<script type="text/javascript" src="https://newtonfreelibrary.net/wp-content/plugins/st-media-carousels-1.4.5/public/js/owl.carousel.min.js?ver=1.2.0" id="st-media-manager-owl-carousel-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://newtonfreelibrary.net/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+</script>
+<script type="module">
+/* <![CDATA[ */
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://newtonfreelibrary.net/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+</script>
+<script>
+  (function () {
+    var s = document.createElement("script");
+    s.setAttribute("data-account", "tldPJF0sT1");
+    s.setAttribute("data-position", 5);
+    s.setAttribute("src", "https://cdn.userway.org/widget.js");
+    document.body.appendChild(s);
+  })();
+</script>
+</body>
+
+</html>

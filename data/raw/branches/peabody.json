@@ -1,0 +1,42 @@
+{
+  "lib_id": "peabody",
+  "source_url": "https://www.peabodylibrary.org/",
+  "branches": [
+    {
+      "branch_id": "peabody--main",
+      "name": "Main Library",
+      "address": {
+        "street": "82 Main Street",
+        "city": "Peabody",
+        "state": "MA",
+        "zip": "01960"
+      },
+      "hours_raw": "Monday: 9am-9pm\nTuesday: 9am-9pm\nWednesday: 9am-9pm\nThursday: 9am-9pm\nFriday: 9am-1pm\nSaturday: 9am-5pm\nSunday: 1pm-5pm *CLOSED Memorial Day - Labor Day*",
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "peabody--south-branch",
+      "name": "South Branch Library",
+      "address": {
+        "street": "78 Lynn Street",
+        "city": "Peabody",
+        "state": "MA",
+        "zip": "01960"
+      },
+      "hours_raw": "Monday: 9am-5pm\nTuesday: 9am-9pm\nWednesday: 9am-5pm\nThursday: 1pm-9pm\nSaturday: 9am-1pm",
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "peabody--west-branch",
+      "name": "West Branch Library",
+      "address": {
+        "street": "603 Lowell Street",
+        "city": "Peabody",
+        "state": "MA",
+        "zip": "01960"
+      },
+      "hours_raw": "Monday: 9am-5pm\nTuesday: 9am-9pm\nWednesday: 9am-5pm\nThursday: 1pm-9pm\nSaturday: 9am-1pm",
+      "extraction_notes": ""
+    }
+  ]
+}
