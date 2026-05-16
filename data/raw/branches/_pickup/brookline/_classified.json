@@ -1,0 +1,107 @@
+{
+  "lib_id": "brookline",
+  "passes": [
+    {
+      "pass_id": "boston-childrens-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "pass_type_raw=(body: digital)"
+    },
+    {
+      "pass_id": "boston-harbor-islands",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "default_digital_no_explicit_signal"
+    },
+    {
+      "pass_id": "ma-state-parks",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": ["brookline--brookline-village"],
+      "evidence": "pass_type_raw=(body: returnable); benefits_text: 'picked up and returned to the library’s Brookline Village location'"
+    },
+    {
+      "pass_id": "hale-education",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": ["brookline--brookline-village"],
+      "evidence": "benefits_text: 'picked up and returned to the library’s Brookline Village location'; pass_type_raw empty, fallback to benefits_text keyword 'pick up'"
+    },
+    {
+      "pass_id": "harvard-museums",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": ["brookline--brookline-village", "brookline--coolidge-corner", "brookline--putterham"],
+      "evidence": "pass_type_raw=(body: returnable); benefits_text: 'picked up at the library and returned' — no specific branch named; all_branches_default_no_branch_specified_in_text"
+    },
+    {
+      "pass_id": "ica-boston",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "pass_type_raw=(body: digital)"
+    },
+    {
+      "pass_id": "isabella-stewart-gardner",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "pass_type_raw=(body: digital)"
+    },
+    {
+      "pass_id": "jfk-library",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "default_digital_no_explicit_signal"
+    },
+    {
+      "pass_id": "larz-anderson",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": ["brookline--brookline-village"],
+      "evidence": "benefits_text: 'picked up and returned to the library’s Brookline Village location'; pass_type_raw empty, fallback to benefits_text keyword 'pick up'"
+    },
+    {
+      "pass_id": "maah",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "default_digital_no_explicit_signal"
+    },
+    {
+      "pass_id": "mfa",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "pass_type_raw=(body: digital)"
+    },
+    {
+      "pass_id": "museum-of-science",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "pass_type_raw=(body: digital)"
+    },
+    {
+      "pass_id": "new-england-aquarium",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "pass_type_raw=(body: digital)"
+    },
+    {
+      "pass_id": "peabody-essex-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "pass_type_raw=(body: digital)"
+    },
+    {
+      "pass_id": "trustees-of-reservations",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": ["brookline--brookline-village", "brookline--coolidge-corner", "brookline--putterham"],
+      "evidence": "pass_type_raw=(body: returnable); benefits_text: 'picked up at the library and returned' — no specific branch named; all_branches_default_no_branch_specified_in_text"
+    },
+    {
+      "pass_id": "uss-constitution-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "pass_type_raw=(body: digital)"
+    },
+    {
+      "pass_id": "zoo-new-england",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": ["brookline--brookline-village", "brookline--coolidge-corner", "brookline--putterham"],
+      "evidence": "pass_type_raw=(body: returnable); benefits_text: 'picked up at the library and returned' — no specific branch named; all_branches_default_no_branch_specified_in_text"
+    }
+  ]
+}
