@@ -13,8 +13,7 @@
     "all"
   ],
   "exclusions": [
-    "blackout_dates",
-    "seasonal:october-october"
+    "blackout_dates"
   ],
   "boosts": [],
   "notes": null,
