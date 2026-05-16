@@ -1094,13 +1094,6 @@ def page_attractions(attr_data) -> str:
       Hero image / hours / geo 接近全覆盖。Price 76%、Phone 90%、Description 93% — 剩余为诚实失败(theater / no_website / 403)。
     </p>
   </div>
-  <div class="panel dist-panel dist-wide">
-    <h3>Top 10 被最多图书馆收录的景点</h3>
-    <table class="histogram"><thead><tr><th>slug</th><th>name</th><th></th><th class="num">N libs</th></tr></thead><tbody>{top_attrs_html}</tbody></table>
-    <p class="methodology" style="margin-top:8px">
-      流量入口集中度。前 5 个景点是产品着陆页的"自然主角"。
-    </p>
-  </div>
 </section>
 
 <h2 class="section-title">明细 · Full cards</h2>
@@ -1298,22 +1291,25 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
       Free + Half 通常占大头 → 产品上"全免"和"半价"两类是默认主推方式。
     </p>
   </div>
-  <div class="panel dist-panel">
-    <h3>Pickup method · 取券方式(plan-6)</h3>
-    {histogram_table(pm_counter, n_passes, {"digital": "Digital · 在线领取(邮件/promo code)", "physical_at_branch": "Physical · 去馆里实体取", "(unknown)": "(未分类)"})}
+  <div class="panel dist-panel dist-wide">
+    <h3>Pass 形式 · 3 种取券方式(与前端术语一致)</h3>
+    {histogram_table(pt_counter, n_passes, {
+        "digital": "E-pass · 在线即取(无需开车)",
+        "physical-coupon": "Pickup · 去馆里取一次,不用还",
+        "physical-circ": "Pickup &amp; Return · 去馆里取 + 还回去",
+        "unknown": "Pass · 未分类(数据 bug,审计追)",
+    })}
     <p class="methodology" style="margin-top:8px">
-      <b>对用户决策最重要的一行</b>:<br>
-      ① <b>Digital</b> ({pm_counter.get('digital', 0)}/{n_passes}):任何持卡用户在家就能领,无需开车。<br>
-      ② <b>Physical at branch</b> ({pm_counter.get('physical_at_branch', 0)}/{n_passes}):必须去具体分馆现场取卡/取券。其中 <b>{n_multi_branch} 条</b>在 ≥2 个分馆可取(BPL/Cambridge/Brookline 的多分馆 pass),用户可选最近的;其余固定 1 个分馆。<br>
-      产品 UI 必须明确区分这两类 — digital 不显示任何地址、physical 必显示具体分馆地址(plan-6 已在前端落地)。
+      <b>用户决策核心维度</b>:三种取券方式与前端 PassTypeLabel 完全对齐:<br>
+      ① <b>E-pass</b>:邮件/promo code 在家就拿到 — 最低摩擦<br>
+      ② <b>Pickup</b>:去分馆领纸券或 promo paper,不用还 — 中等摩擦<br>
+      ③ <b>Pickup &amp; Return</b>:去分馆借实体券/卡,用完次日要还回 — 最高摩擦<br>
+      其中 <b>{n_multi_branch} 条 physical pass 可在 ≥2 个分馆取</b>(BPL/Cambridge/Brookline 的 fan-out),用户可选最近的。
     </p>
-  </div>
-  <div class="panel dist-panel">
-    <h3>Pass 形式 · pass_type 原始分类</h3>
-    {histogram_table(pt_counter, n_passes, pt_label_map)}
-    <p class="methodology" style="margin-top:8px">
-      <b>这是数据爬取层视角的 pass_type</b>(digital / physical-coupon / physical-circ 等)— 来自 normalize_benefit。<br>
-      用户决策实际看上面 <b>Pickup method</b> 那一栏即可(已综合 pass_type 和 BPL/Cambridge/Brookline 多分馆 subagent 分类)。
+    <p class="methodology" style="background: var(--rd-pale); border-left-color: var(--rd);">
+      <b>⚠ 已发现 type 系统不一致 bug</b>:前端 <code>PassTypeKind</code> 写的是 <code>loan-card</code>(对应"Pickup &amp; Return"),
+      但数据实际写的是 <code>physical-circ</code>。结果 <b>172 条 Pickup &amp; Return 类的 pass 在前端走 fallback 显示成 "Pass" (unknown)</b>,丢了"还要还"这个关键摩擦信号。
+      <br>修复方向:统一前端 enum 接 <code>physical-circ</code>(plan-7 工作项)。
     </p>
   </div>
   <div class="panel dist-panel">
