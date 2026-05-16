@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-16T04:19:03Z",
+    "built_at": "2026-05-16T04:24:41Z",
     "n_passes": 1008,
     "n_with_availability": 974,
     "n_with_policy": 1008
@@ -64,7 +64,7 @@
         "raw": "This pass admits up to 4 at $5-off each. Pickup the pass the day before or the day of the reservation date. This pass MUST be returned to Acton Memorial Library before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue passes are subject to a fine of $10 per day."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -682,7 +682,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 3,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -970,10 +970,12 @@
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
-        "eligibility_tags": [],
+        "eligibility_tags": [
+          "family"
+        ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass provides free admission; source: \"free admission for a family to Bedrock Gardens (not special events)\".",
         "raw": "Print from home pass. Pass is for free admission for a family to Bedrock Gardens (not special events). -Valid on date of admission only. -To be turned in on admission. -More information can be found at www.bedrockgardens.org."
       },
       "source_url": "",
@@ -1151,7 +1153,7 @@
         "raw": "Pick up and return pass to library Admits up to 4 at $5 off each admission"
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -1814,7 +1816,7 @@
         "raw": "Print from home pass Pass admits up to 5 at 50% off Printed or digital pass MUST be presented at the museum to receive the discount even if purchased online."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 5,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -2631,7 +2633,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": "Coupon pass; does not need to be returned.",
+        "notes": "Pass provides free admission; source: \"free admission to Trustees properties that charge an admission free, but many Trustees properties do not\". Coupon pass; does not need to be returned.",
         "raw": "This pass provides free admission to Trustees properties that charge an admission free, but many Trustees properties do not. Please visit https://thetrustees.org/places/ to find out more about how this pass applies to different properties. This pass is a physical coupon pass that you can pick up at the Robbins Library, but not the Fox branch. You will need to select a reservation date, but you can apply the coupon discount on any date that you decide to go."
       },
       "source_url": "",
@@ -3338,7 +3340,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": "Coupon pass; does not need to be returned.",
+        "notes": "Pass provides free admission; source: \"free admission for 1 individual\". Coupon pass; does not need to be returned.",
         "raw": "The Armenian Museum of America has generously donated a limited number of guest passes to the Belmont Public Library. This pass discount provides free admission for 1 individual. This coupon pass must be picked up in person at the Reference desk."
       },
       "source_url": "",
@@ -3622,7 +3624,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass provides free admission; source: \"Free admission for 2 adults and children under the age of 18 for 38 historic New England houses\".",
         "raw": "Free admission for 2 adults and children under the age of 18 for 38 historic New England houses. Each home has different hours so please check their website at https://www.historicnewengland.org/ for the hours to each home."
       },
       "source_url": "",
@@ -4143,7 +4145,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass provides free admission; source: \"free admission\".",
         "raw": "Please reserve a Peabody Essex Museum printable museum pass through the Belmont Public Library; when you click \"Print This Pass\" in your confirmation email, the printable pass will open and you will see a promo code, located just beneath the barcode - it is a series of letters and numbers. You will use this code in its entirety to reserve a timed-entry discounted admission ticket through the Peabody Essex Museum website for admission to the museum. To reserve timed-entry discounted tickets online, please go to https://my.pem.org/events, select the date of your visit and enter the promo code in the top right corner of the next page, which will activate the reduced admission rate ticketing option of \"Library Discount (limit 2).\" The Peabody Essex Museum pass admits 2 people for general museum admission. The co-pay is $12 per person. Youth who are 16 years old and younger receive free admission. The museum is open Mondays, Thursdays, Saturdays & Sundays 10 am–5 pm, Fridays 10 am-7 pm. The museum is closed on Thanksgiving Day, Christmas Day, and New Year's Day."
       },
       "source_url": "",
@@ -4284,7 +4286,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass provides free admission; source: \"free admission\".",
         "raw": "Please pick up the pass at the Reference Desk in the Reference Room of the Belmont Public Library; open hours of service can be found on the library website homepage. You do not need to make an advanced timed ticket reservation either by phone or online in order to visit either of the Zoo New England locations. The Zoo New England pass admits 6 people to the Franklin Park and Stone Zoos. The co-pay with the pass is $9 per adult and $6 per child. Children under 2 years old receive free admission. The Zoos are open Monday-Sunday from 10 AM-5 PM."
       },
       "source_url": "",
@@ -4666,7 +4668,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass provides free admission; source: \"free admission\".",
         "raw": "Admits up to 5 people for free admission. Pass can be presented on a hand held device or as a paper printout at the museum."
       },
       "source_url": "",
@@ -4905,7 +4907,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": "Coupon pass; does not need to be returned.",
+        "notes": "Pass provides free admission; source: \"free of charge\". Coupon pass; does not need to be returned.",
         "raw": "This coupon pass admits one visitor to The Butterfly Place free of charge. This coupon pass must be picked up at the Billerica Public Library and brought to the Butterfly Place in order to receive the free admission. You do not have to return this pass. Regular admission rates for The Butterfly Place are $15.00 for adults, $13.00 for seniors, and $11.00 for children. Children under the age of 2 are admitted free. This pass is generously sponsored by the Family Friends of the Billerica Public Library."
       },
       "source_url": "",
@@ -5622,7 +5624,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass provides free admission; source: \"free admission to the museum for up to 9 people\".",
         "raw": "This digital pass provides free admission to the museum for up to 9 people. While advance tickets are not required at this time, please be sure to check the museum website for up to date details that will help you plan your visit. The USS Constitution ship is separate from the museum. This pass is generously sponsored by the USS Constitution Museum."
       },
       "source_url": "",
@@ -5709,7 +5711,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -5998,7 +6000,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass provides free admission; source: \"Free admission for children under 2\".",
         "raw": "This is a physical pass that needs to be picked up at the library. You may pick it up at any time during library hours. Please check our website for library hours and closures as well as the zoos website for special event closures. This pass doesn't need to be returned. Pass admits 6 people to Franklin Park Zoo (Boston) or Stone Zoo (Stoneham). Discounted rate is $9 per adult; $6 per child. Free admission for children under 2."
       },
       "source_url": "",
@@ -6141,7 +6143,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": "Coupon pass; does not need to be returned.",
+        "notes": "Pass provides free admission; source: \"free of charge\". Coupon pass; does not need to be returned.",
         "raw": "Pass admits 1 visitor free of charge. Only 1 coupon per group allowed. For ticket pricing and hours, please refer to The Butterfly Place website. https://butterflyplace-ma.com/schedule/ This coupon pass can be picked up one week in advance. The physical coupon must be brought to the Butterfly Place to receive the discount admission; the confirmation email is NOT the coupon/pass. You must visit the library with your library card or ID to pick up the reserved pass before visiting the Butterfly Place."
       },
       "source_url": "",
@@ -6899,7 +6901,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass provides free admission; source: \"free of charge\".",
         "raw": "Pass admits 2 guests free of charge. Present pass at the museum's admission desk. This pass will be emailed to you when you place the reservation."
       },
       "source_url": "",
@@ -7138,7 +7140,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass provides free admission; source: \"free admission for up to 5 people\".",
         "raw": "One pass allows free admission for up to 5 people. One pass per party. See the museum's website for hours and details https://ussconstitutionmuseum.org . This digital pass can be printed, or shown to museum staff on the patron's phone."
       },
       "source_url": "",
@@ -7279,7 +7281,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass provides free admission; source: \"free of charge\".",
         "raw": "Each pass admits one person free of charge. Patrons may request one pass per week. Children under the age of three are admitted free. Seasonal schedule - 10:00 AM - 4:00 PM, from Valentine’s Day through Columbus Day. You do not need to purchase tickets ahead of time or make a reservation unless you have 15 or more people. Ticket sales end at 3:30 PM, and no new customers will be admitted into the exhibits after 3:30 PM. The Butterfly Place suggests visitors arrive no later than 3:00 PM. Patrons must bring physical (paper) coupon to the Butterfly Place to receive the discount. For Museum questions, visit the Butterfly Place website https://butterflyplace-ma.com/ or call 978-392-0955"
       },
       "source_url": "",
@@ -8844,7 +8846,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass provides free admission; source: \"free of charge\".",
         "raw": "Pass admits 2 people free of charge."
       },
       "source_url": "",
@@ -9175,7 +9177,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass provides free admission; source: \"Free admission for up to 4 people\".",
         "raw": "Free admission for up to 4 people. At least one 1 must bring proof of MA residence. This pass can be used at the following location: Harvard Museum of Natural History, The Peabody Museum of Archeology and Ethnology, The Harvard Museum of the Near East, or the The Collection of Historical Scientific Instruments"
       },
       "source_url": "",
@@ -9410,7 +9412,9 @@
         "discount_percent": 50,
         "discount_dollar_off": null,
         "eligibility_tags": [],
-        "exclusions": [],
+        "exclusions": [
+          "weekends_excluded"
+        ],
         "boosts": [],
         "notes": null,
         "raw": "Admits up to 4 people (adults or children) at half price per person. Children 2 and under are free. Passes are not accepted on weekends from June-August. In the event of a closure, passes will be honored up to a week after the original printed date."
@@ -9555,7 +9559,7 @@
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass provides free admission; source: \"at no cost\".",
         "raw": "This is a Day Membership pass which allows two people to visit the Boston Athenaeum during operating hours at no cost. Pass holders are welcome to experience the Athenaeum as a member for a day, enjoy access to 12 floors of inviting spaces, with WiFi, well-lit work tables, cozy nooks, and beautiful city views."
       },
       "source_url": "",
@@ -9938,7 +9942,7 @@
         "max_people": null,
         "max_adults": 2,
         "max_children": 4,
-        "free_under_age": null,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -10729,9 +10733,9 @@
       },
       "policy": {
         "max_people": null,
-        "max_adults": null,
-        "max_children": null,
-        "free_under_age": null,
+        "max_adults": 2,
+        "max_children": 4,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -10924,7 +10928,7 @@
         "raw": "The reserved pass allows for 50% off admission for a family of five (adults/children); it can either be presented on a mobile device or as a print-out to receive the discounted admission rate in-person. Passes will be emailed to reserving patrons, without the need to come to the library to pick up the pass! Please contact the library to reserve this pass if you do not have an email address. Advanced ticket purchase is strongly recommended but not required. To purchase tickets online, visit https://www.nschildrensmuseum.org/visit/buy-tickets/, click on \"Buy Tickets\" and select your preferred admission. Your library pass will only be honored on the date you reserved. If the museum reaches capacity, visitors will be let in on a one in, one out basis."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 5,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -11073,7 +11077,7 @@
         "raw": "This discount pass is good for 4 general admissions at half price. Reservations do not need to be made in advance. *This pass is for general admission only and special programs the museum offers are not included in the pass ( this included Kids' Countdown to New Year's Eve (on New Year's Eve Day), Fairy Festival (TBD), or other programs that have special pricing)* The Wenham Museum is not open Easter, Thanksgiving Day, Christmas, Day or New Year's Day. We are not open on Mondays - except for MLK Day and President's Day. During mid May - Labor Day, we are not open on Sundays in the Summer. For admission for this pass, simply show the confirmation email date on your phone at the front desk of the museum or bring a printed out copy. Beginning on January 2nd, our general admission rates will be changing. Visitors with museum passes from your libraries, will still receive half-off of their admissions. If you mention admission rates in any of correspondence with your patrons, please be state our new rates starting on January 2nd. Adults: $15 Seniors & Children: $10 (Ages 2-18) Children Under 2: Free (this is a change from our current free age)"
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -11269,7 +11273,7 @@
         "raw": "The Harvard Museums of Science & Culture Complimentary Museum Pass allows for free admission to all four HMSC museums. Terms & Conditions Limit of four visitors per coupon. One member of the party must be a MA resident. Not for a group, institutional, or corporate visits. May not be combined with other offers. Nontransferrable."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -11375,7 +11379,7 @@
         "discount_percent": null,
         "discount_dollar_off": null,
         "eligibility_tags": [
-          "all"
+          "vehicle"
         ],
         "exclusions": [],
         "boosts": [],
@@ -11419,7 +11423,7 @@
         "max_people": null,
         "max_adults": 2,
         "max_children": 4,
-        "free_under_age": null,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -11566,7 +11570,7 @@
         "max_people": null,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 17,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -12107,7 +12111,7 @@
         "max_people": null,
         "max_adults": 2,
         "max_children": 4,
-        "free_under_age": null,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -12695,9 +12699,9 @@
       },
       "policy": {
         "max_people": null,
-        "max_adults": null,
+        "max_adults": 2,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 13,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -12996,7 +13000,7 @@
         "max_people": null,
         "max_adults": 2,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -14125,7 +14129,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 5,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -14271,9 +14275,9 @@
       "policy": {
         "max_people": null,
         "max_adults": 2,
-        "max_children": null,
+        "max_children": 2,
         "free_under_age": 12,
-        "savings_per_person_usd": null,
+        "savings_per_person_usd": 5.0,
         "discount_percent": null,
         "discount_dollar_off": null,
         "eligibility_tags": [
@@ -14517,7 +14521,7 @@
         "max_people": null,
         "max_adults": 2,
         "max_children": 4,
-        "free_under_age": null,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -14713,7 +14717,7 @@
         "max_people": 2,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 4,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -14909,7 +14913,7 @@
         "max_people": null,
         "max_adults": 2,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -15007,7 +15011,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 1,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -15301,10 +15305,10 @@
       },
       "policy": {
         "max_people": null,
-        "max_adults": null,
-        "max_children": null,
+        "max_adults": 2,
+        "max_children": 2,
         "free_under_age": null,
-        "savings_per_person_usd": null,
+        "savings_per_person_usd": 5.0,
         "discount_percent": null,
         "discount_dollar_off": null,
         "eligibility_tags": [
@@ -15653,7 +15657,7 @@
         "discount_percent": null,
         "discount_dollar_off": null,
         "eligibility_tags": [
-          "all"
+          "vehicle"
         ],
         "exclusions": [],
         "boosts": [],
@@ -15697,7 +15701,7 @@
         "max_people": null,
         "max_adults": 2,
         "max_children": 4,
-        "free_under_age": null,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -16879,7 +16883,7 @@
         "max_people": null,
         "max_adults": 2,
         "max_children": 4,
-        "free_under_age": null,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -17126,7 +17130,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": 20,
+        "discount_percent": null,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "family"
@@ -18202,7 +18206,7 @@
         "max_people": null,
         "max_adults": 2,
         "max_children": 4,
-        "free_under_age": null,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -18642,8 +18646,8 @@
       "policy": {
         "max_people": null,
         "max_adults": 2,
-        "max_children": null,
-        "free_under_age": null,
+        "max_children": 2,
+        "free_under_age": 2,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -19084,7 +19088,7 @@
         "max_people": null,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -19426,7 +19430,7 @@
       "policy": {
         "max_people": null,
         "max_adults": 2,
-        "max_children": null,
+        "max_children": 2,
         "free_under_age": null,
         "savings_per_person_usd": null,
         "discount_percent": 50,
@@ -19536,7 +19540,7 @@
           "seasonal:apr-oct"
         ],
         "boosts": [],
-        "notes": null,
+        "notes": "Free admission to most walking tours; excludes Architecture tours, private tours, 'Boston with a BOO!' and 'Footloose on the Freedom Trail'.",
         "raw": "Free admission to most of Boston By Foot’s Walking Tours (with the exception of Architecture tours, private tours, \"Boston with a BOO!\" and \"Footloose on the Freedom Trail\"). Available seasonally from April- October."
       },
       "source_url": "",
@@ -19573,7 +19577,7 @@
         "raw": "Admits up to 4 (adults or children) at half price per person."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -19781,7 +19785,7 @@
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "At least one MA resident must be in the party.",
         "raw": "Each pass admits 4 people (including at least one MA resident) at 50% off at all admission levels. This pass can be used for access to the Harvard Natural History Museum and the Peabody Museum of Archaeology and Ethnology."
       },
       "source_url": "",
@@ -19870,7 +19874,7 @@
         "max_people": 2,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -19916,17 +19920,19 @@
         "raw": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are always admitted for free. This library pass does not guarantee a reservation to the Museum, you need to reserve a time slot with the Museum as well."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
         ],
-        "exclusions": [],
+        "exclusions": [
+          "reservation_required"
+        ],
         "boosts": [],
         "notes": null,
         "raw": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are always admitted for free. This library pass does not guarantee a reservation to the Museum, you need to reserve a time slot with the Museum as well."
@@ -19968,7 +19974,7 @@
         "max_people": null,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 13,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -19977,6 +19983,7 @@
         ],
         "exclusions": [],
         "boosts": [
+          "library_card_required",
           "library_card_required"
         ],
         "notes": null,
@@ -20016,7 +20023,7 @@
         "raw": "This pass provides admission for up to four people to any Massachusetts Audubon Society Sanctuary for $2.00 per person."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -20114,9 +20121,9 @@
         "raw": "Each pass admits up to 2 adults for $15.00/each and up to 4 youth at $10/each for general admission ."
       },
       "policy": {
-        "max_people": null,
-        "max_adults": null,
-        "max_children": null,
+        "max_people": 6,
+        "max_adults": 2,
+        "max_children": 4,
         "free_under_age": null,
         "savings_per_person_usd": null,
         "discount_percent": null,
@@ -20166,7 +20173,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 3,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -20261,9 +20268,9 @@
         "raw": "The pass is valid for one boat rental. Passholder must present pass and photo ID at rental desk. This includes: Any type of single kayak or paddleboard (1 person), double kayaks (2 adults), standard canoes (up to 3 adults, or 2 adults and 2 children), and tripper canoes (up to 5 adults). Save time by filling out your waiver ahead of time: paddleboston.com/waiver. Valid at all seven locations: Stoneham, Medford, Somerville, Boston, Cambridge, Newton, Waltham. The Medford (Condon Shell) Location is not yet open for the season. Opening weekend is based on water temperatures and weather conditions-- see paddleboston.com to check!"
       },
       "policy": {
-        "max_people": 4,
-        "max_adults": 2,
-        "max_children": 2,
+        "max_people": null,
+        "max_adults": null,
+        "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
         "discount_percent": null,
@@ -20275,7 +20282,7 @@
           "id_required"
         ],
         "boosts": [],
-        "notes": null,
+        "notes": "Valid for one boat rental; boat types include single kayak/paddleboard (1), double kayak (2 adults), standard canoe (up to 3 adults or 2 adults+2 children), tripper canoe (up to 5 adults).",
         "raw": "The pass is valid for one boat rental. Passholder must present pass and photo ID at rental desk. This includes: Any type of single kayak or paddleboard (1 person), double kayaks (2 adults), standard canoes (up to 3 adults, or 2 adults and 2 children), and tripper canoes (up to 5 adults). Save time by filling out your waiver ahead of time: paddleboston.com/waiver. Valid at all seven locations: Stoneham, Medford, Somerville, Boston, Cambridge, Newton, Waltham. The Medford (Condon Shell) Location is not yet open for the season. Opening weekend is based on water temperatures and weather conditions-- see paddleboston.com to check!"
       },
       "source_url": "",
@@ -20410,9 +20417,9 @@
         "raw": "Each pass admits two adults and two children to any Trustees property in Massachusetts at Family Level membership price. Prices and hours vary by site. Pass cannot be used for parking, stores, cafes, inns, campgrounds, or special events."
       },
       "policy": {
-        "max_people": null,
-        "max_adults": null,
-        "max_children": null,
+        "max_people": 4,
+        "max_adults": 2,
+        "max_children": 2,
         "free_under_age": null,
         "savings_per_person_usd": null,
         "discount_percent": null,
@@ -20558,7 +20565,7 @@
         "raw": "This pass provides admission at half price for op to 4 people (children under 12 months are admitted free). Visit the Boston Children’s Museum website to review museum visitor requirements and any updates to operating hours. The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. Reserve your Melrose Public Library pass for desired date. You will receive a confirmation email with an \"Access Pass\" link (if you do not have an email account, a printed confirmation may be picked up at the Main Desk of the library). Donated by the Friends of Melrose Public Library."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -20570,7 +20577,7 @@
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Children under 12 months are admitted free.",
         "raw": "This pass provides admission at half price for op to 4 people (children under 12 months are admitted free). Visit the Boston Children’s Museum website to review museum visitor requirements and any updates to operating hours. The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. Reserve your Melrose Public Library pass for desired date. You will receive a confirmation email with an \"Access Pass\" link (if you do not have an email account, a printed confirmation may be picked up at the Main Desk of the library). Donated by the Friends of Melrose Public Library."
       },
       "source_url": "",
@@ -20619,7 +20626,7 @@
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Pass no longer required; admission is free to all visitors every day.",
         "raw": "Admission: A pass in no longer required. Admission is free to all visitors every day. Please check in at the Visitor Services desk upon arrival to allow us to share information about special exhibitions, gallery tours, programs, and other amenities available to ensure that you have a great visit! Free admission is made possible by a generous contribution from the Estate of David Rockefeller and support from the Office of the President at Harvard University."
       },
       "source_url": "",
@@ -20670,7 +20677,7 @@
         "boosts": [
           "snap_free"
         ],
-        "notes": null,
+        "notes": "Alternative discounts for active military, SNAP, EBT, MA teachers, and MA residents with IDs.",
         "raw": "The library’s pass admits up to 4 people with a 50% discount off regular admission rates to all four HMSC museums. Full admission prices and hours vary by museum - please go to https://hmsc.harvard.edu/ for more information before your visit. The library pass does not guarantee admission on a chosen date. Alternative discounts are available for active military, SNAP, EIB, MA teachers, and MA residents with IDs."
       },
       "source_url": "",
@@ -20707,10 +20714,10 @@
         "raw": "This pass offers free admission for two adults (free admission for children under 18) to 38 historic sites and the Library and Archives of Historic New England. Please go to historicnewengland.org for a full listing of historic sites to visit and to verify hours of operation. The library pass does not guarantee admission on a chosen date. Reserve your Melrose Public Library pass for desired date. You will receive a confirmation email with an \"Access Pass\" link (if you do not have an email account, a printed confirmation may be picked up at the Main Desk of the library)."
       },
       "policy": {
-        "max_people": null,
-        "max_adults": null,
+        "max_people": 2,
+        "max_adults": 2,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -20805,7 +20812,7 @@
         "raw": "Melrose Public Library – Isabella Stewart Gardner Museum Pass Program (T) Each pass admits up to 4 adults with $5 admission per person (General Admission Only), children under 18 are admitted free and should be reserved as child tickets. Purchasing tickets in advance to avoid the line and guarantee entrance at your preferred time is highly recommended. Visit the Isabella Stewart Gardner Museum website to review visitor requirements and any updates to operating hours. The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. The library pass does not guarantee admission on a chosen date. For more information, including health and safety requirements, please visit isgm.org/welcome MUSEUM HOURS: MON/WED/FRI 11 AM – 5 PM | (THURS 11 AM – 9 PM | WEEKENDS 10 AM – 5 PM | CLOSED TUESDAYS"
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 18,
@@ -20857,7 +20864,7 @@
         "max_people": null,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 13,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -20908,7 +20915,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 2,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -20954,10 +20961,10 @@
         "raw": "The MFA is currently open Wednesday to Monday, 10am-5pm (closed Tuesday). The library’s pass admits 2 adults, and up to 4 children (ages 7 – 17) for $10 each (general admission & special exhibition). Children 6 and under are free. Please Note: Starting 1/20/26 ticket prices will change to admit up to 2 adults at $15 per person, and up to 4 children (ages 7 – 17) for $10 each (general admission & special exhibition). Children 6 and under are free. Reserve your Melrose Public Library pass for desired date. You will receive a confirmation email with an \"Access Pass\" link (if you do not have an email account, a printed confirmation may be picked up at the Main Desk of the library). Many additional discounts are available for the MFA, check their website for details. Some discounts include active military, college students, MA teachers, first year US citizens, EBT card holders and the Bank of America Museums on Us program and MFA Free Open House Days. Museum current hours, admission prices and discounts . Funded by the Donation Account."
       },
       "policy": {
-        "max_people": 2,
+        "max_people": 6,
         "max_adults": 2,
-        "max_children": null,
-        "free_under_age": null,
+        "max_children": 4,
+        "free_under_age": 6,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -21008,7 +21015,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 3,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -21057,7 +21064,7 @@
         "max_people": null,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 3,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -21103,7 +21110,7 @@
         "raw": "50% off admission for a family of up to 5 adults/children. Tickets may be purchased in advance by selecting the Library Museum Pass option on the museum website. If the library pass is not presented at the museum, you will be charged the difference for full price tickets. It is highly recommended that tickets be purchased in advance during school vacation weeks. Valid only on the date listed on the pass, subject to museum capacity. Visit the North Shore Children's Museum website to review visitor requirements and operating hours. Note: The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. This is not a ticket - the library pass does not guarantee admission on a chosen date."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 5,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -21202,7 +21209,7 @@
         "raw": "The library’s pass admits 2 adults and 2 children for free. Paul Revere House museum visitor requirements and operating hours. A visit usually takes about 30 minutes. Lifetime membership donated by John Curtis."
       },
       "policy": {
-        "max_people": 2,
+        "max_people": 4,
         "max_adults": 2,
         "max_children": 2,
         "free_under_age": null,
@@ -21254,7 +21261,7 @@
         "max_people": 2,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 16,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -21300,15 +21307,15 @@
         "raw": "Are you ready to Go Outside? We are making it even easier for you with the Trustees GO Pass! This pass provides 2 free or reduced admissions (member rate) to Trustees properties all over Massachusetts. Children under 18 have free admission. Get outside and explore historical homes, wander through cow pastures, marshlands and view waterfalls as you hike through all that Massachusetts has to offer. Visit the Trustees website for more information on places to visit with the pass. Pass must be picked up at the library. Some venues may required a timed ticket. GO Passes are valid for admission only (not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events/programs, or equipment rentals). Go Passes are NOT valid for Crane Beach. Walk-in admission with a GO Pass will only be permitted if there is available capacity at the venue. THE LIBRARY PASS DOES NOT GUARANTEE ADMISSION Funded by the Donation Account."
       },
       "policy": {
-        "max_people": null,
-        "max_adults": null,
+        "max_people": 2,
+        "max_adults": 2,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
         "eligibility_tags": [
-          "vehicle"
+          "family"
         ],
         "exclusions": [],
         "boosts": [],
@@ -21447,7 +21454,7 @@
         "raw": "This pass entitles the bearer to half-price admission for up to four people to America's Stonehenge on the date noted on the pass. In addition, the pass entitles the bearer to a 10% discount on gift shop purchases, discounts on special programs and events and discounts on snowshoe rentals."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -21458,7 +21465,9 @@
           "all"
         ],
         "exclusions": [],
-        "boosts": [],
+        "boosts": [
+          "gift_shop_discount"
+        ],
         "notes": null,
         "raw": "This pass entitles the bearer to half-price admission for up to four people to America's Stonehenge on the date noted on the pass. In addition, the pass entitles the bearer to a 10% discount on gift shop purchases, discounts on special programs and events and discounts on snowshoe rentals."
       },
@@ -21496,10 +21505,10 @@
         "raw": "Coupon pass admits four visitors to the Aviation Museum of New Hampshire free of charge. Regular admission rates are $15 for people 13 and older, $7.50 for seniors, veterans, and children 6-12. Children 5 years old and younger are always free. Pass is only valid on the day of the reservation."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 5,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -21597,9 +21606,9 @@
       },
       "policy": {
         "max_people": null,
-        "max_adults": null,
+        "max_adults": 2,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -21650,7 +21659,7 @@
         "max_people": null,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 13,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -21750,8 +21759,8 @@
       "policy": {
         "max_people": 2,
         "max_adults": 2,
-        "max_children": null,
-        "free_under_age": null,
+        "max_children": 4,
+        "free_under_age": 6,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -21851,7 +21860,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 3,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -21908,7 +21917,8 @@
           "all"
         ],
         "exclusions": [
-          "seasonal:may-sep"
+          "seasonal:may-sep",
+          "blackout_dates"
         ],
         "boosts": [],
         "notes": null,
@@ -21953,7 +21963,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 20,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
@@ -22046,7 +22056,7 @@
         "raw": "this pass provides free admission to the Public Health Museum indoor exhibits and outdoor campus tour for up to two people."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -22095,9 +22105,9 @@
         "raw": "Each pass allows two adults and up to four children into the Seacoast Science Center at a 50% discount. Pass will need to be presented to the Odiorne Point State Park tollbooth attendant and the Center's greeter even if you already have reservations."
       },
       "policy": {
-        "max_people": null,
-        "max_adults": null,
-        "max_children": null,
+        "max_people": 6,
+        "max_adults": 2,
+        "max_children": 4,
         "free_under_age": null,
         "savings_per_person_usd": null,
         "discount_percent": 50,
@@ -22301,7 +22311,9 @@
         "eligibility_tags": [
           "all"
         ],
-        "exclusions": [],
+        "exclusions": [
+          "seasonal:may-oct"
+        ],
         "boosts": [],
         "notes": null,
         "raw": "Pass admits a maximum of 4 people for 50% off. Below is the 2025 season information, but make sure to also check the Boston Harbor Islands website for current hours of operation. 2025 Season Schedule: Spectacle Island May 16 - June 15: Thursdays through Sundays June 16 - September 1: every day September 4 - 21: Thursdays through Sundays September 26 - October 13: Fridays through Sundays Georges Island June 16- September 1: every day Peddocks Island June 16 - September 1: every day September 4 - October 13: Thursdays through Sundays"
@@ -22343,7 +22355,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -22450,7 +22462,7 @@
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "One member of party must be a MA resident.",
         "raw": "Please pick up a printed coupon at the library. Pass allows 4 visitors at 50% off regular admission at all museums which include: Harvard Museum of Natural History (26 Oxford Street, Cambridge, MA 02138) Peabody Museum of Archaeology & Ethnology (11 Divinity Avenue, Cambridge, MA 02138) Harvard Museum of the Ancient Near East (6 Divinity Avenue, Cambridge, MA 02138) Collection of Historical Scientific Instruments (1 Oxford Street, Cambridge, MA 02138) One member of party must be a MA resident. The coupon cannot be used for group, institutional, or corporate visits and cannot be combined with other offers. The Harvard Museum of the Ancient Near East and the Collection of Historical Scientific Instruments are closed on Saturdays and open Sunday-Friday 11AM-4PM. The Harvard Museum of Natural History and the Peabody Museum of Archaeology & Ethnology are open daily 9AM-5PM."
       },
       "source_url": "",
@@ -22490,7 +22502,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -22539,7 +22551,7 @@
         "max_people": null,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 13,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -22597,7 +22609,9 @@
         "eligibility_tags": [
           "vehicle"
         ],
-        "exclusions": [],
+        "exclusions": [
+          "seasonal:mar-dec"
+        ],
         "boosts": [],
         "notes": "Free parking for one vehicle at Massachusetts State Parks.",
         "raw": "Free parking for one vehicle at Massachusetts State Parks. Available March through December. This pass must be returned to the library the day following the checkout."
@@ -22637,9 +22651,9 @@
       },
       "policy": {
         "max_people": 2,
-        "max_adults": null,
-        "max_children": null,
-        "free_under_age": null,
+        "max_adults": 2,
+        "max_children": 4,
+        "free_under_age": 6,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -22688,7 +22702,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 3,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -22930,7 +22944,7 @@
         "raw": "These discount codes can be redeemed online, or in-person. The discount saves $5 off each paid ticket for up to 4 tickets."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -23077,9 +23091,9 @@
         "raw": "This pass allows two adults and up to 4 children at 50% off the cost of regular admission. Library pass holders are still required to pay the NH State Parks use fee for Odiorne Point State Park. This pass must be picked up at the library."
       },
       "policy": {
-        "max_people": null,
-        "max_adults": null,
-        "max_children": null,
+        "max_people": 6,
+        "max_adults": 2,
+        "max_children": 4,
         "free_under_age": null,
         "savings_per_person_usd": null,
         "discount_percent": 50,
@@ -23127,11 +23141,11 @@
       },
       "policy": {
         "max_people": 4,
-        "max_adults": null,
+        "max_adults": 2,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 17,
         "savings_per_person_usd": null,
-        "discount_percent": 10,
+        "discount_percent": 50,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "family"
@@ -23140,7 +23154,7 @@
         "boosts": [
           "gift_shop_discount"
         ],
-        "notes": null,
+        "notes": "May 1-Oct 31: free family admission (2 adults + children 17 & under); Nov-Feb: 50% off ice skating at Puddle Dock Pond; museum closed in winter; 10% off gift shop.",
         "raw": "May 1 through October 31 : Each pass provides free museum admission for 1 family (2 Adults and children 17 & under) per day. November 24 through February: 50% discount on admission to Labrie Family Skate at Puddle Dock Pond. Please note: The museum is closed during this time period. Free admission for up to 4 individuals to: -Baby Animals: Heritage Breeds at the Banke (April 27-May 5, 2024) -Ghosts on the Banke (last weekend in October) -Candlelight Stroll (Fridays, December 8 & 15, 5-9 PM; Saturdays, December 2, 9, 16, 2023, 5-9 PM; Sundays, December 3, 10, & 17, 2023, 4-8 PM; excludes the Member Preview Night) 10% off purchases at Pickwick's at the Banke (Museum gift shop) and merchandise in the Lawrence J. Yerdon Visitors Center."
       },
       "source_url": "",
@@ -23180,7 +23194,7 @@
         "max_people": 6,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 2,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -23620,7 +23634,7 @@
         "raw": "Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Reduced admission for up to 2 adults at 50% off per person, plus $1 each per child ages 6-17 (children under 5 always free). Additional instructions: -Special events, tours, and classes are not eligible for this discount. -Present pass upon arrival to receive discount. THIS PASS MUST BE RETURNED TO THE MORSE INSTITUTE LIBRARY BY 9:30AM THE DAY AFTER YOUR RESERVATION. OVERDUE FINES ARE $3/DAY. Passes can be returned at the circulation desk or the outside book drops."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": 2,
         "max_children": null,
         "free_under_age": 5,
@@ -23669,7 +23683,7 @@
         "raw": "Type of pass: Paper, must be picked up from the Bacon Free Library the week of your reservation date. Pricing: Free admission for ONE person. Additional instructions: -This is a single-use pass and does not need to be returned to the library."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 1,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -23730,7 +23744,7 @@
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "One person in the party must show proof of MA residency.",
         "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Reduced admission for up to 4 people at 50% off per person. One person must show proof of MA residency. Additional instructions: -Each museum has its own hours and admission charges. Please visit each museum’s website for further information and holiday closings. -Present pass upon arrival to receive discount."
       },
       "source_url": "",
@@ -23868,7 +23882,7 @@
         "max_people": 2,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 19,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -23966,7 +23980,7 @@
         "max_people": null,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 13,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -24112,9 +24126,9 @@
         "raw": "Type of pass: E-code, emailed upon reservation. Pricing: Reduced admission for up to 2 adults at $15 per person and 4 youths aged 7-17 at $10 per person (general admission and special exhibition). Children under 7 are admitted free. Additional instructions: - Pre-registration is recommended. Visit the Museum of Fine Arts website and use the e-code discount to reserve. -To access your e-code, click \"Access Pass\" in your confirmation email. The e-code is found under the barcode."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 6,
         "max_adults": 2,
-        "max_children": null,
+        "max_children": 4,
         "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
@@ -24467,7 +24481,7 @@
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Child pricing applies to ages 5-17; admission for under-5 not explicitly stated.",
         "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Reduced admission for up to 6 people at $18 per adult and $12 per child (ages 5-17). Additional instructions: -Present pass upon arrival to receive discount."
       },
       "source_url": "",
@@ -24505,7 +24519,7 @@
       },
       "policy": {
         "max_people": null,
-        "max_adults": null,
+        "max_adults": 2,
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
@@ -24753,7 +24767,7 @@
         "max_adults": null,
         "max_children": null,
         "free_under_age": 6,
-        "savings_per_person_usd": null,
+        "savings_per_person_usd": 5.0,
         "discount_percent": null,
         "discount_dollar_off": null,
         "eligibility_tags": [
@@ -24955,7 +24969,9 @@
         "eligibility_tags": [
           "residents_only"
         ],
-        "exclusions": [],
+        "exclusions": [
+          "reservation_required"
+        ],
         "boosts": [],
         "notes": null,
         "raw": "(COUPON) Each pass admits up to 4 visitors at 50% off regular museum admission rates. Pass includes both the Harvard Museum of Natural History (HMNH) and the Peabody Museum of Archaeology & Ethnology (PMAE). Open daily 9-5. FOR NEEDHAM RESIDENTS ONLY. Reservation and adherance to vaccination policy is required."
@@ -24997,7 +25013,7 @@
         "max_people": null,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 19,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -25095,7 +25111,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 2,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -25191,10 +25207,10 @@
         "raw": "(PRINTABLE) Each pass allows admission for 2 adults at $15 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each. Children 6 and under are admitted free. Use PROMO CODE IP-1635430 to reserve discounted tickets online, or on site to reserve same-day tickets. FOR NEEDHAM RESIDENTS ONLY"
       },
       "policy": {
-        "max_people": null,
+        "max_people": 6,
         "max_adults": 2,
-        "max_children": null,
-        "free_under_age": null,
+        "max_children": 4,
+        "free_under_age": 6,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -25243,7 +25259,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 3,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -25340,10 +25356,10 @@
         "raw": "(RETURNABLE) Pass admits two guests at half-price. Children 3 and under are admitted free of charge. FOR NEEDHAM RESIDENTS ONLY. Tickets can be purchased at the door, but reservations are recommended for busy days. To reserve tickets in advance, you will need to use the discount code LIBDI and then get the physical pass from the library. Access the Ticket Reservation System at purchase.nebg.org"
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 4,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -25389,7 +25405,7 @@
         "raw": "(RETURNABLE) Pass admits 2. Tuesday - Saturday, 10:00 - 4:00. Closed Sundays and Mondays. FOR NEEDHAM RESIDENTS ONLY"
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -25441,7 +25457,7 @@
         "max_people": 2,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 16,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -25495,7 +25511,8 @@
         "discount_percent": null,
         "discount_dollar_off": null,
         "eligibility_tags": [
-          "all"
+          "all",
+          "residents_only"
         ],
         "exclusions": [],
         "boosts": [],
@@ -25537,9 +25554,9 @@
       },
       "policy": {
         "max_people": null,
-        "max_adults": null,
+        "max_adults": 2,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -25640,7 +25657,7 @@
         "max_people": 2,
         "max_adults": 2,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -25932,7 +25949,7 @@
       },
       "policy": {
         "max_people": 4,
-        "max_adults": null,
+        "max_adults": 4,
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
@@ -25943,7 +25960,7 @@
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "4 adults plus any children admitted free.",
         "raw": "Admits 4 adults and any children for free to the Jackson Homestead or the Durant-Kenrick House & Grounds."
       },
       "source_url": "",
@@ -26032,7 +26049,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -26227,8 +26244,8 @@
       "policy": {
         "max_people": 2,
         "max_adults": 2,
-        "max_children": null,
-        "free_under_age": null,
+        "max_children": 4,
+        "free_under_age": 6,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -26277,7 +26294,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 3,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -26424,7 +26441,7 @@
         "max_people": 2,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 12,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -26473,7 +26490,7 @@
         "max_people": 2,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 16,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -26520,9 +26537,9 @@
       },
       "policy": {
         "max_people": 2,
-        "max_adults": null,
+        "max_adults": 2,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -26580,7 +26597,7 @@
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Admits one household for a 1-week voucher of free YMCA access; each household may check out once per calendar year.",
         "raw": "This Coupon pass admits one household and is good for a 1-week voucher of free access Newton's West Suburban YMCA. (Valid at both the Church St. and Wells Ave locations.) Pickup up to one week in advance. Redeem the coupon at the YMCA within 1 week of date written on coupon. You will receive 1 week of free access beginning the date you redeem at the YMCA. Each household may check out a YMCA pass once per calendar year. Check the Pool, Gym, and Group Exercise Classes Schedule here ."
       },
       "source_url": "",
@@ -26620,7 +26637,7 @@
         "max_people": 2,
         "max_adults": 2,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -26764,10 +26781,10 @@
         "raw": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are not included in the admission count and are always admitted free. Passes are valid only for general admission. They are not applicable toward discounts on special events, shopping, dining, concerts, lectures, or any other public programs. PATRONS MUST PRESENT BOTH THIS LIBRARY PASS AND THEIR RESERVED TIMED MUSEUM ADMISSION TICKETS FOR ENTRY INTO THE MUSEUM."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -26816,7 +26833,7 @@
         "max_people": null,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 13,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -26913,10 +26930,10 @@
         "raw": "Reserving this pass gives you access to a promo code which can be used for discounted admission. Each promo code provides a discount for: 2 adults at $15 each (general admission & special exhibition) up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10. Children age six and younger are free Patrons who reserve tickets in advance online with the promo code will receive an e-mail with their admission ticket(s) attached and need to present their ticket(s) when they arrive at the Museum, preferably on a phone or device, but tickets printed on paper are accepted. Promo codes and library passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 6,
         "max_adults": 2,
-        "max_children": null,
-        "free_under_age": null,
+        "max_children": 4,
+        "free_under_age": 6,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -26965,7 +26982,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 3,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -27109,7 +27126,7 @@
         "raw": "Promo code that entitles you to a maximum of two general museum admission tickets at a reduced fee of $12 per person"
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -27166,8 +27183,7 @@
         "discount_percent": null,
         "discount_dollar_off": null,
         "eligibility_tags": [
-          "family",
-          "vehicle"
+          "family"
         ],
         "exclusions": [],
         "boosts": [],
@@ -27309,7 +27325,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 5,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -27355,7 +27371,7 @@
         "raw": "Each pass provides free admission for up to 6 on Boston By Foot's public walking tours. Please consult www.bostonbyfoot.org for tour details; pre-registration is required for all tours. Reserve this pass to receive discount code. Not valid on private tours, water-based tours, or the two annual celebration tours (Beacon Hill with a BOO! & Footloose on the Freedom Trail.) Currently there is no coupon to pick up for Boston by Foot."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 6,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -27367,7 +27383,7 @@
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Not valid on private tours, water-based tours, or two annual celebration tours (Beacon Hill with a BOO! & Footloose on the Freedom Trail).",
         "raw": "Each pass provides free admission for up to 6 on Boston By Foot's public walking tours. Please consult www.bostonbyfoot.org for tour details; pre-registration is required for all tours. Reserve this pass to receive discount code. Not valid on private tours, water-based tours, or the two annual celebration tours (Beacon Hill with a BOO! & Footloose on the Freedom Trail.) Currently there is no coupon to pick up for Boston by Foot."
       },
       "source_url": "",
@@ -27453,7 +27469,7 @@
         "raw": "Paper pass grants one free admission. You do not need to purchase tickets ahead of time or make a reservation unless you have 15 or more people and ticket sales end at 3:30 PM."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 1,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -27603,7 +27619,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -27750,7 +27766,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 3,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -27855,9 +27871,11 @@
         "eligibility_tags": [
           "all"
         ],
-        "exclusions": [],
+        "exclusions": [
+          "blackout_dates"
+        ],
         "boosts": [],
-        "notes": null,
+        "notes": "Not valid on Saturdays.",
         "raw": "Pass Type: Printable/Digital Coupon Pass (link delivered by email) Admits up to 5 people at 50% off regular admission. Ages 12 months and under are free. To obtain discounted admission in person at the museum please present either a printed pass or on a handheld device. Visit https://www.nschildrensmuseum.org/visit/buy-tickets/ for more information. PASSES CANNOT BE USED ON SATURDAYS"
       },
       "source_url": "",
@@ -27943,7 +27961,7 @@
         "raw": "The SANDMAGINATION discount code admits up to (6) Adults/Children at 50% off on a Wednesday, Thursday, Friday, or Sunday. A discount code will be sent to your email address."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 6,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -27953,9 +27971,11 @@
         "eligibility_tags": [
           "all"
         ],
-        "exclusions": [],
+        "exclusions": [
+          "weekdays_only"
+        ],
         "boosts": [],
-        "notes": null,
+        "notes": "Discount code valid Wednesday, Thursday, Friday, or Sunday only (Saturday excluded).",
         "raw": "The SANDMAGINATION discount code admits up to (6) Adults/Children at 50% off on a Wednesday, Thursday, Friday, or Sunday. A discount code will be sent to your email address."
       },
       "source_url": "",
@@ -27993,15 +28013,14 @@
       },
       "policy": {
         "max_people": null,
-        "max_adults": null,
+        "max_adults": 2,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
         "eligibility_tags": [
-          "family",
-          "vehicle"
+          "family"
         ],
         "exclusions": [],
         "boosts": [],
@@ -28154,7 +28173,7 @@
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Children under 12 months admitted free.",
         "raw": "Please check Boston Children's Museum website for updated information before visiting. . Pass admits up to 4 people at half price. Children under 12 months free This is an electronic pass that will be sent to your email. Advance tickets/reservations are highly recommended, especially on weekends, holidays, school vacation weeks."
       },
       "source_url": "",
@@ -28202,10 +28221,10 @@
           "family"
         ],
         "exclusions": [
-          "reservation_required"
+          "blackout_dates"
         ],
         "boosts": [],
-        "notes": null,
+        "notes": "Weekends and major holidays excluded (Thanksgiving, Christmas, New Year's Eve, New Year's Day, 4th of July).",
         "raw": "This pass provides 50% off regular admission for one family (immediate family/household only). Weekends and the following holidays are excluded: Thanksgiving, Christmas, New Year's Eve, New Year's Day, and the 4th of July. Please visit The Children's Piazza website (thechildrenspiazza.com) to make a reservation prior to your visit. Reservations required for entry. Pass only valid on date reserved. The email confirmation sent to you serves as your discount pass. Please present this pass (either printed or on your mobile device) upon entry to the Children's Piazza. Library staff may print this pass for you upon request. This is an electronic pass that will be sent to your email."
       },
       "source_url": "",
@@ -28343,7 +28362,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 18,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -28392,7 +28411,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 2,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -28489,7 +28508,7 @@
       "policy": {
         "max_people": 2,
         "max_adults": 2,
-        "max_children": null,
+        "max_children": 4,
         "free_under_age": null,
         "savings_per_person_usd": null,
         "discount_percent": null,
@@ -28539,7 +28558,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 3,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -28732,7 +28751,7 @@
         "raw": "Patrons can purchase tickets online at plimoth.org or in person, when they arrive at the Museum. If purchasing tickets at the location the library coupon must be presented to Plimoth Patuxet Museums guest services staff upon arrival at the Museum. Patrons may purchase a Heritage Pass, Combination Pass, or Plimoth Patuxet Only pass, for up to six individuals at the reduced rate of $18 per adult; $12 per child ages 5-17. Pass membership also includes access to online educational lectures offered over Zoom. Visit the member events page at www.plimoth.org /events for more details. This is a physical pass that must be picked up at the Main Branch library."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 6,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -28789,8 +28808,7 @@
         "discount_percent": null,
         "discount_dollar_off": null,
         "eligibility_tags": [
-          "vehicle",
-          "single_ticket"
+          "family"
         ],
         "exclusions": [],
         "boosts": [],
@@ -28880,7 +28898,7 @@
         "raw": "This discount pass is good for 4 general admissions at half price. Reservations do not need to be made in advance. This pass is for general admission only and special programs the museum offers are not included in the pass ( this included Kids' Countdown to New Year's Eve (on New Year's Eve Day), Fairy Festival (TBD), or other programs that have special pricing)* The Wenham Museum is not open Easter, Independence Day, Thanksgiving Day, Christmas Eve, Christmas Day or New Year's Day. We are not open on Mondays - except for MLK Day, Presidents' Day and Veterans' Day. During mid May - Labor Day, we are not open on Sundays in the Summer. For admission for this pass, simply show the confirmation email on your phone at the front desk of the museum or bring a printed out copy. This is an electronic pass that will be sent to your email."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -28932,7 +28950,7 @@
         "max_people": 6,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 2,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -28990,7 +29008,7 @@
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Children under age 1 admitted free.",
         "raw": "This pass admits 4 people at half price admission. Children under age 1 are admitted free. This is a coupon pass that will be emailed and can be printed or displayed on your mobile screen."
       },
       "source_url": "",
@@ -29027,7 +29045,7 @@
         "raw": "Single coupon provides FREE admission for up to four visitors. Does not provide access to Harvard Art Museums. This is a non-returnable coupon pass that must be picked up at the Main Library Circulation Desk after it is reserved."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -29272,10 +29290,10 @@
         "raw": "Each promo code provides up to two adults with $15 admission per person and four youths (ages 7–17) with $10 admission per person. Tickets to the MFA are always free for visitors under seven years old. Valid only for the date listed on this pass. This is a coupon pass that will be emailed and can be printed or displayed on your mobile screen."
       },
       "policy": {
-        "max_people": null,
-        "max_adults": null,
-        "max_children": null,
-        "free_under_age": null,
+        "max_people": 6,
+        "max_adults": 2,
+        "max_children": 4,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -29324,7 +29342,7 @@
         "max_people": 4,
         "max_adults": null,
         "max_children": null,
-        "free_under_age": null,
+        "free_under_age": 3,
         "savings_per_person_usd": null,
         "discount_percent": 50,
         "discount_dollar_off": null,
@@ -29370,7 +29388,7 @@
         "raw": "There are two types of NBWM Passes: 1.) Coupon Pass - Provides free admission for 1 person This is a non-returnable coupon pass that must be picked up at the Main Library Circulation Desk after it is reserved. It can be used anytime before the expiration date. 2.) Circulating Pass - Admits up to four people at 50% off the cost of admission This is a circulating pass that must be checked out and returned to the library. Instructions will be emailed to you upon reservation."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -29382,7 +29400,7 @@
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Two pass types: (1) Coupon pass: free admission for 1 person; (2) Circulating pass: up to 4 people at 50% off.",
         "raw": "There are two types of NBWM Passes: 1.) Coupon Pass - Provides free admission for 1 person This is a non-returnable coupon pass that must be picked up at the Main Library Circulation Desk after it is reserved. It can be used anytime before the expiration date. 2.) Circulating Pass - Admits up to four people at 50% off the cost of admission This is a circulating pass that must be checked out and returned to the library. Instructions will be emailed to you upon reservation."
       },
       "source_url": "",
@@ -30271,7 +30289,7 @@
         "max_people": null,
         "max_adults": 2,
         "max_children": 4,
-        "free_under_age": null,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -31465,7 +31483,7 @@
         "max_people": null,
         "max_adults": 2,
         "max_children": 4,
-        "free_under_age": null,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -32221,7 +32239,7 @@
         "max_people": null,
         "max_adults": 2,
         "max_children": 4,
-        "free_under_age": null,
+        "free_under_age": 7,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -33983,7 +34001,7 @@
         "raw": "Pass admits 2 to general museum admission at a reduced fee of $12 per person. Access to Yin Yu Tang, the Chinese House, costs an additional fee. Access to Phillips Library and special ticketed exhibitions require a separate fee. This is a coupon pass and can be picked up at the Library up to 1 week in advance. You do not need to return this pass. You save by using this pass! Admission without this pass is: Adults: $25 Seniors: $23 Students: $15 Youth (16 and under) and Salem, Mass. residents: FREE (does not apply to youth in student/tour groups) Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -36318,7 +36336,7 @@
         "raw": "For visit dates beginning January 20, 2026, each promo code may be redeemed for up to 2 adult tickets for $15 each and 4 youth tickets for $10 each. Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Year’s Day, Patriots’ Day, Independence Day, Thanksgiving Day, and Christmas Day.\" *This is an e-pass which will be emailed to you and must be used on the selected date.*"
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": 2,
         "max_children": null,
         "free_under_age": null,
@@ -37556,7 +37574,7 @@
         "raw": "This is a SET OF 2 laminated passes, each pass offers discount to ONE person: Adults (age 18 and over) receive 50% the regular admission price. Children (age 6 to 17) are admitted for $1. Children (age 5 and younger) are admitted for free. Patrons may pick up their passes the day before or the day of their visit. The passes must be returned to the Wayland Library by the day after your visit . Tickets are available at the Visitor Center when you arrive. Please check their website for weather closings, special events, parking updates, etc. before visiting."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 1,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -37987,7 +38005,7 @@
         "raw": "This is an e-voucher . Promo Code is e-mailed to the patron. Each Promo Code use allows 2 people at $15 per adult, $10 per child age 7-17. Children 6 and under are admitted for free. Note: The date of your museum visit must match the date on the library pass. For the most up-to-date information on museum programs and hours, please visit their website ."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -38506,7 +38524,7 @@
         "raw": "Each Library Pass is valid for up to two (2) museum admission tickets at the discounted Library Pass price of $10 per ticket . Library Passes are not valid for performances, events, or films . For more details, visit the ICA website: https://www.icaboston.org/visit"
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -39330,7 +39348,7 @@
         "max_people": null,
         "max_adults": 2,
         "max_children": 2,
-        "free_under_age": null,
+        "free_under_age": 6,
         "savings_per_person_usd": null,
         "discount_percent": null,
         "discount_dollar_off": null,
@@ -39678,11 +39696,11 @@
         "discount_percent": null,
         "discount_dollar_off": null,
         "eligibility_tags": [
-          "all"
+          "vehicle"
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": null,
+        "notes": "Parking pass for DCR/state park facilities",
         "raw": "This ParksPass affords free parking at DCR facilities that charge a parking fee. (The ParksPass is not valid for parking at Quabbin Reservoir; the Squantum Point, NorthPoint, or Draw Seven Commuter Lots; or for camping.) This ParksPass must be displayed on the rearview mirror in your vehicle at all times while visiting a DCR facility where daily parking fees are charged. Please check www.massparks.org for a list of applicable parks."
       },
       "source_url": "",
@@ -40027,8 +40045,8 @@
           "blackout_dates"
         ],
         "boosts": [
-          "library_card_required",
-          "members_discount"
+          "members_discount",
+          "library_card_required"
         ],
         "notes": null,
         "raw": "Library member rates 2026 : Adult/Senior - $14.00 Child (3-14) - $11.75 Library Passes are not accepted in the month of OCTOBER."
@@ -40072,7 +40090,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
@@ -40170,14 +40188,14 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission",
+        "notes": null,
         "raw": "Pass holders will receive free admission to the museum. One pass allows free admission for up to 5 people per day. One pass per party, please."
       },
       "source_url": "",
@@ -40214,7 +40232,7 @@
         "raw": "A pass provides 50% off the admission fee. Each of the (4) cards may be used for up to 2 adults and/or children. Children 17 and under are free. Pass card holders may enjoy use of the Museum's Library as a resource free of charge. Passes are not valid for any other applicable discounts on special programming or lectures. Passes are NOT accepted during Flora in Winter of other special events."
       },
       "policy": {
-        "max_people": 2,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 17,
@@ -40317,7 +40335,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
@@ -40464,7 +40482,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
@@ -41000,9 +41018,9 @@
         "raw": "The pass admits up to three adults and 3 children for the discounted rates of $20 per adult, $17 per senior, and $15 per youth. The hall is open daily from 10 am to 4 pm. But be sure to check their list of early closings before you reserve this pass."
       },
       "policy": {
-        "max_people": 3,
+        "max_people": 6,
         "max_adults": 3,
-        "max_children": null,
+        "max_children": 3,
         "free_under_age": null,
         "savings_per_person_usd": null,
         "discount_percent": null,
@@ -41443,7 +41461,7 @@
         "raw": "Pass admits up to 2 adults and children under 18 (some sites are free, some are discounted). Hours of operation vary by place. Check on your choice before reserving this pass. There are over 100 special places including Crane's Beach, Lyman Reserve, Naumkeag, and Halibut Point. Ask for the guide book at the information desk (in house only) or visit the Trustees of the Reservation website for more information. Please note the following: Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits of passes. To use the pass at Fruitlands, deCordova, or Castle Hill, please enter the promo code GOPASS when securing a timed ticket. Passes are available at https://thetrustees.org/places/ ."
       },
       "policy": {
-        "max_people": 2,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -41495,14 +41513,14 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission",
+        "notes": null,
         "raw": "Pass holders will receive free admission to the museum. One pass allows free admission for up to 9 people per day. One pass per party, please. Pass must be returned in the book drop by 8:30 am the morning following the reservation."
       },
       "source_url": "",
@@ -41588,7 +41606,7 @@
         "raw": "Pass gives admission for up to 2 adults and up to 3 children (4-12 years old) at $3 each."
       },
       "policy": {
-        "max_people": 2,
+        "max_people": null,
         "max_adults": 2,
         "max_children": 3,
         "free_under_age": null,
@@ -41846,7 +41864,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
@@ -41993,7 +42011,7 @@
         "raw": "Each pass admits up to 4 adults for $5 each (General Admission only). Reserve a museum pass with the library for a specific date. Click on \"Print this Pass\" in the confirmation email that you receive from the library, to see your promo code. Purchasing timed entrance tickets in advance is strongly encouraged - enter the promo code from the confirmation email for the discount. See our detailed instructions for purchasing tickets from the ISG website. You can also redeem your pass over the phone with the Box Office at 617-278-5156. Please make sure to review the health and safety requirements at isgm.org/welcome before visiting the Museum. Passes are available to Winchester residents only. Call the Library at 781-721-7171 for assistance."
       },
       "policy": {
-        "max_people": 4,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -43345,12 +43363,12 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission",
+        "notes": null,
         "raw": "MUSEUM INFORMATION : • Open Daily: 10 - 5 pm • One pass allows free admission for up to 5 people to the USS Constitution Museum (one pass per party please). • A copy of the pass (digital or physical) must be shown upon arrival. • Valid only for the date listed on the pass Note : Even though advanced tickets or timed admission are not required, capacity is limited and admission is offered on a first come, first serve basis. About the Museum: The USS Constitution Museum, located in the Charlestown Navy Yard, serves as the memory and educational voice of USS Constitution by collecting, preserving, and interpreting the stories of “Old Ironsides” and the people associated with the ship. The Museum offers a variety of engaging activities, exhibits, and programs, including our interactive exhibit, All Hands on Deck: A Sailor's Life in 1812. For more information about the Museum’s galleries, programs, and resources, including our virtual offerings, visit www.usscm.org . SHIP INFORMATION: (not included with the pass) • Open Wednesday - Sunday: 10 - 4 pm • The ship is free to visit on a first come, first serve basis. Please be aware that visitors must pass through a security inspection and show federal or state photo identification. Visitors under the age of 18 do not require a photo identification card."
       },
       "source_url": "",
@@ -43915,14 +43933,14 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission; Limited to one booking per month per person",
+        "notes": "Limited to one booking per month per person",
         "raw": "Free Admission: Admits up to 4 visitors. The email confirmation CAN NOT be used in lieu of the physical pass. This pass may be picked up at the branch at any time after you make your reservation. This pass must be picked up at the branch you made the reservation. Consult branch operating hours before you pick up the pass. This pass does not need to be returned. Please review the Harvard Museums of Science & Culture protocols before your visit. Redeem pass at either Harvard Museum of Natural History or the Peabody Museum. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar."
       },
       "source_url": "https://bpl.libcal.com/passes/92c222667367",
@@ -43989,12 +44007,12 @@
         "raw": "With this pass, we welcome up to four adults free of charge to the Mapparium™ globe in the How Do You See the World? experience (value $6 per Adult). Youth 17 and younger are always free. All other exhibits in the How Do You See the World? experience are always free, as are weekend church tours, and neither require a ticket. You may redeem this pass for tickets onsite in the Welcome Hall; ticket reservations are not available ahead of time. All Mapparium showtimes are first come, first serve; this pass doesn't guarantee tickets for a specific time or day. Just print out this pass and bring it with you or display it on your phone or device. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": 4,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 17,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
@@ -44149,7 +44167,7 @@
         "raw": "This pass allows for booking up to four Adult tickets at $5 each. Children under 18 always get in free and should be booked as child tickets. This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617-278-5156. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": 4,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -44235,14 +44253,14 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission; Limited to one booking per month per person",
+        "notes": "Limited to one booking per month per person",
         "raw": "Pass allows free admission for up to 4 people. This includes access to the Museum and Summer Lawn Events. Please consult website for events and hours. THIS IS A RETURNABLE PASS: This pass must be returned the following day of your scheduled reservation to the location where the pass was reserved. Passes reserved on Saturday can be returned on the following Monday. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar."
       },
       "source_url": "https://bpl.libcal.com/passes/c4d127379588",
@@ -44472,14 +44490,14 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission",
+        "notes": null,
         "raw": "This pass will give up to FOUR people FREE Exhibit Halls admission. These passes are provided free to the Boston Public Library and provide free admission to the Museum of Science thanks to the generosity of the Lowell Institute . Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "source_url": "https://bpl.libcal.com/passes/25815fed11ec",
@@ -44551,7 +44569,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
@@ -44560,7 +44578,7 @@
         "boosts": [
           "library_card_required"
         ],
-        "notes": "Pass provides free admission",
+        "notes": null,
         "raw": "This coupon allows free admission to the New England Aquarium for up to 4 people. Library coupons may not be used in conjunction with school or group visits, nor be applied toward Aquarium programs, Simons Theatre tickets, or combination tickets. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "source_url": "https://bpl.libcal.com/passes/5478304b3d42",
@@ -44627,7 +44645,7 @@
         "raw": "Each pass entitles up to two adults general admission at a reduced of $12 per person. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": 2,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -44706,7 +44724,7 @@
         "raw": "Pass will admit up to 2 adults & 2 children at no charge. This is a disposable pass. Please note that your email reservation confirmation is NOT a substitute for the physical pass. You must have a physical pass to gain entry. Printed email confirmation vouchers will not be honored at any museum location. This pass is available to book at the Central and Jamaica Plain library branches. Please pick up your physical pass at the branch where you booked it. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar."
       },
       "policy": {
-        "max_people": 2,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -44946,7 +44964,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "family"
@@ -45104,14 +45122,14 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission",
+        "notes": null,
         "raw": "One pass allows free admission for up to five guests. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "source_url": "https://bpl.libcal.com/passes/f3fe5e025455",
@@ -45970,7 +45988,7 @@
         "raw": "617-267-9300 Each pass is good for up to two adult tickets ($15 each) and four youth tickets ($10 each). After making your reservation you will receive a confirmation email containing a Promo Code which is redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Year’s Day, Patriots’ Day, Fourth of July, Thanksgiving, and Christmas. Annual Double Pass cost of $800.00 is provided by the Friends of Thayer Public Library. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": 2,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -46684,12 +46702,12 @@
         "max_children": null,
         "free_under_age": 3,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission",
+        "notes": null,
         "raw": "The mission of the Harvard Museums of Science & Culture (HMSC) is to foster curiosity and a spirit of discovery in visitors of all ages, enhancing public understanding of and appreciation for the natural world, science, and human cultures. HMSC works in concert with Harvard faculty, museum curators, and students, as well as with members of the extended Harvard community, to provide interdisciplinary exhibitions, events and lectures, and educational programs for students, teachers, and the general public. HMSC draws primarily upon the extensive collections of the member museums and the research of their faculty and curators. Pass benefits: Admits up to 4 for free. Children ages 3 and under receive free admission. At least one member of the group must be a Massachusetts resident. Visit the Harvard Museums of Science and Culture's website. Physical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below."
       },
       "source_url": "https://brooklinelibrary.libcal.com/passes/hmsc",
@@ -46922,9 +46940,7 @@
         "discount_percent": 50,
         "discount_dollar_off": null,
         "eligibility_tags": [],
-        "exclusions": [
-          "reservation_required"
-        ],
+        "exclusions": [],
         "boosts": [
           "library_card_required"
         ],
@@ -47000,14 +47016,14 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "family"
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission; No passes available at time of capture",
+        "notes": "No passes available at time of capture",
         "raw": "(617) 522-6547 The Larz Anderson Auto Museum in the 64-acre Larz Anderson Park showcases \"America’s Oldest Car Collection\" in the historic Carriage House. The museum offers engaging attractions, including Lawn Events, family-friendly gatherings, and car history lectures. A visit promises a day of exploration and enjoyment, creating lasting memories. This pass must be reserved through the library's online catalog . The pass must be picked up and returned to the library's Brookline Village location. Pass benefits: Free admission for up to 4 visitors. No passes are available at this time."
       },
       "source_url": "https://brooklinelibrary.libcal.com/passes/larz",
@@ -47079,14 +47095,14 @@
         "max_children": null,
         "free_under_age": 12,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission; No passes available at time of capture",
+        "notes": "No passes available at time of capture",
         "raw": "(617) 725-0022 We understand the importance of filling in the missing pages of American history. Here, you will be connected to amazing and authentic representations of life in the 18th and 19th centuries, in the place where a free Black community changed the course of American history. As New England’s largest museum dedicated to preserving, conserving and interpreting the contributions of African Americans, we invite you to explore the historic sites in our Boston and Nantucket locations, along with The Museum’s Black Heritage Trails®. Exhibits, programs, and education activities at the Museum showcase the powerful stories of black families who worshipped, educated their children, debated the issues of the day, organized politically and advanced the cause of freedom. Pass benefits: Admits up to 4 for free. Children ages 12 and under receive free admission. Visit the Museum of African American History's website. No passes are available at this time."
       },
       "source_url": "https://brooklinelibrary.libcal.com/passes/maah",
@@ -47153,7 +47169,7 @@
         "raw": "The MFA is open. Open to new ideas that broaden our perspectives. Open to every visitor, from the curious to the lifelong learner. Open to new possibilities discovered through art. Showcasing ancient artistry and modern masterpieces, local legends and global visionaries, our renowned collection of nearly 500,000 works tells the story of the human experience—a story that holds unique meaning for everyone. We welcome diverse perspectives, both within the artwork and among our visitors. Where many worldviews meet, new ways of seeing, thinking, and understanding emerge. The conversations we inspire bring people together—revealing connections, exploring differences, and creating a community where all belong. Pass benefits: Admits up to 2 adults at $10 per person for general admission or special exhibitions, and up to 4 youths (age 7-17) at $10 each for special exhibitions only . Children ages 6 and under receive free admission. Visit the Museum of Fine Arts's website. The Museum of Fine Arts is not open Tuesdays. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": 2,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 6,
@@ -47388,7 +47404,7 @@
         "raw": "(978) 745-9500 For over 220 years, PEM has been dedicated to collecting, preserving, and showcasing compelling artwork throughout history and from around the world. The Peabody Essex Museum in Salem, Massachusetts, US, is a successor to the East India Marine Society, established in 1799. It combines the collections of the former Peabody Museum of Salem and the Essex Institute. Pass benefits: Admits up to 2 adults at $12 per person. Youth ages 16 and under receive free admission. Does not include admission to the Chinese House. Visit the Peabody Essex Museum's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": 2,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -47467,7 +47483,7 @@
         "raw": "(617) 542-7696 As a steward of distinctive and dynamic places of both historic and cultural value, The Trustees is the nation’s first and Massachusetts’ largest preservation and conservation nonprofit, and its landscapes and landmarks continue to inspire discussion, innovation, and action today as they did in the past. Supported by members, friends and donors, The Trustees’ more than 100 reservations are destinations for residents, members, and visitors alike, welcoming millions of guests annually. Pass benefits: Admits up to 2 adults and children (under 18) at free or reduced admission at Trustees sites that charge admission. Visit the The Trustees's website. Physical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": 2,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -47549,7 +47565,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
@@ -47707,7 +47723,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
@@ -47781,7 +47797,7 @@
         "raw": "617-367-2345 SEASONAL PASS - Each pass admits up to 1 adult or 1 child for free. Visit www.bostonbyfoot.org to browse Boston By Foot's extensive public tour calendar. Passes are valid for all public walking tours; they are not valid for private tours, water-based tours, or annual celebration tours ( Beacon Hill with a BOO! & Footloose on the Freedom Trail ). No passes are available at this time."
       },
       "policy": {
-        "max_people": 1,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -48023,7 +48039,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [],
         "exclusions": [],
@@ -48100,7 +48116,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [],
         "exclusions": [
@@ -48174,12 +48190,12 @@
         "raw": "617-450-7224 Each pass admits up to 4 adults free of charge to the Mapparium™ globe in the How Do You See the World? experience (value $6/Adult). Youth 17 and younger are always free. All other exhibits in the How Do You See the World? experience are always free, as are weekend church tours, and neither require a ticket. Pass instructions: Redeem this pass for tickets onsite in the Welcome Hall. Ticket reservations are not available ahead of time. All Mapparium showtimes are first come, first serve; this pass doesn't guarantee tickets for a specific time or day. This pass is only valid on the day of your visit. This pass does not provide any other discounts and cannot be applied to group visits. Void if altered or copied. No cash value. Print out this pass and bring it with you or display it on your phone. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": 4,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 17,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [],
         "exclusions": [],
@@ -48330,7 +48346,7 @@
         "raw": "617-566-1401 Each pass admits up to 4 adults at $5 admission per person. Children under the age of 18 are always admitted for free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": 4,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -48414,7 +48430,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
@@ -48492,7 +48508,7 @@
         "raw": "800-440-6975 Each promo code may be redeemed for up to 2 adult tickets at $15 each (general admission and special exhibition) and up to 4 youth ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10. Children 6 and under are admitted free. Pass instructions: This pass is not date specific. It can be redeemed for discounted admission on any date. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": 2,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 6,
@@ -48574,12 +48590,12 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission",
+        "notes": null,
         "raw": "617-723-2500 Each pass admits 4 people free admission to the Exhibit Hall. Pass instructions: This coupon is valid only on the date printed on the pass. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "source_url": "https://cambridgepl.libcal.com/passes/museum-of-science",
@@ -48728,7 +48744,7 @@
         "max_children": null,
         "free_under_age": 12,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
@@ -48737,7 +48753,7 @@
         "boosts": [
           "library_card_required"
         ],
-        "notes": "Pass provides free admission",
+        "notes": null,
         "raw": "781-396-9032 SEASONAL PASS - Each pass admits 2 people for free for a 50 minute guided tour. Tours are at 1:00PM, 2:00PM, and 3:00PM. Visitors are invited to walk the grounds and view the exhibits before and after the tour. Children 12 and younger are admitted free. After reserving a library pass, you will receive an email confirmation with a promo code. Please arrive at least 15 minutes before the start of the tour and present your email confirmation with library promo code to the admissions desk staff. All tours are first come first served. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "source_url": "https://cambridgepl.libcal.com/passes/royall-house-slave-quarters",
@@ -48888,12 +48904,12 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission",
+        "notes": null,
         "raw": "617-426-1812 Each pass allows free admission for up to 5 visitors per day. Limit one pass per party. Admission is first come first served, no advance tickets or reservations. Present printed pass or digital pass to Admissions. Valid only for the reserved date of visit. Ship is open Wednesday-Sunday 10am-4pm and closed Mondays and Tuesdays . Museum is open daily 10am-5pm. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "source_url": "https://cambridgepl.libcal.com/passes/uss-constitution-museum",
@@ -49819,7 +49835,7 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
@@ -49961,7 +49977,7 @@
         "raw": "465 Huntington Avenue Boston, MA 02115 617-267-9300 Get Directions Updated 03/26/2026 Use promo code IP-1636144 to receive a discount on MFA tickets. Visit mfa.org/tickets . Use promo code IP-1636144 to receive a discount and select Library Pass Ticket. The ticket will be emailed to the patron. For visit dates beginning January 20, 2026, each promo code may be redeemed for up to two adult tickets ($15 each) and four youth tickets ($10 each). Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Yearâ€™s Day, Patriotsâ€™ Day, Fourth of July, Thanksgiving, and Christmas. Visit museum website for more information. Museum of Science Learn More"
       },
       "policy": {
-        "max_people": 2,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -50113,14 +50129,14 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission",
+        "notes": null,
         "raw": "Building 22, Charlestown Navy Yard Charlestown, MA 02129 617-426-1812 Get Directions Print out this pass or display on phone and bring to the USS Constitution Museum box office. Pass holders will receive free admission to the museum. One pass allows free admission for up to 5 people per day. One pass per party, please. Please Note: Museum Hours - Open Daily; Winter Hours 10:00am - 5:00pm. Museum is closed Thanksgiving Day, Christmas Day, and New Year's Day. Update 01/12/2026 Visit museum website for more information. Zoo New England Learn More"
       },
       "source_url": "",
@@ -50169,14 +50185,14 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission",
+        "notes": null,
         "raw": "87 Mt Vernon Street Boston, MA 02108 617-367-2345 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. Offers free admission for your group on most Boston by Foot walking tours (does not include: Footloose on the Freedom Trail, Beacon with a Boo, any water-based tours, or any private tours). Check Dates Boston Children's Museum Learn More"
       },
       "source_url": "",
@@ -50282,7 +50298,7 @@
         "raw": "67 Grove Street Sandwich, MA 02563 508-888-3300 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. Pass allows 50% off regular general admission to museum & gardens for up to 6 adults or youths (3-17 years old). Children 2 and under are admitted free. Check Dates Institute of Contemporary Art Boston Learn More"
       },
       "policy": {
-        "max_people": 6,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 2,
@@ -50398,7 +50414,7 @@
         "raw": "465 Huntington Avenue Boston, MA 02115 617-267-9300 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. $15 Admission fee per person for up to 2 adults. $10 Admission fee per person for up to 4 youths 7-17. Check Dates Museum of Science Learn More"
       },
       "policy": {
-        "max_people": 2,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -50514,7 +50530,7 @@
         "raw": "161 Essex Street Salem, MA 01970 978-745-9500 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. $12 admission to general museum for up to 2 adults, children under 16 are free. Admission to the Yin Yu Tang, the Chinese house, is included in general admission, but advanced reservations are required. Access to Phillips Research library and special ticketed exhibitions also require a separate fee. Visitors using a library pass are not entitled to any other member benefits. Check Dates Plimoth Patuxet Museums Learn More"
       },
       "policy": {
-        "max_people": 2,
+        "max_people": null,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 16,
@@ -50610,14 +50626,14 @@
         "max_children": null,
         "free_under_age": null,
         "savings_per_person_usd": null,
-        "discount_percent": null,
+        "discount_percent": 100,
         "discount_dollar_off": null,
         "eligibility_tags": [
           "all"
         ],
         "exclusions": [],
         "boosts": [],
-        "notes": "Pass provides free admission",
+        "notes": null,
         "raw": "Building 22, Charlestown Navy Yard Charlestown, MA 02129 617-426-1812 Get Directions Visit museum website for more information. This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. Free admission for up to 9 visitors. Check Dates Zoo New England Learn More"
       },
       "source_url": "",

@@ -7,7 +7,7 @@
   "max_children": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "discount_percent": null,
+  "discount_percent": 100,
   "discount_dollar_off": null,
   "eligibility_tags": [
     "all"
@@ -17,6 +17,7 @@
   "notes": null,
   "raw": "120 Tyngsboro Road Westford, MA 01886 978-392-0955 Get Directions Pass admits 1 person for free. Patrons must bring the physical coupon. Visit museum website for more information. Cohasset Historical Society Learn More",
   "source_phrases": {
-    "max_people": "admits 1 person"
+    "max_people": "admits 1 person",
+    "discount_percent": "admits 1 person for free"
   }
 }

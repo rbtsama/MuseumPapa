@@ -7,17 +7,16 @@
   "max_children": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "discount_percent": 100,
+  "discount_percent": null,
   "discount_dollar_off": null,
   "eligibility_tags": [],
   "exclusions": [],
   "boosts": [
     "library_card_required"
   ],
-  "notes": null,
+  "notes": "Pass provides free admission",
   "raw": "Pass admits 4 people at $5.00 per person ; Children under 18 are are always admitted free. Pass is for general admission only and will be emailed to you after pass has been reserved. Printed or Digital pass should be used to reserve timed-entry tickets to the museum. You must still present the library pass (digitally or printed from your email) and the reserved timed-entry ticket to the Museum when checking-in . The promo code can only be redeemed for the day you have reserved. HOURS: Monday, Wednesday, Thursday, Friday: 11 AM - 5 PM Saturday & Sunday: 10 AM - 5 PM * Funded by the Friends of the WPL",
   "source_phrases": {
-    "max_people": "admits 4 people",
-    "discount_percent": "admitted free"
+    "max_people": "admits 4 people"
   }
 }

@@ -7,7 +7,7 @@
   "max_children": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "discount_percent": null,
+  "discount_percent": 100,
   "discount_dollar_off": null,
   "eligibility_tags": [
     "all"
@@ -21,6 +21,7 @@
   "notes": null,
   "raw": "617-725-0022 Each pass admits up to 4 people for free. Children 4 years and younger are admitted for free. Pass instructions: Visit the museum’s website and use the library coupon code emailed to you to reserve a timed entry Presently, online reservations are required for all visitors. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
   "source_phrases": {
-    "max_people": "up to 4 people"
+    "max_people": "up to 4 people",
+    "discount_percent": "admits up to 4 people for free"
   }
 }

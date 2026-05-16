@@ -7,16 +7,14 @@
   "max_children": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "discount_percent": 100,
+  "discount_percent": null,
   "discount_dollar_off": null,
   "eligibility_tags": [
     "all"
   ],
   "exclusions": [],
   "boosts": [],
-  "notes": null,
+  "notes": "Pass provides free admission",
   "raw": "This pass allows up to four patrons per visit. Each visitor will be charged $2.00. Children under two are admitted free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
-  "source_phrases": {
-    "discount_percent": "admitted free"
-  }
+  "source_phrases": {}
 }

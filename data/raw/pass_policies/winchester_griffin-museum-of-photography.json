@@ -7,7 +7,7 @@
   "max_children": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "discount_percent": null,
+  "discount_percent": 100,
   "discount_dollar_off": null,
   "eligibility_tags": [
     "all"
@@ -17,6 +17,7 @@
   "notes": null,
   "raw": "Pass admits 2 people free. Call the Griffin Museum of Photography at 781-729-1158 to arrange for the discount admission prior to your visit. Pick up pass at the Information Services Desk at the library.",
   "source_phrases": {
-    "max_people": "admits 2 people"
+    "max_people": "admits 2 people",
+    "discount_percent": "admits 2 people free"
   }
 }

@@ -7,7 +7,7 @@
   "max_children": null,
   "free_under_age": 18,
   "savings_per_person_usd": null,
-  "discount_percent": 100,
+  "discount_percent": null,
   "discount_dollar_off": null,
   "eligibility_tags": [],
   "exclusions": [
@@ -16,10 +16,9 @@
   "boosts": [
     "library_card_required"
   ],
-  "notes": null,
+  "notes": "Pass provides free admission",
   "raw": "Each pass provides two (2) people with $10 admission per person—children under the age of 18 are always admitted free. Advance museum tickets can be purchased online ( https://www.icaboston.org ) using the \"Library Pass Coupon\" option. These advance tickets are recommended, but not required. The museum will accommodate on-site ticket purchases, if space allows. Both the library museum pass and museum tickets should be brought to the admissions desk at the museum. Passes are available to Winchester residents only. Library pass discounts may not be used for performances or special events. Call the desk at 781-721-7171 for assistance.",
   "source_phrases": {
-    "free_under_age": "children under the age of 18 are always admitted free",
-    "discount_percent": "admitted free"
+    "free_under_age": "children under the age of 18 are always admitted free"
   }
 }

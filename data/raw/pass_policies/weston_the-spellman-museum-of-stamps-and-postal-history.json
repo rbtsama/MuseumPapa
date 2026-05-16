@@ -7,7 +7,7 @@
   "max_children": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "discount_percent": null,
+  "discount_percent": 100,
   "discount_dollar_off": null,
   "eligibility_tags": [
     "all"
@@ -17,6 +17,7 @@
   "notes": null,
   "raw": "Each pass admits 2 people free (admission is always free for children 4 and under).",
   "source_phrases": {
-    "max_people": "admits 2 people"
+    "max_people": "admits 2 people",
+    "discount_percent": "admits 2 people free"
   }
 }

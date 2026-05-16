@@ -7,18 +7,17 @@
   "max_children": null,
   "free_under_age": 18,
   "savings_per_person_usd": null,
-  "discount_percent": 100,
+  "discount_percent": null,
   "discount_dollar_off": null,
   "eligibility_tags": [
     "all"
   ],
   "exclusions": [],
   "boosts": [],
-  "notes": null,
+  "notes": "Pass provides free admission",
   "raw": "617-478-3100 Each pass admits 2 people at $10 per person. People age 18 and under are admitted free. This pass is not date specific and may be used any time before the expiration date printed on the pass. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
   "source_phrases": {
     "max_people": "admits 2 people",
-    "free_under_age": "age 18 and under are admitted free",
-    "discount_percent": "admitted free"
+    "free_under_age": "age 18 and under are admitted free"
   }
 }

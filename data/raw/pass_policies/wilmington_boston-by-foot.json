@@ -7,7 +7,7 @@
   "max_children": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "discount_percent": null,
+  "discount_percent": 100,
   "discount_dollar_off": null,
   "eligibility_tags": [
     "all"
@@ -17,6 +17,7 @@
   "notes": null,
   "raw": "The pass admits up to 4 people for free and is valid for all public walking tours. It is not valid for booking on the private tour calendar, water-based tours, or our two annual celebration tours (Beacon Hill with a BOO! & Footloose on the Freedom Trail). Please check the Boston by Foot website to make sure there are tickets available for your anticipated date and time before reserving the pass here.",
   "source_phrases": {
-    "max_people": "up to 4 people"
+    "max_people": "up to 4 people",
+    "discount_percent": "admits up to 4 people for free"
   }
 }

@@ -7,16 +7,14 @@
   "max_children": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "discount_percent": 100,
+  "discount_percent": null,
   "discount_dollar_off": null,
   "eligibility_tags": [
     "all"
   ],
   "exclusions": [],
   "boosts": [],
-  "notes": null,
+  "notes": "Pass provides free admission",
   "raw": "(617) 478-3100 Since its founding in 1936, the ICA has shared the pleasures of reflection, inspiration, imagination, and provocation that contemporary art offers with its audiences. A museum at the intersection of contemporary art and civic life, the ICA has advanced a bold vision for amplifying the artist’s voice and expanding the museum’s role as educator, incubator, and convener. Its exhibitions, performances, and educational programs provide access to the breadth and diversity of contemporary art, artists, and the creative process, inviting audiences of all ages and backgrounds to participate in the excitement of new art and ideas. Pass benefits: Admits up to 2 at $10 per person. Youth ages 18 and under receive free admission. Visit the Institute of Contemporary Art's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
-  "source_phrases": {
-    "discount_percent": "free admission"
-  }
+  "source_phrases": {}
 }

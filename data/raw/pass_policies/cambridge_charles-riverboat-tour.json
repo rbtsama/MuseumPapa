@@ -7,7 +7,7 @@
   "max_children": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "discount_percent": null,
+  "discount_percent": 100,
   "discount_dollar_off": null,
   "eligibility_tags": [],
   "exclusions": [],
@@ -15,6 +15,7 @@
   "notes": null,
   "raw": "617-621-3001 SEASONAL PASS - Each pass admits 1 person for free. You must pick up your pass at the Main Library. 2026 Season Cruises daily May 22-September 7 Mon-Thurs at 12pm, 1:30pm and 3pm Fri-Sun at 12pm, 1:30pm, 3pm, and 4:30pm Cruises September 9-27 Wed-Thurs at 12pm, 1:30pm, and 3pm Fri-Sun at 12pm, 1:30pm, 3pm, and 4:30pm https://charlesriverboat.com/tours/charles-river-tours/ Upgrade to an Architecture Tour for an additional $15 per ticket. Payment will be collected at time of reservation by phone or in person. Cruises Friday, Saturday, Sunday only, May 22-September 6 at 9:30am Cruises Saturday and Sunday only, September 12-October 18 at 9:30am https://charlesriverboat.com/tours/architecture-cruises/ Physical passes must be picked up from one of the library locations listed in the dropdown menu below. Select your location preference and then pick the dates from the availability calendar.",
   "source_phrases": {
-    "max_people": "admits 1 person"
+    "max_people": "admits 1 person",
+    "discount_percent": "admits 1 person for free"
   }
 }

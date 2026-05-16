@@ -7,16 +7,15 @@
   "max_children": null,
   "free_under_age": 18,
   "savings_per_person_usd": null,
-  "discount_percent": 100,
+  "discount_percent": null,
   "discount_dollar_off": null,
   "eligibility_tags": [],
   "exclusions": [],
   "boosts": [],
-  "notes": null,
+  "notes": "Pass provides free admission",
   "raw": "Each coupon reduces admission to $5 per person for up to four visitors for general admission only. Children under the age of 18 are always admitted free.",
   "source_phrases": {
     "max_people": "up to four visitors",
-    "free_under_age": "Children under the age of 18 are always admitted free",
-    "discount_percent": "admitted free"
+    "free_under_age": "Children under the age of 18 are always admitted free"
   }
 }
