@@ -1,0 +1,20 @@
+{
+  "_comment": "BPL/Cambridge/Brookline 三家多分馆 LibCal 馆的 locations 入口页。其余 56 lib 视为单分馆,在 build_branches 阶段自动合成 <lib_id>--main。plan-6。",
+  "multi_branch_libs": [
+    {
+      "lib_id": "bpl",
+      "locations_url": "https://www.bpl.org/locations/",
+      "expected_branch_count": 26
+    },
+    {
+      "lib_id": "cambridge",
+      "locations_url": "https://www.cambridgema.gov/Departments/cambridgepubliclibrary/Locations",
+      "expected_branch_count": 7
+    },
+    {
+      "lib_id": "brookline",
+      "locations_url": "https://www.brooklinelibrary.org/hours-locations/",
+      "expected_branch_count": 3
+    }
+  ]
+}
