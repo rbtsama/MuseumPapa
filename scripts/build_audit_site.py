@@ -748,15 +748,6 @@ def page_libraries(libs_data, libcat=None) -> str:
 
 <section class="dist-grid">
   <div class="panel dist-panel dist-wide">
-    <h3>馆际网络 · Library network · {n_libs} 馆</h3>
-    {histogram_table(net_counter, n_libs)}
-    <p class="methodology" style="margin-top:8px">
-      <b>业务含义</b>:网络 = 麻州的馆际互借联盟(Library Consortium)。同一网络的馆<b>可能共享 pass 预约权限</b> — 用户的一张卡如果属于某网络,可能可直接登录该网络其它馆的 pass 系统去预约。<br>
-      <b>对本产品意义</b>:决定<b>"一张卡的有效覆盖面"</b> — 用户用现有卡查询时,如果其卡所在网络支持跨馆预约,则可访问的 pass 池远大于"卡发卡馆"那一家。<br>
-      <b>注意</b>:本期只针对 BPL → Minuteman 跨预约做过实证;其它网络的跨预约范围需逐一 verify(plan-6 工作项)。
-    </p>
-  </div>
-  <div class="panel dist-panel dist-wide">
     <h3>数据爬取平台 · Scraping platform <span class="block-meta">基础设施视角 · 不直接对用户暴露</span></h3>
     {histogram_table(plat_counter, n_libs)}
     <p class="methodology" style="margin-top:8px">
@@ -765,6 +756,11 @@ def page_libraries(libs_data, libcat=None) -> str:
     </p>
   </div>
 </section>
+
+<p class="methodology" style="background: var(--g-pale); border-left-color: var(--g);">
+  <b>本页不展示"馆际网络分布"等组织抽象</b> — 网络归属与 lib_id 一样,只在数据建模层有意义,不是用户做"我能不能用这张 pass"决策时关心的事。
+  网络字段仍保留在下方明细表的 <code>network</code> 列里供审计核对,但不再单独建直方图占面板位置。
+</p>
 
 <h2 class="section-title">明细表 · Full table</h2>
 <div class="toolbar"><input type="search" class="search-box" placeholder="filter rows... (id / name / town / network)" data-target="libs-table"></div>
