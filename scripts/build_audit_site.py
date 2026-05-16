@@ -407,12 +407,33 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
     tag_counter = Counter()
     excl_counter = Counter()
     boost_counter = Counter()
+    # Display-time normalization (raw data unchanged):
+    # - weekends_excluded / no_weekends  → weekdays_only  (semantic dup)
+    # - residents_only (in exclusions)   → drop (handled by eligibility tag)
+    # - id_required                      → moved to boosts as library_card_required
+    #   (raw evidence: JFK pattern "show your MA library card at admissions desk")
+    EXCL_REMAP = {"weekends_excluded": "weekdays_only", "no_weekends": "weekdays_only"}
+    EXCL_DROP = {"residents_only", "id_required"}
+    BOOST_FROM_EXCL = {"id_required": "library_card_required"}
+
+    n_excl_dropped = 0
+    n_excl_merged = 0
     for p in passes:
         pol = p.get("policy") or {}
         for t in pol.get("eligibility_tags") or []:
             tag_counter[t] += 1
         for t in pol.get("exclusions") or []:
-            excl_counter[t] += 1
+            if t in BOOST_FROM_EXCL:
+                boost_counter[BOOST_FROM_EXCL[t]] += 1
+                n_excl_dropped += 1
+                continue
+            if t in EXCL_DROP:
+                n_excl_dropped += 1
+                continue
+            mapped = EXCL_REMAP.get(t, t)
+            if mapped != t:
+                n_excl_merged += 1
+            excl_counter[mapped] += 1
         for t in pol.get("boosts") or []:
             boost_counter[t] += 1
 
@@ -459,8 +480,19 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
 
     # Coverage for multi-valued tag fields (how many policies carry ≥1 tag etc.)
     n_with_any_elig = sum(1 for p in passes if (p.get("policy") or {}).get("eligibility_tags"))
-    n_with_any_excl = sum(1 for p in passes if (p.get("policy") or {}).get("exclusions"))
-    n_with_any_boost = sum(1 for p in passes if (p.get("policy") or {}).get("boosts"))
+    # Use NORMALIZED exclusions (after drops/remaps) — so a pass whose only
+    # exclusion was id_required or residents_only now correctly counts as 0.
+    def _effective_excls(pol: dict) -> set:
+        out = set()
+        for t in pol.get("exclusions") or []:
+            if t in EXCL_DROP or t in BOOST_FROM_EXCL:
+                continue
+            out.add(EXCL_REMAP.get(t, t))
+        return out
+    n_with_any_excl = sum(1 for p in passes if _effective_excls(p.get("policy") or {}))
+    n_with_any_boost = sum(1 for p in passes
+                            if (p.get("policy") or {}).get("boosts")
+                            or any(t in BOOST_FROM_EXCL for t in (p.get("policy") or {}).get("exclusions") or []))
 
     plat_counter = Counter(libcat["libraries"][lid]["platform"] for lid in libcat["libraries"])
 
@@ -544,10 +576,16 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
 <section class="panel">
   <h3>Restrictions · 限制条款 直方图</h3>
   <p class="methodology">
-    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。分子 = 含该限制的 pass 数。<br>
+    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。分子 = 含该限制的 pass 数(归一化后)。<br>
     每条 pass 可有 <b>0、1 或多个</b>限制 → 各行加总可大于或小于 100%。<br>
-    本期实际加总 ≈ {sum(excl_counter.values())}/{n_passes} = <b>{round(100*sum(excl_counter.values())/n_passes)}%</b> &lt; 100%,
-    因为多数 pass 无任何时间/日期/身份限制(见末行 "no restriction")。
+    本期实际加总 ≈ {sum(excl_counter.values())}/{n_passes} = <b>{round(100*sum(excl_counter.values())/n_passes)}%</b>。
+  </p>
+  <p class="methodology">
+    <b>本展示对原始 AI 抽取做了 3 个归一化</b>(raw 数据未改):
+    <br>① <code>weekends_excluded</code> + <code>no weekends</code> → 合并为 <code>weekdays_only</code>(语义等价,共 {n_excl_merged} 条受影响)
+    <br>② <code>residents_only</code> 被移除 — 它本质是 eligibility 不是入场限制,而且本产品默认用户已是 cardholder
+    <br>③ <code>id_required</code> 被移除 — raw 抽样显示绝大多数是 "出示 MA 图书馆卡 = 拿到折扣" 的机制(典型如 JFK Library),应归类为 <code>library_card_required</code>(已转移到 Bonuses)
+    <br>合计 <b>{n_excl_dropped} 条</b> AI 错位标签被剔除/迁移。
   </p>
   {histogram_with_notag(excl_counter, EXCL_LABEL, n_passes, n_passes - n_with_any_excl, "no restriction · 无任何限制")}
 </section>

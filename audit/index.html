@@ -43,22 +43,28 @@
 <section class="panel">
   <h3>Restrictions · 限制条款 直方图</h3>
   <p class="methodology">
-    <b>口径</b>:分母 = 全部 1008 条 pass。分子 = 含该限制的 pass 数。<br>
+    <b>口径</b>:分母 = 全部 1008 条 pass。分子 = 含该限制的 pass 数(归一化后)。<br>
     每条 pass 可有 <b>0、1 或多个</b>限制 → 各行加总可大于或小于 100%。<br>
-    本期实际加总 ≈ 95/1008 = <b>9%</b> &lt; 100%,
-    因为多数 pass 无任何时间/日期/身份限制(见末行 "no restriction")。
+    本期实际加总 ≈ 67/1008 = <b>7%</b>。
   </p>
-  <table class="histogram"><tr><td>reservation needed</td><td class="bar-cell"><span class="bar">██</span></td><td class="num">35</td><td class="pct">3%</td></tr><tr><td>some dates excluded</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">21</td><td class="pct">2%</td></tr><tr><td>residents only</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">15</td><td class="pct">1%</td></tr><tr><td>ID at gate</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">13</td><td class="pct">1%</td></tr><tr><td>weekdays only</td><td class="bar-cell"><span class="bar"></span></td><td class="num">3</td><td class="pct">0%</td></tr><tr><td>no weekends</td><td class="bar-cell"><span class="bar"></span></td><td class="num">2</td><td class="pct">0%</td></tr><tr><td>Open 1st-October</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open october-october</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open apr-oct</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open may-sep</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open may-oct</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open mar-dec</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr class="zero-row"><td><i>no restriction · 无任何限制</i></td><td class="bar-cell"><span class="bar" style="color:var(--ink-3)">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></td><td class="num">918</td><td class="pct">91%</td></tr></table>
+  <p class="methodology">
+    <b>本展示对原始 AI 抽取做了 3 个归一化</b>(raw 数据未改):
+    <br>① <code>weekends_excluded</code> + <code>no weekends</code> → 合并为 <code>weekdays_only</code>(语义等价,共 2 条受影响)
+    <br>② <code>residents_only</code> 被移除 — 它本质是 eligibility 不是入场限制,而且本产品默认用户已是 cardholder
+    <br>③ <code>id_required</code> 被移除 — raw 抽样显示绝大多数是 "出示 MA 图书馆卡 = 拿到折扣" 的机制(典型如 JFK Library),应归类为 <code>library_card_required</code>(已转移到 Bonuses)
+    <br>合计 <b>28 条</b> AI 错位标签被剔除/迁移。
+  </p>
+  <table class="histogram"><tr><td>reservation needed</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">35</td><td class="pct">3%</td></tr><tr><td>some dates excluded</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">21</td><td class="pct">2%</td></tr><tr><td>weekdays only</td><td class="bar-cell"><span class="bar"></span></td><td class="num">5</td><td class="pct">0%</td></tr><tr><td>Open 1st-October</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open october-october</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open apr-oct</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open may-sep</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open may-oct</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open mar-dec</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr class="zero-row"><td><i>no restriction · 无任何限制</i></td><td class="bar-cell"><span class="bar" style="color:var(--ink-3)">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></td><td class="num">945</td><td class="pct">94%</td></tr></table>
 </section>
 
 <section class="panel">
   <h3>Bonuses · 增益条件 直方图</h3>
   <p class="methodology">
     <b>口径</b>:分母 = 全部 1008 条 pass。分子 = 含该增益的 pass 数(每条可有 0 或多个)。<br>
-    本期加总 ≈ 92/1008 = <b>9%</b>。
+    本期加总 ≈ 105/1008 = <b>10%</b>。
     EBT / SNAP / library card required 等是产品可单独突出的增益项。
   </p>
-  <table class="histogram"><tr><td>library card required</td><td class="bar-cell"><span class="bar">███</span></td><td class="num">75</td><td class="pct">7%</td></tr><tr><td>members discount</td><td class="bar-cell"><span class="bar"></span></td><td class="num">9</td><td class="pct">1%</td></tr><tr><td>gift shop discount</td><td class="bar-cell"><span class="bar"></span></td><td class="num">6</td><td class="pct">1%</td></tr><tr><td>SNAP free</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>EBT discount</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr class="zero-row"><td><i>no bonus · 无增益</i></td><td class="bar-cell"><span class="bar" style="color:var(--ink-3)">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></td><td class="num">918</td><td class="pct">91%</td></tr></table>
+  <table class="histogram"><tr><td>library card required</td><td class="bar-cell"><span class="bar">████</span></td><td class="num">88</td><td class="pct">9%</td></tr><tr><td>members discount</td><td class="bar-cell"><span class="bar"></span></td><td class="num">9</td><td class="pct">1%</td></tr><tr><td>gift shop discount</td><td class="bar-cell"><span class="bar"></span></td><td class="num">6</td><td class="pct">1%</td></tr><tr><td>SNAP free</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>EBT discount</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr class="zero-row"><td><i>no bonus · 无增益</i></td><td class="bar-cell"><span class="bar" style="color:var(--ink-3)">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></td><td class="num">910</td><td class="pct">90%</td></tr></table>
 </section>
 
 <section class="panel">
@@ -80,7 +86,7 @@
 </section>
 
 <footer class="page-foot">
-  Built 2026-05-16 14:40 UTC ·
+  Built 2026-05-16 14:43 UTC ·
   <a href="#" class="view-json-link" data-json-key="meta">View JSON of dataset summary</a>
 </footer>
 
