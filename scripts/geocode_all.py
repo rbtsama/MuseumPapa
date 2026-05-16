@@ -41,9 +41,26 @@ def _clean_name(name: str) -> str:
     return re.sub(r"\s+", " ", name).strip()
 
 
+# Slugs whose source data lacks usable address/name for Nominatim.
+# Each entry resolves to a single curated lat/lon (we still let Nominatim verify it
+# by running a clean query). Public-info physical sites only — for "Various Locations"
+# we pick the operator's HQ.
+_SLUG_QUERY_OVERRIDES = {
+    "boch-center":          "270 Tremont Street, Boston, MA 02116",
+    "ma-state-parks":       "251 Causeway Street, Boston, MA 02114",   # DCR HQ
+    "revolutionary-spaces": "206 Washington Street, Boston, MA 02109", # Old State House
+    "greenway-carousel":    "Atlantic Avenue, Boston, MA 02110",
+    "harvard-museums":      "Harvard Museum of Natural History, Cambridge, MA",
+    "maplewood-day-camp":   "150 Foundry Street, Easton, MA 02375",    # 'South Easton' breaks Nominatim
+}
+
+
 def _attraction_queries(entry: dict) -> list[str]:
     """Yield candidate geocode queries in priority order."""
     queries: list[str] = []
+    slug = entry.get("slug")
+    if slug in _SLUG_QUERY_OVERRIDES:
+        queries.append(_SLUG_QUERY_OVERRIDES[slug])
     addr = (entry.get("address") or "").strip()
     if addr:
         queries.append(addr)

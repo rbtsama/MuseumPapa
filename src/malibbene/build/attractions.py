@@ -48,6 +48,13 @@ def _hours_block(rec: dict | None) -> dict | None:
             "notes": rec.get("notes"),
             "source_url": rec.get("source_url"),
         }
+    if status == "seasonal":
+        return {
+            "status": "seasonal",
+            "regular_hours": rec.get("regular_hours"),
+            "notes": rec.get("notes"),
+            "source_url": rec.get("source_url"),
+        }
     if status != "ok":
         return None
     rh = rec.get("regular_hours")
@@ -61,8 +68,19 @@ def _hours_block(rec: dict | None) -> dict | None:
     }
 
 
+def _apply_description_fallback(entry: dict, desc_rec: dict | None) -> None:
+    """Fill description/phone from data/raw/attraction_descriptions when catalog is empty."""
+    if not desc_rec or desc_rec.get("status") != "ok":
+        return
+    if not entry.get("description") and desc_rec.get("description"):
+        entry["description"] = desc_rec["description"]
+    if not entry.get("phone") and desc_rec.get("phone"):
+        entry["phone"] = desc_rec["phone"]
+
+
 def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
-                       hours: dict | None = None) -> dict:
+                       hours: dict | None = None,
+                       descriptions: dict | None = None) -> dict:
     """Return {attractions: [...], _meta: {...}}.
 
     Args:
@@ -74,6 +92,7 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
     """
     attr_geo = geo.get("attractions", {})
     hours = hours or {}
+    descriptions = descriptions or {}
     accum: dict[str, dict] = {}
     for lib_id, lib_entry in catalog.get("libraries", {}).items():
         for slug, p in lib_entry.get("passes", {}).items():
@@ -98,6 +117,7 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
 
     out = []
     for slug, base in accum.items():
+        _apply_description_fallback(base, descriptions.get(slug))
         out.append({
             **base,
             "original_price": _price_block(prices.get(slug)),

@@ -65,8 +65,11 @@ def _canonical_slug(
             if not bpl_map:
                 return None
             return bpl_map.get("_inverted_passes", {}).get(pass_obj.get("pass_id"))
-        # Other libcal libs: pmap[lib_id][libcal-side slug] -> canonical
-        return pmap.get(lib_id, {}).get(pass_obj.get("slug"))
+        # Other libcal libs: try pass_id first (canonical key), fall back to slug.
+        # Matches the fix in build/catalog.py — libcal pass_ids vary in style
+        # (hex codes, short codes, slug-style) and were keyed inconsistently.
+        lib_map = pmap.get(lib_id, {})
+        return lib_map.get(pass_obj.get("pass_id")) or lib_map.get(pass_obj.get("slug"))
 
     if platform == "museumkey":
         n2b = pmap.get("name_to_benefit", {})
