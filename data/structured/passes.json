@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-16T04:24:41Z",
+    "built_at": "2026-05-16T04:27:48Z",
     "n_passes": 1008,
     "n_with_availability": 974,
     "n_with_policy": 1008
@@ -12905,7 +12905,6 @@
           "all"
         ],
         "exclusions": [
-          "reservation_required",
           "id_required"
         ],
         "boosts": [
@@ -17517,7 +17516,7 @@
         "raw": "This library pass entitles you to up to two tickets for Gallery Admission at $10 per person (discounted from $20)."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -40045,8 +40044,8 @@
           "blackout_dates"
         ],
         "boosts": [
-          "members_discount",
-          "library_card_required"
+          "library_card_required",
+          "members_discount"
         ],
         "notes": null,
         "raw": "Library member rates 2026 : Adult/Senior - $14.00 Child (3-14) - $11.75 Library Passes are not accepted in the month of OCTOBER."
@@ -40232,7 +40231,7 @@
         "raw": "A pass provides 50% off the admission fee. Each of the (4) cards may be used for up to 2 adults and/or children. Children 17 and under are free. Pass card holders may enjoy use of the Museum's Library as a resource free of charge. Passes are not valid for any other applicable discounts on special programming or lectures. Passes are NOT accepted during Flora in Winter of other special events."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 17,
@@ -41461,7 +41460,7 @@
         "raw": "Pass admits up to 2 adults and children under 18 (some sites are free, some are discounted). Hours of operation vary by place. Check on your choice before reserving this pass. There are over 100 special places including Crane's Beach, Lyman Reserve, Naumkeag, and Halibut Point. Ask for the guide book at the information desk (in house only) or visit the Trustees of the Reservation website for more information. Please note the following: Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits of passes. To use the pass at Fruitlands, deCordova, or Castle Hill, please enter the promo code GOPASS when securing a timed ticket. Passes are available at https://thetrustees.org/places/ ."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -41606,7 +41605,7 @@
         "raw": "Pass gives admission for up to 2 adults and up to 3 children (4-12 years old) at $3 each."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": 2,
         "max_children": 3,
         "free_under_age": null,
@@ -42011,7 +42010,7 @@
         "raw": "Each pass admits up to 4 adults for $5 each (General Admission only). Reserve a museum pass with the library for a specific date. Click on \"Print this Pass\" in the confirmation email that you receive from the library, to see your promo code. Purchasing timed entrance tickets in advance is strongly encouraged - enter the promo code from the confirmation email for the discount. See our detailed instructions for purchasing tickets from the ISG website. You can also redeem your pass over the phone with the Box Office at 617-278-5156. Please make sure to review the health and safety requirements at isgm.org/welcome before visiting the Museum. Passes are available to Winchester residents only. Call the Library at 781-721-7171 for assistance."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -44724,7 +44723,7 @@
         "raw": "Pass will admit up to 2 adults & 2 children at no charge. This is a disposable pass. Please note that your email reservation confirmation is NOT a substitute for the physical pass. You must have a physical pass to gain entry. Printed email confirmation vouchers will not be honored at any museum location. This pass is available to book at the Central and Jamaica Plain library branches. Please pick up your physical pass at the branch where you booked it. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -46381,7 +46380,7 @@
         "raw": "(617) 426-6500 Boston Children’s Museum is the second oldest, and one of the most influential children’s museums in the world. It was founded in 1913 by the Science Teachers’ Bureau, a group of visionary educators dedicated to providing new resources for both teachers and students, as a center for the exchange of materials and ideas to advance the teaching of science. For over 100 years it has been engaging children in joyful discovery experiences that instill an appreciation of our world, develop foundational skills, and spark a lifelong love of learning. Pass benefits: Admits up to 4 at half price. Infants under 12 months receive free admission. Visit the Boston Children’s Museum's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -46460,7 +46459,7 @@
         "raw": "(866) 307-2469 Made up of 34 unique islands and peninsulas, the Boston Harbor Islands have something for everyone. Explore a historic fort, enjoy a picnic with sweeping harbor views, or sleep in a rustic campsite beneath the stars. Choose an island and plan your adventure! Boston Harbor Islands National and State Park is the largest recreational space in Eastern Massachusetts, attracting over half a million visitors annually. A top destination for locals and tourists alike, the park also functions as an important ecological habitat for local wildlife. Those who journey to the Boston Harbor Islands will find themselves immersed in the stories of a harbor that played an influential role in the development of Boston and the nation through political, social, and environmental revolutions. With historic military forts, abandoned hospital sites, and important Native American stories to be told, the Boston Harbor Islands strive to preserve the history that resides on each island, while protecting habitats and increasing public access and education. Pass benefits: Admits up to 4 at half price to Georges Island Ferry (round trip). Children ages 3 and under receive free admission. Season runs from late June – early October. Visit the Boston Harbor Islands's website. No passes are available at this time."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 3,
@@ -46697,7 +46696,7 @@
         "raw": "The mission of the Harvard Museums of Science & Culture (HMSC) is to foster curiosity and a spirit of discovery in visitors of all ages, enhancing public understanding of and appreciation for the natural world, science, and human cultures. HMSC works in concert with Harvard faculty, museum curators, and students, as well as with members of the extended Harvard community, to provide interdisciplinary exhibitions, events and lectures, and educational programs for students, teachers, and the general public. HMSC draws primarily upon the extensive collections of the member museums and the research of their faculty and curators. Pass benefits: Admits up to 4 for free. Children ages 3 and under receive free admission. At least one member of the group must be a Massachusetts resident. Visit the Harvard Museums of Science and Culture's website. Physical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 3,
@@ -46774,7 +46773,7 @@
         "raw": "(617) 478-3100 Since its founding in 1936, the ICA has shared the pleasures of reflection, inspiration, imagination, and provocation that contemporary art offers with its audiences. A museum at the intersection of contemporary art and civic life, the ICA has advanced a bold vision for amplifying the artist’s voice and expanding the museum’s role as educator, incubator, and convener. Its exhibitions, performances, and educational programs provide access to the breadth and diversity of contemporary art, artists, and the creative process, inviting audiences of all ages and backgrounds to participate in the excitement of new art and ideas. Pass benefits: Admits up to 2 at $10 per person. Youth ages 18 and under receive free admission. Visit the Institute of Contemporary Art's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -46853,7 +46852,7 @@
         "raw": "(617) 566-1401 The Isabella Stewart Gardner Museum is an art museum in Boston, Massachusetts , which houses significant examples of European , Asian , and American art . Its collection includes paintings, sculpture, tapestries, and decorative arts. It was founded by Isabella Stewart Gardner , whose will called for her art collection to be permanently exhibited \"for the education and enjoyment of the public forever.\" Pass benefits: Admits up to 4 at $5 per person. Youth ages 18 and under receive free admission. Visit the Isabella Stewart Gardner Museum's website. The Isabella Stewart Gardener Museum is not open Tuesdays. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -47090,7 +47089,7 @@
         "raw": "(617) 725-0022 We understand the importance of filling in the missing pages of American history. Here, you will be connected to amazing and authentic representations of life in the 18th and 19th centuries, in the place where a free Black community changed the course of American history. As New England’s largest museum dedicated to preserving, conserving and interpreting the contributions of African Americans, we invite you to explore the historic sites in our Boston and Nantucket locations, along with The Museum’s Black Heritage Trails®. Exhibits, programs, and education activities at the Museum showcase the powerful stories of black families who worshipped, educated their children, debated the issues of the day, organized politically and advanced the cause of freedom. Pass benefits: Admits up to 4 for free. Children ages 12 and under receive free admission. Visit the Museum of African American History's website. No passes are available at this time."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 12,
@@ -47169,7 +47168,7 @@
         "raw": "The MFA is open. Open to new ideas that broaden our perspectives. Open to every visitor, from the curious to the lifelong learner. Open to new possibilities discovered through art. Showcasing ancient artistry and modern masterpieces, local legends and global visionaries, our renowned collection of nearly 500,000 works tells the story of the human experience—a story that holds unique meaning for everyone. We welcome diverse perspectives, both within the artwork and among our visitors. Where many worldviews meet, new ways of seeing, thinking, and understanding emerge. The conversations we inspire bring people together—revealing connections, exploring differences, and creating a community where all belong. Pass benefits: Admits up to 2 adults at $10 per person for general admission or special exhibitions, and up to 4 youths (age 7-17) at $10 each for special exhibitions only . Children ages 6 and under receive free admission. Visit the Museum of Fine Arts's website. The Museum of Fine Arts is not open Tuesdays. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 6,
@@ -47246,7 +47245,7 @@
         "raw": "617-723-2500 As science and technology increasingly shape our lives, the Museum of Science strives to equip and inspire everyone to use science for the global good. Among the world’s largest science centers and New England’s most attended cultural institution, we engage nearly five million people a year – at Science Park and in museums around the world, in classrooms, and online. The Museum’s singular location connecting Boston and Cambridge puts us at the junction of some of the world’s most influential academic institutions and industries, local and state government, schools, and the public. Trusted by each sector, we are ideally positioned to convene, inspire, and create meaningful experiences for all. Pass benefits: Admits up to 4 at half price. Children ages 2 and under receive free admission. Does not include Omni Theater, Planetarium, Butterfly Garden, 4D Theater. Visit the Museum of Science's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 2,
@@ -47325,7 +47324,7 @@
         "raw": "(617) 973-5206 The New England Aquarium is a nonprofit organization located in Boston, Massachusetts. The species exhibited include harbor and northern fur seals, California sea lions, African and southern rockhopper penguins, giant Pacific octopuses, weedy seadragons, and thousands of saltwater and freshwater fishes. The New England Aquarium is a catalyst for global change through public engagement and education, commitment to marine animal conservation, innovative scientific research, and effective advocacy for a vital and vibrant ocean. Pass benefits: Admits up to 4 at half price. Children ages 3 and under receive free admission. Does not include movie tickets. Visit the New England Aquarium's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 3,
@@ -47404,7 +47403,7 @@
         "raw": "(978) 745-9500 For over 220 years, PEM has been dedicated to collecting, preserving, and showcasing compelling artwork throughout history and from around the world. The Peabody Essex Museum in Salem, Massachusetts, US, is a successor to the East India Marine Society, established in 1799. It combines the collections of the former Peabody Museum of Salem and the Essex Institute. Pass benefits: Admits up to 2 adults at $12 per person. Youth ages 16 and under receive free admission. Does not include admission to the Chinese House. Visit the Peabody Essex Museum's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -47483,7 +47482,7 @@
         "raw": "(617) 542-7696 As a steward of distinctive and dynamic places of both historic and cultural value, The Trustees is the nation’s first and Massachusetts’ largest preservation and conservation nonprofit, and its landscapes and landmarks continue to inspire discussion, innovation, and action today as they did in the past. Supported by members, friends and donors, The Trustees’ more than 100 reservations are destinations for residents, members, and visitors alike, welcoming millions of guests annually. Pass benefits: Admits up to 2 adults and children (under 18) at free or reduced admission at Trustees sites that charge admission. Visit the The Trustees's website. Physical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -47560,7 +47559,7 @@
         "raw": "(617) 426-1812 Pass benefits: Admits up to 9 for free to the Museum. Admission to the Ship is free on a first-come, first-served basis and requires a security inspection and photo identification for visitors over 18. Visit the USS Constitution Museum's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 9,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -47797,7 +47796,7 @@
         "raw": "617-367-2345 SEASONAL PASS - Each pass admits up to 1 adult or 1 child for free. Visit www.bostonbyfoot.org to browse Boston By Foot's extensive public tour calendar. Passes are valid for all public walking tours; they are not valid for private tours, water-based tours, or annual celebration tours ( Beacon Hill with a BOO! & Footloose on the Freedom Trail ). No passes are available at this time."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 1,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -48190,7 +48189,7 @@
         "raw": "617-450-7224 Each pass admits up to 4 adults free of charge to the Mapparium™ globe in the How Do You See the World? experience (value $6/Adult). Youth 17 and younger are always free. All other exhibits in the How Do You See the World? experience are always free, as are weekend church tours, and neither require a ticket. Pass instructions: Redeem this pass for tickets onsite in the Welcome Hall. Ticket reservations are not available ahead of time. All Mapparium showtimes are first come, first serve; this pass doesn't guarantee tickets for a specific time or day. This pass is only valid on the day of your visit. This pass does not provide any other discounts and cannot be applied to group visits. Void if altered or copied. No cash value. Print out this pass and bring it with you or display it on your phone. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 17,
@@ -48346,7 +48345,7 @@
         "raw": "617-566-1401 Each pass admits up to 4 adults at $5 admission per person. Children under the age of 18 are always admitted for free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 4,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -48508,7 +48507,7 @@
         "raw": "800-440-6975 Each promo code may be redeemed for up to 2 adult tickets at $15 each (general admission and special exhibition) and up to 4 youth ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10. Children 6 and under are admitted free. Pass instructions: This pass is not date specific. It can be redeemed for discounted admission on any date. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 6,
@@ -50298,7 +50297,7 @@
         "raw": "67 Grove Street Sandwich, MA 02563 508-888-3300 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. Pass allows 50% off regular general admission to museum & gardens for up to 6 adults or youths (3-17 years old). Children 2 and under are admitted free. Check Dates Institute of Contemporary Art Boston Learn More"
       },
       "policy": {
-        "max_people": null,
+        "max_people": 6,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 2,
@@ -50414,7 +50413,7 @@
         "raw": "465 Huntington Avenue Boston, MA 02115 617-267-9300 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. $15 Admission fee per person for up to 2 adults. $10 Admission fee per person for up to 4 youths 7-17. Check Dates Museum of Science Learn More"
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": null,
@@ -50530,7 +50529,7 @@
         "raw": "161 Essex Street Salem, MA 01970 978-745-9500 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. $12 admission to general museum for up to 2 adults, children under 16 are free. Admission to the Yin Yu Tang, the Chinese house, is included in general admission, but advanced reservations are required. Access to Phillips Research library and special ticketed exhibitions also require a separate fee. Visitors using a library pass are not entitled to any other member benefits. Check Dates Plimoth Patuxet Museums Learn More"
       },
       "policy": {
-        "max_people": null,
+        "max_people": 2,
         "max_adults": null,
         "max_children": null,
         "free_under_age": 16,

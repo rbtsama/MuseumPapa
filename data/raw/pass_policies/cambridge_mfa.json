@@ -3,8 +3,8 @@
   "attraction_slug": "mfa",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
-  "max_children": null,
+  "max_adults": 2,
+  "max_children": 4,
   "free_under_age": 6,
   "savings_per_person_usd": null,
   "discount_percent": null,
@@ -15,6 +15,9 @@
   "notes": "Pass provides free admission",
   "raw": "800-440-6975 Each promo code may be redeemed for up to 2 adult tickets at $15 each (general admission and special exhibition) and up to 4 youth ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10. Children 6 and under are admitted free. Pass instructions: This pass is not date specific. It can be redeemed for discounted admission on any date. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
   "source_phrases": {
-    "free_under_age": "Children 6 and under are admitted free"
+    "max_people": "up to 2 adult",
+    "free_under_age": "Children 6 and under are admitted free",
+    "max_adults": "up to 2 adult tickets at $15 each",
+    "max_children": "up to 4 youth ages 7–17 at $10 each"
   }
 }

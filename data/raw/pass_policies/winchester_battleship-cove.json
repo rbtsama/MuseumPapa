@@ -2,7 +2,7 @@
   "library_id": "winchester",
   "attraction_slug": "battleship-cove",
   "status": "ok",
-  "max_people": null,
+  "max_people": 2,
   "max_adults": 2,
   "max_children": 3,
   "free_under_age": null,
@@ -17,6 +17,7 @@
   "notes": null,
   "raw": "Pass gives admission for up to 2 adults and up to 3 children (4-12 years old) at $3 each.",
   "source_phrases": {
+    "max_people": "up to 2 adults",
     "max_adults": "2 adults and up to 3 children",
     "max_children": "2 adults and up to 3 children"
   }

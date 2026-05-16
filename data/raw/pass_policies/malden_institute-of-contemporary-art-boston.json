@@ -2,7 +2,7 @@
   "library_id": "malden",
   "attraction_slug": "institute-of-contemporary-art-boston",
   "status": "ok",
-  "max_people": null,
+  "max_people": 2,
   "max_adults": null,
   "max_children": null,
   "free_under_age": null,
@@ -16,5 +16,7 @@
   "boosts": [],
   "notes": null,
   "raw": "This library pass entitles you to up to two tickets for Gallery Admission at $10 per person (discounted from $20).",
-  "source_phrases": {}
+  "source_phrases": {
+    "max_people": "up to two tickets for Gallery Admission"
+  }
 }

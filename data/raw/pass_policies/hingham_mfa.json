@@ -2,7 +2,7 @@
   "library_id": "hingham",
   "attraction_slug": "mfa",
   "status": "ok",
-  "max_people": null,
+  "max_people": 2,
   "max_adults": null,
   "max_children": null,
   "free_under_age": null,
@@ -16,5 +16,7 @@
   "boosts": [],
   "notes": null,
   "raw": "465 Huntington Avenue Boston, MA 02115 617-267-9300 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. $15 Admission fee per person for up to 2 adults. $10 Admission fee per person for up to 4 youths 7-17. Check Dates Museum of Science Learn More",
-  "source_phrases": {}
+  "source_phrases": {
+    "max_people": "up to 2 adults"
+  }
 }

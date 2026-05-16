@@ -2,7 +2,7 @@
   "library_id": "brookline",
   "attraction_slug": "mfa",
   "status": "ok",
-  "max_people": null,
+  "max_people": 2,
   "max_adults": null,
   "max_children": null,
   "free_under_age": 6,
@@ -15,6 +15,7 @@
   "notes": "Pass provides free admission",
   "raw": "The MFA is open. Open to new ideas that broaden our perspectives. Open to every visitor, from the curious to the lifelong learner. Open to new possibilities discovered through art. Showcasing ancient artistry and modern masterpieces, local legends and global visionaries, our renowned collection of nearly 500,000 works tells the story of the human experience—a story that holds unique meaning for everyone. We welcome diverse perspectives, both within the artwork and among our visitors. Where many worldviews meet, new ways of seeing, thinking, and understanding emerge. The conversations we inspire bring people together—revealing connections, exploring differences, and creating a community where all belong. Pass benefits: Admits up to 2 adults at $10 per person for general admission or special exhibitions, and up to 4 youths (age 7-17) at $10 each for special exhibitions only . Children ages 6 and under receive free admission. Visit the Museum of Fine Arts's website. The Museum of Fine Arts is not open Tuesdays. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
   "source_phrases": {
+    "max_people": "up to 2 adults",
     "free_under_age": "Children ages 6 and under receive free"
   }
 }

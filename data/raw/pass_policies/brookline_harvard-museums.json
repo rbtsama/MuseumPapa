@@ -2,7 +2,7 @@
   "library_id": "brookline",
   "attraction_slug": "harvard-museums",
   "status": "ok",
-  "max_people": null,
+  "max_people": 4,
   "max_adults": null,
   "max_children": null,
   "free_under_age": 3,
@@ -15,6 +15,7 @@
   "notes": null,
   "raw": "The mission of the Harvard Museums of Science & Culture (HMSC) is to foster curiosity and a spirit of discovery in visitors of all ages, enhancing public understanding of and appreciation for the natural world, science, and human cultures. HMSC works in concert with Harvard faculty, museum curators, and students, as well as with members of the extended Harvard community, to provide interdisciplinary exhibitions, events and lectures, and educational programs for students, teachers, and the general public. HMSC draws primarily upon the extensive collections of the member museums and the research of their faculty and curators. Pass benefits: Admits up to 4 for free. Children ages 3 and under receive free admission. At least one member of the group must be a Massachusetts resident. Visit the Harvard Museums of Science and Culture's website. Physical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below.",
   "source_phrases": {
+    "max_people": "Admits up to 4 for",
     "free_under_age": "Children ages 3 and under receive free",
     "discount_percent": "Admits up to 4 for free"
   }

@@ -2,7 +2,7 @@
   "library_id": "brookline",
   "attraction_slug": "boston-harbor-islands",
   "status": "ok",
-  "max_people": null,
+  "max_people": 4,
   "max_adults": null,
   "max_children": null,
   "free_under_age": 3,
@@ -17,6 +17,7 @@
   "notes": "No passes available at time of capture",
   "raw": "(866) 307-2469 Made up of 34 unique islands and peninsulas, the Boston Harbor Islands have something for everyone. Explore a historic fort, enjoy a picnic with sweeping harbor views, or sleep in a rustic campsite beneath the stars. Choose an island and plan your adventure! Boston Harbor Islands National and State Park is the largest recreational space in Eastern Massachusetts, attracting over half a million visitors annually. A top destination for locals and tourists alike, the park also functions as an important ecological habitat for local wildlife. Those who journey to the Boston Harbor Islands will find themselves immersed in the stories of a harbor that played an influential role in the development of Boston and the nation through political, social, and environmental revolutions. With historic military forts, abandoned hospital sites, and important Native American stories to be told, the Boston Harbor Islands strive to preserve the history that resides on each island, while protecting habitats and increasing public access and education. Pass benefits: Admits up to 4 at half price to Georges Island Ferry (round trip). Children ages 3 and under receive free admission. Season runs from late June – early October. Visit the Boston Harbor Islands's website. No passes are available at this time.",
   "source_phrases": {
+    "max_people": "Admits up to 4 at",
     "free_under_age": "Children ages 3 and under receive free",
     "discount_percent": "half price"
   }

@@ -2,7 +2,7 @@
   "library_id": "brookline",
   "attraction_slug": "uss-constitution-museum",
   "status": "ok",
-  "max_people": null,
+  "max_people": 9,
   "max_adults": null,
   "max_children": null,
   "free_under_age": null,
@@ -17,6 +17,7 @@
   "notes": null,
   "raw": "(617) 426-1812 Pass benefits: Admits up to 9 for free to the Museum. Admission to the Ship is free on a first-come, first-served basis and requires a security inspection and photo identification for visitors over 18. Visit the USS Constitution Museum's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
   "source_phrases": {
+    "max_people": "Admits up to 9 for",
     "discount_percent": "Admits up to 9 for free"
   }
 }

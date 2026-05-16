@@ -2,7 +2,7 @@
   "library_id": "hingham",
   "attraction_slug": "peabody-essex-museum",
   "status": "ok",
-  "max_people": null,
+  "max_people": 2,
   "max_adults": null,
   "max_children": null,
   "free_under_age": 16,
@@ -21,6 +21,7 @@
   "notes": null,
   "raw": "161 Essex Street Salem, MA 01970 978-745-9500 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. $12 admission to general museum for up to 2 adults, children under 16 are free. Admission to the Yin Yu Tang, the Chinese house, is included in general admission, but advanced reservations are required. Access to Phillips Research library and special ticketed exhibitions also require a separate fee. Visitors using a library pass are not entitled to any other member benefits. Check Dates Plimoth Patuxet Museums Learn More",
   "source_phrases": {
+    "max_people": "up to 2 adults",
     "free_under_age": "children under 16 are free"
   }
 }

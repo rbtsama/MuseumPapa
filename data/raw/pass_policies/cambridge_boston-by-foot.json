@@ -2,7 +2,7 @@
   "library_id": "cambridge",
   "attraction_slug": "boston-by-foot",
   "status": "ok",
-  "max_people": null,
+  "max_people": 1,
   "max_adults": null,
   "max_children": null,
   "free_under_age": null,
@@ -16,5 +16,7 @@
   "boosts": [],
   "notes": "No passes available at time of capture",
   "raw": "617-367-2345 SEASONAL PASS - Each pass admits up to 1 adult or 1 child for free. Visit www.bostonbyfoot.org to browse Boston By Foot's extensive public tour calendar. Passes are valid for all public walking tours; they are not valid for private tours, water-based tours, or annual celebration tours ( Beacon Hill with a BOO! & Footloose on the Freedom Trail ). No passes are available at this time.",
-  "source_phrases": {}
+  "source_phrases": {
+    "max_people": "up to 1 adult"
+  }
 }

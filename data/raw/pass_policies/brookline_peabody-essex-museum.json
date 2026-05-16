@@ -2,7 +2,7 @@
   "library_id": "brookline",
   "attraction_slug": "peabody-essex-museum",
   "status": "ok",
-  "max_people": null,
+  "max_people": 2,
   "max_adults": null,
   "max_children": null,
   "free_under_age": null,
@@ -16,5 +16,7 @@
   "boosts": [],
   "notes": "Pass provides free admission",
   "raw": "(978) 745-9500 For over 220 years, PEM has been dedicated to collecting, preserving, and showcasing compelling artwork throughout history and from around the world. The Peabody Essex Museum in Salem, Massachusetts, US, is a successor to the East India Marine Society, established in 1799. It combines the collections of the former Peabody Museum of Salem and the Essex Institute. Pass benefits: Admits up to 2 adults at $12 per person. Youth ages 16 and under receive free admission. Does not include admission to the Chinese House. Visit the Peabody Essex Museum's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
-  "source_phrases": {}
+  "source_phrases": {
+    "max_people": "up to 2 adults"
+  }
 }
