@@ -406,12 +406,15 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
 
     tag_counter = Counter()
     excl_counter = Counter()
+    boost_counter = Counter()
     for p in passes:
         pol = p.get("policy") or {}
         for t in pol.get("eligibility_tags") or []:
             tag_counter[t] += 1
         for t in pol.get("exclusions") or []:
             excl_counter[t] += 1
+        for t in pol.get("boosts") or []:
+            boost_counter[t] += 1
 
     def coverage_list(cov: dict, total: int) -> str:
         rows = []
@@ -429,6 +432,29 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
             bar_w = round(40 * n / max_n)
             pct = round(100 * n / total) if total else 0
             rows.append(f'<tr><td>{esc(lab)}</td><td class="bar-cell"><span class="bar">{"█"*bar_w}</span></td><td class="num">{n}</td><td class="pct">{pct}%</td></tr>')
+        return f'<table class="histogram">{"".join(rows)}</table>'
+
+    def histogram_with_notag(counter: Counter, label_map: dict, total: int,
+                             n_zero: int, zero_label: str) -> str:
+        """Histogram that adds a final '(no tag)' row so rows visually sum to total."""
+        most = counter.most_common()
+        max_n = max([n for _, n in most] + [n_zero, 1])
+        rows = []
+        for key, n in most:
+            lab = label_map.get(key, key) if isinstance(key, str) and not key.startswith("seasonal:") else (
+                f"Open {key.split(':',1)[1]}" if isinstance(key, str) and key.startswith("seasonal:") else str(key)
+            )
+            bar_w = round(40 * n / max_n)
+            pct = round(100 * n / total) if total else 0
+            rows.append(f'<tr><td>{esc(lab)}</td><td class="bar-cell"><span class="bar">{"█"*bar_w}</span></td><td class="num">{n}</td><td class="pct">{pct}%</td></tr>')
+        # 0-tag row, dashed style
+        bar_w = round(40 * n_zero / max_n)
+        pct = round(100 * n_zero / total) if total else 0
+        rows.append(
+            f'<tr class="zero-row"><td><i>{esc(zero_label)}</i></td>'
+            f'<td class="bar-cell"><span class="bar" style="color:var(--ink-3)">{"░"*bar_w}</span></td>'
+            f'<td class="num">{n_zero}</td><td class="pct">{pct}%</td></tr>'
+        )
         return f'<table class="histogram">{"".join(rows)}</table>'
 
     # Coverage for multi-valued tag fields (how many policies carry ≥1 tag etc.)
@@ -504,20 +530,33 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
 <section class="panel">
   <h3>Eligibility tags · 适用人群标签 直方图</h3>
   <p class="methodology">
-    口径:分母 = 全部 {n_passes} 条 pass。分子 = 含该标签的 pass 数(每条 pass 可有 0 或多个标签,所以加总通常 &gt; 100%)。<br>
-    含标签 ≥ 1 的 pass:<b>{n_with_any_elig}</b> 条 ({round(100*n_with_any_elig/n_passes)}%)。其余 {n_passes - n_with_any_elig} 条 policy 未标任何 eligibility tag,
-    通常意味着 raw 原文未声明特别人群限制(隐含"任何人均可"),或 AI 因 raw 过短未抽取出标签。
+    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。分子 = 含该标签的 pass 数。<br>
+    每条 pass 可有 <b>0、1 或多个</b>标签 → 各行加总可大于或小于 100%。<br>
+    本期实际加总 ≈ {sum(tag_counter.values())}/{n_passes} = <b>{round(100*sum(tag_counter.values())/n_passes)}%</b> &lt; 100%,
+    因为多数 pass 一个标签都没有(见末行 "no tag")。这通常意味着 raw 原文未声明特别人群限制(隐含"任何人均可"),或 AI 因 raw 过短未抽取出标签。
   </p>
-  {histogram(tag_counter, ELIG_LABEL, n_passes)}
+  {histogram_with_notag(tag_counter, ELIG_LABEL, n_passes, n_passes - n_with_any_elig, "no tag · 未标任何 eligibility 标签")}
 </section>
 
 <section class="panel">
   <h3>Restrictions · 限制条款 直方图</h3>
   <p class="methodology">
-    口径:分母 = 全部 {n_passes} 条 pass。分子 = 含该限制的 pass 数(每条 pass 可有 0 或多个限制)。<br>
-    含限制 ≥ 1 的 pass:<b>{n_with_any_excl}</b> 条 ({round(100*n_with_any_excl/n_passes)}%)。其余 {n_passes - n_with_any_excl} 条无任何时间/日期/身份限制。
+    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。分子 = 含该限制的 pass 数。<br>
+    每条 pass 可有 <b>0、1 或多个</b>限制 → 各行加总可大于或小于 100%。<br>
+    本期实际加总 ≈ {sum(excl_counter.values())}/{n_passes} = <b>{round(100*sum(excl_counter.values())/n_passes)}%</b> &lt; 100%,
+    因为多数 pass 无任何时间/日期/身份限制(见末行 "no restriction")。
   </p>
-  {histogram(excl_counter, EXCL_LABEL, n_passes)}
+  {histogram_with_notag(excl_counter, EXCL_LABEL, n_passes, n_passes - n_with_any_excl, "no restriction · 无任何限制")}
+</section>
+
+<section class="panel">
+  <h3>Bonuses · 增益条件 直方图</h3>
+  <p class="methodology">
+    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。分子 = 含该增益的 pass 数(每条可有 0 或多个)。<br>
+    本期加总 ≈ {sum(boost_counter.values())}/{n_passes} = <b>{round(100*sum(boost_counter.values())/n_passes)}%</b>。
+    EBT / SNAP / library card required 等是产品可单独突出的增益项。
+  </p>
+  {histogram_with_notag(boost_counter, BOOST_LABEL, n_passes, n_passes - n_with_any_boost, "no bonus · 无增益")}
 </section>
 
 <section class="panel">

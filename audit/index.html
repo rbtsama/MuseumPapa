@@ -29,20 +29,33 @@
 <section class="panel">
   <h3>Eligibility tags · 适用人群标签 直方图</h3>
   <p class="methodology">
-    口径:分母 = 全部 1008 条 pass。分子 = 含该标签的 pass 数(每条 pass 可有 0 或多个标签,所以加总通常 &gt; 100%)。<br>
-    含标签 ≥ 1 的 pass:<b>594</b> 条 (59%)。其余 414 条 policy 未标任何 eligibility tag,
-    通常意味着 raw 原文未声明特别人群限制(隐含"任何人均可"),或 AI 因 raw 过短未抽取出标签。
+    <b>口径</b>:分母 = 全部 1008 条 pass。分子 = 含该标签的 pass 数。<br>
+    每条 pass 可有 <b>0、1 或多个</b>标签 → 各行加总可大于或小于 100%。<br>
+    本期实际加总 ≈ 604/1008 = <b>60%</b> &lt; 100%,
+    因为多数 pass 一个标签都没有(见末行 "no tag")。这通常意味着 raw 原文未声明特别人群限制(隐含"任何人均可"),或 AI 因 raw 过短未抽取出标签。
   </p>
-  <table class="histogram"><tr><td>open to all</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">457</td><td class="pct">45%</td></tr><tr><td>per vehicle</td><td class="bar-cell"><span class="bar">█████</span></td><td class="num">55</td><td class="pct">5%</td></tr><tr><td>family pass</td><td class="bar-cell"><span class="bar">█████</span></td><td class="num">54</td><td class="pct">5%</td></tr><tr><td>residents only</td><td class="bar-cell"><span class="bar">███</span></td><td class="num">29</td><td class="pct">3%</td></tr><tr><td>1 ticket</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">8</td><td class="pct">1%</td></tr><tr><td>members free</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr></table>
+  <table class="histogram"><tr><td>open to all</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">457</td><td class="pct">45%</td></tr><tr><td>per vehicle</td><td class="bar-cell"><span class="bar">█████</span></td><td class="num">55</td><td class="pct">5%</td></tr><tr><td>family pass</td><td class="bar-cell"><span class="bar">█████</span></td><td class="num">54</td><td class="pct">5%</td></tr><tr><td>residents only</td><td class="bar-cell"><span class="bar">███</span></td><td class="num">29</td><td class="pct">3%</td></tr><tr><td>1 ticket</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">8</td><td class="pct">1%</td></tr><tr><td>members free</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr class="zero-row"><td><i>no tag · 未标任何 eligibility 标签</i></td><td class="bar-cell"><span class="bar" style="color:var(--ink-3)">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></td><td class="num">414</td><td class="pct">41%</td></tr></table>
 </section>
 
 <section class="panel">
   <h3>Restrictions · 限制条款 直方图</h3>
   <p class="methodology">
-    口径:分母 = 全部 1008 条 pass。分子 = 含该限制的 pass 数(每条 pass 可有 0 或多个限制)。<br>
-    含限制 ≥ 1 的 pass:<b>90</b> 条 (9%)。其余 918 条无任何时间/日期/身份限制。
+    <b>口径</b>:分母 = 全部 1008 条 pass。分子 = 含该限制的 pass 数。<br>
+    每条 pass 可有 <b>0、1 或多个</b>限制 → 各行加总可大于或小于 100%。<br>
+    本期实际加总 ≈ 95/1008 = <b>9%</b> &lt; 100%,
+    因为多数 pass 无任何时间/日期/身份限制(见末行 "no restriction")。
   </p>
-  <table class="histogram"><tr><td>reservation needed</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">35</td><td class="pct">3%</td></tr><tr><td>some dates excluded</td><td class="bar-cell"><span class="bar">████████████████████████</span></td><td class="num">21</td><td class="pct">2%</td></tr><tr><td>residents only</td><td class="bar-cell"><span class="bar">█████████████████</span></td><td class="num">15</td><td class="pct">1%</td></tr><tr><td>ID at gate</td><td class="bar-cell"><span class="bar">███████████████</span></td><td class="num">13</td><td class="pct">1%</td></tr><tr><td>weekdays only</td><td class="bar-cell"><span class="bar">███</span></td><td class="num">3</td><td class="pct">0%</td></tr><tr><td>no weekends</td><td class="bar-cell"><span class="bar">██</span></td><td class="num">2</td><td class="pct">0%</td></tr><tr><td>Open 1st-October</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open october-october</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open apr-oct</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open may-sep</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open may-oct</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open mar-dec</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">1</td><td class="pct">0%</td></tr></table>
+  <table class="histogram"><tr><td>reservation needed</td><td class="bar-cell"><span class="bar">██</span></td><td class="num">35</td><td class="pct">3%</td></tr><tr><td>some dates excluded</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">21</td><td class="pct">2%</td></tr><tr><td>residents only</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">15</td><td class="pct">1%</td></tr><tr><td>ID at gate</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">13</td><td class="pct">1%</td></tr><tr><td>weekdays only</td><td class="bar-cell"><span class="bar"></span></td><td class="num">3</td><td class="pct">0%</td></tr><tr><td>no weekends</td><td class="bar-cell"><span class="bar"></span></td><td class="num">2</td><td class="pct">0%</td></tr><tr><td>Open 1st-October</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open october-october</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open apr-oct</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open may-sep</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open may-oct</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open mar-dec</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr class="zero-row"><td><i>no restriction · 无任何限制</i></td><td class="bar-cell"><span class="bar" style="color:var(--ink-3)">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></td><td class="num">918</td><td class="pct">91%</td></tr></table>
+</section>
+
+<section class="panel">
+  <h3>Bonuses · 增益条件 直方图</h3>
+  <p class="methodology">
+    <b>口径</b>:分母 = 全部 1008 条 pass。分子 = 含该增益的 pass 数(每条可有 0 或多个)。<br>
+    本期加总 ≈ 92/1008 = <b>9%</b>。
+    EBT / SNAP / library card required 等是产品可单独突出的增益项。
+  </p>
+  <table class="histogram"><tr><td>library card required</td><td class="bar-cell"><span class="bar">███</span></td><td class="num">75</td><td class="pct">7%</td></tr><tr><td>members discount</td><td class="bar-cell"><span class="bar"></span></td><td class="num">9</td><td class="pct">1%</td></tr><tr><td>gift shop discount</td><td class="bar-cell"><span class="bar"></span></td><td class="num">6</td><td class="pct">1%</td></tr><tr><td>SNAP free</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>EBT discount</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr class="zero-row"><td><i>no bonus · 无增益</i></td><td class="bar-cell"><span class="bar" style="color:var(--ink-3)">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></td><td class="num">918</td><td class="pct">91%</td></tr></table>
 </section>
 
 <section class="panel">
@@ -64,7 +77,7 @@
 </section>
 
 <footer class="page-foot">
-  Built 2026-05-16 14:37 UTC ·
+  Built 2026-05-16 14:39 UTC ·
   <a href="#" class="view-json-link" data-json-key="meta">View JSON of dataset summary</a>
 </footer>
 
