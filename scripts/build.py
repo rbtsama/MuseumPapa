@@ -114,13 +114,14 @@ def main() -> int:
     # 4. passes.json
     print("Building passes.json...")
     policies = _load_dir_jsons(raw_root / "pass_policies")
-    # plan-6 subagent classifications: {lib_id: {pass_id: {pickup_method, pickup_branches, evidence}}}
+    # Subagent (plan-6, LibCal) and deterministic (plan-7, Assabet) classifications:
+    # {lib_id: {pass_id: {pickup_method, pickup_branches, evidence}}}.
+    # Glob auto-discovers any lib that has a _classified.json — no per-lib enum to maintain.
     classifications: dict = {}
-    for lib in ("bpl", "cambridge", "brookline"):
-        cf = raw_root / "branches" / "_pickup" / lib / "_classified.json"
-        if cf.exists():
-            data = json.loads(cf.read_text(encoding="utf-8"))
-            classifications[lib] = {p["pass_id"]: p for p in data.get("passes", [])}
+    for cf in sorted((raw_root / "branches" / "_pickup").glob("*/_classified.json")):
+        lib = cf.parent.name
+        data = json.loads(cf.read_text(encoding="utf-8"))
+        classifications[lib] = {p["pass_id"]: p for p in data.get("passes", [])}
     passes_doc = build_passes(
         catalog,
         policies=policies,

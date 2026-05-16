@@ -1,0 +1,135 @@
+{
+  "lib_id": "peabody",
+  "passes": [
+    {
+      "pass_id": "boston-childrens-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "the-childrens-piazza",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "davis-farmland",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": [
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
+      ],
+      "evidence": "assabet_pass_type=physical-coupon; default_all_branches (Assabet UI does not surface per-branch holdings)"
+    },
+    {
+      "pass_id": "the-house-of-seven-gables",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": [
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
+      ],
+      "evidence": "assabet_pass_type=physical-coupon; default_all_branches (Assabet UI does not surface per-branch holdings)"
+    },
+    {
+      "pass_id": "isabella-stewart-gardner-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "mass-audubon",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": [
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
+      ],
+      "evidence": "assabet_pass_type=physical-coupon; default_all_branches (Assabet UI does not surface per-branch holdings)"
+    },
+    {
+      "pass_id": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": [
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
+      ],
+      "evidence": "assabet_pass_type=physical-circ; default_all_branches (Assabet UI does not surface per-branch holdings)"
+    },
+    {
+      "pass_id": "museum-of-fine-arts",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "museum-of-science",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "new-england-aquarium",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "north-shore-childrens-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "peabody-essex-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "plimoth-patuxet-museums",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": [
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
+      ],
+      "evidence": "assabet_pass_type=physical-coupon; default_all_branches (Assabet UI does not surface per-branch holdings)"
+    },
+    {
+      "pass_id": "the-trustees-of-the-reservations",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": [
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
+      ],
+      "evidence": "assabet_pass_type=physical-coupon; default_all_branches (Assabet UI does not surface per-branch holdings)"
+    },
+    {
+      "pass_id": "the-uss-constitution-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "wenham-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "zoo-new-england",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": [
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
+      ],
+      "evidence": "assabet_pass_type=physical-coupon; default_all_branches (Assabet UI does not surface per-branch holdings)"
+    }
+  ]
+}

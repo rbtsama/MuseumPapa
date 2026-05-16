@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-16T15:32:48Z",
+    "built_at": "2026-05-16T16:08:55Z",
     "n_passes": 1008,
     "n_with_availability": 974,
     "n_with_policy": 1008,
@@ -29956,7 +29956,9 @@
       "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "peabody--main"
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
       ],
       "discount": {
         "class": "dollar-off",
@@ -30009,7 +30011,9 @@
       "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "peabody--main"
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
       ],
       "discount": {
         "class": "half",
@@ -30113,7 +30117,9 @@
       "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "peabody--main"
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
       ],
       "discount": {
         "class": "price",
@@ -30166,7 +30172,9 @@
       "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "peabody--main"
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
       ],
       "discount": {
         "class": "free",
@@ -30474,7 +30482,9 @@
       "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "peabody--main"
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
       ],
       "discount": {
         "class": "price",
@@ -30527,7 +30537,9 @@
       "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "peabody--main"
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
       ],
       "discount": {
         "class": "free",
@@ -30682,7 +30694,9 @@
       "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "peabody--main"
+        "peabody--main",
+        "peabody--south-branch",
+        "peabody--west-branch"
       ],
       "discount": {
         "class": "price",
@@ -30786,7 +30800,10 @@
       "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "quincy--main"
+        "quincy--main",
+        "quincy--north-quincy",
+        "quincy--adams-shore",
+        "quincy--wollaston"
       ],
       "discount": {
         "class": "free",
@@ -30839,7 +30856,10 @@
       "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "quincy--main"
+        "quincy--main",
+        "quincy--north-quincy",
+        "quincy--adams-shore",
+        "quincy--wollaston"
       ],
       "discount": {
         "class": "half",
@@ -30994,7 +31014,10 @@
       "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "quincy--main"
+        "quincy--main",
+        "quincy--north-quincy",
+        "quincy--adams-shore",
+        "quincy--wollaston"
       ],
       "discount": {
         "class": "free",
@@ -31149,7 +31172,10 @@
       "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning), Circulating Pass (must be picked up and returned to the branch)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "quincy--main"
+        "quincy--main",
+        "quincy--north-quincy",
+        "quincy--adams-shore",
+        "quincy--wollaston"
       ],
       "discount": {
         "class": "free",
@@ -31411,7 +31437,10 @@
       "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "quincy--main"
+        "quincy--main",
+        "quincy--north-quincy",
+        "quincy--adams-shore",
+        "quincy--wollaston"
       ],
       "discount": {
         "class": "price",
@@ -33211,7 +33240,9 @@
       "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "somerville--main"
+        "somerville--central",
+        "somerville--east",
+        "somerville--west"
       ],
       "discount": {
         "class": "free",
@@ -33561,7 +33592,9 @@
       "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
-        "somerville--main"
+        "somerville--central",
+        "somerville--east",
+        "somerville--west"
       ],
       "discount": {
         "class": "free",

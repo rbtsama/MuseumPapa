@@ -1,0 +1,120 @@
+{
+  "lib_id": "quincy",
+  "passes": [
+    {
+      "pass_id": "boston-childrens-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "harvard-museums-of-science-and-culture",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": [
+        "quincy--main",
+        "quincy--north-quincy",
+        "quincy--adams-shore",
+        "quincy--wollaston"
+      ],
+      "evidence": "assabet_pass_type=physical-coupon; default_all_branches (Assabet UI does not surface per-branch holdings)"
+    },
+    {
+      "pass_id": "heritage-museums-and-gardens",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": [
+        "quincy--main",
+        "quincy--north-quincy",
+        "quincy--adams-shore",
+        "quincy--wollaston"
+      ],
+      "evidence": "assabet_pass_type=physical-coupon; default_all_branches (Assabet UI does not surface per-branch holdings)"
+    },
+    {
+      "pass_id": "institute-of-contemporary-art-boston",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "isabella-stewart-gardner-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": [
+        "quincy--main",
+        "quincy--north-quincy",
+        "quincy--adams-shore",
+        "quincy--wollaston"
+      ],
+      "evidence": "assabet_pass_type=physical-circ; default_all_branches (Assabet UI does not surface per-branch holdings)"
+    },
+    {
+      "pass_id": "museum-of-fine-arts",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "museum-of-science",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "new-bedford-whaling-museum",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": [
+        "quincy--main",
+        "quincy--north-quincy",
+        "quincy--adams-shore",
+        "quincy--wollaston"
+      ],
+      "evidence": "assabet_pass_type=physical-coupon; default_all_branches (Assabet UI does not surface per-branch holdings)"
+    },
+    {
+      "pass_id": "new-england-aquarium",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "peabody-essex-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "plimoth-patuxet-museums",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "sandwich-glass-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "the-uss-constitution-museum",
+      "pickup_method": "digital",
+      "pickup_branches": [],
+      "evidence": "assabet_pass_type=digital"
+    },
+    {
+      "pass_id": "zoo-new-england",
+      "pickup_method": "physical_at_branch",
+      "pickup_branches": [
+        "quincy--main",
+        "quincy--north-quincy",
+        "quincy--adams-shore",
+        "quincy--wollaston"
+      ],
+      "evidence": "assabet_pass_type=physical-coupon; default_all_branches (Assabet UI does not surface per-branch holdings)"
+    }
+  ]
+}
