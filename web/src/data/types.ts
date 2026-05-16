@@ -120,15 +120,33 @@ export interface Discount {
   raw: string;
 }
 
+export type PickupMethod = 'digital' | 'physical_at_branch';
+
 export interface Pass {
   library_id: string;
   attraction_slug: string;
   pass_type: PassTypeKind;
   pass_type_raw: string;
+  pickup_method: PickupMethod;
+  pickup_branches: string[];   // branch ids; empty for digital
   discount: Discount;
   policy: Policy | null;
   source_url: string;
   availability: Record<string, string> | null;
+}
+
+export interface Branch {
+  id: string;
+  name: string;
+  parent_lib_id: string;
+  address: { street: string; city: string; state: string; zip: string | null };
+  geo: Geo;
+  hours_raw: string | null;
+}
+
+export interface BranchesJson {
+  _meta: { built_at: string; n_branches: number; n_multi_branch_libs: number };
+  branches: Branch[];
 }
 
 export interface LibrariesJson {

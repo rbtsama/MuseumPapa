@@ -16,6 +16,8 @@ const pass = (
   availability: Pass['availability'] = null,
 ): Pass => ({
   library_id, attraction_slug: 'mos', pass_type, pass_type_raw: '',
+  pickup_method: pass_type === 'digital' ? 'digital' : 'physical_at_branch',
+  pickup_branches: pass_type === 'digital' ? [] : [`${library_id}--main`],
   discount: { class: discountClass, label, raw: '' },
   policy: null,
   source_url: '', availability,

@@ -11,6 +11,8 @@ const mockPass: Pass = {
   attraction_slug: 'zoo-boston',
   pass_type: 'digital',
   pass_type_raw: 'digital',
+  pickup_method: 'digital',
+  pickup_branches: [],
   discount: { class: 'free', label: 'Free', raw: 'Free' },
   policy: null,
   source_url: 'https://example.com/book',

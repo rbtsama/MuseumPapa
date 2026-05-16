@@ -5,6 +5,7 @@ import { FavoriteButton } from './FavoriteButton';
 import { PassTypeLabel } from './PassTypeLabel';
 import { DiscountLine } from './DiscountLine';
 import { hoursDisplay } from '../lib/hours';
+import { getBranchesForPass } from '../data/load';
 
 interface Props {
   attraction: Attraction;
@@ -166,7 +167,15 @@ export function AttractionCard({
       ) : (
         <div className="border-t" style={{ borderColor: 'var(--rule)' }}>
           {pickedTags.slice(0, MAX_ROWS_VISIBLE).map((t, i) => {
-            const isDigital = t.pass.pass_type === 'digital';
+            const isDigital = t.pass.pickup_method === 'digital';
+            // For physical, prefer the actual pickup branch(es). Single-branch
+            // libs synthesize `<lib_id>--main`, so this still resolves cleanly.
+            const branches = isDigital ? [] : getBranchesForPass(t.pass);
+            const showBranchLabel =
+              !isDigital && branches.length === 1 && branches[0].id !== `${t.pass.library_id}--main`;
+            const branchSummary = !isDigital && branches.length > 1
+              ? `${t.library.town} · ${branches.length} branches`
+              : null;
 
             return (
               <div
@@ -179,7 +188,10 @@ export function AttractionCard({
                 <div className="flex-grow min-w-0">
                   <div style={{ fontSize: 13, color: 'var(--ink-2)', fontWeight: 500,
                     overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                    {isDigital ? t.library.name : t.library.town}
+                    {isDigital ? t.library.name
+                      : branchSummary ? branchSummary
+                      : showBranchLabel ? `${branches[0].name} · ${branches[0].address.street}`
+                      : t.library.town}
                     {!isDigital && t.distanceMi != null && (
                       <span style={{ fontSize: 11, color: 'var(--ink-3)', fontWeight: 400 }}>
                         {' '}· {Math.round(t.distanceMi)} mi
