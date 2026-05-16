@@ -728,22 +728,13 @@ def page_libraries(libs_data, libcat=None) -> str:
 </p>
 
 <section class="dist-grid">
-  <div class="panel dist-panel">
+  <div class="panel dist-panel dist-wide">
     <h3>馆际网络 · Library network · {n_libs} 馆</h3>
     {histogram_table(net_counter, n_libs)}
     <p class="methodology" style="margin-top:8px">
-      <b>业务含义</b>:网络 = 麻州的馆际互借联盟(Library Consortium)。同一网络的馆<b>可能共享 pass 预约权限</b> — 即一张某网络成员馆的卡,理论上可登录该网络其它馆的 pass 系统预约。<br>
-      <b>对用户决策</b>:网络成员越多 → 一张卡能解锁的范围越大。例如办一张 Minuteman 网络任意一馆的卡,可能覆盖该网络 40+ 个馆的 pass。<br>
-      <b>注意</b>:本期只针对 BPL → Minuteman 跨预约做过实证;其它网络的跨预约范围需逐一 verify。
-    </p>
-  </div>
-  <div class="panel dist-panel">
-    <h3>办卡 ROI · 解锁最多 pass 的 Top 10 馆</h3>
-    <table class="histogram">{top_libs_html or '<tr><td>(no catalog data)</td></tr>'}</table>
-    <p class="methodology" style="margin-top:8px">
-      <b>业务含义</b>:运营推荐用户先办哪几张卡可以覆盖最多优惠 — 办卡 ROI 视角。<br>
-      <b>对用户决策</b>:还没办卡的潜在用户,从 Top 5 入手即可覆盖大部分主流 pass(MFA/MOS/NEAq 等)。<br>
-      <b>注意</b>:同一景点可能被多个馆收录,因此持卡数加总会重复计算覆盖面。
+      <b>业务含义</b>:网络 = 麻州的馆际互借联盟(Library Consortium)。同一网络的馆<b>可能共享 pass 预约权限</b> — 用户的一张卡如果属于某网络,可能可直接登录该网络其它馆的 pass 系统去预约。<br>
+      <b>对本产品意义</b>:决定<b>"一张卡的有效覆盖面"</b> — 用户用现有卡查询时,如果其卡所在网络支持跨馆预约,则可访问的 pass 池远大于"卡发卡馆"那一家。<br>
+      <b>注意</b>:本期只针对 BPL → Minuteman 跨预约做过实证;其它网络的跨预约范围需逐一 verify(plan-6 工作项)。
     </p>
   </div>
   <div class="panel dist-panel dist-wide">
@@ -751,8 +742,7 @@ def page_libraries(libs_data, libcat=None) -> str:
     {histogram_table(plat_counter, n_libs)}
     <p class="methodology" style="margin-top:8px">
       <b>这一项是 ops/审计视角,不是产品决策</b>。Assabet / LibCal / MuseumKey 是图书馆使用的 pass 管理后端系统,用户感知不到。<br>
-      <b>价值</b>:① <b>数据脆弱性</b> — 88% 数据靠 Assabet 单一来源,若失效或收费,影响面广;② <b>功能差异</b> — 不同平台暴露的字段不同(库存日历 / 还回规则等),影响下游能爬到多少元数据。<br>
-      <b>对用户产品决策几乎无意义</b>,纯运维信号。
+      <b>价值</b>:① <b>数据脆弱性</b> — 88% 数据靠 Assabet 单一来源,若失效或收费,影响面广;② <b>功能差异</b> — 不同平台暴露的字段不同(库存日历 / 还回规则等),影响下游能爬到多少元数据。
     </p>
   </div>
 </section>
