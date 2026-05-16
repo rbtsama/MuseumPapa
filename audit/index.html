@@ -41,21 +41,31 @@
 </section>
 
 <section class="panel">
-  <h3>Restrictions · 限制条款 直方图</h3>
+  <h3>Date · Pass 日期限制 直方图</h3>
   <p class="methodology">
-    <b>口径</b>:分母 = 全部 1008 条 pass。分子 = 含该限制的 pass 数(归一化后)。<br>
-    每条 pass 可有 <b>0、1 或多个</b>限制 → 各行加总可大于或小于 100%。<br>
-    本期实际加总 ≈ 67/1008 = <b>7%</b>。
+    <b>口径</b>:分母 = 全部 1008 条 pass。分子 = pass 含该种"日期/时间不可用"标签的数量。<br>
+    本类属于"<b>什么时候这张 pass 不能用</b>",与博物馆本身的 opening hours 是同一个维度的事(具体到 pass 这一层来表达)。<br>
+    本期加总 ≈ 32/1008 = <b>3%</b>。
+    其中 <code>seasonal</code> 的具体月份段去 Policies 看 raw。
+  </p>
+  <table class="histogram"><tr><td>blackout dates · 部分日期黑名单</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">21</td><td class="pct">2%</td></tr><tr><td>seasonal · 季节性开放(详见原文)</td><td class="bar-cell"><span class="bar"></span></td><td class="num">6</td><td class="pct">1%</td></tr><tr><td>weekdays only · 仅工作日</td><td class="bar-cell"><span class="bar"></span></td><td class="num">5</td><td class="pct">0%</td></tr><tr class="zero-row"><td><i>no date limit · 无日期限制</i></td><td class="bar-cell"><span class="bar" style="color:var(--ink-3)">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></td><td class="num">978</td><td class="pct">97%</td></tr></table>
+</section>
+
+<section class="panel">
+  <h3>Restrictions · 流程限制 直方图</h3>
+  <p class="methodology">
+    <b>口径</b>:分母 = 全部 1008 条 pass。分子 = 含该流程要求的 pass 数。<br>
+    <b>本类只保留"流程性要求"</b>(典型 = 需预约 reservation_required),不含任何"哪天能用"类(已分到上面 Date 面板)。
   </p>
   <p class="methodology">
-    <b>本展示对原始 AI 抽取做了 4 个归一化</b>(raw 数据未改):
-    <br>① <code>weekends_excluded</code> + <code>no weekends</code> → 合并为 <code>weekdays_only</code>(语义等价,共 2 条受影响)
-    <br>② <code>residents_only</code> 被移除 — 它本质是 eligibility 不是入场限制,而且本产品默认用户已是 cardholder
+    <b>对原始 AI 抽取做了 4 个归一化</b>(raw 数据未改):
+    <br>① <code>weekends_excluded</code> + <code>no weekends</code> → 合并为 <code>weekdays_only</code>(语义等价,共 2 条);<b>移至 Date 面板</b>
+    <br>② <code>residents_only</code> 被移除 — 它本质是 eligibility 不是入场限制,且本产品默认用户已是 cardholder
     <br>③ <code>id_required</code> 被移除 — raw 抽样显示绝大多数是 "出示 MA 图书馆卡 = 拿到折扣" 的机制(典型如 JFK Library),应归类为 <code>library_card_required</code>(已转移到 Bonuses)
-    <br>④ 所有 <code>seasonal:&lt;月-月&gt;</code> 变体合并为单行 <code>seasonal</code>(共 6 条,具体月份段去 Policies 看 raw)
-    <br>合计 <b>28 条</b> AI 错位标签被剔除/迁移。
+    <br>④ 所有 <code>seasonal:&lt;月-月&gt;</code> 变体合并为单行 <code>seasonal</code>(共 6 条);<b>移至 Date 面板</b>
+    <br>合计 <b>28 条</b> AI 错位标签被剔除/迁移到正确归类。
   </p>
-  <table class="histogram"><tr><td>reservation needed · 需预约</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">35</td><td class="pct">3%</td></tr><tr><td>blackout dates · 部分日期黑名单</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">21</td><td class="pct">2%</td></tr><tr><td>seasonal · 季节性开放(详见原文)</td><td class="bar-cell"><span class="bar"></span></td><td class="num">6</td><td class="pct">1%</td></tr><tr><td>weekdays only · 仅工作日</td><td class="bar-cell"><span class="bar"></span></td><td class="num">5</td><td class="pct">0%</td></tr><tr class="zero-row"><td><i>no restriction · 无任何限制</i></td><td class="bar-cell"><span class="bar" style="color:var(--ink-3)">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></td><td class="num">945</td><td class="pct">94%</td></tr></table>
+  <table class="histogram"><tr><td>reservation needed · 需预约</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">35</td><td class="pct">3%</td></tr><tr class="zero-row"><td><i>no process restriction · 无流程限制</i></td><td class="bar-cell"><span class="bar" style="color:var(--ink-3)">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></td><td class="num">973</td><td class="pct">97%</td></tr></table>
 </section>
 
 <section class="panel">
@@ -87,7 +97,7 @@
 </section>
 
 <footer class="page-foot">
-  Built 2026-05-16 14:45 UTC ·
+  Built 2026-05-16 14:48 UTC ·
   <a href="#" class="view-json-link" data-json-key="meta">View JSON of dataset summary</a>
 </footer>
 

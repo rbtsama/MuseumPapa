@@ -425,6 +425,11 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
             return "seasonal"
         return EXCL_REMAP.get(t, t)
 
+    # Split exclusions into 2 buckets per audit taxonomy:
+    #  - date_counter:    "WHEN can this pass be used" (blackout/seasonal/weekdays_only/...)
+    #  - excl_counter:    "process requirements" (reservation_required, ...)
+    DATE_TAGS = {"blackout_dates", "weekdays_only", "weekends_only", "weekends_excluded", "no_weekends"}
+    date_counter: Counter = Counter()
     n_excl_dropped = 0
     n_excl_merged = 0
     n_excl_seasonal_folded = 0
@@ -441,13 +446,17 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
                 n_excl_dropped += 1
                 continue
             if isinstance(t, str) and t.startswith("seasonal:"):
-                excl_counter["seasonal"] += 1
+                date_counter["seasonal"] += 1
                 n_excl_seasonal_folded += 1
                 continue
-            mapped = EXCL_REMAP.get(t, t)
-            if mapped != t:
-                n_excl_merged += 1
-            excl_counter[mapped] += 1
+            if t in DATE_TAGS:
+                mapped = EXCL_REMAP.get(t, t)
+                if mapped != t:
+                    n_excl_merged += 1
+                date_counter[mapped] += 1
+                continue
+            # remaining → real process restriction
+            excl_counter[t] += 1
         for t in pol.get("boosts") or []:
             boost_counter[t] += 1
 
@@ -496,17 +505,20 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
     n_with_any_elig = sum(1 for p in passes if (p.get("policy") or {}).get("eligibility_tags"))
     # Use NORMALIZED exclusions (after drops/remaps) — so a pass whose only
     # exclusion was id_required or residents_only now correctly counts as 0.
-    def _effective_excls(pol: dict) -> set:
-        out = set()
+    def _split_excls(pol: dict) -> tuple[set, set]:
+        """Return (date_set, process_set) after normalization."""
+        date_s, proc_s = set(), set()
         for t in pol.get("exclusions") or []:
             if t in EXCL_DROP or t in BOOST_FROM_EXCL:
                 continue
             if isinstance(t, str) and t.startswith("seasonal:"):
-                out.add("seasonal")
-                continue
-            out.add(EXCL_REMAP.get(t, t))
-        return out
-    n_with_any_excl = sum(1 for p in passes if _effective_excls(p.get("policy") or {}))
+                date_s.add("seasonal"); continue
+            if t in DATE_TAGS:
+                date_s.add(EXCL_REMAP.get(t, t)); continue
+            proc_s.add(t)
+        return date_s, proc_s
+    n_with_any_date = sum(1 for p in passes if _split_excls(p.get("policy") or {})[0])
+    n_with_any_excl = sum(1 for p in passes if _split_excls(p.get("policy") or {})[1])
     n_with_any_boost = sum(1 for p in passes
                             if (p.get("policy") or {}).get("boosts")
                             or any(t in BOOST_FROM_EXCL for t in (p.get("policy") or {}).get("exclusions") or []))
@@ -591,21 +603,31 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
 </section>
 
 <section class="panel">
-  <h3>Restrictions · 限制条款 直方图</h3>
+  <h3>Date · Pass 日期限制 直方图</h3>
   <p class="methodology">
-    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。分子 = 含该限制的 pass 数(归一化后)。<br>
-    每条 pass 可有 <b>0、1 或多个</b>限制 → 各行加总可大于或小于 100%。<br>
-    本期实际加总 ≈ {sum(excl_counter.values())}/{n_passes} = <b>{round(100*sum(excl_counter.values())/n_passes)}%</b>。
+    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。分子 = pass 含该种"日期/时间不可用"标签的数量。<br>
+    本类属于"<b>什么时候这张 pass 不能用</b>",与博物馆本身的 opening hours 是同一个维度的事(具体到 pass 这一层来表达)。<br>
+    本期加总 ≈ {sum(date_counter.values())}/{n_passes} = <b>{round(100*sum(date_counter.values())/n_passes)}%</b>。
+    其中 <code>seasonal</code> 的具体月份段去 Policies 看 raw。
+  </p>
+  {histogram_with_notag(date_counter, EXCL_LABEL, n_passes, n_passes - n_with_any_date, "no date limit · 无日期限制")}
+</section>
+
+<section class="panel">
+  <h3>Restrictions · 流程限制 直方图</h3>
+  <p class="methodology">
+    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。分子 = 含该流程要求的 pass 数。<br>
+    <b>本类只保留"流程性要求"</b>(典型 = 需预约 reservation_required),不含任何"哪天能用"类(已分到上面 Date 面板)。
   </p>
   <p class="methodology">
-    <b>本展示对原始 AI 抽取做了 4 个归一化</b>(raw 数据未改):
-    <br>① <code>weekends_excluded</code> + <code>no weekends</code> → 合并为 <code>weekdays_only</code>(语义等价,共 {n_excl_merged} 条受影响)
-    <br>② <code>residents_only</code> 被移除 — 它本质是 eligibility 不是入场限制,而且本产品默认用户已是 cardholder
+    <b>对原始 AI 抽取做了 4 个归一化</b>(raw 数据未改):
+    <br>① <code>weekends_excluded</code> + <code>no weekends</code> → 合并为 <code>weekdays_only</code>(语义等价,共 {n_excl_merged} 条);<b>移至 Date 面板</b>
+    <br>② <code>residents_only</code> 被移除 — 它本质是 eligibility 不是入场限制,且本产品默认用户已是 cardholder
     <br>③ <code>id_required</code> 被移除 — raw 抽样显示绝大多数是 "出示 MA 图书馆卡 = 拿到折扣" 的机制(典型如 JFK Library),应归类为 <code>library_card_required</code>(已转移到 Bonuses)
-    <br>④ 所有 <code>seasonal:&lt;月-月&gt;</code> 变体合并为单行 <code>seasonal</code>(共 {n_excl_seasonal_folded} 条,具体月份段去 Policies 看 raw)
-    <br>合计 <b>{n_excl_dropped} 条</b> AI 错位标签被剔除/迁移。
+    <br>④ 所有 <code>seasonal:&lt;月-月&gt;</code> 变体合并为单行 <code>seasonal</code>(共 {n_excl_seasonal_folded} 条);<b>移至 Date 面板</b>
+    <br>合计 <b>{n_excl_dropped} 条</b> AI 错位标签被剔除/迁移到正确归类。
   </p>
-  {histogram_with_notag(excl_counter, EXCL_LABEL, n_passes, n_passes - n_with_any_excl, "no restriction · 无任何限制")}
+  {histogram_with_notag(excl_counter, EXCL_LABEL, n_passes, n_passes - n_with_any_excl, "no process restriction · 无流程限制")}
 </section>
 
 <section class="panel">
