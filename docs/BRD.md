@@ -130,6 +130,13 @@
 
 > B 这一层是当前数据完全没收的关键漏洞。是初版要补齐的核心。
 
+**C. 取卡分馆（plan-6 新增）**:实体券需要用户开车到具体物理分馆领取,所以本期数据模型升级:
+- 每张 pass 标注 `pickup_method`(`digital` = 邮件/PDF;`physical_at_branch` = 到馆取)
+- 实体券附 `pickup_branches[]`(branch ID 数组,指向 `branches.json`)
+- 新建 `branches.json` 存所有分馆的 `name / parent_lib_id / address / geo`
+- 单分馆 lib(56 个)自动合成 `<lib_id>--main` branch;BPL/Cambridge/Brookline 三家多分馆 lib 显式抓 locations 页拆 branch(BPL 26 / Cambridge 7 / Brookline 3)
+- `lib_id` 降级为内部"发券组织"ID,前端电子券不再展示 lib_id 抽象,实体券强制显示 branch 物理地址
+
 ### 6.2 动态数据（变化快，需要持续抓取）
 
 **核心就一件事：每天的库存。**
