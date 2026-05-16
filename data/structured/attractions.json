@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-16T16:44:03Z",
+    "built_at": "2026-05-16T16:47:00Z",
     "n_attractions": 107,
     "n_with_price": 81,
     "n_with_image": 104,
@@ -6285,16 +6285,8 @@
         "lon": -70.7996633
       },
       "hours": {
-        "status": "ok",
-        "regular_hours": {
-          "mon": "Closed",
-          "tue": "Closed",
-          "wed": "Closed",
-          "thu": "Closed",
-          "fri": "Closed",
-          "sat": "Closed",
-          "sun": "Closed"
-        },
+        "status": "seasonal",
+        "regular_hours": null,
         "notes": "Seasonal summer hours only. Maritime Museum and other properties open in summer (typically July–August); check cohassethistoricalsociety.org for current season schedule. Closed in winter.",
         "source_url": "https://www.cohassethistoricalsociety.org/maritime-museum"
       }
