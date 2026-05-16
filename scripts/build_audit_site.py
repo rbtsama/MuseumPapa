@@ -382,26 +382,26 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
     n_attrs = len(attrs)
     n_passes = len(passes)
 
-    # coverage stats
+    # coverage stats — labels are bilingual; residency intentionally NOT shown
+    # (per product decision: assume all users are MA cardholders).
     lib_cov = {
-        "street address": sum(1 for L in libs if (L.get("address") or {}).get("street")),
-        "geo lat/lon": sum(1 for L in libs if L.get("geo")),
-        "residency eligibility": sum(1 for L in libs if L.get("eligibility")),
-        "card_page url": sum(1 for L in libs if L.get("card_page")),
+        "Street address · 街道地址": sum(1 for L in libs if (L.get("address") or {}).get("street")),
+        "Geo coordinates · 经纬度": sum(1 for L in libs if L.get("geo")),
+        "Card-application page · 办卡说明页 URL": sum(1 for L in libs if L.get("card_page")),
     }
     attr_cov = {
-        "hero image": sum(1 for A in attrs if (A.get("hero_image") or {}).get("local_path")),
-        "price (any)": sum(1 for A in attrs if A.get("original_price")),
-        "hours": sum(1 for A in attrs if A.get("hours")),
-        "description": sum(1 for A in attrs if A.get("description")),
-        "phone": sum(1 for A in attrs if A.get("phone")),
-        "geo": sum(1 for A in attrs if A.get("geo")),
+        "Hero image · 封面图": sum(1 for A in attrs if (A.get("hero_image") or {}).get("local_path")),
+        "Ticket price (any tier) · 票价(任一层级)": sum(1 for A in attrs if A.get("original_price")),
+        "Opening hours · 营业时间": sum(1 for A in attrs if A.get("hours")),
+        "Description · 简介": sum(1 for A in attrs if A.get("description")),
+        "Phone · 电话": sum(1 for A in attrs if A.get("phone")),
+        "Geo coordinates · 经纬度": sum(1 for A in attrs if A.get("geo")),
     }
     pass_cov = {
-        "policy present": sum(1 for p in passes if p.get("policy")),
-        "discount classified": sum(1 for p in passes if p.get("discount", {}).get("class") not in (None, "unknown")),
-        "pass_type known": sum(1 for p in passes if p.get("pass_type") not in (None, "unknown")),
-        "availability data": sum(1 for p in passes if p.get("availability")),
+        "Policy extracted · 结构化优惠规则": sum(1 for p in passes if p.get("policy")),
+        "Discount classified · 折扣类型已分类": sum(1 for p in passes if p.get("discount", {}).get("class") not in (None, "unknown")),
+        "Pass type known · 取券方式已分类": sum(1 for p in passes if p.get("pass_type") not in (None, "unknown")),
+        "Availability calendar · 库存日历(空位可见)": sum(1 for p in passes if p.get("availability")),
     }
 
     tag_counter = Counter()
