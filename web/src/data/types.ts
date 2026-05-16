@@ -112,7 +112,7 @@ export interface Attraction {
   hours: Hours | null;
 }
 
-export type PassTypeKind = 'digital' | 'physical-coupon' | 'loan-card' | 'unknown';
+export type PassTypeKind = 'digital' | 'physical-coupon' | 'physical-circ' | 'unknown';
 export type DiscountClass = 'free' | 'half' | 'percent-off' | 'dollar-off' | 'price' | 'discount' | 'unknown';
 
 export interface Discount {

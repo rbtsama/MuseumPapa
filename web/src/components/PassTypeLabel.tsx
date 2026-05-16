@@ -13,7 +13,7 @@ import type { PassTypeKind } from '../data/types';
 const META: Record<PassTypeKind, { label: string; fg: string; bg: string }> = {
   'digital':         { label: 'E-pass',           fg: 'var(--g)',  bg: 'var(--g-pale)'  },
   'physical-coupon': { label: 'Pickup',           fg: 'var(--au)', bg: 'var(--au-pale)' },
-  'loan-card':       { label: 'Pickup & Return',  fg: 'var(--or)', bg: 'var(--or-pale)' },
+  'physical-circ':   { label: 'Pickup & Return',  fg: 'var(--or)', bg: 'var(--or-pale)' },
   'unknown':         { label: 'Pass',             fg: 'var(--ink-3)', bg: 'var(--paper)' },
 };
 
