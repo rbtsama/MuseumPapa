@@ -854,36 +854,80 @@ def page_attractions(attr_data) -> str:
 
         cats_html = " · ".join(esc(c) for c in (A.get("categories") or [])) or '<span class="honest-gap">未分类</span>'
 
-        # Prices — show as a labelled list; gray dash for missing data
-        price_rows_html = []
+        # Prices — two-layer schema:
+        #   age_pricing: tiers by age (adult/youth/child/senior) — applies to anyone
+        #   identity_pricing: tiers by status proof (student/educator/military)
+        age_p = (price.get("age_pricing") or {}) if price else {}
+        ident_p = (price.get("identity_pricing") or {}) if price else {}
+
+        def _tier_price(layer: dict, key: str):
+            t = layer.get(key)
+            return t.get("price") if isinstance(t, dict) else None
+
         any_price = False
+        age_rows_html = []
         for k, label_en, label_zh in [
-            ("adult", "Adult", "成人"), ("senior", "Senior", "老人 (65+)"),
-            ("child", "Child", "儿童"), ("student", "Student", "学生"),
-            ("military", "Military", "军人"), ("youth", "Youth", "青少年 (11-17)"),
-            ("educator", "Educator", "教师"), ("family", "Family", "家庭通票"),
+            ("adult",  "Adult",  "成人"),
+            ("youth",  "Youth",  "青少年 (11-17)"),
+            ("child",  "Child",  "儿童"),
+            ("senior", "Senior", "老人 (65+)"),
         ]:
-            v = price.get(k) if price else None
+            v = _tier_price(age_p, k)
             if v is None:
-                price_rows_html.append(
+                age_rows_html.append(
                     f'<div class="kv kv-gap"><span class="k">{label_en} · {label_zh}</span>'
                     f'<span class="v dash">-</span></div>'
                 )
             else:
                 any_price = True
-                price_rows_html.append(
+                age_rows_html.append(
                     f'<div class="kv"><span class="k">{label_en} · {label_zh}</span>'
                     f'<span class="v verified">${esc(str(v))}</span></div>'
                 )
-        fua = price.get("free_under_age") if price else None
+        fua = age_p.get("free_under_age")
         if fua is not None:
-            price_rows_html.append(
+            age_rows_html.append(
                 f'<div class="kv"><span class="k">Free under · 免费年龄</span>'
                 f'<span class="v verified">N &lt; {fua}</span></div>'
             )
+
+        identity_rows_html = []
+        for k, label_en, label_zh in [
+            ("student",  "Student",  "学生"),
+            ("educator", "Educator", "教师"),
+            ("military", "Military", "军人"),
+        ]:
+            v = _tier_price(ident_p, k)
+            if v is None:
+                identity_rows_html.append(
+                    f'<div class="kv kv-gap"><span class="k">{label_en} · {label_zh}</span>'
+                    f'<span class="v dash">-</span></div>'
+                )
+            else:
+                any_price = True
+                identity_rows_html.append(
+                    f'<div class="kv"><span class="k">{label_en} · {label_zh}</span>'
+                    f'<span class="v verified">${esc(str(v))}</span></div>'
+                )
+
+        family_v = price.get("family") if price else None
+        family_row_html = ""
+        if family_v is None:
+            family_row_html = (
+                '<div class="kv kv-gap"><span class="k">Family · 家庭通票</span>'
+                '<span class="v dash">-</span></div>'
+            )
+        else:
+            any_price = True
+            family_row_html = (
+                f'<div class="kv"><span class="k">Family · 家庭通票</span>'
+                f'<span class="v verified">${esc(str(family_v))}</span></div>'
+            )
+
         notes = price.get("notes") if price else None
+        notes_row_html = ""
         if notes:
-            price_rows_html.append(
+            notes_row_html = (
                 f'<div class="kv kv-wide"><span class="k">Notes · 备注</span>'
                 f'<span class="v">{esc(notes)}</span></div>'
             )
@@ -955,8 +999,13 @@ def page_attractions(attr_data) -> str:
   </div>
 
   <section class="prices-block">
-    <h3 class="block-title">Prices · 票价层级 <span class="block-meta">8 个层级 · 有数据绿色 · 无数据灰色短划</span></h3>
-    <div class="kv-grid">{"".join(price_rows_html)}</div>
+    <h3 class="block-title">Prices · 票价层级 <span class="block-meta">两层模型 · 年龄定价 + 身份定价 · 有数据绿色 · 无数据灰色短划</span></h3>
+    <h4 class="block-subtitle">年龄定价 · Age-based pricing <span class="block-meta">适用任何符合年龄的访客</span></h4>
+    <div class="kv-grid">{"".join(age_rows_html)}</div>
+    <h4 class="block-subtitle">身份定价 · Identity-based pricing <span class="block-meta">需出示证件(学生证 / 教师 ID / 军人证)</span></h4>
+    <div class="kv-grid">{"".join(identity_rows_html)}</div>
+    <h4 class="block-subtitle">Family / Notes</h4>
+    <div class="kv-grid">{family_row_html}{notes_row_html}</div>
     {price_footer}
   </section>
 
@@ -987,12 +1036,32 @@ def page_attractions(attr_data) -> str:
                        ("family","Family · 家庭通票")]
     core_counter = Counter()
     secondary_counter = Counter()
+    # Tier lookup map: which layer does each key live in?
+    #   age_pricing: adult / youth / child / senior
+    #   identity_pricing: student / educator / military
+    #   top-level: family
+    AGE_KEYS = {"adult", "youth", "child", "senior"}
+    IDENT_KEYS = {"student", "educator", "military"}
+
+    def _has_tier(price_block: dict, key: str) -> bool:
+        if not price_block:
+            return False
+        if key == "family":
+            return price_block.get("family") is not None
+        if key in AGE_KEYS:
+            tier = (price_block.get("age_pricing") or {}).get(key)
+        elif key in IDENT_KEYS:
+            tier = (price_block.get("identity_pricing") or {}).get(key)
+        else:
+            return False
+        return isinstance(tier, dict) and tier.get("price") is not None
+
     for A in attrs:
         p = A.get("original_price") or {}
         for k, _ in CORE_TIERS:
-            if p.get(k) is not None: core_counter[k] += 1
+            if _has_tier(p, k): core_counter[k] += 1
         for k, _ in SECONDARY_TIERS:
-            if p.get(k) is not None: secondary_counter[k] += 1
+            if _has_tier(p, k): secondary_counter[k] += 1
     tier_label_map = {**dict(CORE_TIERS), **dict(SECONDARY_TIERS)}
     # Hours buckets — 3 user-facing categories + 2 footnote categories.
     # Rule: a status="ok" record with ALL 7 days closed is treated as seasonal
@@ -1443,7 +1512,22 @@ def page_duplicates(attr_data) -> str:
         if not A:
             return "<i>(not found in dataset)</i>"
         price = A.get("original_price") or {}
-        price_str = "·".join(f"{k}={v}" for k, v in price.items() if v is not None and k != "source_url") or "—"
+        # Flatten two-layer price into "k=v" tokens for the dup audit summary.
+        _parts = []
+        for _k, _tier in (price.get("age_pricing") or {}).items():
+            if _k == "free_under_age":
+                if _tier is not None:
+                    _parts.append(f"free_under_age={_tier}")
+            elif isinstance(_tier, dict) and _tier.get("price") is not None:
+                _parts.append(f"{_k}={_tier['price']}")
+        for _k, _tier in (price.get("identity_pricing") or {}).items():
+            if isinstance(_tier, dict) and _tier.get("price") is not None:
+                _parts.append(f"{_k}={_tier['price']}")
+        if price.get("family") is not None:
+            _parts.append(f"family={price['family']}")
+        if price.get("notes"):
+            _parts.append(f"notes={price['notes']}")
+        price_str = "·".join(_parts) or "—"
         return f"""<div class="dup-card">
   <code class="slug">{esc(A['slug'])}</code>
   <h4>{esc(A.get('museum_name') or '')}</h4>
@@ -1570,7 +1654,13 @@ def page_schema() -> str:
     <li><b>address / website / phone / description</b>:景点元数据,来自景点官网或 Wikipedia。</li>
     <li><b>categories</b>:分类标签数组(Children / Family / Science / Art / Nature / History ...)。</li>
     <li><b>sources</b>:提供本景点 pass 的所有图书馆 id 数组。</li>
-    <li><b>original_price</b>:景点门市原价。包含 adult / child / youth / senior / student / military / educator / family 八种票种,以及 <code>free_under_age</code>(低于该岁数免费)、notes、source_url。任何字段可为 null,表示未提取到。</li>
+    <li><b>original_price</b>:景点门市原价,两层模型。
+      <ul>
+        <li><b>age_pricing</b>:按年龄定价,任何符合年龄的访客都适用。包含 adult / youth / child / senior 四种(每种是 <code>{price, min_age, max_age}</code> 或 null),以及 <code>free_under_age</code>(低于该岁数免费,是年龄阈值数字而非票价)。</li>
+        <li><b>identity_pricing</b>:按身份定价,需出示证件。包含 student / educator / military 三种(每种是 <code>{price, requires}</code> 或 null)。</li>
+        <li><b>family</b>:家庭通票价(顶层数字)。<b>notes / source_url</b>:备注与数据源。</li>
+      </ul>
+    </li>
     <li><b>hero_image</b>:景点官网 <code>&lt;meta property="og:image"&gt;</code> 抓取的封面图;<code>local_path</code> 是本地缓存路径(gitignored)。</li>
     <li><b>hours</b>:周一至周日营业时间;<code>status</code> 字段表示数据可信度(ok / varies / seasonal / missing)。</li>
     <li><b>geo</b>:经纬度,用于距离排序。</li>
@@ -1835,6 +1925,10 @@ main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
   border-bottom: 1px dotted var(--rule); font-weight: 700;
 }
 .attr-card .block-meta { color: var(--ink-3); font-size: 11.5px; font-family: 'DM Sans', sans-serif; font-weight: 400; margin-left: 8px; }
+.attr-card .block-subtitle {
+  font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+  color: var(--ink-2); margin: 12px 0 6px; text-transform: uppercase; letter-spacing: 0.04em;
+}
 
 /* Definition list rows: label left, value right */
 .kv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }

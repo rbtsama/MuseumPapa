@@ -3,9 +3,21 @@ import { applyDiscount, formatPriceLine } from './price-fallback';
 import type { OriginalPrice } from '../data/types';
 
 const adult30: OriginalPrice = {
-  adult: 30, child: null, youth: null, senior: null, student: null,
-  military: null, educator: null, family: null,
-  free_under_age: null, notes: null, source_url: null,
+  age_pricing: {
+    adult: { price: 30, min_age: null, max_age: null },
+    youth: null,
+    child: null,
+    senior: null,
+    free_under_age: null,
+  },
+  identity_pricing: {
+    student: null,
+    educator: null,
+    military: null,
+  },
+  family: null,
+  notes: null,
+  source_url: null,
 };
 
 describe('applyDiscount', () => {

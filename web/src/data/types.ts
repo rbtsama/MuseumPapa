@@ -23,17 +23,43 @@ export interface Library {
   geo: Geo | null;
 }
 
+/** Age-based pricing tier — applies to anyone matching the age range. */
+export interface AgeTier {
+  price: number;
+  min_age?: number | null;   // e.g. Senior 65+
+  max_age?: number | null;   // e.g. Child <=12, Youth 11-17
+}
+
+/** Identity-based pricing tier — requires status proof (student ID, military ID, educator badge). */
+export interface IdentityTier {
+  price: number;
+  requires?: string | null;   // free-text human description, e.g. "valid student ID"
+}
+
+/**
+ * Original (non-discounted) admission price for an attraction.
+ *
+ * Two conceptual layers:
+ *   - age_pricing: tiers by age (adult/youth/child/senior + free_under_age threshold)
+ *   - identity_pricing: tiers by status proof (student/educator/military)
+ *
+ * 两层定价模型:age_pricing 按年龄(任何人都适用),identity_pricing 按身份(需出示证件)。
+ */
 export interface OriginalPrice {
-  adult: number | null;
-  child: number | null;
-  youth: number | null;
-  senior: number | null;
-  student: number | null;
-  military: number | null;
-  educator: number | null;
-  family: number | null;
-  free_under_age: number | null;
-  notes: string | null;
+  age_pricing: {
+    adult:  AgeTier | null;
+    youth:  AgeTier | null;
+    child:  AgeTier | null;
+    senior: AgeTier | null;
+    free_under_age: number | null;   // age threshold, NOT a price
+  };
+  identity_pricing: {
+    student:  IdentityTier | null;
+    educator: IdentityTier | null;
+    military: IdentityTier | null;
+  };
+  family:    number | null;
+  notes:     string | null;
   source_url: string | null;
 }
 

@@ -5,8 +5,8 @@ import type { OriginalPrice, Discount } from '../data/types';
  * Returns null if we can't compute (original missing).
  */
 export function applyDiscount(original: OriginalPrice | null, discount: Discount): number | null {
-  if (!original || original.adult == null) return null;
-  const adult = original.adult;
+  const adult = original?.age_pricing?.adult?.price ?? null;
+  if (adult == null) return null;
   switch (discount.class) {
     case 'free': return 0;
     case 'half': return adult * 0.5;
@@ -37,20 +37,21 @@ export function applyDiscount(original: OriginalPrice | null, discount: Discount
  *   - "" (no useful information)
  */
 export function formatPriceLine(original: OriginalPrice | null, discount: Discount | null): string {
+  const adult = original?.age_pricing?.adult?.price ?? null;
   if (!discount) {
     // No discount applicable — just show original
-    if (original?.adult != null) return `Original $${original.adult}`;
+    if (adult != null) return `Original $${adult}`;
     return '';
   }
   const final = applyDiscount(original, discount);
-  if (original?.adult != null) {
-    if (final === 0) return `Original $${original.adult} → Free`;
+  if (adult != null) {
+    if (final === 0) return `Original $${adult} → Free`;
     if (final != null) {
       const finalStr = Number.isInteger(final) ? `$${final}` : `$${final.toFixed(2)}`;
-      return `Original $${original.adult} → ${finalStr}`;
+      return `Original $${adult} → ${finalStr}`;
     }
     // can't compute final — at least show the discount label
-    return `Original $${original.adult} (${discount.label})`;
+    return `Original $${adult} (${discount.label})`;
   }
   // No original — just the discount label
   return discount.label;

@@ -168,6 +168,10 @@ main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
   border-bottom: 1px dotted var(--rule); font-weight: 700;
 }
 .attr-card .block-meta { color: var(--ink-3); font-size: 11.5px; font-family: 'DM Sans', sans-serif; font-weight: 400; margin-left: 8px; }
+.attr-card .block-subtitle {
+  font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+  color: var(--ink-2); margin: 12px 0 6px; text-transform: uppercase; letter-spacing: 0.04em;
+}
 
 /* Definition list rows: label left, value right */
 .kv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }

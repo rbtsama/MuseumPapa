@@ -51,16 +51,21 @@ export function AttractionCard({
 }: Props) {
   const town = townFromAddress(attraction.address);
   const op = attraction.original_price;
-  const adult = op?.adult ?? null;
+  const adultPrice = op?.age_pricing?.adult?.price ?? null;
+  const youthPrice = op?.age_pricing?.youth?.price ?? null;
+  const childPrice = op?.age_pricing?.child?.price ?? null;
+  const seniorPrice = op?.age_pricing?.senior?.price ?? null;
+  const studentPrice = op?.identity_pricing?.student?.price ?? null;
+  const adult = adultPrice;
   const total = pickedTags.length;
 
   // Up to 4 known tiers, in display priority order. "adult" is shown without label.
   const tiers: Array<{ label: string | null; value: number }> = [];
-  if (op?.adult != null) tiers.push({ label: 'adult', value: op.adult });
-  if (op?.youth != null) tiers.push({ label: 'youth', value: op.youth });
-  if (op?.child != null) tiers.push({ label: 'kids', value: op.child });
-  if (op?.senior != null && tiers.length < 4) tiers.push({ label: 'senior', value: op.senior });
-  if (op?.student != null && tiers.length < 4) tiers.push({ label: 'student', value: op.student });
+  if (adultPrice != null) tiers.push({ label: 'adult', value: adultPrice });
+  if (youthPrice != null) tiers.push({ label: 'youth', value: youthPrice });
+  if (childPrice != null) tiers.push({ label: 'kids', value: childPrice });
+  if (seniorPrice != null && tiers.length < 4) tiers.push({ label: 'senior', value: seniorPrice });
+  if (studentPrice != null && tiers.length < 4) tiers.push({ label: 'student', value: studentPrice });
   const hoursInfo = date ? hoursDisplay(attraction, date) : null;
 
   const dim = closedToday ? { filter: 'grayscale(0.7)', opacity: 0.55 } : {};

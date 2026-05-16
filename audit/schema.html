@@ -37,7 +37,13 @@
     <li><b>address / website / phone / description</b>:景点元数据,来自景点官网或 Wikipedia。</li>
     <li><b>categories</b>:分类标签数组(Children / Family / Science / Art / Nature / History ...)。</li>
     <li><b>sources</b>:提供本景点 pass 的所有图书馆 id 数组。</li>
-    <li><b>original_price</b>:景点门市原价。包含 adult / child / youth / senior / student / military / educator / family 八种票种,以及 <code>free_under_age</code>(低于该岁数免费)、notes、source_url。任何字段可为 null,表示未提取到。</li>
+    <li><b>original_price</b>:景点门市原价,两层模型。
+      <ul>
+        <li><b>age_pricing</b>:按年龄定价,任何符合年龄的访客都适用。包含 adult / youth / child / senior 四种(每种是 <code>{price, min_age, max_age}</code> 或 null),以及 <code>free_under_age</code>(低于该岁数免费,是年龄阈值数字而非票价)。</li>
+        <li><b>identity_pricing</b>:按身份定价,需出示证件。包含 student / educator / military 三种(每种是 <code>{price, requires}</code> 或 null)。</li>
+        <li><b>family</b>:家庭通票价(顶层数字)。<b>notes / source_url</b>:备注与数据源。</li>
+      </ul>
+    </li>
     <li><b>hero_image</b>:景点官网 <code>&lt;meta property="og:image"&gt;</code> 抓取的封面图;<code>local_path</code> 是本地缓存路径(gitignored)。</li>
     <li><b>hours</b>:周一至周日营业时间;<code>status</code> 字段表示数据可信度(ok / varies / seasonal / missing)。</li>
     <li><b>geo</b>:经纬度,用于距离排序。</li>

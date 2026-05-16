@@ -285,7 +285,7 @@ export function AttractionDetail() {
                         <DiscountLine
                           discount={r.pass.discount}
                           policy={r.pass.policy}
-                          adult={attraction.original_price?.adult ?? null}
+                          adult={attraction.original_price?.age_pricing?.adult?.price ?? null}
                         />
                       </span>
                     </button>

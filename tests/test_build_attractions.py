@@ -43,13 +43,37 @@ def test_build_attractions_merges_price_image_geo():
     assert set(a["categories"]) == {"Science", "Children"}  # Family/Science → Children/Science via canonicalize
     assert set(a["categories_raw"]) == {"Science", "Family"}  # raw labels preserved
     assert set(a["sources"]) == {"wakefield", "reading"}
-    assert a["original_price"]["adult"] == 33
-    assert a["original_price"]["child"] == 28
-    assert a["original_price"]["youth"] == 25
-    assert a["original_price"]["military"] == 27
-    assert a["original_price"]["educator"] == 27
+    assert a["original_price"]["age_pricing"]["adult"]["price"] == 33
+    assert a["original_price"]["age_pricing"]["child"]["price"] == 28
+    assert a["original_price"]["age_pricing"]["youth"]["price"] == 25
+    assert a["original_price"]["identity_pricing"]["military"]["price"] == 27
+    assert a["original_price"]["identity_pricing"]["educator"]["price"] == 27
     assert a["hero_image"]["og_image_url"] == "https://www.mos.org/og.jpg"
     assert a["geo"]["lat"] == 42.367
+
+
+def test_build_attractions_uses_two_layer_price_schema():
+    """Prices are split into age_pricing (age-based) and identity_pricing (status-based)."""
+    from malibbene.build.attractions import build_attractions
+    catalog = {"libraries": {"wakefield": {"passes": {"mos": {
+        "museum_name": "Museum of Science", "address": "1 Science Park, Boston, MA",
+        "website": "https://www.mos.org", "categories": ["Science", "Family"],
+    }}}}}
+    prices = {"mos": {"status": "ok", "adult": 33, "child": 28, "youth": 25,
+                       "senior": 30, "student": 27, "military": 0, "educator": 0,
+                       "family": None, "free_under_age": 3, "notes": None,
+                       "source_url": "https://www.mos.org/admission"}}
+    out = build_attractions(catalog, prices, {}, {"attractions": {}}, hours={}, descriptions={})
+    p = out["attractions"][0]["original_price"]
+    assert p["age_pricing"]["adult"]["price"] == 33
+    assert p["age_pricing"]["child"]["price"] == 28
+    assert p["age_pricing"]["senior"]["price"] == 30
+    assert p["age_pricing"]["free_under_age"] == 3
+    assert p["identity_pricing"]["student"]["price"] == 27
+    assert p["identity_pricing"]["military"]["price"] == 0
+    assert p["identity_pricing"]["educator"]["price"] == 0
+    assert "adult" not in p
+    assert "student" not in p
 
 
 def test_build_attractions_surfaces_phone_and_description():

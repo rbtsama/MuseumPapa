@@ -9,16 +9,27 @@ from malibbene.build.categories import canonicalize as canonicalize_categories
 def _price_block(rec: dict | None) -> dict | None:
     if not rec or rec.get("status") != "ok":
         return None
+
+    def _age_tier(value):
+        return {"price": value, "min_age": None, "max_age": None} if value is not None else None
+
+    def _identity_tier(value):
+        return {"price": value, "requires": None} if value is not None else None
+
     return {
-        "adult": rec.get("adult"),
-        "child": rec.get("child"),
-        "youth": rec.get("youth"),
-        "senior": rec.get("senior"),
-        "student": rec.get("student"),
-        "military": rec.get("military"),
-        "educator": rec.get("educator"),
+        "age_pricing": {
+            "adult":  _age_tier(rec.get("adult")),
+            "youth":  _age_tier(rec.get("youth")),
+            "child":  _age_tier(rec.get("child")),
+            "senior": _age_tier(rec.get("senior")),
+            "free_under_age": rec.get("free_under_age"),
+        },
+        "identity_pricing": {
+            "student":  _identity_tier(rec.get("student")),
+            "educator": _identity_tier(rec.get("educator")),
+            "military": _identity_tier(rec.get("military")),
+        },
         "family": rec.get("family"),
-        "free_under_age": rec.get("free_under_age"),
         "notes": rec.get("notes"),
         "source_url": rec.get("source_url"),
     }

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-16T16:48:42Z",
+    "built_at": "2026-05-16T16:51:37Z",
     "n_attractions": 107,
     "n_with_price": 81,
     "n_with_image": 104,
@@ -86,15 +86,27 @@
         "hingham"
       ],
       "original_price": {
-        "adult": 24,
-        "child": 24,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 24,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 24,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": null,
+          "free_under_age": 1
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 1,
         "notes": "Children 1 and under free; flat rate $24 for ages 1+",
         "source_url": "http://www.bostonchildrensmuseum.org/"
       },
@@ -208,15 +220,27 @@
         "wilmington"
       ],
       "original_price": {
-        "adult": 28.95,
-        "child": null,
-        "youth": null,
-        "senior": 25.95,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 28.95,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 25.95,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "General admission (ages 2-59): $28.95 weekday / $31.95 weekend. Senior (60+): $25.95 weekday / $28.95 weekend. All visitors ages 2+ pay general admission. Online discount: save $4/ticket.",
         "source_url": "https://davisfarmland.com/plan-your-visit/hours-tickets/"
       },
@@ -294,15 +318,34 @@
         "woburn"
       ],
       "original_price": {
-        "adult": 19,
-        "child": 19,
-        "youth": null,
-        "senior": 18,
-        "student": null,
-        "military": null,
-        "educator": 0,
+        "age_pricing": {
+          "adult": {
+            "price": 19,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 19,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 18,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 1
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": {
+            "price": 0,
+            "requires": null
+          },
+          "military": null
+        },
         "family": null,
-        "free_under_age": 1,
         "notes": "ONE price for Discovery Museum and Discovery Woods; Teachers always free; Members free; under 1 year free",
         "source_url": "http://www.discoveryacton.org/"
       },
@@ -361,15 +404,22 @@
         "wellesley"
       ],
       "original_price": {
-        "adult": null,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": 0,
-        "educator": null,
+        "age_pricing": {
+          "adult": null,
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": {
+            "price": 0,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Senior $6 off regular admission; Student $6 off with valid ID; Active Duty Military and National Guard free",
         "source_url": "http://www.ecotarium.org/visit"
       },
@@ -428,15 +478,37 @@
         "winchester"
       ],
       "original_price": {
-        "adult": 18.0,
-        "child": null,
-        "youth": 8.0,
-        "senior": 15.0,
-        "student": 12.0,
-        "military": 0.0,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 18.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 8.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": {
+            "price": 15.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 5
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 12.0,
+            "requires": null
+          },
+          "educator": null,
+          "military": {
+            "price": 0.0,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 5,
         "notes": "Adult (18-64): $18; Senior (65+): $15; Student: $12; Youth (5-17): $8; Children under 5: free. Active service members and spouses: free with valid military ID. Veterans: 50% discount with proof of service. Members: free.",
         "source_url": "https://www.nativeplanttrust.org/visit/garden-woods/"
       },
@@ -517,15 +589,34 @@
         "woburn"
       ],
       "original_price": {
-        "adult": 15,
-        "child": null,
-        "youth": 10,
-        "senior": 13,
-        "student": 10,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": {
+            "price": 13,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 3
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 10,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 3,
         "notes": "Children under 3 free; Harvard students/faculty/staff free",
         "source_url": "https://hmsc.harvard.edu/"
       },
@@ -601,15 +692,30 @@
         "winchester"
       ],
       "original_price": {
-        "adult": 20.0,
-        "child": null,
-        "youth": null,
-        "senior": 17.0,
-        "student": 15.0,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 20.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 17.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 18
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 15.0,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 18,
         "notes": "Adults: $20; Students: $15; Seniors (65+): $17; Ages 18 and under: free; BPS students: free. Free every Thursday 5-9 PM. Library pass: $10/person.",
         "source_url": "https://www.icaboston.org/visit"
       },
@@ -702,15 +808,33 @@
         "woburn"
       ],
       "original_price": {
-        "adult": 22.0,
-        "child": null,
-        "youth": null,
-        "senior": 20.0,
-        "student": 15.0,
-        "military": 0.0,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 22.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 20.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 18
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 15.0,
+            "requires": null
+          },
+          "educator": null,
+          "military": {
+            "price": 0.0,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 18,
         "notes": "Adult: $22; Senior (65+): $20; Student (with current ID): $15; Children 17 and under: free. US Military with valid ID: free. Museum Pass Program: $5. Massachusetts Teachers Association: half off. Card to Culture holders: $2 discount. Free First Thursdays (3-9 PM). People named Isabella with valid ID: free.",
         "source_url": "https://www.gardnermuseum.org/visit"
       },
@@ -836,15 +960,23 @@
         "woburn"
       ],
       "original_price": {
-        "adult": 2,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 2,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": 2
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 2,
         "notes": "Library passes $2 per person (up to 4); children under 2 always free; members free",
         "source_url": "http://www.massaudubon.org/admission"
       },
@@ -1024,15 +1156,27 @@
         "woburn"
       ],
       "original_price": {
-        "adult": 30.0,
-        "child": null,
-        "youth": 14.0,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 30.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 14.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": null,
+          "free_under_age": 7
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 7,
         "notes": "Adults: $30; Youths 7-17: $14; Youths 0-6: free. Members: free. Additional free and discounted admission opportunities listed separately on site.",
         "source_url": "https://www.mfa.org/visit/plan-your-visit"
       },
@@ -1142,15 +1286,31 @@
         "hingham"
       ],
       "original_price": {
-        "adult": 33,
-        "child": 28,
-        "youth": null,
-        "senior": 29,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 33,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 28,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 29,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 3
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 3,
         "notes": "Children under 3 free; Members free",
         "source_url": "https://www.mos.org/visit/hours"
       },
@@ -1258,15 +1418,31 @@
         "hingham"
       ],
       "original_price": {
-        "adult": 44.95,
-        "child": 35.95,
-        "youth": null,
-        "senior": 42.95,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 44.95,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 35.95,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 42.95,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 2
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 2,
         "notes": "Children under 2 free",
         "source_url": "http://www.neaq.org/"
       },
@@ -1429,15 +1605,30 @@
         "hingham"
       ],
       "original_price": {
-        "adult": 25,
-        "child": null,
-        "youth": null,
-        "senior": 23,
-        "student": 15,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 25,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 23,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 16
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 15,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 16,
         "notes": "Youth (under 16) free; Salem residents free; Members free",
         "source_url": "https://www.pem.org/visit"
       },
@@ -1515,15 +1706,23 @@
         "woburn"
       ],
       "original_price": {
-        "adult": 0,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Free admission noted on page; Trustees members always free",
         "source_url": "http://www.thetrustees.org/"
       },
@@ -1666,15 +1865,34 @@
         "stoneham"
       ],
       "original_price": {
-        "adult": 15,
-        "child": null,
-        "youth": 7.5,
-        "senior": 7.5,
-        "student": null,
-        "military": 7.5,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 7.5,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": {
+            "price": 7.5,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 5
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": {
+            "price": 7.5,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 5,
         "notes": "Youth(6-12) $7.50; Seniors(65+)/veterans/active military $7.50; Children 5 and under free; Aviation Museum members free",
         "source_url": "https://aviationmuseumofnh.org/hours"
       },
@@ -1720,15 +1938,23 @@
         "andover"
       ],
       "original_price": {
-        "adult": 15.0,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": 12
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 12,
         "notes": "Adults: $15. Children 12 and under: free.",
         "source_url": "https://www.bedrockgardens.org/visiting.html"
       },
@@ -1781,15 +2007,37 @@
         "winchester"
       ],
       "original_price": {
-        "adult": 24.95,
-        "child": 17.95,
-        "youth": null,
-        "senior": 22.95,
-        "student": 22.95,
-        "military": 22.95,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 24.95,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 17.95,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 22.95,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 3
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 22.95,
+            "requires": null
+          },
+          "educator": null,
+          "military": {
+            "price": 22.95,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 3,
         "notes": "2025 fares (round trip ferry to park): Adult $24.95; Child $17.95; Senior $22.95; Student/Military $22.95; Child under 3: free. Ride Pass (unlimited): $100. Free and reduced-cost access available through library passes and other programs.",
         "source_url": "https://www.bostonharborislands.org/ferryschedule2023/"
       },
@@ -1842,15 +2090,23 @@
         "haverhill"
       ],
       "original_price": {
-        "adult": 0,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Free admission; pay what you can",
         "source_url": "http://www.childrens-museum.org/"
       },
@@ -1957,15 +2213,31 @@
         "woburn"
       ],
       "original_price": {
-        "adult": 26,
-        "child": 18,
-        "youth": null,
-        "senior": 21,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 26,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 18,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 21,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 5
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 5,
         "notes": "Children under 5 free; Members free; Salem residents free; NARM passholders free",
         "source_url": "https://www.7gables.org/"
       },
@@ -2020,15 +2292,23 @@
         "wilmington"
       ],
       "original_price": {
-        "adult": 10,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": 12
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 12,
         "notes": "Children 12 and under free; Members free; EBT cardholders and 1 guest free",
         "source_url": "https://www.neqm.org/visit"
       },
@@ -2077,15 +2357,30 @@
         "methuen"
       ],
       "original_price": {
-        "adult": 35,
-        "child": null,
-        "youth": null,
-        "senior": 30,
-        "student": 10,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 35,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 30,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 10,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Adults $35; Seniors $30; Students $10 ($5 for Salem Students); Streaming online $15",
         "source_url": "https://www.nhphil.org/"
       },
@@ -2141,15 +2436,27 @@
         "winchester"
       ],
       "original_price": {
-        "adult": 12,
-        "child": 12,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 12,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 12,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": null,
+          "free_under_age": 1
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 1,
         "notes": "Adults and Children (12 months+) $12; EBT/WIC $3; Library pass $6; Children under 12 months free",
         "source_url": "https://www.nschildrensmuseum.org/buy-tickets"
       },
@@ -2209,15 +2516,31 @@
         "winchester"
       ],
       "original_price": {
-        "adult": 35.0,
-        "child": 20.0,
-        "youth": null,
-        "senior": 31.5,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 35.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 20.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 31.5,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Plimoth Patuxet Only: Adult $35, Senior $31.50, Child $20. Heritage Pass (all sites, 2 days): Adult $46, Senior $41.40, Child $29. Combination Pass (2 days): Adult $44, Senior $39.60, Child $27. Mayflower II only: Adult $19, Senior $17.10, Child $13. Plimoth Grist Mill only: Adult $11, Senior $9.90, Child $8.",
         "source_url": "https://plimoth.org/plan-your-visit/hours-tickets-directions"
       },
@@ -2278,15 +2601,31 @@
         "woburn"
       ],
       "original_price": {
-        "adult": 19.0,
-        "child": 16.0,
-        "youth": null,
-        "senior": 17.5,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 19.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 16.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 17.5,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Adult: $19.00; Senior Citizen (62+): $17.50; Children (6-14): $16.00. October tickets are sold online only. Tickets at in-person during slower seasons.",
         "source_url": "http://www.salemwitchmuseum.com/cost"
       },
@@ -2340,15 +2679,34 @@
         "middleton"
       ],
       "original_price": {
-        "adult": 15,
-        "child": 10,
-        "youth": null,
-        "senior": 12.5,
-        "student": null,
-        "military": 12.5,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 12.5,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 2
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": {
+            "price": 12.5,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 2,
         "notes": "Ages 3-11: $10; Ages 0-2 free; Active Duty Military & Veterans $12.50; Members free",
         "source_url": "http://www.seacoastsciencecenter.org/"
       },
@@ -2399,15 +2757,31 @@
         "topsfield"
       ],
       "original_price": {
-        "adult": 15,
-        "child": 10,
-        "youth": null,
-        "senior": 10,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 2
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 2,
         "notes": "Babies 0-23 months free; Children 2-18 and Seniors same price $10",
         "source_url": "http://www.wenhammuseum.org/"
       },
@@ -2468,15 +2842,23 @@
         "bpl"
       ],
       "original_price": {
-        "adult": 2,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 2,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": 2
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 2,
         "notes": "Library passes $2 per person (up to 4); children under 2 always free; members free",
         "source_url": "https://www.massaudubon.org/admission"
       },
@@ -2518,15 +2900,30 @@
         "watertown"
       ],
       "original_price": {
-        "adult": 15,
-        "child": null,
-        "youth": null,
-        "senior": 5,
-        "student": 5,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 5,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 18
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 5,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 18,
         "notes": "Members free",
         "source_url": "https://www.armenianmuseum.org/"
       },
@@ -2581,15 +2978,19 @@
         "hingham"
       ],
       "original_price": {
-        "adult": null,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": null,
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "HTML FAQ states: 'Scheduled walking tours range in price from $10 to $20 and boat tours range in price from $20 to $49.' No single fixed adult price. Members receive free or discounted pricing. Adult set to null because price varies by tour.",
         "source_url": "https://bostonbyfoot.org/faq/"
       },
@@ -2644,15 +3045,27 @@
         "weston"
       ],
       "original_price": {
-        "adult": 0,
-        "child": 0,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Grounds free and open to public; mansion tours have separate admission fee",
         "source_url": "https://www.goreplace.org/"
       },
@@ -2702,15 +3115,34 @@
         "concord"
       ],
       "original_price": {
-        "adult": 15,
-        "child": null,
-        "youth": 8,
-        "senior": 12,
-        "student": 12,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 8,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": {
+            "price": 12,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 6
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 12,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 6,
         "notes": "Children under 6 free; Family rate 20% discount for 4+ people; Card to Culture $3/ticket",
         "source_url": "http://www.louisamayalcott.org/"
       },
@@ -2792,15 +3224,31 @@
         "woburn"
       ],
       "original_price": {
-        "adult": 0,
-        "child": 0,
-        "youth": null,
-        "senior": 0,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Pay what you wish; suggested donations apply",
         "source_url": "https://ussconstitutionmuseum.org/"
       },
@@ -2853,15 +3301,37 @@
         "sudbury"
       ],
       "original_price": {
-        "adult": 23.0,
-        "child": 12.0,
-        "youth": null,
-        "senior": 20.0,
-        "student": null,
-        "military": 20.0,
-        "educator": 0.0,
+        "age_pricing": {
+          "adult": {
+            "price": 23.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 12.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 20.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 3
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": {
+            "price": 0.0,
+            "requires": null
+          },
+          "military": {
+            "price": 20.0,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 3,
         "notes": "Adults: $23; Children (16 and under): $12; Seniors (62+): $20; Active Duty Military/Veterans (with ID): $20; Children 3 and under: free; WWII & Korean War Veterans: free; MA Teachers (with MTA Card): free. EBT/WIC/ConnectorCare: $3 adult + free for up to 4 children under 18. Online discount: $2/ticket.",
         "source_url": "https://www.americanheritagemuseum.org/plan-your-visit/hours-admission/"
       },
@@ -2972,15 +3442,23 @@
         "wakefield"
       ],
       "original_price": {
-        "adult": 0,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Free admission noted on page; Trustees members always free",
         "source_url": "http://www.thetrustees.org/"
       },
@@ -3021,15 +3499,36 @@
         "concord"
       ],
       "original_price": {
-        "adult": 11,
-        "child": 5,
-        "youth": null,
-        "senior": null,
-        "student": 8,
-        "military": 8,
-        "educator": 8,
+        "age_pricing": {
+          "adult": {
+            "price": 11,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 5,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 8,
+            "requires": null
+          },
+          "educator": {
+            "price": 8,
+            "requires": null
+          },
+          "military": {
+            "price": 8,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Students/Educators/Military same price $8; Card to Culture $2; NARM/ROAM free",
         "source_url": "https://www.bostonathenaeum.org/visit"
       },
@@ -3079,15 +3578,23 @@
         "topsfield"
       ],
       "original_price": {
-        "adult": 0,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Free admission; community children's space",
         "source_url": "https://www.thechildrenspiazza.com/"
       },
@@ -3179,15 +3686,31 @@
         "wilmington"
       ],
       "original_price": {
-        "adult": 34,
-        "child": null,
-        "youth": 20,
-        "senior": 25,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 34,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 20,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": {
+            "price": 25,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Children 4 and under free per general policy",
         "source_url": "https://www.hoophall.com/visit"
       },
@@ -3237,15 +3760,30 @@
         "sudbury"
       ],
       "original_price": {
-        "adult": 7,
-        "child": null,
-        "youth": null,
-        "senior": 6,
-        "student": 5,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 7,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 6,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 5,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Framingham residents $6; High school and college students $5",
         "source_url": "https://danforth.framingham.edu/"
       },
@@ -3299,15 +3837,30 @@
         "weston"
       ],
       "original_price": {
-        "adult": 22,
-        "child": null,
-        "youth": null,
-        "senior": 17,
-        "student": 17,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 22,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 17,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 17
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 17,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 17,
         "notes": "Youth 17 and under free; Members free; College Partners free",
         "source_url": "http://www.worcesterart.org/"
       },
@@ -3357,15 +3910,34 @@
         "methuen"
       ],
       "original_price": {
-        "adult": 19,
-        "child": 12,
-        "youth": null,
-        "senior": 17,
-        "student": null,
-        "military": 15,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 19,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 12,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 17,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 4
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": {
+            "price": 15,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 4,
         "notes": null,
         "source_url": "https://www.stonehengeusa.com/admission"
       },
@@ -3415,15 +3987,34 @@
         "methuen"
       ],
       "original_price": {
-        "adult": 20,
-        "child": null,
-        "youth": 5,
-        "senior": 15,
-        "student": 15,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 20,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 5,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 13
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 15,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 13,
         "notes": "Children under 13 free; Youth (13-17) $5",
         "source_url": "http://currier.org/"
       },
@@ -3472,15 +4063,33 @@
         "methuen"
       ],
       "original_price": {
-        "adult": 15,
-        "child": null,
-        "youth": null,
-        "senior": 10,
-        "student": 0,
-        "military": 0,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 0,
+            "requires": null
+          },
+          "educator": null,
+          "military": {
+            "price": 0,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Military & students free; Haverhill Library cardholders free",
         "source_url": "https://www.museumofprinting.org/"
       },
@@ -3530,15 +4139,23 @@
         "tewksbury"
       ],
       "original_price": {
-        "adult": 0,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Free admission; donations welcome",
         "source_url": "https://www.publichealthmuseum.org/"
       },
@@ -3619,15 +4236,37 @@
         "lexington"
       ],
       "original_price": {
-        "adult": 22,
-        "child": 6,
-        "youth": 11,
-        "senior": null,
-        "student": 18,
-        "military": 18,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 22,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 11,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": {
+            "price": 6,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": null,
+          "free_under_age": 5
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 18,
+            "requires": null
+          },
+          "educator": null,
+          "military": {
+            "price": 18,
+            "requires": null
+          }
+        },
         "family": 50,
-        "free_under_age": 5,
         "notes": "Military and Student same price $18; SNAP/EBT $2; Members free",
         "source_url": "https://www.blithewold.org/general-admission"
       },
@@ -3677,15 +4316,37 @@
         "waltham"
       ],
       "original_price": {
-        "adult": 10,
-        "child": 5,
-        "youth": null,
-        "senior": 5,
-        "student": 5,
-        "military": null,
-        "educator": 5,
+        "age_pricing": {
+          "adult": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 5,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 5,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 6
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 5,
+            "requires": null
+          },
+          "educator": {
+            "price": 5,
+            "requires": null
+          },
+          "military": null
+        },
         "family": null,
-        "free_under_age": 6,
         "notes": "Children and Teens (6-17), College Students, and Seniors same price $5; Educators (MA education professionals) $5 with work ID; Active Duty Military same as adult; children under 6 free",
         "source_url": "https://www.charlesrivermuseum.org/"
       },
@@ -3737,15 +4398,34 @@
         "reading"
       ],
       "original_price": {
-        "adult": 15,
-        "child": null,
-        "youth": 10,
-        "senior": 13,
-        "student": 10,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": {
+            "price": 13,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 3
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 10,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 3,
         "notes": "Children under 3 free; Harvard students/faculty/staff free; Youth here refers to non-Harvard ages 3-18",
         "source_url": "https://hmnh.harvard.edu/"
       },
@@ -3885,15 +4565,30 @@
         "natick"
       ],
       "original_price": {
-        "adult": 15,
-        "child": null,
-        "youth": null,
-        "senior": 12,
-        "student": 0,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 12,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 17
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 0,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 17,
         "notes": "Students free with ID; Children and youth (0-17) free; First Sunday of each month free",
         "source_url": "https://www.iconmuseum.org/"
       },
@@ -3943,15 +4638,27 @@
         "wilmington"
       ],
       "original_price": {
-        "adult": 4,
-        "child": 18,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 4,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 18,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Sandy Explorer (1-10 years) $18; First Adult in party free; Additional Adults $4; Under 1 free with sibling else $5",
         "source_url": "https://sandmagination.com/admission"
       },
@@ -3999,15 +4706,23 @@
         "melrose"
       ],
       "original_price": {
-        "adult": 0,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Free admission to all",
         "source_url": "http://www.harvardartmuseums.org/"
       },
@@ -4055,15 +4770,34 @@
         "melrose"
       ],
       "original_price": {
-        "adult": 6,
-        "child": 1,
-        "youth": null,
-        "senior": 5.5,
-        "student": 5.5,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 6,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 1,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 5.5,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 5
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 5.5,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 5,
         "notes": "Seniors and College Students same price $5.50; children under 5 free",
         "source_url": "https://www.paulreverehouse.org/hours"
       },
@@ -4110,15 +4844,27 @@
         "middleton"
       ],
       "original_price": {
-        "adult": 17.44,
-        "child": 7.63,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 17.44,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 7.63,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": null,
+          "free_under_age": 2
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 2,
         "notes": "General admission ages 4+ $17.44; Toddlers 2-3 $7.63; Under 2 free; Various other tours available at different prices",
         "source_url": "http://www.animaladventures.net/"
       },
@@ -4167,15 +4913,23 @@
         "weston"
       ],
       "original_price": {
-        "adult": 0,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Free admission to plaza; Mapparium has separate paid admission",
         "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza"
       },
@@ -4270,15 +5024,31 @@
         "middleton"
       ],
       "original_price": {
-        "adult": 25,
-        "child": 19,
-        "youth": null,
-        "senior": 21,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 25,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 19,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 21,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 1
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 1,
         "notes": "Toddlers 1 year and younger free; Members free",
         "source_url": "http://www.rwpzoo.org/tickets"
       },
@@ -4329,15 +5099,34 @@
         "tewksbury"
       ],
       "original_price": {
-        "adult": 25.0,
-        "child": 12.5,
-        "youth": null,
-        "senior": 23.0,
-        "student": 23.0,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 25.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 12.5,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 23.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 5
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 23.0,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": 62.5,
-        "free_under_age": 5,
         "notes": "Adult: $25; Senior (65+)/Student: $23; Child (ages 5-17): $12.50; Child (under 5): free; Family (2 Adults + Children): $62.50. Members: free.",
         "source_url": "https://www.strawberybanke.org/visit"
       },
@@ -4388,15 +5177,34 @@
         "winchester"
       ],
       "original_price": {
-        "adult": 25.0,
-        "child": 15.0,
-        "youth": null,
-        "senior": 23.0,
-        "student": null,
-        "military": 16.0,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 25.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 15.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 23.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 4
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": {
+            "price": 16.0,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 4,
         "notes": "General Admission includes Maritime Museum. Adults: $25; Senior (65+): $23; Active Military (with ID): $16; US Military Veteran (with ID): $16; Children 4-12: $15; Children 3 and under: free. Maritime Museum only: Adults $10; Children 4-12 $8; Children 3 and under free.",
         "source_url": "https://www.battleshipcove.org/hours-and-admission"
       },
@@ -4442,15 +5250,30 @@
         "natick"
       ],
       "original_price": {
-        "adult": 14,
-        "child": null,
-        "youth": null,
-        "senior": 12,
-        "student": 12,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 14,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 12,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 12
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 12,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 12,
         "notes": "Children 12 and under free; Lincoln residents free; EBT/WIC/MassHealth free",
         "source_url": "http://www.decordova.org/admission"
       },
@@ -4500,15 +5323,27 @@
         "natick"
       ],
       "original_price": {
-        "adult": 14,
-        "child": null,
-        "youth": 5,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 14,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 5,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": null,
+          "free_under_age": 2
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 2,
         "notes": "Youth(3-17) $5; Kids 2 and under free; Members free; EBT/WIC $5 per adult (children free)",
         "source_url": "https://www.masshort.org/visit"
       },
@@ -4559,15 +5394,31 @@
         "weston"
       ],
       "original_price": {
-        "adult": 27,
-        "child": null,
-        "youth": 12,
-        "senior": 25,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 27,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 12,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": {
+            "price": 25,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 3
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 3,
         "notes": "Online prices; at door $3 more; children 3 and under free",
         "source_url": "https://www.osv.org/plan-your-visit"
       },
@@ -4661,15 +5512,37 @@
         "newton"
       ],
       "original_price": {
-        "adult": 15,
-        "child": 10,
-        "youth": null,
-        "senior": 10,
-        "student": 10,
-        "military": 10,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 6
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 10,
+            "requires": null
+          },
+          "educator": null,
+          "military": {
+            "price": 10,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 6,
         "notes": "Seniors/Students/Military/Children(6-12) same price $10; Children under 6 free; Members always free",
         "source_url": "https://www.larzanderson.org/plan-your-visit"
       },
@@ -4715,15 +5588,37 @@
         "newton"
       ],
       "original_price": {
-        "adult": 30.0,
-        "child": null,
-        "youth": 15.0,
-        "senior": 20.0,
-        "student": 20.0,
-        "military": 0.0,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 30.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 15.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": {
+            "price": 20.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 20.0,
+            "requires": null
+          },
+          "educator": null,
+          "military": {
+            "price": 0.0,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Day pass rates (non-members): Youth (0-19 years): $15; Adult (20-64 years): $30; Senior (65+ years): $20; College Student (with ID): $20; Adult Guest with Member: $25; Active Military (with ID): free. Day pass cost credited toward membership if joined within same week.",
         "source_url": "https://wsymca.org/membership"
       },
@@ -4772,15 +5667,31 @@
         "quincy"
       ],
       "original_price": {
-        "adult": 26,
-        "child": 0,
-        "youth": 16,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 26,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 16,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": null,
+          "free_under_age": 2
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 2,
         "notes": "Members free; child (0-2) free",
         "source_url": "https://heritagemuseumsandgardens.org/visit"
       },
@@ -4832,15 +5743,37 @@
         "quincy"
       ],
       "original_price": {
-        "adult": 24,
-        "child": null,
-        "youth": 14,
-        "senior": 22,
-        "student": null,
-        "military": 0,
-        "educator": 0,
+        "age_pricing": {
+          "adult": {
+            "price": 24,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 14,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": {
+            "price": 22,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 3
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": {
+            "price": 0,
+            "requires": null
+          },
+          "military": {
+            "price": 0,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 3,
         "notes": "Active military free; Massachusetts Teachers free; children under 3 free; Museum members free",
         "source_url": "https://www.whalingmuseum.org/tickets"
       },
@@ -4887,15 +5820,31 @@
         "quincy"
       ],
       "original_price": {
-        "adult": 15,
-        "child": 5,
-        "youth": null,
-        "senior": 13,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 5,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 13,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 5
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 5,
         "notes": "Ages 6-14: $5; Age 5 and under free",
         "source_url": "https://sandwichglassmuseum.org/"
       },
@@ -4978,15 +5927,26 @@
         "wayland"
       ],
       "original_price": {
-        "adult": 5.0,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": 0.0,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 5.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": 16
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": {
+            "price": 0.0,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 16,
         "notes": "Adults: $5; Children under 16: free; Museum Members: free; Military/Veterans: free; EBT/WIC cardholders: free admission for up to 4 people per card.",
         "source_url": "https://www.mspmlc.org/visit"
       },
@@ -5033,15 +5993,23 @@
         "weston"
       ],
       "original_price": {
-        "adult": 0,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Free admission; museum admission included in ticket cost for events",
         "source_url": "https://www.spellmanmuseum.org/"
       },
@@ -5088,15 +6056,23 @@
         "wilmington"
       ],
       "original_price": {
-        "adult": null,
-        "child": 20.0,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": null,
+          "youth": null,
+          "child": {
+            "price": 20.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Drop-In STEAM Play Space (Saturdays & Sundays 10 AM - 6 PM): $20 for first child, $5 for each additional child. Adults and children 2 and under are complimentary when accompanying a paying guest. Individual pricing: $20/person.",
         "source_url": "https://www.einsteinsworkshop.com/drop-ins"
       },
@@ -5145,15 +6121,37 @@
         "hingham"
       ],
       "original_price": {
-        "adult": 10,
-        "child": 5,
-        "youth": null,
-        "senior": 7,
-        "student": 7,
-        "military": 0,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 5,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 7,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 5
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 7,
+            "requires": null
+          },
+          "educator": null,
+          "military": {
+            "price": 0,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 5,
         "notes": "Active Military and Veterans free with ID; children under 5 free",
         "source_url": "https://www.patriotshalloffame.com/admission"
       },
@@ -5264,15 +6262,23 @@
         "hingham"
       ],
       "original_price": {
-        "adult": 0,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Islands free; ferry ticket required (~$25 adult); Free Ferry Weekend events available",
         "source_url": "https://www.bostonharborislands.org/"
       },
@@ -5345,15 +6351,23 @@
         "brookline"
       ],
       "original_price": {
-        "adult": 15.0,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": 2
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 2,
         "notes": "South Beach Day Pass: $15/person/day, up to $50/passenger vehicle max. After 5 PM: $5/person. Babies and toddlers under age 2: free. Main entrance parking: free year-round. South Beach currently closed seasonally.",
         "source_url": "https://hale.education/visit"
       },
@@ -5397,15 +6411,34 @@
         "hingham"
       ],
       "original_price": {
-        "adult": 15,
-        "child": null,
-        "youth": 10,
-        "senior": 13,
-        "student": 10,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": {
+            "price": 13,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 3
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 10,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 3,
         "notes": "Children under 3 free; Harvard students/faculty/staff free",
         "source_url": "https://hmsc.harvard.edu/visit/visit"
       },
@@ -5446,15 +6479,23 @@
         "cambridge"
       ],
       "original_price": {
-        "adult": 6,
-        "child": null,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 6,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": 17
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 17,
         "notes": "Youth 0-17 free",
         "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience/"
       },
@@ -5499,15 +6540,30 @@
         "hingham"
       ],
       "original_price": {
-        "adult": 20.0,
-        "child": null,
-        "youth": null,
-        "senior": 17.0,
-        "student": 15.0,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 20.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 17.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 18
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 15.0,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 18,
         "notes": "Duplicate of institute-of-contemporary-art-boston. Adults: $20; Students: $15; Seniors (65+): $17; Ages 18 and under: free; BPS students: free. Free every Thursday 5-9 PM. Library pass: $10/person.",
         "source_url": "https://www.icaboston.org/visit"
       },
@@ -5553,15 +6609,30 @@
         "hingham"
       ],
       "original_price": {
-        "adult": 22,
-        "child": null,
-        "youth": null,
-        "senior": 20,
-        "student": 15,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 22,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 20,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 17
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 15,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 17,
         "notes": "Children 17 and under free; members free; Museum Pass $5/pass for up to 4 adults",
         "source_url": "https://www.gardnermuseum.org/visit"
       },
@@ -5602,15 +6673,37 @@
         "brookline"
       ],
       "original_price": {
-        "adult": 15,
-        "child": 10,
-        "youth": null,
-        "senior": 10,
-        "student": 10,
-        "military": 10,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 10,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 6
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 10,
+            "requires": null
+          },
+          "educator": null,
+          "military": {
+            "price": 10,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 6,
         "notes": "Seniors/Students/Military/Children(6-12) same price $10; Children under 6 free; Members always free",
         "source_url": "https://www.larzanderson.org/plan-your-visit"
       },
@@ -5656,15 +6749,27 @@
         "hingham"
       ],
       "original_price": {
-        "adult": 30.0,
-        "child": null,
-        "youth": 14.0,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 30.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 14.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": null,
+          "free_under_age": 7
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 7,
         "notes": "Duplicate of museum-of-fine-arts. Adults: $30; Youths 7-17: $14; Youths 0-6: free. Members: free.",
         "source_url": "https://www.mfa.org/visit/plan-your-visit"
       },
@@ -5704,15 +6809,34 @@
         "bpl"
       ],
       "original_price": {
-        "adult": 15,
-        "child": 8,
-        "youth": null,
-        "senior": 13,
-        "student": 13,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 15,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 8,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 13,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 5
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 13,
+            "requires": null
+          },
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 5,
         "notes": "Children 5 and under free; Members free; New prices starting July 2, 2026: Adult $18, Senior $16, Youth(6-17) $10",
         "source_url": "https://revolutionaryspaces.org/hours-admission"
       },
@@ -5860,15 +6984,31 @@
         "hingham"
       ],
       "original_price": {
-        "adult": 0,
-        "child": 0,
-        "youth": null,
-        "senior": 0,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 0,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Pay what you wish; suggested donations apply",
         "source_url": "https://ussconstitutionmuseum.org/admission"
       },
@@ -5908,15 +7048,33 @@
         "braintree"
       ],
       "original_price": {
-        "adult": 12.0,
-        "child": 12.0,
-        "youth": null,
-        "senior": null,
-        "student": null,
-        "military": 0.0,
-        "educator": 0.0,
+        "age_pricing": {
+          "adult": {
+            "price": 12.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 12.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": null,
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": {
+            "price": 0.0,
+            "requires": null
+          },
+          "military": {
+            "price": 0.0,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "$12 per person (adults and children 1 year and up). EBT cardholders: $5/person (up to two family members). Blue Star Museum (active/retired military): free for up to 6 family members (Memorial Day-Labor Day). MTA cardholders: free. Wonder Fund (foster care families): 50% off up to six family members. Members: unlimited free visits.",
         "source_url": "https://www.cmeaston.org/visit/hours-admission/"
       },
@@ -5954,15 +7112,27 @@
         "hingham"
       ],
       "original_price": {
-        "adult": 26.0,
-        "child": null,
-        "youth": 16.0,
-        "senior": null,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 26.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": {
+            "price": 16.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "child": null,
+          "senior": null,
+          "free_under_age": 3
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": 3,
         "notes": "Adults: $26; Youth (ages 3-17): $16; Child (ages 0-2): free. Members: free. Includes access to three indoor gallery spaces, all gardens, and outdoor features.",
         "source_url": "https://heritagemuseumsandgardens.org/visit/"
       },
@@ -6004,15 +7174,31 @@
         "hingham"
       ],
       "original_price": {
-        "adult": 35.0,
-        "child": 20.0,
-        "youth": null,
-        "senior": 31.5,
-        "student": null,
-        "military": null,
-        "educator": null,
+        "age_pricing": {
+          "adult": {
+            "price": 35.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": {
+            "price": 20.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 31.5,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": null
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
         "family": null,
-        "free_under_age": null,
         "notes": "Duplicate of plimoth-patuxet-museums. Plimoth Patuxent Only: Adult $35, Senior $31.50, Child $20. Heritage Pass (all sites, 2 days): Adult $46, Senior $41.40, Child $29. Combination Pass (2 days): Adult $44, Senior $39.60, Child $27. Mayflower II only: Adult $19, Senior $17.10, Child $13.",
         "source_url": "https://plimoth.org/plan-your-visit/hours-tickets-directions"
       },
@@ -6162,15 +7348,36 @@
         "cambridge"
       ],
       "original_price": {
-        "adult": 15.0,
-        "child": null,
-        "youth": null,
-        "senior": 10.0,
-        "student": 10.0,
-        "military": 0.0,
-        "educator": 0.0,
+        "age_pricing": {
+          "adult": {
+            "price": 15.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "youth": null,
+          "child": null,
+          "senior": {
+            "price": 10.0,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 12
+        },
+        "identity_pricing": {
+          "student": {
+            "price": 10.0,
+            "requires": null
+          },
+          "educator": {
+            "price": 0.0,
+            "requires": null
+          },
+          "military": {
+            "price": 0.0,
+            "requires": null
+          }
+        },
         "family": null,
-        "free_under_age": 12,
         "notes": "Adults: $15; Seniors: $10; Students: $10; Children 12 or younger: free; EBT or WIC Cardholders: free; Blue Star Families (active duty military): free; MTA Members (Massachusetts Teachers Association): free. Admission to Slave Quarters (includes archaeological exhibit, gift shop, restrooms) is always free.",
         "source_url": "https://royallhouse.org/visit/hours-and-admission/"
       },
