@@ -48,13 +48,14 @@
     本期实际加总 ≈ 67/1008 = <b>7%</b>。
   </p>
   <p class="methodology">
-    <b>本展示对原始 AI 抽取做了 3 个归一化</b>(raw 数据未改):
+    <b>本展示对原始 AI 抽取做了 4 个归一化</b>(raw 数据未改):
     <br>① <code>weekends_excluded</code> + <code>no weekends</code> → 合并为 <code>weekdays_only</code>(语义等价,共 2 条受影响)
     <br>② <code>residents_only</code> 被移除 — 它本质是 eligibility 不是入场限制,而且本产品默认用户已是 cardholder
     <br>③ <code>id_required</code> 被移除 — raw 抽样显示绝大多数是 "出示 MA 图书馆卡 = 拿到折扣" 的机制(典型如 JFK Library),应归类为 <code>library_card_required</code>(已转移到 Bonuses)
+    <br>④ 所有 <code>seasonal:&lt;月-月&gt;</code> 变体合并为单行 <code>seasonal</code>(共 6 条,具体月份段去 Policies 看 raw)
     <br>合计 <b>28 条</b> AI 错位标签被剔除/迁移。
   </p>
-  <table class="histogram"><tr><td>reservation needed</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">35</td><td class="pct">3%</td></tr><tr><td>some dates excluded</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">21</td><td class="pct">2%</td></tr><tr><td>weekdays only</td><td class="bar-cell"><span class="bar"></span></td><td class="num">5</td><td class="pct">0%</td></tr><tr><td>Open 1st-October</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open october-october</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open apr-oct</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open may-sep</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open may-oct</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open mar-dec</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr><tr class="zero-row"><td><i>no restriction · 无任何限制</i></td><td class="bar-cell"><span class="bar" style="color:var(--ink-3)">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></td><td class="num">945</td><td class="pct">94%</td></tr></table>
+  <table class="histogram"><tr><td>reservation needed · 需预约</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">35</td><td class="pct">3%</td></tr><tr><td>blackout dates · 部分日期黑名单</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">21</td><td class="pct">2%</td></tr><tr><td>seasonal · 季节性开放(详见原文)</td><td class="bar-cell"><span class="bar"></span></td><td class="num">6</td><td class="pct">1%</td></tr><tr><td>weekdays only · 仅工作日</td><td class="bar-cell"><span class="bar"></span></td><td class="num">5</td><td class="pct">0%</td></tr><tr class="zero-row"><td><i>no restriction · 无任何限制</i></td><td class="bar-cell"><span class="bar" style="color:var(--ink-3)">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></td><td class="num">945</td><td class="pct">94%</td></tr></table>
 </section>
 
 <section class="panel">
@@ -86,7 +87,7 @@
 </section>
 
 <footer class="page-foot">
-  Built 2026-05-16 14:43 UTC ·
+  Built 2026-05-16 14:45 UTC ·
   <a href="#" class="view-json-link" data-json-key="meta">View JSON of dataset summary</a>
 </footer>
 

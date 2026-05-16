@@ -41,13 +41,14 @@ ELIG_LABEL = {
     "all": "open to all",
 }
 EXCL_LABEL = {
-    "weekdays_only": "weekdays only",
-    "weekends_only": "weekends only",
-    "weekends_excluded": "no weekends",
-    "blackout_dates": "some dates excluded",
-    "reservation_required": "reservation needed",
-    "id_required": "ID at gate",
-    "residents_only": "residents only",
+    "weekdays_only": "weekdays only · 仅工作日",
+    "weekends_only": "weekends only · 仅周末",
+    "weekends_excluded": "no weekends · 不接受周末",
+    "blackout_dates": "blackout dates · 部分日期黑名单",
+    "reservation_required": "reservation needed · 需预约",
+    "id_required": "ID at gate · 入场出示证件",
+    "residents_only": "residents only · 仅居民",
+    "seasonal": "seasonal · 季节性开放(详见原文)",
 }
 BOOST_LABEL = {
     "ebt_discount": "EBT discount",
@@ -416,8 +417,17 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
     EXCL_DROP = {"residents_only", "id_required"}
     BOOST_FROM_EXCL = {"id_required": "library_card_required"}
 
+    def _normalize_excl(t: str) -> str | None:
+        """Return normalized tag or None to drop. Also handles seasonal:* fold."""
+        if t in BOOST_FROM_EXCL or t in EXCL_DROP:
+            return None
+        if isinstance(t, str) and t.startswith("seasonal:"):
+            return "seasonal"
+        return EXCL_REMAP.get(t, t)
+
     n_excl_dropped = 0
     n_excl_merged = 0
+    n_excl_seasonal_folded = 0
     for p in passes:
         pol = p.get("policy") or {}
         for t in pol.get("eligibility_tags") or []:
@@ -429,6 +439,10 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
                 continue
             if t in EXCL_DROP:
                 n_excl_dropped += 1
+                continue
+            if isinstance(t, str) and t.startswith("seasonal:"):
+                excl_counter["seasonal"] += 1
+                n_excl_seasonal_folded += 1
                 continue
             mapped = EXCL_REMAP.get(t, t)
             if mapped != t:
@@ -486,6 +500,9 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
         out = set()
         for t in pol.get("exclusions") or []:
             if t in EXCL_DROP or t in BOOST_FROM_EXCL:
+                continue
+            if isinstance(t, str) and t.startswith("seasonal:"):
+                out.add("seasonal")
                 continue
             out.add(EXCL_REMAP.get(t, t))
         return out
@@ -581,10 +598,11 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
     本期实际加总 ≈ {sum(excl_counter.values())}/{n_passes} = <b>{round(100*sum(excl_counter.values())/n_passes)}%</b>。
   </p>
   <p class="methodology">
-    <b>本展示对原始 AI 抽取做了 3 个归一化</b>(raw 数据未改):
+    <b>本展示对原始 AI 抽取做了 4 个归一化</b>(raw 数据未改):
     <br>① <code>weekends_excluded</code> + <code>no weekends</code> → 合并为 <code>weekdays_only</code>(语义等价,共 {n_excl_merged} 条受影响)
     <br>② <code>residents_only</code> 被移除 — 它本质是 eligibility 不是入场限制,而且本产品默认用户已是 cardholder
     <br>③ <code>id_required</code> 被移除 — raw 抽样显示绝大多数是 "出示 MA 图书馆卡 = 拿到折扣" 的机制(典型如 JFK Library),应归类为 <code>library_card_required</code>(已转移到 Bonuses)
+    <br>④ 所有 <code>seasonal:&lt;月-月&gt;</code> 变体合并为单行 <code>seasonal</code>(共 {n_excl_seasonal_folded} 条,具体月份段去 Policies 看 raw)
     <br>合计 <b>{n_excl_dropped} 条</b> AI 错位标签被剔除/迁移。
   </p>
   {histogram_with_notag(excl_counter, EXCL_LABEL, n_passes, n_passes - n_with_any_excl, "no restriction · 无任何限制")}
