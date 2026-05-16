@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh"><head>
+<meta charset="utf-8">
+<title>Schema — MuseumPapa Audit</title>
+<link rel="stylesheet" href="assets/style.css">
+
+</head><body>
+<header class="site-head">
+  <div class="brand"><span class="font-serif">MuseumPapa</span> · Data Audit</div>
+  <nav class="topnav"><a href="index.html" class="">Overview</a> · <a href="libraries.html" class="">Libraries</a> · <a href="attractions.html" class="">Attractions</a> · <a href="policies.html" class="">Policies</a> · <a href="gaps.html" class="">Gaps</a> · <a href="duplicates.html" class="">Duplicates</a> · <a href="lineage.html" class="">Lineage</a> · <a href="schema.html" class="current">Schema</a></nav>
+</header>
+<main>
+
+<h1 class="page-title">数据结构说明 · Schema</h1>
+<p>本页用自然语言解释三大产物中的每个字段,包括字段意义、可能的值、示例,以及为什么这个字段会存在。</p>
+
+<section class="panel">
+  <h2>1. 图书馆 Libraries</h2>
+  <ul class="schema-list">
+    <li><b>id</b>:库的短代码,如 <code>wakefield</code>。所有交叉引用都用它。</li>
+    <li><b>name</b>:正式馆名,如 "Lucius Beebe Memorial Library"。</li>
+    <li><b>town · network</b>:所在市镇 / 隶属网络(NOBLE / MLN / Minuteman 等)。</li>
+    <li><b>platform</b>:博物馆通行证后台,目前有三种 — Assabet(52 馆)/ LibCal(5 馆)/ MuseumKey(2 馆)。决定了我们用哪个 scraper。</li>
+    <li><b>card_page</b>:办卡说明页 URL。</li>
+    <li><b>eligibility</b>:办卡资格 — <code>open_ma_resident</code> 表示麻州居民均可办,<code>residents_only</code> 表示仅本镇居民。</li>
+    <li><b>supports_availability</b>:平台是否可查未来 30 天的库存(MuseumKey 不支持)。</li>
+    <li><b>address</b>:街道地址,5 个字段。</li>
+    <li><b>geo</b>:经纬度,由 OSM Nominatim 反查得到,缓存在 <code>data/.cache/geocode.json</code>。</li>
+  </ul>
+</section>
+
+<section class="panel">
+  <h2>2. 景点 Attractions</h2>
+  <ul class="schema-list">
+    <li><b>slug</b>:URL 友好的稳定 ID,如 <code>boston-childrens-museum</code>。</li>
+    <li><b>museum_name</b>:正式名称。</li>
+    <li><b>address / website / phone / description</b>:景点元数据,来自景点官网或 Wikipedia。</li>
+    <li><b>categories</b>:分类标签数组(Children / Family / Science / Art / Nature / History ...)。</li>
+    <li><b>sources</b>:提供本景点 pass 的所有图书馆 id 数组。</li>
+    <li><b>original_price</b>:景点门市原价。包含 adult / child / youth / senior / student / military / educator / family 八种票种,以及 <code>free_under_age</code>(低于该岁数免费)、notes、source_url。任何字段可为 null,表示未提取到。</li>
+    <li><b>hero_image</b>:景点官网 <code>&lt;meta property="og:image"&gt;</code> 抓取的封面图;<code>local_path</code> 是本地缓存路径(gitignored)。</li>
+    <li><b>hours</b>:周一至周日营业时间;<code>status</code> 字段表示数据可信度(ok / varies / seasonal / missing)。</li>
+    <li><b>geo</b>:经纬度,用于距离排序。</li>
+  </ul>
+</section>
+
+<section class="panel">
+  <h2>3. 优惠规则 Passes</h2>
+  <p>每行表示一个 (lib × attraction) 组合,共 1008 行。</p>
+  <ul class="schema-list">
+    <li><b>library_id / attraction_slug</b>:主键,联合唯一。</li>
+    <li><b>pass_type</b>:三种 pass 形态 —
+      <ul>
+        <li><b>digital</b>:邮件即时发送的电子券,用户可立即下载并使用(553 个)。</li>
+        <li><b>physical-coupon</b>:门店取纸质券,用完不归还(260 个)。</li>
+        <li><b>physical-circ / loan-card</b>:循环借阅卡,用完需归还图书馆(172 个)。</li>
+        <li><b>unknown</b>:未能识别(23 个)。</li>
+      </ul>
+    </li>
+    <li><b>discount</b>:折扣类型与展示标签。class 五种:
+      <ul>
+        <li><b>free</b>:完全免费(277 个)</li>
+        <li><b>half</b>:半价 / 50% off(290 个)</li>
+        <li><b>percent-off</b>:其它百分比折扣(4 个)</li>
+        <li><b>dollar-off</b>:固定金额减免,如 $5 off(19 个)</li>
+        <li><b>price</b>:打到一个固定低价,如 "Adults $5 / Kids $3"(342 个)</li>
+        <li><b>discount</b>:笼统折扣(23 个);<b>unknown</b>:未识别(53 个)</li>
+      </ul>
+    </li>
+    <li><b>policy</b>:从 raw 文本中抽出的结构化字段:
+      <ul>
+        <li><b>max_people</b>(总人数上限) / <b>max_adults</b> / <b>max_children</b></li>
+        <li><b>free_under_age</b>:低于该岁数免费</li>
+        <li><b>discount_percent / discount_dollar_off / savings_per_person_usd</b>:折扣量</li>
+        <li><b>eligibility_tags</b>:适用人群标签(见下)</li>
+        <li><b>exclusions</b>:限制条件(见下)</li>
+        <li><b>boosts</b>:额外福利</li>
+        <li><b>raw</b>:原始优惠说明,所有抽取都基于它</li>
+      </ul>
+    </li>
+    <li><b>source_phrases</b>(在 raw/pass_policies/*.json 中):每个抽取字段对应在 raw 中的子串,供审计高亮。</li>
+    <li><b>availability</b>:未来 30 天的可预订状态字典(museumkey 不可用)。</li>
+  </ul>
+
+  <h3>Eligibility 标签 · 13 种</h3>
+  <ul class="schema-list">
+    <li><b>all</b> · open to all — 默认值,任何持卡人都能用</li>
+    <li><b>vehicle</b> · per vehicle — 按车而非按人(适用州立公园)</li>
+    <li><b>single_ticket</b> · 1 ticket — 单张票,而非"上限 N 人"</li>
+    <li><b>family</b> · family pass — family pass,常含父母 + 子女</li>
+    <li><b>groups</b> · group rate — 按团体打折</li>
+    <li><b>residents_only</b> · residents only — 仅特定市镇居民</li>
+    <li><b>adults_only</b> / <b>children_only</b> — 只覆盖成人或儿童一种票种</li>
+    <li><b>seniors_free</b> · <b>students_only</b> · <b>military_free</b> · <b>educator_free</b> · <b>members_free</b> — 该群体特殊免费</li>
+  </ul>
+
+  <h3>Exclusions 限制</h3>
+  <ul class="schema-list">
+    <li><b>weekdays_only / weekends_only / weekends_excluded</b>:工作日 / 周末限制</li>
+    <li><b>blackout_dates</b>:特定日期不可用</li>
+    <li><b>reservation_required</b>:必须先预约</li>
+    <li><b>id_required</b>:入场需出示证件</li>
+    <li><b>seasonal:X-Y</b>:仅在某月份范围内开放,例如 <code>seasonal:apr-oct</code></li>
+  </ul>
+
+  <h3>Boosts 加成</h3>
+  <ul class="schema-list">
+    <li><b>library_card_required</b>:进入景点需出示图书馆卡</li>
+    <li><b>members_discount</b>:景点会员另享折扣</li>
+    <li><b>gift_shop_discount</b>:礼品店折扣</li>
+    <li><b>ebt_discount / snap_free</b>:EBT / SNAP 低收入援助</li>
+  </ul>
+</section>
+
+<p class="foot-link"><a href="#" class="view-json-link" data-json-key="schema">查看技术 JSON 结构</a></p>
+
+</main>
+<div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>
+<script id="data-blob" type="application/json">{"schema": {"passes_row_keys": ["library_id", "attraction_slug", "pass_type", "pass_type_raw", "discount", "policy", "source_url", "availability"], "policy_keys": ["max_people", "max_adults", "max_children", "free_under_age", "savings_per_person_usd", "discount_percent", "discount_dollar_off", "eligibility_tags", "exclusions", "boosts", "notes", "raw"], "discount_classes": ["free", "half", "percent-off", "dollar-off", "price", "discount", "unknown"], "pass_types": ["digital", "physical-coupon", "physical-circ", "loan-card", "unknown"]}}</script>
+<script src="assets/audit.js"></script>
+</body></html>

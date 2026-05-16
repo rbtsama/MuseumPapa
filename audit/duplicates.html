@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh"><head>
+<meta charset="utf-8">
+<title>Duplicates — MuseumPapa Audit</title>
+<link rel="stylesheet" href="assets/style.css">
+
+</head><body>
+<header class="site-head">
+  <div class="brand"><span class="font-serif">MuseumPapa</span> · Data Audit</div>
+  <nav class="topnav"><a href="index.html" class="">Overview</a> · <a href="libraries.html" class="">Libraries</a> · <a href="attractions.html" class="">Attractions</a> · <a href="policies.html" class="">Policies</a> · <a href="gaps.html" class="">Gaps</a> · <a href="duplicates.html" class="current">Duplicates</a> · <a href="lineage.html" class="">Lineage</a> · <a href="schema.html" class="">Schema</a></nav>
+</header>
+<main>
+
+<h1 class="page-title">Duplicates · 8 pairs</h1>
+<p>Pairs of attraction slugs that refer to the same real-world venue. Goal: pick one canonical slug, migrate libraries, retire the other.</p>
+<section class="panel dup-pair">
+  <h3>mfa ⇄ museum-of-fine-arts</h3>
+  <div class="dup-grid"><div class="dup-card">
+  <code class="slug">mfa</code>
+  <h4>Museum of Fine Arts</h4>
+  <ul>
+    <li>libs offer: <b>7</b></li>
+    <li>website: https://www.mfa.org/</li>
+    <li>phone: 617-267-9300</li>
+    <li>address: 465 Huntington Avenue, Boston, MA, 02115</li>
+    <li>price: adult=30.0·youth=14.0·free_under_age=7·notes=Duplicate of museum-of-fine-arts. Adults: $30; Youths 7-17: $14; Youths 0-6: free. Members: free.</li>
+    <li>has description: yes</li>
+    <li>has hero image: yes</li>
+    <li>categories: </li>
+  </ul>
+</div><div class="dup-card">
+  <code class="slug">museum-of-fine-arts</code>
+  <h4>Museum of Fine Arts</h4>
+  <ul>
+    <li>libs offer: <b>52</b></li>
+    <li>website: http://www.mfa.org/</li>
+    <li>phone: 617-267-9300</li>
+    <li>address: 465 Huntington Avenue, Boston, MA 02115</li>
+    <li>price: adult=30.0·youth=14.0·free_under_age=7·notes=Adults: $30; Youths 7-17: $14; Youths 0-6: free. Members: free. Additional free and discounted admission opportunities listed separately on site.</li>
+    <li>has description: yes</li>
+    <li>has hero image: yes</li>
+    <li>categories: Art, Family, History</li>
+  </ul>
+</div></div>
+  <p class="suggestion"><b>Suggested:</b> keep <code>museum-of-fine-arts</code>, drop <code>mfa</code></p>
+</section><section class="panel dup-pair">
+  <h3>ica-boston ⇄ institute-of-contemporary-art-boston</h3>
+  <div class="dup-grid"><div class="dup-card">
+  <code class="slug">ica-boston</code>
+  <h4>Institute of Contemporary Art</h4>
+  <ul>
+    <li>libs offer: <b>6</b></li>
+    <li>website: https://www.icaboston.org/</li>
+    <li>phone: 617-478-3100</li>
+    <li>address: 25 Harbor Shore Drive, Boston, MA, 02120</li>
+    <li>price: adult=20.0·senior=17.0·student=15.0·free_under_age=18·notes=Duplicate of institute-of-contemporary-art-boston. Adults: $20; Students: $15; Seniors (65+): $17; Ages 18 and under: free; BPS students: free. Free every Thursday 5-9 PM. Library pass: $10/person.</li>
+    <li>has description: yes</li>
+    <li>has hero image: yes</li>
+    <li>categories: </li>
+  </ul>
+</div><div class="dup-card">
+  <code class="slug">institute-of-contemporary-art-boston</code>
+  <h4>Institute of Contemporary Art/Boston</h4>
+  <ul>
+    <li>libs offer: <b>28</b></li>
+    <li>website: https://www.icaboston.org/</li>
+    <li>phone: 617-478-3100</li>
+    <li>address: 25 Harbor Shore Drive, Boston, MA 02210</li>
+    <li>price: adult=20.0·senior=17.0·student=15.0·free_under_age=18·notes=Adults: $20; Students: $15; Seniors (65+): $17; Ages 18 and under: free; BPS students: free. Free every Thursday 5-9 PM. Library pass: $10/person.</li>
+    <li>has description: yes</li>
+    <li>has hero image: yes</li>
+    <li>categories: Art, Family, Music, Dance</li>
+  </ul>
+</div></div>
+  <p class="suggestion"><b>Suggested:</b> keep <code>institute-of-contemporary-art-boston</code>, drop <code>ica-boston</code></p>
+</section><section class="panel dup-pair">
+  <h3>jfk-library ⇄ john-f-kennedy-library-and-museum</h3>
+  <div class="dup-grid"><div class="dup-card">
+  <code class="slug">jfk-library</code>
+  <h4>John F. Kennedy Library and Museum</h4>
+  <ul>
+    <li>libs offer: <b>2</b></li>
+    <li>website: https://www.jfklibrary.org/</li>
+    <li>phone: —</li>
+    <li>address: Columbia Point, Boston, MA, 02125</li>
+    <li>price: —</li>
+    <li>has description: no</li>
+    <li>has hero image: yes</li>
+    <li>categories: </li>
+  </ul>
+</div><div class="dup-card">
+  <code class="slug">john-f-kennedy-library-and-museum</code>
+  <h4>John F. Kennedy Library &amp; Museum</h4>
+  <ul>
+    <li>libs offer: <b>23</b></li>
+    <li>website: https://www.jfklibrary.org/</li>
+    <li>phone: 617-514-1600</li>
+    <li>address: Columbia Point, Boston, MA 02125</li>
+    <li>price: —</li>
+    <li>has description: yes</li>
+    <li>has hero image: yes</li>
+    <li>categories: Family, Governance, History</li>
+  </ul>
+</div></div>
+  <p class="suggestion"><b>Suggested:</b> keep <code>john-f-kennedy-library-and-museum</code>, drop <code>jfk-library</code></p>
+</section><section class="panel dup-pair">
+  <h3>trustees-of-reservations ⇄ the-trustees-of-the-reservations</h3>
+  <div class="dup-grid"><div class="dup-card">
+  <code class="slug">trustees-of-reservations</code>
+  <h4>Trustees GO Pass</h4>
+  <ul>
+    <li>libs offer: <b>5</b></li>
+    <li>website: https://thetrustees.org/</li>
+    <li>phone: 617-542-7696</li>
+    <li>address: 200 High Street, Boston, MA, 02110</li>
+    <li>price: —</li>
+    <li>has description: yes</li>
+    <li>has hero image: yes</li>
+    <li>categories: </li>
+  </ul>
+</div><div class="dup-card">
+  <code class="slug">the-trustees-of-the-reservations</code>
+  <h4>Trustees of Reservations (with deCordova Sculpture Park and Museum)</h4>
+  <ul>
+    <li>libs offer: <b>28</b></li>
+    <li>website: http://www.thetrustees.org/</li>
+    <li>phone: 617-542-7696</li>
+    <li>address: —</li>
+    <li>price: adult=0·notes=Free admission noted on page; Trustees members always free</li>
+    <li>has description: yes</li>
+    <li>has hero image: yes</li>
+    <li>categories: Art, Family, History, Nature, Recreation</li>
+  </ul>
+</div></div>
+  <p class="suggestion"><b>Suggested:</b> keep <code>the-trustees-of-the-reservations</code>, drop <code>trustees-of-reservations</code></p>
+</section><section class="panel dup-pair">
+  <h3>plimoth-patuxet ⇄ plimoth-patuxet-museums</h3>
+  <div class="dup-grid"><div class="dup-card">
+  <code class="slug">plimoth-patuxet</code>
+  <h4>Plimoth Patuxet Museums</h4>
+  <ul>
+    <li>libs offer: <b>3</b></li>
+    <li>website: https://plimoth.org/</li>
+    <li>phone: 508-746-1622</li>
+    <li>address: 137 Warren Avenue, Plymouth, MA, 02360</li>
+    <li>price: adult=35.0·child=20.0·senior=31.5·notes=Duplicate of plimoth-patuxet-museums. Plimoth Patuxent Only: Adult $35, Senior $31.50, Child $20. Heritage Pass (all sites, 2 days): Adult $46, Senior $41.40, Child $29. Combination Pass (2 days): Adult $44, Senior $39.60, Child $27. Mayflower II only: Adult $19, Senior $17.10, Child $13.</li>
+    <li>has description: yes</li>
+    <li>has hero image: yes</li>
+    <li>categories: </li>
+  </ul>
+</div><div class="dup-card">
+  <code class="slug">plimoth-patuxet-museums</code>
+  <h4>Plimoth Patuxet Museums</h4>
+  <ul>
+    <li>libs offer: <b>12</b></li>
+    <li>website: http://www.plimoth.org/</li>
+    <li>phone: 508-746-1622</li>
+    <li>address: 137 Warren Avenue, Plymouth, MA 02360</li>
+    <li>price: adult=35.0·child=20.0·senior=31.5·notes=Plimoth Patuxet Only: Adult $35, Senior $31.50, Child $20. Heritage Pass (all sites, 2 days): Adult $46, Senior $41.40, Child $29. Combination Pass (2 days): Adult $44, Senior $39.60, Child $27. Mayflower II only: Adult $19, Senior $17.10, Child $13. Plimoth Grist Mill only: Adult $11, Senior $9.90, Child $8.</li>
+    <li>has description: yes</li>
+    <li>has hero image: yes</li>
+    <li>categories: Children, Crafts, Family, History</li>
+  </ul>
+</div></div>
+  <p class="suggestion"><b>Suggested:</b> keep <code>plimoth-patuxet-museums</code>, drop <code>plimoth-patuxet</code></p>
+</section><section class="panel dup-pair">
+  <h3>american-rep-theater ⇄ american-repertory-theater</h3>
+  <div class="dup-grid"><div class="dup-card">
+  <code class="slug">american-rep-theater</code>
+  <h4>American Repertory Theatre</h4>
+  <ul>
+    <li>libs offer: <b>2</b></li>
+    <li>website: https://americanrepertorytheater.org/</li>
+    <li>phone: 617-547-8300</li>
+    <li>address: 64 Brattle Street, Cambridge, Massachusetts, 02138</li>
+    <li>price: —</li>
+    <li>has description: yes</li>
+    <li>has hero image: yes</li>
+    <li>categories: </li>
+  </ul>
+</div><div class="dup-card">
+  <code class="slug">american-repertory-theater</code>
+  <h4>American Repertory Theater</h4>
+  <ul>
+    <li>libs offer: <b>1</b></li>
+    <li>website: https://americanrepertorytheater.org/</li>
+    <li>phone: 617-547-8300</li>
+    <li>address: 64 Brattle Street, Cambridge, MA 02138</li>
+    <li>price: —</li>
+    <li>has description: yes</li>
+    <li>has hero image: yes</li>
+    <li>categories: Children, Family, Entertainment</li>
+  </ul>
+</div></div>
+  <p class="suggestion"><b>Suggested:</b> keep <code>american-rep-theater</code>, drop <code>american-repertory-theater</code></p>
+</section><section class="panel dup-pair">
+  <h3>ma-state-parks ⇄ massachusetts-state-parks-department-of-conservation-and-recreation</h3>
+  <div class="dup-grid"><div class="dup-card">
+  <code class="slug">ma-state-parks</code>
+  <h4>DCR ParksPass</h4>
+  <ul>
+    <li>libs offer: <b>5</b></li>
+    <li>website: https://www.mass.gov/visit-massachusetts-state-parks</li>
+    <li>phone: —</li>
+    <li>address: Various Locations</li>
+    <li>price: —</li>
+    <li>has description: no</li>
+    <li>has hero image: yes</li>
+    <li>categories: </li>
+  </ul>
+</div><div class="dup-card">
+  <code class="slug">massachusetts-state-parks-department-of-conservation-and-recreation</code>
+  <h4>Massachusetts State Parks (Department of Conservation and Recreation)</h4>
+  <ul>
+    <li>libs offer: <b>46</b></li>
+    <li>website: http://www.mass.gov/eea/agencies/dcr/massparks/</li>
+    <li>phone: 617-626-1250</li>
+    <li>address: 251 Causeway Street, Suite 900, Boston, MA 02114-2104</li>
+    <li>price: —</li>
+    <li>has description: yes</li>
+    <li>has hero image: yes</li>
+    <li>categories: Children, Family, Nature, Recreation</li>
+  </ul>
+</div></div>
+  <p class="suggestion"><b>Suggested:</b> keep <code>massachusetts-state-parks-department-of-conservation-and-recreation</code>, drop <code>ma-state-parks</code></p>
+</section><section class="panel dup-pair">
+  <h3>butterfly-place ⇄ the-butterfly-place</h3>
+  <div class="dup-grid"><div class="dup-card">
+  <code class="slug">butterfly-place</code>
+  <h4>The Butterfly Place</h4>
+  <ul>
+    <li>libs offer: <b>1</b></li>
+    <li>website: —</li>
+    <li>phone: —</li>
+    <li>address: —</li>
+    <li>price: —</li>
+    <li>has description: no</li>
+    <li>has hero image: yes</li>
+    <li>categories: </li>
+  </ul>
+</div><div class="dup-card">
+  <code class="slug">the-butterfly-place</code>
+  <h4>The Butterfly Place</h4>
+  <ul>
+    <li>libs offer: <b>8</b></li>
+    <li>website: https://www.butterflyplace-ma.com/</li>
+    <li>phone: 978-392-0955</li>
+    <li>address: 120 Tyngsboro Road, Westford, MA 01886</li>
+    <li>price: —</li>
+    <li>has description: yes</li>
+    <li>has hero image: yes</li>
+    <li>categories: Children, Family, Nature, Science</li>
+  </ul>
+</div></div>
+  <p class="suggestion"><b>Suggested:</b> keep <code>the-butterfly-place</code>, drop <code>butterfly-place</code></p>
+</section>
+
+</main>
+<div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>
+
+<script src="assets/audit.js"></script>
+</body></html>

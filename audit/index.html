@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh"><head>
+<meta charset="utf-8">
+<title>Overview — MuseumPapa Audit</title>
+<link rel="stylesheet" href="assets/style.css">
+
+</head><body>
+<header class="site-head">
+  <div class="brand"><span class="font-serif">MuseumPapa</span> · Data Audit</div>
+  <nav class="topnav"><a href="index.html" class="current">Overview</a> · <a href="libraries.html" class="">Libraries</a> · <a href="attractions.html" class="">Attractions</a> · <a href="policies.html" class="">Policies</a> · <a href="gaps.html" class="">Gaps</a> · <a href="duplicates.html" class="">Duplicates</a> · <a href="lineage.html" class="">Lineage</a> · <a href="schema.html" class="">Schema</a></nav>
+</header>
+<main>
+
+<h1 class="page-title">MuseumPapa <span class="font-serif">数据审计 Data Audit</span></h1>
+<p class="subtitle">Non-technical verification view of the structured dataset behind the MuseumPapa frontend.</p>
+
+<section class="cards-row">
+  <div class="num-card"><div class="num">59</div><div class="label">Libraries 图书馆</div></div>
+  <div class="num-card"><div class="num">107</div><div class="label">Attractions 景点</div></div>
+  <div class="num-card"><div class="num">1008</div><div class="label">Passes 优惠</div></div>
+</section>
+
+<section class="grid-3">
+  <div class="panel"><h3>Libraries coverage</h3><ul class="coverage"><li><span class="cov-label">street address</span><span class="cov-frac">59/59</span><span class="cov-pct">100%</span></li><li><span class="cov-label">geo lat/lon</span><span class="cov-frac">59/59</span><span class="cov-pct">100%</span></li><li><span class="cov-label">residency eligibility</span><span class="cov-frac">59/59</span><span class="cov-pct">100%</span></li><li><span class="cov-label">card_page url</span><span class="cov-frac">59/59</span><span class="cov-pct">100%</span></li></ul></div>
+  <div class="panel"><h3>Attractions coverage</h3><ul class="coverage"><li><span class="cov-label">hero image</span><span class="cov-frac">104/107</span><span class="cov-pct">97%</span></li><li><span class="cov-label">price (any)</span><span class="cov-frac">81/107</span><span class="cov-pct">76%</span></li><li><span class="cov-label">hours</span><span class="cov-frac">107/107</span><span class="cov-pct">100%</span></li><li><span class="cov-label">description</span><span class="cov-frac">100/107</span><span class="cov-pct">93%</span></li><li><span class="cov-label">phone</span><span class="cov-frac">96/107</span><span class="cov-pct">90%</span></li><li><span class="cov-label">geo</span><span class="cov-frac">107/107</span><span class="cov-pct">100%</span></li></ul></div>
+  <div class="panel"><h3>Passes coverage</h3><ul class="coverage"><li><span class="cov-label">policy present</span><span class="cov-frac">1008/1008</span><span class="cov-pct">100%</span></li><li><span class="cov-label">discount classified</span><span class="cov-frac">955/1008</span><span class="cov-pct">95%</span></li><li><span class="cov-label">pass_type known</span><span class="cov-frac">985/1008</span><span class="cov-pct">98%</span></li><li><span class="cov-label">availability data</span><span class="cov-frac">974/1008</span><span class="cov-pct">97%</span></li></ul></div>
+</section>
+
+<section class="panel">
+  <h3>Eligibility tags · histogram</h3>
+  <table class="histogram"><tr><td>open to all</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">457</td><td class="pct">45%</td></tr><tr><td>per vehicle</td><td class="bar-cell"><span class="bar">█████</span></td><td class="num">55</td><td class="pct">5%</td></tr><tr><td>family pass</td><td class="bar-cell"><span class="bar">█████</span></td><td class="num">54</td><td class="pct">5%</td></tr><tr><td>residents only</td><td class="bar-cell"><span class="bar">███</span></td><td class="num">29</td><td class="pct">3%</td></tr><tr><td>1 ticket</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">8</td><td class="pct">1%</td></tr><tr><td>members free</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr></table>
+</section>
+
+<section class="panel">
+  <h3>Restrictions · histogram</h3>
+  <table class="histogram"><tr><td>reservation needed</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">35</td><td class="pct">3%</td></tr><tr><td>some dates excluded</td><td class="bar-cell"><span class="bar">████████████████████████</span></td><td class="num">21</td><td class="pct">2%</td></tr><tr><td>residents only</td><td class="bar-cell"><span class="bar">█████████████████</span></td><td class="num">15</td><td class="pct">1%</td></tr><tr><td>ID at gate</td><td class="bar-cell"><span class="bar">███████████████</span></td><td class="num">13</td><td class="pct">1%</td></tr><tr><td>weekdays only</td><td class="bar-cell"><span class="bar">███</span></td><td class="num">3</td><td class="pct">0%</td></tr><tr><td>no weekends</td><td class="bar-cell"><span class="bar">██</span></td><td class="num">2</td><td class="pct">0%</td></tr><tr><td>Open 1st-October</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open october-october</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open apr-oct</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open may-sep</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open may-oct</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">1</td><td class="pct">0%</td></tr><tr><td>Open mar-dec</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">1</td><td class="pct">0%</td></tr></table>
+</section>
+
+<section class="panel">
+  <h3>Platform distribution</h3>
+  <ul class="platform-row">
+    <li><b>Assabet</b> <span class="num">52</span> libraries</li>
+    <li><b>LibCal</b> <span class="num">5</span> libraries</li>
+    <li><b>MuseumKey</b> <span class="num">2</span> libraries</li>
+  </ul>
+</section>
+
+<section class="panel">
+  <h3>异常 Top 信号 · Anomalies</h3>
+  <ul class="anomaly-list"><li>69 passes with raw text but no extracted source_phrases — <a href='policies.html'>see Policies</a></li><li>63 passes with raw text but no extracted policy fields</li><li>23 passes with pass_type = unknown</li><li>8 duplicate attraction slug pairs — <a href='duplicates.html'>see Duplicates</a></li><li>26 attractions missing price data — <a href='gaps.html'>see Gaps</a></li><li>7 attractions missing description</li></ul>
+</section>
+
+<footer class="page-foot">
+  Built 2026-05-16 06:17 UTC ·
+  <a href="#" class="view-json-link" data-json-key="meta">View JSON of dataset summary</a>
+</footer>
+
+</main>
+<div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>
+<script id="data-blob" type="application/json">{"meta": {"libraries": {"built_at": "2026-05-16T04:27:48Z", "n_libraries": 59, "n_with_address": 55, "n_with_geo": 59}, "attractions": {"built_at": "2026-05-16T04:27:48Z", "n_attractions": 107, "n_with_price": 81, "n_with_image": 104, "n_with_geo": 107, "n_with_hours": 107}, "passes": {"built_at": "2026-05-16T04:27:48Z", "n_passes": 1008, "n_with_availability": 974, "n_with_policy": 1008}, "library_catalog": {"built_at": "2026-05-16T04:27:48Z", "n_libraries": 59, "n_passes_total": 1008, "n_unmapped_passes_per_platform": {"assabet": 0, "libcal": 0, "museumkey": 0}}}}</script>
+<script src="assets/audit.js"></script>
+</body></html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh"><head>
+<meta charset="utf-8">
+<title>Lineage — MuseumPapa Audit</title>
+<link rel="stylesheet" href="assets/style.css">
+
+</head><body>
+<header class="site-head">
+  <div class="brand"><span class="font-serif">MuseumPapa</span> · Data Audit</div>
+  <nav class="topnav"><a href="index.html" class="">Overview</a> · <a href="libraries.html" class="">Libraries</a> · <a href="attractions.html" class="">Attractions</a> · <a href="policies.html" class="">Policies</a> · <a href="gaps.html" class="">Gaps</a> · <a href="duplicates.html" class="">Duplicates</a> · <a href="lineage.html" class="current">Lineage</a> · <a href="schema.html" class="">Schema</a></nav>
+</header>
+<main>
+
+<h1 class="page-title">Data lineage</h1>
+<p>How a single fact (e.g. "Acton offers half-price BCM admission for 4 people") travels from a library website to the user's screen.</p>
+
+<svg class="lineage-svg" viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4A4845"/>
+    </marker>
+    <style>
+      .node { fill: #FAFAF7; stroke: #B5B2A8; stroke-width: 1.5; }
+      .node-raw { fill: #F4EFE8; }
+      .node-out { fill: #EAF1EE; }
+      .label { font: 13px 'DM Sans', sans-serif; fill: #1A1917; }
+      .sub { font: 11px 'DM Sans', sans-serif; fill: #4A4845; }
+      .edge { stroke: #4A4845; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <g><rect class="node" x="20" y="40" width="170" height="60" rx="6"/><text class="label" x="105" y="68" text-anchor="middle">Library website</text><text class="sub" x="105" y="86" text-anchor="middle">59 sources</text></g>
+  <g><rect class="node" x="240" y="40" width="170" height="60" rx="6"/><text class="label" x="325" y="68" text-anchor="middle">Python fetcher</text><text class="sub" x="325" y="86" text-anchor="middle">sources/&lt;platform&gt;</text></g>
+  <g><rect class="node node-raw" x="460" y="40" width="170" height="60" rx="6"><a href="schema.html"/></rect><text class="label" x="545" y="68" text-anchor="middle">data/raw/&lt;platform&gt;</text><text class="sub" x="545" y="86" text-anchor="middle">scraper JSON</text></g>
+  <g><rect class="node" x="680" y="40" width="200" height="60" rx="6"/><text class="label" x="780" y="68" text-anchor="middle">Subagent extract</text><text class="sub" x="780" y="86" text-anchor="middle">Sonnet → policy fields</text></g>
+
+  <g><rect class="node node-raw" x="240" y="180" width="170" height="60" rx="6"/><text class="label" x="325" y="208" text-anchor="middle">raw/pass_policies/</text><text class="sub" x="325" y="226" text-anchor="middle">1008 cells</text></g>
+  <g><rect class="node node-raw" x="460" y="180" width="170" height="60" rx="6"/><text class="label" x="545" y="208" text-anchor="middle">raw/attraction_*</text><text class="sub" x="545" y="226" text-anchor="middle">price · hours · desc</text></g>
+  <g><rect class="node" x="680" y="180" width="200" height="60" rx="6"/><text class="label" x="780" y="208" text-anchor="middle">scripts/build.py</text><text class="sub" x="780" y="226" text-anchor="middle">merge + normalize</text></g>
+
+  <g><rect class="node node-out" x="20" y="320" width="200" height="60" rx="6"><a href="libraries.html"/></rect><text class="label" x="120" y="348" text-anchor="middle">structured/libraries.json</text><text class="sub" x="120" y="366" text-anchor="middle">59 rows</text></g>
+  <g><rect class="node node-out" x="250" y="320" width="200" height="60" rx="6"><a href="attractions.html"/></rect><text class="label" x="350" y="348" text-anchor="middle">structured/attractions.json</text><text class="sub" x="350" y="366" text-anchor="middle">107 rows</text></g>
+  <g><rect class="node node-out" x="480" y="320" width="200" height="60" rx="6"><a href="policies.html"/></rect><text class="label" x="580" y="348" text-anchor="middle">structured/passes.json</text><text class="sub" x="580" y="366" text-anchor="middle">1008 rows</text></g>
+  <g><rect class="node" x="710" y="320" width="170" height="60" rx="6"/><text class="label" x="795" y="348" text-anchor="middle">React frontend</text><text class="sub" x="795" y="366" text-anchor="middle">web/</text></g>
+
+  <path class="edge" d="M 190 70 L 240 70"/>
+  <path class="edge" d="M 410 70 L 460 70"/>
+  <path class="edge" d="M 630 70 L 680 70"/>
+  <path class="edge" d="M 780 100 L 780 180"/>
+  <path class="edge" d="M 545 100 L 545 180"/>
+  <path class="edge" d="M 680 210 L 630 210"/>
+  <path class="edge" d="M 680 210 L 410 210"/>
+  <path class="edge" d="M 780 240 L 780 290 L 580 290 L 580 320"/>
+  <path class="edge" d="M 780 240 L 350 290 L 350 320"/>
+  <path class="edge" d="M 780 240 L 120 290 L 120 320"/>
+  <path class="edge" d="M 680 350 L 710 350"/>
+</svg>
+
+<p class="lineage-foot">
+  Tap a green box to inspect its structure on this audit site. The schema definitions are in
+  <a href="schema.html">schema.html</a>.
+</p>
+
+</main>
+<div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>
+
+<script src="assets/audit.js"></script>
+</body></html>
