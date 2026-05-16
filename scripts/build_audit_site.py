@@ -1021,7 +1021,7 @@ def page_attractions(attr_data) -> str:
         "bucket_open_daily": "Open every day · 全周开放",
         "bucket_partial":    "Partially closed · 部分天关闭(博物馆主流模式)",
         "bucket_seasonal":   "Seasonal · 仅特定月份开放",
-        "bucket_varies":     "Varies by branch · 多分馆汇总(plan-6 拆完会消失)",
+        "bucket_varies":     "Varies by property · 景点本身有多 property(非图书馆分馆问题)",
         "bucket_nodata":     "No data · 无数据",
     }
     # Categories
@@ -1077,7 +1077,7 @@ def page_attractions(attr_data) -> str:
       ① <b>Open every day</b> — 任何时候都行<br>
       ② <b>Partially closed</b> — 一周有 1+ 天关(博物馆主流,典型 Tue closed 或 weekends-only);用户必须看具体哪天关<br>
       ③ <b>Seasonal</b> — 仅特定月份开放<br>
-      <i>Varies by branch</i> 是多分馆汇总的过渡状态,plan-6 branch 拆分后会变成单独 branch 的 hours,不再聚合。
+      <i>Varies by property</i> 指<b>景点本身有多 property</b>(Trustees of Reservations 100+ properties / Mass Audubon 80+ / 剧院按演出日期排时间)— 不是图书馆分馆问题(那个 plan-6 已经解决)。这 11 个目前以聚合方式保留,详情需查景点官网。
     </p>
   </div>
   <div class="panel dist-panel">
@@ -1228,6 +1228,10 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     n_passes = len(passes)
     disc_counter = Counter((p.get("discount") or {}).get("class") or "(unknown)" for p in passes)
     pt_counter = Counter(p.get("pass_type") or "(unknown)" for p in passes)
+    # plan-6: pickup_method distribution (canonical "where do I actually get this pass")
+    pm_counter = Counter(p.get("pickup_method") or "(unknown)" for p in passes)
+    # how many physical passes pick up at >1 branch (BPL fan-out)
+    n_multi_branch = sum(1 for p in passes if p.get("pickup_method") == "physical_at_branch" and len(p.get("pickup_branches") or []) > 1)
     # max_people
     maxp_counter = Counter()
     for p in passes:
@@ -1295,10 +1299,21 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     </p>
   </div>
   <div class="panel dist-panel">
-    <h3>Pass 形式 · 取券方式</h3>
+    <h3>Pickup method · 取券方式(plan-6)</h3>
+    {histogram_table(pm_counter, n_passes, {"digital": "Digital · 在线领取(邮件/promo code)", "physical_at_branch": "Physical · 去馆里实体取", "(unknown)": "(未分类)"})}
+    <p class="methodology" style="margin-top:8px">
+      <b>对用户决策最重要的一行</b>:<br>
+      ① <b>Digital</b> ({pm_counter.get('digital', 0)}/{n_passes}):任何持卡用户在家就能领,无需开车。<br>
+      ② <b>Physical at branch</b> ({pm_counter.get('physical_at_branch', 0)}/{n_passes}):必须去具体分馆现场取卡/取券。其中 <b>{n_multi_branch} 条</b>在 ≥2 个分馆可取(BPL/Cambridge/Brookline 的多分馆 pass),用户可选最近的;其余固定 1 个分馆。<br>
+      产品 UI 必须明确区分这两类 — digital 不显示任何地址、physical 必显示具体分馆地址(plan-6 已在前端落地)。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>Pass 形式 · pass_type 原始分类</h3>
     {histogram_table(pt_counter, n_passes, pt_label_map)}
     <p class="methodology" style="margin-top:8px">
-      数字 pass 用户体验最好;实体 pass / loan card 需要去馆里取还,对 BPL/Cambridge 等多分馆系统取卡地点是关键变量。
+      <b>这是数据爬取层视角的 pass_type</b>(digital / physical-coupon / physical-circ 等)— 来自 normalize_benefit。<br>
+      用户决策实际看上面 <b>Pickup method</b> 那一栏即可(已综合 pass_type 和 BPL/Cambridge/Brookline 多分馆 subagent 分类)。
     </p>
   </div>
   <div class="panel dist-panel">
