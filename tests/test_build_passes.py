@@ -102,6 +102,40 @@ def test_build_passes_no_policy_when_missing_or_failed():
     assert out["_meta"]["n_with_policy"] == 0
 
 
+def test_unknown_pass_type_backfills_from_pickup_method_and_raw():
+    """When pass_type is unknown but pickup_method is classified, derive pass_type."""
+    from malibbene.build.passes import build_passes
+
+    catalog = {"libraries": {
+        "cambridge": {"passes": {
+            "x-digital": {"pass_type": "unknown", "pass_type_raw": "",
+                           "benefit_label": "Free", "benefit_class": "free",
+                           "benefits_text": "Pass admits 4 people for free.",
+                           "source_url": ""},
+            "y-pickup":  {"pass_type": "unknown", "pass_type_raw": "",
+                           "benefit_label": "Free", "benefit_class": "free",
+                           "benefits_text": "Pick up your pass at the Main Library.",
+                           "source_url": ""},
+            "z-return":  {"pass_type": "unknown", "pass_type_raw": "",
+                           "benefit_label": "Free", "benefit_class": "free",
+                           "benefits_text": "Pick up at the library and return next day.",
+                           "source_url": ""},
+        }}
+    }}
+    classifications = {"cambridge": {
+        "x-digital": {"pass_id": "x-digital", "pickup_method": "digital",               "pickup_branches": []},
+        "y-pickup":  {"pass_id": "y-pickup",  "pickup_method": "physical_at_branch",     "pickup_branches": ["cambridge--main"]},
+        "z-return":  {"pass_id": "z-return",  "pickup_method": "physical_at_branch",     "pickup_branches": ["cambridge--main"]},
+    }}
+    branches_doc = {"branches": [{"id": "cambridge--main", "parent_lib_id": "cambridge",
+                                   "name": "Cambridge Main", "address": {}, "geo": {}, "hours_raw": None}]}
+    out = build_passes(catalog, classifications=classifications, branches_doc=branches_doc)
+    by_slug = {p["attraction_slug"]: p for p in out["passes"]}
+    assert by_slug["x-digital"]["pass_type"] == "digital"
+    assert by_slug["y-pickup"]["pass_type"] == "physical-coupon"
+    assert by_slug["z-return"]["pass_type"] == "physical-circ"
+
+
 def test_build_passes_counts_with_availability():
     """Passes with non-empty calendar count toward n_with_availability."""
     from malibbene.build.passes import build_passes

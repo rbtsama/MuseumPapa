@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-16T16:08:55Z",
+    "built_at": "2026-05-16T16:44:03Z",
     "n_passes": 1008,
     "n_with_availability": 974,
     "n_with_policy": 1008,
@@ -49283,7 +49283,7 @@
     {
       "library_id": "brookline",
       "attraction_slug": "boston-harbor-islands",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -49447,7 +49447,7 @@
     {
       "library_id": "brookline",
       "attraction_slug": "hale-education",
-      "pass_type": "unknown",
+      "pass_type": "physical-circ",
       "pass_type_raw": "",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
@@ -49775,7 +49775,7 @@
     {
       "library_id": "brookline",
       "attraction_slug": "jfk-library",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -49856,7 +49856,7 @@
     {
       "library_id": "brookline",
       "attraction_slug": "larz-anderson",
-      "pass_type": "unknown",
+      "pass_type": "physical-circ",
       "pass_type_raw": "",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
@@ -49939,7 +49939,7 @@
     {
       "library_id": "brookline",
       "attraction_slug": "maah",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -50672,7 +50672,7 @@
     {
       "library_id": "cambridge",
       "attraction_slug": "boston-by-foot",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -50834,7 +50834,7 @@
     {
       "library_id": "cambridge",
       "attraction_slug": "boston-harbor-islands",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -50915,7 +50915,7 @@
     {
       "library_id": "cambridge",
       "attraction_slug": "charles-riverboat-tour",
-      "pass_type": "unknown",
+      "pass_type": "physical-coupon",
       "pass_type_raw": "",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
@@ -50996,7 +50996,7 @@
     {
       "library_id": "cambridge",
       "attraction_slug": "harvard-museums",
-      "pass_type": "unknown",
+      "pass_type": "physical-coupon",
       "pass_type_raw": "",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
@@ -51731,7 +51731,7 @@
     {
       "library_id": "cambridge",
       "attraction_slug": "trustees-of-reservations",
-      "pass_type": "unknown",
+      "pass_type": "physical-coupon",
       "pass_type_raw": "",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
@@ -51899,7 +51899,7 @@
     {
       "library_id": "cambridge",
       "attraction_slug": "zoo-new-england",
-      "pass_type": "unknown",
+      "pass_type": "physical-coupon",
       "pass_type_raw": "",
       "pickup_method": "physical_at_branch",
       "pickup_branches": [
@@ -52886,7 +52886,7 @@
     {
       "library_id": "cohasset",
       "attraction_slug": "jfk-library",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -52919,7 +52919,7 @@
     {
       "library_id": "cohasset",
       "attraction_slug": "ma-state-parks",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -52983,7 +52983,7 @@
     {
       "library_id": "cohasset",
       "attraction_slug": "museum-of-science",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -53012,7 +53012,7 @@
     {
       "library_id": "cohasset",
       "attraction_slug": "new-england-aquarium",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -53043,7 +53043,7 @@
     {
       "library_id": "cohasset",
       "attraction_slug": "plimoth-patuxet",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -53107,7 +53107,7 @@
     {
       "library_id": "cohasset",
       "attraction_slug": "uss-constitution-museum",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -53138,7 +53138,7 @@
     {
       "library_id": "cohasset",
       "attraction_slug": "zoo-new-england",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -53262,7 +53262,7 @@
     {
       "library_id": "hingham",
       "attraction_slug": "harvard-museums",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -53512,7 +53512,7 @@
     {
       "library_id": "hingham",
       "attraction_slug": "patriots-hall-of-fame",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -53609,7 +53609,7 @@
     {
       "library_id": "hingham",
       "attraction_slug": "trustees-of-reservations",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -53640,7 +53640,7 @@
     {
       "library_id": "hingham",
       "attraction_slug": "uss-constitution-museum",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],
@@ -53671,7 +53671,7 @@
     {
       "library_id": "hingham",
       "attraction_slug": "zoo-new-england",
-      "pass_type": "unknown",
+      "pass_type": "digital",
       "pass_type_raw": "",
       "pickup_method": "digital",
       "pickup_branches": [],

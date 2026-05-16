@@ -46,6 +46,31 @@ def _resolve_pickup(
     return "digital", []
 
 
+def _resolve_pass_type(
+    *,
+    original_pass_type: str,
+    pickup_method: str,
+    benefits_text: str,
+) -> str:
+    """Derive pass_type when the catalog left it 'unknown'.
+
+    LibCal + MuseumKey platforms don't expose a pass_type label, so plan-6's
+    pass_type stays 'unknown' for ~23 cases. But plan-6's subagent classified
+    pickup_method correctly, and raw text usually says 'return' for circ passes.
+    Combine the two signals to recover a useful pass_type.
+    """
+    if original_pass_type and original_pass_type != "unknown":
+        return original_pass_type
+    if pickup_method == "digital":
+        return "digital"
+    if pickup_method == "physical_at_branch":
+        text = (benefits_text or "").lower()
+        if "return" in text or "returning" in text:
+            return "physical-circ"
+        return "physical-coupon"
+    return original_pass_type or "unknown"
+
+
 def _policy_block(rec: dict | None) -> dict | None:
     if not rec or rec.get("status") != "ok":
         return None
@@ -107,6 +132,11 @@ def build_passes(
                 pass_type=pass_type,
                 classifications=classifications,
                 branch_ids_by_lib=branch_ids_by_lib,
+            )
+            pass_type = _resolve_pass_type(
+                original_pass_type=pass_type,
+                pickup_method=pickup_method,
+                benefits_text=p.get("benefits_text", ""),
             )
             if pickup_method == "physical_at_branch":
                 n_physical += 1
