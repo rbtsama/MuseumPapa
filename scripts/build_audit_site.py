@@ -473,13 +473,13 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
         f"含义:数据建模历史遗留 bug,前端会显示成两张不同的卡,需合并 — "
         f"<a href='duplicates.html'>see Duplicates</a></li>"
     )
-    n_missing_price = n_attrs - attr_cov["price (any)"]
+    n_missing_price = n_attrs - attr_cov["Ticket price (any tier) · 票价(任一层级)"]
     anomalies.append(
         f"<li><b>{n_missing_price}</b> 个景点没有任何价格层级(adult/child/youth/senior/...)— "
         f"含义:景点官网无公开标价,或票价是 per-show / per-vehicle 浮动 — "
         f"<a href='gaps.html'>see Gaps</a></li>"
     )
-    n_missing_desc = n_attrs - attr_cov["description"]
+    n_missing_desc = n_attrs - attr_cov["Description · 简介"]
     anomalies.append(
         f"<li><b>{n_missing_desc}</b> 个景点没有简介文字 — "
         f"含义:景点官网无 og:description / about 页 抓取失败 / 网站 403 拦截</li>"
