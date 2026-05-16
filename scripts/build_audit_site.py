@@ -720,11 +720,30 @@ def page_libraries(libs_data, libcat=None) -> str:
 
     body = f"""
 <h1 class="page-title">Libraries · 59</h1>
+
+<section class="panel" style="border-left: 4px solid var(--rd); background: var(--rd-pale);">
+  <h3 style="color: var(--rd); margin-top:0">⚠ lib_id 是数据爬取模型,不是用户产品概念</h3>
+  <p class="methodology">
+    <b>本期 lib_id 设计</b>:每个 id = 一个发券组织(例如 <code>bpl</code> 代表整个 BPL 系统,即使它下辖 25+ 物理分馆)。
+    这只在<b>数据爬取层</b>有意义 — 用于聚合从同一平台/账号爬下来的 passes。
+  </p>
+  <p class="methodology">
+    <b>但对用户产品体验,lib_id 没有正确语义</b>:
+    <br>① <b>电子券(digital pass)</b>:用户只关心折扣 — "MFA 半价" — 无需任何"组织"前缀。展示 "by BPL" 或 "by Wakefield Library" 是噪音
+    <br>② <b>实体券(physical / loan-card)</b>:用户需要<b>具体物理地址</b>开车去取 — "BPL 总部" 这个抽象不能告诉用户去 Copley Square 还是 East Boston;前者 Back Bay 后者隔海港
+  </p>
+  <p class="methodology">
+    <b>plan-6 工作项</b>:数据模型升级 →
+    <br>· 新增 <code>pickup_method</code> 字段(digital | physical_at_branch)
+    <br>· 实体券新增 <code>pickup_branches[]</code> 字段,每个 branch 带自己的 address/geo
+    <br>· 优先重抓:BPL(26 分馆,10 个 branch-exclusive pass)、Cambridge(7 分馆)、Brookline(3 分馆参与)
+    <br>· 前端展示规则:电子券隐藏 lib_id 抽象;实体券强制按 branch 显示物理地址
+  </p>
+</section>
+
 <p class="methodology">
-  <b>id 设计说明</b>:每个 lib_id 代表 <b>一个发券组织</b>,而不是一个物理馆点。<br>
-  例如 BPL(Boston Public Library)旗下有 25+ 个分馆,但所有 pass 由 BPL 总部统一发放 → 我们存 1 条 id=<code>bpl</code> 的记录。<br>
-  Cambridge 公共图书馆下辖 7 个分馆同理 → id=<code>cambridge</code>。<br>
-  本期 59 个 lib_id <b>全部唯一,无重复</b>。
+  下面这张表是<b>本期数据爬取层</b>的视图:59 个 lib_id 各自唯一,无重复。
+  当 plan-6 完成 branch 拆分后,本表会扩展出 BPL/Cambridge/Brookline 的 branch 行。
 </p>
 
 <section class="dist-grid">
