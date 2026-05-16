@@ -63,49 +63,53 @@ export interface OriginalPrice {
   source_url: string | null;
 }
 
-export type EligibilityTag =
-  | 'all'
-  | 'adults_only'
-  | 'children_only'
-  | 'vehicle'
-  | 'single_ticket'
-  | 'members_free'
-  | 'seniors_free'
-  | 'students_only'
-  | 'military_free'
-  | 'educator_free'
-  | 'family'
-  | 'groups'
-  | 'residents_only';
+export type CouponCapacityKind = 'people' | 'vehicle' | 'ticket' | 'unspecified';
 
-export type ExclusionTag =
-  | 'weekdays_only'
-  | 'weekends_only'
-  | 'blackout_dates'
-  | 'reservation_required'
-  | 'id_required'
-  | string;  // allow `seasonal:May-Oct` style
+export interface CouponCapacity {
+  kind: CouponCapacityKind;
+  n: number | null;
+}
 
-export type BoostTag =
-  | 'ebt_discount'
-  | 'snap_free'
-  | 'library_card_required'
-  | 'members_discount'
-  | 'gift_shop_discount';
+export type CouponAudience =
+  | 'Everyone'
+  | 'Adult'
+  | 'Child'
+  | 'Youth'
+  | 'Senior'
+  | 'Vehicle'
+  | 'Single ticket';
 
-export interface Policy {
-  max_people: number | null;
-  max_adults: number | null;
-  max_children: number | null;
-  free_under_age: number | null;
-  savings_per_person_usd: number | null;
-  discount_percent: number | null;
-  discount_dollar_off: number | null;
-  eligibility_tags: EligibilityTag[];
-  exclusions: ExclusionTag[];
-  boosts: BoostTag[];
-  notes: string | null;
-  raw: string | null;
+export interface AgeRange {
+  min: number | null;
+  max: number | null;
+}
+
+export type CouponForm =
+  | 'free'
+  | 'percent-off'
+  | 'dollar-off'
+  | 'per-person-price'
+  | 'discount';
+
+export interface AudiencePolicy {
+  audience: CouponAudience;
+  age_range: AgeRange | null;
+  count: number | null;
+  form: CouponForm;
+  value: number | null;
+}
+
+export interface Coupon {
+  capacity: CouponCapacity;
+  audience_policies: AudiencePolicy[];
+  summary: string;
+}
+
+export interface PassRestrictions {
+  blackout_dates: boolean;
+  weekdays_only: boolean;
+  seasonal: string | null;
+  reservation_required: boolean;
 }
 
 export interface HeroImage {
@@ -139,14 +143,6 @@ export interface Attraction {
 }
 
 export type PassTypeKind = 'digital' | 'physical-coupon' | 'physical-circ' | 'unknown';
-export type DiscountClass = 'free' | 'half' | 'percent-off' | 'dollar-off' | 'price' | 'discount' | 'unknown';
-
-export interface Discount {
-  class: DiscountClass;
-  label: string;
-  raw: string;
-}
-
 export type PickupMethod = 'digital' | 'physical_at_branch';
 
 export interface Pass {
@@ -155,9 +151,9 @@ export interface Pass {
   pass_type: PassTypeKind;
   pass_type_raw: string;
   pickup_method: PickupMethod;
-  pickup_branches: string[];   // branch ids; empty for digital
-  discount: Discount;
-  policy: Policy | null;
+  pickup_branches: string[];
+  coupon: Coupon;
+  restrictions: PassRestrictions | null;
   source_url: string;
   availability: Record<string, string> | null;
 }
