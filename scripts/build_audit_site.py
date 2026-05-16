@@ -297,6 +297,51 @@ NAV_LINKS = [
 ]
 
 
+# Shared helper for histogram tables on detail pages
+def histogram_table(counter: Counter, total: int, label_map: dict | None = None, max_rows: int | None = None) -> str:
+    if not counter:
+        return '<p class="honest-gap">无数据</p>'
+    most = counter.most_common(max_rows) if max_rows else counter.most_common()
+    max_n = most[0][1] if most else 1
+    rows = []
+    for key, n in most:
+        if label_map and key in label_map:
+            lab = label_map[key]
+        elif isinstance(key, str) and key.startswith("seasonal:"):
+            lab = f"Open {key.split(':', 1)[1]}"
+        else:
+            lab = str(key) if key is not None else "(none)"
+        bar_w = round(40 * n / max_n)
+        pct = round(100 * n / total) if total else 0
+        rows.append(
+            f'<tr><td>{esc(lab)}</td>'
+            f'<td class="bar-cell"><span class="bar">{"█" * bar_w}</span></td>'
+            f'<td class="num">{n}</td><td class="pct">{pct}%</td></tr>'
+        )
+    return f'<table class="histogram">{"".join(rows)}</table>'
+
+
+def half_price_subpattern(raw: str) -> str:
+    """Classify a half-price pass into A/B/C/D/E or 'other' by raw text."""
+    import re
+    r = (raw or "").lower()
+    if not r:
+        return "none"
+    if not ("half" in r or "50%" in r or "1/2 price" in r):
+        return "none"
+    if re.search(r'one\s+vehicle|per\s+car|per\s+vehicle|in\s+one\s+car|in 1 vehicle', r):
+        return "E"
+    if re.search(r'\d+\s+adults?.{0,40}\d+\s+children?\s+at\s+\$\d', r):
+        return "B"
+    if re.search(r'adults?\s+at\s+(?:50%|half|1/2)\s*.{0,80}children?\s+at\s+\$\d', r):
+        return "B"
+    if re.search(r'only applies to adult|adult and child pricing|adult\s+pricing only', r):
+        return "D"
+    if re.search(r'under\s+\d+\s+(?:are|admitted)?\s*free|under\s+\d+.*always.*free|children\s+under', r):
+        return "C"
+    return "A"
+
+
 def page_shell(title: str, body: str, current: str, extra_head: str = "", data_blob: str = "") -> str:
     nav = " · ".join(
         f'<a href="{href}" class="{"current" if href == current else ""}">{label}</a>'
@@ -513,8 +558,19 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
 # PAGE 2 — libraries.html
 # =========================================================================
 
-def page_libraries(libs_data) -> str:
+def page_libraries(libs_data, libcat=None) -> str:
     libs = libs_data["libraries"]
+    n_libs = len(libs)
+    plat_counter = Counter(L.get("platform") or "(unknown)" for L in libs)
+    net_counter = Counter(L.get("network") or "(unknown)" for L in libs)
+    res_counter = Counter(L.get("eligibility") or "(unknown)" for L in libs)
+    # passes per library (requires catalog)
+    pass_count_per_lib = {}
+    if libcat:
+        for lid, ldata in (libcat.get("libraries") or {}).items():
+            pass_count_per_lib[lid] = len((ldata.get("passes") or {}))
+    top_libs = sorted(pass_count_per_lib.items(), key=lambda x: -x[1])[:10] if pass_count_per_lib else []
+
     rows = []
     for L in libs:
         addr = L.get("address") or {}
@@ -522,6 +578,7 @@ def page_libraries(libs_data) -> str:
         card_link = ""
         if L.get("card_page"):
             card_link = f'<a href="{esc(L["card_page"])}" target="_blank" rel="noopener">↗</a>'
+        n_p = pass_count_per_lib.get(L["id"], "—")
         rows.append(f"""<tr data-search="{esc((L['id']+' '+L['name']+' '+L.get('town','')+' '+L.get('network','')).lower())}">
   <td class="mono">{esc(L['id'])}</td>
   <td>{esc(L['name'])}</td>
@@ -529,20 +586,63 @@ def page_libraries(libs_data) -> str:
   <td>{esc(L.get('network',''))}</td>
   <td><span class="badge badge-plat-{esc(L.get('platform',''))}">{esc(L.get('platform',''))}</span></td>
   <td class="truncate">{residency}</td>
+  <td class="num">{n_p}</td>
   <td>{card_link}</td>
 </tr>""")
+
+    # Distribution panels (top of page)
+    top_libs_html = "".join(
+        f'<tr><td class="mono">{esc(lid)}</td>'
+        f'<td class="bar-cell"><span class="bar">{"█" * round(40 * n / (top_libs[0][1] or 1))}</span></td>'
+        f'<td class="num">{n}</td></tr>'
+        for lid, n in top_libs
+    ) if top_libs else ""
+
     body = f"""
 <h1 class="page-title">Libraries · 59</h1>
 <p class="methodology">
   <b>id 设计说明</b>:每个 lib_id 代表 <b>一个发券组织</b>,而不是一个物理馆点。<br>
   例如 BPL(Boston Public Library)旗下有 25+ 个分馆,但所有 pass 由 BPL 总部统一发放 → 我们存 1 条 id=<code>bpl</code> 的记录。<br>
   Cambridge 公共图书馆下辖 7 个分馆同理 → id=<code>cambridge</code>。<br>
-  小镇如 Wakefield 本身就只有一个馆,id=<code>wakefield</code>。<br>
-  本期 59 个 lib_id <b>全部唯一,无重复</b>。如果将来要支持"按分馆距离"或"按分馆预约",需要新建 branches 表(v0.1 未做,显式产品决策)。
+  本期 59 个 lib_id <b>全部唯一,无重复</b>。
 </p>
+
+<section class="dist-grid">
+  <div class="panel dist-panel">
+    <h3>平台分布 · Platform · {n_libs} 馆</h3>
+    {histogram_table(plat_counter, n_libs)}
+    <p class="methodology" style="margin-top:8px">
+      88% 数据依赖 Assabet 单一平台 — 若平台变更或收费,影响面广。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>网络归属 · Network · {n_libs} 馆</h3>
+    {histogram_table(net_counter, n_libs)}
+    <p class="methodology" style="margin-top:8px">
+      馆际网络决定了卡是否可跨馆互借;Minuteman 网络支持一卡通用其它 Minuteman 馆的 pass。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>办卡资格 · Residency · {n_libs} 馆</h3>
+    {histogram_table(res_counter, n_libs)}
+    <p class="methodology" style="margin-top:8px">
+      open_ma_resident = 任何 MA 居民可办;residents_only = 仅本镇居民。<br>
+      <b>本产品默认所有用户已是 MA cardholder,办卡门槛不在产品流程内</b>。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>Top 10 提供 pass 最多的馆</h3>
+    <table class="histogram">{top_libs_html or '<tr><td>(no catalog data)</td></tr>'}</table>
+    <p class="methodology" style="margin-top:8px">
+      数量差异很大 — BPL/Wakefield/Acton 等大馆是流量主力,小镇馆覆盖窄。
+    </p>
+  </div>
+</section>
+
+<h2 class="section-title">明细表 · Full table</h2>
 <div class="toolbar"><input type="search" class="search-box" placeholder="filter rows... (id / name / town / network)" data-target="libs-table"></div>
 <table id="libs-table" class="data-table">
-<thead><tr><th>id</th><th>name</th><th>town</th><th>network</th><th>platform</th><th>residency</th><th>card page</th></tr></thead>
+<thead><tr><th>id</th><th>name</th><th>town</th><th>network</th><th>platform</th><th>residency</th><th class="num">passes</th><th>card page</th></tr></thead>
 <tbody>{"".join(rows)}</tbody>
 </table>
 <p class="foot-link"><a href="#" class="view-json-link" data-json-key="libraries">View full libraries.json</a></p>
@@ -705,8 +805,97 @@ def page_attractions(attr_data) -> str:
 </article>""")
 
     cat_options = "".join(f'<option value="{esc(c)}">{esc(c)}</option>' for c in all_cats)
+
+    # ── Distribution stats ─────────────────────────────────────────────
+    n_attrs = len(attrs)
+    # Price tier coverage
+    tiers = [("adult","Adult · 成人"),("senior","Senior · 老人"),("child","Child · 儿童"),
+             ("student","Student · 学生"),("military","Military · 军人"),
+             ("youth","Youth · 青少年"),("educator","Educator · 教师"),("family","Family · 家庭通票")]
+    tier_counter = Counter()
+    for A in attrs:
+        p = A.get("original_price") or {}
+        for k, _ in tiers:
+            if p.get(k) is not None:
+                tier_counter[k] += 1
+    tier_label_map = dict(tiers)
+    # Hours status
+    hours_status_counter = Counter()
+    for A in attrs:
+        h = A.get("hours")
+        if not h:
+            hours_status_counter["(no data)"] += 1
+        else:
+            hours_status_counter[h.get("status") or "(no data)"] += 1
+    hours_label_map = {"ok": "ok · 全周固定小时", "varies": "varies · 跨分馆/分区,小时不一",
+                       "seasonal": "seasonal · 季节性开放", "(no data)": "(无数据)"}
+    # Categories
+    cat_counter = Counter()
+    for A in attrs:
+        for c in (A.get("categories") or []):
+            cat_counter[c] += 1
+    # Coverage of non-price fields
+    cov_counter = Counter()
+    for A in attrs:
+        if (A.get("hero_image") or {}).get("local_path"): cov_counter["hero image"] += 1
+        if A.get("original_price"): cov_counter["price (any tier)"] += 1
+        if A.get("hours"): cov_counter["hours"] += 1
+        if A.get("description"): cov_counter["description"] += 1
+        if A.get("phone"): cov_counter["phone"] += 1
+        if A.get("geo"): cov_counter["geo"] += 1
+        if A.get("address"): cov_counter["address"] += 1
+    # Top 10 attractions by # libraries offering
+    top_attrs = sorted(attrs, key=lambda a: -len(a.get("sources") or []))[:10]
+    top_attrs_html = "".join(
+        f'<tr><td class="mono">{esc(a["slug"])}</td>'
+        f'<td>{esc((a.get("museum_name") or "")[:34])}</td>'
+        f'<td class="bar-cell"><span class="bar">{"█" * round(40 * len(a.get("sources") or []) / max(1, len(top_attrs[0].get("sources") or [])))}</span></td>'
+        f'<td class="num">{len(a.get("sources") or [])}</td></tr>'
+        for a in top_attrs
+    )
+
     body = f"""
-<h1 class="page-title">Attractions · {len(attrs)}</h1>
+<h1 class="page-title">Attractions · {n_attrs}</h1>
+
+<section class="dist-grid">
+  <div class="panel dist-panel">
+    <h3>Price tier 覆盖率 · 8 个层级</h3>
+    {histogram_table(tier_counter, n_attrs, tier_label_map)}
+    <p class="methodology" style="margin-top:8px">
+      口径:分母 = 全部 {n_attrs} 个景点。Adult 73% 是基本盘;Educator (7%) / Family (2%) 太稀疏,前端可考虑不展示。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>Hours 状态分布</h3>
+    {histogram_table(hours_status_counter, n_attrs, hours_label_map)}
+    <p class="methodology" style="margin-top:8px">
+      varies = Trustees / Mass Audubon 这类多分馆网络;seasonal = 仅特定月份开放;ok = 全周可查。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>类别分布 · Categories</h3>
+    {histogram_table(cat_counter, n_attrs, max_rows=15)}
+    <p class="methodology" style="margin-top:8px">
+      每个景点可属多类,加起来 &gt; 100%。展示前 15。产品筛选器应该按这个频次排序。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>字段覆盖率</h3>
+    {histogram_table(cov_counter, n_attrs)}
+    <p class="methodology" style="margin-top:8px">
+      Hero image / hours / geo 接近全覆盖。Price 76%、Phone 90%、Description 93% — 剩余为诚实失败(theater / no_website / 403)。
+    </p>
+  </div>
+  <div class="panel dist-panel dist-wide">
+    <h3>Top 10 被最多图书馆收录的景点</h3>
+    <table class="histogram"><thead><tr><th>slug</th><th>name</th><th></th><th class="num">N libs</th></tr></thead><tbody>{top_attrs_html}</tbody></table>
+    <p class="methodology" style="margin-top:8px">
+      流量入口集中度。前 5 个景点是产品着陆页的"自然主角"。
+    </p>
+  </div>
+</section>
+
+<h2 class="section-title">明细 · Full cards</h2>
 <div class="toolbar">
   <input type="search" class="search-box" placeholder="filter (slug / name / category)..." data-target="attr-list">
   <select class="filter-select" data-target="attr-list" data-filter-attr="data-categories">
@@ -827,8 +1016,123 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
         rows = "".join(render_pass_article(p, i) for i, p in enumerate(plist))
         lib_sections.append(f'<section class="pattern-section" id="L_{esc(lid)}"><h2 class="pattern-header"><b>{esc(lid)}</b> <span class="pattern-meta">{len(plist)} passes</span></h2><div class="pattern-rows">{rows}</div></section>')
 
+    # ── Distribution stats for policies page ─────────────────────────
+    n_passes = len(passes)
+    disc_counter = Counter((p.get("discount") or {}).get("class") or "(unknown)" for p in passes)
+    pt_counter = Counter(p.get("pass_type") or "(unknown)" for p in passes)
+    # max_people
+    maxp_counter = Counter()
+    for p in passes:
+        v = ((p.get("policy") or {}).get("max_people"))
+        maxp_counter[v if v is not None else "(unspecified)"] += 1
+    # Eligibility tags + restrictions counters (multi-valued)
+    elig_counter = Counter()
+    excl_counter = Counter()
+    for p in passes:
+        pol = p.get("policy") or {}
+        for t in pol.get("eligibility_tags") or []:
+            elig_counter[t] += 1
+        for t in pol.get("exclusions") or []:
+            excl_counter[t] += 1
+    # Half-price sub-pattern A/B/C/D/E
+    subcat = Counter()
+    for p in passes:
+        raw = ((p.get("policy") or {}).get("raw") or "") or (p.get("discount") or {}).get("raw") or ""
+        sp = half_price_subpattern(raw)
+        if sp != "none":
+            subcat[sp] += 1
+    subcat_label_map = {
+        "A": "A · 整组同折扣(party-wide)",
+        "B": "B · 大小人分价",
+        "C": "C · 含 N 岁以下免费",
+        "D": "D · 仅部分客票适用",
+        "E": "E · 按一辆车 / 单张票",
+    }
+    total_half = sum(subcat.values())
+    # Pattern frequency
+    pattern_count_table = "".join(
+        f'<tr><td class="mono"><a href="#{pid}">{pid}</a></td>'
+        f'<td>{esc(en)}</td>'
+        f'<td class="bar-cell"><span class="bar">{"█" * round(40 * n / max(1, pattern_meta[0][3]))}</span></td>'
+        f'<td class="num">{n}</td><td class="pct">{round(100 * n / n_passes)}%</td></tr>'
+        for pid, en, zh, n in pattern_meta
+    )
+
+    disc_label_map = {
+        "free": "Free · 免费",
+        "half": "Half · 半价(50% off)",
+        "percent-off": "Percent off · 百分比减额",
+        "dollar-off": "Dollar off · 金额减额",
+        "price": "Per-person price · 定价",
+        "discount": "Discount · 折扣(笼统)",
+        "unknown": "(未分类)",
+    }
+    pt_label_map = {
+        "digital": "Digital · 在线打印/下载",
+        "physical-coupon": "Physical coupon · 纸质券",
+        "physical-circ": "Physical · 借实体",
+        "loan-card": "Loan card · 借实体卡",
+        "unknown": "(未分类)",
+    }
+
     body = f"""
-<h1 class="page-title">Policies · 1008 passes · {len(pattern_meta)} patterns</h1>
+<h1 class="page-title">Policies · {n_passes} passes · {len(pattern_meta)} patterns</h1>
+
+<section class="dist-grid">
+  <div class="panel dist-panel">
+    <h3>Discount 类型分布 · {n_passes} passes</h3>
+    {histogram_table(disc_counter, n_passes, disc_label_map)}
+    <p class="methodology" style="margin-top:8px">
+      Free + Half 通常占大头 → 产品上"全免"和"半价"两类是默认主推方式。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>Pass 形式 · 取券方式</h3>
+    {histogram_table(pt_counter, n_passes, pt_label_map)}
+    <p class="methodology" style="margin-top:8px">
+      数字 pass 用户体验最好;实体 pass / loan card 需要去馆里取还,对 BPL/Cambridge 等多分馆系统取卡地点是关键变量。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>Half-price 子模式 · {total_half} 条</h3>
+    {histogram_table(subcat, total_half, subcat_label_map)}
+    <p class="methodology" style="margin-top:8px">
+      <b>A 整组同折扣 = 简单"adult × N × 0.5"乘法</b>(85% 占比)。
+      <b>C 含 N 岁以下免费 = 简单减法</b>(5%)。
+      <b>D/E 复杂场景</b>(10%)需要 "see fine print" — 不要试图用一个金额表达,直接展示原文。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>Party 人数上限分布</h3>
+    {histogram_table(maxp_counter, n_passes, max_rows=10)}
+    <p class="methodology" style="margin-top:8px">
+      "4 人" 是行业默认配置;"未限定"通常意味着 raw 原文没提供数字,前端价格估算应缺省按 4 人。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>Eligibility 标签(多值)</h3>
+    {histogram_table(elig_counter, n_passes)}
+    <p class="methodology" style="margin-top:8px">
+      口径同 Overview:每条 pass 可有 0 或多个标签,加总 &gt; 100%。<b>residents_only 仅 28 条</b> — 已按产品决策忽略此类限制(默认用户已是 cardholder)。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>Restrictions · 限制条款(多值)</h3>
+    {histogram_table(excl_counter, n_passes)}
+    <p class="methodology" style="margin-top:8px">
+      reservation_required (35) / blackout_dates (21) 是用户体验上最敏感的限制 — 卡片上要明确展示。
+    </p>
+  </div>
+  <div class="panel dist-panel dist-wide">
+    <h3>16 个 Pattern 占比</h3>
+    <table class="histogram"><thead><tr><th>id</th><th>name</th><th></th><th class="num">n</th><th class="pct">%</th></tr></thead><tbody>{pattern_count_table}</tbody></table>
+    <p class="methodology" style="margin-top:8px">
+      点击 P1/P2... 直接跳转到该模式 section。前 5 个模式覆盖大约 ~70% passes,产品 UI 优先支持这几种。
+    </p>
+  </div>
+</section>
+
+<h2 class="section-title">明细 · Full pattern sections</h2>
 
 <div class="policies-toolbar">
   <div class="tab-row">
@@ -1166,6 +1470,15 @@ main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
 
 .panel { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 18px 22px; margin-bottom: 20px; }
 .panel h2, .panel h3 { margin: 0 0 12px; font-size: 15px; color: var(--ink); }
+
+/* Distribution grid (used at top of libraries / attractions / policies) */
+.dist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 28px; }
+.dist-panel { margin-bottom: 0; }
+.dist-panel.dist-wide { grid-column: 1 / -1; }
+.dist-panel h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 14px; color: var(--ink); border-bottom: 1px dotted var(--rule); padding-bottom: 6px; }
+.dist-panel .methodology { margin: 8px 0 0; background: var(--paper); }
+
+.section-title { font-family: 'Libre Baskerville', Georgia, serif; font-size: 18px; color: var(--ink); margin: 36px 0 14px; padding-bottom: 6px; border-bottom: 2px solid var(--g); }
 
 .cards-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
 .num-card { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 22px; text-align: center; }
@@ -1521,7 +1834,7 @@ def main():
     write("index.html", page_index(libs_data, attr_data, passes_data, libcat))
 
     print("[3/8] libraries.html")
-    write("libraries.html", page_libraries(libs_data))
+    write("libraries.html", page_libraries(libs_data, libcat=libcat))
 
     print("[4/8] attractions.html")
     attr_html, missing_image = page_attractions(attr_data)

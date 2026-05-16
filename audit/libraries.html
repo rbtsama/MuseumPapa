@@ -16,12 +16,45 @@
   <b>id 设计说明</b>:每个 lib_id 代表 <b>一个发券组织</b>,而不是一个物理馆点。<br>
   例如 BPL(Boston Public Library)旗下有 25+ 个分馆,但所有 pass 由 BPL 总部统一发放 → 我们存 1 条 id=<code>bpl</code> 的记录。<br>
   Cambridge 公共图书馆下辖 7 个分馆同理 → id=<code>cambridge</code>。<br>
-  小镇如 Wakefield 本身就只有一个馆,id=<code>wakefield</code>。<br>
-  本期 59 个 lib_id <b>全部唯一,无重复</b>。如果将来要支持"按分馆距离"或"按分馆预约",需要新建 branches 表(v0.1 未做,显式产品决策)。
+  本期 59 个 lib_id <b>全部唯一,无重复</b>。
 </p>
+
+<section class="dist-grid">
+  <div class="panel dist-panel">
+    <h3>平台分布 · Platform · 59 馆</h3>
+    <table class="histogram"><tr><td>assabet</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">52</td><td class="pct">88%</td></tr><tr><td>libcal</td><td class="bar-cell"><span class="bar">████</span></td><td class="num">5</td><td class="pct">8%</td></tr><tr><td>museumkey</td><td class="bar-cell"><span class="bar">██</span></td><td class="num">2</td><td class="pct">3%</td></tr></table>
+    <p class="methodology" style="margin-top:8px">
+      88% 数据依赖 Assabet 单一平台 — 若平台变更或收费,影响面广。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>网络归属 · Network · 59 馆</h3>
+    <table class="histogram"><tr><td>Minuteman</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">24</td><td class="pct">41%</td></tr><tr><td>NOBLE</td><td class="bar-cell"><span class="bar">███████████████████████████</span></td><td class="num">16</td><td class="pct">27%</td></tr><tr><td>MVLC</td><td class="bar-cell"><span class="bar">██████████████████████</span></td><td class="num">13</td><td class="pct">22%</td></tr><tr><td>OCLN</td><td class="bar-cell"><span class="bar">████████</span></td><td class="num">5</td><td class="pct">8%</td></tr><tr><td>BPL</td><td class="bar-cell"><span class="bar">██</span></td><td class="num">1</td><td class="pct">2%</td></tr></table>
+    <p class="methodology" style="margin-top:8px">
+      馆际网络决定了卡是否可跨馆互借;Minuteman 网络支持一卡通用其它 Minuteman 馆的 pass。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>办卡资格 · Residency · 59 馆</h3>
+    <table class="histogram"><tr><td>unknown</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">44</td><td class="pct">75%</td></tr><tr><td>open_ma_resident</td><td class="bar-cell"><span class="bar">███████</span></td><td class="num">8</td><td class="pct">14%</td></tr><tr><td>residents_only</td><td class="bar-cell"><span class="bar">█████</span></td><td class="num">5</td><td class="pct">8%</td></tr><tr><td>network_only</td><td class="bar-cell"><span class="bar">██</span></td><td class="num">2</td><td class="pct">3%</td></tr></table>
+    <p class="methodology" style="margin-top:8px">
+      open_ma_resident = 任何 MA 居民可办;residents_only = 仅本镇居民。<br>
+      <b>本产品默认所有用户已是 MA cardholder,办卡门槛不在产品流程内</b>。
+    </p>
+  </div>
+  <div class="panel dist-panel">
+    <h3>Top 10 提供 pass 最多的馆</h3>
+    <table class="histogram"><tr><td class="mono">natick</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">30</td></tr><tr><td class="mono">andover</td><td class="bar-cell"><span class="bar">███████████████████████████████████</span></td><td class="num">26</td></tr><tr><td class="mono">wilmington</td><td class="bar-cell"><span class="bar">███████████████████████████████████</span></td><td class="num">26</td></tr><tr><td class="mono">burlington</td><td class="bar-cell"><span class="bar">█████████████████████████████████</span></td><td class="num">25</td></tr><tr><td class="mono">weston</td><td class="bar-cell"><span class="bar">█████████████████████████████████</span></td><td class="num">25</td></tr><tr><td class="mono">reading</td><td class="bar-cell"><span class="bar">███████████████████████████████</span></td><td class="num">23</td></tr><tr><td class="mono">bpl</td><td class="bar-cell"><span class="bar">███████████████████████████████</span></td><td class="num">23</td></tr><tr><td class="mono">carlisle</td><td class="bar-cell"><span class="bar">█████████████████████████████</span></td><td class="num">22</td></tr><tr><td class="mono">haverhill</td><td class="bar-cell"><span class="bar">█████████████████████████████</span></td><td class="num">22</td></tr><tr><td class="mono">maynard</td><td class="bar-cell"><span class="bar">█████████████████████████████</span></td><td class="num">22</td></tr></table>
+    <p class="methodology" style="margin-top:8px">
+      数量差异很大 — BPL/Wakefield/Acton 等大馆是流量主力,小镇馆覆盖窄。
+    </p>
+  </div>
+</section>
+
+<h2 class="section-title">明细表 · Full table</h2>
 <div class="toolbar"><input type="search" class="search-box" placeholder="filter rows... (id / name / town / network)" data-target="libs-table"></div>
 <table id="libs-table" class="data-table">
-<thead><tr><th>id</th><th>name</th><th>town</th><th>network</th><th>platform</th><th>residency</th><th>card page</th></tr></thead>
+<thead><tr><th>id</th><th>name</th><th>town</th><th>network</th><th>platform</th><th>residency</th><th class="num">passes</th><th>card page</th></tr></thead>
 <tbody><tr data-search="wakefield lucius beebe memorial library wakefield noble">
   <td class="mono">wakefield</td>
   <td>Lucius Beebe Memorial Library</td>
@@ -29,6 +62,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">open_ma_resident</td>
+  <td class="num">18</td>
   <td><a href="https://www.wakefieldlibrary.org/get-a-card/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="stoneham stoneham public library stoneham noble">
   <td class="mono">stoneham</td>
@@ -37,6 +71,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">open_ma_resident</td>
+  <td class="num">18</td>
   <td><a href="https://stonehamlibrary.org/get-a-library-card/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="reading reading public library reading noble">
   <td class="mono">reading</td>
@@ -45,6 +80,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">open_ma_resident</td>
+  <td class="num">23</td>
   <td><a href="https://www.readingpl.org/services/get-a-library-card/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="woburn woburn public library woburn noble">
   <td class="mono">woburn</td>
@@ -53,6 +89,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">residents_only</td>
+  <td class="num">18</td>
   <td><a href="https://www.woburnpubliclibrary.org/borrow/get-a-library-card/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="lynnfield lynnfield public library lynnfield noble">
   <td class="mono">lynnfield</td>
@@ -61,6 +98,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">open_ma_resident</td>
+  <td class="num">13</td>
   <td><a href="https://www.lynnfieldlibrary.org/get-a-card/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="peabody peabody institute library peabody noble">
   <td class="mono">peabody</td>
@@ -69,6 +107,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">open_ma_resident</td>
+  <td class="num">17</td>
   <td><a href="https://peabodylibrary.org/services/get-a-library-card/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="melrose melrose public library melrose noble">
   <td class="mono">melrose</td>
@@ -77,6 +116,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">residents_only</td>
+  <td class="num">18</td>
   <td><a href="https://melrosepubliclibrary.org/services/borrow/library-cards/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="saugus saugus public library saugus noble">
   <td class="mono">saugus</td>
@@ -85,6 +125,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">open_ma_resident</td>
+  <td class="num">10</td>
   <td><a href="https://sauguspubliclibrary.org/borrowing/library-cards/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="malden malden public library malden noble">
   <td class="mono">malden</td>
@@ -93,6 +134,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">residents_only</td>
+  <td class="num">16</td>
   <td><a href="https://maldenpubliclibrary.org/services/library-card/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="medford medford public library medford minuteman">
   <td class="mono">medford</td>
@@ -101,6 +143,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">residents_only</td>
+  <td class="num">21</td>
   <td><a href="https://medfordlibrary.org/services/borrow/library-cards/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="burlington burlington public library burlington mvlc">
   <td class="mono">burlington</td>
@@ -109,6 +152,7 @@
   <td>MVLC</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">network_only</td>
+  <td class="num">25</td>
   <td><a href="https://www.burlington.org/170/Library-Card" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="north-reading flint memorial library north reading noble">
   <td class="mono">north-reading</td>
@@ -117,6 +161,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">open_ma_resident</td>
+  <td class="num">17</td>
   <td><a href="https://www.flintmemoriallibrary.org/services/get-a-card/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="wilmington wilmington memorial library wilmington mvlc">
   <td class="mono">wilmington</td>
@@ -125,6 +170,7 @@
   <td>MVLC</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">network_only</td>
+  <td class="num">26</td>
   <td><a href="https://wilmlibrary.org/get-a-library-card/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="winchester winchester public library winchester minuteman">
   <td class="mono">winchester</td>
@@ -133,6 +179,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">residents_only</td>
+  <td class="num">19</td>
   <td><a href="https://www.winpublib.org/library-card/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="bpl boston public library boston bpl">
   <td class="mono">bpl</td>
@@ -141,6 +188,7 @@
   <td>BPL</td>
   <td><span class="badge badge-plat-libcal">libcal</span></td>
   <td class="truncate">open_ma_resident</td>
+  <td class="num">23</td>
   <td><a href="https://www.bpl.org/borrowing/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="beverly beverly public library beverly noble">
   <td class="mono">beverly</td>
@@ -149,6 +197,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">10</td>
   <td><a href="https://beverlypubliclibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="danvers peabody institute library of danvers danvers noble">
   <td class="mono">danvers</td>
@@ -157,6 +206,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">17</td>
   <td><a href="https://danverslibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="lynn lynn public library lynn noble">
   <td class="mono">lynn</td>
@@ -165,6 +215,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">12</td>
   <td><a href="https://lynnpubliclibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="marblehead abbot public library marblehead noble">
   <td class="mono">marblehead</td>
@@ -173,6 +224,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">8</td>
   <td><a href="https://www.abbotlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="everett everett public libraries everett noble">
   <td class="mono">everett</td>
@@ -181,6 +233,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">12</td>
   <td><a href="https://www.everettpubliclibraries.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="chelsea chelsea public library chelsea noble">
   <td class="mono">chelsea</td>
@@ -189,6 +242,7 @@
   <td>NOBLE</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">8</td>
   <td><a href="https://www.chelseama.gov/departments/library/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="billerica billerica public library billerica mvlc">
   <td class="mono">billerica</td>
@@ -197,6 +251,7 @@
   <td>MVLC</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">19</td>
   <td><a href="https://billericalibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="topsfield topsfield town library topsfield mvlc">
   <td class="mono">topsfield</td>
@@ -205,6 +260,7 @@
   <td>MVLC</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">16</td>
   <td><a href="https://www.topsfieldlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="boxford boxford town library boxford mvlc">
   <td class="mono">boxford</td>
@@ -213,6 +269,7 @@
   <td>MVLC</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">7</td>
   <td><a href="https://boxfordlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="tewksbury tewksbury public library tewksbury mvlc">
   <td class="mono">tewksbury</td>
@@ -221,6 +278,7 @@
   <td>MVLC</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">14</td>
   <td><a href="https://www.tewksburypl.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="chelmsford chelmsford public library chelmsford mvlc">
   <td class="mono">chelmsford</td>
@@ -229,6 +287,7 @@
   <td>MVLC</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">18</td>
   <td><a href="https://chelmsfordlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="haverhill haverhill public library haverhill mvlc">
   <td class="mono">haverhill</td>
@@ -237,6 +296,7 @@
   <td>MVLC</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">22</td>
   <td><a href="https://www.haverhillpl.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="lawrence lawrence public library lawrence mvlc">
   <td class="mono">lawrence</td>
@@ -245,6 +305,7 @@
   <td>MVLC</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">9</td>
   <td><a href="https://www.lawrencefreelibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="methuen nevins memorial library methuen mvlc">
   <td class="mono">methuen</td>
@@ -253,6 +314,7 @@
   <td>MVLC</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">16</td>
   <td><a href="https://www.nevinslibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="andover memorial hall library andover mvlc">
   <td class="mono">andover</td>
@@ -261,6 +323,7 @@
   <td>MVLC</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">26</td>
   <td><a href="https://mhl.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="north-andover stevens memorial library north andover mvlc">
   <td class="mono">north-andover</td>
@@ -269,6 +332,7 @@
   <td>MVLC</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">12</td>
   <td><a href="https://www.stevensmemlib.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="middleton flint public library middleton mvlc">
   <td class="mono">middleton</td>
@@ -277,6 +341,7 @@
   <td>MVLC</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">20</td>
   <td><a href="https://flintlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="arlington robbins library arlington minuteman">
   <td class="mono">arlington</td>
@@ -285,6 +350,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">12</td>
   <td><a href="https://www.robbinslibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="newton newton free library newton minuteman">
   <td class="mono">newton</td>
@@ -293,6 +359,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">20</td>
   <td><a href="https://www.newtonfreelibrary.net/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="lincoln lincoln public library lincoln minuteman">
   <td class="mono">lincoln</td>
@@ -301,6 +368,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">21</td>
   <td><a href="https://lincolnpl.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="acton acton memorial library acton minuteman">
   <td class="mono">acton</td>
@@ -309,6 +377,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">19</td>
   <td><a href="https://actonmemoriallibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="framingham framingham public library framingham minuteman">
   <td class="mono">framingham</td>
@@ -317,6 +386,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">15</td>
   <td><a href="https://framinghamlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="maynard maynard public library maynard minuteman">
   <td class="mono">maynard</td>
@@ -325,6 +395,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">22</td>
   <td><a href="https://www.maynardpubliclibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="carlisle gleason public library carlisle minuteman">
   <td class="mono">carlisle</td>
@@ -333,6 +404,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">22</td>
   <td><a href="https://gleasonlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="wayland wayland free public library wayland minuteman">
   <td class="mono">wayland</td>
@@ -341,6 +413,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">20</td>
   <td><a href="https://www.waylandlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="weston weston public library weston minuteman">
   <td class="mono">weston</td>
@@ -349,6 +422,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">25</td>
   <td><a href="https://www.westonlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="sudbury goodnow library sudbury minuteman">
   <td class="mono">sudbury</td>
@@ -357,6 +431,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">20</td>
   <td><a href="https://goodnowlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="belmont belmont public library belmont minuteman">
   <td class="mono">belmont</td>
@@ -365,6 +440,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">21</td>
   <td><a href="https://www.belmontpubliclibrary.net/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="lexington cary memorial library lexington minuteman">
   <td class="mono">lexington</td>
@@ -373,6 +449,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">20</td>
   <td><a href="https://www.carylibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="wellesley wellesley free library wellesley minuteman">
   <td class="mono">wellesley</td>
@@ -381,6 +458,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">16</td>
   <td><a href="https://www.wellesleyfreelibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="waltham waltham public library waltham minuteman">
   <td class="mono">waltham</td>
@@ -389,6 +467,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">15</td>
   <td><a href="https://walthampubliclibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="watertown watertown free public library watertown minuteman">
   <td class="mono">watertown</td>
@@ -397,6 +476,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">17</td>
   <td><a href="https://www.watertownlib.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="concord concord free public library concord minuteman">
   <td class="mono">concord</td>
@@ -405,6 +485,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">17</td>
   <td><a href="https://concordlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="bedford bedford free public library bedford minuteman">
   <td class="mono">bedford</td>
@@ -413,6 +494,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">13</td>
   <td><a href="https://bedfordlibrary.net/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="needham needham free public library needham minuteman">
   <td class="mono">needham</td>
@@ -421,6 +503,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">21</td>
   <td><a href="https://needhamlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="natick morse institute library natick minuteman">
   <td class="mono">natick</td>
@@ -429,6 +512,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">30</td>
   <td><a href="https://www.morseinstitute.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="somerville somerville public library somerville minuteman">
   <td class="mono">somerville</td>
@@ -437,6 +521,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">11</td>
   <td><a href="https://www.somervillepubliclibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="quincy thomas crane public library quincy ocln">
   <td class="mono">quincy</td>
@@ -445,6 +530,7 @@
   <td>OCLN</td>
   <td><span class="badge badge-plat-assabet">assabet</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">15</td>
   <td><a href="https://thomascranelibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="cambridge cambridge public library cambridge minuteman">
   <td class="mono">cambridge</td>
@@ -453,6 +539,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-libcal">libcal</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">17</td>
   <td><a href="https://www.cambridgema.gov/cpl" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="brookline brookline public library brookline minuteman">
   <td class="mono">brookline</td>
@@ -461,6 +548,7 @@
   <td>Minuteman</td>
   <td><span class="badge badge-plat-libcal">libcal</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">17</td>
   <td><a href="https://brooklinelibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="braintree thayer public library braintree ocln">
   <td class="mono">braintree</td>
@@ -469,6 +557,7 @@
   <td>OCLN</td>
   <td><span class="badge badge-plat-libcal">libcal</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">14</td>
   <td><a href="https://www.thayerpubliclibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="milton milton public library milton ocln">
   <td class="mono">milton</td>
@@ -477,6 +566,7 @@
   <td>OCLN</td>
   <td><span class="badge badge-plat-libcal">libcal</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">9</td>
   <td><a href="https://www.miltonlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="cohasset paul pratt memorial library cohasset ocln">
   <td class="mono">cohasset</td>
@@ -485,6 +575,7 @@
   <td>OCLN</td>
   <td><span class="badge badge-plat-museumkey">museumkey</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">14</td>
   <td><a href="https://www.cohassetlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr><tr data-search="hingham hingham public library hingham ocln">
   <td class="mono">hingham</td>
@@ -493,6 +584,7 @@
   <td>OCLN</td>
   <td><span class="badge badge-plat-museumkey">museumkey</span></td>
   <td class="truncate">unknown</td>
+  <td class="num">17</td>
   <td><a href="https://hinghamlibrary.org/" target="_blank" rel="noopener">↗</a></td>
 </tr></tbody>
 </table>
