@@ -36,7 +36,7 @@ describe('pickTags', () => {
       pass('bpl', 'digital', 'free', 'Free'),
       pass('wakefield', 'physical-coupon', 'half', '50% off'),
       pass('reading', 'physical-coupon', 'dollar-off', '$5 off'),
-      pass('wilmington', 'loan-card', 'free', 'Free'),
+      pass('wilmington', 'physical-circ', 'free', 'Free'),
     ];
     const out = pickTags({
       passes, libraries: [wak, rea, bpl, wil], userCardLibIds: null,
@@ -48,7 +48,7 @@ describe('pickTags', () => {
     expect(out[1].pass.pass_type).toBe('physical-coupon');
     expect(out[1].pass.discount.class).toBe('half');  // higher rank than dollar-off
     expect(out[2].pass.pass_type).toBe('physical-coupon');
-    expect(out[3].pass.pass_type).toBe('loan-card');
+    expect(out[3].pass.pass_type).toBe('physical-circ');
   });
 
   it('only one digital tag even when multiple digital passes exist', () => {

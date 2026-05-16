@@ -62,7 +62,7 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
   // Split into 3 groups
   const digital = candidates.filter(c => c.pass.pass_type === 'digital');
   const physical = candidates.filter(c => c.pass.pass_type === 'physical-coupon');
-  const loan = candidates.filter(c => c.pass.pass_type === 'loan-card');
+  const circ = candidates.filter(c => c.pass.pass_type === 'physical-circ');
 
   const tagsOut: PickedTag[] = [];
 
@@ -99,8 +99,8 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
     tagsOut.push(t);
   }
 
-  sortByDiscThenDist(loan);
-  for (const t of loan) {
+  sortByDiscThenDist(circ);
+  for (const t of circ) {
     if (tagsOut.length >= maxTags) break;
     tagsOut.push(t);
   }
