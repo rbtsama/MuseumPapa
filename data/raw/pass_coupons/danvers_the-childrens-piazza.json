@@ -1,0 +1,30 @@
+{
+  "library_id": "danvers",
+  "attraction_slug": "the-childrens-piazza",
+  "status": "ok",
+  "raw": "This pass provides 50% off admission for one family/same household per day. The pass does not cover members of the group who are not immediate family/household. Weekends (Saturdays) and the following holidays are excluded: Thanksgiving, Christmas, New Year's Eve, New Year's Day, and the 4th of July. Please visit The Children's Piazza website (thechildrenspiazza.com) to make a reservation prior to your visit. Reservations required for entry. Pass only valid on date reserved. The email confirmation sent to you serves as your discount pass. Please present this pass (either printed or on your mobile device) upon entry to the Children's Piazza. Library staff may print this pass for you upon request.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "50% off admission",
+    "restrictions.blackout_dates": "Weekends (Saturdays) and the following holidays are excluded",
+    "restrictions.reservation_required": "Reservations required for entry"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "library_id": "natick",
+  "attraction_slug": "christian-science-plaza",
+  "status": "ok",
+  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Free admission to the Mapparium globe for up to 4 people (children under 5 always free). Additional instructions: -Present pass upon arrival to receive discount.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 4,
+      "form": "free",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 4},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "Free admission to the Mapparium globe",
+    "audience_policies[1].form": "children under 5 always free",
+    "audience_policies[1].age_range.max": "under 5"
+  }
+}

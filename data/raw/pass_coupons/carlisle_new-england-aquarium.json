@@ -1,0 +1,37 @@
+{
+  "library_id": "carlisle",
+  "attraction_slug": "new-england-aquarium",
+  "status": "ok",
+  "raw": "Library ID: 45737 This coupon allows 50% off admission to the New England Aquarium and applies to adult and child pricing. Children under the age of 3 are admitted free. This coupon is not a ticket. Visitors should redeem this coupon in the General Admission line at the Aquarium's ticket booth for discounted admission for up to 4 people. Please visit neaq.org/coupons for details and for updated hours of operation. Review the Aquarium's website at www.neaq.org/safety ahead of your visit to ensure a safe and accessible experience. This coupon is valid for Aquarium admission only. It does not provide any other discounts and cannot be applied to combo sales. The coupon may not be sold, has no cash value, and is void if altered or copied.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 3, "max": null},
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 2},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% off admission",
+    "audience_policies[1].form": "Children under the age of 3 are admitted free"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "hingham",
+  "attraction_slug": "harvard-museums",
+  "status": "ok",
+  "raw": "26 Oxford Street Cambridge, MA 02138 617-495-3045 Get Directions Visit museum website for more information. This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. $6.00 Admission fee per person for up to four people. This pass also includes admission to the Peabody Museum of Archaeology and Ethnology. The two museums connect on the third floor and visitors may move freely from one to the other - all for one admission price. Check Dates Heritage Museums & Gardens Learn More",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 6.00
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "$6.00 Admission fee per person"
+  }
+}

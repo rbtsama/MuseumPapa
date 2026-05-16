@@ -1,0 +1,37 @@
+{
+  "library_id": "brookline",
+  "attraction_slug": "trustees-of-reservations",
+  "status": "ok",
+  "raw": "(617) 542-7696 As a steward of distinctive and dynamic places of both historic and cultural value, The Trustees is the nation's first and Massachusetts' largest preservation and conservation nonprofit, and its landscapes and landmarks continue to inspire discussion, innovation, and action today as they did in the past. Supported by members, friends and donors, The Trustees' more than 100 reservations are destinations for residents, members, and visitors alike, welcoming millions of guests annually. Pass benefits: Admits up to 2 adults and children (under 18) at free or reduced admission at Trustees sites that charge admission. Visit the The Trustees's website. Physical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "up to 2 adults",
+    "audience_policies[0].form": "free or reduced admission",
+    "audience_policies[1].age_range.max": "children (under 18)"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "winchester",
+  "attraction_slug": "new-england-aquarium",
+  "status": "ok",
+  "raw": "Pass admits 4 people at half price to the New England Aquarium. This does not include admission to the IMAX theater or tickets for whale watches. Bring email confirmation of library pass to the General Admission line at the Aquarium's ticket booth for discounted admission. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 4 people",
+    "audience_policies[0].form": "half price"
+  }
+}

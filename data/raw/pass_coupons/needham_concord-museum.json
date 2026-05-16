@@ -1,0 +1,37 @@
+{
+  "library_id": "needham",
+  "attraction_slug": "concord-museum",
+  "status": "ok",
+  "raw": "(RETURNABLE) Each pass admits 4 people at $5.00 off regular admission. Children under 6 are always free. FOR NEEDHAM RESIDENTS ONLY.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "dollar-off",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 5},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "4 people",
+    "audience_policies[0].form": "$5.00 off regular admission",
+    "audience_policies[1].age_range": "Children under 6 are always free"
+  }
+}

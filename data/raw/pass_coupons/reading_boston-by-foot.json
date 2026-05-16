@@ -1,0 +1,29 @@
+{
+  "library_id": "reading",
+  "attraction_slug": "boston-by-foot",
+  "status": "ok",
+  "raw": "This pass provides free admission for public walking tours. Online reservations required, browse the website at www.bostonbyfoot.org to view available tours. Community Passes are valid for all public walking tours. They are not valid for booking on the private tour calendar, water-based tours, or our two annual celebration tours (Beacon Hill with a BOO! & Footloose on the Freedom Trail).",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "free admission",
+    "restrictions.reservation_required": "Online reservations required"
+  }
+}

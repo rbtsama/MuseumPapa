@@ -1,0 +1,37 @@
+{
+  "library_id": "hingham",
+  "attraction_slug": "isabella-stewart-gardner",
+  "status": "ok",
+  "raw": "25 Evans Way Boston, MA 02115 617-566-1401 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. Each pass provides up to 4 people with $5.00 admission per person, redeemable at the admission desk. Children under the age of 18 are always admitted free. This pass has been provided by a generous contribution from the South Shore Ladies Club. Check Dates Massachusetts State Parks Learn More",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5.00
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$5.00 admission per person",
+    "audience_policies[1].form": "Children under the age of 18 are always admitted free"
+  }
+}

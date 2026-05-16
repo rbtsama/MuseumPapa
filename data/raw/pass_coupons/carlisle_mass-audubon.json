@@ -1,0 +1,37 @@
+{
+  "library_id": "carlisle",
+  "attraction_slug": "mass-audubon",
+  "status": "ok",
+  "raw": "Pass reserved at Gleason Public Library, Carlisle MA. Includes access to more than 60 wildlife sanctuaries across the state. Each pass admits up to four (4) people at $2 per person (children under 2 free) Please note that some sanctuaries may require reservations before visiting. Always check the Mass Audubon website before planning a visit: https://massaudubon.org/get-outdoors/our-wildlife-sanctuaries/trails. For questions, visit the Mass Audubon website or call 781-259-9500. Passes made available by Friends of Gleason Public Library.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 2, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 2
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four (4) people",
+    "audience_policies[0].form": "$2 per person",
+    "audience_policies[1].form": "children under 2 free"
+  }
+}

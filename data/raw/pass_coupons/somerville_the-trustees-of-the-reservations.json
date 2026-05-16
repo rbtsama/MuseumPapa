@@ -1,0 +1,28 @@
+{
+  "library_id": "somerville",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "This is a physical pass that must be picked up at the Library and presented at the property to redeem the discount. Pass is valid for one-time use for free or reduced admission to Trustees properties that collect a fee. All Trustees properties are now open to the public. Please check here for Covid-related announcements. Check here for more information about the properties you can visit with this pass.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "free or reduced admission"
+  }
+}

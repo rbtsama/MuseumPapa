@@ -1,0 +1,38 @@
+{
+  "library_id": "lincoln",
+  "attraction_slug": "charles-river-museum-of-industry-and-innovation",
+  "status": "ok",
+  "raw": "Reduced Admission to the museum for up to 5 guests during each visit( with pass, $5 for adults- normally $10; free for children under $16 - normally $5)",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 15},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 5 guests",
+    "audience_policies[0].form": "$5 for adults",
+    "audience_policies[1].form": "free for children under $16",
+    "audience_policies[1].age_range.max": "under $16"
+  }
+}

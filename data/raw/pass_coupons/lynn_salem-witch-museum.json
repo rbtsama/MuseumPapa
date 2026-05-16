@@ -1,0 +1,50 @@
+{
+  "library_id": "lynn",
+  "attraction_slug": "salem-witch-museum",
+  "status": "ok",
+  "raw": "*** Not Valid in October *** Discount : Half-priced admission for up to 6 people ($13.25 for adults, $10.75 for children ages 3-14). Children under the age of 3 are always free at this museum. Visit the main desk at the library to pick up your discount pass. Discount passes for this museum can be picked up the day before (after 11am) or the day of your planned visit. A $5 CASH DEPOSIT is required. This deposit will be refunded if/when the discount pass is returned on time (by 11am the first business day after your museum visit). To use : Tickets must be purchased in advance on museum's website with the discount code provided on the card. Present discount card upon arrival to receive tickets. If the card is not provided, the full admission fee will be charged. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out your discount pass, you must contact the library in advance. If booking a pass with an e-card , patrons must also provide proof of address when they arrive at the library to pick-up their pass and will be switched over to a physical library card. Unwanted passes MUST BE CANCELLED. Failure to cancel an unwanted pass will result in a 30 day ban on reserving discount passes.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 13.25
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 3, "max": 14},
+      "count": null,
+      "form": "per-person-price",
+      "value": 10.75
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 2},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$13.25 for adults",
+    "audience_policies[1].form": "$10.75 for children ages 3-14",
+    "audience_policies[1].age_range.min": "ages 3-14",
+    "audience_policies[1].age_range.max": "ages 3-14",
+    "audience_policies[2].form": "Children under the age of 3 are always free",
+    "audience_policies[2].age_range.max": "under the age of 3",
+    "restrictions.blackout_dates": "Not Valid in October",
+    "restrictions.reservation_required": "Tickets must be purchased in advance"
+  }
+}

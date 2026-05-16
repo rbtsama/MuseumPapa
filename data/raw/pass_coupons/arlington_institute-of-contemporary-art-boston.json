@@ -1,0 +1,29 @@
+{
+  "library_id": "arlington",
+  "attraction_slug": "institute-of-contemporary-art-boston",
+  "status": "ok",
+  "raw": "This pass admits up to two (2) people at $10 each. Library Passes are not valid for performances, events, or films You will receive an email from the Library that will act as your coupon. You can purchase your tickets online at https://my.icaboston.org/events , or over the phone at 617-478-3100, or in person on the day of your visit.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "two (2) people",
+    "audience_policies[0].form": "$10 each"
+  }
+}

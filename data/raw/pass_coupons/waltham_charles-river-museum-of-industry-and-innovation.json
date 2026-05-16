@@ -1,0 +1,39 @@
+{
+  "library_id": "waltham",
+  "attraction_slug": "charles-river-museum-of-industry-and-innovation",
+  "status": "ok",
+  "raw": "Reduced admission to the museum for up to five guests per visit. ($5 for adults and free for children under 16)",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": {"min": 16, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 15},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to five guests",
+    "audience_policies[0].form": "$5 for adults",
+    "audience_policies[0].age_range.min": "adults",
+    "audience_policies[1].form": "free for children under 16",
+    "audience_policies[1].age_range.max": "children under 16"
+  }
+}

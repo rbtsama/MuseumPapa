@@ -1,0 +1,29 @@
+{
+  "library_id": "bpl",
+  "attraction_slug": "museum-of-science",
+  "status": "ok",
+  "raw": "This pass will give up to FOUR people FREE Exhibit Halls admission. These passes are provided free to the Boston Public Library and provide free admission to the Museum of Science thanks to the generosity of the Lowell Institute . Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to FOUR people",
+    "audience_policies[0].form": "FREE Exhibit Halls admission"
+  }
+}

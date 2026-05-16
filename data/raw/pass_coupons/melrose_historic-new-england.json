@@ -1,0 +1,38 @@
+{
+  "library_id": "melrose",
+  "attraction_slug": "historic-new-england",
+  "status": "ok",
+  "raw": "This pass offers free admission for two adults (free admission for children under 18) to 38 historic sites and the Library and Archives of Historic New England. Please go to historicnewengland.org for a full listing of historic sites to visit and to verify hours of operation. The library pass does not guarantee admission on a chosen date. Reserve your Melrose Public Library pass for desired date. You will receive a confirmation email with an \"Access Pass\" link (if you do not have an email account, a printed confirmation may be picked up at the Main Desk of the library).",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "free",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "two adults",
+    "audience_policies[0].form": "free admission for two adults",
+    "audience_policies[1].form": "free admission for children under 18",
+    "audience_policies[1].age_range.max": "under 18"
+  }
+}

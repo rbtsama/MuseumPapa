@@ -1,0 +1,29 @@
+{
+  "library_id": "lawrence",
+  "attraction_slug": "the-uss-constitution-museum",
+  "status": "ok",
+  "raw": "USS Constitution Museum[e-voucher] Museo del USS Constitution [electrónico] Admits 5 people for free. Admisión para 5 personas gratis. The Museum is open daily. Please visit the website for more information on hours of operation. El Museo abre todos los días. Visite el sitio web para obtener más información sobre los horarios.",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "Admits 5 people",
+    "audience_policies[0].form": "for free"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "library_id": "hingham",
+  "attraction_slug": "plimoth-patuxet",
+  "status": "ok",
+  "raw": "137 Warren Avenue Plymouth, MA 02360 508-746-1622 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. Each pass allows admission for up to 6 people at $18 for adults and $12 for children ages 5-17. Check Dates The Trustees of Reservations GO Pass Learn More",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 18
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 5, "max": 17},
+      "count": null,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$18 for adults",
+    "audience_policies[1].age_range": "ages 5-17",
+    "audience_policies[1].form": "$12 for children"
+  }
+}

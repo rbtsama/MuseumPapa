@@ -1,0 +1,29 @@
+{
+  "library_id": "natick",
+  "attraction_slug": "harvard-museums-of-science-and-culture",
+  "status": "ok",
+  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Reduced admission for up to 4 people at 50% off per person. One person must show proof of MA residency. Additional instructions: -Each museum has its own hours and admission charges. Please visit each museum's website for further information and holiday closings. -Present pass upon arrival to receive discount.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 4,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% off per person"
+  }
+}

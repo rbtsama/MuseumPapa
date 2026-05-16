@@ -1,0 +1,30 @@
+{
+  "library_id": "carlisle",
+  "attraction_slug": "salem-witch-museum",
+  "status": "ok",
+  "raw": "Each pass admits up to 6 people for a discounted price. Visitors must present the bright orange pass from the library to receive the discount. Paper passes or electronic passes are not accepted. Library passes are not accepted at Salem Witch Museum in the month of October. For Museum questions, call: 978-744-1692 or visit their website www.salemwitchmuseum.com",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "discounted price",
+    "restrictions.blackout_dates": "not accepted at Salem Witch Museum in the month of October"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "andover",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "Pick up and return pass to library. Pass may be picked up the day before use. Pass must be returned no later than the day after use. Pass allows 1 car and passengers into the state park or beach. Pass is for day use only and CANNOT be used for camping. Only Andover residents may reserve and use this pass.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "1 car and passengers",
+    "audience_policies[0].form": "1 car and passengers into the state park"
+  }
+}

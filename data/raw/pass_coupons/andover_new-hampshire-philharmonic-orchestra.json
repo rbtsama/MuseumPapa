@@ -1,0 +1,28 @@
+{
+  "library_id": "andover",
+  "attraction_slug": "new-hampshire-philharmonic-orchestra",
+  "status": "ok",
+  "raw": "Print from Home pass Pass allows 20% discount for online tickets",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 20
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "20% discount"
+  }
+}

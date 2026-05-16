@@ -1,0 +1,29 @@
+{
+  "library_id": "burlington",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "Admission with this pass is half price for up to four (4) people. This pass will be emailed to you when you reserve it.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "four (4) people",
+    "audience_policies[0].form": "half price"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "melrose",
+  "attraction_slug": "the-uss-constitution-museum",
+  "status": "ok",
+  "raw": "Pass holders will receive free admission to the museum. One pass allows free admission for up to 9 people per day. Visit the USS Constitution Museum website to review museum visitor requirements and any updates to operating hours. The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. Reserve your Melrose Public Library pass for desired date. You will receive a confirmation email with an \"Access Pass\" link (if you do not have an email account, a printed confirmation may be picked up at the Main Desk of the library).",
+  "capacity": {
+    "kind": "people",
+    "n": 9
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 9,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 9 people per day",
+    "audience_policies[0].form": "free admission to the museum"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "melrose",
+  "attraction_slug": "north-shore-childrens-museum",
+  "status": "ok",
+  "raw": "50% off admission for a family of up to 5 adults/children. Tickets may be purchased in advance by selecting the Library Museum Pass option on the museum website. If the library pass is not presented at the museum, you will be charged the difference for full price tickets. It is highly recommended that tickets be purchased in advance during school vacation weeks. Valid only on the date listed on the pass, subject to museum capacity. Visit the North Shore Children's Museum website to review visitor requirements and operating hours. Note: The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. This is not a ticket - the library pass does not guarantee admission on a chosen date.",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 5,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "a family of up to 5 adults/children",
+    "audience_policies[0].form": "50% off admission"
+  }
+}

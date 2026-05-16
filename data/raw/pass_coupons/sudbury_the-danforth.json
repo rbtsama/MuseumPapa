@@ -1,0 +1,29 @@
+{
+  "library_id": "sudbury",
+  "attraction_slug": "the-danforth",
+  "status": "ok",
+  "raw": "The library's pass admits up to 4 people free of charge. (Regular admission prices: Adults, $7; Seniors (65+) amd Framingham residents with ID, $6; Students (High school + college (with ID), $5.00; Children under 13, free.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "free of charge"
+  }
+}

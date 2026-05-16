@@ -1,0 +1,38 @@
+{
+  "library_id": "melrose",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "Melrose Public Library – Isabella Stewart Gardner Museum Pass Program (T) Each pass admits up to 4 adults with $5 admission per person (General Admission Only), children under 18 are admitted free and should be reserved as child tickets. Purchasing tickets in advance to avoid the line and guarantee entrance at your preferred time is highly recommended. Visit the Isabella Stewart Gardner Museum website to review visitor requirements and any updates to operating hours. The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. The library pass does not guarantee admission on a chosen date. For more information, including health and safety requirements, please visit isgm.org/welcome MUSEUM HOURS: MON/WED/FRI 11 AM – 5 PM | (THURS 11 AM – 9 PM | WEEKENDS 10 AM – 5 PM | CLOSED TUESDAYS",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 4,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 adults",
+    "audience_policies[0].form": "$5 admission per person",
+    "audience_policies[1].form": "children under 18 are admitted free",
+    "audience_policies[1].age_range.max": "under 18"
+  }
+}

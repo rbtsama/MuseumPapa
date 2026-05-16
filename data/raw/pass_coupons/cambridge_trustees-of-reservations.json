@@ -1,0 +1,37 @@
+{
+  "library_id": "cambridge",
+  "attraction_slug": "trustees-of-reservations",
+  "status": "ok",
+  "raw": "978-921-1944 SEASONAL PASS - Each pass admits 2 adults & children under 18 at the Family Level admission rate. Passes are not date specific and can be used once until the expiration date printed on the pass. Valid at more than 100 Trustees properties that collect an admission fee (including Fruitlands, deCordova and The Old Manse). Please note that some properties require pre-registration. Information about properties and advance registration available here: https://thetrustees.org/content/passes/ Physical passes must be picked up from one of the library locations listed in the dropdown menu below. Select your location preference and then pick the dates from the availability calendar.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[0].form": "Family Level admission rate",
+    "audience_policies[1].age_range": "children under 18"
+  }
+}

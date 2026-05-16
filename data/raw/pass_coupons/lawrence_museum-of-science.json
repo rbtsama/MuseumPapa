@@ -1,0 +1,29 @@
+{
+  "library_id": "lawrence",
+  "attraction_slug": "museum-of-science",
+  "status": "ok",
+  "raw": "Museum of Science [e-voucher] Museo de Ciencias [electrónico] Admits 4 people at half price. Admisión para 4 personas a medio precio. Please visit the museum of science website for hours of operation. Visite el sitio web para obtener información sobre los horarios.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "Admits 4 people",
+    "audience_policies[0].form": "half price"
+  }
+}

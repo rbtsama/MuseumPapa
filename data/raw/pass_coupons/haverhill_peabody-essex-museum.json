@@ -1,0 +1,29 @@
+{
+  "library_id": "haverhill",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "This pass admits 2 adults for general museum admission for a reduced fee of $12 per person. Admission to the Chinese House is extra ($6 per person). You will receive a promo code to purchase discounted tickets. This pass is emailed to you - you will not need to come in to the library to pick it up. Please make sure you enter your current email address when making your reservation.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "admits 2 adults",
+    "audience_policies[0].form": "$12 per person"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "quincy",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "Pass entitles bearer to free parking for one vehicle (excluding buses or vans). Please visit the Massachusetts State Parks online (https://www.mass.gov/guides/visiting-massachusetts-state-parks-guide) to learn all the locations that you can use this parking pass. This is a circulating pass that must be checked out and returned to the library. Instructions will be emailed to you upon reservation.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Vehicle",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "free parking for one vehicle",
+    "audience_policies[0].form": "free parking"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "boxford",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "This pass must be picked up and dropped off at the Boxford Town Library. The pass must be displayed in your vehicle on rear view mirror or dashboard when visiting a Mass. State Park facility where daily parking fees are charged. Pass is not valid for camping.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "displayed in your vehicle",
+    "audience_policies[0].form": "daily parking fees are charged"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "lexington",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "Pass is valid for a Mass plate passenger vehicle and entitles the bearer to free parking for one vehicle (excluding buses or vans) at Mass State Parks facilities that charge a day-use parking fee. Pass must be returned in the bag provided the morning after scheduled use. THIS IS A RETURNABLE PASS PASS MUST BE RETURNED TO CARY LIBRARY NO LATER THAN OPENING HOURS THE DAY AFTER USE.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "one vehicle",
+    "audience_policies[0].form": "free parking"
+  }
+}

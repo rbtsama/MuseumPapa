@@ -1,0 +1,37 @@
+{
+  "library_id": "burlington",
+  "attraction_slug": "trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "Pass admission is equivalent to the admission benefit of a Trustees Family Level Membership for two adults and children under 18. Pass is valid at any Trustees property that charges admission, including (but not limited to): deCordova Sculpture Park , Fruitlands , the Old Manse , and Castle Hill on the Crane Estate . Please check the Trustees' website for information on properties, admission rates, parking, and other regulations: https://thetrustees.org/ The Trustees passes are valid for admission only ; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, equipment rental, or in place of any other permits or passes. This pass can be picked up one week in advance.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "two adults",
+    "audience_policies[0].form": "Family Level Membership",
+    "audience_policies[1].age_range": "children under 18"
+  }
+}

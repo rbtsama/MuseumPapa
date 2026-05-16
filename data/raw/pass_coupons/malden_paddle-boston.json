@@ -1,0 +1,28 @@
+{
+  "library_id": "malden",
+  "attraction_slug": "paddle-boston",
+  "status": "ok",
+  "raw": "1. This is valid for online reservations and walk-up rentals at Spot Pond, in Stoneham. 2. Online reservations can be made here ( Reserve a boat )– Only for the day that the pass is reserved from the library. 3. This card is valid for one boat rental per day. a. This includes: i. Any type of single kayak (fits up to one person) ii. Double kayaks (fits two adults) iii. Standard Canoes (fits up to three adults or two adults and two children) iv. XL Canoes (fits up to five adults) 4. Save time and fill out your waiver ahead of time: Paddleboston.com/Waiver",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "valid for one boat rental per day"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "library_id": "weston",
+  "attraction_slug": "salem-witch-museum",
+  "status": "ok",
+  "raw": "Library member rates 2026 : Adult/Senior - $14.00 Child (3-14) - $11.75 Library Passes are not accepted in the month of OCTOBER.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 14
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 3, "max": 14},
+      "count": null,
+      "form": "per-person-price",
+      "value": 11.75
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "Adult/Senior - $14.00",
+    "audience_policies[1].form": "Child (3-14) - $11.75",
+    "audience_policies[1].age_range.min": "3-14",
+    "audience_policies[1].age_range.max": "3-14",
+    "restrictions.blackout_dates": "not accepted in the month of OCTOBER"
+  }
+}

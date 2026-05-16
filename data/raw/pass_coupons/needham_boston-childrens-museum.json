@@ -1,0 +1,30 @@
+{
+  "library_id": "needham",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "(PRINTABLE) 1 pass admits 4 people at half price admission. FOR NEEDHAM RESIDENTS ONLY. After receiving a library discount coupon from the library, patrons must then reserve their visit online with Boston Children's Museum. Due to safety measures walk-ins are not allowed.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "4 people",
+    "audience_policies[0].form": "half price admission",
+    "restrictions.reservation_required": "must then reserve their visit online"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "library_id": "cohasset",
+  "attraction_slug": "boston-harbor-islands",
+  "status": "ok",
+  "raw": "66 Long Wharf Boston, MA 02110 617-227-4321 Get Directions This is a 50% discount to the Boston Harbor Islands and is suitable for up to four people. Passes are good between May and October. Please see the island specific schedule for the 2025 season below. Visit www.bostonharborislands.org/ferry-tickets to purchase advance tickets. Select the date, time and destination and number of tickets. Enter the library's code in the \"Coupon/Voucher Code\" field and click apply to receive the 50% discounted rate. Complete your transaction and bring your phone or printed copy of your barcode to board the ferry! 2025 Code: HARBOR7 Spectacle Island May 16 - June 15: Thursdays through Sundays June 16 - September 1: every day September 4 - 21: Thursdays through Sundays September 26 - October 13: Fridays through Sundays Georges Island June 16- September 1: every day Peddocks Island June 16 - September 1: every day September 4 - October 13: Thursdays through Sundays Visit museum website for more information. The Butterfly Place Learn More",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "May-Oct",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "50% discount",
+    "restrictions.seasonal": "Passes are good between May and October"
+  }
+}

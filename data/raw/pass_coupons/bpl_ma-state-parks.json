@@ -1,0 +1,28 @@
+{
+  "library_id": "bpl",
+  "attraction_slug": "ma-state-parks",
+  "status": "ok",
+  "raw": "THIS IS A RETURNABLE PASS The ParksPass entitles the bearer to free parking at over 50 facilities in the Massachusetts State Parks System that charge a day-use parking fee. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "free parking"
+  }
+}

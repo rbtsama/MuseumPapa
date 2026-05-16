@@ -1,0 +1,29 @@
+{
+  "library_id": "weston",
+  "attraction_slug": "the-discovery-museums",
+  "status": "ok",
+  "raw": "Patrons using library passes will pay 1/2 price admission per person (for each of the three people) which still allows access to the Discovery Museum, as well as Discovery Woods. Any people accompanying the 3 pass users will still pay the regular admission fee.",
+  "capacity": {
+    "kind": "people",
+    "n": 3
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "three people",
+    "audience_policies[0].form": "1/2 price admission"
+  }
+}

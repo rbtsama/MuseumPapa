@@ -1,0 +1,29 @@
+{
+  "library_id": "peabody",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "Provides free parking for 1 vehicle (excluding buses and vans) for day-use parking in state parks within MA Dept. of Conservation and Recreation. MassParks Pass is not valid for Lynch Park in Beverly or Crane's Beach in Ipswich. Most parks are open year round; check the web site for details: http://www.mass.gov/eea/agencies/dcr/massparks/places-to-go This is a physical pass that must be picked up at the Main Branch Library.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Vehicle",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "free parking for 1 vehicle",
+    "audience_policies[0].form": "free parking"
+  }
+}

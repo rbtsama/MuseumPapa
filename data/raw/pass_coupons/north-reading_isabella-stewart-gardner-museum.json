@@ -1,0 +1,37 @@
+{
+  "library_id": "north-reading",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "This pass admits 4 visitors at $5 per person. Under 18 years admitted free. See website for latest hours, holidays and closings. Tickets are purchased online, but you must bring the library discounted pass with you.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "4 visitors",
+    "audience_policies[0].form": "$5 per person",
+    "audience_policies[1].age_range": "Under 18 years admitted free"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "library_id": "lexington",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "THIS IS A PRINTABLE PASS Each pass will admit a maximum of two adult visitors at the reduced admission rate of $12 per person Thursday through Monday. Children under age 16 are always admitted FREE.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 12
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 15},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "a maximum of two adult visitors",
+    "audience_policies[0].form": "$12 per person",
+    "audience_policies[1].form": "Children under age 16 are always admitted FREE",
+    "audience_policies[1].age_range.max": "under age 16"
+  }
+}

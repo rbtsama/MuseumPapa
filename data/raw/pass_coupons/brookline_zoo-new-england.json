@@ -1,0 +1,46 @@
+{
+  "library_id": "brookline",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "(617) 541-5466 Commonwealth Zoological Corporation D/B/A Zoo New England (\"Zoo New England\") manages and operates Franklin Park Zoo in Boston and Stone Zoo in Stoneham, Massachusetts. Zoo New England programming is made possible through earned revenues and state, private, and corporate funding. Franklin Park Zoo is a 72-acre site nestled in Boston's historic Franklin Park, long considered the \"crown jewel\" of Frederick Law Olmsted's Emerald Necklace Park System. The Zoo was founded in 1912 and was managed by the City of Boston until 1958, when the Metropolitan District Commission (MDC), a state agency, assumed management. The MDC managed the Zoos until 1991, when Governor William Weld signed legislation to create the private Commonwealth Zoological Corporation (CZC). In July of 1997 the CZC changed its name to Zoo New England to reflect the regional appeal of the Zoo. Visiting Franklin Park Zoo Stone Zoo, formerly known as the Middlesex Fells Zoo, is located on a 26-acre site near the sparkling Spot Pond reservoir in Stoneham, MA. Charles Price, Superintendent of the Metropolitan District Commission's Middlesex Fells Reservation, founded the Zoo in 1905, and in 1969, the site was renamed in honor of Walter D. Stone, a former Zoo Director. In 1991, the Commonwealth Zoological Corporation (CZC) was created to maintain care, custody, and control of both Stone Zoo and Franklin Park Zoo. Visiting Stone Zoo Pass benefits: Admits up to 6 people at $9 per adult and $6 per child. Children ages 2 and under receive free admission. Accepted at both the Franklin Park and Stone Zoo locations. Visit the Zoo New England's website. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 6
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 2},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$9 per adult",
+    "audience_policies[1].form": "$6 per child",
+    "audience_policies[2].age_range.max": "Children ages 2 and under",
+    "audience_policies[2].form": "free admission"
+  }
+}

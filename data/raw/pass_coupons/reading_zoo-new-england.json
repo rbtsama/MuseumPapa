@@ -1,0 +1,45 @@
+{
+  "library_id": "reading",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "Pass is valid for Franklin Park Zoo in Boston and Stone Zoo in Stoneham, MA. Admits 6 people at $9.00 per adult and $6.00 per child. Children 2 years and younger are free. Note: This pass is no longer an online discount code- it is a coupon pass that must be picked up at the library. To use the library discount, you must present the physical library ticket at the Zoo's admission booth. Reservations are not required for this discount. Library passes may be used for general daytime admission only. They cannot be used for the evening Boston Lights or ZooLights events.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 6
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 2},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "6 people",
+    "audience_policies[0].form": "$9.00 per adult",
+    "audience_policies[1].form": "$6.00 per child",
+    "audience_policies[2].age_range": "Children 2 years and younger are free"
+  }
+}

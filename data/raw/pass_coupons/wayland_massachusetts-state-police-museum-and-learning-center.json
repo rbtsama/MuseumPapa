@@ -1,0 +1,40 @@
+{
+  "library_id": "wayland",
+  "attraction_slug": "massachusetts-state-police-museum-and-learning-center",
+  "status": "ok",
+  "raw": "This is a laminated pass that must be picked up and returned to Wayland. Patrons may pick up their pass during the Library's open hours on the day before or the day of their visit. The pass must be returned by the day after its use. Pass allows free admission for 2 people age 16+. Kids age 15 & under are always free. The Museum is open Tuesdays and Saturdays from 11am-4pm. Please see the Museum's website ( mspmlc.org ) for the most up-to-date information.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": {"min": 16, "max": null},
+      "count": 2,
+      "form": "free",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 15},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "2 people age 16+",
+    "audience_policies[0].form": "free admission for 2 people age 16+",
+    "audience_policies[0].age_range.min": "age 16+",
+    "audience_policies[0].count": "2 people",
+    "audience_policies[1].form": "Kids age 15 & under are always free",
+    "audience_policies[1].age_range.max": "age 15 & under"
+  }
+}

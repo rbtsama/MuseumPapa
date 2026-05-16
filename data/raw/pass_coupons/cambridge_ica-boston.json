@@ -1,0 +1,37 @@
+{
+  "library_id": "cambridge",
+  "attraction_slug": "ica-boston",
+  "status": "ok",
+  "raw": "617-478-3100 Each pass admits 2 people at $10 per person. People age 18 and under are admitted free. This pass is not date specific and may be used any time before the expiration date printed on the pass. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": {"min": 19, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 18},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 2 people",
+    "audience_policies[0].form": "$10 per person",
+    "audience_policies[1].form": "People age 18 and under are admitted free"
+  }
+}

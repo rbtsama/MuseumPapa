@@ -1,0 +1,29 @@
+{
+  "library_id": "burlington",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "This pass admits two people at a discounted price. Timed tickets to Yin Yu Tang: A Chinese Home are included with museum admission. This pass can be printed from home.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits two people",
+    "audience_policies[0].form": "discounted price"
+  }
+}

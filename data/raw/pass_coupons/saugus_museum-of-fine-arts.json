@@ -1,0 +1,46 @@
+{
+  "library_id": "saugus",
+  "attraction_slug": "museum-of-fine-arts",
+  "status": "ok",
+  "raw": "$10 admission for up to two people; $10 admission for ages 7-17 years; children under 7 free.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 7, "max": 17},
+      "count": null,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 6},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to two people",
+    "audience_policies[0].form": "$10 admission for up to two people",
+    "audience_policies[1].age_range": "ages 7-17 years",
+    "audience_policies[1].form": "$10 admission for ages 7-17 years",
+    "audience_policies[2].age_range": "children under 7 free"
+  }
+}

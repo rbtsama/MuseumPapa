@@ -1,0 +1,48 @@
+{
+  "library_id": "natick",
+  "attraction_slug": "ecotarium",
+  "status": "ok",
+  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Reduced admission for up to 2 adults and 2 children at 50% off per person (children under 2 always free). Additional instructions: -Present pass upon arrival to receive discount. All members of your party must be in one vehicle. -The Alden Digital Planetarium, Explorer Express Train, or any special events are not eligible for this discount.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 2, "max": null},
+      "count": 2,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 2 adults and 2 children",
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[0].form": "50% off per person",
+    "audience_policies[1].count": "2 children",
+    "audience_policies[1].form": "50% off per person",
+    "audience_policies[2].form": "children under 2 always free",
+    "audience_policies[2].age_range.max": "under 2"
+  }
+}

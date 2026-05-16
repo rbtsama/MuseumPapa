@@ -1,0 +1,29 @@
+{
+  "library_id": "burlington",
+  "attraction_slug": "the-house-of-seven-gables",
+  "status": "ok",
+  "raw": "Each pass admits up to four people at 50% off. Advanced ticket purchase is required. Visit the museum's website for hours and tickets. Patrons are required to bring the physical library pass as well as their advanced ticket purchase when they check in at the Admissions desk for their visit. This coupon pass can be picked up one week in advance.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "50% off"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "lawrence",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "Boston Children's Museum [e-voucher] Museo de Niño en Boston [electrónica] Admits 4 people at half price. Please check the website for the price of general admission. Admisión para 4 personas a medio precio. Por favor vaya a la página web y verifique el precio general de admisión. Please visit the website for hours of operation. Visite el sitio web para obtener información sobre los horarios.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "Admits 4 people",
+    "audience_policies[0].form": "half price"
+  }
+}

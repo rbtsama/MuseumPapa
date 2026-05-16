@@ -1,0 +1,29 @@
+{
+  "library_id": "wayland",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "This is a laminated pass that must be picked up and returned to Wayland. Patrons may pick up their pass during the Library's open hours on the day before or the day of their visit. The pass must be returned by the day after its use. Pass allows free daytime parking for one carload of visitors to all Massachusetts State Parks that charge a parking fee. (Except Nahant and Nantasket). See the Massachusetts Department of Conservation & Recreation website for the list of parks that charge a fee and the most up-to-date information on park programs and hours.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "one carload",
+    "audience_policies[0].form": "free daytime parking"
+  }
+}

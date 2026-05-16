@@ -1,0 +1,29 @@
+{
+  "library_id": "stoneham",
+  "attraction_slug": "american-heritage-museum",
+  "status": "ok",
+  "raw": "The pass admits up to 6 people at half the regular admission price. This is a physical pass that must be picked up at and returned to the library . This pass is not limited by date or time. The pass is not valid for special event weekends or driving or ride experiences . This pass is funded by the Friends of the Stoneham Library.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "half the regular admission price"
+  }
+}

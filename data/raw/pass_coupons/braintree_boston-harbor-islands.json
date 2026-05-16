@@ -1,0 +1,29 @@
+{
+  "library_id": "braintree",
+  "attraction_slug": "boston-harbor-islands",
+  "status": "ok",
+  "raw": "617-227-4321 Boston Harbor Islands National and State Park is for everyone! The Boston Harbor Islands Partnership is committed to providing free and reduced-fare opportunities for groups and individuals. Library pass provides 50% off all Boston Harbor Islands Ferry tickets from Long Wharf. Based on availability; reservations are recommended. Use the promo code from your confirmation email on the Boston Harbor City Cruises website for the library discount. Public ferries from Long Wharf to the Boston Harbor Islands operate from May – October. 2025 Season Schedule Spectacle Island · May 16 - June 15: Thursdays through Sundays · June 16 - September 1: every day · September 4 - 21: Thursdays through Sundays · September 26 - October 13: Fridays through Sundays Georges Island · June 16- September 1: every day Peddocks Island · June 16 - September 1: every day · September 4 - October 13: Thursdays through Sundays Visit the Boston Harbor Islands National & State Park Event Calendar to learn about special cruises and opportunities to visit the islands in the off season. Visit City Experiences to learn about the $10-off ticket promotion for Boston Harbor Islands Ferry and Peddocks Island Ferry available to Massachusetts residents, Monday-Friday, June 16-October 16, 2025. Provided by Boston Harbor Islands. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "May-Oct",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "50% off all Boston Harbor Islands Ferry tickets",
+    "restrictions.seasonal": "operate from May – October"
+  }
+}

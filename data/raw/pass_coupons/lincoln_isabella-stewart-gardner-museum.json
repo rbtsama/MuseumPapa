@@ -1,0 +1,39 @@
+{
+  "library_id": "lincoln",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "Each pass provides up to four (4) people with a $5 discount per person—children under the age of 18 are always admitted free. Timed ticket reservations must be made in advance of visit with library e-voucher on the museum's website. Directions and information regarding e-voucher use will be provided in your confirmation email. For more information about the museum, please visit https://www.gardnermuseum.org/visit. MUSEUM HOURS: WEEKDAYS 11 AM – 5 PM | WEEKENDS 10 AM – 5 PM | THURSDAYS 11 AM – 9 PM | CLOSED TUESDAYS Please note that reserving a library pass does not guarantee that space will be available on your preferred date.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 4,
+      "form": "dollar-off",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to four (4) people",
+    "audience_policies[0].form": "$5 discount per person",
+    "audience_policies[1].form": "children under the age of 18 are always admitted free",
+    "audience_policies[1].age_range.max": "under the age of 18",
+    "restrictions.reservation_required": "Timed ticket reservations must be made in advance"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "new-england-quilt-museum",
+  "status": "ok",
+  "raw": "This pass admits two people for free. Open Tuesday through Saturday, 10 a.m. to 4 p.m. Exhibits include: Stitch Punk Humachine Sculpture Kaleidoscope Quilts Yellow Quilts",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits two people",
+    "audience_policies[0].form": "admits two people for free"
+  }
+}

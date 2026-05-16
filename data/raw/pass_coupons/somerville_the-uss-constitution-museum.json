@@ -1,0 +1,29 @@
+{
+  "library_id": "somerville",
+  "attraction_slug": "the-uss-constitution-museum",
+  "status": "ok",
+  "raw": "One pass admits up to 5 people for one visit at no charge. One pass per party, please. Passes can be printed or shown digitally upon entering. This is a virtual pass that does not need to be picked up at the library.",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 5 people",
+    "audience_policies[0].form": "at no charge"
+  }
+}

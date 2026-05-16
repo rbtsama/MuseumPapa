@@ -1,0 +1,39 @@
+{
+  "library_id": "beverly",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "Admits up to 4 people at $5 per person. Ages 17 and under are free. Online reservations are required.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$5 per person",
+    "audience_policies[1].age_range.max": "Ages 17 and under",
+    "audience_policies[1].form": "free",
+    "restrictions.reservation_required": "Online reservations are required"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "library_id": "malden",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "Each pass admits 6 people. Adults are $9; children are $6. Children under 2 years are free.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 6
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 6 people",
+    "audience_policies[0].form": "Adults are $9",
+    "audience_policies[1].form": "children are $6",
+    "audience_policies[2].form": "Children under 2 years are free",
+    "audience_policies[2].age_range.max": "under 2 years"
+  }
+}

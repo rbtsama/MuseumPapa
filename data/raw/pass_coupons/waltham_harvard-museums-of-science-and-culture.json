@@ -1,0 +1,29 @@
+{
+  "library_id": "waltham",
+  "attraction_slug": "harvard-museums-of-science-and-culture",
+  "status": "ok",
+  "raw": "Admits up to 4 visitors at 50% off regular museum admission rates. Discount may not be combined with other offers. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the date you've selected in our calendar.*",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 visitors",
+    "audience_policies[0].form": "50% off regular museum admission rates"
+  }
+}

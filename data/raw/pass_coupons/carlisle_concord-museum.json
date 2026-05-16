@@ -1,0 +1,29 @@
+{
+  "library_id": "carlisle",
+  "attraction_slug": "concord-museum",
+  "status": "ok",
+  "raw": "Each pass admits up to 4 people at $5 off. For Museum questions, visit their website at www.concordmuseum.org or call 978-369-9763",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "dollar-off",
+      "value": 5
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$5 off"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "library_id": "carlisle",
+  "attraction_slug": "museum-of-fine-arts",
+  "status": "ok",
+  "raw": "Each pass admits two adults at $10 each for general admission and special exhibition and up to 4 children aged 7-17 at $10 each for special exhibition only. There is no discount for children 7-17 for general admission (currently $10) . Children 6 and under are admitted free. The Museum of Fine Arts suggests reserving tickets prior to your visit. Once you reserve the museum pass through this website, you will receive a confirmation email with a promo-code. Use this code to reserve tickets on the MFA website or present it at the MFA admissions desk to receive your discount when you visit the museum. For museum questions call the MFA customer service line at 1-800-440-6975.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": 7, "max": 17},
+      "count": 4,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 6},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "two adults",
+    "audience_policies[0].form": "$10 each",
+    "audience_policies[1].count": "up to 4 children",
+    "audience_policies[1].age_range": "aged 7-17",
+    "audience_policies[2].form": "Children 6 and under are admitted free"
+  }
+}

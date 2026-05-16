@@ -1,0 +1,29 @@
+{
+  "library_id": "carlisle",
+  "attraction_slug": "new-england-botanic-garden-at-tower-hill",
+  "status": "ok",
+  "raw": "Each pass admits 2 guests at half price. Online reservations are no longer required for admission to New England Botanic Garden at Tower Hill, but are available for those who would like to purchase tickets in advance. Visitors to NEBG Tower Hill will need to bring the physical library pass with them to receive the discounted admission fee. If you would like to reserve tickets online, first reserve the NEBG Tower Hill pass through this website. You will receive a confirmation email which includes a promo-code. Visit the NEBG Tower Hill website at www.nebg.org and use the library promo-code at check out. You must also bring the library pass with you to enter NEBG Tower Hill at the discounted admission fee. For Museum questions, call: 508-869-6111, or visit the website at www.nebg.org",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 2 guests",
+    "audience_policies[0].form": "half price"
+  }
+}

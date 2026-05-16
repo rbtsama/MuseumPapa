@@ -1,0 +1,39 @@
+{
+  "library_id": "lynn",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "Discount : $12 admission for up to 2 people (separate fee for some areas of the museum may be required). Children under the age of 15 are always free at this museum. A discount code will be sent to your email. If you do not have an email address, a discount code can be picked up from the library up to 1 week in advance. To use : Timed tickets must be purchased in advance through the museum's website, using the discount code provided. Have your ticket confirmation with you at the museum the day of your visit. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out your discount pass, you must contact the library in advance. Please wait until you are ready to book your tickets before selecting the \"Access Pass\" icon in your confirmation email. Discount pass reservations cannot be cancelled once the \"Access Pass\" icon is selected. Unwanted passes MUST BE CANCELLED. Failure to cancel an unwanted pass will result in a 30 day ban on reserving discount passes.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 12
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 14},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 2 people",
+    "audience_policies[0].form": "$12 admission",
+    "audience_policies[1].form": "Children under the age of 15 are always free",
+    "audience_policies[1].age_range.max": "under the age of 15",
+    "restrictions.reservation_required": "Timed tickets must be purchased in advance"
+  }
+}

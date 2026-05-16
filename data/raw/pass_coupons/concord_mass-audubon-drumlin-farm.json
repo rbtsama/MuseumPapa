@@ -1,0 +1,37 @@
+{
+  "library_id": "concord",
+  "attraction_slug": "mass-audubon-drumlin-farm",
+  "status": "ok",
+  "raw": "This Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary at $2.00 per person over the age of two.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 3, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 2.00
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 2},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$2.00 per person",
+    "audience_policies[0].age_range": "over the age of two"
+  }
+}

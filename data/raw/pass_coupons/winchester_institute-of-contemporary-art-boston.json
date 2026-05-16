@@ -1,0 +1,39 @@
+{
+  "library_id": "winchester",
+  "attraction_slug": "institute-of-contemporary-art-boston",
+  "status": "ok",
+  "raw": "Each pass provides two (2) people with $10 admission per person—children under the age of 18 are always admitted free. Advance museum tickets can be purchased online ( https://www.icaboston.org ) using the \"Library Pass Coupon\" option. These advance tickets are recommended, but not required. The museum will accommodate on-site ticket purchases, if space allows. Both the library museum pass and museum tickets should be brought to the admissions desk at the museum. Passes are available to Winchester residents only. Library pass discounts may not be used for performances or special events. Call the desk at 781-721-7171 for assistance.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": {"min": 18, "max": null},
+      "count": 2,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "two (2) people",
+    "audience_policies[0].form": "$10 admission per person",
+    "audience_policies[0].count": "two (2) people",
+    "audience_policies[1].form": "children under the age of 18 are always admitted free",
+    "audience_policies[1].age_range.max": "under the age of 18"
+  }
+}

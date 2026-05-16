@@ -1,0 +1,29 @@
+{
+  "library_id": "methuen",
+  "attraction_slug": "public-health-museum",
+  "status": "ok",
+  "raw": "this pass provides free admission to the Public Health Museum indoor exhibits and outdoor campus tour for up to two people.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 2,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to two people",
+    "audience_policies[0].form": "free admission"
+  }
+}

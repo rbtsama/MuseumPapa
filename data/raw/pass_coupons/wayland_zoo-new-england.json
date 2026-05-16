@@ -1,0 +1,48 @@
+{
+  "library_id": "wayland",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "This is a paper coupon that must be picked up at the Wayland Library during the library's open hours no more than 1 week before its use date. It does not need to be returned. Each pass admits up to 6 persons at $9 per adult and $6 per child (ages 2-12). Children under 2 are admitted for free. The library discount coupon is not a Zoo admission ticket. Your coupon can be redeemed in person, and tickets can be purchased at the gate. Online reservations are not needed. Library discount passes may be used for general daytime admission only. They cannot be used for evening events such as Boston Lights. For the most up-to-date information on zoo programs and hours, please visit their website.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 2, "max": 12},
+      "count": null,
+      "form": "per-person-price",
+      "value": 6
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 persons",
+    "audience_policies[0].form": "$9 per adult",
+    "audience_policies[1].form": "$6 per child (ages 2-12)",
+    "audience_policies[1].age_range.min": "ages 2-12",
+    "audience_policies[1].age_range.max": "ages 2-12",
+    "audience_policies[2].form": "Children under 2 are admitted for free",
+    "audience_policies[2].age_range.max": "under 2"
+  }
+}

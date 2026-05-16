@@ -1,0 +1,29 @@
+{
+  "library_id": "peabody",
+  "attraction_slug": "north-shore-childrens-museum",
+  "status": "ok",
+  "raw": "Please purchase your ticket online. Use the Library Museum Pass pricing level to receive 50% off admission discount for a family of up to 5 adults/children. For hours and questions, call the NSCM at 978-538-5765 or visit www.nschildrensmuseum.org. This is an electronic pass that will be sent to your email.",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 5 adults/children",
+    "audience_policies[0].form": "50% off admission discount"
+  }
+}

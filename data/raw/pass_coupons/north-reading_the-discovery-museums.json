@@ -1,0 +1,29 @@
+{
+  "library_id": "north-reading",
+  "attraction_slug": "the-discovery-museums",
+  "status": "ok",
+  "raw": "This library sponsored pass admits up to three people at half price discount. Additional people in your party pay full price. Pass must be picked up at the library and returned by 10 AM the following morning.",
+  "capacity": {
+    "kind": "people",
+    "n": 3
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to three people",
+    "audience_policies[0].form": "half price discount"
+  }
+}

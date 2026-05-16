@@ -1,0 +1,39 @@
+{
+  "library_id": "belmont",
+  "attraction_slug": "orchard-house",
+  "status": "ok",
+  "raw": "Valid for 50% discount for up to 2 Adults/Seniors/College Students and up to 4 Youths. This is a coupon pass that must be picked up at the library. We urge all passholders to make a Timed-Entry Admission reservation at least one day in advance of their desired visit date. They must, of course, first secure a date for your Pass, but we hope they will then take advantage of our quick and easy online system to reserve and pre-pay for their tickets (we are still offering a 50% discount on all admission categories to your patrons). Patrons can make Timed-Entry reservations on this webpage: https://louisamayalcottsorchardhouse.ticketspice.com/orchard-house-timed-entry . They would scroll down to the ticket category called \"Libraries,\" select the number and type of tickets, and then provide payment and contact information. The Timed-Entry system will automatically generate a confirmation email for the patron. Patrons will still need to show the Library Circuit Pass when they check in at our Front Desk, as well the Timed-Entry Admission email confirmation either on their smart phone (preferable) or printed. Details about how to reserve Timed-Entry Admission are noted on the Library Circuit Membership card. Masks are required indoors. Orchard House is open year-round on the following schedule: November 1st-March 31st: Monday-Friday: 11 AM to 3 PM (Last tour at 3 PM) Saturday: 10 AM to 4:30 PM Sunday: 1 PM to 4:30 PM (Last tour at 4:30 PM) April 1st-October 31st: Monday-Saturday: 10 AM to 4:30 PM (Last tour at 4:30 PM) Sunday: 1 PM to 4:30 PM (Last tour at 4:30 PM) Orchard House is closed on Easter, Thanksgiving, Christmas, and New Year's Day. Orchard House opens at noon on Patriots' Day (the third Monday in April). The pass may be picked up on the day of the pass reservation or the day before.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Youth",
+      "age_range": null,
+      "count": 4,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "up to 2 Adults/Seniors/College Students",
+    "audience_policies[0].form": "50% discount",
+    "audience_policies[1].count": "up to 4 Youths",
+    "audience_policies[1].form": "50% discount",
+    "restrictions.reservation_required": "make a Timed-Entry Admission reservation"
+  }
+}

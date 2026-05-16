@@ -1,0 +1,29 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "new-england-aquarium",
+  "status": "ok",
+  "raw": "Visiting the Aquarium: Advanced reservations are no longer required. Library patrons should present their coupons on-site at the Aquarium ticket booth. Once tickets are issued, library patrons will be admitted to the Aquarium. Please note that coupons to the Aquarium are valid only on the date printed on the coupon. For additional questions, please contact the Membership Department at members@neaq.org or 617-226-2184 (weekdays, 9 a.m. to 4:30 p.m.). This pass admits up to 4 people at 50% off.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% off"
+  }
+}

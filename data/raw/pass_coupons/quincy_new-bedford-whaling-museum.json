@@ -1,0 +1,29 @@
+{
+  "library_id": "quincy",
+  "attraction_slug": "new-bedford-whaling-museum",
+  "status": "ok",
+  "raw": "There are two types of NBWM Passes: 1.) Coupon Pass - Provides free admission for 1 person This is a non-returnable coupon pass that must be picked up at the Main Library Circulation Desk after it is reserved. It can be used anytime before the expiration date. 2.) Circulating Pass - Admits up to four people at 50% off the cost of admission This is a circulating pass that must be checked out and returned to the library. Instructions will be emailed to you upon reservation.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "50% off the cost of admission"
+  }
+}

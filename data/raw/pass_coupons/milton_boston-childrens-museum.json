@@ -1,0 +1,30 @@
+{
+  "library_id": "milton",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "(617) 426-6500 Admits up to 4 (adults or children) at half price per person. After receiving a library discount pass, you must reserve a visit online with Boston Children's Museum. Due to safety measures, walk-ins are not allowed. Museum capacity is limited at this time. This e-ticket is valid only for one day. You can either print it out and take it with you or display the pass on your phone or device. Either way, please be sure that the pass barcode is visible. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 4,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 (adults or children)",
+    "audience_policies[0].form": "half price per person",
+    "restrictions.reservation_required": "you must reserve a visit online"
+  }
+}

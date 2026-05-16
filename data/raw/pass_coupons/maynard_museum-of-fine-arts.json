@@ -1,0 +1,38 @@
+{
+  "library_id": "maynard",
+  "attraction_slug": "museum-of-fine-arts",
+  "status": "ok",
+  "raw": "This pass allows admission for two (2) adults at $10 each. There is no discount for children ages 7-17 for general admission, as the cost is already $10. Children 6 and under are free. The pass is good ONLY for the date listed. It cannot be used on another date.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 6},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "two (2) adults",
+    "audience_policies[0].form": "$10 each",
+    "audience_policies[1].form": "Children 6 and under are free",
+    "audience_policies[1].age_range.max": "6 and under"
+  }
+}

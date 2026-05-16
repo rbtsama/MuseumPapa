@@ -1,0 +1,30 @@
+{
+  "library_id": "lincoln",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "Each pass admits 1 vehicle for free. Please note that reserving a library pass does not guarantee that space will be available on your preferred date. Passes may be checked out for 1 day and are due back before library opens the day following use. This is a physical pass that must be picked up at the Reference Desk. Please call 781-259-8465 x 3 with any questions. Please note that the Main Beach at Walden pond will be closed for the 2025 summer season due to construction.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Vehicle",
+      "age_range": null,
+      "count": 1,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "admits 1 vehicle for free",
+    "audience_policies[0].form": "admits 1 vehicle for free",
+    "audience_policies[0].count": "1 vehicle"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "bedford",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "Pass admits up to 4 people at 1/2 off admission price. Click \"Reserve a Pass\" below to select the date you would like to visit and receive a discount coupon to the Children's Museum. Your email confirmation will include the printable discount coupon and instructions for ordering timed tickets to the Children's Museum with the library discount. Timed tickets are currently required to enter the museum and your discount coupon and entry dates must match. Pass cannot be combined with other discounts.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "1/2 off admission price"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "bedford",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "DCR Parks pass allows one car unlimited day-use parking access to state park facilities that charge a parking fee. (Not valid for parking at Quabbin Reservoir, Sqantum Point, North Point, Draw Seven Commuter Lots or for camping.) You will need to pick up your pass at the Circulation Desk in the main lobby of the Library. We encourage you to visit www.mass.gov/orgs/department-of-conservation-recreation for a full listing of DCR locations and hours of operation before making your travel plans.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "one car",
+    "audience_policies[0].form": "unlimited day-use parking access"
+  }
+}

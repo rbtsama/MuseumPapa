@@ -1,0 +1,29 @@
+{
+  "library_id": "cambridge",
+  "attraction_slug": "harvard-museums",
+  "status": "ok",
+  "raw": "617-496-1638 Each pass admits up to 4 people for free. Passes are valid for one-time use any day through the expiration date listed on the pass. Note: Harvard Museums of Science & Culture are free to Massachusetts residents every Sunday morning (year-round) from 9:00 am to 12:00 pm and on Wednesdays from 3:00 pm to 5:00 pm. Proof of residency required. This offer is not available to commercial groups. Physical passes must be picked up from one of the library locations listed in the dropdown menu below. Select your location preference and then pick the dates from the availability calendar.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "for free"
+  }
+}

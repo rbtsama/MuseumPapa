@@ -1,0 +1,29 @@
+{
+  "library_id": "stoneham",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "This pass admits one car for free parking at any Massachusetts State Park. See a list of Massachusetts State Parks here . This is a physical pass which must be picked up at and returned to the library . This pass is valid for use on any day/time until the date printed on the pass .",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Vehicle",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "admits one car",
+    "audience_policies[0].form": "free parking"
+  }
+}

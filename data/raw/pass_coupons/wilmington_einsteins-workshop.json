@@ -1,0 +1,38 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "einsteins-workshop",
+  "status": "ok",
+  "raw": "Pass admits up to 4 children accompanied by 1 or 2 adults for free play in the STEAM Play Space during Drop-in hours. All children must be supervised by an accompanying adult during the entire visit. Check the website before you visit because the museum is closed several weekends during the school year, usually the weekends before, after, or during vacation weeks and holidays. Drop-in are also closed during the summer.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": 4,
+      "form": "free",
+      "value": null
+    },
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "free play",
+    "audience_policies[0].count": "up to 4 children",
+    "audience_policies[1].form": "free play",
+    "restrictions.blackout_dates": "closed several weekends during the school year"
+  }
+}

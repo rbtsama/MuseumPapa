@@ -1,0 +1,39 @@
+{
+  "library_id": "winchester",
+  "attraction_slug": "garden-in-the-woods-native-plant-trust",
+  "status": "ok",
+  "raw": "Pass admits two adults at 1/2 price admission and children (ages 5-17) with $1.00 admission. Passes must be picked up at the Winchester Public Library Information Desk. Printouts of reservation confirmations are not accepted by the museum. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 5, "max": 17},
+      "count": null,
+      "form": "per-person-price",
+      "value": 1
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "1/2 price admission",
+    "audience_policies[0].count": "two adults",
+    "audience_policies[1].form": "$1.00 admission",
+    "audience_policies[1].age_range.min": "ages 5-17",
+    "audience_policies[1].age_range.max": "ages 5-17"
+  }
+}

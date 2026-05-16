@@ -1,0 +1,29 @@
+{
+  "library_id": "somerville",
+  "attraction_slug": "institute-of-contemporary-art-boston",
+  "status": "ok",
+  "raw": "Library Membership Digital Pass Somerville Public Library This library membership pass entitles you to up to two (2) tickets for Gallery Admission at the discounted Library Pass rate. Pass is valid on any day the ICA is open through November 30, 2026 ____________________________________ Library Pass tickets are $10 per ticket. Library Passes are not valid for performances, events, or films For current pricing and visitor information, go to: https://www.icaboston.org/visit This is a virtual pass that will be emailed to you and must be presented at the museum to redeem the discount.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to two (2) tickets",
+    "audience_policies[0].form": "$10 per ticket"
+  }
+}

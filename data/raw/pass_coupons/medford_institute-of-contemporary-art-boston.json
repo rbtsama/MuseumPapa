@@ -1,0 +1,38 @@
+{
+  "library_id": "medford",
+  "attraction_slug": "institute-of-contemporary-art-boston",
+  "status": "ok",
+  "raw": "Each pass provides admission for 2 people, for an admission of $10.00 per person. Admission is always free for anyone 18 or under. The ICA is closed Mondays, except for Monday holidays.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 10.00
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": null, "max": 18},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admission for 2 people",
+    "audience_policies[0].form": "$10.00 per person",
+    "audience_policies[1].form": "Admission is always free for anyone 18 or under",
+    "audience_policies[1].age_range.max": "18 or under"
+  }
+}

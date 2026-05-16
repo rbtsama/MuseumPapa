@@ -1,0 +1,28 @@
+{
+  "library_id": "natick",
+  "attraction_slug": "trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Reduced admission for up to 2 adults and children at family membership admission pricing. Additional instructions: - Pre-registration is recommended for some sites. Each site has its own admissions policy and pricing. Visit the Trustees of Reservations website to verify your destination's policy and pricing. -Present pass upon arrival to receive discount. If pre-registering, select the GO Pass ticket option or enter the discount code from your email reservation. -Pass is valid for admission only; other discounts are not eligible . -Popular Trustees destinations with admission fees include Bartholomew's Cobble, Castle Hill, Crane Beach, deCordova Sculpture Park & Museum, Fruitlands Museum, Long Point Wildlife Refuge, and World's End.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "family membership admission pricing"
+  }
+}

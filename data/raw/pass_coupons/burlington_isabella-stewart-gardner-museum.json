@@ -1,0 +1,39 @@
+{
+  "library_id": "burlington",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "Pass admits four people with a co-payment of $5.00 per person. Children under the age of 18 are admitted free. When reserving Isabella Stewart Gardner Museum timed entry tickets online, you will: 1. Go to https://tnew.gardnermuseum.org/events 2. Submit the promo code in the box at the top of the screen 3. Select the visit date and a time to enter 4. Add desired number of tickets to the basket. The pass discount allows you to get up to 4 tickets at $5 each (choose the Library Pass ticket type). Any additional ticket will be normally priced (Children under 18 are always free and should be reserved as child tickets) 5. Login or create an account 6. Finish checking out (discount is applied only at checkout) This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617-278-5156. You must present both the library pass and your reserved timed museum admission tickets for entry into the museum. There is no pass to pick up for this museum, it will be emailed to you.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "four people",
+    "audience_policies[0].form": "$5.00 per person",
+    "audience_policies[1].age_range.max": "Children under the age of 18",
+    "audience_policies[1].form": "admitted free",
+    "restrictions.reservation_required": "You must present both the library pass and your reserved timed museum admission tickets"
+  }
+}

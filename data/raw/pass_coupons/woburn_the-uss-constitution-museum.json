@@ -1,0 +1,29 @@
+{
+  "library_id": "woburn",
+  "attraction_slug": "the-uss-constitution-museum",
+  "status": "ok",
+  "raw": "MUSEUM INFORMATION : • Open Daily: 10 - 5 pm • One pass allows free admission for up to 5 people to the USS Constitution Museum (one pass per party please). • A copy of the pass (digital or physical) must be shown upon arrival. • Valid only for the date listed on the pass Note : Even though advanced tickets or timed admission are not required, capacity is limited and admission is offered on a first come, first serve basis. About the Museum: The USS Constitution Museum, located in the Charlestown Navy Yard, serves as the memory and educational voice of USS Constitution by collecting, preserving, and interpreting the stories of \"Old Ironsides\" and the people associated with the ship. The Museum offers a variety of engaging activities, exhibits, and programs, including our interactive exhibit, All Hands on Deck: A Sailor's Life in 1812. For more information about the Museum's galleries, programs, and resources, including our virtual offerings, visit www.usscm.org . SHIP INFORMATION: (not included with the pass) • Open Wednesday - Sunday: 10 - 4 pm • The ship is free to visit on a first come, first serve basis. Please be aware that visitors must pass through a security inspection and show federal or state photo identification. Visitors under the age of 18 do not require a photo identification card.",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 5 people",
+    "audience_policies[0].form": "free admission"
+  }
+}

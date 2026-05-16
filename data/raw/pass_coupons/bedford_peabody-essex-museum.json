@@ -1,0 +1,38 @@
+{
+  "library_id": "bedford",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "The discount pass admits 2 adults at a reduced admission rate of $12.00 per person any day the museum is open. Children under 16 are always free. With the discount pass patrons may reserve discounted tickets at my.pem.org/events or by calling the PEM reservation line at 978-542-1511. Admission to Yin Yu Tang the Chinese House and special ticketed exhibitions may require a separate fee. Please make sure to review health and safety requirements before your visit.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 12
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 15},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[0].form": "$12.00 per person",
+    "audience_policies[1].age_range.max": "Children under 16",
+    "audience_policies[1].form": "always free"
+  }
+}

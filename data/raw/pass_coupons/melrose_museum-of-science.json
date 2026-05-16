@@ -1,0 +1,38 @@
+{
+  "library_id": "melrose",
+  "attraction_slug": "museum-of-science",
+  "status": "ok",
+  "raw": "This pass will admit up to 4 people at a 50% discount on tickets to the Museum's Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. Reserve your Melrose Public Library pass for desired date. You will receive a confirmation email with an \"Access Pass\" link (if you do not have an email account, a printed confirmation may be picked up at the Main Desk of the library).",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 4,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 2},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% discount on tickets",
+    "audience_policies[1].form": "Children under 3 are ... always admitted for free",
+    "audience_policies[1].age_range.max": "under 3"
+  }
+}

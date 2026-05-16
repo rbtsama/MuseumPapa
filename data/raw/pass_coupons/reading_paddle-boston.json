@@ -1,0 +1,28 @@
+{
+  "library_id": "reading",
+  "attraction_slug": "paddle-boston",
+  "status": "ok",
+  "raw": "Please check hours for each location on PaddleBoston's website - boat launches are weather permitting. The pass is valid for one boat rental. Passholder must present pass and photo ID at rental desk. This includes: Any type of single kayak or paddleboard (1 person), double kayaks (2 adults), standard canoes (up to 3 adults, or 2 adults and 2 children), and XL canoes (up to 5 adults). Save time by filling out your waiver ahead of time: paddleboston.com/waiver. Valid at all seven locations: Stoneham, Medford, Somerville, Boston, Cambridge, Newton, Waltham.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "valid for one boat rental"
+  }
+}

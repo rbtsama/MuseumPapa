@@ -1,0 +1,31 @@
+{
+  "library_id": "carlisle",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "This pass allows half price admission for up to four people. This e-pass is not an entry ticket. All visitors must also reserve a timed-entry ticket from the Children's Museum for admission. Visitors can reserve the museum discount e-pass through this website, then purchase a timed-entry ticket from the Children's Museum website at: https://bostonchildrensmuseum.org/ticketing . Visitors must show the date-specific museum e-pass from the Gleason Library and their timed-entry reservation to the Admissions Scanning Station at the museum. Library coupons are not valid for Sunday afternoons. Admission is $1 per person on Sundays from 1:30 -4:30 p.m.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "half price admission",
+    "restrictions.blackout_dates": "not valid for Sunday afternoons",
+    "restrictions.reservation_required": "must also reserve a timed-entry ticket"
+  }
+}

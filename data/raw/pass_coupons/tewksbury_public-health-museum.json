@@ -1,0 +1,29 @@
+{
+  "library_id": "tewksbury",
+  "attraction_slug": "public-health-museum",
+  "status": "ok",
+  "raw": "Each pass admits up to 4 people for an Indoor Tour free of charge. This is a coupon pass and can be picked up at the Library up to 1 week in advance. You do not need to return this pass. You save by using this pass! Admission without this pass is: $10 per person Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "free of charge"
+  }
+}

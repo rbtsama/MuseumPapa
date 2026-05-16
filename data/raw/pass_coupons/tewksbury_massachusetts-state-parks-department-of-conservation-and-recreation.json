@@ -1,0 +1,29 @@
+{
+  "library_id": "tewksbury",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "Each pass provides free parking for one vehicle at a Massachusetts State Park. June through August, please pick up your Saturday or Sunday pass on Friday. June through August, the Massachusetts State Parks Pass may be reserved once in a 10-day window. This pass must be returned to the Library the next day. Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Vehicle",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "free parking for one vehicle",
+    "audience_policies[0].form": "free parking"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "naismith-memorial-basketball-hall-of-fame",
+  "status": "ok",
+  "raw": "The pass admits up to three adults and 3 children for the discounted rates of $20 per adult, $17 per senior, and $15 per youth. The hall is open daily from 10 am to 4 pm. But be sure to check their list of early closings before you reserve this pass.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 3,
+      "form": "per-person-price",
+      "value": 20
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": 3,
+      "form": "per-person-price",
+      "value": 15
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "three adults and 3 children",
+    "audience_policies[0].form": "$20 per adult",
+    "audience_policies[0].count": "three adults",
+    "audience_policies[1].form": "$15 per youth",
+    "audience_policies[1].count": "3 children"
+  }
+}

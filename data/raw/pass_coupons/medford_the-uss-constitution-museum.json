@@ -1,0 +1,29 @@
+{
+  "library_id": "medford",
+  "attraction_slug": "the-uss-constitution-museum",
+  "status": "ok",
+  "raw": "Pass allows free admission for 5 or fewer visitors. Limit one pass per party. There are no advance tickets or reservations available for the USS Constitution Museum. Entry will be based on a first come, first served system, which may result in a short wait to enter the Museum.",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 5,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "5 or fewer visitors",
+    "audience_policies[0].form": "free admission for 5 or fewer visitors"
+  }
+}

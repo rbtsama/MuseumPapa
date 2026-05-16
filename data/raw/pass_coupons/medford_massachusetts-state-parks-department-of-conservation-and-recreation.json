@@ -1,0 +1,28 @@
+{
+  "library_id": "medford",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "The Massachusetts Parks Pass provides visitors unlimited day-use parking access to state park facilities within the DCR that charge a parking fee, with the exception of Pilgrim Memorial, Quabbin Reservoir Boat Launch Areas, the North Point lot in Cambridge, or any on-street DCR location that charges an hourly rate.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Vehicle",
+      "age_range": null,
+      "count": 1,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "unlimited day-use parking access"
+  }
+}

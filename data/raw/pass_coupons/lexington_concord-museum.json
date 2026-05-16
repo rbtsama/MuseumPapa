@@ -1,0 +1,37 @@
+{
+  "library_id": "lexington",
+  "attraction_slug": "concord-museum",
+  "status": "ok",
+  "raw": "Pass allows up to 4 people at $5.00 off full admission. Children under 5 are admitted for free. Please check their website for hours of operation. THIS IS A PRINTABLE PASS",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 5, "max": null},
+      "count": null,
+      "form": "dollar-off",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 4},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$5.00 off full admission",
+    "audience_policies[1].form": "Children under 5 are admitted for free"
+  }
+}

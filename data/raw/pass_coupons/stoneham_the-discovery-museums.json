@@ -1,0 +1,29 @@
+{
+  "library_id": "stoneham",
+  "attraction_slug": "the-discovery-museums",
+  "status": "ok",
+  "raw": "This pass admits up to 3 people at half the regular admission price per person. Any additional visitors must pay the regular admission price. This pass is an e-ticket which does not need to be picked up at the library . During the school year, the museum is closed on Mondays, unless otherwise noted on their calendar. From June 22 -- September 1, the museum is open 7 days a week with free admission on Friday evenings. Operating hours can be found on the Discovery Museum website . Please be advised, as of 1/7/25 the museum no longer accepts advance reservations for admission.",
+  "capacity": {
+    "kind": "people",
+    "n": 3
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 3 people",
+    "audience_policies[0].form": "half the regular admission price per person"
+  }
+}

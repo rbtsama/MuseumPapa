@@ -1,0 +1,29 @@
+{
+  "library_id": "acton",
+  "attraction_slug": "the-discovery-museums",
+  "status": "ok",
+  "raw": "This pass admits up to three (3) people at half price. Pickup the pass up to six (6) days in advance of the reservation date. This pass MUST be returned to the library it was checked out from (either Acton Memorial Library or West Acton Citizens' Library) before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue passes are subject to a fine of $10 per day. This pass is provided by the Friends of the Acton Libraries.",
+  "capacity": {
+    "kind": "people",
+    "n": 3
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "three (3) people",
+    "audience_policies[0].form": "half price"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "maynard",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "The Peabody Essex Museum pass offers discounted tickets of $12 for up to two (2) people.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to two (2) people",
+    "audience_policies[0].form": "$12"
+  }
+}

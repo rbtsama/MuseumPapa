@@ -1,0 +1,38 @@
+{
+  "library_id": "wellesley",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "This pass offers discounted $5 admission for up to 4 adults. Admission is free for children under age 18. Patrons must present both this library pass and their timed admission ticket for entry into the museum. For more information, including health and safety requirements, please visit the ISGM's Know Before You Go page . try {var w = document.getElementsByClassName(\"warn\"); for( i=0;i",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": {"min": 18, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 adults",
+    "audience_policies[0].form": "$5 admission",
+    "audience_policies[1].form": "Admission is free for children under age 18",
+    "audience_policies[1].age_range.max": "under age 18"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "library_id": "lexington",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "THIS IS A COUPON PASS Zoo New England Pass admits 6 people to either Stone Zoo or the Franklin Park Zoo. With this coupon adult admission is reduced to $9.00 and child admission to $6.00 Children under 2 are free. Please check the website for hours of operation and closures. https://www.zoonewengland.org/visit/",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9.00
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 6.00
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 6 people",
+    "audience_policies[0].form": "adult admission is reduced to $9.00",
+    "audience_policies[1].form": "child admission to $6.00",
+    "audience_policies[2].form": "Children under 2 are free",
+    "audience_policies[2].age_range.max": "under 2"
+  }
+}

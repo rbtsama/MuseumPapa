@@ -1,0 +1,30 @@
+{
+  "library_id": "middleton",
+  "attraction_slug": "boston-harbor-island-ferry",
+  "status": "ok",
+  "raw": "Pass admits a maximum of 4 people for 50% off. Below is the 2025 season information, but make sure to also check the Boston Harbor Islands website for current hours of operation. 2025 Season Schedule: Spectacle Island May 16 - June 15: Thursdays through Sundays June 16 - September 1: every day September 4 - 21: Thursdays through Sundays September 26 - October 13: Fridays through Sundays Georges Island June 16- September 1: every day Peddocks Island June 16 - September 1: every day September 4 - October 13: Thursdays through Sundays",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 4,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "May-Oct",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "a maximum of 4 people",
+    "audience_policies[0].form": "50% off",
+    "restrictions.seasonal": "2025 Season Schedule"
+  }
+}

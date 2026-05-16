@@ -1,0 +1,38 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "museum-of-fine-arts",
+  "status": "ok",
+  "raw": "Pass admits 2 adult tickets at $15 per ticket and 4 youth tickets at $15 per ticket (prices is subject to change). Ticketed special exhibits are not included. There is no physical pass to pick up at the library. This program is supported in part by a grant from the Wilmington Council for the Arts, a local agency which is supported by the Massachusetts Cultural Council, a state agency.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 15
+    },
+    {
+      "audience": "Youth",
+      "age_range": null,
+      "count": 4,
+      "form": "per-person-price",
+      "value": 15
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "$15 per ticket",
+    "audience_policies[0].count": "2 adult tickets",
+    "audience_policies[1].form": "$15 per ticket",
+    "audience_policies[1].count": "4 youth tickets"
+  }
+}

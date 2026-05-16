@@ -1,0 +1,29 @@
+{
+  "library_id": "danvers",
+  "attraction_slug": "harvard-museums-of-science-and-culture",
+  "status": "ok",
+  "raw": "This pass is valid at all Harvard Museums of Science & Culture for 50% off regular museum admission rates for up to 4 people. At least one member of the party must be a MA resident. This pass may not be combined with other offers. This pass is not for group, institutional, or corporate visits. HMSC Museums: Harvard Museum of Natural History Peabody Museum of Archaeology & Ethnology Harvard Museum of the Ancient Near East Collection of Historical Scientific Instruments. This is a physical pass that must be picked up at the library.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% off regular museum admission rates"
+  }
+}

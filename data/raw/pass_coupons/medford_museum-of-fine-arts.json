@@ -1,0 +1,39 @@
+{
+  "library_id": "medford",
+  "attraction_slug": "museum-of-fine-arts",
+  "status": "ok",
+  "raw": "Each pass admits up to 2 adults for $15.00/each and up to 4 youth at $10/each for general admission .",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 15.00
+    },
+    {
+      "audience": "Youth",
+      "age_range": null,
+      "count": 4,
+      "form": "per-person-price",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 2 adults ... and up to 4 youth",
+    "audience_policies[0].count": "up to 2 adults",
+    "audience_policies[0].form": "$15.00/each",
+    "audience_policies[1].count": "up to 4 youth",
+    "audience_policies[1].form": "$10/each"
+  }
+}

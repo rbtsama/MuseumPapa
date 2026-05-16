@@ -1,0 +1,30 @@
+{
+  "library_id": "winchester",
+  "attraction_slug": "griffin-museum-of-photography",
+  "status": "ok",
+  "raw": "Pass admits 2 people free. Call the Griffin Museum of Photography at 781-729-1158 to arrange for the discount admission prior to your visit. Pick up pass at the Information Services Desk at the library.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "admits 2 people",
+    "audience_policies[0].form": "admits 2 people free",
+    "restrictions.reservation_required": "Call the Griffin Museum of Photography at 781-729-1158 to arrange for the discount admission prior to your visit"
+  }
+}

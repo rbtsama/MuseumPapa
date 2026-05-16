@@ -1,0 +1,29 @@
+{
+  "library_id": "bedford",
+  "attraction_slug": "concord-museum",
+  "status": "ok",
+  "raw": "This pass is a laminated pass that is checked out and must be returned. Once reserved, you may pick up the pass either the day of use or the day before if the library is open. Check with the museum for any additional information about your visit including safety guidelines and timed ticketing requirements. Each pass admits up to 4 people at $5 off per person from the regular admission price. Cannot be combined with other discounts. Not valid for member pricing.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "dollar-off",
+      "value": 5
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$5 off per person"
+  }
+}

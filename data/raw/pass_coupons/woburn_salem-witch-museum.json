@@ -1,0 +1,40 @@
+{
+  "library_id": "woburn",
+  "attraction_slug": "salem-witch-museum",
+  "status": "ok",
+  "raw": "This pass allows the bearer a discounted admission rate for up to six visitors. After checking the pass out from the library, log onto www.salemwitchmuseum.com and use the coupon code found on the pass to purchase up to 6 tickets at a discounted rate ($14.00 adults/seniors, $11.75 children ages 3-14). Tickets must be purchased online in advance before arrival at the museum and the pass must be shown when picking up tickets. If you cannot provide the library pass, you will be charged the full admission fee. This is a physical pass that you must pick up from and return to the library. Please return before 9 am the day after the Museum Pass is used. The pass may be returned via the book drop. ~ The Salem Witch Museum does not accept library passes for the month of October ~",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 14
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 3, "max": 14},
+      "count": null,
+      "form": "per-person-price",
+      "value": 11.75
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to six visitors",
+    "audience_policies[0].form": "$14.00 adults/seniors",
+    "audience_policies[1].form": "$11.75 children ages 3-14",
+    "audience_policies[1].age_range.min": "ages 3-14",
+    "audience_policies[1].age_range.max": "ages 3-14",
+    "restrictions.blackout_dates": "does not accept library passes for the month of October"
+  }
+}

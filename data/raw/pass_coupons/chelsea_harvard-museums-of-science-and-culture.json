@@ -1,0 +1,29 @@
+{
+  "library_id": "chelsea",
+  "attraction_slug": "harvard-museums-of-science-and-culture",
+  "status": "ok",
+  "raw": "Free admission for up to 4 people. At least one 1 must bring proof of MA residence. This pass can be used at the following location: Harvard Museum of Natural History, The Peabody Museum of Archeology and Ethnology, The Harvard Museum of the Near East, or the The Collection of Historical Scientific Instruments",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "Free admission"
+  }
+}

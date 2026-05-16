@@ -1,0 +1,37 @@
+{
+  "library_id": "chelmsford",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "This pass is valid for one-time use at any of our 100+ properties that collect an admission fee. Pass holder will pay an admission fee equivalent to that of a Trustees Family Level membership (two adults & children 17 and under.)",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "two adults",
+    "audience_policies[0].form": "Trustees Family Level membership",
+    "audience_policies[1].age_range": "children 17 and under"
+  }
+}

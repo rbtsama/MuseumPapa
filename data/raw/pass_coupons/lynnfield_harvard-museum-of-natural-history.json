@@ -1,0 +1,29 @@
+{
+  "library_id": "lynnfield",
+  "attraction_slug": "harvard-museum-of-natural-history",
+  "status": "ok",
+  "raw": "Pass admits up to four people at 50% off regular museum admission rates. This is a coupon pass that must be picked up at the Library during open business hours. This pass also includes admission to the Harvard Museum of Natural History, the Peabody Museum of Archaeology and Ethnology, the Harvard Museum of the Ancient Near East, and the Collection of Historical Scientific Instruments. The mission of the Harvard Museums of Science & Culture is to foster curiosity and a spirit of discovery in visitors of all ages, enhancing public understanding of and appreciation for the natural world, science, and human cultures. HMSC works in concert with Harvard faculty, museum curators, and students, as well as with members of the extended Harvard community, to provide interdisciplinary exhibitions, events and lectures, and educational programs for students, teachers, and the general public. HMSC draws primarily upon the extensive collections of the member museums and the research of their faculty and curators.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 4,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "50% off regular museum admission rates"
+  }
+}

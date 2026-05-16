@@ -1,0 +1,48 @@
+{
+  "library_id": "belmont",
+  "attraction_slug": "museum-of-fine-arts",
+  "status": "ok",
+  "raw": "Starting on January 2, 2022, The Museum of Fine Arts is currently open six days a week: Wednesday through Monday, 10 am–5 pm. As of January 2026, half price tickets will increase to $15. Please reserve a Museum of Fine Arts printable museum pass through the Belmont Public Library; when you click \"Access Pass\" in your confirmation email, the printable pass will open and you will see a promo code, located just beneath the barcode - it is a series of letters and numbers separated by a dash. You will use this code in its entirety to reserve a discounted admission ticket through the Museum of Fine Arts website for admission to the museum. To reserve discounted tickets online, please go to mfa.org/tickets, select the date of your visit and enter the promo code in the top right corner of the next page, which will activate the reduced admission rate ticketing option of \"Library Pass\" and \"Library Pass Youth.\" Children 6 and under are admitted free. Each pass now allows admission for 2 adults at $10 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10. As of January 2026, half price tickets will increase to $15.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": 7, "max": 17},
+      "count": 4,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 6},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[0].form": "$10 each",
+    "audience_policies[1].age_range.min": "ages 7–17",
+    "audience_policies[1].count": "up to 4 children",
+    "audience_policies[1].form": "$10 each",
+    "audience_policies[2].age_range.max": "Children 6 and under",
+    "audience_policies[2].form": "admitted free"
+  }
+}

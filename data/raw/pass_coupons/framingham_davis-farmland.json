@@ -1,0 +1,29 @@
+{
+  "library_id": "framingham",
+  "attraction_slug": "davis-farmland",
+  "status": "ok",
+  "raw": "Pass admits up to 6 guests to Davis Farmland or Davis Mega Maze with $10 off the at-the-gate admission rate.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "dollar-off",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 guests",
+    "audience_policies[0].form": "$10 off the at-the-gate admission rate"
+  }
+}

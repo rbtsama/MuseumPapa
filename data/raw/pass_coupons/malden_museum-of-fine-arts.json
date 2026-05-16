@@ -1,0 +1,39 @@
+{
+  "library_id": "malden",
+  "attraction_slug": "museum-of-fine-arts",
+  "status": "ok",
+  "raw": "Each pass may be redeemed for up to two adult tickets at $15 per person, and four youth tickets at $10 per person.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 15
+    },
+    {
+      "audience": "Youth",
+      "age_range": null,
+      "count": 4,
+      "form": "per-person-price",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to two adult tickets ... and four youth tickets",
+    "audience_policies[0].count": "two adult tickets",
+    "audience_policies[0].form": "$15 per person",
+    "audience_policies[1].count": "four youth tickets",
+    "audience_policies[1].form": "$10 per person"
+  }
+}

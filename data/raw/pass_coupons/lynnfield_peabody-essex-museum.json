@@ -1,0 +1,38 @@
+{
+  "library_id": "lynnfield",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "Pass admits two adults at $12 per person. Children under age 16 are always admitted free. Admission to Yin Yu Tang, the Chinese House, and special ticketed exhibitions may require a separate fee. Visitors using a library pass are not entitled to any other member benefits. Please visit the museum website for information on visiting policies. This pass uses a discount code. You will receive the discount code via email after booking this pass. Please note that for the month of October, you must then purchase tickets from the museum ahead of time. See confirmation email for instructions.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 12
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 15},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits two adults",
+    "audience_policies[0].form": "$12 per person",
+    "audience_policies[1].form": "Children under age 16 are always admitted free",
+    "audience_policies[1].age_range.max": "under age 16"
+  }
+}

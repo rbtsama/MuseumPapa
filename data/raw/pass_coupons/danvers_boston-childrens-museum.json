@@ -1,0 +1,30 @@
+{
+  "library_id": "danvers",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "This pass provides 50% off discount for up to 4 people. To use this past you MUST make a reservation on the museum's website. To do this: Visit: https://bostonchildrensmuseum.org/ticketing/ Select \"Discount Programs\" Select \"Purchase Discount Program Tickets\" Select \"Half Price Library Tickets\" Select the correct date (must match date of the pass) Select the time slot Select the number of tickets (maximum 4) Select \"Add to Cart\" Select \"Check out\" and complete your payment You will be sent the tickets via email The day of your visit, please bring both the library coupon pass and the ticket from the Museum. Your coupon and tickets can be printed out or shown on a smartphone or other device. If you have problems ordering your museum ticket, email: Orders@BostonChildrensMuseum.org Hours of Operation The Museum is open from 9am to 4pm Wednesday through Monday. It is closed on Tuesdays. This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have made a reservation.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% off discount",
+    "restrictions.reservation_required": "MUST make a reservation on the museum's website"
+  }
+}

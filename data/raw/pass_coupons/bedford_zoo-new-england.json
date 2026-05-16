@@ -1,0 +1,38 @@
+{
+  "library_id": "bedford",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "Pass admits up to 6 people at a reduced admission of $9 per adult and $6 per child aged 2-12 yrs. Pass can be used at either the Franklin Park Zoo in Boston or the Stone Zoo in Stoneham. Pick up discount pass at the library either the day before or the day of your visit. Bring this pass to the Zoo ticket desk to receive admission discount (passes are not valid for Stone Zoo Zoolights or Franklin Park Zoo Boston Lights). For additional details on Zoo New England's policies and hours of operation please visit there website at zoonewengland.org . Please note: Zoo New England no longer accepts printable passes from confirmation email.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 2, "max": 12},
+      "count": null,
+      "form": "per-person-price",
+      "value": 6
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$9 per adult",
+    "audience_policies[1].age_range.min": "aged 2-12 yrs",
+    "audience_policies[1].form": "$6 per child"
+  }
+}

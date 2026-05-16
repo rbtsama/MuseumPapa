@@ -1,0 +1,38 @@
+{
+  "library_id": "brookline",
+  "attraction_slug": "isabella-stewart-gardner",
+  "status": "ok",
+  "raw": "(617) 566-1401 The Isabella Stewart Gardner Museum is an art museum in Boston, Massachusetts , which houses significant examples of European , Asian , and American art . Its collection includes paintings, sculpture, tapestries, and decorative arts. It was founded by Isabella Stewart Gardner , whose will called for her art collection to be permanently exhibited \"for the education and enjoyment of the public forever.\" Pass benefits: Admits up to 4 at $5 per person. Youth ages 18 and under receive free admission. Visit the Isabella Stewart Gardner Museum's website. The Isabella Stewart Gardener Museum is not open Tuesdays. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": null, "max": 18},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4",
+    "audience_policies[0].form": "$5 per person",
+    "audience_policies[1].age_range.max": "Youth ages 18 and under",
+    "audience_policies[1].form": "free admission"
+  }
+}

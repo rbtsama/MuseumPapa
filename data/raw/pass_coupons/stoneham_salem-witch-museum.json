@@ -1,0 +1,39 @@
+{
+  "library_id": "stoneham",
+  "attraction_slug": "salem-witch-museum",
+  "status": "ok",
+  "raw": "This pass admits up to 6 people at a discounted rate of $14.00 for adults or seniors , $11.75 for children 3-14 . This is a physical pass that must be picked up at and returned to the library . Present the pass at the ticket booth for discounted admission. Passes are not accepted in the month of October.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 14
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 3, "max": 14},
+      "count": null,
+      "form": "per-person-price",
+      "value": 11.75
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$14.00 for adults or seniors",
+    "audience_policies[1].age_range": "children 3-14",
+    "audience_policies[1].form": "$11.75 for children 3-14",
+    "restrictions.blackout_dates": "Passes are not accepted in the month of October"
+  }
+}

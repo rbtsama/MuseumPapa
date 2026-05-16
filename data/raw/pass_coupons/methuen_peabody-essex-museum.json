@@ -1,0 +1,30 @@
+{
+  "library_id": "methuen",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "This pass admits 2 people at $12 each. Once you have your pass, you will need to reserve your date and time to visit the Peabody Essex Museum through the museum's website (my.pem.org/events). Your library pass will have a promo code to use with your museum reservation to receive the discounted admission rate.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "admits 2 people",
+    "audience_policies[0].form": "$12 each",
+    "restrictions.reservation_required": "you will need to reserve your date and time"
+  }
+}

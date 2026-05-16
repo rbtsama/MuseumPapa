@@ -1,0 +1,38 @@
+{
+  "library_id": "burlington",
+  "attraction_slug": "salem-witch-museum",
+  "status": "ok",
+  "raw": "Pass allows a discounted admission rate for up to six visitors. Discounted rates are $13.50 per adult/senior and $11.25 per child. (Regular rates are $17.50 for adults, $16.00 for seniors, and $14.50 for children). Library passes are not accepted in the month of October.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 13.50
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 11.25
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to six visitors",
+    "audience_policies[0].form": "$13.50 per adult/senior",
+    "audience_policies[1].form": "$11.25 per child",
+    "restrictions.blackout_dates": "not accepted in the month of October"
+  }
+}

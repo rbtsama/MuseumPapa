@@ -1,0 +1,28 @@
+{
+  "library_id": "north-andover",
+  "attraction_slug": "trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "This pass must be picked up at the library. The Trustees GO Pass: is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, on any equipment rental, or in place of any other permits or passes allows free or reduced admission at the Family Level Membership price at Trustees properties that charge an admission fee To use with a site that requires timed passes, please enter the promo code (printed on coupon) when securing a timed ticket. See www.thetrustees.org/passes for more details. Please note: Not every Trustees property charges an admission fee, and some locations require advanced ticketing. For information about the admission at each property, please visit TheTrustees.Org.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "free or reduced admission at the Family Level Membership price"
+  }
+}

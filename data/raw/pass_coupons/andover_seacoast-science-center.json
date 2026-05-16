@@ -1,0 +1,37 @@
+{
+  "library_id": "andover",
+  "attraction_slug": "seacoast-science-center",
+  "status": "ok",
+  "raw": "Print from home. Pass admits 2 adults and up to 4 children/grandchildren into the Seacoast Science Center at 50% off the cost of regular admission. Pass holder receives 10% discount in the Nature Store Library pass does NOT include the State Park admission. Park fees are $4 per adult (ages 12+) and $2 per child (ages 6-11) . Office use only: _____#adults _____#children _____# under3 _____ # seniors",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": 4,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[0].form": "50% off the cost of regular admission",
+    "audience_policies[1].count": "up to 4 children/grandchildren"
+  }
+}

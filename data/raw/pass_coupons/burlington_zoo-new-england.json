@@ -1,0 +1,45 @@
+{
+  "library_id": "burlington",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "This pass admits 6 people at $9.00 per Adult and $6.00 per Child to the Franklin Park or Stone Zoo. Children under 2 are free . Visit https://www.zoonewengland.org/ for hours and ticket status for Zoo New England. You must bring the library pass for discounted admission. Pass does not cover admission to the Zoo's Holiday Lights. This pass can be picked up one week in advance.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9.00
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 2, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 6.00
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 6 people",
+    "audience_policies[0].form": "$9.00 per Adult",
+    "audience_policies[1].form": "$6.00 per Child",
+    "audience_policies[2].form": "Children under 2 are free"
+  }
+}

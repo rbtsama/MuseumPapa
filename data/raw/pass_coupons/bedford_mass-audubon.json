@@ -1,0 +1,30 @@
+{
+  "library_id": "bedford",
+  "attraction_slug": "mass-audubon",
+  "status": "ok",
+  "raw": "This single-use Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary. A discounted admission fee of $2 per person will be charged for anyone over the age of 2. Your confirmation e-mail will allow you to print out your pass or present it on your mobile device. Pass must be presented to Mass Audubon staff and is only valid for the date printed on your pass. Please visit https://www.massaudubon.org/get-outdoors for the latest information on sanctuary hours and closure dates due to special fundraising events or inclement weather. Mass Audubon does not guarantee access on any specific date/time if tickets are not available.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 3, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 2
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$2 per person",
+    "audience_policies[0].age_range.min": "over the age of 2"
+  }
+}

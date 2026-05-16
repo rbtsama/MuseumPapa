@@ -1,0 +1,39 @@
+{
+  "library_id": "billerica",
+  "attraction_slug": "salem-witch-museum",
+  "status": "ok",
+  "raw": "This physical pass may be picked up at the circulation desk the day before use and must be brought to the Salem Witch Museum in order to receive the discount. Please return this physical pass to the Billerica Public Library by 9am the next day. The pass may be returned to the outside drop box during off hours. This pass admits up to 6 visitors at a discounted rate, $14.00 for adults/seniors and $11.75 for children (3-14). Regular admission prices are $19.00 for adults, $17.50 for senior citizens, and $16.00 for children (3-14). Tickets must be booked online on the day of your visit at salemwitchmuseum.com , using the discount code that is printed on the pass. The Salem Witch Museum pass is unavailable during the month of October. This pass is generously donated by the Salem Witch Museum.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 14
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 3, "max": 14},
+      "count": null,
+      "form": "per-person-price",
+      "value": 11.75
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 visitors",
+    "audience_policies[0].form": "$14.00 for adults/seniors",
+    "audience_policies[1].age_range.min": "children (3-14)",
+    "audience_policies[1].form": "$11.75 for children",
+    "restrictions.blackout_dates": "unavailable during the month of October"
+  }
+}

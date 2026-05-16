@@ -1,0 +1,38 @@
+{
+  "library_id": "melrose",
+  "attraction_slug": "institute-of-contemporary-art-boston",
+  "status": "ok",
+  "raw": "MELROSE PUBLIC LIBRARY - INSTITUTE OF CONTEMPORARY ART / BOSTON The library's pass admits 2 people with a $10 co-pay each, youth 18 and under are free. Discounts are available for active military, teachers, and EIB with IDs. Closed Mondays except certain holidays when admission for all is free. The ICA is free to all on Thursday nights from 5-9pm. ICA current hours, admission prices and discounts . Reserve your Melrose Public Library pass for desired date. You will receive a confirmation email with an \"Access Pass\" link (if you do not have an email account, a printed confirmation may be picked up at the Main Desk of the library). Funded by the City of Melrose.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": null, "max": 18},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 2 people",
+    "audience_policies[0].form": "$10 co-pay each",
+    "audience_policies[1].form": "youth 18 and under are free",
+    "audience_policies[1].age_range.max": "18 and under"
+  }
+}

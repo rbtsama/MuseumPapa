@@ -1,0 +1,29 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "the-house-of-seven-gables",
+  "status": "ok",
+  "raw": "The pass admits up to four people at 50% off. Full price admissions are: Mansion Tour $25 Mansion Tour - Senior $20 Mansion tour - Children $17 Grounds Pass (May 1 - Sept 30) $12 Grounds Pass (Nov 1 - April 30) $6 The house is open daily 10 am to 5 pm. But be sure to check their website for any changes before you reserve this pass. Purchase the tickets on the house's website after reserving your pass here.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "50% off"
+  }
+}

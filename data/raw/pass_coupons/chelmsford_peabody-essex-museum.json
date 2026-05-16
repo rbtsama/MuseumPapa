@@ -1,0 +1,29 @@
+{
+  "library_id": "chelmsford",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "Pass allows you to purchase up to two tickets at the reduced rate of $12 each. The code you'll receive is for one time use only and is not combinable with any other discount.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to two tickets",
+    "audience_policies[0].form": "$12 each"
+  }
+}

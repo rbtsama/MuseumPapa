@@ -1,0 +1,46 @@
+{
+  "library_id": "middleton",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "Pass admits 6 people at $9.00 for adults and $6.00 for children. Under age 2 years admitted free. Visit Zoo New England website for hours, updates. This pass can't be used for Stone Zoo \"Zoolights\" or Franklin Park Zoo \"Boston Lights\".",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9.00
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 6.00
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 6 people",
+    "audience_policies[0].form": "$9.00 for adults",
+    "audience_policies[1].form": "$6.00 for children",
+    "audience_policies[2].form": "Under age 2 years admitted free",
+    "audience_policies[2].age_range.max": "Under age 2 years"
+  }
+}

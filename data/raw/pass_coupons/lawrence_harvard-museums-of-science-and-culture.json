@@ -1,0 +1,29 @@
+{
+  "library_id": "lawrence",
+  "attraction_slug": "harvard-museums-of-science-and-culture",
+  "status": "ok",
+  "raw": "Harvard Museums of Science & Culture [coupon] Museos de Ciencias y Cultura de Harvard [cupón] Admits 4 people for free. Admisión para 4 personas gratis. Please visit the website for hours of operation. Visite el sitio web para obtener información sobre los horarios.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "Admits 4 people",
+    "audience_policies[0].form": "for free"
+  }
+}

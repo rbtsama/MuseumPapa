@@ -1,0 +1,39 @@
+{
+  "library_id": "chelmsford",
+  "attraction_slug": "garden-in-the-woods-native-plant-trust",
+  "status": "ok",
+  "raw": "This is a SET OF 2 laminated passes, each pass offers discount to ONE person: Each pass will admit 1 adult at a 50% discount. This pass will admit children (ages 5-17) for $1.00 admission each. No discounts on classes, tours, or retail items. Pick up the pass from the library and bring it with you when you visit. The Garden is open from April 19, 2026 to October 15, 2026. Check website ( http://www.nativeplanttrust.org/visit/garden-woods/ ) for exact dates & hours.",
+  "capacity": {
+    "kind": "people",
+    "n": 1
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 1,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 5, "max": 17},
+      "count": null,
+      "form": "per-person-price",
+      "value": 1.00
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "Apr-Oct",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admit 1 adult",
+    "audience_policies[0].form": "50% discount",
+    "audience_policies[1].age_range": "ages 5-17",
+    "audience_policies[1].form": "$1.00 admission each",
+    "restrictions.seasonal": "April 19, 2026 to October 15, 2026"
+  }
+}

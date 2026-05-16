@@ -1,0 +1,29 @@
+{
+  "library_id": "winchester",
+  "attraction_slug": "the-discovery-museums",
+  "status": "ok",
+  "raw": "This pass admits 3 visitors at 50% admission per person; any additional visitors must pay the regular admission price. Present this pass , either printed or on a mobile device, to Admissions staff when checking in and the discount will be applied to the cost of your visit. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance.",
+  "capacity": {
+    "kind": "people",
+    "n": 3
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 3 visitors",
+    "audience_policies[0].form": "50% admission"
+  }
+}

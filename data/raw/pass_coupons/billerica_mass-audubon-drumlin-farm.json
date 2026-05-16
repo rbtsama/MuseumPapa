@@ -1,0 +1,39 @@
+{
+  "library_id": "billerica",
+  "attraction_slug": "mass-audubon-drumlin-farm",
+  "status": "ok",
+  "raw": "This digital pass is valid for up to four people at one time (adults, seniors or children age two or older; children under two are admitted free) at any Mass Audubon wildlife sanctuary. Each person will be charged a $2.00 admission fee. There are over sixty beautiful sanctuaries located across Massachusetts. Please see the full listing of wildlife sanctuaries at the official Mass Audubon website by clicking this link: massaudubon.org/get-outdoors/our-wildlife-sanctuaries . Without the library pass discount the regular admission cost for the popular Drumlin Farm location is $9 for adults and $6 for children 2-12 and seniors (65+). This pass is generously sponsored by the Family Friends of the Billerica Public Library.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 2, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 2
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "$2.00 admission fee",
+    "audience_policies[0].age_range.min": "children age two or older",
+    "audience_policies[1].age_range.max": "children under two",
+    "audience_policies[1].form": "admitted free"
+  }
+}

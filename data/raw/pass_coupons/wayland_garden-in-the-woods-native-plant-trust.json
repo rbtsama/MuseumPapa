@@ -1,0 +1,49 @@
+{
+  "library_id": "wayland",
+  "attraction_slug": "garden-in-the-woods-native-plant-trust",
+  "status": "ok",
+  "raw": "This is a SET OF 2 laminated passes, each pass offers discount to ONE person: Adults (age 18 and over) receive 50% the regular admission price. Children (age 6 to 17) are admitted for $1. Children (age 5 and younger) are admitted for free. Patrons may pick up their passes the day before or the day of their visit. The passes must be returned to the Wayland Library by the day after your visit . Tickets are available at the Visitor Center when you arrive. Please check their website for weather closings, special events, parking updates, etc. before visiting.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": {"min": 18, "max": null},
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 6, "max": 17},
+      "count": null,
+      "form": "per-person-price",
+      "value": 1
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 5},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "SET OF 2 laminated passes",
+    "audience_policies[0].form": "50% the regular admission price",
+    "audience_policies[0].age_range.min": "age 18 and over",
+    "audience_policies[1].form": "$1",
+    "audience_policies[1].age_range.min": "age 6 to 17",
+    "audience_policies[1].age_range.max": "age 6 to 17",
+    "audience_policies[2].form": "admitted for free",
+    "audience_policies[2].age_range.max": "age 5 and younger"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "library_id": "tewksbury",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "Advance reservations for daytime admission is not required. Bring the pass to the admissions gate to purchase your discounted tickets. This pass admits 6 people at $9 per adult and $6 per child. This is a coupon pass and doesn't need to be returned to the Library. You may pick up this pass from the Library up to 1 week in advance. You save by using this pass! Admission without this pass is: Franklin Park Zoo: Adults: $22.95 Senior (62+): $20.95 Child (ages 2-12): $15.95 Children under 2: Free Stone Zoo: Adults: $20.95 Senior Admission (62+): $18.95 Child Admission (ages 2-12): $13.95 Children under 2: Free Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 6
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 6 people",
+    "audience_policies[0].form": "$9 per adult",
+    "audience_policies[1].form": "$6 per child"
+  }
+}

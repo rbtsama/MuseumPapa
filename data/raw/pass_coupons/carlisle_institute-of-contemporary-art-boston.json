@@ -1,0 +1,29 @@
+{
+  "library_id": "carlisle",
+  "attraction_slug": "institute-of-contemporary-art-boston",
+  "status": "ok",
+  "raw": "Each pass admits up to 2 people at the discounted library price per person. Library passes are not valid for performances, events, or films. Advanced tickets are highly recommended since the museum cannot guarantee day-of reservations. Visit the museum website at https://www.icaboston.org/ or call 617-478-3100",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 2 people",
+    "audience_policies[0].form": "discounted library price per person"
+  }
+}

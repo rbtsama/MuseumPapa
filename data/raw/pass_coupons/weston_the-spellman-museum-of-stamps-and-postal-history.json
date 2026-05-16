@@ -1,0 +1,29 @@
+{
+  "library_id": "weston",
+  "attraction_slug": "the-spellman-museum-of-stamps-and-postal-history",
+  "status": "ok",
+  "raw": "Each pass admits 2 people free (admission is always free for children 4 and under).",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 2 people",
+    "audience_policies[0].form": "admits 2 people free"
+  }
+}

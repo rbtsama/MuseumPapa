@@ -1,0 +1,39 @@
+{
+  "library_id": "wakefield",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "Pass admits 4 people for $5 a person. Children under the age of 18 are always admitted free. When reserving Gardner Museum timed entry tickets online, you will submit the promo code, select the correct date and your chosen timed entry, and continue checking out (the discount will be applied at checkout). Tickets must be reserved at least 48 hours prior to visiting—this library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets you can call the Gardner Museum's Box Office at 617-278-5156. Patrons must present both this library pass and Museum timed tickets for admission into the Museum. For more information, please visit: isgm.org/welcome .",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "admits 4 people",
+    "audience_policies[0].form": "$5 a person",
+    "audience_policies[1].form": "Children under the age of 18 are always admitted free",
+    "audience_policies[1].age_range.max": "under the age of 18",
+    "restrictions.reservation_required": "Tickets must be reserved at least 48 hours prior to visiting"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "library_id": "belmont",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "Please reserve a Peabody Essex Museum printable museum pass through the Belmont Public Library; when you click \"Print This Pass\" in your confirmation email, the printable pass will open and you will see a promo code, located just beneath the barcode - it is a series of letters and numbers. You will use this code in its entirety to reserve a timed-entry discounted admission ticket through the Peabody Essex Museum website for admission to the museum. To reserve timed-entry discounted tickets online, please go to https://my.pem.org/events, select the date of your visit and enter the promo code in the top right corner of the next page, which will activate the reduced admission rate ticketing option of \"Library Discount (limit 2).\" The Peabody Essex Museum pass admits 2 people for general museum admission. The co-pay is $12 per person. Youth who are 16 years old and younger receive free admission. The museum is open Mondays, Thursdays, Saturdays & Sundays 10 am–5 pm, Fridays 10 am-7 pm. The museum is closed on Thanksgiving Day, Christmas Day, and New Year's Day.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 12
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": null, "max": 16},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 2 people",
+    "audience_policies[0].form": "$12 per person",
+    "audience_policies[1].age_range.max": "16 years old and younger",
+    "audience_policies[1].form": "receive free admission"
+  }
+}

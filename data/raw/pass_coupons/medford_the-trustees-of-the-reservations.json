@@ -1,0 +1,39 @@
+{
+  "library_id": "medford",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "Each pass admits two adults and two children to any Trustees property in Massachusetts at Family Level membership price. Prices and hours vary by site. Pass cannot be used for parking, stores, cafes, inns, campgrounds, or special events.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "two adults and two children",
+    "audience_policies[0].count": "two adults",
+    "audience_policies[0].form": "Family Level membership price",
+    "audience_policies[1].count": "two children",
+    "audience_policies[1].form": "Family Level membership price"
+  }
+}

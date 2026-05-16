@@ -1,0 +1,45 @@
+{
+  "library_id": "danvers",
+  "attraction_slug": "naismith-memorial-basketball-hall-of-fame",
+  "status": "ok",
+  "raw": "Discounted admission for up to 6 visitors. Library Adult $20, Library Senior/Student $17, Library Youth $15",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 20
+    },
+    {
+      "audience": "Senior",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 17
+    },
+    {
+      "audience": "Youth",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 15
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 visitors",
+    "audience_policies[0].form": "Library Adult $20",
+    "audience_policies[1].form": "Library Senior/Student $17",
+    "audience_policies[2].form": "Library Youth $15"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "library_id": "lexington",
+  "attraction_slug": "institute-of-contemporary-art-boston",
+  "status": "ok",
+  "raw": "THIS IS A PRINTABLE PASS Each Library Pass is valid for up to two (2) museum admission tickets at the discounted Library Pass rate of $10 per ticket. Library Passes are not valid for performances, events, or films. The ICA is always free to anyone 18 and under. Museum hours and admission are subject to change. Current information can be found on the website: https://www.icaboston.org/visit.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": {"min": 19, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 18},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to two (2) museum admission tickets",
+    "audience_policies[0].form": "$10 per ticket",
+    "audience_policies[1].form": "free to anyone 18 and under"
+  }
+}

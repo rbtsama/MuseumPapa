@@ -1,0 +1,37 @@
+{
+  "library_id": "north-reading",
+  "attraction_slug": "the-aviation-museum-of-new-hampshire",
+  "status": "ok",
+  "raw": "Pick up a paper pass at the Flint Memorial Library main circulation desk. Library Pass: Free entry for up to 4 people. Additional members in party must pay appropriate admission fee; kids 5 and under, FREE! The Museum is staffed by volunteers of the New Hampshire Aviation Historical Society and all admission fees and donations support exhibits, education programs, operations and maintenance.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 5},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "Free entry",
+    "audience_policies[1].age_range": "kids 5 and under, FREE!"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "library_id": "woburn",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "Trustees GOPASS admits 2 adults & children under 18 at the Family Level admission rate. Valid at more than 100 Trustees properties that collect an admission fee (including Fruitland, deCordova and The Old Manse). Search Visit to view all the locations you are able to visit with this pass. GOPASS must be reserved and picked up at the library and then presented to Trustees property admissions to redeem discount. Check property for timed entry or advance registration status and contact directly to make reservation if required. The Promo Code is located on the back of the paper GOPASS . Click here to reserve tickets to the deCordova. To receive the library discount, enter promo code at checkout. Please Note: This is a coupon pass that must be picked up at the library. Patrons must first reserve a coupon from the library, then reserve timed tickets ONLY for museums and parks that require a timed entry by using the promo code on the back of the library coupon. This pass is not valid for use at parking kiosks, stores, cafes or campgrounds. * Funded by the Friends of the WPL",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "Family Level admission rate",
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[1].form": "Family Level admission rate",
+    "audience_policies[1].age_range.max": "children under 18"
+  }
+}

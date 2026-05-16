@@ -1,0 +1,39 @@
+{
+  "library_id": "wellesley",
+  "attraction_slug": "new-england-aquarium",
+  "status": "ok",
+  "raw": "· Passes available Sept 1 through May 31. · Each coupon admits up to four people at a discounted Aquarium admission price of 50% off per person. Children two and under are always free. · Only applies to adult and child pricing. Children two and under are always free. · Valid only for Aquarium admission. · This offer cannot be combined with other offers or coupons and is not valid for movie or whale watch tickets. · Please visit neaq.org/coupons for details. · Review the Aquarium's website at www.neaq.org/safety ahead of your visit to ensure a safe and accessible experience. try {var w = document.getElementsByClassName(\"warn\"); for( i=0;i",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 3, "max": null},
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 2},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "Sep-May",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "50% off per person",
+    "audience_policies[1].form": "Children two and under are always free",
+    "audience_policies[1].age_range.max": "two and under",
+    "restrictions.seasonal": "Passes available Sept 1 through May 31"
+  }
+}

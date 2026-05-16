@@ -1,0 +1,29 @@
+{
+  "library_id": "woburn",
+  "attraction_slug": "the-discovery-museums",
+  "status": "ok",
+  "raw": "*** Advanced reservations are no longer accepted *** This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. Present this pass to Admissions staff when checking in and the discount will be applied to the cost of your visit. Contact information: 177 Main Street (Route 27) Acton, MA 01720 call 978-264-4200 * Funded by the Friends of the WPL",
+  "capacity": {
+    "kind": "people",
+    "n": 3
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 3 visitors",
+    "audience_policies[0].form": "1/2 price admission"
+  }
+}

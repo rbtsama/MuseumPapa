@@ -1,0 +1,37 @@
+{
+  "library_id": "andover",
+  "attraction_slug": "historic-new-england",
+  "status": "ok",
+  "raw": "Pick up coupon at library. Pass will admit 2 adults and children under 18 years old. Go to HistoricNewEngland.org for list of properties. Each property has their own days and hours they are open. Reservations can be made at several locations for the day you have the pass reserved.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[0].form": "admit 2 adults",
+    "audience_policies[1].age_range.max": "children under 18 years old"
+  }
+}

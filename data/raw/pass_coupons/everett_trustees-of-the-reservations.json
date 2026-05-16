@@ -1,0 +1,37 @@
+{
+  "library_id": "everett",
+  "attraction_slug": "trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "GO Passes allow for one-time use as admission for two adults and children under 18 to any of the 100+ Trustees properties. GO Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. GO Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, Inns, Campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. To use GO Passes with a Trustees site that requires timed entry, you will need to enter the promo code listed on the physical pass. Passes are available at www.thetrustees.org/passes",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "two adults",
+    "audience_policies[0].form": "Trustees Family Membership admission price",
+    "audience_policies[1].age_range": "children under 18"
+  }
+}

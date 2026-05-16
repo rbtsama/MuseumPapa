@@ -1,0 +1,29 @@
+{
+  "library_id": "haverhill",
+  "attraction_slug": "the-butterfly-place",
+  "status": "ok",
+  "raw": "This pass allows 2 free admissions to The Butterfly Place. The passes will need to be picked up from the library and shown at time of visit.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "2 free admissions",
+    "audience_policies[0].form": "free admissions"
+  }
+}

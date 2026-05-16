@@ -1,0 +1,39 @@
+{
+  "library_id": "lincoln",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "This pass provides half-priced admission for up to 4 individuals including children; children under 12 months are admitted free. Please visit the museum website before planning your visit for the most up-to-date information about hours and schedule. Timed ticket reservations must be made in advance of visit with library e-voucher code on the museum's website. Directions and information regarding e-voucher use will be provided in your confirmation email. Please contact the library with any questions. Please note that reserving a library pass does not guarantee that space will be available at the museum on your preferred date.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 4,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 0},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 individuals",
+    "audience_policies[0].form": "half-priced admission",
+    "audience_policies[1].form": "children under 12 months are admitted free",
+    "audience_policies[1].age_range.max": "under 12 months",
+    "restrictions.reservation_required": "Timed ticket reservations must be made in advance"
+  }
+}

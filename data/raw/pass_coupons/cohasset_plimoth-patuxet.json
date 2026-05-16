@@ -1,0 +1,39 @@
+{
+  "library_id": "cohasset",
+  "attraction_slug": "plimoth-patuxet",
+  "status": "ok",
+  "raw": "137 Warren Avenue Plymouth, MA 02360 508-746-1622 Get Directions Updated 3/13/2025 Open for the 2025 season March 15 through the Sunday following Thanksgiving Day Reserve the date on the library website, then print or download the pass. Take to museum and present at the box office. Pass is good for a rate of $18/adult and $12/child, ages 5-17, for up to 6 people and is valid for all of the living history sites offered. Patrons may either show a picture of their library pass on their phone or provide a paper version of the library pass. Visit museum website for more information. The Trustees of Reservations GO Pass Learn More",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 18
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 5, "max": 17},
+      "count": null,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "Mar-Nov",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$18/adult",
+    "audience_policies[1].age_range": "ages 5-17",
+    "audience_policies[1].form": "$12/child",
+    "restrictions.seasonal": "March 15 through the Sunday following Thanksgiving Day"
+  }
+}

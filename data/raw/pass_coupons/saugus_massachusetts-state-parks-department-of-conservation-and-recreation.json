@@ -1,0 +1,29 @@
+{
+  "library_id": "saugus",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "Free parking at most Department of Conservation and Recreation facilities/parks. Visit https://www.mass.gov/visit-massachusetts-state-parks for a list of facilities/parks. Visit: https://search.mass.gov/?q=recreation%2Bmap/ for a copy of the Massachusetts Outdoor Recreation Map (select Outdoor Recreation Map on the landing page).",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Vehicle",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "Free parking",
+    "audience_policies[0].form": "Free parking"
+  }
+}

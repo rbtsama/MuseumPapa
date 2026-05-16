@@ -1,0 +1,31 @@
+{
+  "library_id": "middleton",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "Free parking for one vehicle at Massachusetts State Parks. Available March through December. This pass must be returned to the library the day following the checkout.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Vehicle",
+      "age_range": null,
+      "count": 1,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "Mar-Dec",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "one vehicle",
+    "audience_policies[0].form": "Free parking for one vehicle",
+    "audience_policies[0].count": "one vehicle",
+    "restrictions.seasonal": "Available March through December"
+  }
+}

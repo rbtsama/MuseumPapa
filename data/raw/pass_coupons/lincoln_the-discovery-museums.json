@@ -1,0 +1,29 @@
+{
+  "library_id": "lincoln",
+  "attraction_slug": "the-discovery-museums",
+  "status": "ok",
+  "raw": "This pass admits 3 visitors to Discovery Woods and the Discovery Museum at 1/2 price admission ($9.50) per person ; any additional visitors must pay the regular admission price of $19.00 Reservations are no longer needed or accepted. Please present this pass to Admissions staff when checking in and the discount will be applied to the cost of your visit. This pass is an e-voucher - discount code will be included in reservation confirmation email which will be received upon reserving the pass. Please contact the reference desk at 781-259-8465 x204 with any questions about the pass.",
+  "capacity": {
+    "kind": "people",
+    "n": 3
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 3,
+      "form": "per-person-price",
+      "value": 9.50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 3 visitors",
+    "audience_policies[0].form": "1/2 price admission ($9.50) per person"
+  }
+}

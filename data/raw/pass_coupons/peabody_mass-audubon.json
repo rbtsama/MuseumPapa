@@ -1,0 +1,37 @@
+{
+  "library_id": "peabody",
+  "attraction_slug": "mass-audubon",
+  "status": "ok",
+  "raw": "Pass admits up to 4 people to a Mass Audubon wildlife sanctuary. With pass, admission is discounted to $2 per visitor over the age of 2. This is a physical pass that must be picked up at the Main Branch library.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 3, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 2
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 2},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$2 per visitor over the age of 2",
+    "audience_policies[1].age_range": "over the age of 2"
+  }
+}

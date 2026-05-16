@@ -1,0 +1,38 @@
+{
+  "library_id": "burlington",
+  "attraction_slug": "gore-place",
+  "status": "ok",
+  "raw": "This pass is good for: Daytime Mansion Tour admission for two adults at $5 per person, and two children free One Take-a-Walk bag rental at $2/hr Story Time for two children at $5 per child, and accompanying adult free For available dates and times, please visit goreplace.org/whats-on",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": 2,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "two adults",
+    "audience_policies[0].form": "$5 per person",
+    "audience_policies[1].count": "two children free",
+    "audience_policies[1].form": "free"
+  }
+}

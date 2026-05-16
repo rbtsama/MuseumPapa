@@ -1,0 +1,29 @@
+{
+  "library_id": "topsfield",
+  "attraction_slug": "sandmagination",
+  "status": "ok",
+  "raw": "This coupon provides 50% off of all play passes for up to six guests per day. Admission allows for up to 2 hours of playtime at Sandmagination. Tickets can be reserved online on the Sandmagination website (upon reservation, the discount code will be provided) or purchased in-person at the front desk.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to six guests",
+    "audience_policies[0].form": "50% off"
+  }
+}

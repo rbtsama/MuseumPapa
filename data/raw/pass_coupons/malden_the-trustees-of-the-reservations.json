@@ -1,0 +1,38 @@
+{
+  "library_id": "malden",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "This coupon pass allows two adults and all children under the age of 18 reduced or free admission to one of the many Trustees properties across the state that charge an admission fee. GO Passes are valid for admission only; not valid for camping, parking kiosks, special events and programs, equipment rentals or in place of permits.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "two adults",
+    "audience_policies[0].form": "reduced or free admission",
+    "audience_policies[1].form": "all children under the age of 18",
+    "audience_policies[1].age_range.max": "under the age of 18"
+  }
+}

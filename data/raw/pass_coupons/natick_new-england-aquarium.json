@@ -1,0 +1,29 @@
+{
+  "library_id": "natick",
+  "attraction_slug": "new-england-aquarium",
+  "status": "ok",
+  "raw": "Type of pass: E-coupon, emailed upon reservation. Pricing: Reduced general admission for up to 4 people at 50% off per person. Additional instructions: -Present pass upon arrival to receive discount. -------------- -This coupon allows 50% off admission to the New England Aquarium. -Only applies to adult and child pricing. -This is not a ticket. -Redeem this coupon in the General Admission line at the Aquarium's ticket booth for discounted admission for up to 4 people. -Please visit neaq.org/coupons for details. -Review the Aquarium's website at neaq.org/safety ahead of your visit to ensure a safe and accessible experience. -Valid only for Aquarium admission. -This coupon does not provide any other discounts and cannot be applied to combo tickets. -Library coupons or tickets obtained with library coupons may not be sold. -Void if altered or copied. No cash value. -Hours of operation are subject to change.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% off per person"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "library_id": "methuen",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "DCR MassParks Pass (Department of Conservation and Recreation)- Entitles the bearer to FREE parking for one vehicle (excluding vans or buses) at Massachusetts parks. Pick up and return to library. Pass may be picked up the day before use. Pass must be returned no later than the day after use. Pass allows 1 car and up to 9 passengers into the state park or beach. Pass is for day use only and CANNOT be used for camping. Pass is available to Massachusetts residents only.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Vehicle",
+      "age_range": null,
+      "count": 1,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "FREE parking for one vehicle",
+    "audience_policies[0].form": "FREE parking for one vehicle",
+    "audience_policies[0].count": "one vehicle"
+  }
+}

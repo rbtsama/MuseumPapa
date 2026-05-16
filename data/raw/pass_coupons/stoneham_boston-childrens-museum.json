@@ -1,0 +1,30 @@
+{
+  "library_id": "stoneham",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "This pass admits up to 4 people (adults or children) at half price per person. This is an e-ticket which does not need to be picked up at the library . This pass is only valid for use on the date for which you reserve it. You must reserve your visit on the museum's website after receiving the pass . This pass is funded by the Friends of the Stoneham Library.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "half price per person",
+    "restrictions.reservation_required": "You must reserve your visit on the museum's website after receiving the pass"
+  }
+}

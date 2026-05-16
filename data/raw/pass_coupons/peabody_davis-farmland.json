@@ -1,0 +1,30 @@
+{
+  "library_id": "peabody",
+  "attraction_slug": "davis-farmland",
+  "status": "ok",
+  "raw": "Admission tickets are purchased at the gate with library pass. This pass admits up to 6 guests to Davis Farmland or Davis Mega Maze with a savings of $10 OFF the admission rate per person. Davis Farmland Discovery Farm is open April 16th-November 1st - dates and rates change with the season. Davis Farmland and Davis Mega Maze are only open WEATHER PERMITTING. ALWAYS call or check the web before heading out. Visit DavisFarmland.com for the most up-to-date operating schedule. NOTICE: Adults MUST be accompanied by at least 1 child 12 years or younger when visiting Davis Farmland. This is a physical pass that must be picked up at the Main Library.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "dollar-off",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "Apr-Nov",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 guests",
+    "audience_policies[0].form": "$10 OFF the admission rate per person",
+    "restrictions.seasonal": "open April 16th-November 1st"
+  }
+}

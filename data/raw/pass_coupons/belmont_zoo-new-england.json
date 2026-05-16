@@ -1,0 +1,46 @@
+{
+  "library_id": "belmont",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "Please pick up the pass at the Reference Desk in the Reference Room of the Belmont Public Library; open hours of service can be found on the library website homepage. You do not need to make an advanced timed ticket reservation either by phone or online in order to visit either of the Zoo New England locations. The Zoo New England pass admits 6 people to the Franklin Park and Stone Zoos. The co-pay with the pass is $9 per adult and $6 per child. Children under 2 years old receive free admission. The Zoos are open Monday-Sunday from 10 AM-5 PM.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 6
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "6 people",
+    "audience_policies[0].form": "$9 per adult",
+    "audience_policies[1].form": "$6 per child",
+    "audience_policies[2].age_range.max": "Children under 2 years old",
+    "audience_policies[2].form": "receive free admission"
+  }
+}

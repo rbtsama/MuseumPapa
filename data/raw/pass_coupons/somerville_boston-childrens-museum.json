@@ -1,0 +1,30 @@
+{
+  "library_id": "somerville",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "Each coupon pass admits up to four (4) people at half price. PLEASE BE AWARE: After you reserve the pass, you must also visit bostonchildrensmuseum.org to make a reservation. All ticketing is done online. Your Library coupon is ONLY good for the date printed on the pass. It cannot be used on another date. Do not duplicate this coupon. Each barcode will only be allowed one use. Present this coupon upon entry to the museum. Tickets are not valid without coupon. Hours of operation are subject to change. This is a virtual pass that does not need to be picked up at the Library.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to four (4) people",
+    "audience_policies[0].form": "half price",
+    "restrictions.reservation_required": "you must also visit bostonchildrensmuseum.org to make a reservation"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "library_id": "burlington",
+  "attraction_slug": "mass-audubon-drumlin-farm",
+  "status": "ok",
+  "raw": "Pass admits up to 4 persons with a co-payment of $2.00 per person (adults, seniors, or children age two or older). Children under two are always admitted free. This pass is valid at all Mass Audubon Society Sanctuaries, including Drumlin Farm in Lincoln. Each location has its own operating schedule. Please check the Mass Audubon website before planning your visit. For nature centers that use timed ticketing, the library pass is NOT your ticket. This pass can be printed from home. You must bring the pass to the reservation to receive the discount.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 2, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 2
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 persons",
+    "audience_policies[0].form": "$2.00 per person",
+    "audience_policies[0].age_range.min": "children age two or older",
+    "audience_policies[1].age_range.max": "Children under two",
+    "audience_policies[1].form": "always admitted free"
+  }
+}

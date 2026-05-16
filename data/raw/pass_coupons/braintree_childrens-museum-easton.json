@@ -1,0 +1,29 @@
+{
+  "library_id": "braintree",
+  "attraction_slug": "childrens-museum-easton",
+  "status": "ok",
+  "raw": "508-230-3789 Pass admits up to two people for 50% off admission price. Best for children ages one through seven. Annual membership of $300 provided by the Friends of Thayer Public Library. Physical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to two people",
+    "audience_policies[0].form": "50% off admission price"
+  }
+}

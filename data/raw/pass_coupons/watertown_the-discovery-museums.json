@@ -1,0 +1,29 @@
+{
+  "library_id": "watertown",
+  "attraction_slug": "the-discovery-museums",
+  "status": "ok",
+  "raw": "The pass discount provides half priced admissions for up to 3 individuals including children. Directions and information regarding e-voucher use will be provided in your confirmation email.",
+  "capacity": {
+    "kind": "people",
+    "n": 3
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 3 individuals",
+    "audience_policies[0].form": "half priced admissions"
+  }
+}

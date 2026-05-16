@@ -1,0 +1,29 @@
+{
+  "library_id": "watertown",
+  "attraction_slug": "armenian-museum-of-america",
+  "status": "ok",
+  "raw": "This pass discount provides free admission for 1 individual. This coupon pass must be picked up in person at the Library's Circulation desk.",
+  "capacity": {
+    "kind": "people",
+    "n": 1
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "free admission for 1 individual",
+    "audience_policies[0].form": "free admission"
+  }
+}

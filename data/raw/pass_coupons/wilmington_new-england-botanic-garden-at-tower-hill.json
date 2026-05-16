@@ -1,0 +1,29 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "new-england-botanic-garden-at-tower-hill",
+  "status": "ok",
+  "raw": "This pass admits up to two people at half off general admission. Full prices are weekday $20 and weekend $21.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to two people",
+    "audience_policies[0].form": "half off general admission"
+  }
+}

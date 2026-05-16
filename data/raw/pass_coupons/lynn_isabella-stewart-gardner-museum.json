@@ -1,0 +1,39 @@
+{
+  "library_id": "lynn",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "Discount : $5 admission for up to 4 adults. Children under the age of 18 are always free at this museum. A discount code will be sent to your email. If you do not have an email address, a discount code can be picked up from the library up to 1 week in advance. To use : Timed tickets must be purchased at least 48 hours in advance through the museum's website, using the discount code provided. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out your discount pass, you must contact the library in advance. Please wait until you are ready to book your tickets before selecting the \"Access Pass\" icon in your confirmation email. Discount pass reservations cannot be cancelled once the \"Access Pass\" icon is selected. Unwanted passes MUST BE CANCELLED. Failure to cancel an unwanted pass will result in a 30 day ban on reserving discount passes.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 4,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 adults",
+    "audience_policies[0].form": "$5 admission for up to 4 adults",
+    "audience_policies[1].form": "Children under the age of 18 are always free",
+    "audience_policies[1].age_range.max": "under the age of 18",
+    "restrictions.reservation_required": "Timed tickets must be purchased at least 48 hours in advance"
+  }
+}

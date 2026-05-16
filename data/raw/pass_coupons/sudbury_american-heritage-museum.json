@@ -1,0 +1,30 @@
+{
+  "library_id": "sudbury",
+  "attraction_slug": "american-heritage-museum",
+  "status": "ok",
+  "raw": "The library's pass admits up to six people at half price. Passes are not valid for special events or the annual WWII re-enactment weekend in October. If you are interested in purchasing your own membership, passes are valid for a $20 discount for a Family membership or a $10 discount for an Individual or Participating membership. LOAN INSTRUCTIONS: This pass may be picked up at least one day before the date of use and must be returned to the library before library opens on its next scheduled day.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to six people",
+    "audience_policies[0].form": "half price",
+    "restrictions.blackout_dates": "Passes are not valid for special events or the annual WWII re-enactment weekend in October"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "topsfield",
+  "attraction_slug": "new-england-aquarium",
+  "status": "ok",
+  "raw": "This coupon allows 50% off admission to the New England Aquarium (applies only to adult and child pricing). Passes will be emailed to reserving patrons, without the need to come to the library to pick up the pass! Please contact the library to reserve this pass if you do not have an email address. It is not a ticket; redeem this coupon in the General Admission line at the Aquarium's ticket booth for discount admission (up to four people). You can either print this pass out, or show it on your phone. This discount is only valid for Aquarium admission, and does not provide any other discounts and cannot be applied to combo tickets. Please visit the Aquarium website for additional details . Please review the Aquarium's website at www.neaq.org/safety ahead of your visit to ensure a safe and accessible experience. Library coupons or tickets obtained with library coupons may not be sold. Void if altered or copied. No cash value. Hours of operation are subject to change.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "50% off admission"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "Pass admits up to 2 adults and children under 18 (some sites are free, some are discounted). Hours of operation vary by place. Check on your choice before reserving this pass. There are over 100 special places including Crane's Beach, Lyman Reserve, Naumkeag, and Halibut Point. Ask for the guide book at the information desk (in house only) or visit the Trustees of the Reservation website for more information. Please note the following: Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits of passes. To use the pass at Fruitlands, deCordova, or Castle Hill, please enter the promo code GOPASS when securing a timed ticket. Passes are available at https://thetrustees.org/places/ .",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "some sites are free, some are discounted",
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[1].form": "some sites are free, some are discounted",
+    "audience_policies[1].age_range.max": "children under 18"
+  }
+}

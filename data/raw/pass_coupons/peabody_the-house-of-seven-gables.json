@@ -1,0 +1,29 @@
+{
+  "library_id": "peabody",
+  "attraction_slug": "the-house-of-seven-gables",
+  "status": "ok",
+  "raw": "Library card must be in good standing to book a pass. Please check the House of Seven Gables website at 7gables.org for any updates before visiting. Pass admits 4 people at half price. Currently the Gardens and Grounds are open and tours of the Turner-Ingersoll Mansion are available. The Museum shop is also open during operating hours. This is a physical pass that must be picked up at the Main Branch library.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "4 people",
+    "audience_policies[0].form": "half price"
+  }
+}

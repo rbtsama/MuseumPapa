@@ -1,0 +1,38 @@
+{
+  "library_id": "stoneham",
+  "attraction_slug": "trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "This pass admits up to 2 adults and 2 children under 18 at an equivalent to a Trustees Family Membership admission price at Trustees properties that charge and admission fee. This pass is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. This is a physical pass that must be picked up at the library and can be discarded after use . This pass is not limited by date or time . This pass is valid at any of 100+ Trustees properties . Hours vary by location. To see a list of Trustees properties, click here.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": 2,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "up to 2 adults",
+    "audience_policies[0].form": "equivalent to a Trustees Family Membership admission price",
+    "audience_policies[1].count": "2 children under 18",
+    "audience_policies[1].age_range": "children under 18"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "library_id": "andover",
+  "attraction_slug": "childrens-museum-of-new-hampshire",
+  "status": "ok",
+  "raw": "Pick up pass at the library. 50% off admission for up to 4. Before visiting all guests must make a reservation and pre-pay using code listed on the pass via the museum website. Pass must accompany prepaid tickets. Can only be used on date printed on pass.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4",
+    "audience_policies[0].form": "50% off admission",
+    "restrictions.reservation_required": "all guests must make a reservation"
+  }
+}

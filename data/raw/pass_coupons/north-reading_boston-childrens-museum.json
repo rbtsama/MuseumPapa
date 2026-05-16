@@ -1,0 +1,29 @@
+{
+  "library_id": "north-reading",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "Admits up to 4 (adults or children) at half price per person. This is an e-ticket, valid only for one day. You can either print it out and take it with you or display the pass on your phone or device. Either way, please be sure that the pass barcode is visible.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4",
+    "audience_policies[0].form": "half price per person"
+  }
+}

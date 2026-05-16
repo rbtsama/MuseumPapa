@@ -1,0 +1,29 @@
+{
+  "library_id": "somerville",
+  "attraction_slug": "the-discovery-museums",
+  "status": "ok",
+  "raw": "This pass admits 3 visitors at 1/2 price admission ($9.50) per person which allows access to the Discovery Museum, as well as Discovery Woods. Any additional visitors must pay the regular admission price of $19. This is a virtual pass that does not need to be picked up at the Library.",
+  "capacity": {
+    "kind": "people",
+    "n": 3
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9.5
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "3 visitors",
+    "audience_policies[0].form": "1/2 price admission ($9.50) per person"
+  }
+}

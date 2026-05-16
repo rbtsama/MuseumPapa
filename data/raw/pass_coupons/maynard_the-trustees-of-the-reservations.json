@@ -1,0 +1,38 @@
+{
+  "library_id": "maynard",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "The DeCordova and Fruitlands Museums are included in the list of Trustees of the Reservations Properties. For a full list of all Trustees of the Reservations properties, please go to thetrustees.org . The GO Pass admits two adults and children under 18 at the family membership admission price (at Trustees properties that charge an admission fee). GO Passes are valid for admission only. Not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, equipment rentals, or in place of any permits or passes.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "two adults",
+    "audience_policies[0].form": "family membership admission price",
+    "audience_policies[1].form": "children under 18",
+    "audience_policies[1].age_range.max": "under 18"
+  }
+}

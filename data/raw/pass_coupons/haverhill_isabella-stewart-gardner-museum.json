@@ -1,0 +1,38 @@
+{
+  "library_id": "haverhill",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "This pass will provide reduced general admission of $5 for four (4) adults (18 years and over). Youths 17 and under are always free and should be reserved as child tickets. This pass is emailed to you - you will not need to come in to the library to pick it up. Please make sure you enter your current email address when making your reservation.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": {"min": 18, "max": null},
+      "count": 4,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "four (4) adults",
+    "audience_policies[0].form": "reduced general admission of $5",
+    "audience_policies[0].age_range": "18 years and over",
+    "audience_policies[1].form": "Youths 17 and under are always free"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "library_id": "carlisle",
+  "attraction_slug": "davis-farmland",
+  "status": "ok",
+  "raw": "This pass admits up to six guests to Davis Farmland or Davis Mega Maze with a savings of $10 off the at-the-gate admission rate. Note: Adults must be accompanied by a least one child 12 years or younger when visiting Davis Farmland. Davis Farmland and Davis Mega Maze are open weather permitting. ALWAYS call or check the web before heading out. Check DavisFarmland.com or DavisMegaMaze.com for up-to-date schedules and weather-related closings. Library passes are not valid on holidays, with packages, special events or other discounts.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "dollar-off",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to six guests",
+    "audience_policies[0].form": "$10 off the at-the-gate admission rate",
+    "restrictions.blackout_dates": "not valid on holidays"
+  }
+}

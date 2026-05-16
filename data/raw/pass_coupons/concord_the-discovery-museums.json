@@ -1,0 +1,37 @@
+{
+  "library_id": "concord",
+  "attraction_slug": "the-discovery-museums",
+  "status": "ok",
+  "raw": "This pass admits up to 3 visitors at 1/2 price admission per person ($9.50 per person); any additional visitors must pay the regular admission price. Children under one year of age are admitted free.",
+  "capacity": {
+    "kind": "people",
+    "n": 3
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 1, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 9.50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 0},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 3 visitors",
+    "audience_policies[0].form": "1/2 price admission per person ($9.50 per person)",
+    "audience_policies[1].form": "Children under one year of age are admitted free"
+  }
+}

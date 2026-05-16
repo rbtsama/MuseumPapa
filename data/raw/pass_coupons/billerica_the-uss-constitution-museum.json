@@ -1,0 +1,29 @@
+{
+  "library_id": "billerica",
+  "attraction_slug": "the-uss-constitution-museum",
+  "status": "ok",
+  "raw": "This digital pass provides free admission to the museum for up to 9 people. While advance tickets are not required at this time, please be sure to check the museum website for up to date details that will help you plan your visit. The USS Constitution ship is separate from the museum. This pass is generously sponsored by the USS Constitution Museum.",
+  "capacity": {
+    "kind": "people",
+    "n": 9
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 9 people",
+    "audience_policies[0].form": "free admission to the museum"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "belmont",
+  "attraction_slug": "the-discovery-museums",
+  "status": "ok",
+  "raw": "Acton's Discovery Museum, located on a 4-acre campus, is aimed at providing an environment in which play becomes a conduit for learning about science, technology, and nature. The museum's building contains a number of galleries dedicated to teaching scientific concepts in a fun, hands-on environment, as well as themed play spaces for younger visitors. Outdoors, Discovery Woods includes a nature playscape with a cargo net climb, nest swing as well as a treehouse with an observation deck and a bouncy bridge. There are opportunities to practice orienteering with provided maps and instructions on trails on the property. A museum shop is on the premises. The museum building is fully ADA compliant, with exhibits based on Universal Design principles. Pass Benefits This discount pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. Your confirmation e-mail will allow you to print the pass or show it on your phone. Discount is only valid for the date printed on the Library Pass. Present the Library Discount Pass to Admissions staff when checking in and the discount will be applied to the cost of your visit.",
+  "capacity": {
+    "kind": "people",
+    "n": 3
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "3 visitors",
+    "audience_policies[0].form": "1/2 price admission per person"
+  }
+}

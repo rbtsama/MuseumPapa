@@ -1,0 +1,37 @@
+{
+  "library_id": "needham",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "(PRINTABLE) Each pass admits 2 visitors for $12.00 per person. The museum is open Modays 10-5, Thursdays 10-5, Friday & Saturdays 10-8, and Sundays 10-5. Children 16 and under are admitted free. Not valid for admission to Yin Yu Tang Chinese House (additional $6.00). FOR NEEDHAM RESIDENTS ONLY. To receive library discount, patrons must first reserve their library museum pass. Then visit https://pem.org/tickets to reserve a timed entry to the museum and any events/ exhibits you wish to attend. Enter promo code LIB268183 in the upper right corner and click submit. This will bring you to the page where you select the date/time, general admission, and events/exhibits you wish to attend. Once that is completed, the next page asks Who Will Attend? Make sure to select Library Discount (do not select Adult) For Covid-19 restrictions and protocols please visit https://www.pem.org/open/your-health-safety .",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 12
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 16},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 2 visitors",
+    "audience_policies[0].form": "$12.00 per person",
+    "audience_policies[1].age_range": "Children 16 and under are admitted free"
+  }
+}

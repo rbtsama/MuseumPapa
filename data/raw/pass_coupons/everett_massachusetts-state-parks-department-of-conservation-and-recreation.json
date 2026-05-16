@@ -1,0 +1,28 @@
+{
+  "library_id": "everett",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "Patrons may check out up to one pass for the Massachusetts Department of Conservation and Recreation per month. This is a physical pass that must be picked up from the library at which you made the reservation. The pass must be returned to the library you borrowed it from within 3 days of it's use.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "Massachusetts Department of Conservation and Recreation"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "natick",
+  "attraction_slug": "the-uss-constitution-museum",
+  "status": "ok",
+  "raw": "Type of pass: E-coupon, emailed upon reservation. Pricing: Free admission for up to 5 people. One pass per party. Additional instructions: -Present pass reservation confirmation email upon arrival to receive discount. -The USS Constitution Ship operates separately and has different hours from the Museum. Visit their website for complete visitor information.",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 5 people",
+    "audience_policies[0].form": "Free admission"
+  }
+}

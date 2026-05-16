@@ -1,0 +1,38 @@
+{
+  "library_id": "carlisle",
+  "attraction_slug": "orchard-house",
+  "status": "ok",
+  "raw": "Half priced admission for up to 2 adults and 4 youths. Patrons should use the Timed-Entry Admission site on the Orchard House website to secure a pre-paid reservation at the 50% discount. Please note: The discount is not applicable to special events, educational programs, large group tours, or merchandise purchases in the Museum Store. For Museum questions, see their website or call 978-369-4118",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Youth",
+      "age_range": null,
+      "count": 4,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "up to 2 adults",
+    "audience_policies[0].form": "Half priced admission",
+    "audience_policies[1].count": "4 youths",
+    "restrictions.reservation_required": "secure a pre-paid reservation"
+  }
+}

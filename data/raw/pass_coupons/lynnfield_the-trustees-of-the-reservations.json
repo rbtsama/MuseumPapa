@@ -1,0 +1,38 @@
+{
+  "library_id": "lynnfield",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "Pass provides free or reduced admission for 2 Adults and children under 18 to Trustees properties across the state, including the deCordova Museum in Lincoln. Pass holder will pay an admission fee equivalent to that of a Trustees Family Level membership. Passes will provide 20% off regular admission to Crane Beach. Reservations for some properties are strongly encouraged. Please check the Trustees website for information and availability. https://thetrustees.org/content/passes/ Please check the hours of the specific location you are visiting. Pass is not valid for use at Trustees parking kiosks, stores, cafes, Inns, Campgrounds at special events and programs, or in place of any permits or passes. The deCordova Sculpture Park and Museum is closed on Mondays and Tuesdays. *This is a coupon pass that must be picked up at the library during regular business hours.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "2 Adults",
+    "audience_policies[0].form": "free or reduced admission",
+    "audience_policies[1].form": "children under 18",
+    "audience_policies[1].age_range.max": "under 18"
+  }
+}

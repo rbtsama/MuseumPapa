@@ -1,0 +1,28 @@
+{
+  "library_id": "haverhill",
+  "attraction_slug": "museum-of-printing",
+  "status": "ok",
+  "raw": "NO RESERVATION NEEDED. Present your Haverhill Public Library card at the museum to receive free admission! The Museum of Printing is open every Saturday 10am - 4pm",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "free admission"
+  }
+}

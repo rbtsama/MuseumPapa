@@ -1,0 +1,29 @@
+{
+  "library_id": "maynard",
+  "attraction_slug": "new-england-botanic-garden-at-tower-hill",
+  "status": "ok",
+  "raw": "Physical library discount pass card admits two (2) people at half-price. 2 Passes may be reserved per day. Not valid for special events such as Night Lights. Laminated passes must be picked up in-person and returned to the Library after use. Discount tickets can be purchased at the Tower Hill ticket both with the physical pass. If you would like to purchase tickets in advance, please go to the New England Botanic Garden website purchase.nebg.org ahead of your visit with the Library's discount code. You will need to present the physical pass at the ticket booth with the advance purchased tickets or to purchase discount tickets.\"",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 2,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits two (2) people",
+    "audience_policies[0].form": "half-price"
+  }
+}

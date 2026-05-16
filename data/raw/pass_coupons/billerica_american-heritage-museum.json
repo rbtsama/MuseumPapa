@@ -1,0 +1,38 @@
+{
+  "library_id": "billerica",
+  "attraction_slug": "american-heritage-museum",
+  "status": "ok",
+  "raw": "Pass admits up to six visitors at half-price admission. Regular admission is $23.00 for adults, $20.00 for seniors, veterans, and active duty service members with ID, and $12.00 for children under 16. Children under 3 years old are admitted for free. World War II and Korean War Veterans are admitted for free. Passes are not valid for special events. This physical pass may be picked up at the circulation desk the day before use. Please return this pass to the Billerica Public Library by 9am the next day. The pass may be returned to the outside drop box during off hours. This pass is generously sponsored by the Family Friends of the Billerica Public Library.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 2},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to six visitors",
+    "audience_policies[0].form": "half-price admission",
+    "audience_policies[1].age_range.max": "Children under 3 years old",
+    "audience_policies[1].form": "admitted for free"
+  }
+}

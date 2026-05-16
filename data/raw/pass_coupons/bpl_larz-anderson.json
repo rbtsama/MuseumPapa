@@ -1,0 +1,29 @@
+{
+  "library_id": "bpl",
+  "attraction_slug": "larz-anderson",
+  "status": "ok",
+  "raw": "Pass allows free admission for up to 4 people. This includes access to the Museum and Summer Lawn Events. Please consult website for events and hours. THIS IS A RETURNABLE PASS: This pass must be returned the following day of your scheduled reservation to the location where the pass was reserved. Passes reserved on Saturday can be returned on the following Monday. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "free admission"
+  }
+}

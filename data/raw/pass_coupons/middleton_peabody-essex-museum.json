@@ -1,0 +1,29 @@
+{
+  "library_id": "middleton",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "This e-pass allows for a reduced admission for up to 2 people at $12 per person.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 2 people",
+    "audience_policies[0].form": "$12 per person"
+  }
+}

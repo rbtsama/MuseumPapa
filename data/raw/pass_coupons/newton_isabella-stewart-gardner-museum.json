@@ -1,0 +1,37 @@
+{
+  "library_id": "newton",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "Admits 4 people at $5.00 per person (General Admissions ONLY). Persons under 18 not included in admission count and always admitted free.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "4 people",
+    "audience_policies[0].form": "$5.00 per person",
+    "audience_policies[1].age_range": "Persons under 18 not included in admission count and always admitted free"
+  }
+}

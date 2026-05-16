@@ -1,0 +1,38 @@
+{
+  "library_id": "maynard",
+  "attraction_slug": "mass-audubon-drumlin-farm",
+  "status": "ok",
+  "raw": "This pass admits one 1 vehicle OR up to 4 people to Drumlin Farm and other Mass Audubon wildlife sanctuaries for $2 per visitor over the age of 2. This pass is a coupon and does not need to be returned to the library.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 3, "max": null},
+      "count": 4,
+      "form": "per-person-price",
+      "value": 2
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 2},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$2 per visitor over the age of 2",
+    "audience_policies[0].age_range.min": "over the age of 2",
+    "audience_policies[1].age_range.max": "over the age of 2"
+  }
+}

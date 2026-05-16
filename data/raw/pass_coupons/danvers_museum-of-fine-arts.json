@@ -1,0 +1,46 @@
+{
+  "library_id": "danvers",
+  "attraction_slug": "museum-of-fine-arts",
+  "status": "ok",
+  "raw": "Each promo code use provides up to two adults and four youths (7–17) with $15 admission (general and special exhibition) per person. Tickets to the MFA are always free for visitors under seven years old. This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have made a reservation. BRING THIS PASS TO THE ADMISSIONS DESK (either printed or on your device) at the museum to have the discount applied.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 15
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": 7, "max": 17},
+      "count": 4,
+      "form": "per-person-price",
+      "value": 15
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 6},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "up to two adults",
+    "audience_policies[0].form": "$15 admission",
+    "audience_policies[1].count": "four youths",
+    "audience_policies[1].age_range": "(7–17)",
+    "audience_policies[2].form": "free for visitors under seven years old"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "wayland",
+  "attraction_slug": "harvard-museums-of-science-and-culture",
+  "status": "ok",
+  "raw": "This is a paper coupon that must be picked up at the Wayland Library during the library's open hours no more than 1 week before its use date. It does not need to be returned. Each coupon will allow four patrons into the museums at a 50% off rate regardless of age / admission level. Please be prepared to show the physical library pass and proof of Massachusetts residency. Only one member of the party must be a MA resident. The pass allows admission to both the Harvard Museum of Natural History and Peabody Museum of Archaeology & Ethnology, as well as two free museums, the Harvard Museum of the Ancient Near East (formerly the Harvard Semitic Museum) and the Harvard Collection of Historical Scientific Instruments. Patrons will enter through the Natural History or Peabody Museum with their hard copy pass. For the most up-to-date information on museum programs and hours, please visit hmsc.harvard.edu .",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "four patrons",
+    "audience_policies[0].form": "50% off rate"
+  }
+}

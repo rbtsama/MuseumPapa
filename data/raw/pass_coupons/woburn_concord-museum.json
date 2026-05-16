@@ -1,0 +1,29 @@
+{
+  "library_id": "woburn",
+  "attraction_slug": "concord-museum",
+  "status": "ok",
+  "raw": "This pass is a physical card that must be picked up at the library, checked out and returned to the library . Once reserved, you may pick up the pass the day of use. Check with the Museum for any additional information about the day you plan to visit including safety guidelines and potential timed ticketing requirements. Each pass admits up to 4 people at $5 off per person. Pass must be returned before 9 AM the next day.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "dollar-off",
+      "value": 5
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$5 off per person"
+  }
+}

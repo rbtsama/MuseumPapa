@@ -1,0 +1,38 @@
+{
+  "library_id": "wayland",
+  "attraction_slug": "the-discovery-museums",
+  "status": "ok",
+  "raw": "This is an e-voucher . Pass is emailed to the patron. Only Valid for the Reserved Date of Visit. Each coupon allows for admission of three people to the Museum at half price off regular admission. Children under age one are free. A library coupon is NOT a museum entry reservation. Advanced museum entry reservation is not available for Library Pass users. Present your Library Pass confirmation page to Admissions staff when checking in and the discount will be applied to the cost of your visit. Please consult the Plan Your Visit page on the Museum website for the most up-to-date policies, hours, and information.",
+  "capacity": {
+    "kind": "people",
+    "n": 3
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 0},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "three people",
+    "audience_policies[0].form": "half price off regular admission",
+    "audience_policies[1].form": "Children under age one are free",
+    "audience_policies[1].age_range.max": "under age one"
+  }
+}

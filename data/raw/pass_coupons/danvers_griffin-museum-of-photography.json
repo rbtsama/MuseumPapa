@@ -1,0 +1,37 @@
+{
+  "library_id": "danvers",
+  "attraction_slug": "griffin-museum-of-photography",
+  "status": "ok",
+  "raw": "Opened in 1992, the Griffin Museum of Photography presents exhibitions, programs and lectures that support their mission of encouraging a broader understanding and appreciation of the art of photography. Three galleries are dedicated to changing exhibitions of photography by well-known, emerging, and student photographers. (Three additional satellite galleries can be found in various locations in the Boston area.) This pass admits 2 adults for free. Children under 12 are free.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "free",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 11},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[0].form": "for free",
+    "audience_policies[1].form": "Children under 12 are free"
+  }
+}

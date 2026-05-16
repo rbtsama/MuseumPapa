@@ -1,0 +1,38 @@
+{
+  "library_id": "chelmsford",
+  "attraction_slug": "plimoth-patuxent-museums",
+  "status": "ok",
+  "raw": "This pass allows patrons to purchase a Heritage Pass , Combination Pass , or Plimoth Patuxet Only pass for up to six individuals at the reduced rate of $18 per adult; $12 per child ages 5-17. Not combinable with any other discount. Tickets must be purchased in person at the Museum in order to receive the discount. No online ticket sales.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 18
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 5, "max": 17},
+      "count": null,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to six individuals",
+    "audience_policies[0].form": "$18 per adult",
+    "audience_policies[1].age_range": "ages 5-17",
+    "audience_policies[1].form": "$12 per child"
+  }
+}

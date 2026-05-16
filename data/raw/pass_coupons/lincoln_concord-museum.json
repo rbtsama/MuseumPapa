@@ -1,0 +1,29 @@
+{
+  "library_id": "lincoln",
+  "attraction_slug": "concord-museum",
+  "status": "ok",
+  "raw": "This pass is an e-voucher. Admits up to 4 at $5-off each (Not to be combined with other discounts; not valid for member pricing). Expires 11/30/26 For general information about the museum, please call 978-369-9763 or visit https://concordmuseum.org/. The museum is open Tuesday - Sunday as well as some Monday holidays. Please confirm museum hours via phone or website before planning your visit.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 4,
+      "form": "dollar-off",
+      "value": 5
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "Admits up to 4",
+    "audience_policies[0].form": "$5-off each"
+  }
+}

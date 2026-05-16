@@ -1,0 +1,48 @@
+{
+  "library_id": "natick",
+  "attraction_slug": "garden-in-the-woods-native-plant-trust",
+  "status": "ok",
+  "raw": "Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Reduced admission for up to 2 adults at 50% off per person, plus $1 each per child ages 6-17 (children under 5 always free). Additional instructions: -Special events, tours, and classes are not eligible for this discount. -Present pass upon arrival to receive discount. THIS PASS MUST BE RETURNED TO THE MORSE INSTITUTE LIBRARY BY 9:30AM THE DAY AFTER YOUR RESERVATION. OVERDUE FINES ARE $3/DAY. Passes can be returned at the circulation desk or the outside book drops.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 6, "max": 17},
+      "count": null,
+      "form": "per-person-price",
+      "value": 1
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 4},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "up to 2 adults",
+    "audience_policies[0].form": "50% off per person",
+    "audience_policies[1].form": "$1 each per child ages 6-17",
+    "audience_policies[1].age_range.min": "ages 6-17",
+    "audience_policies[1].age_range.max": "ages 6-17",
+    "audience_policies[2].form": "children under 5 always free",
+    "audience_policies[2].age_range.max": "under 5"
+  }
+}

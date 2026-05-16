@@ -1,0 +1,29 @@
+{
+  "library_id": "cohasset",
+  "attraction_slug": "butterfly-place",
+  "status": "ok",
+  "raw": "120 Tyngsboro Road Westford, MA 01886 978-392-0955 Get Directions Pass admits 1 person for free. Patrons must bring the physical coupon. Visit museum website for more information. Cohasset Historical Society Learn More",
+  "capacity": {
+    "kind": "people",
+    "n": 1
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 1 person",
+    "audience_policies[0].form": "for free"
+  }
+}

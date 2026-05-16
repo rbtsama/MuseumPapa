@@ -1,0 +1,37 @@
+{
+  "library_id": "saugus",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "50% off of regular admission price. Discount allows $11.00 admission for adults and children (children under 1 are free). Four people maximum per pass. The Museum's schedule is subject to change and early closures. Please visit https://bostonchildrensmuseum.org before you visit.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 0},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "Four people maximum",
+    "audience_policies[0].form": "50% off of regular admission price",
+    "audience_policies[1].age_range": "children under 1 are free"
+  }
+}

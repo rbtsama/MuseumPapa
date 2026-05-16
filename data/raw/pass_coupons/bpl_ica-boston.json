@@ -1,0 +1,29 @@
+{
+  "library_id": "bpl",
+  "attraction_slug": "ica-boston",
+  "status": "ok",
+  "raw": "This library membership pass entitles you to up to two tickets for Gallery Admission at the discounted Library Pass rate. Pass is valid through 12 /31/2026 Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "ticket",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to two tickets",
+    "audience_policies[0].form": "discounted Library Pass rate"
+  }
+}

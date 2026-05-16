@@ -1,0 +1,29 @@
+{
+  "library_id": "watertown",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "This pass discount provides free parking for one vehicle at any DCR park. You may reserve this pass 1 Saturday and 1 Sunday per month. This returnable pass must be picked up in person at the Library's Circulation desk and presented upon entry. Returnable passes must be returned to the library. Directions and information regarding the returnable pass use will be provided in your confirmation email.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "one vehicle",
+    "audience_policies[0].form": "free parking"
+  }
+}

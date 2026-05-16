@@ -1,0 +1,38 @@
+{
+  "library_id": "lexington",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "Coupon admits up to 2 adults and children under 18 for free or reduced admission (equivalent to the admission benefit of a Trustees Family Level Membership) at Trustees properties, including DeCordova Museum, Fruitlands Museum, The Old Manse, Malcolm Preserve, and other natural and cultural locations throughout Massachusetts. Please note the temporary suspension of the indoor galleries at deCordova Sculpture Park and Museum. F or more information please visit: https://thetrustees.org/place/decordova/ THIS IS A COUPON PASS PASS DOES NOT NEED TO BE RETURNED",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "up to 2 adults",
+    "audience_policies[0].form": "free or reduced admission",
+    "audience_policies[1].form": "children under 18 for free or reduced admission",
+    "audience_policies[1].age_range.max": "children under 18"
+  }
+}

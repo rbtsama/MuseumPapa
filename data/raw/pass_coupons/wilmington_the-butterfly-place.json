@@ -1,0 +1,30 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "the-butterfly-place",
+  "status": "ok",
+  "raw": "PLEASE NOTE: You must pick up the pass from the library before going. Pass admits 1 person free. Hours of Operation: 10:00 AM - 4:00 PM, from Valentine's Day through Columbus Day. Ticket sales end at 3:30 PM, and no new customers will be admitted into the exhibits after 3:30 PM. We suggest you arrive no later than 3:00 PM. Check our Facebook page for last-minute updates. To really enjoy our butterflies, plan to spend at least an hour. Admission Prices: Adults: $14.00 Seniors (65+): $12.00 Children (3-12 years): $10.00 Children (2 and under): Free Prices are subject to change. See our Special Offers page for discounts that may be available to you.",
+  "capacity": {
+    "kind": "ticket",
+    "n": 1
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "Feb-Oct",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "1 person free",
+    "audience_policies[0].form": "Pass admits 1 person free",
+    "restrictions.seasonal": "from Valentine's Day through Columbus Day"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "north-reading",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "This pass allows free parking for one vehicle. Day Pass must be picked up at the library and returned by 10am the following morning.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Vehicle",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "free parking for one vehicle",
+    "audience_policies[0].form": "free parking"
+  }
+}

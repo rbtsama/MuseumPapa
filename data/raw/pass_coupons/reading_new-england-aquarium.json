@@ -1,0 +1,29 @@
+{
+  "library_id": "reading",
+  "attraction_slug": "new-england-aquarium",
+  "status": "ok",
+  "raw": "Starting JUNE 1 this is a digital pass. Each pass admits up to 4 people at 50% off the rate of admission. You may find current rates by viewing https://www.neaq.org/visit/tickets/ Passes do not apply to Aquarium boat programs, IMAX shows or school group visits. Advance reservations are no longer required for library patrons with coupons. Library patrons should present their discount pass on-site at the Aquarium ticket booth. Once tickets are issued, library patrons will be admitted to the Aquarium.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% off the rate of admission"
+  }
+}

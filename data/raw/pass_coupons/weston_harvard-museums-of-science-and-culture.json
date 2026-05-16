@@ -1,0 +1,29 @@
+{
+  "library_id": "weston",
+  "attraction_slug": "harvard-museums-of-science-and-culture",
+  "status": "ok",
+  "raw": "Each coupon admits up to 4 visitors at 50% off regular museum admission rates. Includes access to all four HMSC museums: Harvard Museum of Natural History Peabody Museum of Archaeology & Ethnology Harvard Museum of the Ancient Near East - closed Saturdays Collection of Historical Scientific Instruments - closed Saturdays One member of party must be a MA resident. Not for group, institutional, or corporate visits. May not be combined with other offers. Non-transferrable.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 visitors",
+    "audience_policies[0].form": "50% off regular museum admission rates"
+  }
+}

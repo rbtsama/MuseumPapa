@@ -1,0 +1,29 @@
+{
+  "library_id": "medford",
+  "attraction_slug": "mass-audubon",
+  "status": "ok",
+  "raw": "This pass provides admission for up to four people to any Massachusetts Audubon Society Sanctuary for $2.00 per person.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 4,
+      "form": "per-person-price",
+      "value": 2.00
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "$2.00 per person"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "library_id": "needham",
+  "attraction_slug": "plimoth-patuxet-museums",
+  "status": "ok",
+  "raw": "Pass is valid for up to 6 guests to each of Plimoth Patuxet Museum's living history sites, to purchase a Heritage Pass at the discounted admission rates of $18 per adult and $12 per child. (Regularly $46 and $29) Library ID#52591",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 18
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 guests",
+    "audience_policies[0].form": "$18 per adult",
+    "audience_policies[1].form": "$12 per child"
+  }
+}

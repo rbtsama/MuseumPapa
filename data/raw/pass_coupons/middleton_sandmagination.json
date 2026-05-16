@@ -1,0 +1,29 @@
+{
+  "library_id": "middleton",
+  "attraction_slug": "sandmagination",
+  "status": "ok",
+  "raw": "This code provides 50% off all play passes for up to 6 guests per day. Tickets can be reserved online using the code or purchased in person.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 6,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 guests per day",
+    "audience_policies[0].form": "50% off all play passes"
+  }
+}

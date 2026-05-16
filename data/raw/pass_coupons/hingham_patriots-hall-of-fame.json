@@ -1,0 +1,29 @@
+{
+  "library_id": "hingham",
+  "attraction_slug": "patriots-hall-of-fame",
+  "status": "ok",
+  "raw": "2 Patriot Place Foxborough, MA 02035 508-698-4800 Get Directions Visit museum website for more information. This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. Pass admits two people free of charge. Check Dates Peabody Essex Museum Learn More",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits two people",
+    "audience_policies[0].form": "free of charge"
+  }
+}

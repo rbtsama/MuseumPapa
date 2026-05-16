@@ -1,0 +1,39 @@
+{
+  "library_id": "middleton",
+  "attraction_slug": "strawbery-banke-museum",
+  "status": "ok",
+  "raw": "May 1 through October 31 : Each pass provides free museum admission for 1 family (2 Adults and children 17 & under) per day. November 24 through February: 50% discount on admission to Labrie Family Skate at Puddle Dock Pond. Please note: The museum is closed during this time period. Free admission for up to 4 individuals to: -Baby Animals: Heritage Breeds at the Banke (April 27-May 5, 2024) -Ghosts on the Banke (last weekend in October) -Candlelight Stroll (Fridays, December 8 & 15, 5-9 PM; Saturdays, December 2, 9, 16, 2023, 5-9 PM; Sundays, December 3, 10, & 17, 2023, 4-8 PM; excludes the Member Preview Night) 10% off purchases at Pickwick's at the Banke (Museum gift shop) and merchandise in the Lawrence J. Yerdon Visitors Center.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "free",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "May-Oct",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "2 Adults",
+    "audience_policies[0].form": "free museum admission",
+    "audience_policies[1].form": "children 17 & under",
+    "audience_policies[1].age_range.max": "17 & under",
+    "restrictions.seasonal": "May 1 through October 31"
+  }
+}

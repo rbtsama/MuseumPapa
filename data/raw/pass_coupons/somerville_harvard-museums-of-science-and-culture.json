@@ -1,0 +1,29 @@
+{
+  "library_id": "somerville",
+  "attraction_slug": "harvard-museums-of-science-and-culture",
+  "status": "ok",
+  "raw": "One pass admits up to four (4) visitors at no charge to all four of the Harvard Museums of Science and Culture. Redeem this pass at the Harvard Museum of Natural History or the Peabody Admission desks to receive free admission. - FREE admission for up to four (4) visitors per coupon - One (1) member of the party must be a MA resident - Not for group, institutional, or corporate visits - May not be combined with other offers - Nontransferable Free admission provided on behalf of the Saul Family Library Fund. This is a physical pass that must be picked up at the Library and presented at the museum to redeem the discount.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four (4) visitors",
+    "audience_policies[0].form": "FREE admission"
+  }
+}

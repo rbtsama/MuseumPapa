@@ -1,0 +1,39 @@
+{
+  "library_id": "danvers",
+  "attraction_slug": "salem-witch-museum",
+  "status": "ok",
+  "raw": "This pass allows the bearer a discounted admission rate ($13.50 for adults and seniors, $11.25 for children ages 3-14) for up to six visitors. Please visit www.salemwitchmuseum.com to purchase tickets, using the code on the physical museum pass. Discount cannot be applied after, nor can a refund be administered upon visiting the museum for tickets purchased without the discount. Pass must be presented to receive tickets. If you can not provide the library pass, you will be charged full admission fee. This is a physical pass that you must pick up from and return to the library. Please return by 9 am the day after the Museum Pass is used. The pass may be returned via the book drop. The pass is not valid the month of October.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 13.50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 3, "max": 14},
+      "count": null,
+      "form": "per-person-price",
+      "value": 11.25
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to six visitors",
+    "audience_policies[0].form": "$13.50 for adults and seniors",
+    "audience_policies[1].age_range": "ages 3-14",
+    "audience_policies[1].form": "$11.25 for children",
+    "restrictions.blackout_dates": "not valid the month of October"
+  }
+}

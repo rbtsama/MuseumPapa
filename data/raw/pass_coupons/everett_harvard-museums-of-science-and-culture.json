@@ -1,0 +1,29 @@
+{
+  "library_id": "everett",
+  "attraction_slug": "harvard-museums-of-science-and-culture",
+  "status": "ok",
+  "raw": "The Harvard Museums of Science & Culture Complimentary Museum Pass allows for free admission to all four HMSC museums. Terms & Conditions Limit of four visitors per coupon. One member of the party must be a MA resident. Not for a group, institutional, or corporate visits. May not be combined with other offers. Nontransferrable.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "Limit of four visitors",
+    "audience_policies[0].form": "free admission"
+  }
+}

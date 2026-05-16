@@ -1,0 +1,38 @@
+{
+  "library_id": "boxford",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are not included in the admission count and are always admitted free. Passes are valid only for general admission. The Isabella Stewart Gardner Museum offers a promo code that may be used online to purchase tickets at a discounted price.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "four (4) people",
+    "audience_policies[0].form": "$5 admission per person",
+    "audience_policies[1].age_range.max": "Children under the age of 18",
+    "audience_policies[1].form": "always admitted free"
+  }
+}

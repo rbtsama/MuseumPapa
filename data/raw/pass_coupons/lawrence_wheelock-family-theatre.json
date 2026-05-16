@@ -1,0 +1,29 @@
+{
+  "library_id": "lawrence",
+  "attraction_slug": "wheelock-family-theatre",
+  "status": "ok",
+  "raw": "Wheelock Family Theatre Teatro Familia Wheelock Friday night performances : buy one get one free. No pass required: call to reserve. Presentaciones de los viernes en la noche: compra uno, lleva uno gratis. No se requiere un boleto: llame para reservar.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "buy one get one free",
+    "restrictions.reservation_required": "call to reserve"
+  }
+}

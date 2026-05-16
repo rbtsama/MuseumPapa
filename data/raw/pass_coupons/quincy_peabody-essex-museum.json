@@ -1,0 +1,30 @@
+{
+  "library_id": "quincy",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "Pass admits up to 2 people at $12 each. Valid only for the date listed on this pass. Reservations must be made in advance by visiting the Peabody Essex Museum website and using the promo code shown below the barcode on your pass. This is a coupon code that will be emailed to you to use ordering tickets online. Follow the instructions in the email to recieve your discount.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 2 people",
+    "audience_policies[0].form": "$12 each",
+    "restrictions.reservation_required": "Reservations must be made in advance"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "billerica",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "Digital pass provides $5.00 off general admission for up to 4 visitors. Regular admission prices are $22.00 for adults, $20 for seniors, $15 for college students with current ID; free for anyone under 18 or anyone named \"Isabella\". Reserve the pass, and you will receive an email containing an online promo code along with instructions on how to receive the discount and plan your visit. This pass is generously sponsored by the Family Friends of the Billerica Public Library.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "dollar-off",
+      "value": 5
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 visitors",
+    "audience_policies[0].form": "$5.00 off general admission"
+  }
+}

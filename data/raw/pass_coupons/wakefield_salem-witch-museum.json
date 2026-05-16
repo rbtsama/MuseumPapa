@@ -1,0 +1,38 @@
+{
+  "library_id": "wakefield",
+  "attraction_slug": "salem-witch-museum",
+  "status": "ok",
+  "raw": "Pass admits 6 people at $14.00 for adults and $11.75 for children. You must bring the orange pass to the museum to receive the discounted price. Anyone arriving without the orange pass will need to pay full rate on arrival to the museum. Library passes are not accepted in the month of October.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 14
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 11.75
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 6 people",
+    "audience_policies[0].form": "$14.00 for adults",
+    "audience_policies[1].form": "$11.75 for children",
+    "restrictions.blackout_dates": "not accepted in the month of October"
+  }
+}

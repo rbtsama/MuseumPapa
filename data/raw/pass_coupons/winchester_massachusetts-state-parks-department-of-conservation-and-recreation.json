@@ -1,0 +1,29 @@
+{
+  "library_id": "winchester",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "Pass gives one car unlimited day-use parking access to state park facilities that charge a parking fee. We encourage you to visit the DCR website before making travel plans to ensure that the location you are interested in is open and you are up-to-date on current health and safety requirements. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "one car",
+    "audience_policies[0].form": "unlimited day-use parking access"
+  }
+}

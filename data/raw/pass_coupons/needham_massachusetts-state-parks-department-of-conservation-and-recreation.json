@@ -1,0 +1,29 @@
+{
+  "library_id": "needham",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "(RETURNABLE) General admission pass to the State Parks System. ParksPass is valid for the passenger vehicle displaying this pass on rearview mirror. FOR NEEDHAM RESIDENTS ONLY",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Vehicle",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "valid for the passenger vehicle",
+    "audience_policies[0].form": "General admission pass"
+  }
+}

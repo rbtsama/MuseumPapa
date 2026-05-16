@@ -1,0 +1,29 @@
+{
+  "library_id": "methuen",
+  "attraction_slug": "the-aviation-museum-of-new-hampshire",
+  "status": "ok",
+  "raw": "Coupon pass admits four visitors to the Aviation Museum of New Hampshire free of charge. Regular admission rates are $15 for people 13 and older, $7.50 for seniors, veterans, and children 6-12. Children 5 years old and younger are always free. Pass is only valid on the day of the reservation.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 4,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "four visitors",
+    "audience_policies[0].form": "admits four visitors to the Aviation Museum of New Hampshire free of charge"
+  }
+}

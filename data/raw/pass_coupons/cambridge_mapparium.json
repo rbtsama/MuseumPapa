@@ -1,0 +1,37 @@
+{
+  "library_id": "cambridge",
+  "attraction_slug": "mapparium",
+  "status": "ok",
+  "raw": "617-450-7224 Each pass admits up to 4 adults free of charge to the Mapparium™ globe in the How Do You See the World? experience (value $6/Adult). Youth 17 and younger are always free. All other exhibits in the How Do You See the World? experience are always free, as are weekend church tours, and neither require a ticket. Pass instructions: Redeem this pass for tickets onsite in the Welcome Hall. Ticket reservations are not available ahead of time. All Mapparium showtimes are first come, first serve; this pass doesn't guarantee tickets for a specific time or day. This pass is only valid on the day of your visit. This pass does not provide any other discounts and cannot be applied to group visits. Void if altered or copied. No cash value. Print out this pass and bring it with you or display it on your phone. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 adults",
+    "audience_policies[0].form": "free of charge",
+    "audience_policies[1].form": "Youth 17 and younger are always free"
+  }
+}

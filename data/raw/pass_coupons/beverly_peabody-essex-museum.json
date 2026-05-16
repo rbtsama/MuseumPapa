@@ -1,0 +1,39 @@
+{
+  "library_id": "beverly",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "Admits up to 2 people at $12 per person. Ages 16 and under are free. Reservations are required.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 12
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 16},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 2 people",
+    "audience_policies[0].form": "$12 per person",
+    "audience_policies[1].age_range.max": "Ages 16 and under",
+    "audience_policies[1].form": "free",
+    "restrictions.reservation_required": "Reservations are required"
+  }
+}

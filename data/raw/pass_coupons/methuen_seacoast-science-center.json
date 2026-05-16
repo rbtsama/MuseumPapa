@@ -1,0 +1,39 @@
+{
+  "library_id": "methuen",
+  "attraction_slug": "seacoast-science-center",
+  "status": "ok",
+  "raw": "Each pass allows two adults and up to four children into the Seacoast Science Center at a 50% discount. Pass will need to be presented to the Odiorne Point State Park tollbooth attendant and the Center's greeter even if you already have reservations.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": 4,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "two adults and up to four children",
+    "audience_policies[0].count": "two adults",
+    "audience_policies[0].form": "50% discount",
+    "audience_policies[1].count": "up to four children",
+    "audience_policies[1].form": "50% discount"
+  }
+}

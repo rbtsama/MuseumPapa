@@ -1,0 +1,30 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "Pass admits up to 4 people at half price. Things to know before you reserve: The Museum's operating hours are Wednesday – Sunday, 9 a.m. – 12 p.m. and 1:30 p.m. – 4:30 p.m. Library Coupons are not valid for Sunday afternoons (Admission is $1 per person on Sundays from 1:30 p.m. to 4:30 p.m.). The morning slot on the first Saturday of each month is from 10 a.m. – 12 p.m. Holidays - We typically close early on Thanksgiving Eve and Christmas Eve so there is only a morning timeslot, and we open late on New Year's Day so there is only an afternoon timeslot. The Museum will be open some Mondays and Tuesdays in 2023 – those dates have been made available in Assabet Please note that Museum open dates and times are subject to change — please check the website for all updates — www.bostonchildrensmuseum.org Funded by We're One Wilmington (WOW)",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "half price",
+    "restrictions.blackout_dates": "not valid for Sunday afternoons"
+  }
+}

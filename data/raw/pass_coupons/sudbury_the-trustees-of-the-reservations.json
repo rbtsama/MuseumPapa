@@ -1,0 +1,37 @@
+{
+  "library_id": "sudbury",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "PLEASE NOTE: This is a coupon pass that must be picked up at the library. Patrons must first reserve a coupon from the library, then reserve timed tickets ONLY for museums and parks that require a timed entry by using the promo code on the back of the library coupon. This code will also be available on the reservation confirmation screen, and in your confirmation email. You will need to show the physical pass at the property of your choice. Each pass admits two adults and children under 18 at the Family Membership admission price at the properties that change admission. This varies from property to property; please check The Trustees' website before booking a pass.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "two adults",
+    "audience_policies[0].form": "Family Membership admission price",
+    "audience_policies[1].age_range": "children under 18"
+  }
+}

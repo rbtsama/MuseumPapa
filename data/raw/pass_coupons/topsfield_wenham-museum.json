@@ -1,0 +1,29 @@
+{
+  "library_id": "topsfield",
+  "attraction_slug": "wenham-museum",
+  "status": "ok",
+  "raw": "This pass allows half-price admission for up to 4 people . The email confirmation sent to you serves as your discount pass. Please present this pass (either printed or on your mobile device) upon entry to the museum. Please note that advanced reservations are not required, but still available if interested by visiting the Wenham Museum website .",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "half-price admission"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "billerica",
+  "attraction_slug": "the-butterfly-place",
+  "status": "ok",
+  "raw": "This coupon pass admits one visitor to The Butterfly Place free of charge. This coupon pass must be picked up at the Billerica Public Library and brought to the Butterfly Place in order to receive the free admission. You do not have to return this pass. Regular admission rates for The Butterfly Place are $15.00 for adults, $13.00 for seniors, and $11.00 for children. Children under the age of 2 are admitted free. This pass is generously sponsored by the Family Friends of the Billerica Public Library.",
+  "capacity": {
+    "kind": "people",
+    "n": 1
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "one visitor",
+    "audience_policies[0].form": "free of charge"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "stoneham",
+  "attraction_slug": "paddle-boston",
+  "status": "ok",
+  "raw": "This is a physical pass and must be picked up from and returned to the library . This pass is valid for regular on-site rentals at all locations during regular hours of operation during the boating season (the first weekend in May through mid-October, weather permitting). This pass is not valid for Fourth of July Fireworks Rentals or any other special event or activity . Hours of Operation and Directions: Stoneham: Spot Pond (closed weekdays after Labor Day) Boston: Allston/Brighton Cambridge: Kendall Square Medford: Condon Shell (closed weekdays after Labor Day) Newton: Historic Boathouse Somerville: Blessing of the Bay (closed weekdays after Labor Day) Waltham: Moody Street Dam (closed weekdays after Labor Day) Anyone using this pass can bring guests in the boat they are renting at no charge as long as the boat rented can accommodate the number of guests (for example, an individual kayak member and a guest may rent one double kayak at no extra charge). All boats are included.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "May-Oct",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "at no charge",
+    "restrictions.seasonal": "the first weekend in May through mid-October"
+  }
+}

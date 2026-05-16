@@ -1,0 +1,38 @@
+{
+  "library_id": "bpl",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "$12 admission per person (\"Half Price Library Ticket\") for up to 4 visitors. Children under 1 year old get in for free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 12
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 0},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 visitors",
+    "audience_policies[0].form": "$12 admission per person",
+    "audience_policies[1].age_range.max": "Children under 1 year old",
+    "audience_policies[1].form": "get in for free"
+  }
+}

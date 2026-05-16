@@ -1,0 +1,29 @@
+{
+  "library_id": "topsfield",
+  "attraction_slug": "the-uss-constitution-museum",
+  "status": "ok",
+  "raw": "Each pass admits up to 9 people to the USS Constitution Museum for free. Once reserved, simply present your library pass (either on your mobile device, or printed) at the admission window at the USS Constitution Museum for entry. The USS Constitution Museum, located in the Charlestown Navy Yard, serves as the memory and educational voice of USS Constitution by collecting, preserving, and interpreting the stories of \"Old Ironsides\" and the people associated with her. The museum offers a variety of engaging activities, exhibits, and programs, including our interactive exhibit, All Hands on Deck: A Sailor's Life in 1812, where visitors can furl a sail, sleep in a hammock, and scrub the deck as they join Constitution's crew in 1812! For more information about the museum's galleries, programs, and resources, visit www.usscm.org . Passes will be emailed to reserving patrons, without the need to come to the library to pick up the pass! Please contact the library to reserve this pass if you do not have an email address.",
+  "capacity": {
+    "kind": "people",
+    "n": 9
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 9 people",
+    "audience_policies[0].form": "for free"
+  }
+}

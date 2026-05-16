@@ -1,0 +1,29 @@
+{
+  "library_id": "burlington",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "The Parks Pass allows free parking to all Massachusetts State Parks that charge a parking fee. The Parks Pass is not valid for camping or at the following locations - Quabbin Reservoir, Squantum Point, North Point or Draw Seven Commuter lots. Some Massachusetts state parks do not charge a parking fee. Please check website for updated information regarding hours and closings of the many Massachusetts State Parks prior to using Pass. https://www.mass.gov/info-details/find-a-park This pass can be picked up the day before (if available) or day of reservation. This pass must be returned to the library by opening on the day after use.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "free parking",
+    "audience_policies[0].form": "free parking to all Massachusetts State Parks"
+  }
+}

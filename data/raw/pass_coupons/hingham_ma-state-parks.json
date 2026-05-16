@@ -1,0 +1,28 @@
+{
+  "library_id": "hingham",
+  "attraction_slug": "ma-state-parks",
+  "status": "ok",
+  "raw": "251 Causeway Street, Suite 900 Boston, MA 02114 617-626-1250 Get Directions Visit museum website for more information. This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. Free parking for most State parks. Must be returned no later than the day after use. Check Dates Museum of Fine Arts Boston Learn More",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "Free parking for most State parks"
+  }
+}

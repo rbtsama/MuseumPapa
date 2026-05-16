@@ -1,0 +1,46 @@
+{
+  "library_id": "saugus",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "Pass admits up to 6 people. at a discounted rates of $9.00 per adult and $6.00 per child ages 2-12. Children under 2 are free.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 2, "max": 12},
+      "count": null,
+      "form": "per-person-price",
+      "value": 6
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$9.00 per adult",
+    "audience_policies[1].form": "$6.00 per child",
+    "audience_policies[1].age_range": "ages 2-12",
+    "audience_policies[2].age_range": "Children under 2 are free"
+  }
+}

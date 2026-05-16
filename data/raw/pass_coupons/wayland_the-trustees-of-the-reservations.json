@@ -1,0 +1,38 @@
+{
+  "library_id": "wayland",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "This is a paper coupon that must be picked up at the Wayland Library during the library's open hours no more than 1 week before its use date. It does not need to be returned. Each pass provides free or reduced admission for 2 adults and any number of children (under the age of 18) at 116 preserved lands and estates across Massachusetts, including Fruitlands and Old Manse. Discounts vary between properties. Please note, each pass is valid only toward general admission fees and not special events. The Library coupon is not an admission ticket. Follow emailed instructions to purchase tickets at the Library Discount rate. For more information, and for preserve locations, please visit the organization's website at www.thetrustees.org or call 978-921-1944. NOTE: deCordova is CLOSED Mondays & Tuesdays.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "free or reduced admission for 2 adults",
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[1].form": "free or reduced admission",
+    "audience_policies[1].age_range.max": "under the age of 18"
+  }
+}

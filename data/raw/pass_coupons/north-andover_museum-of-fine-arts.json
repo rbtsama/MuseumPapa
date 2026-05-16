@@ -1,0 +1,47 @@
+{
+  "library_id": "north-andover",
+  "attraction_slug": "museum-of-fine-arts",
+  "status": "ok",
+  "raw": "Reserving this pass gives you access to a promo code which can be used for discounted admission. Each promo code provides a discount for: 2 adults at $15 each (general admission & special exhibition) up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10. Children age six and younger are free Patrons who reserve tickets in advance online with the promo code will receive an e-mail with their admission ticket(s) attached and need to present their ticket(s) when they arrive at the Museum, preferably on a phone or device, but tickets printed on paper are accepted. Promo codes and library passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 15
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 7, "max": 17},
+      "count": 4,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 6},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[0].form": "$15 each",
+    "audience_policies[1].age_range": "ages 7–17",
+    "audience_policies[1].count": "up to 4 children",
+    "audience_policies[1].form": "$10 each",
+    "audience_policies[2].age_range": "Children age six and younger are free"
+  }
+}

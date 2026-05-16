@@ -1,0 +1,46 @@
+{
+  "library_id": "haverhill",
+  "attraction_slug": "currier-museum-of-art",
+  "status": "ok",
+  "raw": "This pass provides 50% off general admission for up to 2 adults (18 years and older) and all youth family members (ages 13 - 17); children 12 years and under are always admitted without charge. This pass is paper and does not need to be returned to the library. The pass will need to be picked up from the library. Contact 978-373-1586 x603 with any questions.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": {"min": 18, "max": null},
+      "count": 2,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": 13, "max": 17},
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 12},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "up to 2 adults",
+    "audience_policies[0].age_range": "18 years and older",
+    "audience_policies[0].form": "50% off general admission",
+    "audience_policies[1].age_range": "ages 13 - 17",
+    "audience_policies[2].form": "children 12 years and under are always admitted without charge"
+  }
+}

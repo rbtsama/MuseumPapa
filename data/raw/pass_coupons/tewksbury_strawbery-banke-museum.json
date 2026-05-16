@@ -1,0 +1,29 @@
+{
+  "library_id": "tewksbury",
+  "attraction_slug": "strawbery-banke-museum",
+  "status": "ok",
+  "raw": "Free daily admission for a family (2 adults + children 17 and under) with library pass. Free admission for up to 4 individuals to Baby Animals: Heritage Breeds at the Banke, Ghosts on the Banke, and Candlelight Stroll (excludes the Member Preview Night). 50% discount on admission to Labrie Family Skate at Puddle Dock Pond. 10% off purchases at Pickwick's at the Banke (Museum gift shop) and merchandise in the Lawrence J. Yerdon Visitors Center. Strawbery Banke Museum's historic houses are open seasonally from April 26 through October 26, 2025 (closed on Tuesdays), and for special events and programs throughout the year. Please check the institution's web site before your visit for current hours, rules, and restrictions. Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "Apr-Oct",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "Free daily admission",
+    "restrictions.seasonal": "open seasonally from April 26 through October 26"
+  }
+}

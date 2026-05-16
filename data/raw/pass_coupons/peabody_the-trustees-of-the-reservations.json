@@ -1,0 +1,29 @@
+{
+  "library_id": "peabody",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "Each pass admits 2 adults at free or reduced admission (depending upon property rules) GO Pass user benefits: Free or reduced admission to Trustees properties The opportunity to get outside and explore places in Massachusetts that may not have been easily accessible to them before GO passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, Inns, Campgrounds, special events, and programs, on any equipment rental, or in place of any other permits or passes. Each GO Pass has information to be filled in on the back of the pass. This is to be filled in by the pass-user at the time of use at a Trustees property (Institution, Trustees property, date of use, name, email) Each GO Pass is a one-time use pass and is valid for admission only. Not every Trustees property charges an admission fee. For information about the admission at each property, visit us online thetrustees.org This is a physical pass that must be picked up at the Main Branch library.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 2 adults",
+    "audience_policies[0].form": "free or reduced admission (depending upon property rules)"
+  }
+}

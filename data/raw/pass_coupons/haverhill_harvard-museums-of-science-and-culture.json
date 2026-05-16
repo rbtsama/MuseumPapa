@@ -1,0 +1,29 @@
+{
+  "library_id": "haverhill",
+  "attraction_slug": "harvard-museums-of-science-and-culture",
+  "status": "ok",
+  "raw": "Pass allows FREE admission for up to four people to any of the 4 Harvard Museums: Harvard Museum of Natural History, Peabody Museum of Archaeology and Ethnology, Harvard Museum of the Ancient Near East, and Collection of Historical Scientific Instruments. The pass will need to be picked up from the library. Contact 978-373-1586 x603 with any questions.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "FREE admission"
+  }
+}

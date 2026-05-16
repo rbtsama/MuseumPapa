@@ -1,0 +1,29 @@
+{
+  "library_id": "haverhill",
+  "attraction_slug": "new-england-aquarium",
+  "status": "ok",
+  "raw": "This coupon allows 50% off admission for up to 4 people. This pass is emailed to you - you will not need to come in to the library to pick it up. Please make sure you enter your current email address when making your reservation.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% off admission"
+  }
+}

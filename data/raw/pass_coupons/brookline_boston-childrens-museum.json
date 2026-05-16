@@ -1,0 +1,38 @@
+{
+  "library_id": "brookline",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "(617) 426-6500 Boston Children's Museum is the second oldest, and one of the most influential children's museums in the world. It was founded in 1913 by the Science Teachers' Bureau, a group of visionary educators dedicated to providing new resources for both teachers and students, as a center for the exchange of materials and ideas to advance the teaching of science. For over 100 years it has been engaging children in joyful discovery experiences that instill an appreciation of our world, develop foundational skills, and spark a lifelong love of learning. Pass benefits: Admits up to 4 at half price. Infants under 12 months receive free admission. Visit the Boston Children's Museum's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 0},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4",
+    "audience_policies[0].form": "half price",
+    "audience_policies[1].age_range.max": "Infants under 12 months",
+    "audience_policies[1].form": "free admission"
+  }
+}

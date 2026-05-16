@@ -1,0 +1,37 @@
+{
+  "library_id": "newton",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "Admits 2 people at $12.00 per person. Youth under 16 receive free admission.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 12
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": null, "max": 15},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "2 people",
+    "audience_policies[0].form": "$12.00 per person",
+    "audience_policies[1].age_range": "Youth under 16 receive free admission"
+  }
+}

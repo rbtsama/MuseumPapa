@@ -1,0 +1,39 @@
+{
+  "library_id": "melrose",
+  "attraction_slug": "paul-revere-house",
+  "status": "ok",
+  "raw": "The library's pass admits 2 adults and 2 children for free. Paul Revere House museum visitor requirements and operating hours. A visit usually takes about 30 minutes. Lifetime membership donated by John Curtis.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "free",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": 2,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "2 adults and 2 children",
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[0].form": "admits 2 adults and 2 children for free",
+    "audience_policies[1].count": "2 children",
+    "audience_policies[1].form": "admits 2 adults and 2 children for free"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "library_id": "newton",
+  "attraction_slug": "historic-newton",
+  "status": "ok",
+  "raw": "Admits 4 adults and any children for free to the Jackson Homestead or the Durant-Kenrick House & Grounds.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "for free"
+  }
+}

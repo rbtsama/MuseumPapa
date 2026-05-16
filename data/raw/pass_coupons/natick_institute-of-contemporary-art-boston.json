@@ -1,0 +1,38 @@
+{
+  "library_id": "natick",
+  "attraction_slug": "institute-of-contemporary-art-boston",
+  "status": "ok",
+  "raw": "This library pass is valid for up to 2 admission tickets at the discounted price of $10 per ticket (discounted from the regular fee of $20 per ticket). Admission is free for anyone age 18 and younger. How to redeem this pass: ONLINE • Advance tickets are recommended and can be purchased online: https://www.icaboston.org/ • Click on \"Buy Tickets\" and select your chosen date for ICA General Museum Admission • Click on \"Library Pass Coupon\" ticket price. Anyone 18 and under receive complimentary admission and should use the ticket price \"Youth (0-12)\" or \"Youth (13-18)\" • Follow steps to complete order. Your ICA tickets will be emailed to you. • When you arrive at the ICA, proceed to the visitor services desk with your tickets and this library pass. Please show this pass to the staff member at the Visitor Services desk. If you have questions about the online ordering system, contact visitorservices@icaboston.org. IN PERSON • We recommend purchasing advance tickets online, however tickets can be arranged in person at the Visitor Services desk by showing this pass to the staff member. ________________________________________________________________________________________________________ Your ticket is valid for entry any time during the date selected. Last entry to the museum is 20 minutes prior to closing time. Tickets are final sale.",
+  "capacity": {
+    "kind": "ticket",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 19, "max": null},
+      "count": 2,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": null, "max": 18},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 2 admission tickets",
+    "audience_policies[0].form": "$10 per ticket",
+    "audience_policies[1].form": "Admission is free for anyone age 18 and younger",
+    "audience_policies[1].age_range.max": "age 18 and younger"
+  }
+}

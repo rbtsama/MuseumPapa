@@ -1,0 +1,30 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "salem-witch-museum",
+  "status": "ok",
+  "raw": "The pass admits up to 6 people for $4 off per ticket. Tickets must be purchased the day of your visit. Full prices are: Adult $19, Senior (62+) $17.50, Child (3-14) $16 Open daily from 10 am to 5 pm (July & August from 10 am to 7 pm) Pass not valid in October Reserve the pass here, then purchase tickets on the day of your reservation by doing the following. 1.) Pickup the pass at the library 2.) Go to https://tickets.salemwitchmuseum.com/ 3.) Agree to terms and click Submit 4.) Choose a time 5,) Chose up to 6 tickets 6.) Click Add selected to cart 7.) Type the code on the pass you picked up in the Enter Coupon Code here 8.) Click Apply Pass 9.) Click Proceed to Checkout 10.) Type you r billing details and credit card number 11.) Click Place order",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "dollar-off",
+      "value": 4
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$4 off per ticket",
+    "restrictions.blackout_dates": "Pass not valid in October"
+  }
+}

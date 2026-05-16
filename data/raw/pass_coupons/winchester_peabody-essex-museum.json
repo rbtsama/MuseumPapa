@@ -1,0 +1,29 @@
+{
+  "library_id": "winchester",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "Pass admits 2 people at $12 per person. Museum is free for Salem residents and youth 16 and under. Purchase tickets at PEM events using the promo code to receive the discount. The promo code is in the confirmation email generated when you reserve the pass from the library. Click on \"Access Pass\" in the confirmation email to see the code. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 2 people",
+    "audience_policies[0].form": "$12 per person"
+  }
+}

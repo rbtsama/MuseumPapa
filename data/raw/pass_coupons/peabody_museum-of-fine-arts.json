@@ -1,0 +1,39 @@
+{
+  "library_id": "peabody",
+  "attraction_slug": "museum-of-fine-arts",
+  "status": "ok",
+  "raw": "Please check Museum of Fine Arts website for any updates before visiting. General admission tickets are available in person or in advance online at: mfa.org/tickets, or by phone. A library pass will not be accepted for admission into the Museum. Patrons can use the promo code ( given when you reserve your pass ) to reserve discounted admission tickets ahead of the reservation date. Patrons receive an e-mail with their admission ticket(s) and need to present their ticket(s) when they arrive at the Museum, preferably on a phone or device, but tickets printed on paper are accepted. A physical library pass will not be used for admission. Promo codes and library passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. Pass admits 2 adults at $15 each (general and special exhibition) and up to 4 children ages 7-17 at $10 (general or special exhibition). This is an electronic pass that will be sent to your email.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 15
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 7, "max": 17},
+      "count": 4,
+      "form": "per-person-price",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[0].form": "$15 each",
+    "audience_policies[1].age_range": "ages 7-17",
+    "audience_policies[1].count": "up to 4 children",
+    "audience_policies[1].form": "$10"
+  }
+}

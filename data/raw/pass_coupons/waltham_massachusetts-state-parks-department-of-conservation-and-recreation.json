@@ -1,0 +1,29 @@
+{
+  "library_id": "waltham",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "This pass allows one vehicle to park for free at any MA State Parks. *This is a paper parking pass which must be picked up at the Ground Floor Circulation Desk and used on the date selected. The pass can be picked up on the day of or day before use and must be returned by the day following use.*",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "one vehicle",
+    "audience_policies[0].form": "park for free"
+  }
+}

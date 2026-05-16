@@ -1,0 +1,39 @@
+{
+  "library_id": "andover",
+  "attraction_slug": "salem-witch-museum",
+  "status": "ok",
+  "raw": "Pick up and return pass to library. Pass admits up to 6 people discounted admission. Advanced ticket purchase is required. Please visit the website www.salemwitchmuseum.com to purchase your tickets and enter the code from the pass into the coupon code box to receive discount. Pass MUST be presented at time of admission or full price will be charged. Open Daily 10 am to 5 pm July and August open daily 10 am to 7 pm Pass is NOT valid in October Please present this pass upon arrival to receive your tickets. If you cannot provide pass, you will be charged full admission fee. Admission with pass: Adult/Senior: $14 (regular admission: $19/$17.50) Child: $11.75 (regular admission: $16)",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 14
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 11.75
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "Adult/Senior: $14",
+    "audience_policies[1].form": "Child: $11.75",
+    "restrictions.blackout_dates": "Pass is NOT valid in October",
+    "restrictions.reservation_required": "Advanced ticket purchase is required"
+  }
+}

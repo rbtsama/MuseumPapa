@@ -1,0 +1,30 @@
+{
+  "library_id": "brookline",
+  "attraction_slug": "larz-anderson",
+  "status": "ok",
+  "raw": "(617) 522-6547 The Larz Anderson Auto Museum in the 64-acre Larz Anderson Park showcases \"America's Oldest Car Collection\" in the historic Carriage House. The museum offers engaging attractions, including Lawn Events, family-friendly gatherings, and car history lectures. A visit promises a day of exploration and enjoyment, creating lasting memories. This pass must be reserved through the library's online catalog . The pass must be picked up and returned to the library's Brookline Village location. Pass benefits: Free admission for up to 4 visitors. No passes are available at this time.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 visitors",
+    "audience_policies[0].form": "Free admission",
+    "restrictions.reservation_required": "must be reserved through the library's online catalog"
+  }
+}

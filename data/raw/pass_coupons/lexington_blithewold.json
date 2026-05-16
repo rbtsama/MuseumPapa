@@ -1,0 +1,38 @@
+{
+  "library_id": "lexington",
+  "attraction_slug": "blithewold",
+  "status": "ok",
+  "raw": "Library pass admits pass admits up to 6 people at the discounted rates of $8.50 for adults and $3.00 for visitors (youth) 6- 17 years old. Please check their website https://www.blithewold.org/ for hours of operation and the most updated information. THIS IS A RETURNABLE PASS PASS MUST BE RETURNED TO CARY LIBRARY NO LATER THAN OPENING HOURS THE DAY AFTER USE",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 8.50
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": 6, "max": 17},
+      "count": null,
+      "form": "per-person-price",
+      "value": 3.00
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$8.50 for adults",
+    "audience_policies[1].age_range": "6- 17 years old",
+    "audience_policies[1].form": "$3.00 for visitors (youth)"
+  }
+}

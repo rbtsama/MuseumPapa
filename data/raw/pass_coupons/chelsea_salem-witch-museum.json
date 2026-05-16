@@ -1,0 +1,38 @@
+{
+  "library_id": "chelsea",
+  "attraction_slug": "salem-witch-museum",
+  "status": "ok",
+  "raw": "This is a physical pass that must be picked up and returned to the library. Discounted admission for up to 6 people; $13.75 for adults and $10.75 for children. Code on pass must be redeemed online and pass presented at the museum. Pass not available in October.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 13.75
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 10.75
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": true,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$13.75 for adults",
+    "audience_policies[1].form": "$10.75 for children",
+    "restrictions.blackout_dates": "Pass not available in October"
+  }
+}

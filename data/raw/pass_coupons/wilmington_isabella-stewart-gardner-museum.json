@@ -1,0 +1,29 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "Pass admits up to 4 people for $5 per person . Museum entry is timed and capacity highly restricted. All tickets are for a specific entry time. You will get two emails, one from the museum with the tickets and one from Assabet with the library pass. There's nothing to pick up at the library but you will need both emails. This program is supported in part by a grant from the Wilmington Council for the Arts, a local agency which is supported by the Massachusetts Cultural Council, a state agency",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$5 per person"
+  }
+}

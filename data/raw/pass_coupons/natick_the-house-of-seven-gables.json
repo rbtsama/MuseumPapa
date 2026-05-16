@@ -1,0 +1,30 @@
+{
+  "library_id": "natick",
+  "attraction_slug": "the-house-of-seven-gables",
+  "status": "ok",
+  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Discount code will be emailed with reservation confirmation. Pricing: Reduced admission for up to 4 people at 50% off per person. Additional instructions: - Pre-registration is required. After reserving the pass, visit the House of the Seven Gables website to select your experience and purchase your tickets. Enter the discount code into the \"Discount Code\" field. - You MUST must still come to the library to pick up your physical pass. The paper library pass must be presented at entrance for a valid discount.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% off per person",
+    "restrictions.reservation_required": "Pre-registration is required"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "library_id": "lincoln",
+  "attraction_slug": "john-f-kennedy-library-and-museum",
+  "status": "ok",
+  "raw": "A valid Massachusetts library card grants the cardholder 50% off one admission ticket. In order to receive the discount, visitors must show their physical or digital Massachusetts library card to staff at the front desk. The discount is valid for the library card holder only. Each patron will need to present a Massachusetts library card in order to receive the discount. Children 12 and under receive free admission to the Museum.",
+  "capacity": {
+    "kind": "ticket",
+    "n": 1
+  },
+  "audience_policies": [
+    {
+      "audience": "Single ticket",
+      "age_range": null,
+      "count": 1,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 12},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "50% off one admission ticket",
+    "audience_policies[0].form": "50% off one admission ticket",
+    "audience_policies[1].form": "Children 12 and under receive free admission",
+    "audience_policies[1].age_range.max": "12 and under"
+  }
+}

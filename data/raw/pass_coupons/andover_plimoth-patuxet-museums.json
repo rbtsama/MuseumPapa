@@ -1,0 +1,38 @@
+{
+  "library_id": "andover",
+  "attraction_slug": "plimoth-patuxet-museums",
+  "status": "ok",
+  "raw": "Print from home This coupon must be presented to Plimoth Patuxet Museums guest services staff upon arrival at the Museum for Memorial Hall Library patrons to purchase a Heritage Pass, Combination Pass, or Plimoth Patuxet Only pass for up to six individuals at the reduced rate of $16 per adult; $10 per child ages 5-17. This coupon is for one time use only by the patron.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 16
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 5, "max": 17},
+      "count": null,
+      "form": "per-person-price",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to six individuals",
+    "audience_policies[0].form": "$16 per adult",
+    "audience_policies[1].age_range.min": "ages 5-17",
+    "audience_policies[1].form": "$10 per child"
+  }
+}

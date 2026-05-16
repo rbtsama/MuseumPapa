@@ -1,0 +1,29 @@
+{
+  "library_id": "north-reading",
+  "attraction_slug": "the-uss-constitution-museum",
+  "status": "ok",
+  "raw": "One digital pass allows free admission for up to 5 people per day. No advance tickets or reservations are required for entry, and admission will be on a first come, first served basis.",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 5 people",
+    "audience_policies[0].form": "free admission"
+  }
+}

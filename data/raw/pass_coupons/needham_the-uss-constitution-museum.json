@@ -1,0 +1,29 @@
+{
+  "library_id": "needham",
+  "attraction_slug": "the-uss-constitution-museum",
+  "status": "ok",
+  "raw": "(PRINTABLE) Pass admits up to 5 people with free admission to the USS Constitution Museum. Museum is open daily April 1 - October 31 9:00-6:00, and November 1 - March 31 10:00-5:00. FOR NEEDHAM RESIDENTS ONLY",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 5 people",
+    "audience_policies[0].form": "free admission"
+  }
+}

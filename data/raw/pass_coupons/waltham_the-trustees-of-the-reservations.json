@@ -1,0 +1,28 @@
+{
+  "library_id": "waltham",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "Benefits vary by location. The GO Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. At the deCordova Museum and Sculpture park, the GO pass allows free admission for 2 people. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the date you've selected in our calendar.*",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "Benefits vary by location"
+  }
+}

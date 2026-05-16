@@ -1,0 +1,38 @@
+{
+  "library_id": "bpl",
+  "attraction_slug": "isabella-stewart-gardner",
+  "status": "ok",
+  "raw": "This pass allows for booking up to four Adult tickets at $5 each. Children under 18 always get in free and should be booked as child tickets. This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617-278-5156. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "ticket",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 4,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four Adult tickets",
+    "audience_policies[0].form": "$5 each",
+    "audience_policies[1].age_range.max": "Children under 18",
+    "audience_policies[1].form": "always get in free"
+  }
+}

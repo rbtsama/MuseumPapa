@@ -1,0 +1,28 @@
+{
+  "library_id": "reading",
+  "attraction_slug": "the-childrens-piazza",
+  "status": "ok",
+  "raw": "This pass provides 50% off admission for the immediate family/household. Please visit The Children's Piazza website to make a reservation prior to your visit. Reservations always encouraged - walk in play subject to availability This is a printable pass.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "50% off admission"
+  }
+}

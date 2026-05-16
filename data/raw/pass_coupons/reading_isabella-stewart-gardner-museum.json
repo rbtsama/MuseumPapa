@@ -1,0 +1,37 @@
+{
+  "library_id": "reading",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "Each pass provides up to 4 people with $5.00 admission per person. Children under the age of 18 are always admitted free. Tickets can sell out fast, and may not be available at the door, particularly during popular days of the week and times of day. Buy your tickets in advance to avoid the line and guarantee entrance at your preferred time. See confirmation email for instructions.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$5.00 admission per person",
+    "audience_policies[1].age_range": "Children under the age of 18 are always admitted free"
+  }
+}

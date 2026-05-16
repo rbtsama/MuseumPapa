@@ -1,0 +1,38 @@
+{
+  "library_id": "natick",
+  "attraction_slug": "plimoth-patuxet-museums",
+  "status": "ok",
+  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Reduced admission for up to 6 people at $18 per adult and $12 per child (ages 5-17). Additional instructions: -Present pass upon arrival to receive discount.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 18
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 5, "max": 17},
+      "count": null,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$18 per adult",
+    "audience_policies[1].form": "$12 per child",
+    "audience_policies[1].age_range": "ages 5-17"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "cambridge",
+  "attraction_slug": "new-england-aquarium",
+  "status": "ok",
+  "raw": "617-973-5206 Each pass admits up to 4 people for 50% off. Valid only for Aquarium admission. This coupon does not provide any other discounts and is not valid for movie or whale watch tickets. NOTE: Starting May 26, this pass admits up to 4 people for $20 per person and is only valid on weekdays. This coupon is valid only on the date printed on the pass. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% off"
+  }
+}

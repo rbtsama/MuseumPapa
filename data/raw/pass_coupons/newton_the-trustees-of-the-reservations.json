@@ -1,0 +1,28 @@
+{
+  "library_id": "newton",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "Admits 2 adults and children under 18 for a reduced rate or for free, depending on location visited. Valid for admission only. Please check the website to ensure that the property is open to the public on the date of your intended visit.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "reduced rate or for free, depending on location visited"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "library_id": "andover",
+  "attraction_slug": "bedrock-gardens",
+  "status": "ok",
+  "raw": "Print from home pass. Pass is for free admission for a family to Bedrock Gardens (not special events). -Valid on date of admission only. -To be turned in on admission. -More information can be found at www.bedrockgardens.org.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "free admission for a family"
+  }
+}

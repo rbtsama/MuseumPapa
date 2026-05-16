@@ -1,0 +1,50 @@
+{
+  "library_id": "natick",
+  "attraction_slug": "museum-of-fine-arts",
+  "status": "ok",
+  "raw": "Type of pass: E-code, emailed upon reservation. Pricing: Reduced admission for up to 2 adults at $15 per person and 4 youths aged 7-17 at $10 per person (general admission and special exhibition). Children under 7 are admitted free. Additional instructions: - Pre-registration is recommended. Visit the Museum of Fine Arts website and use the e-code discount to reserve. -To access your e-code, click \"Access Pass\" in your confirmation email. The e-code is found under the barcode.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 15
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": 7, "max": 17},
+      "count": 4,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 6},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 2 adults ... and 4 youths",
+    "audience_policies[0].count": "up to 2 adults",
+    "audience_policies[0].form": "$15 per person",
+    "audience_policies[1].count": "4 youths aged 7-17",
+    "audience_policies[1].form": "$10 per person",
+    "audience_policies[1].age_range.min": "aged 7-17",
+    "audience_policies[1].age_range.max": "aged 7-17",
+    "audience_policies[2].form": "Children under 7 are admitted free",
+    "audience_policies[2].age_range.max": "under 7"
+  }
+}

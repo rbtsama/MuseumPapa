@@ -1,0 +1,38 @@
+{
+  "library_id": "wakefield",
+  "attraction_slug": "institute-of-contemporary-art-boston",
+  "status": "ok",
+  "raw": "Pass admits up to 2 visitors at the discounted price of $10 per admission. Admission is free to anyone 18 and under. The ICA is free to all on Thursday nights from 5:00-9:00pm. Please note that Museum hours and admission are subject to change. Current information can be found on their website: https://www.icaboston.org/visit Advance reservation strongly recommended. Cannot be used for performances or special events. Does not guarantee admittance to special exhibitions with timed entry.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": {"min": 19, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 18},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 2 visitors",
+    "audience_policies[0].form": "$10 per admission",
+    "audience_policies[1].form": "Admission is free to anyone 18 and under",
+    "audience_policies[1].age_range.max": "18 and under"
+  }
+}

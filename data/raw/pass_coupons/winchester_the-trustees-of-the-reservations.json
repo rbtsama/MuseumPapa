@@ -1,0 +1,38 @@
+{
+  "library_id": "winchester",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "Pass admits 2 adults and 2 children at Trustees Membership price. Search http://www.thetrustees.org/places-to-visit/ to view all the locations you are able to visit with this pass. Please note the DeCordova Museum is closed on Mondays. Pass can be picked up at the Information Services desk at the library. For Decordova : Online registration is available; select GOPASS as the ticket type. Bring registration confirmation AND the pass from the library. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": 2,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "Trustees Membership price",
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[1].form": "Trustees Membership price",
+    "audience_policies[1].count": "2 children"
+  }
+}

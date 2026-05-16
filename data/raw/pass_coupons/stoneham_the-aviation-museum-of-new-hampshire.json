@@ -1,0 +1,29 @@
+{
+  "library_id": "stoneham",
+  "attraction_slug": "the-aviation-museum-of-new-hampshire",
+  "status": "ok",
+  "raw": "This pass admits up to 4 people for free . Children under 6 are always admitted for free . This is a physical pass that must be picked up at and returned to the library . This pass is not limited by date or time . This pass can be used for special programs , provided the program is being held on-site during the Museum's regular operating hours .",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "for free"
+  }
+}

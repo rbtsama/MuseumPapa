@@ -1,0 +1,48 @@
+{
+  "library_id": "billerica",
+  "attraction_slug": "museum-of-fine-arts",
+  "status": "ok",
+  "raw": "Digital discount code allows admission for 2 adults at $10 each (general admission and special exhibition) and up to four children ages 7-17 at $10 dollars each (special exhibition only). There is no discount for children 7-17 years old for general admission, which is $10. Children 6 and under are admitted free. Pass does not allow for discounts on shopping, parking, dining, films, concerts, lectures, courses, or events. This pass is generously sponsored by the Family Friends of the Billerica Public Library.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": 7, "max": 17},
+      "count": 4,
+      "form": "per-person-price",
+      "value": 10
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 6},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[0].form": "$10 each",
+    "audience_policies[1].age_range.min": "ages 7-17",
+    "audience_policies[1].count": "up to four children",
+    "audience_policies[1].form": "$10 dollars each",
+    "audience_policies[2].age_range.max": "Children 6 and under",
+    "audience_policies[2].form": "admitted free"
+  }
+}

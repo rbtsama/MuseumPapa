@@ -1,0 +1,29 @@
+{
+  "library_id": "watertown",
+  "attraction_slug": "mass-audubon",
+  "status": "ok",
+  "raw": "This pass discount provides $2 admission for up to 4 individuals. Directions and information regarding e-voucher use will be provided in your confirmation email.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 2
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 individuals",
+    "audience_policies[0].form": "$2 admission"
+  }
+}

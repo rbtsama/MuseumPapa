@@ -1,0 +1,39 @@
+{
+  "library_id": "milton",
+  "attraction_slug": "isabella-stewart-gardner",
+  "status": "ok",
+  "raw": "617-566-1401 The discount offers half-price off General Admission for up to 4 visitors. Any additional tickets will be normally priced (Children under 18 are always free and should be reserved as child tickets) This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617 278 5156. PATRONS MUST PRESENT BOTH THIS LIBRARY PASS AND THEIR RESERVED TIMED MUSEUM ADMISSION TICKETS FOR ENTRY INTO THE MUSEUM. For more information, including health and safety requirements, please visit isgm.org/welcome MUSEUM HOURS: WEEKDAYS 11 AM – 5 PM | WEEKENDS 10 AM – 5 PM | THURSDAYS 11 AM – 9 PM | CLOSED TUESDAYS Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 4,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 visitors",
+    "audience_policies[0].form": "half-price off General Admission",
+    "audience_policies[1].form": "Children under 18 are always free",
+    "audience_policies[1].age_range.max": "under 18",
+    "restrictions.reservation_required": "RESERVED TIMED MUSEUM ADMISSION TICKETS"
+  }
+}

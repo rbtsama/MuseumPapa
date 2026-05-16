@@ -1,0 +1,37 @@
+{
+  "library_id": "chelmsford",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "Pass admits up to four adults at $5 admission per person. Children under 18 are always free (when reserved as a child ticket).",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four adults",
+    "audience_policies[0].form": "$5 admission per person",
+    "audience_policies[1].form": "Children under 18 are always free"
+  }
+}

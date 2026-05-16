@@ -1,0 +1,29 @@
+{
+  "library_id": "hingham",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "308 Congress Street Boston, MA 02210 617-426-6500 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. The admission fee is half price per person for up to four people. This pass has been provided by a generous contribution from the Hingham Newcomers Club. Check Dates Boston Harbor Island Ferry Learn More",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "half price per person"
+  }
+}

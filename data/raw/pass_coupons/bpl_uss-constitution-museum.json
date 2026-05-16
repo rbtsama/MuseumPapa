@@ -1,0 +1,29 @@
+{
+  "library_id": "bpl",
+  "attraction_slug": "uss-constitution-museum",
+  "status": "ok",
+  "raw": "One pass allows free admission for up to five guests. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to five guests",
+    "audience_policies[0].form": "free admission"
+  }
+}

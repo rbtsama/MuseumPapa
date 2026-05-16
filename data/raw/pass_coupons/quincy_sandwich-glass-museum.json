@@ -1,0 +1,29 @@
+{
+  "library_id": "quincy",
+  "attraction_slug": "sandwich-glass-museum",
+  "status": "ok",
+  "raw": "Present it at the Sandwich Glass Museum's Admissions Desk for a 50% discount on general admission for up to two adults.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to two adults",
+    "audience_policies[0].form": "50% discount on general admission"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "quincy",
+  "attraction_slug": "institute-of-contemporary-art-boston",
+  "status": "ok",
+  "raw": "Pass admits 2 people at $10.00 per person. Valid only for the date listed on this pass. This is a coupon pass that will be emailed and can be printed or displayed on your mobile screen.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "2 people",
+    "audience_policies[0].form": "$10.00 per person"
+  }
+}

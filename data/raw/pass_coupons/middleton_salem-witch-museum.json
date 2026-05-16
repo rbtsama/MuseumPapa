@@ -1,0 +1,39 @@
+{
+  "library_id": "middleton",
+  "attraction_slug": "salem-witch-museum",
+  "status": "ok",
+  "raw": "This pass admits up to 6 people at a rate of $13.50 for Adults and $11.25 for Children (Ages 6-18). This pass must be returned to the library by 10am on the day following the reservation.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 13.50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 6, "max": 18},
+      "count": null,
+      "form": "per-person-price",
+      "value": 11.25
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$13.50 for Adults",
+    "audience_policies[1].form": "$11.25 for Children (Ages 6-18)",
+    "audience_policies[1].age_range.min": "Ages 6-18",
+    "audience_policies[1].age_range.max": "Ages 6-18"
+  }
+}

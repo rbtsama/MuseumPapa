@@ -1,0 +1,29 @@
+{
+  "library_id": "cohasset",
+  "attraction_slug": "uss-constitution-museum",
+  "status": "ok",
+  "raw": "Building 22, Charlestown Navy Yard Charlestown, MA 02129 617-426-1812 Get Directions Print out this pass or display on phone and bring to the USS Constitution Museum box office. Pass holders will receive free admission to the museum. One pass allows free admission for up to 5 people per day. One pass per party, please. Please Note: Museum Hours - Open Daily; Winter Hours 10:00am - 5:00pm. Museum is closed Thanksgiving Day, Christmas Day, and New Year's Day. Update 01/12/2026 Visit museum website for more information. Zoo New England Learn More",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 5 people",
+    "audience_policies[0].form": "free admission to the museum"
+  }
+}

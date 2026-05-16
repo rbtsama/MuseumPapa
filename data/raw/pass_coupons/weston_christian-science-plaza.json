@@ -1,0 +1,38 @@
+{
+  "library_id": "weston",
+  "attraction_slug": "christian-science-plaza",
+  "status": "ok",
+  "raw": "Each pass admits up to four people for general admission (Adult, Youth 6-17, Students, and Seniors). Admission for children 5 and younger is free. Not valid for special events or for public programming.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 6, "max": null},
+      "count": null,
+      "form": "free",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 5},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "general admission",
+    "audience_policies[1].form": "Admission for children 5 and younger is free",
+    "audience_policies[1].age_range.max": "5 and younger"
+  }
+}

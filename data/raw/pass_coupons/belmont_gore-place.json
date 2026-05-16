@@ -1,0 +1,38 @@
+{
+  "library_id": "belmont",
+  "attraction_slug": "gore-place",
+  "status": "ok",
+  "raw": "Gore Place is pleased to announce the combined Mansion Tour, Take-a-Walk, and Story Time Library Pass for 2024-2025. Each pass permits two adults and two accompanied children to tour the 1806 Gore Mansion at the reduced rate of $5 per adult and free for the accompanied children--regularly $16 per adult and $11 for children ages 6-16. The pass also permits passholders to rent a Take-a-Walk bag for $2--regularly $5. We have expanded the program this year to also allow passholders to bring two children to a Wednesday Story Time-first Wednesday of each month, for $5 per child-regularly $10. We are open for Mansion Tours, currently Mondays, Wednesdays, Fridays, and Saturdays. Days and times are subject to change, so it is best for visitors to consult our website at goreplace.org when planning their visit. Event and holiday closings as well as school vacation hours are all listed on our website. Please note: The Mansion Tour pass is good for daytime Mansion tours only and may not be used during evening or special themed tours or during special events such as the Sheepshearing Festival at Gore Place.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": 2,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "two adults",
+    "audience_policies[0].form": "$5 per adult",
+    "audience_policies[1].count": "two accompanied children",
+    "audience_policies[1].form": "free for the accompanied children"
+  }
+}

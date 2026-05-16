@@ -1,0 +1,29 @@
+{
+  "library_id": "cambridge",
+  "attraction_slug": "royall-house",
+  "status": "ok",
+  "raw": "781-396-9032 SEASONAL PASS - Each pass admits 2 people for free for a 50 minute guided tour. Tours are at 1:00PM, 2:00PM, and 3:00PM. Visitors are invited to walk the grounds and view the exhibits before and after the tour. Children 12 and younger are admitted free. After reserving a library pass, you will receive an email confirmation with a promo code. Please arrive at least 15 minutes before the start of the tour and present your email confirmation with library promo code to the admissions desk staff. All tours are first come first served. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 2 people",
+    "audience_policies[0].form": "for free"
+  }
+}

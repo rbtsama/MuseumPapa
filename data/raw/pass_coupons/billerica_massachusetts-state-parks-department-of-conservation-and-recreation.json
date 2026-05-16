@@ -1,0 +1,29 @@
+{
+  "library_id": "billerica",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "status": "ok",
+  "raw": "This physical pass may be picked up at the circulation desk the day before use. Please return this physical pass to the Billerica Public Library by 9am the next day. The pass may be returned to the outside drop box during off hours. The MassParks pass grants free parking for one passenger vehicle at over 50 facilities in the Massachusetts State Parks system that charge a \"Day of Use\" parking fee. Please note that the MassParks pass cannot be applied to campsites, Quabbin Reservoir Boat Launch Areas, Nahant Beach, or Nantasket Beach. For a list of park locations go to www.mass.gov/dcr . For more information on parking at Massachusetts State Parks please visit Mass Gov Guides to Parking at Massachusetts State Parks",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "one passenger vehicle",
+    "audience_policies[0].form": "grants free parking"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "library_id": "lexington",
+  "attraction_slug": "naismith-memorial-basketball-hall-of-fame",
+  "status": "ok",
+  "raw": "THIS IS A PRINTABLE PASS. Admission pass will allow a total of six discounted admissions at current rates of: $20 per adult, ($17 per senior 65+) $15 per youth (ages 5 to 12) $17 per youth (ages 13 and up), children ages 4 and under are free Library pass must be presented at the time of admission.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 20
+    },
+    {
+      "audience": "Senior",
+      "age_range": {"min": 65, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 17
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": 5, "max": 12},
+      "count": null,
+      "form": "per-person-price",
+      "value": 15
+    },
+    {
+      "audience": "Youth",
+      "age_range": {"min": 13, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 17
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 4},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "a total of six discounted admissions",
+    "audience_policies[0].form": "$20 per adult",
+    "audience_policies[1].form": "$17 per senior 65+",
+    "audience_policies[1].age_range.min": "senior 65+",
+    "audience_policies[2].form": "$15 per youth (ages 5 to 12)",
+    "audience_policies[2].age_range.min": "ages 5 to 12",
+    "audience_policies[2].age_range.max": "ages 5 to 12",
+    "audience_policies[3].form": "$17 per youth (ages 13 and up)",
+    "audience_policies[3].age_range.min": "ages 13 and up",
+    "audience_policies[4].form": "children ages 4 and under are free",
+    "audience_policies[4].age_range.max": "ages 4 and under"
+  }
+}

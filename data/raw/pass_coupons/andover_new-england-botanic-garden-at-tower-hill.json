@@ -1,0 +1,29 @@
+{
+  "library_id": "andover",
+  "attraction_slug": "new-england-botanic-garden-at-tower-hill",
+  "status": "ok",
+  "raw": "Pick up and return pass to the library. Pass admits 2 people at 1/2 price. Online pre-reservations are no longer required for general admission visits. Online pre-registration tickets are still available for those that would like to purchase tickets in advance at www.towerhillbg.org/planyourvisit using access code LIBDI Pick up the library pass the day before your visit. You will need to show it AND your booked tickets upon arrival at the Garden.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "2 people",
+    "audience_policies[0].form": "1/2 price"
+  }
+}

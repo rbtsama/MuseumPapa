@@ -1,0 +1,29 @@
+{
+  "library_id": "malden",
+  "attraction_slug": "the-house-of-seven-gables",
+  "status": "ok",
+  "raw": "This coupon is valid for 50% off admission for up to four people for either the guided mansion tour or the grounds pass.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 4,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "50% off admission"
+  }
+}

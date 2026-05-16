@@ -1,0 +1,38 @@
+{
+  "library_id": "maynard",
+  "attraction_slug": "historic-new-england",
+  "status": "ok",
+  "raw": "One free coupon pass available per day. Each pass is good for two adults and anyone under the age of 18 living in the same household. Please check Historic New England website at www.historicnewengland.org for open days and hours. Please note that Historic New England encourages pre-booking for all tours and requires that the physical coupon pass be shown when you arrive for your tour.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "free",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "two adults",
+    "audience_policies[0].form": "One free coupon pass",
+    "audience_policies[1].form": "anyone under the age of 18",
+    "audience_policies[1].age_range.max": "under the age of 18"
+  }
+}

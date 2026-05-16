@@ -1,0 +1,26 @@
+{
+  "library_id": "bpl",
+  "attraction_slug": "sandwich-glass",
+  "status": "ok",
+  "raw": "The Sandwich Glass Museum is dedicated to the history of the town in which it is located, with a special emphasis on the glass that made it famous in the 19th century. Thirteen galleries display their collection of old and modern examples of glass objects, including roughly 6,000 pieces produced at the Boston & Sandwich Glass Company in the 1800s on the site where the museum sits today. In addition, the museum hosts live demonstrations of glass-blowing. There is a gift store on the premises, which includes work by local glass-blowers. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {}
+}

@@ -1,0 +1,38 @@
+{
+  "library_id": "cohasset",
+  "attraction_slug": "mfa",
+  "status": "ok",
+  "raw": "465 Huntington Avenue Boston, MA 02115 617-267-9300 Get Directions Updated 03/26/2026 Use promo code IP-1636144 to receive a discount on MFA tickets. Visit mfa.org/tickets . Use promo code IP-1636144 to receive a discount and select Library Pass Ticket. The ticket will be emailed to the patron. For visit dates beginning January 20, 2026, each promo code may be redeemed for up to two adult tickets ($15 each) and four youth tickets ($10 each). Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Yearâ€™s Day, Patriotsâ€™ Day, Fourth of July, Thanksgiving, and Christmas. Visit museum website for more information. Museum of Science Learn More",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 15
+    },
+    {
+      "audience": "Youth",
+      "age_range": null,
+      "count": 4,
+      "form": "per-person-price",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "up to two adult tickets",
+    "audience_policies[0].form": "$15 each",
+    "audience_policies[1].count": "four youth tickets",
+    "audience_policies[1].form": "$10 each"
+  }
+}

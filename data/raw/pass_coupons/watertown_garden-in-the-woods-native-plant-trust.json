@@ -1,0 +1,39 @@
+{
+  "library_id": "watertown",
+  "attraction_slug": "garden-in-the-woods-native-plant-trust",
+  "status": "ok",
+  "raw": "This pass discount provides half priced admission for 1 adult and $1 admission for children (5-17). This returnable pass must be picked up in person at the Library's Circulation desk and presented upon entry. Returnable passes must be returned to the library. Directions and information regarding the returnable pass use will be provided in your confirmation email.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 1,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 5, "max": 17},
+      "count": null,
+      "form": "per-person-price",
+      "value": 1
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "half priced admission for 1 adult",
+    "audience_policies[0].count": "1 adult",
+    "audience_policies[1].form": "$1 admission for children (5-17)",
+    "audience_policies[1].age_range.min": "5-17",
+    "audience_policies[1].age_range.max": "5-17"
+  }
+}

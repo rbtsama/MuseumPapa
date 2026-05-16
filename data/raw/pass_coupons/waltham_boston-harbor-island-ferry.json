@@ -1,0 +1,29 @@
+{
+  "library_id": "waltham",
+  "attraction_slug": "boston-harbor-island-ferry",
+  "status": "ok",
+  "raw": "A discount code will be emailed to you. This pass allows 50% off the ticket price for up to 4 people and does not have to be used on the date selected in the Library's pass system.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% off the ticket price"
+  }
+}

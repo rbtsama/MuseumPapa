@@ -1,0 +1,29 @@
+{
+  "library_id": "arlington",
+  "attraction_slug": "the-discovery-museums",
+  "status": "ok",
+  "raw": "Advance reservations are no longer required or accepted. This pass admits up to three (3) visitors at half-price admission. You will receive a coupon that you can present to staff on the day of your visit.",
+  "capacity": {
+    "kind": "people",
+    "n": 3
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "three (3) visitors",
+    "audience_policies[0].form": "half-price admission"
+  }
+}

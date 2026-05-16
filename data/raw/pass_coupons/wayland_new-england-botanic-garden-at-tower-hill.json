@@ -1,0 +1,29 @@
+{
+  "library_id": "wayland",
+  "attraction_slug": "new-england-botanic-garden-at-tower-hill",
+  "status": "ok",
+  "raw": "This is a laminated pass that must be picked up and returned to Wayland. Patrons may pick up their pass during the Library's open hours on the day before or the day of their visit. The pass must be returned by the day after its use. Each pass offers 2 people half price general admission. Discount not valid for special events such as Night Lights. The physical pass from the library must be shown at check-in. The Library Discount Pass is not an entry ticket to the Garden. For the most up-to-date information on New England Botanic Garden at Tower Hill's programs and hours, please visit their website.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "2 people",
+    "audience_policies[0].form": "half price general admission"
+  }
+}

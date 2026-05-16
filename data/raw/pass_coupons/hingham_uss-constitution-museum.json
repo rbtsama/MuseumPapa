@@ -1,0 +1,29 @@
+{
+  "library_id": "hingham",
+  "attraction_slug": "uss-constitution-museum",
+  "status": "ok",
+  "raw": "Building 22, Charlestown Navy Yard Charlestown, MA 02129 617-426-1812 Get Directions Visit museum website for more information. This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. Free admission for up to 9 visitors. Check Dates Zoo New England Learn More",
+  "capacity": {
+    "kind": "people",
+    "n": 9
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 9 visitors",
+    "audience_policies[0].form": "Free admission"
+  }
+}

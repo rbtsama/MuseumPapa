@@ -1,0 +1,37 @@
+{
+  "library_id": "wellesley",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "This pass gives you access to purchase the following discount: $9.00 per adult $6.00 per child For up to 6 tickets. Valid for general daytime admission to Franklin Park Zoo or Stone Zoo only. Please check for special zoo closures while making your reservation. try {var w = document.getElementsByClassName(\"warn\"); for( i=0;i",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 6
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 tickets",
+    "audience_policies[0].form": "$9.00 per adult",
+    "audience_policies[1].form": "$6.00 per child"
+  }
+}

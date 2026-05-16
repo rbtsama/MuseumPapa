@@ -1,0 +1,28 @@
+{
+  "library_id": "arlington",
+  "attraction_slug": "the-trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "This pass provides free admission to Trustees properties that charge an admission free, but many Trustees properties do not. Please visit https://thetrustees.org/places/ to find out more about how this pass applies to different properties. This pass is a physical coupon pass that you can pick up at the Robbins Library, but not the Fox branch. You will need to select a reservation date, but you can apply the coupon discount on any date that you decide to go.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "free admission to Trustees properties"
+  }
+}

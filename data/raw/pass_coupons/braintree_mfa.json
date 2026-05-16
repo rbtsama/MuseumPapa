@@ -1,0 +1,38 @@
+{
+  "library_id": "braintree",
+  "attraction_slug": "mfa",
+  "status": "ok",
+  "raw": "617-267-9300 Each pass is good for up to two adult tickets ($15 each) and four youth tickets ($10 each). After making your reservation you will receive a confirmation email containing a Promo Code which is redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Year's Day, Patriots' Day, Fourth of July, Thanksgiving, and Christmas. Annual Double Pass cost of $800.00 is provided by the Friends of Thayer Public Library. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 15
+    },
+    {
+      "audience": "Youth",
+      "age_range": null,
+      "count": 4,
+      "form": "per-person-price",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].count": "up to two adult tickets",
+    "audience_policies[0].form": "$15 each",
+    "audience_policies[1].count": "four youth tickets",
+    "audience_policies[1].form": "$10 each"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "library_id": "belmont",
+  "attraction_slug": "mass-audubon-drumlin-farm",
+  "status": "ok",
+  "raw": "To make the admission process contactless for patrons, we are issuing--at Mass Audubon's directive--single use, one day passes printed out on sheets of library letterhead (instead of the usual laminated passes). If you wish to visit sanctuaries that are using Mass Audubon's online ticketing system, you should request the pass several days in advance for the date you wish to visit, to increase the likelihood that tickets will still be available for that date. Mass Audubon does not guarantee access on any specific date/time if tickets are not available. The Mass Audubon Society pass admits up to four persons at one time (adults, seniors or children age two or older; children under two are admitted free) into any Mass Audubon wildlife sanctuary. The co-pay is $2 per person with the pass. The hours at Drumlin Farm are Tuesday-Sunday from 9 AM-5 PM. Other Audubon Society sites are open Tuesday-Sunday from sunrise to sunset.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 2, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 2
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four persons",
+    "audience_policies[0].form": "$2 per person",
+    "audience_policies[0].age_range.min": "children age two or older",
+    "audience_policies[1].age_range.max": "children under two",
+    "audience_policies[1].form": "admitted free"
+  }
+}

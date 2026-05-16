@@ -1,0 +1,28 @@
+{
+  "library_id": "wakefield",
+  "attraction_slug": "trustees-of-the-reservations",
+  "status": "ok",
+  "raw": "Pass admits 2 adults and children under 18. Prices vary by location.",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "Prices vary by location"
+  }
+}

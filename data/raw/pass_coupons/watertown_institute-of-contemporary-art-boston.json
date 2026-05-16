@@ -1,0 +1,29 @@
+{
+  "library_id": "watertown",
+  "attraction_slug": "institute-of-contemporary-art-boston",
+  "status": "ok",
+  "raw": "This pass discount provides $10 admission for up to 2 individuals. Advanced ticket reservations made in advance of visit are strongly encouraged on the museum's website. Directions and information regarding the digital pass use will be provided in your confirmation email.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 2 individuals",
+    "audience_policies[0].form": "$10 admission"
+  }
+}

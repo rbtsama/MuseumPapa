@@ -1,0 +1,29 @@
+{
+  "library_id": "melrose",
+  "attraction_slug": "harvard-museums-of-science-and-culture",
+  "status": "ok",
+  "raw": "The library's pass admits up to 4 people with a 50% discount off regular admission rates to all four HMSC museums. Full admission prices and hours vary by museum - please go to https://hmsc.harvard.edu/ for more information before your visit. The library pass does not guarantee admission on a chosen date. Alternative discounts are available for active military, SNAP, EIB, MA teachers, and MA residents with IDs.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 4,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% discount off regular admission rates"
+  }
+}

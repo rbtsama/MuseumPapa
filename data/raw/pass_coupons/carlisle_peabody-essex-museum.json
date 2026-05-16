@@ -1,0 +1,37 @@
+{
+  "library_id": "carlisle",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "Each pass admits a maximum of two adult visitors at a reduced admission fee of $12 per person any day the museum is open. Children under age 16 are admitted free. Admission to special ticketed exhibitions may require a separate fee.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 12
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 15},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "maximum of two adult visitors",
+    "audience_policies[0].form": "$12 per person",
+    "audience_policies[1].form": "Children under age 16 are admitted free"
+  }
+}

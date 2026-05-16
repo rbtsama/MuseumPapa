@@ -1,0 +1,38 @@
+{
+  "library_id": "sudbury",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "You may purchase up to six tickets at $9.00 adult tickets, and $6.00 child (2-12) tickets.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 2, "max": 12},
+      "count": null,
+      "form": "per-person-price",
+      "value": 6
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to six tickets",
+    "audience_policies[0].form": "$9.00 adult tickets",
+    "audience_policies[1].age_range": "child (2-12)",
+    "audience_policies[1].form": "$6.00 child (2-12) tickets"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "library_id": "bedford",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "The Isabella Stewart Gardner library pass allows you to get up to four tickets at $5 each. Children under the age of 18 are always admitted free. Your confirmation email provides a Promo Code (below barcode) needed to reserve your timed ticket with the Gardner Museum. PATRONS MUST PRESENT BOTH THE LIBRARY PASS AND THEIR RESERVED TIMED MUSEUM ADMISSION TICKETS FOR ENTRY INTO THE MUSUEM. Please plan ahead and make your reservation well in advance of your intended visit. When reserving Isabella Stewart Gardner Museum timed entry tickets online, you will: Go to https:/tnew.gardnermusuem.org/events Submit the promo code in the box at the top of the screen Select the visit date and time to enter Add desired number of tickets to the basket. The library pass allows you to get up to four tickets at $5 each (choose the Library Pass ticket type). Any additional tickets will be normally priced (Children under 18 are always free and should be reserved as child tickets) Login or create an account Finish checking out - discount is applied only at checkout THIS PASS IS VALID ONCE UNTIL 11/30/26 This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, call the Gardner Museum's Box Office at 617-278-5156. MUSUEM HOURS: WEEKDAYS 11 AM - 5 PM | WEEKENDS 10 AM - 5 PM | THURSDAYS 11 AM - 9 PM | CLOSED TUESDAYS The museum is closed on Thanksgiving, Christmas, New Year's Day, Patriot's Day and Independence Day.",
+  "capacity": {
+    "kind": "ticket",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to four tickets",
+    "audience_policies[0].form": "$5 each",
+    "audience_policies[1].age_range.max": "Children under the age of 18",
+    "audience_policies[1].form": "always admitted free",
+    "restrictions.reservation_required": "make your reservation well in advance"
+  }
+}

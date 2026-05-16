@@ -1,0 +1,29 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "boston-by-foot",
+  "status": "ok",
+  "raw": "The pass admits up to 4 people for free and is valid for all public walking tours. It is not valid for booking on the private tour calendar, water-based tours, or our two annual celebration tours (Beacon Hill with a BOO! & Footloose on the Freedom Trail). Please check the Boston by Foot website to make sure there are tickets available for your anticipated date and time before reserving the pass here.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "admits up to 4 people for free"
+  }
+}

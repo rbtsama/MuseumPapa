@@ -1,0 +1,29 @@
+{
+  "library_id": "newton",
+  "attraction_slug": "mass-audubon",
+  "status": "ok",
+  "raw": "Admits up to 4 people at $2.00 per person to any Mass Audubon Wildlife Sanctuary. This includes access to Drumlin Farm, both a working farm and wildlife sanctuary. MONDAYS: many paid sanctuaries are closed. Please check the hours of your intended destination before booking.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 2
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$2.00 per person"
+  }
+}

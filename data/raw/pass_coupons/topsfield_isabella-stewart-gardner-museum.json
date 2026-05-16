@@ -1,0 +1,39 @@
+{
+  "library_id": "topsfield",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "This pass is an online promo code; nothing needs to be picked up from the library . This pass allows up to 4 people to visit the Isabella Stewart Gardner Museum for $5.00 each . To reserve your tickets online, visit the following website: https://tnew.gardnermuseum.org/events . Enter the provided promo code (sent to your email address once pass is reserved) in the box at the top of the screen. Then, select visit date and time to enter. Add the desired number of tickets to the basket (note: discount only works for up to 4 Adult-priced tickets and any additional ticket will be normally priced). Children under 18 are always free and should be reserved as child tickets. Discount is applied only at checkout. Once you login and create an account with the Gardner Museum, you will be able to finish checking out. This library pass does not guarantee a reservation to the Museum. Please present your reserved timed museum admission tickets, and the email sent to confirm your pass reservation (either on your mobile device or printed), while checking in to visit the Isabella Stewart Gardner Museum.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$5.00 each",
+    "audience_policies[1].form": "Children under 18 are always free",
+    "audience_policies[1].age_range.max": "Children under 18",
+    "restrictions.reservation_required": "reserve your tickets online"
+  }
+}

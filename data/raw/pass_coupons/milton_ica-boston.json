@@ -1,0 +1,29 @@
+{
+  "library_id": "milton",
+  "attraction_slug": "ica-boston",
+  "status": "ok",
+  "raw": "617-478-3100 Library passes admit 2 people at $10 per person. 1. Patrons must first acquire a valid digital library pass at their participating library to receive this discount. 2. Purchase tickets online: https://www.icaboston.org/ Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admit 2 people",
+    "audience_policies[0].form": "$10 per person"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "library_id": "topsfield",
+  "attraction_slug": "north-shore-childrens-museum",
+  "status": "ok",
+  "raw": "North Shore Children's Museum, located in downtown Peabody, MA, resides in a former TD bank building. The unique space is composed of 15 hands-on exhibits geared towards explorative and imaginative play for children ages 2-8. Watch your child become a superhero in the Comic Room, a builder in the Gross Motor Room, an artist in the Makerspace, and so much more! In addition, NSCM hosts dozens of free programs each month, including yoga, Mini Movers, and live music. This is an ADA-accessible space. The reserved ePass pass allows for 50% off admission for a family of five (adults/children); it can either be presented on a mobile device or as a print-out to receive the discounted admission rate in-person. Passes will be emailed to reserving patrons, without the need to come to the library to pick up the pass! Please contact the library to reserve this pass if you do not have an email address. Due to the high volume of visitors during this popular month and upcoming months, we strongly encourage patrons to secure their passes in advance to guarantee their spots. This will help us manage ticket availability and ensure that everyone can enjoy their museum experience without any inconvenience. To purchase tickets online, visit https://www.nschildrensmuseum.org/visit/buy-tickets/ , click on \"Buy Tickets\" and select your preferred admission. Online Reservations: Patrons can reserve their museum passes through our online reservation system. This is the most efficient way to secure a spot. Phone Reservations: Patrons can also call us to hold their spots or check ticket availability for play sessions before visiting the North Shore Children's Museum. Your library pass will only be honored on the date you reserved. If the museum reaches capacity, visitors will be let in on a one in, one out basis.",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "a family of five",
+    "audience_policies[0].form": "50% off admission"
+  }
+}

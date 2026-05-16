@@ -1,0 +1,29 @@
+{
+  "library_id": "lexington",
+  "attraction_slug": "new-england-quilt-museum",
+  "status": "ok",
+  "raw": "Each coupon offers complimentary admission for two guests. Please check the website https://www.neqm.org/ for the most complete and updated information prior to your visit. THIS IS A COUPON PASS PASS DOES NOT NEED TO BE RETURNED",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 2,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "complimentary admission for two guests",
+    "audience_policies[0].form": "complimentary admission"
+  }
+}

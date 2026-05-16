@@ -1,0 +1,29 @@
+{
+  "library_id": "burlington",
+  "attraction_slug": "american-heritage-museum",
+  "status": "ok",
+  "raw": "This pass admits six visitors for half price to the American Heritage Museum. Valid on General Admission only. Cannot be used for special events or driving or ride experiences. The pass may also be used to receive $20 off a new Family Membership or $10 of a new Individual Membership. Advance tickets are strongly recommended by the museum. Please refer to the Museum website for hours and tickets: https://www.americanheritagemuseum.org/plan-your-visit/hours-admission/ Patrons must bring the library pass to the museum along with your tickets to be admitted with the discount. This pass can be picked up the day before (if available) or day of reservation. This pass must be returned to the library by opening the day after use.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "six visitors",
+    "audience_policies[0].form": "half price"
+  }
+}

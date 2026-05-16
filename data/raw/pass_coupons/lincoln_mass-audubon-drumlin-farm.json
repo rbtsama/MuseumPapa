@@ -1,0 +1,39 @@
+{
+  "library_id": "lincoln",
+  "attraction_slug": "mass-audubon-drumlin-farm",
+  "status": "ok",
+  "raw": "This one-day Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary including (but not limited to) Drumlin Farm. With this pass, admission is discounted to $2 per visitor over the age of 2. This pass is an e-voucher - there is nothing to pick up at the library. Please visit https://www.massaudubon.org/get-outdoors/wildlife-sanctuaries/trails for the latest information, including safety guidelines. Open hours and dates vary by sanctuary and some sites are open during some Monday holidays, so please contact Mass Audubon to confirm they are open before reserving the pass with the Library. Please note that Drumlin Farm is currently open Tuesday–Sunday, as well as many Monday holidays. Please check the website of the attraction you are interested in to confirm hours/schedule before planning your visit.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 3, "max": null},
+      "count": 4,
+      "form": "per-person-price",
+      "value": 2
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 2},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits up to 4 people",
+    "audience_policies[0].form": "$2 per visitor over the age of 2",
+    "audience_policies[0].age_range.min": "over the age of 2",
+    "audience_policies[1].form": "over the age of 2",
+    "audience_policies[1].age_range.max": "over the age of 2"
+  }
+}

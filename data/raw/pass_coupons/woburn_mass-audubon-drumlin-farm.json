@@ -1,0 +1,39 @@
+{
+  "library_id": "woburn",
+  "attraction_slug": "mass-audubon-drumlin-farm",
+  "status": "ok",
+  "raw": "Pass is valid for up to four persons at one time (adults, seniors or children age two or older; children under two are admitted free). Each person will be charged a $2.00 admission fee for entry into any Mass Audubon wildlife sanctuary. Patron must pick up the paper museum pass, but it does not need to be returned. Valid only for the date on the pass. Valid during normal hours of operation, with the exception of occasional, special fundraising days. **Consult Mass Audubon directly to confirm each sanctuary's hours.** General Information: 781-259-2200 www.massaudubon.org Mass Audubon Information * Funded by the Friends of the WPL",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 2, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 2
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four persons",
+    "audience_policies[0].form": "$2.00 admission fee",
+    "audience_policies[0].age_range.min": "age two or older",
+    "audience_policies[1].form": "children under two are admitted free",
+    "audience_policies[1].age_range.max": "under two"
+  }
+}

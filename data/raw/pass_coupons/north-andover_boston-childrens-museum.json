@@ -1,0 +1,30 @@
+{
+  "library_id": "north-andover",
+  "attraction_slug": "boston-childrens-museum",
+  "status": "ok",
+  "raw": "Admits up to 4 (adults or children) at half price per person. After receiving a library discount pass (date-specific to your visit), you must reserve a visit online with Boston Children's Museum. Due to safety measures, walk-ins are not allowed. Museum capacity is limited at this time.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4",
+    "audience_policies[0].form": "half price per person",
+    "restrictions.reservation_required": "you must reserve a visit online"
+  }
+}

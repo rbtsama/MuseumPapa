@@ -1,0 +1,38 @@
+{
+  "library_id": "chelsea",
+  "attraction_slug": "isabella-stewart-gardner-museum",
+  "status": "ok",
+  "raw": "Admits up to 4 people at $5 admission per person. Children under the age of 18 are always admitted for free. In addition to presenting your coupon at the museum, you must reserve your tickets online at https://tnew.gardnermuseum.org/events Pass does not guarantee entry.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 17},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$5 admission per person",
+    "audience_policies[1].form": "Children under the age of 18 are always admitted for free",
+    "restrictions.reservation_required": "must reserve your tickets online"
+  }
+}

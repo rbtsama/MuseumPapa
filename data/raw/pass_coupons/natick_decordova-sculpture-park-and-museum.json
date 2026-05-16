@@ -1,0 +1,39 @@
+{
+  "library_id": "natick",
+  "attraction_slug": "decordova-sculpture-park-and-museum",
+  "status": "ok",
+  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Free admission for up to 2 adults and 2 children. Additional instructions: - Pre-registration is recommended. Visit the Trustees of Reservations website to reserve. -Select the GO Pass ticket option when purchasing your tickets. You must still bring your paper pass. Please note: deCordova has temporarily suspended indoor art exhibitions starting March 13, 2023, for upgrades expected to take two to three years. All other events, programs, and activities will continue as planned. For more information, click here .",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "free",
+      "value": null
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": 2,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 2 adults and 2 children",
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[0].form": "Free admission",
+    "audience_policies[1].count": "2 children",
+    "audience_policies[1].form": "Free admission"
+  }
+}

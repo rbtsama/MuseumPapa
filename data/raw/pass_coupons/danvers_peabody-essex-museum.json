@@ -1,0 +1,29 @@
+{
+  "library_id": "danvers",
+  "attraction_slug": "peabody-essex-museum",
+  "status": "ok",
+  "raw": "Pass admits 2 people for $12 per person for general admission only. Reservations for your ticket may be made in advance by calling the museum or by going to pem.org/tickets Yin Yu Tang Chinese House and other special exhibits require additional admission fees. This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have made a reservation.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 2 people",
+    "audience_policies[0].form": "$12 per person"
+  }
+}

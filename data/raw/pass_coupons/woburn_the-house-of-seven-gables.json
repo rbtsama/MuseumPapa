@@ -1,0 +1,29 @@
+{
+  "library_id": "woburn",
+  "attraction_slug": "the-house-of-seven-gables",
+  "status": "ok",
+  "raw": "Each one-use library pass gives patrons 50% off admission for up to four (4) people. There is a code on each pass which patrons can use on our website to reserve their tickets (pass discount can be used on either the Guided Tour Package or Grounds Pass). It is highly suggested to purchase tickets in advance. Patrons are required to bring this library pass to the museum when they check in at the admissions desk for their visit. Funded by Friends of the WPL.",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four (4) people",
+    "audience_policies[0].form": "50% off admission"
+  }
+}

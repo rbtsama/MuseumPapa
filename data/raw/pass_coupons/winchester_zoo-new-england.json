@@ -1,0 +1,46 @@
+{
+  "library_id": "winchester",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "Pass admits 6 people with a $9 charge per adult, and a $6 charge per child. Children under age 2 are admitted for free. Coupons can be used at both the Stone Zoo and the Franklin Park Zoo. (Stone Zoo Zoolights and Franklin Park Boston Lights not included). Pick up passes at the Information Services Desk at the library. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 2, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 6
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "admits 6 people",
+    "audience_policies[0].form": "$9 charge per adult",
+    "audience_policies[1].form": "$6 charge per child",
+    "audience_policies[2].form": "Children under age 2 are admitted for free",
+    "audience_policies[2].age_range.max": "under age 2"
+  }
+}

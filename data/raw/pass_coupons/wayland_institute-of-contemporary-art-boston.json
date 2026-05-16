@@ -1,0 +1,29 @@
+{
+  "library_id": "wayland",
+  "attraction_slug": "institute-of-contemporary-art-boston",
+  "status": "ok",
+  "raw": "This is an e-voucher . Pass is e-mailed to the patron. This library pass entitles you to up to two tickets for Gallery Admission at the discounted Library Pass price of $10 per ticket. Library Passes are not valid for performances, events, or films. This library pass is not a museum admission ticket. After reserving your library pass, follow the emailed instructions on how to reserve your free Gallery Admission tickets.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 10
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to two tickets",
+    "audience_policies[0].form": "$10 per ticket"
+  }
+}

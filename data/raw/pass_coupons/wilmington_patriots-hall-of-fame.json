@@ -1,0 +1,29 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "patriots-hall-of-fame",
+  "status": "ok",
+  "raw": "The pass admits up to two people for free. The hall is open daily from 10 am to 5 pm. But be sure to check their site for early closings before you make the reservation here. The pass also give you a 15% discount at in-store purchases at the Pro Shop as well as 20% discount on Hall special ticketed events.",
+  "capacity": {
+    "kind": "people",
+    "n": 2
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to two people",
+    "audience_policies[0].form": "admits up to two people for free"
+  }
+}

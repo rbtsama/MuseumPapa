@@ -1,0 +1,48 @@
+{
+  "library_id": "wayland",
+  "attraction_slug": "ecotarium",
+  "status": "ok",
+  "raw": "This is a paper coupon that must be picked up at the Wayland Library during the library's open hours no more than 1 week before its use date. It does not need to be returned. Each coupon admits up to 2 adults and 2 children in one vehicle at 50% off admission. Children under 2 are always free. When using the Library Pass discount, tickets cannot be reserved online - tickets must be purchased in person. These coupons do not cover the cost for tickets to the Alden Planetarium, the Explorer Express Train, or other special ticketed events. For the most up-to-date information on museum programs and hours, please visit their website.",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": 2, "max": null},
+      "count": 2,
+      "form": "percent-off",
+      "value": 50
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.kind": "in one vehicle",
+    "audience_policies[0].form": "50% off admission",
+    "audience_policies[0].count": "2 adults",
+    "audience_policies[1].form": "50% off admission",
+    "audience_policies[1].count": "2 children",
+    "audience_policies[2].form": "Children under 2 are always free",
+    "audience_policies[2].age_range.max": "Children under 2"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "library_id": "wilmington",
+  "attraction_slug": "mass-audubon-drumlin-farm",
+  "status": "ok",
+  "raw": "Pass admits up to 4 people at $2 per person (children under two are admitted free) Hours of operation vary by sanctuary. Visitors must reserve their parking spot at Drumlin Farm to ensure access on weekends when they reach capacity. Check the their website for guidelines and updates before reserving this pass. Funded by the Community Fund",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": {"min": 2, "max": null},
+      "count": null,
+      "form": "per-person-price",
+      "value": 2
+    },
+    {
+      "audience": "Child",
+      "age_range": {"min": null, "max": 1},
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "$2 per person",
+    "audience_policies[1].form": "children under two are admitted free",
+    "audience_policies[1].age_range.max": "under two"
+  }
+}

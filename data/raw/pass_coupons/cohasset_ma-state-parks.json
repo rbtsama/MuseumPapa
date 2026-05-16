@@ -1,0 +1,28 @@
+{
+  "library_id": "cohasset",
+  "attraction_slug": "ma-state-parks",
+  "status": "ok",
+  "raw": "251 Causeway Street, Suite 900 Boston, MA 02114 617-626-1250 Get Directions Free parking for most State parks including Nantasket Beach. Visit museum website for more information. Museum of Fine Arts Boston Learn More",
+  "capacity": {
+    "kind": "vehicle",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "Free parking for most State parks"
+  }
+}

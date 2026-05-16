@@ -1,0 +1,28 @@
+{
+  "library_id": "topsfield",
+  "attraction_slug": "the-childrens-piazza",
+  "status": "ok",
+  "raw": "The pass to the Children's Piazza provides 50% off admission for one family/same household per day. The pass does not cover members of the group who are not immediate family/household. The email confirmation sent to you serves as your discount pass. Please present this pass (either printed or on your mobile device) upon entry to the Children's Piazza. Pass is only valid on date reserved. Reservations always recommended ! Pass donated by the the Friends of the Topsfield Library; funded in part by a generous grant from the Institution for Savings. The email confirmation sent to you serves as your discount pass. Please present this pass (either printed or on your mobile device) upon entry to the Children's Piazza. Pass is only valid on date reserved .",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "50% off admission"
+  }
+}

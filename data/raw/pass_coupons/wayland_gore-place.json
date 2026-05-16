@@ -1,0 +1,38 @@
+{
+  "library_id": "wayland",
+  "attraction_slug": "gore-place",
+  "status": "ok",
+  "raw": "This is an e-voucher . Coupon is emailed to the patron. Only Valid for the Reserved Date of Visit. This coupon is good for: - Daytime Mansion Tour admission for two adults at $5 per person, and two children free (regularly $16 per adult and $11 for children ages 6-16). Mansion tours are offered Monday, Wednesday, Friday, and Saturdays. -One Take-a-Walk bag rental at $2/hr (regularly $5). Take-a-Walk bags for youth ages 4 and up contain outdoor seasonal activities for up to two children and are available Monday-Saturday. -Story Time for two children at $5 per child, and an accompanying adult free. Please note: The Mansion Tour coupon is good for daytime Mansion tours only and may not be used during evening or special themed tours or during special events such as the Sheep Shearing Festival at Gore Place. Days and times are subject to change, so it is best for visitors to consult the museum website when planning your visit. Event and holiday closings as well as school vacation hours are all listed on goreplace.org/whats-on .",
+  "capacity": {
+    "kind": "people",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": 2,
+      "form": "per-person-price",
+      "value": 5
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": 2,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "audience_policies[0].form": "$5 per person",
+    "audience_policies[0].count": "two adults",
+    "audience_policies[1].form": "two children free",
+    "audience_policies[1].count": "two children"
+  }
+}

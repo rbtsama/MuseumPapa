@@ -1,0 +1,28 @@
+{
+  "library_id": "brookline",
+  "attraction_slug": "hale-education",
+  "status": "ok",
+  "raw": "(781) 326-1770 Hale Reservation's ponds, trails, plants, animals, birds, fish, and insects spark curiosity. Lifelong learners enjoy limitless opportunities for growth and discovery here, whether they're overcoming a fear of heights on the challenge course or spying a family of deer along a trail. This pass must be reserved through the library's online catalog . The pass must be picked up and returned to the library's Brookline Village location. No passes are available at this time.",
+  "capacity": {
+    "kind": "unspecified",
+    "n": null
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "discount",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "restrictions.reservation_required": "must be reserved through the library's online catalog"
+  }
+}

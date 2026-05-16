@@ -1,0 +1,29 @@
+{
+  "library_id": "carlisle",
+  "attraction_slug": "the-uss-constitution-museum",
+  "status": "ok",
+  "raw": "Admission to the USS Constitution Museum is on a first-come, first served basis. USS Constitution ship has limited hours. Please check website for open days. Each pass admits up to 5 people for free. For Museum questions, visit their website (ussconstitutionmuseum.org/visit) or call 617-426-1812",
+  "capacity": {
+    "kind": "people",
+    "n": 5
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "free",
+      "value": null
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 5 people",
+    "audience_policies[0].form": "for free"
+  }
+}

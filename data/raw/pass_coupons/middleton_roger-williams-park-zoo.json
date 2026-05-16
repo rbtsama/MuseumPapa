@@ -1,0 +1,29 @@
+{
+  "library_id": "middleton",
+  "attraction_slug": "roger-williams-park-zoo",
+  "status": "ok",
+  "raw": "These discount codes can be redeemed online, or in-person. The discount saves $5 off each paid ticket for up to 4 tickets.",
+  "capacity": {
+    "kind": "ticket",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": 4,
+      "form": "dollar-off",
+      "value": 5
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 tickets",
+    "audience_policies[0].form": "$5 off each paid ticket"
+  }
+}
