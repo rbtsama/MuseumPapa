@@ -1,0 +1,1481 @@
+{
+  "_meta": {
+    "built_at": "2026-05-16T15:32:48Z",
+    "n_branches": 92,
+    "n_multi_branch_libs": 3
+  },
+  "branches": [
+    {
+      "id": "wakefield--main",
+      "name": "Lucius Beebe Memorial Library",
+      "parent_lib_id": "wakefield",
+      "address": {
+        "street": "345 Main Street",
+        "city": "Wakefield",
+        "state": "MA",
+        "zip": "01880"
+      },
+      "geo": {
+        "lat": 42.5045951,
+        "lon": -71.071918
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "stoneham--main",
+      "name": "Stoneham Public Library",
+      "parent_lib_id": "stoneham",
+      "address": {
+        "street": "431 Main Street",
+        "city": "Stoneham",
+        "state": "MA",
+        "zip": "02180"
+      },
+      "geo": {
+        "lat": 42.4779077,
+        "lon": -71.1006445
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "reading--main",
+      "name": "Reading Public Library",
+      "parent_lib_id": "reading",
+      "address": {
+        "street": "64 Middlesex Avenue",
+        "city": "Reading",
+        "state": "MA",
+        "zip": "01867"
+      },
+      "geo": {
+        "lat": 42.5260974,
+        "lon": -71.1101767
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "woburn--main",
+      "name": "Woburn Public Library",
+      "parent_lib_id": "woburn",
+      "address": {
+        "street": "45 Pleasant Street",
+        "city": "Woburn",
+        "state": "MA",
+        "zip": "01801"
+      },
+      "geo": {
+        "lat": 42.4793008,
+        "lon": -71.1545179
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "lynnfield--main",
+      "name": "Lynnfield Public Library",
+      "parent_lib_id": "lynnfield",
+      "address": {
+        "street": "18 Summer St",
+        "city": "Lynnfield",
+        "state": "MA",
+        "zip": "01940"
+      },
+      "geo": {
+        "lat": 42.5392872,
+        "lon": -71.0477596
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "peabody--main",
+      "name": "Peabody Institute Library",
+      "parent_lib_id": "peabody",
+      "address": {
+        "street": "82 Main Street",
+        "city": "Peabody",
+        "state": "MA",
+        "zip": "01960"
+      },
+      "geo": {
+        "lat": 42.5249222,
+        "lon": -70.9242115
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "melrose--main",
+      "name": "Melrose Public Library",
+      "parent_lib_id": "melrose",
+      "address": {
+        "street": "69 West Emerson Street",
+        "city": "Melrose",
+        "state": "MA",
+        "zip": "02176"
+      },
+      "geo": {
+        "lat": 42.4592463,
+        "lon": -71.0665931
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "saugus--main",
+      "name": "Saugus Public Library",
+      "parent_lib_id": "saugus",
+      "address": {
+        "street": "295 Central Street",
+        "city": "Saugus",
+        "state": "MA",
+        "zip": "01906"
+      },
+      "geo": {
+        "lat": 42.4653264,
+        "lon": -71.0101808
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "malden--main",
+      "name": "Malden Public Library",
+      "parent_lib_id": "malden",
+      "address": {
+        "street": "36 Salem St.",
+        "city": "Malden",
+        "state": "MA",
+        "zip": "02148"
+      },
+      "geo": {
+        "lat": 42.4276751,
+        "lon": -71.0660775
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "medford--main",
+      "name": "Medford Public Library",
+      "parent_lib_id": "medford",
+      "address": {
+        "street": "111 High Street",
+        "city": "Medford",
+        "state": "MA",
+        "zip": "02155"
+      },
+      "geo": {
+        "lat": 42.4197301,
+        "lon": -71.1135494
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "burlington--main",
+      "name": "Burlington Public Library",
+      "parent_lib_id": "burlington",
+      "address": {
+        "street": "29 Center Street",
+        "city": "Burlington",
+        "state": "MA",
+        "zip": "01803"
+      },
+      "geo": {
+        "lat": 42.5061899,
+        "lon": -71.1938589
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "north-reading--main",
+      "name": "Flint Memorial Library",
+      "parent_lib_id": "north-reading",
+      "address": {
+        "street": "147 Park Street",
+        "city": "North Reading",
+        "state": "MA",
+        "zip": "01864"
+      },
+      "geo": {
+        "lat": 42.5746953,
+        "lon": -71.07628
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "wilmington--main",
+      "name": "Wilmington Memorial Library",
+      "parent_lib_id": "wilmington",
+      "address": {
+        "street": "175 Middlesex Ave.",
+        "city": "Wilmington",
+        "state": "MA",
+        "zip": "01887"
+      },
+      "geo": {
+        "lat": 42.5575285,
+        "lon": -71.1640026
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "winchester--main",
+      "name": "Winchester Public Library",
+      "parent_lib_id": "winchester",
+      "address": {
+        "street": "80 Washington Street",
+        "city": "Winchester",
+        "state": "MA",
+        "zip": "01890"
+      },
+      "geo": {
+        "lat": 42.4523015,
+        "lon": -71.1341417
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--adams-street",
+      "name": "Adams Street",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "690 Adams Street",
+        "city": "Dorchester",
+        "state": "MA",
+        "zip": "02122"
+      },
+      "geo": {
+        "lat": 42.2862449,
+        "lon": -71.0543931
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--brighton",
+      "name": "Brighton",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "40 Academy Hill Rd",
+        "city": "Brighton",
+        "state": "MA",
+        "zip": "02135"
+      },
+      "geo": {
+        "lat": 42.347559,
+        "lon": -71.1526263
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--central-library-in-copley-square",
+      "name": "Central Library in Copley Square",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "700 Boylston Street",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02116"
+      },
+      "geo": {
+        "lat": 42.3493298,
+        "lon": -71.0786547
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--charlestown",
+      "name": "Charlestown",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "179 Main St",
+        "city": "Charlestown",
+        "state": "MA",
+        "zip": "02129"
+      },
+      "geo": {
+        "lat": 42.375776,
+        "lon": -71.0646208
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--chinatown",
+      "name": "Chinatown",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "2 Boylston Street",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02116"
+      },
+      "geo": {
+        "lat": 42.3520843,
+        "lon": -71.0631338
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--codman-square",
+      "name": "Codman Square",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "690 Washington St",
+        "city": "Dorchester",
+        "state": "MA",
+        "zip": "02124"
+      },
+      "geo": {
+        "lat": 42.2877145,
+        "lon": -71.070848
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--connolly",
+      "name": "Connolly",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "433 Centre St",
+        "city": "Jamaica Plain",
+        "state": "MA",
+        "zip": "02130"
+      },
+      "geo": {
+        "lat": 42.3206515,
+        "lon": -71.1110858
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--east-boston",
+      "name": "East Boston",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "365 Bremen St",
+        "city": "East Boston",
+        "state": "MA",
+        "zip": "02128"
+      },
+      "geo": {
+        "lat": 42.3777815,
+        "lon": -71.0280956
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--egleston-square",
+      "name": "Egleston Square",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "2044 Columbus Ave",
+        "city": "Roxbury",
+        "state": "MA",
+        "zip": "02119"
+      },
+      "geo": {
+        "lat": 42.3141061,
+        "lon": -71.0957166
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--faneuil",
+      "name": "Faneuil",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "419 Faneuil St",
+        "city": "Brighton",
+        "state": "MA",
+        "zip": "02135"
+      },
+      "geo": {
+        "lat": 42.3513286,
+        "lon": -71.1678718
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--fields-corner",
+      "name": "Fields Corner",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "1520 Dorchester Ave",
+        "city": "Dorchester",
+        "state": "MA",
+        "zip": "02122"
+      },
+      "geo": {
+        "lat": 42.2988842,
+        "lon": -71.0603971
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--grove-hall",
+      "name": "Grove Hall",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "41 Geneva Ave",
+        "city": "Dorchester",
+        "state": "MA",
+        "zip": "02121"
+      },
+      "geo": {
+        "lat": 42.308334,
+        "lon": -71.0822078
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--honan-allston",
+      "name": "Honan-Allston",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "300 North Harvard St",
+        "city": "Allston",
+        "state": "MA",
+        "zip": "02134"
+      },
+      "geo": {
+        "lat": 42.3601192,
+        "lon": -71.1277246
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--hyde-park",
+      "name": "Hyde Park",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "35 Harvard Ave",
+        "city": "Hyde Park",
+        "state": "MA",
+        "zip": "02136"
+      },
+      "geo": {
+        "lat": 42.25687,
+        "lon": -71.122235
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--jamaica-plain",
+      "name": "Jamaica Plain",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "30 South Street",
+        "city": "Jamaica Plain",
+        "state": "MA",
+        "zip": "02130"
+      },
+      "geo": {
+        "lat": 42.3086446,
+        "lon": -71.1149102
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--lower-mills",
+      "name": "Lower Mills",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "27 Richmond St",
+        "city": "Dorchester",
+        "state": "MA",
+        "zip": "02124"
+      },
+      "geo": {
+        "lat": 42.2734799,
+        "lon": -71.0684875
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--mattapan",
+      "name": "Mattapan",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "1350 Blue Hill Ave",
+        "city": "Mattapan",
+        "state": "MA",
+        "zip": "02126"
+      },
+      "geo": {
+        "lat": 42.277345,
+        "lon": -71.0930048
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--north-end",
+      "name": "North End",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "25 Parmenter St",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02113"
+      },
+      "geo": {
+        "lat": 42.3640992,
+        "lon": -71.0549216
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--parker-hill",
+      "name": "Parker Hill",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "1497 Tremont St",
+        "city": "Roxbury",
+        "state": "MA",
+        "zip": "02120"
+      },
+      "geo": {
+        "lat": 42.3316942,
+        "lon": -71.0943203
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--roslindale",
+      "name": "Roslindale",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "4246 Washington St",
+        "city": "Roslindale",
+        "state": "MA",
+        "zip": "02131"
+      },
+      "geo": {
+        "lat": 42.2856452,
+        "lon": -71.1286097
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--shaw-roxbury",
+      "name": "Shaw-Roxbury",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "149 Dudley Street",
+        "city": "Roxbury",
+        "state": "MA",
+        "zip": "02119"
+      },
+      "geo": {
+        "lat": 42.3280581,
+        "lon": -71.0836027
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--south-boston",
+      "name": "South Boston",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "646 East Broadway",
+        "city": "South Boston",
+        "state": "MA",
+        "zip": "02127"
+      },
+      "geo": {
+        "lat": 42.3358744,
+        "lon": -71.0387246
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--south-end",
+      "name": "South End",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "685 Tremont St",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02118"
+      },
+      "geo": {
+        "lat": 42.3413995,
+        "lon": -71.0769618
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--uphams-corner",
+      "name": "Uphams Corner",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "500 Columbia Rd",
+        "city": "Dorchester",
+        "state": "MA",
+        "zip": "02125"
+      },
+      "geo": {
+        "lat": 42.314814,
+        "lon": -71.0676285
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--west-end",
+      "name": "West End",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "151 Cambridge St",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02114"
+      },
+      "geo": {
+        "lat": 42.3615437,
+        "lon": -71.0650037
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bpl--west-roxbury",
+      "name": "West Roxbury",
+      "parent_lib_id": "bpl",
+      "address": {
+        "street": "1961 Centre St",
+        "city": "West Roxbury",
+        "state": "MA",
+        "zip": "02132"
+      },
+      "geo": {
+        "lat": 42.2835214,
+        "lon": -71.1573821
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "beverly--main",
+      "name": "Beverly Public Library",
+      "parent_lib_id": "beverly",
+      "address": {
+        "street": "32 Essex Street",
+        "city": "Beverly",
+        "state": "MA",
+        "zip": "01915"
+      },
+      "geo": {
+        "lat": 42.5509176,
+        "lon": -70.8766929
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "danvers--main",
+      "name": "Peabody Institute Library of Danvers",
+      "parent_lib_id": "danvers",
+      "address": {
+        "street": "15 Sylvan Street",
+        "city": "Danvers",
+        "state": "MA",
+        "zip": "01923"
+      },
+      "geo": {
+        "lat": 42.5616613,
+        "lon": -70.9410042
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "lynn--main",
+      "name": "Lynn Public Library",
+      "parent_lib_id": "lynn",
+      "address": {
+        "street": "5 North Common St.",
+        "city": "Lynn",
+        "state": "MA",
+        "zip": "01902"
+      },
+      "geo": {
+        "lat": 42.4644621,
+        "lon": -70.9536275
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "marblehead--main",
+      "name": "Abbot Public Library",
+      "parent_lib_id": "marblehead",
+      "address": {
+        "street": "235 Pleasant Street",
+        "city": "Marblehead",
+        "state": "MA",
+        "zip": "01945"
+      },
+      "geo": {
+        "lat": 42.4964016,
+        "lon": -70.8632383
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "everett--main",
+      "name": "Everett Public Libraries",
+      "parent_lib_id": "everett",
+      "address": {
+        "street": "410 Broadway",
+        "city": "Everett",
+        "state": "MA",
+        "zip": "02149"
+      },
+      "geo": {
+        "lat": 42.4060155,
+        "lon": -71.0568179
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "chelsea--main",
+      "name": "Chelsea Public Library",
+      "parent_lib_id": "chelsea",
+      "address": {
+        "street": "569 Broadway",
+        "city": "Chelsea",
+        "state": "MA",
+        "zip": "02150"
+      },
+      "geo": {
+        "lat": 42.393559,
+        "lon": -71.0320598
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "billerica--main",
+      "name": "Billerica Public Library",
+      "parent_lib_id": "billerica",
+      "address": {
+        "street": "15 Concord Road",
+        "city": "Billerica",
+        "state": "MA",
+        "zip": "01821"
+      },
+      "geo": {
+        "lat": 42.5583785,
+        "lon": -71.2699681
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "topsfield--main",
+      "name": "Topsfield Town Library",
+      "parent_lib_id": "topsfield",
+      "address": {
+        "street": "1 South Common Street",
+        "city": "Topsfield",
+        "state": "MA",
+        "zip": "01983"
+      },
+      "geo": {
+        "lat": 42.6409094,
+        "lon": -70.949669
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "boxford--main",
+      "name": "Boxford Town Library",
+      "parent_lib_id": "boxford",
+      "address": {
+        "street": "7A Spofford Road",
+        "city": "Boxford",
+        "state": "MA",
+        "zip": "01921"
+      },
+      "geo": {
+        "lat": 42.6941048,
+        "lon": -71.0145511
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "tewksbury--main",
+      "name": "Tewksbury Public Library",
+      "parent_lib_id": "tewksbury",
+      "address": {
+        "street": "300 Chandler Street",
+        "city": "Tewksbury",
+        "state": "MA",
+        "zip": "01876"
+      },
+      "geo": {
+        "lat": 42.6067193,
+        "lon": -71.2252445
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "chelmsford--main",
+      "name": "Chelmsford Public Library",
+      "parent_lib_id": "chelmsford",
+      "address": {
+        "street": "25 Boston Road",
+        "city": "Chelmsford",
+        "state": "MA",
+        "zip": "01824"
+      },
+      "geo": {
+        "lat": 42.5940049,
+        "lon": -71.3521057
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "haverhill--main",
+      "name": "Haverhill Public Library",
+      "parent_lib_id": "haverhill",
+      "address": {
+        "street": "99 Main Street",
+        "city": "Haverhill",
+        "state": "MA",
+        "zip": "01830"
+      },
+      "geo": {
+        "lat": 42.7772317,
+        "lon": -71.0767573
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "lawrence--main",
+      "name": "Lawrence Public Library",
+      "parent_lib_id": "lawrence",
+      "address": {
+        "street": "51 Lawrence Street",
+        "city": "Lawrence",
+        "state": "MA",
+        "zip": "01841"
+      },
+      "geo": {
+        "lat": 42.7107211,
+        "lon": -71.1622146
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "methuen--main",
+      "name": "Nevins Memorial Library",
+      "parent_lib_id": "methuen",
+      "address": {
+        "street": "305 Broadway",
+        "city": "Methuen",
+        "state": "MA",
+        "zip": "01844"
+      },
+      "geo": {
+        "lat": 42.7303934,
+        "lon": -71.1890986
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "andover--main",
+      "name": "Memorial Hall Library",
+      "parent_lib_id": "andover",
+      "address": {
+        "street": "2 North Main Street",
+        "city": "Andover",
+        "state": "MA",
+        "zip": "01810"
+      },
+      "geo": {
+        "lat": 42.656828,
+        "lon": -71.1414112
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "north-andover--main",
+      "name": "Stevens Memorial Library",
+      "parent_lib_id": "north-andover",
+      "address": {
+        "street": "345 Main Street",
+        "city": "North Andover",
+        "state": "MA",
+        "zip": "01845"
+      },
+      "geo": {
+        "lat": 42.6962001,
+        "lon": -71.1263051
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "middleton--main",
+      "name": "Flint Public Library",
+      "parent_lib_id": "middleton",
+      "address": {
+        "street": "1 South Main St.",
+        "city": "Middleton",
+        "state": "MA",
+        "zip": "01949"
+      },
+      "geo": {
+        "lat": 42.594723,
+        "lon": -71.0161341
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "arlington--main",
+      "name": "Robbins Library",
+      "parent_lib_id": "arlington",
+      "address": {
+        "street": "700 Massachusetts Avenue",
+        "city": "Arlington",
+        "state": "MA",
+        "zip": "02476"
+      },
+      "geo": {
+        "lat": 42.41623,
+        "lon": -71.157052
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "newton--main",
+      "name": "Newton Free Library",
+      "parent_lib_id": "newton",
+      "address": {
+        "street": "330 Homer Street",
+        "city": "Newton",
+        "state": "MA",
+        "zip": "02459"
+      },
+      "geo": {
+        "lat": 42.3359129,
+        "lon": -71.2078175
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "lincoln--main",
+      "name": "Lincoln Public Library",
+      "parent_lib_id": "lincoln",
+      "address": {
+        "street": "3 Bedford Road",
+        "city": "Lincoln",
+        "state": "MA",
+        "zip": "01773"
+      },
+      "geo": {
+        "lat": 42.4260627,
+        "lon": -71.3030615
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "acton--main",
+      "name": "Acton Memorial Library",
+      "parent_lib_id": "acton",
+      "address": {
+        "street": "486 Main Street",
+        "city": "Acton",
+        "state": "MA",
+        "zip": "01720"
+      },
+      "geo": {
+        "lat": 42.4866602,
+        "lon": -71.43342
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "framingham--main",
+      "name": "Framingham Public Library",
+      "parent_lib_id": "framingham",
+      "address": {
+        "street": "49 Lexington Street",
+        "city": "Framingham",
+        "state": "MA",
+        "zip": "01702"
+      },
+      "geo": {
+        "lat": 42.2819343,
+        "lon": -71.4167413
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "maynard--main",
+      "name": "Maynard Public Library",
+      "parent_lib_id": "maynard",
+      "address": {
+        "street": "77 Nason Street",
+        "city": "Maynard",
+        "state": "MA",
+        "zip": "01754"
+      },
+      "geo": {
+        "lat": 42.4342628,
+        "lon": -71.4520731
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "carlisle--main",
+      "name": "Gleason Public Library",
+      "parent_lib_id": "carlisle",
+      "address": {
+        "street": "22 Bedford Road",
+        "city": "Carlisle",
+        "state": "MA",
+        "zip": "01741"
+      },
+      "geo": {
+        "lat": 42.528797,
+        "lon": -71.3481427
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "wayland--main",
+      "name": "Wayland Free Public Library",
+      "parent_lib_id": "wayland",
+      "address": {
+        "street": "5 Concord Rd",
+        "city": "Wayland",
+        "state": "MA",
+        "zip": "01778"
+      },
+      "geo": {
+        "lat": 42.3651526,
+        "lon": -71.3608951
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "weston--main",
+      "name": "Weston Public Library",
+      "parent_lib_id": "weston",
+      "address": {
+        "street": "87 School Street",
+        "city": "Weston",
+        "state": "MA",
+        "zip": "02493"
+      },
+      "geo": {
+        "lat": 42.3621029,
+        "lon": -71.294617
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "sudbury--main",
+      "name": "Goodnow Library",
+      "parent_lib_id": "sudbury",
+      "address": {
+        "street": "21 Concord Road",
+        "city": "Sudbury",
+        "state": "MA",
+        "zip": "01776"
+      },
+      "geo": {
+        "lat": 42.3632821,
+        "lon": -71.4169226
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "belmont--main",
+      "name": "Belmont Public Library",
+      "parent_lib_id": "belmont",
+      "address": {
+        "street": "336 Concord Avenue",
+        "city": "Belmont",
+        "state": "MA",
+        "zip": "02478"
+      },
+      "geo": {
+        "lat": 42.3946196,
+        "lon": -71.1722221
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "lexington--main",
+      "name": "Cary Memorial Library",
+      "parent_lib_id": "lexington",
+      "address": {
+        "street": "1874 Massachusetts Avenue",
+        "city": "Lexington",
+        "state": "MA",
+        "zip": "02420"
+      },
+      "geo": {
+        "lat": 42.4481135,
+        "lon": -71.2296888
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "wellesley--main",
+      "name": "Wellesley Free Library",
+      "parent_lib_id": "wellesley",
+      "address": {
+        "street": "530 Washington Street",
+        "city": "Wellesley",
+        "state": "MA",
+        "zip": "02482"
+      },
+      "geo": {
+        "lat": 42.2968319,
+        "lon": -71.2906479
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "waltham--main",
+      "name": "Waltham Public Library",
+      "parent_lib_id": "waltham",
+      "address": {
+        "street": "735 Main Street",
+        "city": "Waltham",
+        "state": "MA",
+        "zip": "02451"
+      },
+      "geo": {
+        "lat": 42.3766045,
+        "lon": -71.2394861
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "watertown--main",
+      "name": "Watertown Free Public Library",
+      "parent_lib_id": "watertown",
+      "address": {
+        "street": "123 Main Street",
+        "city": "Watertown",
+        "state": "MA",
+        "zip": "02472"
+      },
+      "geo": {
+        "lat": 42.3675505,
+        "lon": -71.1867442
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "concord--main",
+      "name": "Concord Free Public Library",
+      "parent_lib_id": "concord",
+      "address": {
+        "street": "129 Main Street",
+        "city": "Concord",
+        "state": "MA",
+        "zip": "01742"
+      },
+      "geo": {
+        "lat": 42.4588186,
+        "lon": -71.3534425
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "bedford--main",
+      "name": "Bedford Free Public Library",
+      "parent_lib_id": "bedford",
+      "address": {
+        "street": "7 Mudge Way",
+        "city": "Bedford",
+        "state": "MA",
+        "zip": "01730"
+      },
+      "geo": {
+        "lat": 42.4923139,
+        "lon": -71.2841881
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "needham--main",
+      "name": "Needham Free Public Library",
+      "parent_lib_id": "needham",
+      "address": {
+        "street": "1139 Highland Avenue",
+        "city": "Needham",
+        "state": "MA",
+        "zip": "02494"
+      },
+      "geo": {
+        "lat": 42.2882044,
+        "lon": -71.2350162
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "natick--main",
+      "name": "Morse Institute Library",
+      "parent_lib_id": "natick",
+      "address": {
+        "street": "14 East Central Street",
+        "city": "Natick",
+        "state": "MA",
+        "zip": "01760"
+      },
+      "geo": {
+        "lat": 42.2846114,
+        "lon": -71.345821
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "somerville--main",
+      "name": "Somerville Public Library",
+      "parent_lib_id": "somerville",
+      "address": {
+        "street": "79 Highland Ave.",
+        "city": "Somerville",
+        "state": "MA",
+        "zip": "02143"
+      },
+      "geo": {
+        "lat": 42.3857881,
+        "lon": -71.0944054
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "quincy--main",
+      "name": "Thomas Crane Public Library",
+      "parent_lib_id": "quincy",
+      "address": {
+        "street": "40 Washington Street",
+        "city": "Quincy",
+        "state": "MA",
+        "zip": "02169"
+      },
+      "geo": {
+        "lat": 42.2515107,
+        "lon": -71.0008246
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "cambridge--main",
+      "name": "Main Library",
+      "parent_lib_id": "cambridge",
+      "address": {
+        "street": "449 Broadway",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02138"
+      },
+      "geo": {
+        "lat": 42.3739871,
+        "lon": -71.1104696
+      },
+      "hours_raw": "Sun: 1PM - 5PM | Mon - Thu: 9AM - 9PM | Fri - Sat: 9AM - 5PM"
+    },
+    {
+      "id": "cambridge--boudreau",
+      "name": "Boudreau Branch",
+      "parent_lib_id": "cambridge",
+      "address": {
+        "street": "245 Concord Ave.",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02138"
+      },
+      "geo": {
+        "lat": 42.3833739,
+        "lon": -71.1325764
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "cambridge--central-square",
+      "name": "Central Square Branch",
+      "parent_lib_id": "cambridge",
+      "address": {
+        "street": "45 Pearl St.",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02139"
+      },
+      "geo": {
+        "lat": 42.363788,
+        "lon": -71.103714
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "cambridge--collins",
+      "name": "Collins Branch",
+      "parent_lib_id": "cambridge",
+      "address": {
+        "street": "64 Aberdeen Ave.",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02138"
+      },
+      "geo": {
+        "lat": 42.3769056,
+        "lon": -71.1468839
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "cambridge--oconnell",
+      "name": "O'Connell Branch",
+      "parent_lib_id": "cambridge",
+      "address": {
+        "street": "48 Sixth St.",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02141"
+      },
+      "geo": {
+        "lat": 42.370447,
+        "lon": -71.0848239
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "cambridge--oneill",
+      "name": "O'Neill Branch",
+      "parent_lib_id": "cambridge",
+      "address": {
+        "street": "70 Rindge Ave.",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02140"
+      },
+      "geo": {
+        "lat": 42.3921964,
+        "lon": -71.1280369
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "cambridge--valente",
+      "name": "Valente Branch",
+      "parent_lib_id": "cambridge",
+      "address": {
+        "street": "826 Cambridge St.",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02141"
+      },
+      "geo": {
+        "lat": 42.3721548,
+        "lon": -71.0902467
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "brookline--brookline-village",
+      "name": "Brookline Village",
+      "parent_lib_id": "brookline",
+      "address": {
+        "street": "361 Washington Street",
+        "city": "Brookline",
+        "state": "MA",
+        "zip": "02445"
+      },
+      "geo": {
+        "lat": 42.3346378,
+        "lon": -71.1213843
+      },
+      "hours_raw": "Sunday: 1:00 PM - 5:00 PM; Monday: 10:00 AM - 9:00 PM; Tuesday: 10:00 AM - 9:00 PM; Wednesday: 10:00 AM - 9:00 PM; Thursday: 10:00 AM - 9:00 PM; Friday: 10:00 AM - 5:00 PM; Saturday: 10:00 AM - 5:00 PM"
+    },
+    {
+      "id": "brookline--coolidge-corner",
+      "name": "Coolidge Corner",
+      "parent_lib_id": "brookline",
+      "address": {
+        "street": "31 Pleasant Street",
+        "city": "Brookline",
+        "state": "MA",
+        "zip": "02446"
+      },
+      "geo": {
+        "lat": 42.3435193,
+        "lon": -71.1191436
+      },
+      "hours_raw": "Sunday: 1:00 PM - 5:00 PM; Monday: 10:00 AM - 6:00 PM; Tuesday: 10:00 AM - 9:00 PM; Wednesday: 10:00 AM - 6:00 PM; Thursday: 10:00 AM - 9:00 PM; Friday: 10:00 AM - 5:00 PM; Saturday: 10:00 AM - 5:00 PM"
+    },
+    {
+      "id": "brookline--putterham",
+      "name": "Putterham",
+      "parent_lib_id": "brookline",
+      "address": {
+        "street": "959 West Roxbury Parkway",
+        "city": "Chestnut Hill",
+        "state": "MA",
+        "zip": "02467"
+      },
+      "geo": {
+        "lat": 42.308594,
+        "lon": -71.159178
+      },
+      "hours_raw": "Sunday: Closed; Monday: 10:00 AM - 9:00 PM; Tuesday: 10:00 AM - 6:00 PM; Wednesday: 10:00 AM - 9:00 PM; Thursday: 10:00 AM - 6:00 PM; Friday: 9:30 AM - 5:00 PM; Saturday: 9:30 AM - 5:00 PM"
+    },
+    {
+      "id": "braintree--main",
+      "name": "Thayer Public Library",
+      "parent_lib_id": "braintree",
+      "address": {
+        "street": "798 Washington Street",
+        "city": "Braintree",
+        "state": "MA",
+        "zip": "02184"
+      },
+      "geo": {
+        "lat": 42.2056618,
+        "lon": -71.0042666
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "milton--main",
+      "name": "Milton Public Library",
+      "parent_lib_id": "milton",
+      "address": {
+        "street": "476 Canton Ave",
+        "city": "Milton",
+        "state": "MA",
+        "zip": "02186"
+      },
+      "geo": {
+        "lat": 42.2538412,
+        "lon": -71.0773573
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "cohasset--main",
+      "name": "Paul Pratt Memorial Library",
+      "parent_lib_id": "cohasset",
+      "address": {
+        "street": "35 Ripley Road",
+        "city": "Cohasset",
+        "state": "MA",
+        "zip": "02025"
+      },
+      "geo": {
+        "lat": 42.242198,
+        "lon": -70.8090953
+      },
+      "hours_raw": null
+    },
+    {
+      "id": "hingham--main",
+      "name": "Hingham Public Library",
+      "parent_lib_id": "hingham",
+      "address": {
+        "street": "66 Leavitt Street",
+        "city": "Hingham",
+        "state": "MA",
+        "zip": "02043"
+      },
+      "geo": {
+        "lat": 42.23504,
+        "lon": -70.8744034
+      },
+      "hours_raw": null
+    }
+  ]
+}

@@ -16,6 +16,10 @@ from malibbene.build.libraries import build_libraries
 from malibbene.build.attractions import build_attractions
 from malibbene.build.passes import build_passes
 
+# Local import (sibling script) — kept inside build_branches namespace so its
+# logging stays attributed to that step rather than this orchestrator.
+import build_branches  # noqa: E402
+
 
 def _load_dir_jsons(d: Path) -> dict:
     """Load every *.json (except _* files) in d, return dict keyed by filename stem."""
@@ -97,17 +101,40 @@ def main() -> int:
           f"({attr_doc['_meta']['n_with_price']} price, {attr_doc['_meta']['n_with_image']} img, "
           f"{attr_doc['_meta']['n_with_geo']} geo, {attr_doc['_meta']['n_with_hours']} hours)")
 
+    # 3b. branches.json (plan-6) — must run before passes.json so the pass
+    # builder can enumerate branch ids per multi-branch lib.
+    print("Building branches.json...")
+    branches_doc = build_branches.build()
+    (structured / "branches.json").write_text(
+        json.dumps(branches_doc, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+    print(f"  {branches_doc['_meta']['n_branches']} branches "
+          f"({branches_doc['_meta']['n_multi_branch_libs']} multi-branch libs)")
+
     # 4. passes.json
     print("Building passes.json...")
     policies = _load_dir_jsons(raw_root / "pass_policies")
-    passes_doc = build_passes(catalog, policies=policies)
+    # plan-6 subagent classifications: {lib_id: {pass_id: {pickup_method, pickup_branches, evidence}}}
+    classifications: dict = {}
+    for lib in ("bpl", "cambridge", "brookline"):
+        cf = raw_root / "branches" / "_pickup" / lib / "_classified.json"
+        if cf.exists():
+            data = json.loads(cf.read_text(encoding="utf-8"))
+            classifications[lib] = {p["pass_id"]: p for p in data.get("passes", [])}
+    passes_doc = build_passes(
+        catalog,
+        policies=policies,
+        classifications=classifications,
+        branches_doc=branches_doc,
+    )
     _apply_pass_overrides(passes_doc, overrides.get("passes", {}))
     (structured / "passes.json").write_text(
         json.dumps(passes_doc, indent=2, ensure_ascii=False), encoding="utf-8"
     )
     print(f"  {passes_doc['_meta']['n_passes']} passes "
           f"({passes_doc['_meta']['n_with_availability']} with calendar, "
-          f"{passes_doc['_meta']['n_with_policy']} with policy)")
+          f"{passes_doc['_meta']['n_with_policy']} with policy, "
+          f"{passes_doc['_meta']['n_physical_at_branch']} physical_at_branch)")
 
     return 0
 
