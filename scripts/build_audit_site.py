@@ -517,13 +517,11 @@ def page_libraries(libs_data) -> str:
     libs = libs_data["libraries"]
     rows = []
     for L in libs:
-        own = "★" if L["id"] in OWN_CARDS else ""
         addr = L.get("address") or {}
         residency = esc(L.get("eligibility") or "")
         card_link = ""
         if L.get("card_page"):
             card_link = f'<a href="{esc(L["card_page"])}" target="_blank" rel="noopener">↗</a>'
-        n_passes = "—"  # filled later if catalog passed
         rows.append(f"""<tr data-search="{esc((L['id']+' '+L['name']+' '+L.get('town','')+' '+L.get('network','')).lower())}">
   <td class="mono">{esc(L['id'])}</td>
   <td>{esc(L['name'])}</td>
@@ -531,15 +529,20 @@ def page_libraries(libs_data) -> str:
   <td>{esc(L.get('network',''))}</td>
   <td><span class="badge badge-plat-{esc(L.get('platform',''))}">{esc(L.get('platform',''))}</span></td>
   <td class="truncate">{residency}</td>
-  <td class="own">{own}</td>
   <td>{card_link}</td>
 </tr>""")
     body = f"""
 <h1 class="page-title">Libraries · 59</h1>
-<p>Row marked <b>★</b> indicates one of the 5 operator-owned cards (Wakefield / Reading / BPL / Wilmington / Somerville).</p>
+<p class="methodology">
+  <b>id 设计说明</b>:每个 lib_id 代表 <b>一个发券组织</b>,而不是一个物理馆点。<br>
+  例如 BPL(Boston Public Library)旗下有 25+ 个分馆,但所有 pass 由 BPL 总部统一发放 → 我们存 1 条 id=<code>bpl</code> 的记录。<br>
+  Cambridge 公共图书馆下辖 7 个分馆同理 → id=<code>cambridge</code>。<br>
+  小镇如 Wakefield 本身就只有一个馆,id=<code>wakefield</code>。<br>
+  本期 59 个 lib_id <b>全部唯一,无重复</b>。如果将来要支持"按分馆距离"或"按分馆预约",需要新建 branches 表(v0.1 未做,显式产品决策)。
+</p>
 <div class="toolbar"><input type="search" class="search-box" placeholder="filter rows... (id / name / town / network)" data-target="libs-table"></div>
 <table id="libs-table" class="data-table">
-<thead><tr><th>id</th><th>name</th><th>town</th><th>network</th><th>platform</th><th>residency</th><th>own</th><th>card page</th></tr></thead>
+<thead><tr><th>id</th><th>name</th><th>town</th><th>network</th><th>platform</th><th>residency</th><th>card page</th></tr></thead>
 <tbody>{"".join(rows)}</tbody>
 </table>
 <p class="foot-link"><a href="#" class="view-json-link" data-json-key="libraries">View full libraries.json</a></p>
@@ -567,75 +570,146 @@ def page_attractions(attr_data) -> str:
         img_path = find_local_image(slug)
         if not img_path:
             missing_image.append(slug)
-        img_html = f'<img class="hero-thumb" src="{esc(img_path)}" alt="" data-full="{esc(img_path)}">' if img_path else '<div class="hero-thumb noimg">—</div>'
+        img_html = (
+            f'<img class="hero-big" src="{esc(img_path)}" alt="" data-full="{esc(img_path)}">'
+            if img_path else
+            '<div class="hero-big noimg">封面图未抓取</div>'
+        )
 
         sources = A.get("sources") or []
         n_libs = len(sources)
 
         dup_warn = ""
         if slug_counts[slug] > 1:
-            dup_warn = '<span class="warn">⚠ duplicate slug</span>'
+            dup_warn = '<div class="warn-row">⚠ 此 slug 与同一景点的另一条记录重复(<a href="duplicates.html">见 Duplicates</a>)</div>'
 
-        cats_html = "".join(f'<span class="badge badge-cat">{esc(c)}</span>' for c in (A.get("categories") or []))
+        cats_html = " · ".join(esc(c) for c in (A.get("categories") or [])) or '<span class="honest-gap">未分类</span>'
 
-        # Prices
-        price_cells = []
-        for k, label in [("adult", "Adult"), ("child", "Child"), ("youth", "Youth"),
-                         ("senior", "Senior"), ("student", "Student"), ("military", "Military"),
-                         ("educator", "Educator"), ("family", "Family")]:
+        # Prices — show as a labelled list
+        price_rows_html = []
+        any_price = False
+        for k, label_en, label_zh in [
+            ("adult", "Adult", "成人"), ("child", "Child", "儿童"),
+            ("youth", "Youth", "青少年 (11-17)"), ("senior", "Senior", "老人 (65+)"),
+            ("student", "Student", "学生"), ("military", "Military", "军人"),
+            ("educator", "Educator", "教师"), ("family", "Family", "家庭通票"),
+        ]:
             v = price.get(k) if price else None
             if v is None:
-                price_cells.append(f'<span class="price-cell honest-gap">{label} —</span>')
+                price_rows_html.append(
+                    f'<div class="kv kv-gap"><span class="k">{label_en} · {label_zh}</span>'
+                    f'<span class="v honest-gap">— 无数据</span></div>'
+                )
             else:
-                vstr = f"${v}"
-                src_link = ""
-                if price and price.get("source_url"):
-                    src_link = f' <a href="{esc(price["source_url"])}" target="_blank" rel="noopener">↗</a>'
-                price_cells.append(f'<span class="price-cell verified">{label} {esc(vstr)}{src_link}</span>')
+                any_price = True
+                price_rows_html.append(
+                    f'<div class="kv"><span class="k">{label_en} · {label_zh}</span>'
+                    f'<span class="v verified">${esc(str(v))}</span></div>'
+                )
         fua = price.get("free_under_age") if price else None
         if fua is not None:
-            price_cells.append(f'<span class="price-cell verified">free under {fua}</span>')
+            price_rows_html.append(
+                f'<div class="kv"><span class="k">Free under · 免费年龄</span>'
+                f'<span class="v verified">N &lt; {fua}</span></div>'
+            )
+        notes = price.get("notes") if price else None
+        if notes:
+            price_rows_html.append(
+                f'<div class="kv kv-wide"><span class="k">Notes · 备注</span>'
+                f'<span class="v">{esc(notes)}</span></div>'
+            )
+        price_src = price.get("source_url") if price else None
+        price_footer = (
+            f'<div class="src-line">↗ 价格数据源: <a href="{esc(price_src)}" target="_blank" rel="noopener">{esc(price_src)}</a></div>'
+            if price_src else
+            ('<div class="src-line honest-gap">无价格数据(景点官网未公布 / 浮动定价 / 反爬拦截)</div>' if not any_price else '')
+        )
 
         # Hours
-        day_keys = [("mon", "M"), ("tue", "T"), ("wed", "W"), ("thu", "Th"),
-                    ("fri", "F"), ("sat", "S"), ("sun", "Su")]
-        hour_cells = []
-        for k, lab in day_keys:
-            v = rh.get(k) or "—"
-            v_compact = v.replace(" ", "").replace("AM", "a").replace("PM", "p").replace("–", "-")
-            hour_cells.append(f'<span class="hr-cell">{lab} {esc(v_compact)}</span>')
+        day_pairs = [("mon", "Mon · 周一"), ("tue", "Tue · 周二"), ("wed", "Wed · 周三"),
+                     ("thu", "Thu · 周四"), ("fri", "Fri · 周五"),
+                     ("sat", "Sat · 周六"), ("sun", "Sun · 周日")]
+        hour_rows_html = []
+        for k, lab in day_pairs:
+            v = rh.get(k)
+            if not v:
+                hour_rows_html.append(f'<div class="kv kv-gap"><span class="k">{lab}</span><span class="v honest-gap">—</span></div>')
+            else:
+                cls = "verified" if v.lower() != "closed" else "honest-gap"
+                hour_rows_html.append(f'<div class="kv"><span class="k">{lab}</span><span class="v {cls}">{esc(v)}</span></div>')
         hours_status = hours.get("status") or "—"
+        hours_notes = hours.get("notes") or ""
+        hours_src = hours.get("source_url") or ""
+        hours_status_zh_map = {
+            "ok": "正常",
+            "varies": "varies · 跨多分馆,小时不一",
+            "seasonal": "seasonal · 季节性开放",
+            "—": "无数据",
+        }
+        hours_meta_html = f'<div class="kv kv-wide"><span class="k">Status · 状态</span><span class="v">{esc(hours_status)} · {esc(hours_status_zh_map.get(hours_status, ""))}</span></div>'
+        if hours_notes:
+            hours_meta_html += f'<div class="kv kv-wide"><span class="k">Notes · 备注</span><span class="v">{esc(hours_notes)}</span></div>'
+        hours_footer = (
+            f'<div class="src-line">↗ 小时数据源: <a href="{esc(hours_src)}" target="_blank" rel="noopener">{esc(hours_src)}</a></div>'
+            if hours_src else ''
+        )
 
         desc = A.get("description") or ""
-        desc_trunc = (desc[:140] + "…") if len(desc) > 140 else desc
-
         phone = A.get("phone") or ""
         geo = A.get("geo") or {}
-        geo_txt = f"{geo.get('lat'):.4f},{geo.get('lon'):.4f}" if geo.get("lat") else "—"
-
-        sources_str = ", ".join(sources)
+        geo_txt = f"{geo.get('lat'):.4f}, {geo.get('lon'):.4f}" if geo.get("lat") is not None else "无数据"
+        website = A.get("website") or ""
+        addr = A.get("address") or ""
 
         search_text = (slug + " " + (A.get("museum_name") or "") + " " + " ".join(A.get("categories") or [])).lower()
 
-        rows.append(f"""<article class="attr-row" data-search="{esc(search_text)}" data-categories="{esc(','.join(A.get('categories') or []))}">
-  <div class="attr-head">
+        sources_html = " · ".join(f'<code>{esc(s)}</code>' for s in sources)
+
+        rows.append(f"""<article class="attr-card" data-search="{esc(search_text)}" data-categories="{esc(','.join(A.get('categories') or []))}">
+  <div class="hero-col">
     {img_html}
-    <div class="attr-title">
-      <code class="slug">{esc(slug)}</code>
-      <span class="attr-name">{esc(A.get('museum_name') or '')}</span>
-      {cats_html}
-      <span class="n-libs">{n_libs} libs offer</span>
+  </div>
+  <div class="info-col">
+    <header class="attr-header">
+      <h2 class="attr-name">{esc(A.get('museum_name') or '')}</h2>
+      <div class="attr-sub">
+        <code class="slug">{esc(slug)}</code>
+        <span class="meta-divider">·</span>
+        <span class="cats">{cats_html}</span>
+      </div>
       {dup_warn}
-    </div>
+    </header>
+
+    <section class="meta-block">
+      <div class="kv kv-wide"><span class="k">Address · 地址</span><span class="v">{esc(addr) or '<span class=honest-gap>无</span>'}</span></div>
+      <div class="kv kv-wide"><span class="k">Geo · 经纬度</span><span class="v">{esc(geo_txt)}</span></div>
+      <div class="kv kv-wide"><span class="k">Phone · 电话</span><span class="v">{f'<a href="tel:{esc(phone)}">{esc(phone)}</a>' if phone else '<span class="honest-gap">无</span>'}</span></div>
+      <div class="kv kv-wide"><span class="k">Website · 官网</span><span class="v">{f'<a href="{esc(website)}" target="_blank" rel="noopener">{esc(website)} ↗</a>' if website else '<span class="honest-gap">无</span>'}</span></div>
+    </section>
+
+    <section class="desc-block">
+      <h3 class="block-title">Description · 简介</h3>
+      <p class="desc-text">{esc(desc) if desc else '<span class="honest-gap">无简介(网站未提供或抓取失败)</span>'}</p>
+    </section>
+
+    <section class="prices-block">
+      <h3 class="block-title">Prices · 票价层级 <span class="block-meta">共 8 个层级,实际有数据的会以绿色显示</span></h3>
+      <div class="kv-grid">{"".join(price_rows_html)}</div>
+      {price_footer}
+    </section>
+
+    <section class="hours-block">
+      <h3 class="block-title">Hours · 营业时间</h3>
+      <div class="kv-grid">{"".join(hour_rows_html)}</div>
+      {hours_meta_html}
+      {hours_footer}
+    </section>
+
+    <section class="sources-block">
+      <h3 class="block-title">提供此 pass 的图书馆 <span class="block-meta">{n_libs} 个馆收录此景点</span></h3>
+      <p class="sources-list">{sources_html}</p>
+    </section>
   </div>
-  <div class="attr-prices"><b>Prices:</b> {"".join(price_cells)}</div>
-  <div class="attr-hours"><b>Hours:</b> {"".join(hour_cells)} <span class="meta">({esc(hours_status)})</span></div>
-  <div class="attr-info"><b>Info:</b>
-    {f'<span>📞 <a href="tel:{esc(phone)}">{esc(phone)}</a></span>' if phone else '<span class="honest-gap">📞 —</span>'}
-    <span>🗺 {esc(geo_txt)}</span>
-    <span class="desc">📝 {esc(desc_trunc)}</span>
-  </div>
-  <div class="attr-srcs"><b>Offered by:</b> <span class="lib-list">{esc(sources_str)}</span></div>
 </article>""")
 
     cat_options = "".join(f'<option value="{esc(c)}">{esc(c)}</option>' for c in all_cats)
@@ -1180,21 +1254,68 @@ main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
 .unexplained { color: var(--rd); background: var(--rd-pale); }
 
 /* Attractions */
-.attr-list { display: flex; flex-direction: column; gap: 12px; }
-.attr-row { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px; font-size: 12.5px; }
-.attr-head { display: flex; gap: 12px; align-items: center; margin-bottom: 6px; }
-.hero-thumb { width: 48px; height: 48px; object-fit: cover; border-radius: 4px; cursor: zoom-in; flex-shrink: 0; }
-.hero-thumb.noimg { background: var(--paper); display: flex; align-items: center; justify-content: center; color: var(--ink-3); }
-.attr-title { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
-.attr-title .slug { background: var(--paper); padding: 1px 6px; border-radius: 3px; }
-.attr-title .attr-name { font-weight: 600; }
-.attr-title .n-libs { color: var(--ink-3); font-size: 11px; }
-.attr-title .warn { color: var(--rd); }
-.attr-row > div { margin: 3px 0; }
-.attr-row b { color: var(--ink); }
-.price-cell, .hr-cell { display: inline-block; margin-right: 8px; padding: 1px 4px; border-radius: 3px; font-size: 11.5px; }
-.lib-list { font-family: monospace; font-size: 11px; color: var(--ink-3); }
-.attr-info span { margin-right: 14px; }
+/* Attractions — large 2-column card */
+.attr-list { display: flex; flex-direction: column; gap: 28px; }
+.attr-card {
+  background: var(--white); border: 1px solid var(--rule); border-radius: 10px;
+  padding: 24px; font-size: 13px; display: flex; gap: 28px;
+}
+.attr-card .hero-col { flex: 0 0 500px; }
+.attr-card .info-col { flex: 1 1 auto; min-width: 0; }
+
+.hero-big {
+  width: 500px; max-width: 100%; height: auto; max-height: 380px;
+  object-fit: cover; border-radius: 8px; cursor: zoom-in; display: block;
+  border: 1px solid var(--rule);
+}
+.hero-big.noimg {
+  width: 500px; max-width: 100%; height: 200px;
+  background: var(--paper); border: 1px dashed var(--rule-strong); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; color: var(--ink-3);
+  font-size: 12px;
+}
+
+.attr-card .attr-header { border-bottom: 1px solid var(--rule); padding-bottom: 12px; margin-bottom: 14px; }
+.attr-card .attr-name {
+  font-family: 'Libre Baskerville', Georgia, serif; font-size: 22px;
+  margin: 0 0 4px; color: var(--ink); font-weight: 700; line-height: 1.3;
+}
+.attr-card .attr-sub { font-size: 12px; color: var(--ink-3); }
+.attr-card .attr-sub .slug { background: var(--paper); padding: 1px 6px; border-radius: 3px; color: var(--ink-2); }
+.attr-card .attr-sub .meta-divider { margin: 0 8px; }
+.attr-card .attr-sub .cats { color: var(--g-2); }
+.warn-row { color: var(--rd); margin-top: 6px; font-size: 12px; }
+.warn-row a { color: var(--rd); text-decoration: underline; }
+
+.attr-card section { margin-bottom: 18px; }
+.attr-card section:last-child { margin-bottom: 0; }
+.attr-card .block-title {
+  font-family: 'Libre Baskerville', Georgia, serif; font-size: 13.5px;
+  color: var(--ink); margin: 0 0 8px; padding-bottom: 4px;
+  border-bottom: 1px dotted var(--rule); font-weight: 700;
+}
+.attr-card .block-meta { color: var(--ink-3); font-size: 11.5px; font-family: 'DM Sans', sans-serif; font-weight: 400; margin-left: 8px; }
+
+/* Definition list rows: label left, value right */
+.kv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
+.kv {
+  display: flex; justify-content: space-between; gap: 12px;
+  padding: 3px 0; border-bottom: 1px dotted var(--rule);
+}
+.kv-wide { grid-column: 1 / -1; }
+.kv .k { color: var(--ink-3); font-size: 12px; }
+.kv .v { color: var(--ink-2); font-size: 12.5px; text-align: right; }
+.kv .v.verified { color: var(--g); font-weight: 600; }
+.kv .v.honest-gap { color: var(--ink-3); }
+.kv-gap .k { color: var(--ink-3); opacity: 0.7; }
+
+.src-line { margin-top: 8px; font-size: 11.5px; color: var(--ink-3); }
+.src-line a { color: var(--g); }
+
+.attr-card .desc-text { margin: 0; line-height: 1.7; }
+
+.sources-list { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--ink-3); margin: 0; line-height: 1.9; }
+.sources-list code { background: var(--paper); padding: 1px 5px; border-radius: 3px; }
 
 /* Policies */
 .policies-toolbar { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; position: sticky; top: 64px; z-index: 30; }
@@ -1259,7 +1380,8 @@ mark sup { font-size: 9px; margin-left: 2px; color: var(--ink-3); }
 .modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
 .modal-box { position: relative; background: var(--white); max-width: 720px; max-height: 80vh; overflow: auto; margin: 5vh auto; padding: 24px; border-radius: 8px; }
 .modal-close { position: absolute; top: 8px; right: 12px; background: none; border: none; font-size: 22px; cursor: pointer; color: var(--ink-3); }
-.modal-body img { max-width: 500px; height: auto; }
+.modal-body img { max-width: 900px; max-height: 70vh; height: auto; display: block; margin: 0 auto; }
+.modal-box { max-width: 950px; }
 .modal-body pre { background: var(--paper); padding: 12px; border-radius: 6px; overflow: auto; font-size: 11px; max-height: 60vh; }
 """
 
@@ -1286,7 +1408,7 @@ JS = r"""
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
   // Hero thumbnail modal
-  document.querySelectorAll('.hero-thumb').forEach(function (el) {
+  document.querySelectorAll('.hero-big, .hero-thumb').forEach(function (el) {
     if (el.classList.contains('noimg')) return;
     el.addEventListener('click', function () {
       const src = el.getAttribute('data-full') || el.src;

@@ -21,7 +21,7 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
   // Hero thumbnail modal
-  document.querySelectorAll('.hero-thumb').forEach(function (el) {
+  document.querySelectorAll('.hero-big, .hero-thumb').forEach(function (el) {
     if (el.classList.contains('noimg')) return;
     el.addEventListener('click', function () {
       const src = el.getAttribute('data-full') || el.src;
