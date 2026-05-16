@@ -71,6 +71,7 @@ def main() -> int:
     prices = _load_dir_jsons(raw_root / "attraction_prices")
     images = _load_dir_jsons(raw_root / "attraction_images")
     hours = _load_dir_jsons(raw_root / "attraction_hours")
+    descriptions = _load_dir_jsons(raw_root / "attraction_descriptions")
     seeds = json.loads((config_root / "library_seeds.json").read_text(encoding="utf-8"))
     geo = json.loads((structured / "geo.json").read_text(encoding="utf-8"))
     overrides = json.loads((config_root / "manual_overrides.json").read_text(encoding="utf-8"))
@@ -87,7 +88,7 @@ def main() -> int:
 
     # 3. attractions.json
     print("Building attractions.json...")
-    attr_doc = build_attractions(catalog, prices, images, geo, hours)
+    attr_doc = build_attractions(catalog, prices, images, geo, hours, descriptions)
     _apply_overrides(attr_doc, "slug", "attractions", overrides.get("attractions", {}))
     (structured / "attractions.json").write_text(
         json.dumps(attr_doc, indent=2, ensure_ascii=False), encoding="utf-8"
