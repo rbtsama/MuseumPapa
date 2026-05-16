@@ -1,0 +1,318 @@
+{
+  "lib_id": "bpl",
+  "source_url": "https://www.bpl.org/locations/",
+  "branches": [
+    {
+      "branch_id": "bpl--adams-street",
+      "name": "Adams Street",
+      "address": {
+        "street": "690 Adams Street",
+        "city": "Dorchester",
+        "state": "MA",
+        "zip": "02122"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--brighton",
+      "name": "Brighton",
+      "address": {
+        "street": "40 Academy Hill Rd",
+        "city": "Brighton",
+        "state": "MA",
+        "zip": "02135"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--central-library-in-copley-square",
+      "name": "Central Library in Copley Square",
+      "address": {
+        "street": "700 Boylston Street",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02116"
+      },
+      "hours_raw": null,
+      "extraction_notes": "Address confirmed verbatim in HTML footer: '700 Boylston St. Boston, MA 02116'"
+    },
+    {
+      "branch_id": "bpl--charlestown",
+      "name": "Charlestown",
+      "address": {
+        "street": "179 Main St",
+        "city": "Charlestown",
+        "state": "MA",
+        "zip": "02129"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--chinatown",
+      "name": "Chinatown",
+      "address": {
+        "street": "2 Boylston Street",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02116"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--codman-square",
+      "name": "Codman Square",
+      "address": {
+        "street": "690 Washington St",
+        "city": "Dorchester",
+        "state": "MA",
+        "zip": "02124"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--connolly",
+      "name": "Connolly",
+      "address": {
+        "street": "433 Centre St",
+        "city": "Jamaica Plain",
+        "state": "MA",
+        "zip": "02130"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--east-boston",
+      "name": "East Boston",
+      "address": {
+        "street": "365 Bremen St",
+        "city": "East Boston",
+        "state": "MA",
+        "zip": "02128"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--egleston-square",
+      "name": "Egleston Square",
+      "address": {
+        "street": "2044 Columbus Ave",
+        "city": "Roxbury",
+        "state": "MA",
+        "zip": "02119"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--faneuil",
+      "name": "Faneuil",
+      "address": {
+        "street": "419 Faneuil St",
+        "city": "Brighton",
+        "state": "MA",
+        "zip": "02135"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--fields-corner",
+      "name": "Fields Corner",
+      "address": {
+        "street": "1520 Dorchester Ave",
+        "city": "Dorchester",
+        "state": "MA",
+        "zip": "02122"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--grove-hall",
+      "name": "Grove Hall",
+      "address": {
+        "street": "41 Geneva Ave",
+        "city": "Dorchester",
+        "state": "MA",
+        "zip": "02121"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--honan-allston",
+      "name": "Honan-Allston",
+      "address": {
+        "street": "300 North Harvard St",
+        "city": "Allston",
+        "state": "MA",
+        "zip": "02134"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--hyde-park",
+      "name": "Hyde Park",
+      "address": {
+        "street": "35 Harvard Ave",
+        "city": "Hyde Park",
+        "state": "MA",
+        "zip": "02136"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--jamaica-plain",
+      "name": "Jamaica Plain",
+      "address": {
+        "street": "30 South Street",
+        "city": "Jamaica Plain",
+        "state": "MA",
+        "zip": "02130"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--lower-mills",
+      "name": "Lower Mills",
+      "address": {
+        "street": "27 Richmond St",
+        "city": "Dorchester",
+        "state": "MA",
+        "zip": "02124"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--mattapan",
+      "name": "Mattapan",
+      "address": {
+        "street": "1350 Blue Hill Ave",
+        "city": "Mattapan",
+        "state": "MA",
+        "zip": "02126"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--north-end",
+      "name": "North End",
+      "address": {
+        "street": "25 Parmenter St",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02113"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--parker-hill",
+      "name": "Parker Hill",
+      "address": {
+        "street": "1497 Tremont St",
+        "city": "Roxbury",
+        "state": "MA",
+        "zip": "02120"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--roslindale",
+      "name": "Roslindale",
+      "address": {
+        "street": "4246 Washington St",
+        "city": "Roslindale",
+        "state": "MA",
+        "zip": "02131"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--shaw-roxbury",
+      "name": "Shaw-Roxbury",
+      "address": {
+        "street": "149 Dudley Street",
+        "city": "Roxbury",
+        "state": "MA",
+        "zip": "02119"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--south-boston",
+      "name": "South Boston",
+      "address": {
+        "street": "646 East Broadway",
+        "city": "South Boston",
+        "state": "MA",
+        "zip": "02127"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--south-end",
+      "name": "South End",
+      "address": {
+        "street": "685 Tremont St",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02118"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--uphams-corner",
+      "name": "Uphams Corner",
+      "address": {
+        "street": "500 Columbia Rd",
+        "city": "Dorchester",
+        "state": "MA",
+        "zip": "02125"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--west-end",
+      "name": "West End",
+      "address": {
+        "street": "151 Cambridge St",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02114"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "bpl--west-roxbury",
+      "name": "West Roxbury",
+      "address": {
+        "street": "1961 Centre St",
+        "city": "West Roxbury",
+        "state": "MA",
+        "zip": "02132"
+      },
+      "hours_raw": null,
+      "extraction_notes": ""
+    }
+  ]
+}

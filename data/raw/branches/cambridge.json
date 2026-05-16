@@ -1,0 +1,90 @@
+{
+  "lib_id": "cambridge",
+  "source_url": "https://www.cambridgema.gov/Departments/cambridgepubliclibrary/Locations",
+  "branches": [
+    {
+      "branch_id": "cambridge--main",
+      "name": "Main Library",
+      "address": {
+        "street": "449 Broadway",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02138"
+      },
+      "hours_raw": "Sun: 1PM - 5PM | Mon - Thu: 9AM - 9PM | Fri - Sat: 9AM - 5PM",
+      "extraction_notes": "Featured location on page. Hours from footer hoursOfServiceList section."
+    },
+    {
+      "branch_id": "cambridge--boudreau",
+      "name": "Boudreau Branch",
+      "address": {
+        "street": "245 Concord Ave.",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02138"
+      },
+      "hours_raw": null,
+      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown."
+    },
+    {
+      "branch_id": "cambridge--central-square",
+      "name": "Central Square Branch",
+      "address": {
+        "street": "45 Pearl St.",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02139"
+      },
+      "hours_raw": null,
+      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown."
+    },
+    {
+      "branch_id": "cambridge--collins",
+      "name": "Collins Branch",
+      "address": {
+        "street": "64 Aberdeen Ave.",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02138"
+      },
+      "hours_raw": null,
+      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown."
+    },
+    {
+      "branch_id": "cambridge--oconnell",
+      "name": "O'Connell Branch",
+      "address": {
+        "street": "48 Sixth St.",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02141"
+      },
+      "hours_raw": null,
+      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown."
+    },
+    {
+      "branch_id": "cambridge--oneill",
+      "name": "O'Neill Branch",
+      "address": {
+        "street": "70 Rindge Ave.",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02140"
+      },
+      "hours_raw": null,
+      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown."
+    },
+    {
+      "branch_id": "cambridge--valente",
+      "name": "Valente Branch",
+      "address": {
+        "street": "826 Cambridge St.",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02141"
+      },
+      "hours_raw": null,
+      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown."
+    }
+  ]
+}

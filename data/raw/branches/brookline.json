@@ -1,0 +1,42 @@
+{
+  "lib_id": "brookline",
+  "source_url": "https://www.brooklinelibrary.org/hours-locations/",
+  "branches": [
+    {
+      "branch_id": "brookline--brookline-village",
+      "name": "Brookline Village",
+      "address": {
+        "street": "361 Washington Street",
+        "city": "Brookline",
+        "state": "MA",
+        "zip": "02445"
+      },
+      "hours_raw": "Sunday: 1:00 PM - 5:00 PM; Monday: 10:00 AM - 9:00 PM; Tuesday: 10:00 AM - 9:00 PM; Wednesday: 10:00 AM - 9:00 PM; Thursday: 10:00 AM - 9:00 PM; Friday: 10:00 AM - 5:00 PM; Saturday: 10:00 AM - 5:00 PM",
+      "extraction_notes": "Main branch at Brookline Village. City shown as Brookline, MA 02445 in HTML."
+    },
+    {
+      "branch_id": "brookline--coolidge-corner",
+      "name": "Coolidge Corner",
+      "address": {
+        "street": "31 Pleasant Street",
+        "city": "Brookline",
+        "state": "MA",
+        "zip": "02446"
+      },
+      "hours_raw": "Sunday: 1:00 PM - 5:00 PM; Monday: 10:00 AM - 6:00 PM; Tuesday: 10:00 AM - 9:00 PM; Wednesday: 10:00 AM - 6:00 PM; Thursday: 10:00 AM - 9:00 PM; Friday: 10:00 AM - 5:00 PM; Saturday: 10:00 AM - 5:00 PM",
+      "extraction_notes": ""
+    },
+    {
+      "branch_id": "brookline--putterham",
+      "name": "Putterham",
+      "address": {
+        "street": "959 West Roxbury Parkway",
+        "city": "Chestnut Hill",
+        "state": "MA",
+        "zip": "02467"
+      },
+      "hours_raw": "Sunday: Closed; Monday: 10:00 AM - 9:00 PM; Tuesday: 10:00 AM - 6:00 PM; Wednesday: 10:00 AM - 9:00 PM; Thursday: 10:00 AM - 6:00 PM; Friday: 9:30 AM - 5:00 PM; Saturday: 9:30 AM - 5:00 PM",
+      "extraction_notes": "Operated by Brookline Public Library; physical address in Chestnut Hill, MA 02467 — kept as Chestnut Hill so geocoding resolves to the actual location."
+    }
+  ]
+}
