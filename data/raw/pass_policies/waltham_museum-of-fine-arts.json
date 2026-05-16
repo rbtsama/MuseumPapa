@@ -3,11 +3,19 @@
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
   "max_people": 2,
-  "max_adults": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "For visit dates beginning January 20, 2026, each promo code may be redeemed for up to 2 adult tickets for $15 each and 4 youth tickets for $10 each. Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Year’s Day, Patriots’ Day, Independence Day, Thanksgiving Day, and Christmas Day.\" *This is an e-pass which will be emailed to you and must be used on the selected date.*"
+  "raw": "For visit dates beginning January 20, 2026, each promo code may be redeemed for up to 2 adult tickets for $15 each and 4 youth tickets for $10 each. Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Year’s Day, Patriots’ Day, Independence Day, Thanksgiving Day, and Christmas Day.\" *This is an e-pass which will be emailed to you and must be used on the selected date.*",
+  "source_phrases": {
+    "max_people": "up to 2 adult tickets",
+    "max_adults": "up to 2 adult"
+  }
 }

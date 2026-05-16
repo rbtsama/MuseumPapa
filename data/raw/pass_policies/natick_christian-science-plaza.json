@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": 5,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Free admission to the Mapparium globe for up to 4 people (children under 5 always free). Additional instructions: -Present pass upon arrival to receive discount."
+  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Free admission to the Mapparium globe for up to 4 people (children under 5 always free). Additional instructions: -Present pass upon arrival to receive discount.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "free_under_age": "children under 5 always free"
+  }
 }

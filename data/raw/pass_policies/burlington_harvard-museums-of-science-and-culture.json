@@ -2,12 +2,19 @@
   "library_id": "burlington",
   "attraction_slug": "harvard-museums-of-science-and-culture",
   "status": "ok",
-  "max_people": 4,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Pass provides 50% off regular admission rates. Limit of four visitors per coupon; one member of party must be a MA resident. Includes access to all four HMSC museums: the Harvard Museum of Natural History , the Peabody Museum of Archaeology & Ethnology , the Harvard Museum of the Ancient Near East , and the Collection of Historical Scientific Instruments . The passes are non-transferable and may not be combined with other offers. This coupon pass can be picked up one week in advance."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Coupon pass; does not need to be returned.",
+  "raw": "Pass provides 50% off regular admission rates. Limit of four visitors per coupon; one member of party must be a MA resident. Includes access to all four HMSC museums: the Harvard Museum of Natural History , the Peabody Museum of Archaeology & Ethnology , the Harvard Museum of the Ancient Near East , and the Collection of Historical Scientific Instruments . The passes are non-transferable and may not be combined with other offers. This coupon pass can be picked up one week in advance.",
+  "source_phrases": {
+    "discount_percent": "50% off"
+  }
 }

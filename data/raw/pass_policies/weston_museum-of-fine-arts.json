@@ -3,11 +3,24 @@
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
-  "max_children": null,
-  "eligibility": null,
-  "free_under_age": 6,
+  "max_adults": 2,
+  "max_children": 4,
+  "free_under_age": 7,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
   "notes": null,
-  "raw": "Each pass allows admission for 2 adults at $15 each and up to 4 children, ages 7-17, at $10 each (general and special exhibition) . There is no discount for children 7-17 for general admission, currently $10. Youths 0 - 6 are admitted to the museum free of charge. The library makes 2 passes available per day. Library passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any public programs. All prices are subject to change. Discount admission may not be combined with other offers."
+  "raw": "Each pass allows admission for 2 adults at $15 each and up to 4 children, ages 7-17, at $10 each (general and special exhibition) . There is no discount for children 7-17 for general admission, currently $10. Youths 0 - 6 are admitted to the museum free of charge. The library makes 2 passes available per day. Library passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any public programs. All prices are subject to change. Discount admission may not be combined with other offers.",
+  "source_phrases": {
+    "max_adults": "2 adults at $15 each and up to 4 children",
+    "max_children": "2 adults at $15 each and up to 4 children",
+    "free_under_age": "Youths 0 - 6 are admitted to the museum free"
+  }
 }

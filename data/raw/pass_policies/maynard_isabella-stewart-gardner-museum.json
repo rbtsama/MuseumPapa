@@ -2,12 +2,23 @@
   "library_id": "maynard",
   "attraction_slug": "isabella-stewart-gardner-museum",
   "status": "ok",
-  "max_people": 4,
-  "max_adults": null,
+  "max_people": null,
+  "max_adults": 4,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 18,
-  "savings_per_person_usd": null,
+  "savings_per_person_usd": 5.0,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass allows admission for up to four (4) people at $5 per person. Children under the age of 18 are always free."
+  "raw": "This pass allows admission for up to four (4) people at $5 per person. Children under the age of 18 are always free.",
+  "source_phrases": {
+    "free_under_age": "Children under the age of 18 are always free.",
+    "max_adults": "four (4) people at $5 per person",
+    "savings_per_person_usd": "$5 per person"
+  }
 }

@@ -2,12 +2,23 @@
   "library_id": "concord",
   "attraction_slug": "orchard-house",
   "status": "ok",
-  "max_people": 2,
+  "max_people": null,
   "max_adults": 2,
   "max_children": 4,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits 2 adults and up to 4 youth at half-price admission"
+  "raw": "Each pass admits 2 adults and up to 4 youth at half-price admission",
+  "source_phrases": {
+    "max_adults": "admits 2 adults",
+    "max_children": "up to 4 youth at",
+    "discount_percent": "half-price"
+  }
 }

@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Visiting the Aquarium: Advanced reservations are no longer required. Library patrons should present their coupons on-site at the Aquarium ticket booth. Once tickets are issued, library patrons will be admitted to the Aquarium. Please note that coupons to the Aquarium are valid only on the date printed on the coupon. For additional questions, please contact the Membership Department at members@neaq.org or 617-226-2184 (weekdays, 9 a.m. to 4:30 p.m.). This pass admits up to 4 people at 50% off."
+  "raw": "Visiting the Aquarium: Advanced reservations are no longer required. Library patrons should present their coupons on-site at the Aquarium ticket booth. Once tickets are issued, library patrons will be admitted to the Aquarium. Please note that coupons to the Aquarium are valid only on the date printed on the coupon. For additional questions, please contact the Membership Department at members@neaq.org or 617-226-2184 (weekdays, 9 a.m. to 4:30 p.m.). This pass admits up to 4 people at 50% off.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "50% off"
+  }
 }

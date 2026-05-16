@@ -2,12 +2,19 @@
   "library_id": "bpl",
   "attraction_slug": "revolutionary-spaces",
   "status": "ok",
-  "max_people": 4,
-  "max_adults": 2,
-  "max_children": 2,
-  "eligibility": "all",
+  "max_people": null,
+  "max_adults": null,
+  "max_children": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Disposable physical pass for up to 2 adults & 2 children at no charge. Email confirmation NOT a substitute. Available at Central and Jamaica Plain branches only. Limited to one booking per month per person.",
-  "raw": "Pass will admit up to 2 adults & 2 children at no charge. This is a disposable pass. Please note that your email reservation confirmation is NOT a substitute for the physical pass. You must have a physical pass to gain entry. Printed email confirmation vouchers will not be honored at any museum location. This pass is available to book at the Central and Jamaica Plain library branches. Please pick up your physical pass at the branch where you booked it. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Limited to one booking per month per person",
+  "raw": "Pass will admit up to 2 adults & 2 children at no charge. This is a disposable pass. Please note that your email reservation confirmation is NOT a substitute for the physical pass. You must have a physical pass to gain entry. Printed email confirmation vouchers will not be honored at any museum location. This pass is available to book at the Central and Jamaica Plain library branches. Please pick up your physical pass at the branch where you booked it. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.",
+  "source_phrases": {}
 }

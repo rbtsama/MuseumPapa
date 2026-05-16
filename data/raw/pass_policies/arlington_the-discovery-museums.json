@@ -5,9 +5,16 @@
   "max_people": 3,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Advance reservations are no longer required or accepted. This pass admits up to three (3) visitors at half-price admission. You will receive a coupon that you can present to staff on the day of your visit."
+  "raw": "Advance reservations are no longer required or accepted. This pass admits up to three (3) visitors at half-price admission. You will receive a coupon that you can present to staff on the day of your visit.",
+  "source_phrases": {
+    "max_people": "up to three (3) visitors"
+  }
 }

@@ -2,12 +2,22 @@
   "library_id": "lincoln",
   "attraction_slug": "peabody-essex-museum",
   "status": "ok",
-  "max_people": 2,
-  "max_adults": null,
+  "max_people": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 16,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Discount ticket admits 2 adults at a reduced admission rate of $12.00 per person any day the museum is open. Patrons may reserve up to 2 passes at a time. Children under 16 are always admitted free. Admission to Yin Yu Tang, the Chinese House, and special ticketed exhibitions may require a separate fee. This pass is an e-voucher. The promo code to use to reserve discounted tickets is in the confirmation email generated when you reserve the pass from the library. Click on \"print this pass\" in the confirmation email to see the code."
+  "raw": "Discount ticket admits 2 adults at a reduced admission rate of $12.00 per person any day the museum is open. Patrons may reserve up to 2 passes at a time. Children under 16 are always admitted free. Admission to Yin Yu Tang, the Chinese House, and special ticketed exhibitions may require a separate fee. This pass is an e-voucher. The promo code to use to reserve discounted tickets is in the confirmation email generated when you reserve the pass from the library. Click on \"print this pass\" in the confirmation email to see the code.",
+  "source_phrases": {
+    "max_adults": "admits 2 adults",
+    "free_under_age": "Children under 16 are always admitted free"
+  }
 }

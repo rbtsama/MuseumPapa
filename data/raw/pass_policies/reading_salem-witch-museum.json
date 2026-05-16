@@ -2,12 +2,19 @@
   "library_id": "reading",
   "attraction_slug": "salem-witch-museum",
   "status": "ok",
-  "max_people": null,
+  "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "pass must be returned to library",
-  "raw": "This pass allows the bearer a discounted admission rate ($13.25 for adults, $10.75 for children ages 3-14) for up to six visitors. You must purchase tickets from the museum ahead of time. See confirmation email for instructions. *This pass needs to be picked up at and returned to Reading Public Library NOT AVAILABLE IN OCTOBER"
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "This pass allows the bearer a discounted admission rate ($13.25 for adults, $10.75 for children ages 3-14) for up to six visitors. You must purchase tickets from the museum ahead of time. See confirmation email for instructions. *This pass needs to be picked up at and returned to Reading Public Library NOT AVAILABLE IN OCTOBER",
+  "source_phrases": {
+    "max_people": "for up to six visitors"
+  }
 }

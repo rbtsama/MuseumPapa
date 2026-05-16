@@ -5,9 +5,16 @@
   "max_people": null,
   "max_adults": 2,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Free admission for 2 adults and children under the age of 18 for 38 historic New England houses. Each home has different hours so please check their website at https://www.historicnewengland.org/ for the hours to each home."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Pass provides free admission; source: \"Free admission for 2 adults and children under the age of 18 for 38 historic New England houses\".",
+  "raw": "Free admission for 2 adults and children under the age of 18 for 38 historic New England houses. Each home has different hours so please check their website at https://www.historicnewengland.org/ for the hours to each home.",
+  "source_phrases": {
+    "max_adults": "2 adults and children under the age of 18"
+  }
 }

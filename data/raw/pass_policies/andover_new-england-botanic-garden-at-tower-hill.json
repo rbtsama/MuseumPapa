@@ -5,9 +5,17 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pick up and return pass to the library. Pass admits 2 people at 1/2 price. Online pre-reservations are no longer required for general admission visits. Online pre-registration tickets are still available for those that would like to purchase tickets in advance at www.towerhillbg.org/planyourvisit using access code LIBDI Pick up the library pass the day before your visit. You will need to show it AND your booked tickets upon arrival at the Garden."
+  "raw": "Pick up and return pass to the library. Pass admits 2 people at 1/2 price. Online pre-reservations are no longer required for general admission visits. Online pre-registration tickets are still available for those that would like to purchase tickets in advance at www.towerhillbg.org/planyourvisit using access code LIBDI Pick up the library pass the day before your visit. You will need to show it AND your booked tickets upon arrival at the Garden.",
+  "source_phrases": {
+    "max_people": "admits 2 people",
+    "discount_percent": "1/2 price"
+  }
 }

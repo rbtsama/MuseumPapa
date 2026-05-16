@@ -5,9 +5,16 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This is an electronic pass that you will receive in your email. The library’s pass admits 2 people at $10.00 each. (Regular admission prices: General Admission, $20; Seniors: $17; Students: $15; Youth 17 and under, free.) Current pricing and visitor information: https://www.icaboston.org/visit"
+  "raw": "This is an electronic pass that you will receive in your email. The library’s pass admits 2 people at $10.00 each. (Regular admission prices: General Admission, $20; Seniors: $17; Students: $15; Youth 17 and under, free.) Current pricing and visitor information: https://www.icaboston.org/visit",
+  "source_phrases": {
+    "max_people": "admits 2 people"
+  }
 }

@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Library card must be in good standing to book a pass. Please check the House of Seven Gables website at 7gables.org for any updates before visiting. Pass admits 4 people at half price. Currently the Gardens and Grounds are open and tours of the Turner-Ingersoll Mansion are available. The Museum shop is also open during operating hours. This is a physical pass that must be picked up at the Main Branch library."
+  "raw": "Library card must be in good standing to book a pass. Please check the House of Seven Gables website at 7gables.org for any updates before visiting. Pass admits 4 people at half price. Currently the Gardens and Grounds are open and tours of the Turner-Ingersoll Mansion are available. The Museum shop is also open during operating hours. This is a physical pass that must be picked up at the Main Branch library.",
+  "source_phrases": {
+    "max_people": "admits 4 people",
+    "discount_percent": "half price"
+  }
 }

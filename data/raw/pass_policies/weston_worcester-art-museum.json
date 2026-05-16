@@ -2,12 +2,22 @@
   "library_id": "weston",
   "attraction_slug": "worcester-art-museum",
   "status": "ok",
-  "max_people": 2,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": null,
+  "free_under_age": 17,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "A pass provides 50% off the admission fee. Each of the (4) cards may be used for up to 2 adults and/or children. Children 17 and under are free. Pass card holders may enjoy use of the Museum's Library as a resource free of charge. Passes are not valid for any other applicable discounts on special programming or lectures. Passes are NOT accepted during Flora in Winter of other special events."
+  "raw": "A pass provides 50% off the admission fee. Each of the (4) cards may be used for up to 2 adults and/or children. Children 17 and under are free. Pass card holders may enjoy use of the Museum's Library as a resource free of charge. Passes are not valid for any other applicable discounts on special programming or lectures. Passes are NOT accepted during Flora in Winter of other special events.",
+  "source_phrases": {
+    "free_under_age": "Children 17 and under are free",
+    "discount_percent": "50% off"
+  }
 }

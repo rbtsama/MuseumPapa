@@ -5,9 +5,19 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass allows admittance for two guests at 50% off the general admission price."
+  "raw": "This pass allows admittance for two guests at 50% off the general admission price.",
+  "source_phrases": {
+    "max_people": "for two guests",
+    "discount_percent": "50% off"
+  }
 }

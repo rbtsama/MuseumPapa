@@ -2,12 +2,19 @@
   "library_id": "arlington",
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
-  "max_people": 2,
+  "max_people": null,
   "max_adults": 2,
-  "max_children": 4,
-  "eligibility": "all",
+  "max_children": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass admits up to two (2) adults and four (4) youths (ages 7–17) at $15 per person. Tickets to the MFA are always free for visitors under seven (7) years old. You will receive a promo code, which you can redeem online when you are buying your tickets. You can also redeem the promo code in person, but the Museum strongly recommends buying your tickets in advance."
+  "raw": "This pass admits up to two (2) adults and four (4) youths (ages 7–17) at $15 per person. Tickets to the MFA are always free for visitors under seven (7) years old. You will receive a promo code, which you can redeem online when you are buying your tickets. You can also redeem the promo code in person, but the Museum strongly recommends buying your tickets in advance.",
+  "source_phrases": {
+    "max_adults": "up to two (2) adults"
+  }
 }

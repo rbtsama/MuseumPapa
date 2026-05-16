@@ -5,9 +5,16 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass entitles the bearer to free parking for one vehicle at over 50 day-use facilities in the state parks system. Pass is not valid for parking at Quabbin Reservoir, the Squantum Point, NorthPoint, or Draw Seven Commuter Lots. Pass cannot be used for camping. For a list of parks please see the Mass. State Parks web site at https://www.mass.gov/visit-massachusetts-state-parks/locations . The pass will need to be picked up from and returned to the library. Contact 978-373-1586 x603 with any questions."
+  "raw": "This pass entitles the bearer to free parking for one vehicle at over 50 day-use facilities in the state parks system. Pass is not valid for parking at Quabbin Reservoir, the Squantum Point, NorthPoint, or Draw Seven Commuter Lots. Pass cannot be used for camping. For a list of parks please see the Mass. State Parks web site at https://www.mass.gov/visit-massachusetts-state-parks/locations . The pass will need to be picked up from and returned to the library. Contact 978-373-1586 x603 with any questions.",
+  "source_phrases": {}
 }

@@ -2,12 +2,22 @@
   "library_id": "north-andover",
   "attraction_slug": "zoo-new-england",
   "status": "ok",
-  "max_people": null,
+  "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": null,
+  "free_under_age": 2,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits maximum of 6 people at $9 per adult and $6 per child. Children under 2 are admitted free. Valid for general daytime admission to Franklin Park Zoo or Stone Zoo only. Tickets are non-refundable, have no cash value, cannot be combined with other offers or discounts and cannot be replaced if lost or stolen. Not valid for ZooLights or Boston Lights."
+  "raw": "Each pass admits maximum of 6 people at $9 per adult and $6 per child. Children under 2 are admitted free. Valid for general daytime admission to Franklin Park Zoo or Stone Zoo only. Tickets are non-refundable, have no cash value, cannot be combined with other offers or discounts and cannot be replaced if lost or stolen. Not valid for ZooLights or Boston Lights.",
+  "source_phrases": {
+    "max_people": "maximum of 6",
+    "free_under_age": "Children under 2 are admitted free"
+  }
 }

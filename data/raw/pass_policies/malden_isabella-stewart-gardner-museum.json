@@ -2,12 +2,23 @@
   "library_id": "malden",
   "attraction_slug": "isabella-stewart-gardner-museum",
   "status": "ok",
-  "max_people": 4,
-  "max_adults": null,
+  "max_people": null,
+  "max_adults": 4,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 18,
-  "savings_per_person_usd": null,
+  "savings_per_person_usd": 5.0,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are always admitted for free. MUSEUM HOURS: WEEKDAYS 11 AM – 5 PM | WEEKENDS 10 AM – 5 PM | THURSDAYS 11 AM – 9 PM | CLOSED TUESDAYS"
+  "raw": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are always admitted for free. MUSEUM HOURS: WEEKDAYS 11 AM – 5 PM | WEEKENDS 10 AM – 5 PM | THURSDAYS 11 AM – 9 PM | CLOSED TUESDAYS",
+  "source_phrases": {
+    "max_adults": "up to four (4) people with $5 admission per person",
+    "free_under_age": "Children under the age of 18 are always admitted for free.",
+    "savings_per_person_usd": "$5 admission per person"
+  }
 }

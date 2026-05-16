@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": 5.0,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits up to 4 people at $5 off per person. Not to be combined with other discounts; not valid for member pricing."
+  "raw": "Each pass admits up to 4 people at $5 off per person. Not to be combined with other discounts; not valid for member pricing.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "savings_per_person_usd": "$5 off per person"
+  }
 }

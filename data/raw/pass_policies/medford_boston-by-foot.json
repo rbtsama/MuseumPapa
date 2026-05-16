@@ -5,9 +5,21 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Free admission to most of Boston By Foot’s Walking Tours (with the exception of Architecture tours, private tours, \"Boston with a BOO!\" and \"Footloose on the Freedom Trail\"). Available seasonally from April- October."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [
+    "seasonal:apr-oct"
+  ],
+  "boosts": [],
+  "notes": "Free admission to most walking tours; excludes Architecture tours, private tours, 'Boston with a BOO!' and 'Footloose on the Freedom Trail'.",
+  "raw": "Free admission to most of Boston By Foot’s Walking Tours (with the exception of Architecture tours, private tours, \"Boston with a BOO!\" and \"Footloose on the Freedom Trail\"). Available seasonally from April- October.",
+  "source_phrases": {
+    "exclusions": "Available seasonally from April- October",
+    "notes": "Free admission to most of Boston By Foot's Walking Tours (with the exception of Architecture tours"
+  }
 }

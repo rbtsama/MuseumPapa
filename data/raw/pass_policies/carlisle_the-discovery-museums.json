@@ -5,9 +5,17 @@
   "max_people": 3,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits up to 3 people at 1/2 price per person to the museum and Discovery Woods. Advance reservations are no longer accepted for admission. For details and questions, visit their website or call 978-264-4200."
+  "raw": "Each pass admits up to 3 people at 1/2 price per person to the museum and Discovery Woods. Advance reservations are no longer accepted for admission. For details and questions, visit their website or call 978-264-4200.",
+  "source_phrases": {
+    "max_people": "up to 3 people",
+    "discount_percent": "1/2 price"
+  }
 }

@@ -5,9 +5,19 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This program allows up to 6 guests at 50% off admission."
+  "raw": "This program allows up to 6 guests at 50% off admission.",
+  "source_phrases": {
+    "max_people": "up to 6 guests",
+    "discount_percent": "50% off"
+  }
 }

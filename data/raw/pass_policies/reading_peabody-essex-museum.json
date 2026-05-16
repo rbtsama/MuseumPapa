@@ -3,11 +3,20 @@
   "attraction_slug": "peabody-essex-museum",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "$12 per person admission",
-  "raw": "This pass uses a discount code. You will receive the discount code via email after booking this pass. Purchasing tickets in advance is recommended. See confirmation email for instructions. Pass admits two adults at $12 per person. Includes admission to the Yin Yu Tang, the Chinese house. Access to special ticketed exhibitions also require a separate fee. Visitors using a library pass are not entitled to any other member benefits."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [
+    "members_discount"
+  ],
+  "notes": null,
+  "raw": "This pass uses a discount code. You will receive the discount code via email after booking this pass. Purchasing tickets in advance is recommended. See confirmation email for instructions. Pass admits two adults at $12 per person. Includes admission to the Yin Yu Tang, the Chinese house. Access to special ticketed exhibitions also require a separate fee. Visitors using a library pass are not entitled to any other member benefits.",
+  "source_phrases": {
+    "max_adults": "two adults"
+  }
 }

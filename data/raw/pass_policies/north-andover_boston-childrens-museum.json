@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits up to 4 (adults or children) at half price per person. After receiving a library discount pass (date-specific to your visit), you must reserve a visit online with Boston Children’s Museum. Due to safety measures, walk-ins are not allowed. Museum capacity is limited at this time."
+  "raw": "Admits up to 4 (adults or children) at half price per person. After receiving a library discount pass (date-specific to your visit), you must reserve a visit online with Boston Children’s Museum. Due to safety measures, walk-ins are not allowed. Museum capacity is limited at this time.",
+  "source_phrases": {
+    "discount_percent": "half price"
+  }
 }

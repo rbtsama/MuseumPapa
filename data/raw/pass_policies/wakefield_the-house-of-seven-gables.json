@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass gives patrons half price admission for up to four people."
+  "raw": "Pass gives patrons half price admission for up to four people.",
+  "source_phrases": {
+    "max_people": "for up to four people",
+    "discount_percent": "half price"
+  }
 }

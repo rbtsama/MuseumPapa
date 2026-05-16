@@ -2,12 +2,17 @@
   "library_id": "belmont",
   "attraction_slug": "new-england-botanic-garden-at-tower-hill",
   "status": "ok",
-  "max_people": 2,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each New England Botanic Garden Membership Card entitles the bearer to half-price admission for up to two library patrons. Admission information is available online at https://nebg.org/plan-your-visit/ Make sure you check with the museum if there is inclement weather . HOURS Open daily: 10 a.m.–5 p.m. Last admission: 4:30 p.m. Please note: The Garden will be closed on January 1, November 27, and December 24, 25, & 31 for general daytime admission. For the safety of our guests, the Garden may close due to severe weather. Please check the website, Facebook and Instagram or call 508-869-6111 for updates."
+  "raw": "Each New England Botanic Garden Membership Card entitles the bearer to half-price admission for up to two library patrons. Admission information is available online at https://nebg.org/plan-your-visit/ Make sure you check with the museum if there is inclement weather . HOURS Open daily: 10 a.m.–5 p.m. Last admission: 4:30 p.m. Please note: The Garden will be closed on January 1, November 27, and December 24, 25, & 31 for general daytime admission. For the safety of our guests, the Garden may close due to severe weather. Please check the website, Facebook and Instagram or call 508-869-6111 for updates.",
+  "source_phrases": {}
 }

@@ -5,9 +5,16 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Print from home This coupon must be presented to Plimoth Patuxet Museums guest services staff upon arrival at the Museum for Memorial Hall Library patrons to purchase a Heritage Pass, Combination Pass, or Plimoth Patuxet Only pass for up to six individuals at the reduced rate of $16 per adult; $10 per child ages 5-17. This coupon is for one time use only by the patron."
+  "raw": "Print from home This coupon must be presented to Plimoth Patuxet Museums guest services staff upon arrival at the Museum for Memorial Hall Library patrons to purchase a Heritage Pass, Combination Pass, or Plimoth Patuxet Only pass for up to six individuals at the reduced rate of $16 per adult; $10 per child ages 5-17. This coupon is for one time use only by the patron.",
+  "source_phrases": {
+    "max_people": "up to six individuals"
+  }
 }

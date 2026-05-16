@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits up to 4 people at 50% off the regular admission. One member of the party must be a Massachusetts resident. May not be combined with other discounts. For Museum questions visit the HMSC website at hmsc.harvard.edu/visit or call 617-495-3045."
+  "raw": "Each pass admits up to 4 people at 50% off the regular admission. One member of the party must be a Massachusetts resident. May not be combined with other discounts. For Museum questions visit the HMSC website at hmsc.harvard.edu/visit or call 617-495-3045.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "50% off"
+  }
 }

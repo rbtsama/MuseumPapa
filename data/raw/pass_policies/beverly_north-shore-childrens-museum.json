@@ -5,9 +5,18 @@
   "max_people": 5,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": null,
+  "free_under_age": 1,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits up to 5 people at 1/2 off regular admission. Ages 12 months and under are free. Pass may be presented on a hand held device or as a paper printout at the museum."
+  "raw": "Admits up to 5 people at 1/2 off regular admission. Ages 12 months and under are free. Pass may be presented on a hand held device or as a paper printout at the museum.",
+  "source_phrases": {
+    "max_people": "up to 5 people",
+    "free_under_age": "Ages 12 months and under are free",
+    "discount_percent": "1/2 off"
+  }
 }

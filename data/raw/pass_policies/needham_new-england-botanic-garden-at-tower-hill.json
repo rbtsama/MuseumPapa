@@ -2,12 +2,24 @@
   "library_id": "needham",
   "attraction_slug": "new-england-botanic-garden-at-tower-hill",
   "status": "ok",
-  "max_people": null,
+  "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": 3,
+  "free_under_age": 4,
   "savings_per_person_usd": null,
-  "notes": "pass must be returned to library",
-  "raw": "(RETURNABLE) Pass admits two guests at half-price. Children 3 and under are admitted free of charge. FOR NEEDHAM RESIDENTS ONLY. Tickets can be purchased at the door, but reservations are recommended for busy days. To reserve tickets in advance, you will need to use the discount code LIBDI and then get the physical pass from the library. Access the Ticket Reservation System at purchase.nebg.org"
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "residents_only"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "(RETURNABLE) Pass admits two guests at half-price. Children 3 and under are admitted free of charge. FOR NEEDHAM RESIDENTS ONLY. Tickets can be purchased at the door, but reservations are recommended for busy days. To reserve tickets in advance, you will need to use the discount code LIBDI and then get the physical pass from the library. Access the Ticket Reservation System at purchase.nebg.org",
+  "source_phrases": {
+    "discount_percent": "half-price",
+    "eligibility_tags": "RESIDENTS ONLY",
+    "max_people": "admits two guests at half-price",
+    "free_under_age": "Children 3 and under are admitted free"
+  }
 }

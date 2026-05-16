@@ -5,9 +5,19 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "blackout_dates"
+  ],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits up to 6 people for a discounted price. Visitors must present the bright orange pass from the library to receive the discount. Paper passes or electronic passes are not accepted. Library passes are not accepted at Salem Witch Museum in the month of October. For Museum questions, call: 978-744-1692 or visit their website www.salemwitchmuseum.com"
+  "raw": "Each pass admits up to 6 people for a discounted price. Visitors must present the bright orange pass from the library to receive the discount. Paper passes or electronic passes are not accepted. Library passes are not accepted at Salem Witch Museum in the month of October. For Museum questions, call: 978-744-1692 or visit their website www.salemwitchmuseum.com",
+  "source_phrases": {
+    "max_people": "up to 6 people",
+    "blackout_dates": "Library passes are not accepted at Salem Witch Museum in the month of October"
+  }
 }

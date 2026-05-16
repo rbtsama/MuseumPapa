@@ -5,9 +5,16 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits two visitors at the discounted rate of $12 per ticket. Upon reserving the pass, you will receive a promo code that may be used online to purchase tickets at a discounted price. You do not need to pick up anything from the library. Timed museum entry via online reservation is required. Visit my.pem.org/events or call the reservation line at (978) 542-1511 to purchase your tickets. It is recommended to reserve your time as soon as you receive the promo code. To purchase your tickets online via my.pem.org/events : Enter the promo code in the upper-right box labeled “Promo code” and click “Submit.” The page will refresh. Click on the box that says \"General Admission\" under the heading \"Choose an option below.\" Then, select a date and time for your visit. You will see an option for “Library discount $12” which will allow you to purchase discounted tickets. Sign in or register for an account to complete your transaction."
+  "raw": "Each pass admits two visitors at the discounted rate of $12 per ticket. Upon reserving the pass, you will receive a promo code that may be used online to purchase tickets at a discounted price. You do not need to pick up anything from the library. Timed museum entry via online reservation is required. Visit my.pem.org/events or call the reservation line at (978) 542-1511 to purchase your tickets. It is recommended to reserve your time as soon as you receive the promo code. To purchase your tickets online via my.pem.org/events : Enter the promo code in the upper-right box labeled “Promo code” and click “Submit.” The page will refresh. Click on the box that says \"General Admission\" under the heading \"Choose an option below.\" Then, select a date and time for your visit. You will see an option for “Library discount $12” which will allow you to purchase discounted tickets. Sign in or register for an account to complete your transaction.",
+  "source_phrases": {
+    "max_people": "admits two visitors"
+  }
 }

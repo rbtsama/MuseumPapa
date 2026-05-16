@@ -5,9 +5,18 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Free for 2 people. Physical pass — pick up at Reference Desk. Library closed Fridays and Summer Sundays.",
-  "raw": "2 Patriot Place Foxborough, MA 02035 508-698-4800 Get Directions Visit museum website for more information. This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. Pass admits two people free of charge. Check Dates Peabody Essex Museum Learn More"
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "2 Patriot Place Foxborough, MA 02035 508-698-4800 Get Directions Visit museum website for more information. This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. Pass admits two people free of charge. Check Dates Peabody Essex Museum Learn More",
+  "source_phrases": {
+    "max_people": "admits two people"
+  }
 }

@@ -5,9 +5,18 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
-  "savings_per_person_usd": 6.0,
-  "notes": "$6.00 per person for up to 4. Physical pass — pick up at Reference Desk. Library closed Fridays and Summer Sundays. Includes admission to Peabody Museum; museums connect on third floor.",
-  "raw": "26 Oxford Street Cambridge, MA 02138 617-495-3045 Get Directions Visit museum website for more information. This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. $6.00 Admission fee per person for up to four people. This pass also includes admission to the Peabody Museum of Archaeology and Ethnology. The two museums connect on the third floor and visitors may move freely from one to the other - all for one admission price. Check Dates Heritage Museums & Gardens Learn More"
+  "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "26 Oxford Street Cambridge, MA 02138 617-495-3045 Get Directions Visit museum website for more information. This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. $6.00 Admission fee per person for up to four people. This pass also includes admission to the Peabody Museum of Archaeology and Ethnology. The two museums connect on the third floor and visitors may move freely from one to the other - all for one admission price. Check Dates Heritage Museums & Gardens Learn More",
+  "source_phrases": {
+    "max_people": "up to four people"
+  }
 }

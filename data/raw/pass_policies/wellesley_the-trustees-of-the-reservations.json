@@ -3,11 +3,22 @@
   "attraction_slug": "the-trustees-of-the-reservations",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "members_discount"
+  ],
   "notes": null,
-  "raw": "GO Pass offers free or reduced admission for up to two adults and any children under 18. Check specific listings for admission pricing. GO Pass admission is equivalent to a Trustees Family Membership admission price. GO Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. For a listing of locations and venues that take this pass, please visit the Trustees of Reservations website (here.)"
+  "raw": "GO Pass offers free or reduced admission for up to two adults and any children under 18. Check specific listings for admission pricing. GO Pass admission is equivalent to a Trustees Family Membership admission price. GO Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. For a listing of locations and venues that take this pass, please visit the Trustees of Reservations website (here.)",
+  "source_phrases": {
+    "max_adults": "up to two adults"
+  }
 }

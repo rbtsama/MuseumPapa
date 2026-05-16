@@ -2,12 +2,19 @@
   "library_id": "quincy",
   "attraction_slug": "plimoth-patuxet-museums",
   "status": "ok",
-  "max_people": null,
+  "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This coupon must be presented to Plimoth Patuxet Museums guest services staff upon arrival at the Museum for Thomas Crane Public Library patrons to purchase a Heritage Pass, Combination Pass, or Plimoth Patuxet Only pass for up to six individuals at the reduced rate of $18 per adult; $12 per child ages 5-17. This coupon is for one time use only by the patron. This is a coupon pass that will be emailed and can be printed or displayed on your mobile screen."
+  "raw": "This coupon must be presented to Plimoth Patuxet Museums guest services staff upon arrival at the Museum for Thomas Crane Public Library patrons to purchase a Heritage Pass, Combination Pass, or Plimoth Patuxet Only pass for up to six individuals at the reduced rate of $18 per adult; $12 per child ages 5-17. This coupon is for one time use only by the patron. This is a coupon pass that will be emailed and can be printed or displayed on your mobile screen.",
+  "source_phrases": {
+    "max_people": "for up to six individuals"
+  }
 }

@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 18,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Melrose Public Library – Isabella Stewart Gardner Museum Pass Program (T) Each pass admits up to 4 adults with $5 admission per person (General Admission Only), children under 18 are admitted free and should be reserved as child tickets. Purchasing tickets in advance to avoid the line and guarantee entrance at your preferred time is highly recommended. Visit the Isabella Stewart Gardner Museum website to review visitor requirements and any updates to operating hours. The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. The library pass does not guarantee admission on a chosen date. For more information, including health and safety requirements, please visit isgm.org/welcome MUSEUM HOURS: MON/WED/FRI 11 AM – 5 PM | (THURS 11 AM – 9 PM | WEEKENDS 10 AM – 5 PM | CLOSED TUESDAYS"
+  "raw": "Melrose Public Library – Isabella Stewart Gardner Museum Pass Program (T) Each pass admits up to 4 adults with $5 admission per person (General Admission Only), children under 18 are admitted free and should be reserved as child tickets. Purchasing tickets in advance to avoid the line and guarantee entrance at your preferred time is highly recommended. Visit the Isabella Stewart Gardner Museum website to review visitor requirements and any updates to operating hours. The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. The library pass does not guarantee admission on a chosen date. For more information, including health and safety requirements, please visit isgm.org/welcome MUSEUM HOURS: MON/WED/FRI 11 AM – 5 PM | (THURS 11 AM – 9 PM | WEEKENDS 10 AM – 5 PM | CLOSED TUESDAYS",
+  "source_phrases": {
+    "free_under_age": "children under 18 are admitted free",
+    "max_people": "up to 4 adults with"
+  }
 }

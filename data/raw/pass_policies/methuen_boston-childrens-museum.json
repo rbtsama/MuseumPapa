@@ -2,12 +2,24 @@
   "library_id": "methuen",
   "attraction_slug": "boston-childrens-museum",
   "status": "ok",
-  "max_people": 4,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [
+    "reservation_required"
+  ],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits up to 4 (adults or children) at half price per person. After receiving a library discount pass, you must reserve a visit online with Boston Children’s Museum. Due to safety measures, walk-ins are not allowed. Museum capacity is limited at this time. Patrons must first acquire a dated library discount pass. Then visit https://www.bostonchildrensmuseum.org/ticketing Review the directions for timed tickets Click on the \"Discount Programs\" & drop down arrow Click on \"Half Price Library Timed Ticket \" to book NEW - Online reservations are required to visit PlaySpace. The date on the library discount pass must match the date of your visit. After arriving at the Museum, proceed to the admissions scanning station with your online reservation and the date specific library discount pass. If you have questions about the online ordering system, contact Orders@BostonChildrensMuseum.org. This e-ticket is valid only for one day. You can either print it out and take it with you or display the pass on your phone or device. Either way, please be sure that the pass barcode is visible."
+  "raw": "Admits up to 4 (adults or children) at half price per person. After receiving a library discount pass, you must reserve a visit online with Boston Children’s Museum. Due to safety measures, walk-ins are not allowed. Museum capacity is limited at this time. Patrons must first acquire a dated library discount pass. Then visit https://www.bostonchildrensmuseum.org/ticketing Review the directions for timed tickets Click on the \"Discount Programs\" & drop down arrow Click on \"Half Price Library Timed Ticket \" to book NEW - Online reservations are required to visit PlaySpace. The date on the library discount pass must match the date of your visit. After arriving at the Museum, proceed to the admissions scanning station with your online reservation and the date specific library discount pass. If you have questions about the online ordering system, contact Orders@BostonChildrensMuseum.org. This e-ticket is valid only for one day. You can either print it out and take it with you or display the pass on your phone or device. Either way, please be sure that the pass barcode is visible.",
+  "source_phrases": {
+    "discount_percent": "half price",
+    "exclusions": "reservations are required"
+  }
 }

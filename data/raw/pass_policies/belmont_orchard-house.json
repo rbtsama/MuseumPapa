@@ -2,12 +2,25 @@
   "library_id": "belmont",
   "attraction_slug": "orchard-house",
   "status": "ok",
-  "max_people": 2,
-  "max_adults": null,
-  "max_children": null,
-  "eligibility": "reservation_required",
+  "max_people": 6,
+  "max_adults": 2,
+  "max_children": 4,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Valid for 50% discount for up to 2 Adults/Seniors/College Students and up to 4 Youths. This is a coupon pass that must be picked up at the library. We urge all passholders to make a Timed-Entry Admission reservation at least one day in advance of their desired visit date. They must, of course, first secure a date for your Pass, but we hope they will then take advantage of our quick and easy online system to reserve and pre-pay for their tickets (we are still offering a 50% discount on all admission categories to your patrons). Patrons can make Timed-Entry reservations on this webpage: https://louisamayalcottsorchardhouse.ticketspice.com/orchard-house-timed-entry . They would scroll down to the ticket category called “Libraries,” select the number and type of tickets, and then provide payment and contact information. The Timed-Entry system will automatically generate a confirmation email for the patron. Patrons will still need to show the Library Circuit Pass when they check in at our Front Desk, as well the Timed-Entry Admission email confirmation either on their smart phone (preferable) or printed. Details about how to reserve Timed-Entry Admission are noted on the Library Circuit Membership card. Masks are required indoors. Orchard House is open year-round on the following schedule: November 1st-March 31st: Monday-Friday: 11 AM to 3 PM (Last tour at 3 PM) Saturday: 10 AM to 4:30 PM Sunday: 1 PM to 4:30 PM (Last tour at 4:30 PM) April 1st-October 31st: Monday-Saturday: 10 AM to 4:30 PM (Last tour at 4:30 PM) Sunday: 1 PM to 4:30 PM (Last tour at 4:30 PM) Orchard House is closed on Easter, Thanksgiving, Christmas, and New Year's Day. Orchard House opens at noon on Patriots' Day (the third Monday in April). The pass may be picked up on the day of the pass reservation or the day before."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "reservation_required"
+  ],
+  "boosts": [],
+  "notes": "Coupon pass; does not need to be returned.",
+  "raw": "Valid for 50% discount for up to 2 Adults/Seniors/College Students and up to 4 Youths. This is a coupon pass that must be picked up at the library. We urge all passholders to make a Timed-Entry Admission reservation at least one day in advance of their desired visit date. They must, of course, first secure a date for your Pass, but we hope they will then take advantage of our quick and easy online system to reserve and pre-pay for their tickets (we are still offering a 50% discount on all admission categories to your patrons). Patrons can make Timed-Entry reservations on this webpage: https://louisamayalcottsorchardhouse.ticketspice.com/orchard-house-timed-entry . They would scroll down to the ticket category called “Libraries,” select the number and type of tickets, and then provide payment and contact information. The Timed-Entry system will automatically generate a confirmation email for the patron. Patrons will still need to show the Library Circuit Pass when they check in at our Front Desk, as well the Timed-Entry Admission email confirmation either on their smart phone (preferable) or printed. Details about how to reserve Timed-Entry Admission are noted on the Library Circuit Membership card. Masks are required indoors. Orchard House is open year-round on the following schedule: November 1st-March 31st: Monday-Friday: 11 AM to 3 PM (Last tour at 3 PM) Saturday: 10 AM to 4:30 PM Sunday: 1 PM to 4:30 PM (Last tour at 4:30 PM) April 1st-October 31st: Monday-Saturday: 10 AM to 4:30 PM (Last tour at 4:30 PM) Sunday: 1 PM to 4:30 PM (Last tour at 4:30 PM) Orchard House is closed on Easter, Thanksgiving, Christmas, and New Year's Day. Orchard House opens at noon on Patriots' Day (the third Monday in April). The pass may be picked up on the day of the pass reservation or the day before.",
+  "source_phrases": {
+    "max_adults": "up to 2 Adults",
+    "max_children": "up to 4 Youths",
+    "max_people": "up to 2 Adults",
+    "discount_percent": "50% discount",
+    "reservation_required": "Timed-Entry Admission reservation at least one day in advance of their desired visit date. They must, of course, first secure a date for your Pass, but we hope they will then take advantage of our quick and easy online system to reserve and pre-pay for their tickets (we are still offering a 50% discount on all admission categories to your patrons). Patrons can make Timed-Entry reservations on this webpage: https://louisamayalcottsorchardhouse.ticketspice.com/orchard-house-timed-entry . They would scroll down to the ticket category called “Libraries,” select the number and type of tickets, and then provide payment and contact information. The Timed-Entry system will automatically generate a confirmation email for the patron. Patrons will still need to show the Library Circuit Pass when they check in at our Front Desk, as well the Timed-Entry Admission email confirmation either on their smart phone (preferable) or printed. Details about how to reserve Timed-Entry Admission are noted on the Library Circuit Membership card. Masks are required"
+  }
 }

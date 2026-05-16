@@ -5,9 +5,21 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Free parking for one vehicle at Massachusetts State Parks. Available March through December. This pass must be returned to the library the day following the checkout."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [
+    "seasonal:mar-dec"
+  ],
+  "boosts": [],
+  "notes": "Free parking for one vehicle at Massachusetts State Parks.",
+  "raw": "Free parking for one vehicle at Massachusetts State Parks. Available March through December. This pass must be returned to the library the day following the checkout.",
+  "source_phrases": {
+    "eligibility_tags": "parking",
+    "exclusions": "Available March through December"
+  }
 }

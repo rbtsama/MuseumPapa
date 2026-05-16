@@ -3,11 +3,20 @@
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
-  "max_children": null,
-  "eligibility": null,
-  "free_under_age": 6,
+  "max_adults": 2,
+  "max_children": 4,
+  "free_under_age": 7,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "PLEASE NOTE: This is an electronic pass that you will receive in your email. You may then use the code on the pass to purchase advance tickets online or same-day tickets at the museum. Children 6 and under are free. Each pass allows 2 adults for $15 each (special exhibition + general admission) and up to 4 children 7 – 17 $10 each (special exhibition + general admission) children ages 0-6 are free."
+  "raw": "PLEASE NOTE: This is an electronic pass that you will receive in your email. You may then use the code on the pass to purchase advance tickets online or same-day tickets at the museum. Children 6 and under are free. Each pass allows 2 adults for $15 each (special exhibition + general admission) and up to 4 children 7 – 17 $10 each (special exhibition + general admission) children ages 0-6 are free.",
+  "source_phrases": {
+    "max_adults": "2 adults",
+    "max_children": "up to 4 children",
+    "free_under_age": "Children 6 and under are free"
+  }
 }

@@ -2,12 +2,21 @@
   "library_id": "chelmsford",
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
-  "max_people": 2,
+  "max_people": 6,
   "max_adults": 2,
   "max_children": 4,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "The pass admits 2 adults and 4 children (ages 7-17) at $10 each (general admission and special exhibition). Admission is free for children under 7. Admission price changing 1/20/2026 : The regular price of adult admission will increase to $30, and the discounted rate with this pass will increase to $15. Discount admission for children will remain $10. This change takes effect starting 1/20/2026."
+  "raw": "The pass admits 2 adults and 4 children (ages 7-17) at $10 each (general admission and special exhibition). Admission is free for children under 7. Admission price changing 1/20/2026 : The regular price of adult admission will increase to $30, and the discounted rate with this pass will increase to $15. Discount admission for children will remain $10. This change takes effect starting 1/20/2026.",
+  "source_phrases": {
+    "max_adults": "2 adults and 4 children",
+    "max_children": "2 adults and 4 children",
+    "max_people": "2 adults and 4 children"
+  }
 }

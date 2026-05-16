@@ -3,11 +3,18 @@
   "attraction_slug": "mfa",
   "status": "ok",
   "max_people": null,
-  "max_adults": 2,
-  "max_children": 4,
-  "eligibility": "all",
-  "free_under_age": 7,
+  "max_adults": null,
+  "max_children": null,
+  "free_under_age": 6,
   "savings_per_person_usd": null,
-  "notes": "2 adults at $15/person (general admission + special exhibition); up to 4 children ages 7-17 at $10/person (special exhibition only). Children 6 and under free. Museum open Wed–Mon.",
-  "raw": "617-267-9300 The Museum is open Wednesday through Monday. Each pass now allows admission for 2 adults at $15 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $14. Children 6 and under are free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "617-267-9300 The Museum is open Wednesday through Monday. Each pass now allows admission for 2 adults at $15 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $14. Children 6 and under are free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "free_under_age": "Children 6 and under are free"
+  }
 }

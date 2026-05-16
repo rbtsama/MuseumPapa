@@ -2,12 +2,19 @@
   "library_id": "burlington",
   "attraction_slug": "garden-in-the-woods-native-plant-trust",
   "status": "ok",
-  "max_people": 0,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "With this pass: One adult 50% discounted admission Children (ages 5-17) $1.00 admission No discounts on classes, tours, or retail items Check website for dates & hours before visiting https://www.nativeplanttrust.org/visit/garden-woods/"
+  "raw": "With this pass: One adult 50% discounted admission Children (ages 5-17) $1.00 admission No discounts on classes, tours, or retail items Check website for dates & hours before visiting https://www.nativeplanttrust.org/visit/garden-woods/",
+  "source_phrases": {
+    "discount_percent": "50% discount"
+  }
 }

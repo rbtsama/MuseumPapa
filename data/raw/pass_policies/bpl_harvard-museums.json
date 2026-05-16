@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Free admission for up to 4. Physical pass (disposable/non-returnable). Must be picked up at branch where reserved. Email confirmation not a substitute. Limited to one booking per month per person. Redeem at Harvard Museum of Natural History or Peabody Museum.",
-  "raw": "Free Admission: Admits up to 4 visitors. The email confirmation CAN NOT be used in lieu of the physical pass. This pass may be picked up at the branch at any time after you make your reservation. This pass must be picked up at the branch you made the reservation. Consult branch operating hours before you pick up the pass. This pass does not need to be returned. Please review the Harvard Museums of Science & Culture protocols before your visit. Redeem pass at either Harvard Museum of Natural History or the Peabody Museum. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar."
+  "discount_percent": 100,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Limited to one booking per month per person",
+  "raw": "Free Admission: Admits up to 4 visitors. The email confirmation CAN NOT be used in lieu of the physical pass. This pass may be picked up at the branch at any time after you make your reservation. This pass must be picked up at the branch you made the reservation. Consult branch operating hours before you pick up the pass. This pass does not need to be returned. Please review the Harvard Museums of Science & Culture protocols before your visit. Redeem pass at either Harvard Museum of Natural History or the Peabody Museum. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.",
+  "source_phrases": {
+    "max_people": "up to 4 visitors",
+    "discount_percent": "Free Admission"
+  }
 }

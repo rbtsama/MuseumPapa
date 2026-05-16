@@ -5,9 +5,19 @@
   "max_people": 5,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Discount: Half-priced admission for up to 5 people. Children under the age of 1 year are always free at this museum. A digital coupon will be sent to the provided email address or visit the main desk at the library to pick up this discount coupon. This coupon must be used on the date printed on the coupon. Discount coupons can be picked from the library up to 1 week in advance. To use: Present the discount pass (digital or physical) at the North Shore Children's Museum front desk when purchasing your tickets ATTENTION: Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation. If another member of your household will be checking out your discount pass, you must contact the library in advance. Please wait until you are ready to book your tickets before selecting the \"Access Pass\" icon in your confirmation email. Discount pass reservations cannot be cancelled once the \"Access Pass\" icon is selected. Unwanted passes MUST BE CANCELLED. Failure to cancel an unwanted pass will result in a 30 day ban on reserving discount passes."
+  "raw": "Discount: Half-priced admission for up to 5 people. Children under the age of 1 year are always free at this museum. A digital coupon will be sent to the provided email address or visit the main desk at the library to pick up this discount coupon. This coupon must be used on the date printed on the coupon. Discount coupons can be picked from the library up to 1 week in advance. To use: Present the discount pass (digital or physical) at the North Shore Children's Museum front desk when purchasing your tickets ATTENTION: Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation. If another member of your household will be checking out your discount pass, you must contact the library in advance. Please wait until you are ready to book your tickets before selecting the \"Access Pass\" icon in your confirmation email. Discount pass reservations cannot be cancelled once the \"Access Pass\" icon is selected. Unwanted passes MUST BE CANCELLED. Failure to cancel an unwanted pass will result in a 30 day ban on reserving discount passes.",
+  "source_phrases": {
+    "max_people": "up to 5 people",
+    "discount_percent": "Half-priced"
+  }
 }

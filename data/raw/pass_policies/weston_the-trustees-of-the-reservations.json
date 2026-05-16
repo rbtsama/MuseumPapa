@@ -5,9 +5,16 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Patrons enjoy free or reduced admission to Trustees properties across Massachusetts. See www.thetrustees.org"
+  "raw": "Patrons enjoy free or reduced admission to Trustees properties across Massachusetts. See www.thetrustees.org",
+  "source_phrases": {}
 }

@@ -5,9 +5,20 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "This pass admits 4 people at half price admission. Children under age 1 are admitted free. This is a coupon pass that will be emailed and can be printed or displayed on your mobile screen."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Children under age 1 admitted free.",
+  "raw": "This pass admits 4 people at half price admission. Children under age 1 are admitted free. This is a coupon pass that will be emailed and can be printed or displayed on your mobile screen.",
+  "source_phrases": {
+    "max_people": "admits 4 people",
+    "discount_percent": "half price",
+    "notes": "Children under age 1 are admitted free"
+  }
 }

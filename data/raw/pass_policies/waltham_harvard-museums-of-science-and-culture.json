@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits up to 4 visitors at 50% off regular museum admission rates. Discount may not be combined with other offers. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the date you've selected in our calendar.*"
+  "raw": "Admits up to 4 visitors at 50% off regular museum admission rates. Discount may not be combined with other offers. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the date you've selected in our calendar.*",
+  "source_phrases": {
+    "max_people": "Admits up to 4 visitors",
+    "discount_percent": "50% off"
+  }
 }

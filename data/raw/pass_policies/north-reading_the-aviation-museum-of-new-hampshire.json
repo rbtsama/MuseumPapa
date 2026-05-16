@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": null,
+  "free_under_age": 5,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pick up a paper pass at the Flint Memorial Library main circulation desk. Library Pass: Free entry for up to 4 people. Additional members in party must pay appropriate admission fee; kids 5 and under, FREE! The Museum is staffed by volunteers of the New Hampshire Aviation Historical Society and all admission fees and donations support exhibits, education programs, operations and maintenance."
+  "raw": "Pick up a paper pass at the Flint Memorial Library main circulation desk. Library Pass: Free entry for up to 4 people. Additional members in party must pay appropriate admission fee; kids 5 and under, FREE! The Museum is staffed by volunteers of the New Hampshire Aviation Historical Society and all admission fees and donations support exhibits, education programs, operations and maintenance.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "free_under_age": "kids 5 and under, FREE!"
+  }
 }

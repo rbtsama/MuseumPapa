@@ -5,9 +5,18 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "pass must be returned to library; overdue fine $3/day",
-  "raw": "Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Free admission for up to 2 people. THIS PASS MUST BE RETURNED TO THE MORSE INSTITUTE LIBRARY BY 9:30AM THE DAY AFTER YOUR RESERVATION. OVERDUE FINES ARE $3/DAY. Passes can be returned at the circulation desk or the outside book drops."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Free admission for up to 2 people. THIS PASS MUST BE RETURNED TO THE MORSE INSTITUTE LIBRARY BY 9:30AM THE DAY AFTER YOUR RESERVATION. OVERDUE FINES ARE $3/DAY. Passes can be returned at the circulation desk or the outside book drops.",
+  "source_phrases": {
+    "max_people": "up to 2 people"
+  }
 }

@@ -5,9 +5,22 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
-  "free_under_age": 5,
+  "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Free for up to 4. Children 4 and younger free. Online reservation required for all visitors; use library coupon code emailed to patron.",
-  "raw": "617-725-0022 Each pass admits up to 4 people for free. Children 4 years and younger are admitted for free. Pass instructions: Visit the museum's website and use the library coupon code emailed to you to reserve a timed entry Presently, online reservations are required for all visitors. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [
+    "reservation_required"
+  ],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": null,
+  "raw": "617-725-0022 Each pass admits up to 4 people for free. Children 4 years and younger are admitted for free. Pass instructions: Visit the museum’s website and use the library coupon code emailed to you to reserve a timed entry Presently, online reservations are required for all visitors. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "max_people": "up to 4 people"
+  }
 }

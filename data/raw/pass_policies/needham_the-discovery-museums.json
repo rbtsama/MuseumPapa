@@ -5,9 +5,20 @@
   "max_people": 3,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": 1,
+  "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "residents_only"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "(PRINTABLE) Pass allows half-price admission for up to 3 people. Children under 1 year are free. FOR NEEDHAM RESIDENTS ONLY. This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price."
+  "raw": "(PRINTABLE) Pass allows half-price admission for up to 3 people. Children under 1 year are free. FOR NEEDHAM RESIDENTS ONLY. This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price.",
+  "source_phrases": {
+    "max_people": "up to 3 people",
+    "discount_percent": "half-price",
+    "eligibility_tags": "RESIDENTS ONLY"
+  }
 }

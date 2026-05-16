@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each coupon admits up to 4 visitors at 50% off regular museum admission rates. Includes access to all four HMSC museums: Harvard Museum of Natural History Peabody Museum of Archaeology & Ethnology Harvard Museum of the Ancient Near East - closed Saturdays Collection of Historical Scientific Instruments - closed Saturdays One member of party must be a MA resident. Not for group, institutional, or corporate visits. May not be combined with other offers. Non-transferrable."
+  "raw": "Each coupon admits up to 4 visitors at 50% off regular museum admission rates. Includes access to all four HMSC museums: Harvard Museum of Natural History Peabody Museum of Archaeology & Ethnology Harvard Museum of the Ancient Near East - closed Saturdays Collection of Historical Scientific Instruments - closed Saturdays One member of party must be a MA resident. Not for group, institutional, or corporate visits. May not be combined with other offers. Non-transferrable.",
+  "source_phrases": {
+    "max_people": "up to 4 visitors",
+    "discount_percent": "50% off"
+  }
 }

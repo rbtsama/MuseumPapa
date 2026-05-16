@@ -5,9 +5,19 @@
   "max_people": 3,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits 3 visitors at half price admission per person to the Discovery Museum as well as Discovery Woods. Any additional visitors must pay the regular admission price."
+  "raw": "Admits 3 visitors at half price admission per person to the Discovery Museum as well as Discovery Woods. Any additional visitors must pay the regular admission price.",
+  "source_phrases": {
+    "max_people": "Admits 3 visitors",
+    "discount_percent": "half price"
+  }
 }

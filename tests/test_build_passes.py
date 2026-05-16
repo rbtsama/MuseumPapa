@@ -73,13 +73,17 @@ def test_build_passes_attaches_policy_from_dict():
                                           "source_url": "", "pass_type_raw": ""}}}
     }}
     policies = {"wakefield_mos": {"status": "ok", "max_people": 4, "max_adults": None,
-                                   "max_children": None, "eligibility": None,
+                                   "max_children": None,
                                    "free_under_age": 3, "savings_per_person_usd": None,
+                                   "discount_percent": 50, "discount_dollar_off": None,
+                                   "eligibility_tags": [], "exclusions": [], "boosts": [],
                                    "notes": None, "raw": "Up to 4 people; under 3 free"}}
     out = build_passes(catalog, policies=policies)
     p = out["passes"][0]
     assert p["policy"]["max_people"] == 4
     assert p["policy"]["free_under_age"] == 3
+    assert p["policy"]["eligibility_tags"] == []
+    assert p["policy"]["discount_percent"] == 50
     assert out["_meta"]["n_with_policy"] == 1
 
 

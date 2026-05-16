@@ -5,9 +5,18 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
-  "free_under_age": null,
+  "free_under_age": 3,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "New England Aquarium pass admits 4 people with a 50% discount. The current admission rates can be found on the New England Aquarium's website here . Children under the age of 3 are always admitted free. The New England Aquarium is open on weekdays from 9 AM-5 PM and weekends from 9 AM-6 PM. The New England Aquarium opens at noon on New Year's Day and is closed on Thanksgiving Day and Christmas Day. Library pass holders no longer need to make reservations. Tickets cannot be pre-purchased online nor over the phone. The printable pass coupon that you receive via email must be presented at the Aquarium Box Office (\"General Admission\" line) at the time of the visit. Library pass holders will be granted immediate entry after purchasing discounted tickets, even if the Aquarium is sold out to the general public at the time."
+  "raw": "New England Aquarium pass admits 4 people with a 50% discount. The current admission rates can be found on the New England Aquarium's website here . Children under the age of 3 are always admitted free. The New England Aquarium is open on weekdays from 9 AM-5 PM and weekends from 9 AM-6 PM. The New England Aquarium opens at noon on New Year's Day and is closed on Thanksgiving Day and Christmas Day. Library pass holders no longer need to make reservations. Tickets cannot be pre-purchased online nor over the phone. The printable pass coupon that you receive via email must be presented at the Aquarium Box Office (\"General Admission\" line) at the time of the visit. Library pass holders will be granted immediate entry after purchasing discounted tickets, even if the Aquarium is sold out to the general public at the time.",
+  "source_phrases": {
+    "max_people": "admits 4 people",
+    "free_under_age": "Children under the age of 3 are always admitted free",
+    "discount_percent": "50% discount"
+  }
 }

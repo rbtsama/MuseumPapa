@@ -5,9 +5,16 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "This is a paper coupon pass that must be picked up at the library. The coupon pass admits up to 6 people at $9 per adult and $6 per child. The discount pass covers general admission only and cannot be applied to special events. The pass is accepted at both Franklin Park Zoo in Boston and Stone Zoo in Stoneham. To receive the discount present the pass to the admissions booth when purchasing general admission tickets at the zoo. Library patrons should not purchase timed-entry tickets on the Zoo New England website. Tickets purchased online are not eligible for the discount. This pass is generously sponsored by the Family Friends of the Billerica Public Library."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Coupon pass; does not need to be returned.",
+  "raw": "This is a paper coupon pass that must be picked up at the library. The coupon pass admits up to 6 people at $9 per adult and $6 per child. The discount pass covers general admission only and cannot be applied to special events. The pass is accepted at both Franklin Park Zoo in Boston and Stone Zoo in Stoneham. To receive the discount present the pass to the admissions booth when purchasing general admission tickets at the zoo. Library patrons should not purchase timed-entry tickets on the Zoo New England website. Tickets purchased online are not eligible for the discount. This pass is generously sponsored by the Family Friends of the Billerica Public Library.",
+  "source_phrases": {
+    "max_people": "up to 6 people"
+  }
 }

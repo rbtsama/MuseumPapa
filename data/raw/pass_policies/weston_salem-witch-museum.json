@@ -5,9 +5,21 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "blackout_dates",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Not valid in October",
-  "raw": "Library member rates 2026 : Adult/Senior - $14.00 Child (3-14) - $11.75 Library Passes are not accepted in the month of OCTOBER."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "blackout_dates"
+  ],
+  "boosts": [
+    "library_card_required",
+    "members_discount"
+  ],
+  "notes": null,
+  "raw": "Library member rates 2026 : Adult/Senior - $14.00 Child (3-14) - $11.75 Library Passes are not accepted in the month of OCTOBER.",
+  "source_phrases": {
+    "exclusions_blackout": "not accepted in the month of OCTOBER"
+  }
 }

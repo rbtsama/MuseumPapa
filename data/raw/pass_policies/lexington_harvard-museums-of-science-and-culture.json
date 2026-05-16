@@ -2,12 +2,21 @@
   "library_id": "lexington",
   "attraction_slug": "harvard-museums-of-science-and-culture",
   "status": "ok",
-  "max_people": 4,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "THIS IS A COUPON PASS THIS COUPON PASS MUST BE PICKED FROM THE LIBRARY PRIOR TO YOUR VISIT TO MUSEUM PASS DOES NOT NEED TO BE RETURNED One pass admits up to four (4) visitors at 50% off admission rates. Reserve your library pass and pick up coupon prior to your date of visit or the day of."
+  "raw": "THIS IS A COUPON PASS THIS COUPON PASS MUST BE PICKED FROM THE LIBRARY PRIOR TO YOUR VISIT TO MUSEUM PASS DOES NOT NEED TO BE RETURNED One pass admits up to four (4) visitors at 50% off admission rates. Reserve your library pass and pick up coupon prior to your date of visit or the day of.",
+  "source_phrases": {
+    "discount_percent": "50% off"
+  }
 }

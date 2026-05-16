@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "SEASONAL. 50% off for up to 4. Summer 2026 schedule covers Spectacle, Georges, and Peddocks Islands. No passes available at this time.",
-  "raw": "866-307-2469 SEASONAL PASS - Each pass admits up to 4 people at 50% off. Summer 2026 schedule: Spectacle Island Georges Island Peddocks Island No passes are available at this time."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "No passes available at time of capture",
+  "raw": "866-307-2469 SEASONAL PASS - Each pass admits up to 4 people at 50% off. Summer 2026 schedule: Spectacle Island Georges Island Peddocks Island No passes are available at this time.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "50% off"
+  }
 }

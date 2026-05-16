@@ -5,9 +5,20 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass admits six visitors for half price to the American Heritage Museum. Valid on General Admission only. Cannot be used for special events or driving or ride experiences. The pass may also be used to receive $20 off a new Family Membership or $10 of a new Individual Membership. Advance tickets are strongly recommended by the museum. Please refer to the Museum website for hours and tickets: https://www.americanheritagemuseum.org/plan-your-visit/hours-admission/ Patrons must bring the library pass to the museum along with your tickets to be admitted with the discount. This pass can be picked up the day before (if available) or day of reservation. This pass must be returned to the library by opening the day after use."
+  "raw": "This pass admits six visitors for half price to the American Heritage Museum. Valid on General Admission only. Cannot be used for special events or driving or ride experiences. The pass may also be used to receive $20 off a new Family Membership or $10 of a new Individual Membership. Advance tickets are strongly recommended by the museum. Please refer to the Museum website for hours and tickets: https://www.americanheritagemuseum.org/plan-your-visit/hours-admission/ Patrons must bring the library pass to the museum along with your tickets to be admitted with the discount. This pass can be picked up the day before (if available) or day of reservation. This pass must be returned to the library by opening the day after use.",
+  "source_phrases": {
+    "max_people": "admits six visitors",
+    "discount_percent": "half price",
+    "family": "Family Membership"
+  }
 }

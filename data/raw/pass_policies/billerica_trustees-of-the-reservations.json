@@ -5,9 +5,19 @@
   "max_people": null,
   "max_adults": 2,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Admits two adults and children under 18 for free at 116 Trustees locations. The discount pass cannot be applied to special events. Advance reservations are suggested for Appleton Farms, Castle Hill on the Crane Estate, Crane Beach (weekdays), deCordova Museum, Fruitlands Museum, Mytoi, Naumkeag, Wasque, and World's End (weekdays). Advance reservations are required for Longpoint Wildlife Refuge, Crane Beach (weekends) and World's End (weekends). Reservations can be made at https://thetrustees.org/content/passes/ . When reserving tickets submit the promo code GOPASS to access the discounted admission fee. You must bring the paper coupon pass from the Billerica Public Library to the Trustees location to receive the discount. This pass is generously sponsored by the Family Friends of the Billerica Public Library."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "reservation_required"
+  ],
+  "boosts": [],
+  "notes": "Coupon pass; does not need to be returned.",
+  "raw": "Admits two adults and children under 18 for free at 116 Trustees locations. The discount pass cannot be applied to special events. Advance reservations are suggested for Appleton Farms, Castle Hill on the Crane Estate, Crane Beach (weekdays), deCordova Museum, Fruitlands Museum, Mytoi, Naumkeag, Wasque, and World's End (weekdays). Advance reservations are required for Longpoint Wildlife Refuge, Crane Beach (weekends) and World's End (weekends). Reservations can be made at https://thetrustees.org/content/passes/ . When reserving tickets submit the promo code GOPASS to access the discounted admission fee. You must bring the paper coupon pass from the Billerica Public Library to the Trustees location to receive the discount. This pass is generously sponsored by the Family Friends of the Billerica Public Library.",
+  "source_phrases": {
+    "max_adults": "two adults and children under 18",
+    "reservation_required": "Advance reservations are required"
+  }
 }

@@ -3,11 +3,20 @@
   "attraction_slug": "isabella-stewart-gardner-museum",
   "status": "ok",
   "max_people": 4,
-  "max_adults": null,
+  "max_adults": 4,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": 18,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass is an online promo code; nothing needs to be picked up from the library . This pass allows up to 4 people to visit the Isabella Stewart Gardner Museum for $5.00 each . To reserve your tickets online, visit the following website: https://tnew.gardnermuseum.org/events . Enter the provided promo code (sent to your email address once pass is reserved) in the box at the top of the screen. Then, select visit date and time to enter. Add the desired number of tickets to the basket (note: discount only works for up to 4 Adult-priced tickets and any additional ticket will be normally priced). Children under 18 are always free and should be reserved as child tickets. Discount is applied only at checkout. Once you login and create an account with the Gardner Museum, you will be able to finish checking out. This library pass does not guarantee a reservation to the Museum. Please present your reserved timed museum admission tickets, and the email sent to confirm your pass reservation (either on your mobile device or printed), while checking in to visit the Isabella Stewart Gardner Museum."
+  "raw": "This pass is an online promo code; nothing needs to be picked up from the library . This pass allows up to 4 people to visit the Isabella Stewart Gardner Museum for $5.00 each . To reserve your tickets online, visit the following website: https://tnew.gardnermuseum.org/events . Enter the provided promo code (sent to your email address once pass is reserved) in the box at the top of the screen. Then, select visit date and time to enter. Add the desired number of tickets to the basket (note: discount only works for up to 4 Adult-priced tickets and any additional ticket will be normally priced). Children under 18 are always free and should be reserved as child tickets. Discount is applied only at checkout. Once you login and create an account with the Gardner Museum, you will be able to finish checking out. This library pass does not guarantee a reservation to the Museum. Please present your reserved timed museum admission tickets, and the email sent to confirm your pass reservation (either on your mobile device or printed), while checking in to visit the Isabella Stewart Gardner Museum.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "max_adults": "up to 4 Adult",
+    "free_under_age": "Children under 18 are always free"
+  }
 }

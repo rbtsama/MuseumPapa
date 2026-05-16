@@ -3,11 +3,18 @@
   "attraction_slug": "peabody-essex-museum",
   "status": "ok",
   "max_people": null,
-  "max_adults": 2,
+  "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "THIS IS A PRINTABLE PASS Each pass will admit a maximum of two adult visitors at the reduced admission rate of $12 per person Thursday through Monday. Children under age 16 are always admitted FREE."
+  "raw": "THIS IS A PRINTABLE PASS Each pass will admit a maximum of two adult visitors at the reduced admission rate of $12 per person Thursday through Monday. Children under age 16 are always admitted FREE.",
+  "source_phrases": {}
 }

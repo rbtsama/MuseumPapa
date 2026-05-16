@@ -5,9 +5,16 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Digital pass provides $5.00 off general admission for up to 4 visitors. Regular admission prices are $22.00 for adults, $20 for seniors, $15 for college students with current ID; free for anyone under 18 or anyone named \"Isabella\". Reserve the pass, and you will receive an email containing an online promo code along with instructions on how to receive the discount and plan your visit. This pass is generously sponsored by the Family Friends of the Billerica Public Library."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Free admission for anyone named 'Isabella'.",
+  "raw": "Digital pass provides $5.00 off general admission for up to 4 visitors. Regular admission prices are $22.00 for adults, $20 for seniors, $15 for college students with current ID; free for anyone under 18 or anyone named \"Isabella\". Reserve the pass, and you will receive an email containing an online promo code along with instructions on how to receive the discount and plan your visit. This pass is generously sponsored by the Family Friends of the Billerica Public Library.",
+  "source_phrases": {
+    "max_people": "up to 4 visitors"
+  }
 }

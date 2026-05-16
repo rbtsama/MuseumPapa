@@ -5,9 +5,19 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": 16,
   "savings_per_person_usd": null,
-  "notes": "pre-registration required; $12 per person admission",
-  "raw": "Type of pass: E-code, emailed upon reservation (see additional instructions below). Pricing: Reduced admission for up to 2 people at $12 per person (children under 16 free). Additional instructions: - Pre-registration is recommended. Visit the Peabody Essex Museum website and enter the e-code into the “Promo Code” field to reserve. -To access your e-code, click \"Access Pass\" in your confirmation email. The e-code is found under the barcode. -If purchasing upon arrival, present pass reservation confirmation email to receive discount."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Type of pass: E-code, emailed upon reservation (see additional instructions below). Pricing: Reduced admission for up to 2 people at $12 per person (children under 16 free). Additional instructions: - Pre-registration is recommended. Visit the Peabody Essex Museum website and enter the e-code into the “Promo Code” field to reserve. -To access your e-code, click \"Access Pass\" in your confirmation email. The e-code is found under the barcode. -If purchasing upon arrival, present pass reservation confirmation email to receive discount.",
+  "source_phrases": {
+    "max_people": "up to 2 people",
+    "free_under_age": "children under 16 free"
+  }
 }

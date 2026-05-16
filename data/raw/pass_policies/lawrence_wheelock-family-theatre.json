@@ -5,9 +5,19 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Wheelock Family Theatre Teatro Familia Wheelock Friday night performances : buy one get one free. No pass required: call to reserve. Presentaciones de los viernes en la noche: compra uno, lleva uno gratis. No se requiere un boleto: llame para reservar."
+  "raw": "Wheelock Family Theatre Teatro Familia Wheelock Friday night performances : buy one get one free. No pass required: call to reserve. Presentaciones de los viernes en la noche: compra uno, lleva uno gratis. No se requiere un boleto: llame para reservar.",
+  "source_phrases": {
+    "max_people": "buy one get one free",
+    "discount_percent": "buy one get one free"
+  }
 }

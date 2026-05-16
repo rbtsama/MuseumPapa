@@ -2,12 +2,21 @@
   "library_id": "maynard",
   "attraction_slug": "ecotarium",
   "status": "ok",
-  "max_people": 2,
+  "max_people": null,
   "max_adults": 2,
   "max_children": 2,
-  "eligibility": "all",
-  "free_under_age": null,
+  "free_under_age": 2,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits up to 2 adults & 2 children for a 50% discount. Children under 2 get in free. Museum is closed on Mondays. Pass is not valid for admission to the Alden Digital Planetarium, the Explorer Express Train or events with a special fee."
-}
+  "raw": "Pass admits up to 2 adults & 2 children for a 50% discount. Children under 2 get in free. Museum is closed on Mondays. Pass is not valid for admission to the Alden Digital Planetarium, the Explorer Express Train or events with a special fee.",
+  "source_phrases": {
+    "max_adults": "admits up to 2 adults",
+    "max_children": "adults & 2 children",
+    "fre

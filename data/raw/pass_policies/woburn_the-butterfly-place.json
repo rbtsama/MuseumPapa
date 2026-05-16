@@ -2,12 +2,22 @@
   "library_id": "woburn",
   "attraction_slug": "the-butterfly-place",
   "status": "ok",
-  "max_people": null,
+  "max_people": 1,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "• This pass admits one person free of charge and there is a limit of one pass per family. • For ticket pricing and hours, please refer to The Butterfly Place website . • Open daily from 10 am to 4 pm. • Please note: this is a physical pass and must be picked up at the library. *Funded by the Friends of the WPL"
+  "raw": "• This pass admits one person free of charge and there is a limit of one pass per family. • For ticket pricing and hours, please refer to The Butterfly Place website . • Open daily from 10 am to 4 pm. • Please note: this is a physical pass and must be picked up at the library. *Funded by the Friends of the WPL",
+  "source_phrases": {
+    "max_people": "admits one person",
+    "eligibility_tags_family": "family"
+  }
 }

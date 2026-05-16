@@ -5,9 +5,16 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass provides up to 4 people with $5.00 admission per person. Children under the age of 18 are always admitted free. Tickets can sell out fast, and may not be available at the door, particularly during popular days of the week and times of day. Buy your tickets in advance to avoid the line and guarantee entrance at your preferred time. See confirmation email for instructions."
+  "raw": "Each pass provides up to 4 people with $5.00 admission per person. Children under the age of 18 are always admitted free. Tickets can sell out fast, and may not be available at the door, particularly during popular days of the week and times of day. Buy your tickets in advance to avoid the line and guarantee entrance at your preferred time. See confirmation email for instructions.",
+  "source_phrases": {
+    "max_people": "up to 4 people"
+  }
 }

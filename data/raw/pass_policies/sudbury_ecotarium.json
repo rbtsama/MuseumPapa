@@ -5,9 +5,19 @@
   "max_people": null,
   "max_adults": 2,
   "max_children": 2,
-  "eligibility": "vehicle",
   "free_under_age": 2,
   "savings_per_person_usd": null,
-  "notes": "50% off per person",
-  "raw": "PLEASE NOTE: This is a coupon pass that must be picked up at the library. You may then bring it to the Ecotarium to purchase discounted tickets. 50% off discount admission for up to 2 adults and 2 children in one vehicle. Children under 2 are free."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "PLEASE NOTE: This is a coupon pass that must be picked up at the library. You may then bring it to the Ecotarium to purchase discounted tickets. 50% off discount admission for up to 2 adults and 2 children in one vehicle. Children under 2 are free.",
+  "source_phrases": {
+    "max_adults": "up to 2 adults",
+    "max_children": "2 children",
+    "free_under_age": "Children under 2 are free",
+    "discount_percent": "50% off"
+  }
 }

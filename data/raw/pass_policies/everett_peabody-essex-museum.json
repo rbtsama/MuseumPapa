@@ -2,12 +2,21 @@
   "library_id": "everett",
   "attraction_slug": "peabody-essex-museum",
   "status": "ok",
-  "max_people": 2,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": null,
+  "free_under_age": 17,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "The PEM Library Pass allows admission for up to two (2) adult visitors with the reduced admission rate of $12 per person. Children age 16 and under are always admitted free. Patrons must use their unique discount code to reserve tickets at the discounted rate. The Library Pass does not guarantee admission to the Peabody Essex Museum. Admission to special ticketed exhibitions may require a separate fee."
+  "raw": "The PEM Library Pass allows admission for up to two (2) adult visitors with the reduced admission rate of $12 per person. Children age 16 and under are always admitted free. Patrons must use their unique discount code to reserve tickets at the discounted rate. The Library Pass does not guarantee admission to the Peabody Essex Museum. Admission to special ticketed exhibitions may require a separate fee.",
+  "source_phrases": {
+    "free_under_age": "age 16 and under are always admitted free"
+  }
 }

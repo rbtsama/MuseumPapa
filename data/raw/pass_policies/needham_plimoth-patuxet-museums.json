@@ -5,9 +5,20 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all",
+    "residents_only"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass is valid for up to 6 guests to each of Plimoth Patuxet Museum's living history sites, to purchase a Heritage Pass at the discounted admission rates of $18 per adult and $12 per child. (Regularly $46 and $29) Library ID#52591"
+  "raw": "Pass is valid for up to 6 guests to each of Plimoth Patuxet Museum's living history sites, to purchase a Heritage Pass at the discounted admission rates of $18 per adult and $12 per child. (Regularly $46 and $29) Library ID#52591",
+  "source_phrases": {
+    "max_people": "up to 6 guests",
+    "eligibility_tags": "FOR NEEDHAM RESIDENTS ONLY"
+  }
 }

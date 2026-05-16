@@ -2,12 +2,25 @@
   "library_id": "middleton",
   "attraction_slug": "john-f-kennedy-library-and-museum",
   "status": "ok",
-  "max_people": 1,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "id_required",
-  "free_under_age": null,
+  "free_under_age": 13,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
   "notes": null,
-  "raw": "Present your physical or digital Massachusetts library card (no museum pass needed) at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. Children 12 and under receive free admission to the Museum."
+  "raw": "Present your physical or digital Massachusetts library card (no museum pass needed) at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. Children 12 and under receive free admission to the Museum.",
+  "source_phrases": {
+    "discount_percent": "50% discount",
+    "boosts": "Present your physical or digital Massachusetts library card",
+    "free_under_age": "Visitors aged 12 and under receive free admission"
+  }
 }

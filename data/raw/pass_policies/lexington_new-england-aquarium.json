@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "THIS IS A PRINTABLE PASS This pass allows up to 4 people, 50% off adult and child ticket pricing to the New England Aquarium. Children two and under are always ffree · This is not a ticket. · Redeem this pass in the General Admission line at the Aquarium’s ticket booth for discounted admission for up to 4 people. · Review the Aquarium’s website at https://www.neaq.org/visit/ ahead of your visit to ensure a safe and accessible experience. · Valid only for Aquarium admission. · This coupon does not provide any other discounts and cannot be applied to combo tickets. · Library coupons or tickets obtained with library coupons may not be sold. · Void if altered or copied. No cash value. · Hours of operation are subject to change."
+  "raw": "THIS IS A PRINTABLE PASS This pass allows up to 4 people, 50% off adult and child ticket pricing to the New England Aquarium. Children two and under are always ffree · This is not a ticket. · Redeem this pass in the General Admission line at the Aquarium’s ticket booth for discounted admission for up to 4 people. · Review the Aquarium’s website at https://www.neaq.org/visit/ ahead of your visit to ensure a safe and accessible experience. · Valid only for Aquarium admission. · This coupon does not provide any other discounts and cannot be applied to combo tickets. · Library coupons or tickets obtained with library coupons may not be sold. · Void if altered or copied. No cash value. · Hours of operation are subject to change.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "50% off"
+  }
 }

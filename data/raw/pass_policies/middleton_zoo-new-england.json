@@ -5,9 +5,19 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": null,
+  "free_under_age": 2,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits 6 people at $9.00 for adults and $6.00 for children. Under age 2 years admitted free. Visit Zoo New England website for hours, updates. This pass can't be used for Stone Zoo \"Zoolights\" or Franklin Park Zoo \"Boston Lights\"."
+  "raw": "Pass admits 6 people at $9.00 for adults and $6.00 for children. Under age 2 years admitted free. Visit Zoo New England website for hours, updates. This pass can't be used for Stone Zoo \"Zoolights\" or Franklin Park Zoo \"Boston Lights\".",
+  "source_phrases": {
+    "max_people": "admits 6 people",
+    "free_under_age": "Under age 2 years admitted free"
+  }
 }

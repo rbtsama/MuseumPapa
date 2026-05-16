@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "A discount code will be emailed to you. This pass allows 50% off the ticket price for up to 4 people and does not have to be used on the date selected in the Library's pass system."
+  "raw": "A discount code will be emailed to you. This pass allows 50% off the ticket price for up to 4 people and does not have to be used on the date selected in the Library's pass system.",
+  "source_phrases": {
+    "max_people": "for up to 4 people",
+    "discount_percent": "50% off"
+  }
 }

@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": 5.0,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "These discount codes can be redeemed online, or in-person. The discount saves $5 off each paid ticket for up to 4 tickets."
+  "raw": "These discount codes can be redeemed online, or in-person. The discount saves $5 off each paid ticket for up to 4 tickets.",
+  "source_phrases": {
+    "savings_per_person_usd": "$5 off each",
+    "max_people": "up to 4 tickets"
+  }
 }

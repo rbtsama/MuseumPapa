@@ -5,9 +5,19 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "blackout_dates"
+  ],
+  "boosts": [],
   "notes": null,
-  "raw": "This physical pass may be picked up at the circulation desk the day before use and must be brought to the Salem Witch Museum in order to receive the discount. Please return this physical pass to the Billerica Public Library by 9am the next day. The pass may be returned to the outside drop box during off hours. This pass admits up to 6 visitors at a discounted rate, $14.00 for adults/seniors and $11.75 for children (3-14). Regular admission prices are $19.00 for adults, $17.50 for senior citizens, and $16.00 for children (3-14). Tickets must be booked online on the day of your visit at salemwitchmuseum.com , using the discount code that is printed on the pass. The Salem Witch Museum pass is unavailable during the month of October. This pass is generously donated by the Salem Witch Museum."
+  "raw": "This physical pass may be picked up at the circulation desk the day before use and must be brought to the Salem Witch Museum in order to receive the discount. Please return this physical pass to the Billerica Public Library by 9am the next day. The pass may be returned to the outside drop box during off hours. This pass admits up to 6 visitors at a discounted rate, $14.00 for adults/seniors and $11.75 for children (3-14). Regular admission prices are $19.00 for adults, $17.50 for senior citizens, and $16.00 for children (3-14). Tickets must be booked online on the day of your visit at salemwitchmuseum.com , using the discount code that is printed on the pass. The Salem Witch Museum pass is unavailable during the month of October. This pass is generously donated by the Salem Witch Museum.",
+  "source_phrases": {
+    "max_people": "up to 6 visitors",
+    "blackout_dates": "unavailable during the month of October"
+  }
 }

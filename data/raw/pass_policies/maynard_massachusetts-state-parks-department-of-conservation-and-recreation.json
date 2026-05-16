@@ -5,9 +5,16 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "DCR Parks pass allows one car unlimited day-use parking access to state park facilities that charge a parking fee. (Not valid for parking at Quabbin Reservoir, Sqantum Point, North Point, Draw Seven Commuter Lots or for camping.) You will need to pick up your pass at the Circulation Desk in the main lobby of the Library. We encourage you to visit www.mass.gov/orgs/department-of-conservation-recreation for a full listing of DCR locations and hours of operation before making your travel plans."
+  "raw": "DCR Parks pass allows one car unlimited day-use parking access to state park facilities that charge a parking fee. (Not valid for parking at Quabbin Reservoir, Sqantum Point, North Point, Draw Seven Commuter Lots or for camping.) You will need to pick up your pass at the Circulation Desk in the main lobby of the Library. We encourage you to visit www.mass.gov/orgs/department-of-conservation-recreation for a full listing of DCR locations and hours of operation before making your travel plans.",
+  "source_phrases": {}
 }

@@ -5,9 +5,21 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": 12,
+  "free_under_age": 1,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "reservation_required"
+  ],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits up to 4 people at 1/2 off regular admission. Ages under 12 months are free. Online reservations are required."
+  "raw": "Admits up to 4 people at 1/2 off regular admission. Ages under 12 months are free. Online reservations are required.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "free_under_age": "Ages under 12 months are free",
+    "discount_percent": "1/2 off",
+    "reservation_required": "reservations are required"
+  }
 }

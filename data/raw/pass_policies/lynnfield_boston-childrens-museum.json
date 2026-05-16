@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits four people at half price admission. The Museum is open Wednesday-Monday, closed Tuesdays (with the exception of a few school vacation weeks). Advance tickets/reservations are highly recommended , especially on weekends, holidays, school vacation weeks, and TJX $1 Sunday Afternoons. On the first Saturday of each month, the Museum opens at 10:00. Hours are subject to change, please check calendar on ticket purchase pages. The date on the Library Discount Coupon must match the date of museum visit."
+  "raw": "Pass admits four people at half price admission. The Museum is open Wednesday-Monday, closed Tuesdays (with the exception of a few school vacation weeks). Advance tickets/reservations are highly recommended , especially on weekends, holidays, school vacation weeks, and TJX $1 Sunday Afternoons. On the first Saturday of each month, the Museum opens at 10:00. Hours are subject to change, please check calendar on ticket purchase pages. The date on the Library Discount Coupon must match the date of museum visit.",
+  "source_phrases": {
+    "max_people": "admits four people",
+    "discount_percent": "half price"
+  }
 }

@@ -5,9 +5,16 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits up to 4 people at $5 off. For Museum questions, visit their website at www.concordmuseum.org or call 978-369-9763"
+  "raw": "Each pass admits up to 4 people at $5 off. For Museum questions, visit their website at www.concordmuseum.org or call 978-369-9763",
+  "source_phrases": {
+    "max_people": "up to 4 people"
+  }
 }

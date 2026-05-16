@@ -5,9 +5,19 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "id_required",
   "free_under_age": 12,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "NO RESERVATION IS NEEDED AND NO COUPON NEEDS TO BE PICKED UP Public library card holders will receive a 50% discount when they show their physical or digital library card Kids under 12 are free"
+  "raw": "NO RESERVATION IS NEEDED AND NO COUPON NEEDS TO BE PICKED UP Public library card holders will receive a 50% discount when they show their physical or digital library card Kids under 12 are free",
+  "source_phrases": {
+    "free_under_age": "Kids under 12 are free",
+    "discount_percent": "50% discount"
+  }
 }

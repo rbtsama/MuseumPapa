@@ -2,12 +2,19 @@
   "library_id": "billerica",
   "attraction_slug": "peabody-essex-museum",
   "status": "ok",
-  "max_people": 2,
-  "max_adults": null,
+  "max_people": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits two (2) adults at $12.00 per person for general admission. Regular admission rates are $25 for adults, $23 for seniors (age 65+), and $15 for students; children under 16 and all residents of Salem, MA are admitted free. Reserve the pass and you will automatically receive an email containing a unique promo code. Enter the code while purchasing tickets on the Peabody Essex Museum website. This pass is generously sponsored by the Family Friends of the Billerica Public Library."
+  "raw": "Admits two (2) adults at $12.00 per person for general admission. Regular admission rates are $25 for adults, $23 for seniors (age 65+), and $15 for students; children under 16 and all residents of Salem, MA are admitted free. Reserve the pass and you will automatically receive an email containing a unique promo code. Enter the code while purchasing tickets on the Peabody Essex Museum website. This pass is generously sponsored by the Family Friends of the Billerica Public Library.",
+  "source_phrases": {
+    "max_adults": "two (2) adults"
+  }
 }

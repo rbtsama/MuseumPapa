@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admission with this pass is half price for up to four (4) people. This pass will be emailed to you when you reserve it."
+  "raw": "Admission with this pass is half price for up to four (4) people. This pass will be emailed to you when you reserve it.",
+  "source_phrases": {
+    "max_people": "up to four (4) people",
+    "discount_percent": "half price"
+  }
 }

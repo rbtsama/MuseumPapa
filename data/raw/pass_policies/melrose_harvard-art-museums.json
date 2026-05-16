@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Admission: A pass in no longer required. Admission is free to all visitors every day. Please check in at the Visitor Services desk upon arrival to allow us to share information about special exhibitions, gallery tours, programs, and other amenities available to ensure that you have a great visit! Free admission is made possible by a generous contribution from the Estate of David Rockefeller and support from the Office of the President at Harvard University."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Pass no longer required; admission is free to all visitors every day.",
+  "raw": "Admission: A pass in no longer required. Admission is free to all visitors every day. Please check in at the Visitor Services desk upon arrival to allow us to share information about special exhibitions, gallery tours, programs, and other amenities available to ensure that you have a great visit! Free admission is made possible by a generous contribution from the Estate of David Rockefeller and support from the Office of the President at Harvard University.",
+  "source_phrases": {
+    "notes": "Admission is free to all visitors every day"
+  }
 }

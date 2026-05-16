@@ -2,12 +2,22 @@
   "library_id": "acton",
   "attraction_slug": "garden-in-the-woods-native-plant-trust",
   "status": "ok",
-  "max_people": 2,
-  "max_adults": null,
-  "max_children": null,
-  "eligibility": "all",
+  "max_people": 4,
+  "max_adults": 2,
+  "max_children": 2,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass admits up to two (2) adults at 50% discounted admission, and up to two (2) children at $1 admission. Pickup the pass up to six (6) days in advance of the reservation date. This pass MUST be returned to Acton Memorial Library before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue passes are subject to a fine of $10 per day."
+  "raw": "This pass admits up to two (2) adults at 50% discounted admission, and up to two (2) children at $1 admission. Pickup the pass up to six (6) days in advance of the reservation date. This pass MUST be returned to Acton Memorial Library before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue passes are subject to a fine of $10 per day.",
+  "source_phrases": {
+    "max_adults": "up to two (2) adults",
+    "max_children": "up to two (2) children",
+    "max_people": "up to two (2) adults",
+    "discount_percent": "50% discount"
+  }
 }

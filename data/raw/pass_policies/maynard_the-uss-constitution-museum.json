@@ -5,9 +5,18 @@
   "max_people": 9,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass holders will receive free admission to the museum. One pass allows free admission for up to 9 people per day. One pass per party, please. Please pick up pass at the library's Circulation Desk, it does not need to be returned."
+  "raw": "Pass holders will receive free admission to the museum. One pass allows free admission for up to 9 people per day. One pass per party, please. Please pick up pass at the library's Circulation Desk, it does not need to be returned.",
+  "source_phrases": {
+    "max_people": "up to 9 people"
+  }
 }

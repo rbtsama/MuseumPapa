@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass allows for free parking of ONE (1) vehicle at any DCR location that charges a parking fee, EXCEPT: Quabbin Reservoir, the Squantum Point, NorthPoint, or Draw Seven Commuter Lots."
+  "raw": "Pass allows for free parking of ONE (1) vehicle at any DCR location that charges a parking fee, EXCEPT: Quabbin Reservoir, the Squantum Point, NorthPoint, or Draw Seven Commuter Lots.",
+  "source_phrases": {
+    "eligibility_tags_vehicle": "free parking of ONE"
+  }
 }

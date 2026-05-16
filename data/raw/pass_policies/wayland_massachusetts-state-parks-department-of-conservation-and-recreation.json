@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This is a laminated pass that must be picked up and returned to Wayland. Patrons may pick up their pass during the Library's open hours on the day before or the day of their visit. The pass must be returned by the day after its use. Pass allows free daytime parking for one carload of visitors to all Massachusetts State Parks that charge a parking fee. (Except Nahant and Nantasket). See the Massachusetts Department of Conservation & Recreation website for the list of parks that charge a fee and the most up-to-date information on park programs and hours."
+  "raw": "This is a laminated pass that must be picked up and returned to Wayland. Patrons may pick up their pass during the Library's open hours on the day before or the day of their visit. The pass must be returned by the day after its use. Pass allows free daytime parking for one carload of visitors to all Massachusetts State Parks that charge a parking fee. (Except Nahant and Nantasket). See the Massachusetts Department of Conservation & Recreation website for the list of parks that charge a fee and the most up-to-date information on park programs and hours.",
+  "source_phrases": {
+    "eligibility_tags_vehicle": "parking for one car"
+  }
 }

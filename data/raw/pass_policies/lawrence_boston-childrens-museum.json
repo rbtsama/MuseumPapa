@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Boston Children's Museum [e-voucher] Museo de Niño en Boston [electrónica] Admits 4 people at half price. Please check the website for the price of general admission. Admisión para 4 personas a medio precio. Por favor vaya a la página web y verifique el precio general de admisión. Please visit the website for hours of operation. Visite el sitio web para obtener información sobre los horarios."
+  "raw": "Boston Children's Museum [e-voucher] Museo de Niño en Boston [electrónica] Admits 4 people at half price. Please check the website for the price of general admission. Admisión para 4 personas a medio precio. Por favor vaya a la página web y verifique el precio general de admisión. Please visit the website for hours of operation. Visite el sitio web para obtener información sobre los horarios.",
+  "source_phrases": {
+    "max_people": "Admits 4 people",
+    "discount_percent": "half price"
+  }
 }

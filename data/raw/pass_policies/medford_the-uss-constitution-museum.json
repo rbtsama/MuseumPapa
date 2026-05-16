@@ -5,9 +5,18 @@
   "max_people": 5,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass allows free admission for 5 or fewer visitors. Limit one pass per party. There are no advance tickets or reservations available for the USS Constitution Museum. Entry will be based on a first come, first served system, which may result in a short wait to enter the Museum."
+  "raw": "Pass allows free admission for 5 or fewer visitors. Limit one pass per party. There are no advance tickets or reservations available for the USS Constitution Museum. Entry will be based on a first come, first served system, which may result in a short wait to enter the Museum.",
+  "source_phrases": {
+    "max_people": "5 or fewer visitors"
+  }
 }

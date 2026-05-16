@@ -2,12 +2,22 @@
   "library_id": "billerica",
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
-  "max_people": 4,
-  "max_adults": null,
-  "max_children": null,
-  "eligibility": "all",
-  "free_under_age": null,
+  "max_people": 6,
+  "max_adults": 2,
+  "max_children": 4,
+  "free_under_age": 6,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Digital discount code allows admission for 2 adults at $10 each (general admission and special exhibition) and up to four children ages 7-17 at $10 dollars each (special exhibition only). There is no discount for children 7-17 years old for general admission, which is $10. Children 6 and under are admitted free. Pass does not allow for discounts on shopping, parking, dining, films, concerts, lectures, courses, or events. This pass is generously sponsored by the Family Friends of the Billerica Public Library."
+  "raw": "Digital discount code allows admission for 2 adults at $10 each (general admission and special exhibition) and up to four children ages 7-17 at $10 dollars each (special exhibition only). There is no discount for children 7-17 years old for general admission, which is $10. Children 6 and under are admitted free. Pass does not allow for discounts on shopping, parking, dining, films, concerts, lectures, courses, or events. This pass is generously sponsored by the Family Friends of the Billerica Public Library.",
+  "source_phrases": {
+    "max_adults": "2 adults",
+    "max_children": "up to four children",
+    "max_people": "2 adults",
+    "free_under_age": "Children 6 and under are admitted free"
+  }
 }

@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Returnable physical pass. Must be returned the following day (Sat reservations can return Mon). Includes Museum and Summer Lawn Events. Limited to one booking per month per person.",
-  "raw": "Pass allows free admission for up to 4 people. This includes access to the Museum and Summer Lawn Events. Please consult website for events and hours. THIS IS A RETURNABLE PASS: This pass must be returned the following day of your scheduled reservation to the location where the pass was reserved. Passes reserved on Saturday can be returned on the following Monday. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar."
+  "discount_percent": 100,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Limited to one booking per month per person",
+  "raw": "Pass allows free admission for up to 4 people. This includes access to the Museum and Summer Lawn Events. Please consult website for events and hours. THIS IS A RETURNABLE PASS: This pass must be returned the following day of your scheduled reservation to the location where the pass was reserved. Passes reserved on Saturday can be returned on the following Monday. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "free admission"
+  }
 }

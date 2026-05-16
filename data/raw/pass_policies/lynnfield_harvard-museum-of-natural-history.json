@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits up to four people at 50% off regular museum admission rates. This is a coupon pass that must be picked up at the Library during open business hours. This pass also includes admission to the Harvard Museum of Natural History, the Peabody Museum of Archaeology and Ethnology, the Harvard Museum of the Ancient Near East, and the Collection of Historical Scientific Instruments. The mission of the Harvard Museums of Science & Culture is to foster curiosity and a spirit of discovery in visitors of all ages, enhancing public understanding of and appreciation for the natural world, science, and human cultures. HMSC works in concert with Harvard faculty, museum curators, and students, as well as with members of the extended Harvard community, to provide interdisciplinary exhibitions, events and lectures, and educational programs for students, teachers, and the general public. HMSC draws primarily upon the extensive collections of the member museums and the research of their faculty and curators."
+  "raw": "Pass admits up to four people at 50% off regular museum admission rates. This is a coupon pass that must be picked up at the Library during open business hours. This pass also includes admission to the Harvard Museum of Natural History, the Peabody Museum of Archaeology and Ethnology, the Harvard Museum of the Ancient Near East, and the Collection of Historical Scientific Instruments. The mission of the Harvard Museums of Science & Culture is to foster curiosity and a spirit of discovery in visitors of all ages, enhancing public understanding of and appreciation for the natural world, science, and human cultures. HMSC works in concert with Harvard faculty, museum curators, and students, as well as with members of the extended Harvard community, to provide interdisciplinary exhibitions, events and lectures, and educational programs for students, teachers, and the general public. HMSC draws primarily upon the extensive collections of the member museums and the research of their faculty and curators.",
+  "source_phrases": {
+    "max_people": "up to four people",
+    "discount_percent": "50% off"
+  }
 }

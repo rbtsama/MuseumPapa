@@ -5,9 +5,18 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": 18,
+  "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Up to 4 at $5.00/person. Free for under 18. Must purchase timed-entry tickets in advance using promo code from reservation.",
-  "raw": "617-566-1401 E-ticket. Pass admits up to four people with a $5.00 per person charge. Free to those under 18. Reserve and receive digital passes and purchase Museum admission timed-entry tickets in advance using the unique promo code given with each pass. Annual membership of $195.00 provided by the Friends of Thayer Public Library. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "617-566-1401 E-ticket. Pass admits up to four people with a $5.00 per person charge. Free to those under 18. Reserve and receive digital passes and purchase Museum admission timed-entry tickets in advance using the unique promo code given with each pass. Annual membership of $195.00 provided by the Friends of Thayer Public Library. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "max_people": "up to four people"
+  }
 }

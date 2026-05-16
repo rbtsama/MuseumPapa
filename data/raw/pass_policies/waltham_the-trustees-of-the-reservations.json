@@ -5,9 +5,20 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "members_discount"
+  ],
   "notes": null,
-  "raw": "Benefits vary by location. The GO Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. At the deCordova Museum and Sculpture park, the GO pass allows free admission for 2 people. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the date you've selected in our calendar.*"
+  "raw": "Benefits vary by location. The GO Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. At the deCordova Museum and Sculpture park, the GO pass allows free admission for 2 people. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the date you've selected in our calendar.*",
+  "source_phrases": {
+    "max_people": "for 2 people"
+  }
 }

@@ -2,12 +2,23 @@
   "library_id": "newton",
   "attraction_slug": "the-trustees-of-the-reservations",
   "status": "ok",
-  "max_people": null,
-  "max_adults": null,
+  "max_people": 2,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": null,
+  "free_under_age": 18,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits 2 adults and children under 18 for a reduced rate or for free, depending on location visited. Valid for admission only. Please check the website to ensure that the property is open to the public on the date of your intended visit."
+  "raw": "Admits 2 adults and children under 18 for a reduced rate or for free, depending on location visited. Valid for admission only. Please check the website to ensure that the property is open to the public on the date of your intended visit.",
+  "source_phrases": {
+    "max_people": "Admits 2 adults",
+    "max_adults": "Admits 2 adults and children under 18",
+    "free_under_age": "children under 18 for a reduced rate or for free"
+  }
 }

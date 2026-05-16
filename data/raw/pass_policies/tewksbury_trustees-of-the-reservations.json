@@ -5,9 +5,20 @@
   "max_people": null,
   "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "members_discount"
+  ],
   "notes": null,
-  "raw": "This is a coupon pass that must be picked up at the Library. The Trustees GO Pass: is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events or programs, on any equipment rental, or in place of any other permits or passes allows free or reduced admission, for 2 adults and children under 18, at the Family Level Membership price at Trustees properties that charge an admission fee To use this pass at Fruitlands, deCordova, or Castle Hill, please enter the promo code GOPASS when securing a timed ticket. Tickets are available at www.thetrustees.org/passes. You must present the physical Library pass at the property in order to receive the discount. Please note: For a list of properties and information about the hours and admission requirements at each property, please visit www.thetrustees.org Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners."
+  "raw": "This is a coupon pass that must be picked up at the Library. The Trustees GO Pass: is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events or programs, on any equipment rental, or in place of any other permits or passes allows free or reduced admission, for 2 adults and children under 18, at the Family Level Membership price at Trustees properties that charge an admission fee To use this pass at Fruitlands, deCordova, or Castle Hill, please enter the promo code GOPASS when securing a timed ticket. Tickets are available at www.thetrustees.org/passes. You must present the physical Library pass at the property in order to receive the discount. Please note: For a list of properties and information about the hours and admission requirements at each property, please visit www.thetrustees.org Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners.",
+  "source_phrases": {
+    "max_adults": "2 adults"
+  }
 }

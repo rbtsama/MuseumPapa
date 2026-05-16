@@ -2,12 +2,19 @@
   "library_id": "weston",
   "attraction_slug": "old-sturbridge-village",
   "status": "ok",
-  "max_people": 4,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "A pass is valid for 4 half-price standard daytime admissions. Cannot be combined with other offers. Special events or performances may not be eligible. This discount cannot be combined with other offers."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Not valid for special events or performances",
+  "raw": "A pass is valid for 4 half-price standard daytime admissions. Cannot be combined with other offers. Special events or performances may not be eligible. This discount cannot be combined with other offers.",
+  "source_phrases": {}
 }

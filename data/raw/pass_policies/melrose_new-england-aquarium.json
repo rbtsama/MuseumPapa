@@ -2,12 +2,22 @@
   "library_id": "melrose",
   "attraction_slug": "new-england-aquarium",
   "status": "ok",
-  "max_people": 4,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": 2,
+  "free_under_age": 3,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "THIS IS NOT A TICKET. THE LIBRARY PASS DOES NOT GUARANTEE ADMISSION ON A CHOSEN DATE. Visit the New England Aquarium website to review museum visitor requirements, updates to operating hours, and safety information. The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. Discount coupons to the Aquarium are only valid on the date printed on the coupon. Each coupon admits up to four people at a discounted ticket price of 50% off per person (children 2 and under are free)."
+  "raw": "THIS IS NOT A TICKET. THE LIBRARY PASS DOES NOT GUARANTEE ADMISSION ON A CHOSEN DATE. Visit the New England Aquarium website to review museum visitor requirements, updates to operating hours, and safety information. The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. Discount coupons to the Aquarium are only valid on the date printed on the coupon. Each coupon admits up to four people at a discounted ticket price of 50% off per person (children 2 and under are free).",
+  "source_phrases": {
+    "discount_percent": "50% off",
+    "free_under_age": "children 2 and under are free"
+  }
 }

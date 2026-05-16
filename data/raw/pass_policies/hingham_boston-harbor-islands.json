@@ -5,9 +5,21 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Two-for-one pass (buy 1 get 1 free) for up to 4. Not valid for Sunset Cruises. Call 617-227-4321 for reservations; arrive at Will-Call at least 15 minutes before departure.",
-  "raw": "66 Long Wharf Boston, MA 02110 617-227-4321 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. This is a two for one pass to the Boston Harbor Islands and is good for up to four people. It is not good for Sunset Cruises. Reservations Recommended by calling Boston Harbor Cruises at 617-227-4321. Specify which island you plan to visit, your date of travel, and your departure and return times based on the ferry schedule. On the day of your trip, go to the Boston Harbor Cruises Ferry Center at Long Wharf in Boston or at Pemberton Point in Hull, MA. Pick up your tickets at the Will-Call window at least 15 minutes prior to your scheduled ferry departure. Present the Boston Harbor Islands Library Pass to receive your free ticket with purchase of one Harbor Islands ferry ticket. Check Dates Harvard Museum of Natural History Learn More"
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": null,
+  "raw": "66 Long Wharf Boston, MA 02110 617-227-4321 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. This is a two for one pass to the Boston Harbor Islands and is good for up to four people. It is not good for Sunset Cruises. Reservations Recommended by calling Boston Harbor Cruises at 617-227-4321. Specify which island you plan to visit, your date of travel, and your departure and return times based on the ferry schedule. On the day of your trip, go to the Boston Harbor Cruises Ferry Center at Long Wharf in Boston or at Pemberton Point in Hull, MA. Pick up your tickets at the Will-Call window at least 15 minutes prior to your scheduled ferry departure. Present the Boston Harbor Islands Library Pass to receive your free ticket with purchase of one Harbor Islands ferry ticket. Check Dates Harvard Museum of Natural History Learn More",
+  "source_phrases": {
+    "max_people": "up to four people",
+    "discount_percent": "two for one"
+  }
 }

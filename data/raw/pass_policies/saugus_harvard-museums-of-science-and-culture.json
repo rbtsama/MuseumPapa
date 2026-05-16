@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% off per person",
-  "raw": "50% off admission price. Visitors must be Massachusetts residents to use this pass."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "residents_only"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "50% off admission price. Visitors must be Massachusetts residents to use this pass.",
+  "source_phrases": {
+    "discount_percent": "50% off"
+  }
 }

@@ -5,9 +5,16 @@
   "max_people": 9,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits up to 9 people for free. Valid only for the date listed on this pass. This is a coupon pass that will be emailed and can be printed or displayed on your mobile screen."
+  "raw": "Pass admits up to 9 people for free. Valid only for the date listed on this pass. This is a coupon pass that will be emailed and can be printed or displayed on your mobile screen.",
+  "source_phrases": {
+    "max_people": "admits up to 9 people"
+  }
 }

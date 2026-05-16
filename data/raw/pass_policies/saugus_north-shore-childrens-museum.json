@@ -3,11 +3,18 @@
   "attraction_slug": "north-shore-childrens-museum",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
+  "max_adults": 5,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "50% of regular admission. Admits up to 5 adults/children. The NSCM is also open on Mondays from 9 am to 12 Noon during the months of July and August."
+  "raw": "50% of regular admission. Admits up to 5 adults/children. The NSCM is also open on Mondays from 9 am to 12 Noon during the months of July and August.",
+  "source_phrases": {
+    "max_adults": "up to 5 adults"
+  }
 }

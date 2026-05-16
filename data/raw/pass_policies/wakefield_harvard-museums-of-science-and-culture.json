@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Passes admit 4 people for 50% off regular museum admission rates. Please check their website for the individual museums days and hours that they are open."
+  "raw": "Passes admit 4 people for 50% off regular museum admission rates. Please check their website for the individual museums days and hours that they are open.",
+  "source_phrases": {
+    "max_people": "admit 4 people",
+    "discount_percent": "50% off"
+  }
 }

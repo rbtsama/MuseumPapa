@@ -5,9 +5,20 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": null,
+  "free_under_age": 1,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits up to 4 people at half price. Regular admission rate is $20 per person. Children 0-12 months are free."
+  "raw": "Pass admits up to 4 people at half price. Regular admission rate is $20 per person. Children 0-12 months are free.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "free_under_age": "Children 0-12 months are free",
+    "discount_percent": "half price"
+  }
 }

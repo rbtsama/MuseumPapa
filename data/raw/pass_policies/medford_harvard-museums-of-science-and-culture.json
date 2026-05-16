@@ -5,9 +5,20 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Each pass admits 4 people (including at least one MA resident) at 50% off at all admission levels. This pass can be used for access to the Harvard Natural History Museum and the Peabody Museum of Archaeology and Ethnology."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "At least one MA resident must be in the party.",
+  "raw": "Each pass admits 4 people (including at least one MA resident) at 50% off at all admission levels. This pass can be used for access to the Harvard Natural History Museum and the Peabody Museum of Archaeology and Ethnology.",
+  "source_phrases": {
+    "max_people": "admits 4 people",
+    "discount_percent": "50% off",
+    "notes": "including at least one MA resident"
+  }
 }

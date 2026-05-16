@@ -5,9 +5,19 @@
   "max_people": 3,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": 1,
+  "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. You save by using this pass! Admission without this pass is: Adult: $19.00 Senior (60+): $18.00 Child: $19.00 Under 1 year old: FREE Teachers are always FREE Active duty military personnel or spouses, and up to 3 additional family members: FREE Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners."
+  "raw": "This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. You save by using this pass! Admission without this pass is: Adult: $19.00 Senior (60+): $18.00 Child: $19.00 Under 1 year old: FREE Teachers are always FREE Active duty military personnel or spouses, and up to 3 additional family members: FREE Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners.",
+  "source_phrases": {
+    "max_people": "admits 3 visitors",
+    "discount_percent": "1/2 price"
+  }
 }

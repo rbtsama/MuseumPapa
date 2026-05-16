@@ -5,9 +5,20 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "id_required",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Winchester residents only",
-  "raw": "This pass admits 4 visitors at 50% admission per person. It is strongly suggested that you purchase tickets in advance using the Discount Tickets option on the museum website. Both ticket confirmation and email confirmation of the Library Pass must be brought to the museum. See our detailed instructions for purchasing discounted tickets. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "residents_only"
+  ],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": null,
+  "raw": "This pass admits 4 visitors at 50% admission per person. It is strongly suggested that you purchase tickets in advance using the Discount Tickets option on the museum website. Both ticket confirmation and email confirmation of the Library Pass must be brought to the museum. See our detailed instructions for purchasing discounted tickets. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance.",
+  "source_phrases": {
+    "max_people": "admits 4 visitors"
+  }
 }

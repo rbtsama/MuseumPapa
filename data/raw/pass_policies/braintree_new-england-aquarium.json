@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "blackout_dates",
-  "free_under_age": 3,
+  "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% off for up to 4. Children under 3 free. Pass program runs Tuesday after Labor Day through Friday before Memorial Day only — NOT offered June, July, August.",
-  "raw": "617-973-5200 E-voucher. This coupon allows 50% off admission to the New England Aquarium for adult and child admission. You may find current rates by viewing https://www.neaq.org/visit/tickets/ . This is not a ticket. Redeem this coupon in the General Admission line at the Aquarium's ticket booth for discounted admission for up to four individuals. Children under 3 receive free admission. The Aquarium pass program runs from the Tuesday after Labor Day through the Friday before Memorial Day; it is not offered during the months of June, July, and August. Annual membership of $650.00 is provided by the Friends of Thayer Public Library. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "617-973-5200 E-voucher. This coupon allows 50% off admission to the New England Aquarium for adult and child admission. You may find current rates by viewing https://www.neaq.org/visit/tickets/ . This is not a ticket. Redeem this coupon in the General Admission line at the Aquarium’s ticket booth for discounted admission for up to four individuals. Children under 3 receive free admission. The Aquarium pass program runs from the Tuesday after Labor Day through the Friday before Memorial Day; it is not offered during the months of June, July, and August. Annual membership of $650.00 is provided by the Friends of Thayer Public Library. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "max_people": "up to four individuals",
+    "discount_percent": "50% off"
+  }
 }

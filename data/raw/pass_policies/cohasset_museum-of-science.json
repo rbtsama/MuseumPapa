@@ -5,9 +5,18 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 3,
   "savings_per_person_usd": null,
-  "notes": "50% off Exhibit Hall admission for up to 4. Children under 3 always free. Valid only on date printed on confirmation. Take pass to Box Office to exchange for discounted tickets.",
-  "raw": "1 Science Park Boston, MA 02134 617-723-2500 Get Directions Updated 10/29/25 Reserve pass for a specific day at the library. Download to phone or print pass. Up to 4 people are admitted at a 50% discount off of Exhibit Hall admission prices only with each pass, and children under 3 are always free. Take pass to the Box Office to Exchange for discounted Exhibit Hall tickets. Your pass can only be used on the date printed on the confirmation. Visit museum website for more information. New England Aquarium Learn More"
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "1 Science Park Boston, MA 02134 617-723-2500 Get Directions Updated 10/29/25 Reserve pass for a specific day at the library. Download to phone or print pass. Up to 4 people are admitted at a 50% discount off of Exhibit Hall admission prices only with each pass, and children under 3 are always free. Take pass to the Box Office to Exchange for discounted Exhibit Hall tickets. Your pass can only be used on the date printed on the confirmation. Visit museum website for more information. New England Aquarium Learn More",
+  "source_phrases": {
+    "max_people": "Up to 4 people",
+    "free_under_age": "children under 3 are always free",
+    "discount_percent": "50% discount"
+  }
 }

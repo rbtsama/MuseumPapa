@@ -5,9 +5,19 @@
   "max_people": null,
   "max_adults": 2,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "blackout dates apply (e.g., October, special events)",
-  "raw": "The DeCordova and Fruitlands Museums are included in the list of Trustees of the Reservations Properties. For a full list of all Trustees of the Reservations properties, please go to thetrustees.org . The GO Pass admits two adults and children under 18 at the family membership admission price (at Trustees properties that charge an admission fee). GO Passes are valid for admission only. Not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, equipment rentals, or in place of any permits or passes. This pass is provided by the Friends of the Acton Libraries."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "The DeCordova and Fruitlands Museums are included in the list of Trustees of the Reservations Properties. For a full list of all Trustees of the Reservations properties, please go to thetrustees.org . The GO Pass admits two adults and children under 18 at the family membership admission price (at Trustees properties that charge an admission fee). GO Passes are valid for admission only. Not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, equipment rentals, or in place of any permits or passes. This pass is provided by the Friends of the Acton Libraries.",
+  "source_phrases": {
+    "max_adults": "two adults and children under 18",
+    "family": "family membership"
+  }
 }

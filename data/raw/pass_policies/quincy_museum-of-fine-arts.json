@@ -2,12 +2,24 @@
   "library_id": "quincy",
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
-  "max_people": null,
-  "max_adults": null,
-  "max_children": null,
-  "eligibility": null,
-  "free_under_age": null,
+  "max_people": 6,
+  "max_adults": 2,
+  "max_children": 4,
+  "free_under_age": 7,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each promo code provides up to two adults with $15 admission per person and four youths (ages 7–17) with $10 admission per person. Tickets to the MFA are always free for visitors under seven years old. Valid only for the date listed on this pass. This is a coupon pass that will be emailed and can be printed or displayed on your mobile screen."
+  "raw": "Each promo code provides up to two adults with $15 admission per person and four youths (ages 7–17) with $10 admission per person. Tickets to the MFA are always free for visitors under seven years old. Valid only for the date listed on this pass. This is a coupon pass that will be emailed and can be printed or displayed on your mobile screen.",
+  "source_phrases": {
+    "max_adults": "up to two adults with $15 admission per person",
+    "max_children": "four youths (ages 7–17) with $10 admission",
+    "max_people": "up to two adults...and four youths",
+    "free_under_age": "always free for visitors under seven years old"
+  }
 }

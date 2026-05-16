@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Each pass admits up to four people at 50% off. Advanced ticket purchase is required. Visit the museum's website for hours and tickets. Patrons are required to bring the physical library pass as well as their advanced ticket purchase when they check in at the Admissions desk for their visit. This coupon pass can be picked up one week in advance."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Coupon pass; does not need to be returned.",
+  "raw": "Each pass admits up to four people at 50% off. Advanced ticket purchase is required. Visit the museum's website for hours and tickets. Patrons are required to bring the physical library pass as well as their advanced ticket purchase when they check in at the Admissions desk for their visit. This coupon pass can be picked up one week in advance.",
+  "source_phrases": {
+    "max_people": "up to four people",
+    "discount_percent": "50% off"
+  }
 }

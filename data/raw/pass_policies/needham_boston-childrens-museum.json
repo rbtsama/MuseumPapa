@@ -5,9 +5,20 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "residents_only"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "(PRINTABLE) 1 pass admits 4 people at half price admission. FOR NEEDHAM RESIDENTS ONLY. After receiving a library discount coupon from the library, patrons must then reserve their visit online with Boston Children’s Museum. Due to safety measures walk-ins are not allowed."
+  "raw": "(PRINTABLE) 1 pass admits 4 people at half price admission. FOR NEEDHAM RESIDENTS ONLY. After receiving a library discount coupon from the library, patrons must then reserve their visit online with Boston Children’s Museum. Due to safety measures walk-ins are not allowed.",
+  "source_phrases": {
+    "max_people": "admits 4 people",
+    "discount_percent": "half price",
+    "eligibility_tags": "RESIDENTS ONLY"
+  }
 }

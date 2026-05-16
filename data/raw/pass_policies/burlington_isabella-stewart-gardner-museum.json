@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 18,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits four people with a co-payment of $5.00 per person. Children under the age of 18 are admitted free. When reserving Isabella Stewart Gardner Museum timed entry tickets online, you will: 1. Go to https://tnew.gardnermuseum.org/events 2. Submit the promo code in the box at the top of the screen 3. Select the visit date and a time to enter 4. Add desired number of tickets to the basket. The pass discount allows you to get up to 4 tickets at $5 each (choose the Library Pass ticket type). Any additional ticket will be normally priced (Children under 18 are always free and should be reserved as child tickets) 5. Login or create an account 6. Finish checking out (discount is applied only at checkout) This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617-278-5156. You must present both the library pass and your reserved timed museum admission tickets for entry into the museum. There is no pass to pick up for this museum, it will be emailed to you."
+  "raw": "Pass admits four people with a co-payment of $5.00 per person. Children under the age of 18 are admitted free. When reserving Isabella Stewart Gardner Museum timed entry tickets online, you will: 1. Go to https://tnew.gardnermuseum.org/events 2. Submit the promo code in the box at the top of the screen 3. Select the visit date and a time to enter 4. Add desired number of tickets to the basket. The pass discount allows you to get up to 4 tickets at $5 each (choose the Library Pass ticket type). Any additional ticket will be normally priced (Children under 18 are always free and should be reserved as child tickets) 5. Login or create an account 6. Finish checking out (discount is applied only at checkout) This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617-278-5156. You must present both the library pass and your reserved timed museum admission tickets for entry into the museum. There is no pass to pick up for this museum, it will be emailed to you.",
+  "source_phrases": {
+    "max_people": "up to 4 tickets",
+    "free_under_age": "Children under the age of 18 are admitted free"
+  }
 }

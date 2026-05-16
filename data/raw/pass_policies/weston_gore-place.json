@@ -3,11 +3,22 @@
   "attraction_slug": "gore-place",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
-  "max_children": null,
-  "eligibility": null,
-  "free_under_age": null,
+  "max_adults": 2,
+  "max_children": 2,
+  "free_under_age": 6,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass permits two adults and two accompanied children to tour the 1806 Gore Mansion at the reduced rate of $5 per adult and free for the accompanying children--regularly $16 per adult and $11 for children ages 6-16."
+  "raw": "Each pass permits two adults and two accompanied children to tour the 1806 Gore Mansion at the reduced rate of $5 per adult and free for the accompanying children--regularly $16 per adult and $11 for children ages 6-16.",
+  "source_phrases": {
+    "max_adults": "two adults and two accompanied children",
+    "max_children": "two adults and two accompanied children",
+    "free_under_age": "free for the accompanying children--regularly $16 per adult and $11 for children"
+  }
 }

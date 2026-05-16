@@ -5,9 +5,19 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits 2 guests at half-price. Restrictions may apply for special or ticketed events. Please visit the page here for up-to-date information and to reserve tickets in advance if preferred. Timed tickets purchased in advance are no longer required for entry to New England Botanic Garden, but may be reserved if preferred. Click here to book your tickets online. Promo code to use to receive the library discount when booking online provided in confirmation email. You must present both your ticket AND the physical library pass when you arrive. Walk-ins are permitted so it is not necessary to get your tickets in advance, but you must always present the physical library pass in order to receive the discount. Please note that pass only applies to General Admission and cannot be used for Night Lights tickets."
+  "raw": "Each pass admits 2 guests at half-price. Restrictions may apply for special or ticketed events. Please visit the page here for up-to-date information and to reserve tickets in advance if preferred. Timed tickets purchased in advance are no longer required for entry to New England Botanic Garden, but may be reserved if preferred. Click here to book your tickets online. Promo code to use to receive the library discount when booking online provided in confirmation email. You must present both your ticket AND the physical library pass when you arrive. Walk-ins are permitted so it is not necessary to get your tickets in advance, but you must always present the physical library pass in order to receive the discount. Please note that pass only applies to General Admission and cannot be used for Night Lights tickets.",
+  "source_phrases": {
+    "max_people": "admits 2 guests",
+    "discount_percent": "half-price"
+  }
 }

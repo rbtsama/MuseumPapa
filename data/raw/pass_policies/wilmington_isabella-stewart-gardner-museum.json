@@ -5,9 +5,20 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
   "notes": null,
-  "raw": "Pass admits up to 4 people for $5 per person . Museum entry is timed and capacity highly restricted. All tickets are for a specific entry time. You will get two emails, one from the museum with the tickets and one from Assabet with the library pass. There’s nothing to pick up at the library but you will need both emails. This program is supported in part by a grant from the Wilmington Council for the Arts, a local agency which is supported by the Massachusetts Cultural Council, a state agency"
+  "raw": "Pass admits up to 4 people for $5 per person . Museum entry is timed and capacity highly restricted. All tickets are for a specific entry time. You will get two emails, one from the museum with the tickets and one from Assabet with the library pass. There’s nothing to pick up at the library but you will need both emails. This program is supported in part by a grant from the Wilmington Council for the Arts, a local agency which is supported by the Massachusetts Cultural Council, a state agency",
+  "source_phrases": {
+    "max_people": "up to 4 people"
+  }
 }

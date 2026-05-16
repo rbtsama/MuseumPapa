@@ -3,11 +3,24 @@
   "attraction_slug": "strawbery-banke-museum",
   "status": "ok",
   "max_people": 4,
-  "max_adults": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "gift_shop_discount"
+  ],
   "notes": null,
-  "raw": "Free daily admission for a family (2 adults + children 17 and under) with library pass. Free admission for up to 4 individuals to Baby Animals: Heritage Breeds at the Banke, Ghosts on the Banke, and Candlelight Stroll (excludes the Member Preview Night). 50% discount on admission to Labrie Family Skate at Puddle Dock Pond. 10% off purchases at Pickwick's at the Banke (Museum gift shop) and merchandise in the Lawrence J. Yerdon Visitors Center. Strawbery Banke Museum’s historic houses are open seasonally from April 26 through October 26, 2025 (closed on Tuesdays), and for special events and programs throughout the year. Please check the institution's web site before your visit for current hours, rules, and restrictions. Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners."
+  "raw": "Free daily admission for a family (2 adults + children 17 and under) with library pass. Free admission for up to 4 individuals to Baby Animals: Heritage Breeds at the Banke, Ghosts on the Banke, and Candlelight Stroll (excludes the Member Preview Night). 50% discount on admission to Labrie Family Skate at Puddle Dock Pond. 10% off purchases at Pickwick's at the Banke (Museum gift shop) and merchandise in the Lawrence J. Yerdon Visitors Center. Strawbery Banke Museum’s historic houses are open seasonally from April 26 through October 26, 2025 (closed on Tuesdays), and for special events and programs throughout the year. Please check the institution's web site before your visit for current hours, rules, and restrictions. Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners.",
+  "source_phrases": {
+    "max_people": "for up to 4 individuals",
+    "max_adults": "2 adults",
+    "discount_percent": "50% discount"
+  }
 }

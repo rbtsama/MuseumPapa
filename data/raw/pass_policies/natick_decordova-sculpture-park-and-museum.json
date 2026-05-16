@@ -2,12 +2,23 @@
   "library_id": "natick",
   "attraction_slug": "decordova-sculpture-park-and-museum",
   "status": "ok",
-  "max_people": null,
+  "max_people": 4,
   "max_adults": 2,
   "max_children": 2,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "pre-registration required",
-  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Free admission for up to 2 adults and 2 children. Additional instructions: - Pre-registration is recommended. Visit the Trustees of Reservations website to reserve. -Select the GO Pass ticket option when purchasing your tickets. You must still bring your paper pass. Please note: deCordova has temporarily suspended indoor art exhibitions starting March 13, 2023, for upgrades expected to take two to three years. All other events, programs, and activities will continue as planned. For more information, click here ."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Free admission for up to 2 adults and 2 children. Additional instructions: - Pre-registration is recommended. Visit the Trustees of Reservations website to reserve. -Select the GO Pass ticket option when purchasing your tickets. You must still bring your paper pass. Please note: deCordova has temporarily suspended indoor art exhibitions starting March 13, 2023, for upgrades expected to take two to three years. All other events, programs, and activities will continue as planned. For more information, click here .",
+  "source_phrases": {
+    "max_adults": "2 adults and 2 children",
+    "max_children": "2 adults and 2 children",
+    "max_people": "2 adults and 2 children"
+  }
 }

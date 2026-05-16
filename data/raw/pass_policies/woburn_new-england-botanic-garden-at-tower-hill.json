@@ -5,9 +5,19 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits 2 guests at half price. Patrons will need to check out the museum pass from the library and bring it with them to the New England Botanic Garden at Tower Hill to receive the discount. Online pre-reservations are no longer required for general admission visits, but online reservations are still available for those who would like to purchase tickets in advance of their visit. To reserve half-priced tickets online in advance of a visit please use discount code LIBDI at Plan your visit . If you have any questions about reserving admission tickets, contact 508-869-6111 x110. The physical museum pass will still need to be picked up from the Woburn Public Library and shown upon arrival at New England Botanic Garden at Tower Hill. * Funded by the Friends of the WPL"
+  "raw": "Pass admits 2 guests at half price. Patrons will need to check out the museum pass from the library and bring it with them to the New England Botanic Garden at Tower Hill to receive the discount. Online pre-reservations are no longer required for general admission visits, but online reservations are still available for those who would like to purchase tickets in advance of their visit. To reserve half-priced tickets online in advance of a visit please use discount code LIBDI at Plan your visit . If you have any questions about reserving admission tickets, contact 508-869-6111 x110. The physical museum pass will still need to be picked up from the Woburn Public Library and shown upon arrival at New England Botanic Garden at Tower Hill. * Funded by the Friends of the WPL",
+  "source_phrases": {
+    "max_people": "admits 2 guests",
+    "discount_percent": "half price"
+  }
 }

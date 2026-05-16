@@ -5,9 +5,16 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This is a laminated pass that must be picked up and returned to Wayland. Patrons may pick up their pass during the Library's open hours on the day before or the day of their visit. The pass must be returned by the day after its use. Pass allows free admission for 2 people age 16+. Kids age 15 & under are always free. The Museum is open Tuesdays and Saturdays from 11am-4pm. Please see the Museum's website ( mspmlc.org ) for the most up-to-date information."
+  "raw": "This is a laminated pass that must be picked up and returned to Wayland. Patrons may pick up their pass during the Library's open hours on the day before or the day of their visit. The pass must be returned by the day after its use. Pass allows free admission for 2 people age 16+. Kids age 15 & under are always free. The Museum is open Tuesdays and Saturdays from 11am-4pm. Please see the Museum's website ( mspmlc.org ) for the most up-to-date information.",
+  "source_phrases": {
+    "max_people": "for 2 people"
+  }
 }

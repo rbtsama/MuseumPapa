@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "pre-registration required; 50% off per person",
-  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Discount code will be emailed with reservation confirmation. Pricing: Reduced admission for up to 4 people at 50% off per person. Additional instructions: - Pre-registration is required. After reserving the pass, visit the House of the Seven Gables website to select your experience and purchase your tickets. Enter the discount code into the “Discount Code” field. - You MUST must still come to the library to pick up your physical pass. The paper library pass must be presented at entrance for a valid discount."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Discount code will be emailed with reservation confirmation. Pricing: Reduced admission for up to 4 people at 50% off per person. Additional instructions: - Pre-registration is required. After reserving the pass, visit the House of the Seven Gables website to select your experience and purchase your tickets. Enter the discount code into the “Discount Code” field. - You MUST must still come to the library to pick up your physical pass. The paper library pass must be presented at entrance for a valid discount.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "50% off"
+  }
 }

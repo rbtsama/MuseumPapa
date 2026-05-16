@@ -3,11 +3,18 @@
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each promo code can be redeemed for 2 adult tickets at $15 each and 4 youth tickets (ages 7-17) at $10 each. Advanced timed ticket reservations on the MFA website are recommended but not required. Directions and information regarding e-voucher use will be provided in your confirmation email."
+  "raw": "Each promo code can be redeemed for 2 adult tickets at $15 each and 4 youth tickets (ages 7-17) at $10 each. Advanced timed ticket reservations on the MFA website are recommended but not required. Directions and information regarding e-voucher use will be provided in your confirmation email.",
+  "source_phrases": {
+    "max_adults": "2 adult"
+  }
 }

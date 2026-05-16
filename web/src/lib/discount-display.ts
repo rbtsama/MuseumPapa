@@ -16,11 +16,21 @@ export interface DiscountDisplay {
 const ELIGIBILITY_LABEL: Record<string, string> = {
   vehicle: 'per vehicle',
   adults_only: 'adults only',
+  children_only: 'kids only',
   single_ticket: '1 ticket',
-  members: 'members',
+  members_free: 'members free',
   seniors_free: 'seniors free',
   students_only: 'students only',
-  weekday_only: 'weekdays only',
+  military_free: 'military free',
+  educator_free: 'educators free',
+  family: 'family pass',
+  groups: 'group rate',
+  residents_only: 'residents only',
+};
+
+const EXCLUSION_LABEL: Record<string, string> = {
+  weekdays_only: 'weekdays only',
+  weekends_only: 'weekends only',
   blackout_dates: 'some dates excluded',
   reservation_required: 'reservation needed',
   id_required: 'ID at gate',
@@ -52,11 +62,24 @@ function primaryText(d: Discount): string {
   return d.label || 'Discount';
 }
 
-/** Qualifier string, when policy carries one. */
+/** Qualifier string, when policy carries one.
+ *
+ * Priority: a "first relevant" eligibility tag wins, else party-cap framing.
+ * Tags are intentionally ordered: structural (vehicle/single_ticket/family)
+ * before audience (adults_only/children_only/seniors_free/...).
+ */
+const ELIGIBILITY_PRIORITY = [
+  'vehicle', 'single_ticket', 'family', 'groups', 'residents_only',
+  'adults_only', 'children_only',
+  'members_free', 'seniors_free', 'students_only', 'military_free', 'educator_free',
+];
+
 function qualifierText(policy: Policy | null): string | null {
   if (!policy) return null;
-  const elig = policy.eligibility;
-  if (elig && ELIGIBILITY_LABEL[elig]) return ELIGIBILITY_LABEL[elig];
+  const tags = policy.eligibility_tags ?? [];
+  for (const t of ELIGIBILITY_PRIORITY) {
+    if (tags.includes(t as never) && ELIGIBILITY_LABEL[t]) return ELIGIBILITY_LABEL[t];
+  }
   if (policy.max_adults && policy.max_children) {
     return `${policy.max_adults} adults + ${policy.max_children} kids`;
   }
@@ -69,6 +92,14 @@ function detailText(policy: Policy | null): string | null {
   if (!policy) return null;
   if (policy.free_under_age) return `Free under ${policy.free_under_age}`;
   if (policy.savings_per_person_usd) return `save $${policy.savings_per_person_usd} per person`;
+  // Exclusions (timing/dates) — surface the first one as a footnote when present.
+  const ex = policy.exclusions ?? [];
+  for (const e of ex) {
+    if (EXCLUSION_LABEL[e]) return EXCLUSION_LABEL[e];
+    if (typeof e === 'string' && e.startsWith('seasonal:')) {
+      return `Open ${e.slice(9)}`;
+    }
+  }
   if (policy.notes) return policy.notes;
   return null;
 }
@@ -82,8 +113,11 @@ function detailText(policy: Policy | null): string | null {
 function policyAllowsDollar(policy: Policy | null): boolean {
   if (!policy) return true;  // no policy = treat as uniform
   if (policy.savings_per_person_usd !== null) return false;
-  if (policy.eligibility && policy.eligibility !== 'all') return false;
-  // party-size cap is fine for dollar (still applies per-adult), but per-vehicle / per-ticket not handled here
+  const tags = policy.eligibility_tags ?? [];
+  // Anything other than "uniform admission to all" makes the dollar math unreliable.
+  for (const t of tags) {
+    if (t !== 'all') return false;
+  }
   return true;
 }
 

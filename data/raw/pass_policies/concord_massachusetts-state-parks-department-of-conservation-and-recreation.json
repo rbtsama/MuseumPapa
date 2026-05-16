@@ -5,9 +5,16 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "-Pass valid for free parking for one passenger vehicle at over 50 MA State Parks that charge a parking fee."
+  "raw": "-Pass valid for free parking for one passenger vehicle at over 50 MA State Parks that charge a parking fee.",
+  "source_phrases": {}
 }

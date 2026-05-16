@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits 4 persons at 50% off regular admission"
+  "raw": "Admits 4 persons at 50% off regular admission",
+  "source_phrases": {
+    "max_people": "Admits 4 persons",
+    "discount_percent": "50% off"
+  }
 }

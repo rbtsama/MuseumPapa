@@ -5,9 +5,19 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": null,
+  "free_under_age": 2,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits 6 people to Franklin Park Zoo (Boston) or Stone Zoo (Stoneham). Discounted rate is $9 per adult; $6 per child. Free admission for children under 2. This is a physical pass that must be picked up at the library. No timed entry tickets necessary."
+  "raw": "Pass admits 6 people to Franklin Park Zoo (Boston) or Stone Zoo (Stoneham). Discounted rate is $9 per adult; $6 per child. Free admission for children under 2. This is a physical pass that must be picked up at the library. No timed entry tickets necessary.",
+  "source_phrases": {
+    "max_people": "admits 6 people",
+    "free_under_age": "Free admission for children under 2"
+  }
 }

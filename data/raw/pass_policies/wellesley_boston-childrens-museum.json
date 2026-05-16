@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass is good for 50% off admission for up to 4 people. Boston Children's Museum will be closed September 8, 2025 -September 16, 2025 for regularly scheduled Annual Maintenance. try {var w = document.getElementsByClassName(\"warn\"); for( i=0;i"
+  "raw": "This pass is good for 50% off admission for up to 4 people. Boston Children's Museum will be closed September 8, 2025 -September 16, 2025 for regularly scheduled Annual Maintenance. try {var w = document.getElementsByClassName(\"warn\"); for( i=0;i",
+  "source_phrases": {
+    "max_people": "for up to 4 people",
+    "discount_percent": "50% off"
+  }
 }

@@ -2,12 +2,24 @@
   "library_id": "newton",
   "attraction_slug": "worcester-art-museum",
   "status": "ok",
-  "max_people": null,
-  "max_adults": null,
+  "max_people": 2,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": null,
+  "free_under_age": 18,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits 2 adults at half price and children (17 and under) free."
+  "raw": "Admits 2 adults at half price and children (17 and under) free.",
+  "source_phrases": {
+    "max_people": "Admits 2 adults",
+    "max_adults": "2 adults at ",
+    "discount_percent": "half price",
+    "free_under_age": "children (17 and under) free"
+  }
 }

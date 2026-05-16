@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% off per person",
-  "raw": "Starting JUNE 1 this is a digital pass. Each pass admits up to 4 people at 50% off the rate of admission. You may find current rates by viewing https://www.neaq.org/visit/tickets/ Passes do not apply to Aquarium boat programs, IMAX shows or school group visits. Advance reservations are no longer required for library patrons with coupons. Library patrons should present their discount pass on-site at the Aquarium ticket booth. Once tickets are issued, library patrons will be admitted to the Aquarium."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Starting JUNE 1 this is a digital pass. Each pass admits up to 4 people at 50% off the rate of admission. You may find current rates by viewing https://www.neaq.org/visit/tickets/ Passes do not apply to Aquarium boat programs, IMAX shows or school group visits. Advance reservations are no longer required for library patrons with coupons. Library patrons should present their discount pass on-site at the Aquarium ticket booth. Once tickets are issued, library patrons will be admitted to the Aquarium.",
+  "source_phrases": {
+    "max_people": "admits up to 4 people",
+    "discount_percent": "50% off"
+  }
 }

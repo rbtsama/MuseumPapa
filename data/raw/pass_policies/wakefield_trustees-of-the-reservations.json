@@ -5,9 +5,16 @@
   "max_people": null,
   "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits 2 adults and children under 18. Prices vary by location."
+  "raw": "Pass admits 2 adults and children under 18. Prices vary by location.",
+  "source_phrases": {
+    "max_adults": "2 adults"
+  }
 }

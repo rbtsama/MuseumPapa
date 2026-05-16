@@ -5,9 +5,17 @@
   "max_people": 3,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "The pass discount provides half priced admissions for up to 3 individuals including children. Directions and information regarding e-voucher use will be provided in your confirmation email."
+  "raw": "The pass discount provides half priced admissions for up to 3 individuals including children. Directions and information regarding e-voucher use will be provided in your confirmation email.",
+  "source_phrases": {
+    "max_people": "for up to 3 individuals",
+    "discount_percent": "half priced"
+  }
 }

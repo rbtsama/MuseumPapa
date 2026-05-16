@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": 3,
+  "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% discount on Exhibit Halls for up to 4. Children under 3 free and not counted in the 4. No advance reservation needed but can call 617-723-2500 (9am-5pm) to reserve.",
-  "raw": "(617) 723-2500 This pass will admit up to 4 people at a 50% discount on tickets to the Museum's Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. You do not need to call ahead to reserve a timed ticket. If you have questions or prefer to reserve in advance, you can call 617-723-2500 (9:00 a.m. – 5:00 p.m. daily). Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "(617) 723-2500 This pass will admit up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. You do not need to call ahead to reserve a timed ticket. If you have questions or prefer to reserve in advance, you can call 617-723-2500 (9:00 a.m. – 5:00 p.m. daily). Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "50% discount"
+  }
 }

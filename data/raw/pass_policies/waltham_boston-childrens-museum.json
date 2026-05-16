@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "The pass admits up to 4 people at 1/2 off the general admission. Free admission for children under 1. *This is an e-pass which will be emailed to you and must be used on the selected date.*"
+  "raw": "The pass admits up to 4 people at 1/2 off the general admission. Free admission for children under 1. *This is an e-pass which will be emailed to you and must be used on the selected date.*",
+  "source_phrases": {
+    "max_people": "admits up to 4 people",
+    "discount_percent": "1/2 off"
+  }
 }

@@ -5,9 +5,16 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Unlimited day-use parking at DCR facilities. Must be picked up and returned to Brookline Village location. Return day of or day after use. Not valid at Nahant, Nantasket Beaches, Quabbin Reservoir, Squantum Point, Northpoint, or Draw Seven Commuter Lots. No passes available at this time.",
-  "raw": "(617) 626-1250 Provides visitors unlimited day-use parking access to state park facilities within the Department of Conservation & Recreation that charge a parking fee, with the exception of Nahant and Nantasket Beaches. This pass must be reserved through the library's online catalog . The pass must be picked up and returned to the library's Brookline Village location. This pass must be returned to the Library the day of or day after use! Unlimited day-use parking access to state park facilities within the Department Of Conservation and Recreation that charge a parking fee*. *These include: Borderland State Park, Demarest Lloyd State Park, Horseneck Beach State Reservation, Myles Standish State Forest, South Cape Beach State Park, Scusset Beach State Reservation, Ashland State Park, Bradley Palmer State Park, Cochituate State Park, Great Brook Farm State Park, Halibut Point State Park, Harold Parker State Forest, Hopkinton State Park, Maudslay State Park, Pearl Hill State Park, Salisbury Beach State Reservation, Walden Pond State Reservation, Willard Brook State Forest. Check the web site for additional locations. *not valid for use at Quabbin Reservoir, Squantum Point, Northpoint, or Draw Seven Commuter Lots. No passes are available at this time."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Parking pass for DCR/state park facilities; No passes available at time of capture",
+  "raw": "(617) 626-1250 Provides visitors unlimited day-use parking access to state park facilities within the Department of Conservation & Recreation that charge a parking fee, with the exception of Nahant and Nantasket Beaches. This pass must be reserved through the library's online catalog . The pass must be picked up and returned to the library's Brookline Village location. This pass must be returned to the Library the day of or day after use! Unlimited day-use parking access to state park facilities within the Department Of Conservation and Recreation that charge a parking fee*. *These include: Borderland State Park, Demarest Lloyd State Park, Horseneck Beach State Reservation, Myles Standish State Forest, South Cape Beach State Park, Scusset Beach State Reservation, Ashland State Park, Bradley Palmer State Park, Cochituate State Park, Great Brook Farm State Park, Halibut Point State Park, Harold Parker State Forest, Hopkinton State Park, Maudslay State Park, Pearl Hill State Park, Salisbury Beach State Reservation, Walden Pond State Reservation, Willard Brook State Forest. Check the web site for additional locations. *not valid for use at Quabbin Reservoir, Squantum Point, Northpoint, or Draw Seven Commuter Lots. No passes are available at this time.",
+  "source_phrases": {}
 }

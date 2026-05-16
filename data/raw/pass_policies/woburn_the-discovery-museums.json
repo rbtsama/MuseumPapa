@@ -5,9 +5,19 @@
   "max_people": 3,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "*** Advanced reservations are no longer accepted *** This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. Present this pass to Admissions staff when checking in and the discount will be applied to the cost of your visit. Contact information: 177 Main Street (Route 27) Acton, MA 01720 call 978-264-4200 * Funded by the Friends of the WPL"
+  "raw": "*** Advanced reservations are no longer accepted *** This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. Present this pass to Admissions staff when checking in and the discount will be applied to the cost of your visit. Contact information: 177 Main Street (Route 27) Acton, MA 01720 call 978-264-4200 * Funded by the Friends of the WPL",
+  "source_phrases": {
+    "max_people": "admits 3 visitors",
+    "discount_percent": "1/2 price"
+  }
 }

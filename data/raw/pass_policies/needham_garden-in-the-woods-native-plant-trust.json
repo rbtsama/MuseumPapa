@@ -2,12 +2,23 @@
   "library_id": "needham",
   "attraction_slug": "garden-in-the-woods-native-plant-trust",
   "status": "ok",
-  "max_people": null,
+  "max_people": 1,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": 5,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "residents_only"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "(RETURNABLE) Pass admits 1 adult. Children under 5 are free. Garden is open mid-April to mid-November. Pass is for NEEDHAM RESIDENTS ONLY."
+  "raw": "(RETURNABLE) Pass admits 1 adult. Children under 5 are free. Garden is open mid-April to mid-November. Pass is for NEEDHAM RESIDENTS ONLY.",
+  "source_phrases": {
+    "max_people": "admits 1 adult",
+    "free_under_age": "Children under 5 are free",
+    "eligibility_tags": "RESIDENTS ONLY"
+  }
 }

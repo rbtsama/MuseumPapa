@@ -5,9 +5,20 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Up to 2 tickets at discounted Library Pass rate for Gallery Admission. Valid through 12/31/2026. No specific per-person price stated.",
-  "raw": "This library membership pass entitles you to up to two tickets for Gallery Admission at the discounted Library Pass rate. Pass is valid through 12 /31/2026 Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": null,
+  "raw": "This library membership pass entitles you to up to two tickets for Gallery Admission at the discounted Library Pass rate. Pass is valid through 12 /31/2026 Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "max_people": "up to two tickets"
+  }
 }

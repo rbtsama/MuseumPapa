@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 5,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass allows up to 4 people at $5.00 off full admission. Children under 5 are admitted for free. Please check their website for hours of operation. THIS IS A PRINTABLE PASS"
+  "raw": "Pass allows up to 4 people at $5.00 off full admission. Children under 5 are admitted for free. Please check their website for hours of operation. THIS IS A PRINTABLE PASS",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "free_under_age": "Children under 5 are admitted for free"
+  }
 }

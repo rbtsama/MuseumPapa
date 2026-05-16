@@ -5,9 +5,16 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This is a paper coupon that must be picked up at the Wayland Library during the library's open hours no more than 1 week before its use date. It does not need to be returned. Each pass admits up to 6 persons at $9 per adult and $6 per child (ages 2-12). Children under 2 are admitted for free. The library discount coupon is not a Zoo admission ticket. Your coupon can be redeemed in person, and tickets can be purchased at the gate. Online reservations are not needed. Library discount passes may be used for general daytime admission only. They cannot be used for evening events such as Boston Lights. For the most up-to-date information on zoo programs and hours, please visit their website."
+  "raw": "This is a paper coupon that must be picked up at the Wayland Library during the library's open hours no more than 1 week before its use date. It does not need to be returned. Each pass admits up to 6 persons at $9 per adult and $6 per child (ages 2-12). Children under 2 are admitted for free. The library discount coupon is not a Zoo admission ticket. Your coupon can be redeemed in person, and tickets can be purchased at the gate. Online reservations are not needed. Library discount passes may be used for general daytime admission only. They cannot be used for evening events such as Boston Lights. For the most up-to-date information on zoo programs and hours, please visit their website.",
+  "source_phrases": {
+    "max_people": "admits up to 6 persons"
+  }
 }

@@ -5,9 +5,19 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "residents_only"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "(COUPON) Pass admits 6 people at $9.00 per adult and $6.00 per child. FOR NEEDHAM RESIDENTS ONLY."
+  "raw": "(COUPON) Pass admits 6 people at $9.00 per adult and $6.00 per child. FOR NEEDHAM RESIDENTS ONLY.",
+  "source_phrases": {
+    "max_people": "admits 6 people",
+    "eligibility_tags": "RESIDENTS ONLY"
+  }
 }

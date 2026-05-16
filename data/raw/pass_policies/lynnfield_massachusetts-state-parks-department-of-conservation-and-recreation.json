@@ -5,9 +5,16 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass provides free parking to one vehicle at over 50 facilities in the state parks system. You must return the pass the day after use."
+  "raw": "This pass provides free parking to one vehicle at over 50 facilities in the state parks system. You must return the pass the day after use.",
+  "source_phrases": {}
 }

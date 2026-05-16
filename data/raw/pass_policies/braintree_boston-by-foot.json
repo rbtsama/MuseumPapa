@@ -5,9 +5,16 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Community Passes valid for all public walking tours. Not valid for private tour calendar, water-based tours, or Beacon Hill with a BOO!/Footloose on the Freedom Trail. Use code from confirmation email.",
-  "raw": "617-367-2345 Community Passes are valid for all public walking tours. They are not valid for booking on the private tour calendar, water-based tours, or our two annual celebration tours (Beacon Hill with a BOO! & Footloose on the Freedom Trail). Use the code on your confirmation email to redeem your Community Pass ticket(s) from www.bostonbyfoot.org as admission. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "617-367-2345 Community Passes are valid for all public walking tours. They are not valid for booking on the private tour calendar, water-based tours, or our two annual celebration tours (Beacon Hill with a BOO! & Footloose on the Freedom Trail). Use the code on your confirmation email to redeem your Community Pass ticket(s) from www.bostonbyfoot.org as admission. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {}
 }

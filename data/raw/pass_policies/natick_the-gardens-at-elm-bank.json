@@ -2,12 +2,22 @@
   "library_id": "natick",
   "attraction_slug": "the-gardens-at-elm-bank",
   "status": "ok",
-  "max_people": null,
+  "max_people": 1,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "pass must be returned to library",
-  "raw": "Type of pass: Paper, must be picked up from the Bacon Free Library the week of your reservation date. Pricing: Free admission for ONE person. Additional instructions: -This is a single-use pass and does not need to be returned to the library."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "single_ticket"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Type of pass: Paper, must be picked up from the Bacon Free Library the week of your reservation date. Pricing: Free admission for ONE person. Additional instructions: -This is a single-use pass and does not need to be returned to the library.",
+  "source_phrases": {
+    "eligibility_tags": "ONE person",
+    "max_people": "Free admission for ONE person"
+  }
 }

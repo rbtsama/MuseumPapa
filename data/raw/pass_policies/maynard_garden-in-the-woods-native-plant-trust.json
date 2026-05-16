@@ -5,9 +5,19 @@
   "max_people": null,
   "max_adults": 1,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits one adult at 50% discounted admission. Pass admits children (ages 5-17) with $1 admission. Please check website for exact dates and hours before visiting."
+  "raw": "Pass admits one adult at 50% discounted admission. Pass admits children (ages 5-17) with $1 admission. Please check website for exact dates and hours before visiting.",
+  "source_phrases": {
+    "max_adults": "admits one adult",
+    "discount_percent": "50% discount"
+  }
 }

@@ -5,9 +5,18 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": null,
+  "free_under_age": 3,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This is a printable pass. 1. This pass will admit up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. 2. Your Library pass can only be used on the date printed on the pass. 3. Please bring your library pass confirmation (printed or displayed on a phone) when you visit. 4. When you arrive at the Museum, stop at the Box Office to exchange your library pass and purchase your Exhibit Halls tickets at the discounted rate. If you have any questions or if you would like to reserve your Exhibit Halls passes in advance to avoid waiting in line the day of your visit, please call 617-723-2500 (9:00 a.m. – 5:00 p.m. daily). 5. If you are unable to show your Library confirmation on a phone, you may print out a copy using the link in the confirmation email or request a paper copy from the library."
+  "raw": "This is a printable pass. 1. This pass will admit up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. 2. Your Library pass can only be used on the date printed on the pass. 3. Please bring your library pass confirmation (printed or displayed on a phone) when you visit. 4. When you arrive at the Museum, stop at the Box Office to exchange your library pass and purchase your Exhibit Halls tickets at the discounted rate. If you have any questions or if you would like to reserve your Exhibit Halls passes in advance to avoid waiting in line the day of your visit, please call 617-723-2500 (9:00 a.m. – 5:00 p.m. daily). 5. If you are unable to show your Library confirmation on a phone, you may print out a copy using the link in the confirmation email or request a paper copy from the library.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "free_under_age": "Children under 3 are not included in the count of 4 and are always admitted for ...",
+    "discount_percent": "50% discount"
+  }
 }

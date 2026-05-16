@@ -2,12 +2,19 @@
   "library_id": "waltham",
   "attraction_slug": "historic-new-england",
   "status": "ok",
-  "max_people": 2,
-  "max_adults": null,
+  "max_people": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Free admission for up to 2 adults and their children or grandchildren (under 18) to one Historic New England site. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the date you've selected in our calendar.*"
+  "raw": "Free admission for up to 2 adults and their children or grandchildren (under 18) to one Historic New England site. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the date you've selected in our calendar.*",
+  "source_phrases": {
+    "max_adults": "up to 2 adults"
+  }
 }

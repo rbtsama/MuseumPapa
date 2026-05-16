@@ -5,9 +5,20 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "members_free"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits 2 guests at half price. Weekday admission rates are $20 for adults, $17 for seniors, $10 for children 4-12, free for members and children under 3. Weekend admission rates are $21 for adults, $18 for seniors, $11 for children 4-12, free for members and children under 3. Dogs are admitted at a rate of $8 per canine each day of the week. Online pre-reservations are not required but you may book tickets ahead of time at nebg.org by inputting promo code LIBDI during checkout. The physical pass must still be brought to the New England Botanic Garden in order to receive the discount. Pass cannot be applied to special events. This physical pass may be picked up at the circulation desk no earlier than the day before use. This pass must be returned to the Billerica Public Library by 9am the next day. The pass may be returned to the outside drop box during off hours. This pass was generously donated by the Billerica Garden Club."
+  "raw": "Pass admits 2 guests at half price. Weekday admission rates are $20 for adults, $17 for seniors, $10 for children 4-12, free for members and children under 3. Weekend admission rates are $21 for adults, $18 for seniors, $11 for children 4-12, free for members and children under 3. Dogs are admitted at a rate of $8 per canine each day of the week. Online pre-reservations are not required but you may book tickets ahead of time at nebg.org by inputting promo code LIBDI during checkout. The physical pass must still be brought to the New England Botanic Garden in order to receive the discount. Pass cannot be applied to special events. This physical pass may be picked up at the circulation desk no earlier than the day before use. This pass must be returned to the Billerica Public Library by 9am the next day. The pass may be returned to the outside drop box during off hours. This pass was generously donated by the Billerica Garden Club.",
+  "source_phrases": {
+    "max_people": "admits 2 guests",
+    "discount_percent": "half price",
+    "members_free": "free for members"
+  }
 }

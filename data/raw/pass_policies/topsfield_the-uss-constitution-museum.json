@@ -5,9 +5,16 @@
   "max_people": 9,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits up to 9 people to the USS Constitution Museum for free. Once reserved, simply present your library pass (either on your mobile device, or printed) at the admission window at the USS Constitution Museum for entry. The USS Constitution Museum, located in the Charlestown Navy Yard, serves as the memory and educational voice of USS Constitution by collecting, preserving, and interpreting the stories of “Old Ironsides” and the people associated with her. The museum offers a variety of engaging activities, exhibits, and programs, including our interactive exhibit, All Hands on Deck: A Sailor’s Life in 1812, where visitors can furl a sail, sleep in a hammock, and scrub the deck as they join Constitution’s crew in 1812! For more information about the museum’s galleries, programs, and resources, visit www.usscm.org . Passes will be emailed to reserving patrons, without the need to come to the library to pick up the pass! Please contact the library to reserve this pass if you do not have an email address."
+  "raw": "Each pass admits up to 9 people to the USS Constitution Museum for free. Once reserved, simply present your library pass (either on your mobile device, or printed) at the admission window at the USS Constitution Museum for entry. The USS Constitution Museum, located in the Charlestown Navy Yard, serves as the memory and educational voice of USS Constitution by collecting, preserving, and interpreting the stories of “Old Ironsides” and the people associated with her. The museum offers a variety of engaging activities, exhibits, and programs, including our interactive exhibit, All Hands on Deck: A Sailor’s Life in 1812, where visitors can furl a sail, sleep in a hammock, and scrub the deck as they join Constitution’s crew in 1812! For more information about the museum’s galleries, programs, and resources, visit www.usscm.org . Passes will be emailed to reserving patrons, without the need to come to the library to pick up the pass! Please contact the library to reserve this pass if you do not have an email address.",
+  "source_phrases": {
+    "max_people": "admits up to 9 people"
+  }
 }

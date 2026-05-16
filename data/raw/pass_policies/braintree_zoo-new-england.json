@@ -2,12 +2,19 @@
   "library_id": "braintree",
   "attraction_slug": "zoo-new-england",
   "status": "ok",
-  "max_people": 6,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "6 people at $9.00/adult and $6.00/child (ages 2-12). Returnable physical pass.",
-  "raw": "Franklin Park 617-541-LION (5466), Stone Zoo 781-438-5100 Admits six (6) people at $9.00 per adult and $6.00 per child (2-12). Annual membership of $650.00 provided by the Friends of Thayer Public Library. Physical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Franklin Park 617-541-LION (5466), Stone Zoo 781-438-5100 Admits six (6) people at $9.00 per adult and $6.00 per child (2-12). Annual membership of $650.00 provided by the Friends of Thayer Public Library. Physical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {}
 }

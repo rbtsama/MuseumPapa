@@ -5,9 +5,19 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "blackout_dates",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "not valid in October",
-  "raw": "Pick up and return pass to library. Pass admits up to 6 people discounted admission. Advanced ticket purchase is required. Please visit the website www.salemwitchmuseum.com to purchase your tickets and enter the code from the pass into the coupon code box to receive discount. Pass MUST be presented at time of admission or full price will be charged. Open Daily 10 am to 5 pm July and August open daily 10 am to 7 pm Pass is NOT valid in October Please present this pass upon arrival to receive your tickets. If you cannot provide pass, you will be charged full admission fee. Admission with pass: Adult/Senior: $14 (regular admission: $19/$17.50) Child: $11.75 (regular admission: $16)"
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "blackout_dates"
+  ],
+  "boosts": [],
+  "notes": null,
+  "raw": "Pick up and return pass to library. Pass admits up to 6 people discounted admission. Advanced ticket purchase is required. Please visit the website www.salemwitchmuseum.com to purchase your tickets and enter the code from the pass into the coupon code box to receive discount. Pass MUST be presented at time of admission or full price will be charged. Open Daily 10 am to 5 pm July and August open daily 10 am to 7 pm Pass is NOT valid in October Please present this pass upon arrival to receive your tickets. If you cannot provide pass, you will be charged full admission fee. Admission with pass: Adult/Senior: $14 (regular admission: $19/$17.50) Child: $11.75 (regular admission: $16)",
+  "source_phrases": {
+    "max_people": "up to 6 people",
+    "blackout_dates": "NOT valid in October"
+  }
 }

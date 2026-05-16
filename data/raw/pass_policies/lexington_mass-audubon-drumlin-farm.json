@@ -5,9 +5,18 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "THIS IS A COUPON PASS This one-day Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary. Admission is discounted to $2 admission per visitor over the age of 2. Children under 2, admitted free. Please visit https://www.massaudubon.org/get-outdoors/wildlife-sanctuaries/trails for the latest information This pass does not need to be returned to the library. Coupon passes may be checked out two weeks before the reserved date for use."
+  "raw": "THIS IS A COUPON PASS This one-day Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary. Admission is discounted to $2 admission per visitor over the age of 2. Children under 2, admitted free. Please visit https://www.massaudubon.org/get-outdoors/wildlife-sanctuaries/trails for the latest information This pass does not need to be returned to the library. Coupon passes may be checked out two weeks before the reserved date for use.",
+  "source_phrases": {
+    "max_people": "up to 4 people"
+  }
 }

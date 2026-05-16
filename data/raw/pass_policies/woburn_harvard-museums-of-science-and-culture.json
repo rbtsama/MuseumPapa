@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Please redeem this pass at the Harvard Museum of Natural History or the Peabody Admission desks to receive 50% off regular museum admission rates up to 4 persons per coupon. Includes access to all four HMSC museums. At least one member of party must be a MA resident. For additional information, please visit hmsc.harvard.edu/visit . Please check museum days/hours open before going to museum. * Funded by the Friends of the WPL"
+  "raw": "Please redeem this pass at the Harvard Museum of Natural History or the Peabody Admission desks to receive 50% off regular museum admission rates up to 4 persons per coupon. Includes access to all four HMSC museums. At least one member of party must be a MA resident. For additional information, please visit hmsc.harvard.edu/visit . Please check museum days/hours open before going to museum. * Funded by the Friends of the WPL",
+  "source_phrases": {
+    "max_people": "up to 4 person",
+    "discount_percent": "50% off"
+  }
 }

@@ -5,9 +5,20 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": 12,
+  "free_under_age": 1,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Up to 4 persons at half price; infants under 12 months admitted free but still need a ticket."
+  "raw": "Up to 4 persons at half price; infants under 12 months admitted free but still need a ticket.",
+  "source_phrases": {
+    "max_people": "Up to 4 persons",
+    "free_under_age": "infants under 12 months admitted free",
+    "discount_percent": "half price"
+  }
 }

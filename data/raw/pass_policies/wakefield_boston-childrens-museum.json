@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits up to four people for half price. In July & August the museum is open Monday-Sunday From September - through June the museum is open Wednesday - Monday. During school vacations the museum is open on Tuesdays."
+  "raw": "Pass admits up to four people for half price. In July & August the museum is open Monday-Sunday From September - through June the museum is open Wednesday - Monday. During school vacations the museum is open on Tuesdays.",
+  "source_phrases": {
+    "max_people": "admits up to four people",
+    "discount_percent": "half price"
+  }
 }

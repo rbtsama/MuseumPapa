@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Museum of Science [e-voucher] Museo de Ciencias [electrónico] Admits 4 people at half price. Admisión para 4 personas a medio precio. Please visit the museum of science website for hours of operation. Visite el sitio web para obtener información sobre los horarios."
+  "raw": "Museum of Science [e-voucher] Museo de Ciencias [electrónico] Admits 4 people at half price. Admisión para 4 personas a medio precio. Please visit the museum of science website for hours of operation. Visite el sitio web para obtener información sobre los horarios.",
+  "source_phrases": {
+    "max_people": "Admits 4 people",
+    "discount_percent": "half price"
+  }
 }

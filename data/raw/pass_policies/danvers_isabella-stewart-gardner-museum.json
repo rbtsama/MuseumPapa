@@ -2,12 +2,23 @@
   "library_id": "danvers",
   "attraction_slug": "isabella-stewart-gardner-museum",
   "status": "ok",
-  "max_people": 4,
-  "max_adults": null,
+  "max_people": null,
+  "max_adults": 4,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 18,
-  "savings_per_person_usd": null,
+  "savings_per_person_usd": 5.0,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits up to 4 adults for $5 each (General Admission only). The discount only works for up to 4 Adult priced tickets and any additional ticket will be normally priced (Children under 18 are always free and should be reserved as child tickets). This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have booked the library coupon."
+  "raw": "Each pass admits up to 4 adults for $5 each (General Admission only). The discount only works for up to 4 Adult priced tickets and any additional ticket will be normally priced (Children under 18 are always free and should be reserved as child tickets). This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have booked the library coupon.",
+  "source_phrases": {
+    "max_adults": "admits up to 4 adults",
+    "free_under_age": "Children under 18 are always free and should be reserved as child tickets",
+    "savings_per_person_usd": "$5 each"
+  }
 }

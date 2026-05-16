@@ -5,9 +5,18 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass is redeemable for 2 free tickets to your selected Friday or Sunday performance of Black Swan at the American Repertory Theater (64 Brattle Street, Cambridge, MA). Reserve your date on the library website and you will receive an email confirmation with further instructions. This production is recommended for at least ages 14 and older + and has content warnings for self-injury/harm, sex, haze, flashing lights/strobe, and loud sudden noises. For more information, please visit: https://americanrepertorytheater.org/shows-events/black-swan/ After booking for the specific date, patrons will receive e-voucher from MPL showing performance time selected and then can forward that email to ticketservices@amrep.org or bring in a paper copy of their email. Patrons must redeem the pass for tickets by at least 5pm 2 DAYS BEFORE the performance they would like to attend. The pass is NOT a ticket. Patrons can also call 617-547-8300 with questions. A.R.T. Ticket Services hours: Tuesday - Saturday, noon to 5:00 The following showtimes will be available: Friday, May 29th at 7:30PM Sunday, May 31st at 7:30PM Sunday, June 7th at 2PM Friday, June 12th at 7:30PM Sunday, June 14th at 2PM Sunday, June 21st at 2PM Friday, June 26th at 7:30PM Sunday, June 28th at 2PM"
+  "raw": "This pass is redeemable for 2 free tickets to your selected Friday or Sunday performance of Black Swan at the American Repertory Theater (64 Brattle Street, Cambridge, MA). Reserve your date on the library website and you will receive an email confirmation with further instructions. This production is recommended for at least ages 14 and older + and has content warnings for self-injury/harm, sex, haze, flashing lights/strobe, and loud sudden noises. For more information, please visit: https://americanrepertorytheater.org/shows-events/black-swan/ After booking for the specific date, patrons will receive e-voucher from MPL showing performance time selected and then can forward that email to ticketservices@amrep.org or bring in a paper copy of their email. Patrons must redeem the pass for tickets by at least 5pm 2 DAYS BEFORE the performance they would like to attend. The pass is NOT a ticket. Patrons can also call 617-547-8300 with questions. A.R.T. Ticket Services hours: Tuesday - Saturday, noon to 5:00 The following showtimes will be available: Friday, May 29th at 7:30PM Sunday, May 31st at 7:30PM Sunday, June 7th at 2PM Friday, June 12th at 7:30PM Sunday, June 14th at 2PM Sunday, June 21st at 2PM Friday, June 26th at 7:30PM Sunday, June 28th at 2PM",
+  "source_phrases": {
+    "max_people": "redeemable for 2 free tickets"
+  }
 }

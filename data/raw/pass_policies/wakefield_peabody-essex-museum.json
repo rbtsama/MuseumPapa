@@ -5,9 +5,16 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits 2 people for $12 a person"
+  "raw": "Pass admits 2 people for $12 a person",
+  "source_phrases": {
+    "max_people": "admits 2 people"
+  }
 }

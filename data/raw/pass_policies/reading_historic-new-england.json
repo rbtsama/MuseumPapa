@@ -3,11 +3,18 @@
   "attraction_slug": "historic-new-england",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass offers free admission for two adults and children under 18 to 38 historic sites and the Library and Archives of Historic New England. Please go to historicnewengland.org for a full listing of historic sites to visit and to verify hours of operation. This pass needs to be picked up at the library"
+  "raw": "This pass offers free admission for two adults and children under 18 to 38 historic sites and the Library and Archives of Historic New England. Please go to historicnewengland.org for a full listing of historic sites to visit and to verify hours of operation. This pass needs to be picked up at the library",
+  "source_phrases": {
+    "max_adults": "two adults"
+  }
 }

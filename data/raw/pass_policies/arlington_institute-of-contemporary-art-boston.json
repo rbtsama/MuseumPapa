@@ -5,9 +5,16 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass admits up to two (2) people at $10 each. Library Passes are not valid for performances, events, or films You will receive an email from the Library that will act as your coupon. You can purchase your tickets online at https://my.icaboston.org/events , or over the phone at 617-478-3100, or in person on the day of your visit."
+  "raw": "This pass admits up to two (2) people at $10 each. Library Passes are not valid for performances, events, or films You will receive an email from the Library that will act as your coupon. You can purchase your tickets online at https://my.icaboston.org/events , or over the phone at 617-478-3100, or in person on the day of your visit.",
+  "source_phrases": {
+    "max_people": "up to two (2) people"
+  }
 }

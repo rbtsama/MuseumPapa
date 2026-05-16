@@ -3,11 +3,19 @@
   "attraction_slug": "garden-in-the-woods-native-plant-trust",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
+  "max_adults": 1,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "pass must be returned to library",
-  "raw": "With this pass, one adult 50% discounted admission With this pass, children (ages 5-17) $1.00 admission No discounts on classes, tours, or retail items The Garden is open mid-April to October 15 Check website (http://www.nativeplanttrust.org/visit/garden-woods/) for exact dates & hours before visiting *This pass needs to be picked up at and returned to Reading Public Library"
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "With this pass, one adult 50% discounted admission With this pass, children (ages 5-17) $1.00 admission No discounts on classes, tours, or retail items The Garden is open mid-April to October 15 Check website (http://www.nativeplanttrust.org/visit/garden-woods/) for exact dates & hours before visiting *This pass needs to be picked up at and returned to Reading Public Library",
+  "source_phrases": {
+    "max_adults": "one adult",
+    "discount_percent": "50% discount"
+  }
 }

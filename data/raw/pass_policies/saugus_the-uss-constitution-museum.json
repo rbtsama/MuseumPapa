@@ -5,9 +5,16 @@
   "max_people": 9,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass holders will receive free admission to the museum. One pass allows free admission for up to 9 people per day. One pass per party, please. The Museum has a suggested admission (donation) of $10 – $15 for Adults – $5 – $10 for Children The Ship, which is available for visits Wednesday through Sunday, is free to visit on a first come, first serve basis. The Constitution is an active-duty ship operated by the U.S. Navy. Please be aware of their security requirements in advance by visiting their site: https://www.navy.mil/USS-CONSTITUTION/Hours-Visitor-Info/ *The Museum is a non-profit organization that relies on donations to keep its door open."
+  "raw": "Pass holders will receive free admission to the museum. One pass allows free admission for up to 9 people per day. One pass per party, please. The Museum has a suggested admission (donation) of $10 – $15 for Adults – $5 – $10 for Children The Ship, which is available for visits Wednesday through Sunday, is free to visit on a first come, first serve basis. The Constitution is an active-duty ship operated by the U.S. Navy. Please be aware of their security requirements in advance by visiting their site: https://www.navy.mil/USS-CONSTITUTION/Hours-Visitor-Info/ *The Museum is a non-profit organization that relies on donations to keep its door open.",
+  "source_phrases": {
+    "max_people": "for up to 9 people"
+  }
 }

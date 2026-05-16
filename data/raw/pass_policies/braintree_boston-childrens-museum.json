@@ -2,12 +2,23 @@
   "library_id": "braintree",
   "attraction_slug": "boston-childrens-museum",
   "status": "ok",
-  "max_people": 4,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Half price per person for up to 4. Must reserve online after getting library pass. Show both library reservation and BCM tickets at Museum.",
-  "raw": "(617) 426-6500 Admits up to four (adults or children) at half price per person. After receiving a library discount pass, you must reserve a visit online with Boston Children's Museum. You confirmation from the library will have instructions. You will need to show the Museum both the Library Reservation and the tickets they send you. Two annual memberships of $700.00 each are provided by the Friends of Thayer Public Library. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [
+    "reservation_required"
+  ],
+  "boosts": [],
+  "notes": null,
+  "raw": "(617) 426-6500 Admits up to four (adults or children) at half price per person. After receiving a library discount pass, you must reserve a visit online with Boston Children’s Museum. You confirmation from the library will have instructions. You will need to show the Museum both the Library Reservation and the tickets they send you. Two annual memberships of $700.00 each are provided by the Friends of Thayer Public Library. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "discount_percent": "half price"
+  }
 }

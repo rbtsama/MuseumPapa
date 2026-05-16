@@ -2,12 +2,21 @@
   "library_id": "north-reading",
   "attraction_slug": "the-butterfly-place",
   "status": "ok",
-  "max_people": null,
+  "max_people": 1,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Paper pass grants one free admission. You do not need to purchase tickets ahead of time or make a reservation unless you have 15 or more people and ticket sales end at 3:30 PM."
+  "raw": "Paper pass grants one free admission. You do not need to purchase tickets ahead of time or make a reservation unless you have 15 or more people and ticket sales end at 3:30 PM.",
+  "source_phrases": {
+    "max_people": "grants one free admission"
+  }
 }

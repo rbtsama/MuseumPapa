@@ -5,9 +5,21 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": 3,
   "savings_per_person_usd": null,
-  "notes": "membership discount available; pass must be returned to library; overdue fine $3/day; 50% off per person",
-  "raw": "Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Reduced admission for up to 6 people at 50% off per person (children under 3 always free). Additional instructions: -Present pass upon arrival to receive discount. -Pass is valid for $20 off a Family Membership or $10 off an Individual or Participating Membership purchase by the user. THIS PASS MUST BE RETURNED TO THE MORSE INSTITUTE LIBRARY BY 9:30AM THE DAY AFTER YOUR RESERVATION. OVERDUE FINES ARE $3/DAY. Passes can be returned at the circulation desk or the outside book drops."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Reduced admission for up to 6 people at 50% off per person (children under 3 always free). Additional instructions: -Present pass upon arrival to receive discount. -Pass is valid for $20 off a Family Membership or $10 off an Individual or Participating Membership purchase by the user. THIS PASS MUST BE RETURNED TO THE MORSE INSTITUTE LIBRARY BY 9:30AM THE DAY AFTER YOUR RESERVATION. OVERDUE FINES ARE $3/DAY. Passes can be returned at the circulation desk or the outside book drops.",
+  "source_phrases": {
+    "max_people": "up to 6 people",
+    "free_under_age": "children under 3 always free",
+    "discount_percent": "50% off",
+    "eligibility_tags": "Family"
+  }
 }

@@ -5,9 +5,20 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": 5,
+  "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Up to 6 at $18/adult and $12/child ages 5-17. Valid for all living history sites. Season: March 15 through Sunday after Thanksgiving. Show pass at box office.",
-  "raw": "137 Warren Avenue Plymouth, MA 02360 508-746-1622 Get Directions Updated 3/13/2025 Open for the 2025 season March 15 through the Sunday following Thanksgiving Day Reserve the date on the library website, then print or download the pass. Take to museum and present at the box office. Pass is good for a rate of $18/adult and $12/child, ages 5-17, for up to 6 people and is valid for all of the living history sites offered. Patrons may either show a picture of their library pass on their phone or provide a paper version of the library pass. Visit museum website for more information. The Trustees of Reservations GO Pass Learn More"
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": null,
+  "raw": "137 Warren Avenue Plymouth, MA 02360 508-746-1622 Get Directions Updated 3/13/2025 Open for the 2025 season March 15 through the Sunday following Thanksgiving Day Reserve the date on the library website, then print or download the pass. Take to museum and present at the box office. Pass is good for a rate of $18/adult and $12/child, ages 5-17, for up to 6 people and is valid for all of the living history sites offered. Patrons may either show a picture of their library pass on their phone or provide a paper version of the library pass. Visit museum website for more information. The Trustees of Reservations GO Pass Learn More",
+  "source_phrases": {
+    "max_people": "up to 6 people"
+  }
 }

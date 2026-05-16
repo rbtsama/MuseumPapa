@@ -2,12 +2,19 @@
   "library_id": "wellesley",
   "attraction_slug": "institute-of-contemporary-art-boston",
   "status": "ok",
-  "max_people": null,
+  "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each Library Pass is valid for up to two (2) museum admission tickets at the discounted Library Pass price of $10 per ticket . Library Passes are not valid for performances, events, or films . For more details, visit the ICA website: https://www.icaboston.org/visit"
+  "raw": "Each Library Pass is valid for up to two (2) museum admission tickets at the discounted Library Pass price of $10 per ticket . Library Passes are not valid for performances, events, or films . For more details, visit the ICA website: https://www.icaboston.org/visit",
+  "source_phrases": {
+    "max_people": "up to two (2) museum admission tickets"
+  }
 }

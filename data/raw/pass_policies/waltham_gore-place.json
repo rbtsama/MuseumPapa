@@ -3,11 +3,19 @@
   "attraction_slug": "gore-place",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
-  "max_children": null,
-  "eligibility": null,
+  "max_adults": 2,
+  "max_children": 2,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass is good for: Daytime Mansion Tour admission for two adults at $5 per person, and two children free One Take-a-Walk bag rental at $2/hr Story Time for two children at $5 per child, and an accompanying adult free For available dates and times, please visit goreplace.org/whats-on"
+  "raw": "This pass is good for: Daytime Mansion Tour admission for two adults at $5 per person, and two children free One Take-a-Walk bag rental at $2/hr Story Time for two children at $5 per child, and an accompanying adult free For available dates and times, please visit goreplace.org/whats-on",
+  "source_phrases": {
+    "max_adults": "two adults",
+    "max_children": "two children"
+  }
 }

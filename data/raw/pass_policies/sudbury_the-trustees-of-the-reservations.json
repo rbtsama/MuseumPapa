@@ -3,11 +3,22 @@
   "attraction_slug": "the-trustees-of-the-reservations",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "members_discount"
+  ],
   "notes": null,
-  "raw": "PLEASE NOTE: This is a coupon pass that must be picked up at the library. Patrons must first reserve a coupon from the library, then reserve timed tickets ONLY for museums and parks that require a timed entry by using the promo code on the back of the library coupon. This code will also be available on the reservation confirmation screen, and in your confirmation email. You will need to show the physical pass at the property of your choice. Each pass admits two adults and children under 18 at the Family Membership admission price at the properties that change admission. This varies from property to property; please check The Trustees' website before booking a pass."
+  "raw": "PLEASE NOTE: This is a coupon pass that must be picked up at the library. Patrons must first reserve a coupon from the library, then reserve timed tickets ONLY for museums and parks that require a timed entry by using the promo code on the back of the library coupon. This code will also be available on the reservation confirmation screen, and in your confirmation email. You will need to show the physical pass at the property of your choice. Each pass admits two adults and children under 18 at the Family Membership admission price at the properties that change admission. This varies from property to property; please check The Trustees' website before booking a pass.",
+  "source_phrases": {
+    "max_adults": "two adults"
+  }
 }

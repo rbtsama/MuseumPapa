@@ -5,9 +5,16 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass discount provides $9 admission fee for adults and $6 admission fee for children up to 6 individuals including children. This coupon pass must be picked up in person at the Library's Circulation desk. An email will not suffice for admission into the park. Directions and information regarding the coupon pass use will be provided in your confirmation email."
+  "raw": "This pass discount provides $9 admission fee for adults and $6 admission fee for children up to 6 individuals including children. This coupon pass must be picked up in person at the Library's Circulation desk. An email will not suffice for admission into the park. Directions and information regarding the coupon pass use will be provided in your confirmation email.",
+  "source_phrases": {
+    "max_people": "up to 6 individuals"
+  }
 }

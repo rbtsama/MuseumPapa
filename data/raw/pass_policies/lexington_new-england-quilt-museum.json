@@ -5,9 +5,18 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each coupon offers complimentary admission for two guests. Please check the website https://www.neqm.org/ for the most complete and updated information prior to your visit. THIS IS A COUPON PASS PASS DOES NOT NEED TO BE RETURNED"
+  "raw": "Each coupon offers complimentary admission for two guests. Please check the website https://www.neqm.org/ for the most complete and updated information prior to your visit. THIS IS A COUPON PASS PASS DOES NOT NEED TO BE RETURNED",
+  "source_phrases": {
+    "max_people": "for two guests"
+  }
 }

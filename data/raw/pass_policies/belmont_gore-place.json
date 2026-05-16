@@ -5,9 +5,18 @@
   "max_people": 4,
   "max_adults": 2,
   "max_children": 2,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Gore Place is pleased to announce the combined Mansion Tour, Take-a-Walk, and Story Time Library Pass for 2024-2025. Each pass permits two adults and two accompanied children to tour the 1806 Gore Mansion at the reduced rate of $5 per adult and free for the accompanied children--regularly $16 per adult and $11 for children ages 6-16. The pass also permits passholders to rent a Take-a-Walk bag for $2--regularly $5. We have expanded the program this year to also allow passholders to bring two children to a Wednesday Story Time-first Wednesday of each month, for $5 per child-regularly $10. We are open for Mansion Tours, currently Mondays, Wednesdays, Fridays, and Saturdays. Days and times are subject to change, so it is best for visitors to consult our website at goreplace.org when planning their visit. Event and holiday closings as well as school vacation hours are all listed on our website. Please note: The Mansion Tour pass is good for daytime Mansion tours only and may not be used during evening or special themed tours or during special events such as the Sheepshearing Festival at Gore Place."
+  "raw": "Gore Place is pleased to announce the combined Mansion Tour, Take-a-Walk, and Story Time Library Pass for 2024-2025. Each pass permits two adults and two accompanied children to tour the 1806 Gore Mansion at the reduced rate of $5 per adult and free for the accompanied children--regularly $16 per adult and $11 for children ages 6-16. The pass also permits passholders to rent a Take-a-Walk bag for $2--regularly $5. We have expanded the program this year to also allow passholders to bring two children to a Wednesday Story Time-first Wednesday of each month, for $5 per child-regularly $10. We are open for Mansion Tours, currently Mondays, Wednesdays, Fridays, and Saturdays. Days and times are subject to change, so it is best for visitors to consult our website at goreplace.org when planning their visit. Event and holiday closings as well as school vacation hours are all listed on our website. Please note: The Mansion Tour pass is good for daytime Mansion tours only and may not be used during evening or special themed tours or during special events such as the Sheepshearing Festival at Gore Place.",
+  "source_phrases": {
+    "max_adults": "two adults",
+    "max_children": "two children",
+    "max_people": "two adults"
+  }
 }

@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "The New England Aquarium [e-voucher] Acuario de Nueva Inglaterra [electrónico] Admits up to 4 people at half price. Available all year. Please check the website for price of general admission. Admisión para 4 personas a medio precio. Disponible el año completo. Por favor vaya a la página web y verifique el precio general de admisión. Please visit the website for hours of operation. Visite el sitio web para obtener información sobre los horarios."
+  "raw": "The New England Aquarium [e-voucher] Acuario de Nueva Inglaterra [electrónico] Admits up to 4 people at half price. Available all year. Please check the website for price of general admission. Admisión para 4 personas a medio precio. Disponible el año completo. Por favor vaya a la página web y verifique el precio general de admisión. Please visit the website for hours of operation. Visite el sitio web para obtener información sobre los horarios.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "half price"
+  }
 }

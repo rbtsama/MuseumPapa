@@ -5,9 +5,16 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "The Peabody Essex Museum pass offers discounted tickets of $12 each for up to two (2) people."
+  "raw": "The Peabody Essex Museum pass offers discounted tickets of $12 each for up to two (2) people.",
+  "source_phrases": {
+    "max_people": "up to two (2) people"
+  }
 }

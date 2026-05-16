@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass provides free parking for one vehicle at a Massachusetts State Park. June through August, please pick up your Saturday or Sunday pass on Friday. June through August, the Massachusetts State Parks Pass may be reserved once in a 10-day window. This pass must be returned to the Library the next day. Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners."
+  "raw": "Each pass provides free parking for one vehicle at a Massachusetts State Park. June through August, please pick up your Saturday or Sunday pass on Friday. June through August, the Massachusetts State Parks Pass may be reserved once in a 10-day window. This pass must be returned to the Library the next day. Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners.",
+  "source_phrases": {
+    "eligibility_tags_vehicle": "pass provides free parking"
+  }
 }

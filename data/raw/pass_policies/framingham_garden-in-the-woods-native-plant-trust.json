@@ -5,9 +5,19 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits 2 persons; adults at 1/2 price, children (5-17) $1.00"
+  "raw": "Admits 2 persons; adults at 1/2 price, children (5-17) $1.00",
+  "source_phrases": {
+    "max_people": "Admits 2 persons",
+    "discount_percent": "1/2 price"
+  }
 }

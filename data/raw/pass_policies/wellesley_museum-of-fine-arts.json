@@ -2,12 +2,20 @@
   "library_id": "wellesley",
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
-  "max_people": 2,
-  "max_adults": null,
+  "max_people": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": 7,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Passes admit up to 2 adults ($15 per person) and up to 4 youths ages 7–17 ($10 per person). Children 6 and under are free. Tickets to the MFA are always free for visitors under seven years old. Please present the coupon code attached to your confirmation email when reserving your tickets to redeem your pass. try {var w = document.getElementsByClassName(\"warn\"); for( i=0;i"
+  "raw": "Passes admit up to 2 adults ($15 per person) and up to 4 youths ages 7–17 ($10 per person). Children 6 and under are free. Tickets to the MFA are always free for visitors under seven years old. Please present the coupon code attached to your confirmation email when reserving your tickets to redeem your pass. try {var w = document.getElementsByClassName(\"warn\"); for( i=0;i",
+  "source_phrases": {
+    "max_adults": "up to 2 adults",
+    "free_under_age": "Children 6 and under are free"
+  }
 }

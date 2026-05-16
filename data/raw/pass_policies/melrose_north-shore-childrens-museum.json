@@ -5,9 +5,20 @@
   "max_people": 5,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "50% off admission for a family of up to 5 adults/children. Tickets may be purchased in advance by selecting the Library Museum Pass option on the museum website. If the library pass is not presented at the museum, you will be charged the difference for full price tickets. It is highly recommended that tickets be purchased in advance during school vacation weeks. Valid only on the date listed on the pass, subject to museum capacity. Visit the North Shore Children's Museum website to review visitor requirements and operating hours. Note: The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. This is not a ticket - the library pass does not guarantee admission on a chosen date."
+  "raw": "50% off admission for a family of up to 5 adults/children. Tickets may be purchased in advance by selecting the Library Museum Pass option on the museum website. If the library pass is not presented at the museum, you will be charged the difference for full price tickets. It is highly recommended that tickets be purchased in advance during school vacation weeks. Valid only on the date listed on the pass, subject to museum capacity. Visit the North Shore Children's Museum website to review visitor requirements and operating hours. Note: The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. This is not a ticket - the library pass does not guarantee admission on a chosen date.",
+  "source_phrases": {
+    "discount_percent": "50% off",
+    "eligibility_tags": "family",
+    "max_people": "50% off admission for a family of up to 5 adults/children"
+  }
 }

@@ -5,9 +5,14 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "The Parks Pass entitles the bearer to free parking at over 50 facilities in the Massachusetts State Parks System that charge a day-use parking fee."
+  "raw": "The Parks Pass entitles the bearer to free parking at over 50 facilities in the Massachusetts State Parks System that charge a day-use parking fee.",
+  "source_phrases": {}
 }

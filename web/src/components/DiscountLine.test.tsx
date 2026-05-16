@@ -13,9 +13,13 @@ function makePolicy(overrides: Partial<Policy> = {}): Policy {
     max_people: null,
     max_adults: null,
     max_children: null,
-    eligibility: null,
     free_under_age: null,
     savings_per_person_usd: null,
+    discount_percent: null,
+    discount_dollar_off: null,
+    eligibility_tags: [],
+    exclusions: [],
+    boosts: [],
     notes: null,
     raw: null,
     ...overrides,
@@ -49,7 +53,7 @@ describe('DiscountLine', () => {
     renderApp(
       <DiscountLine
         discount={makeDiscount('half', '50% off')}
-        policy={makePolicy({ eligibility: 'adults_only' })}
+        policy={makePolicy({ eligibility_tags: ['adults_only'] })}
         adult={30}
       />
     );
@@ -74,7 +78,7 @@ describe('DiscountLine', () => {
     renderApp(
       <DiscountLine
         discount={makeDiscount('free', 'Free')}
-        policy={makePolicy({ eligibility: 'vehicle' })}
+        policy={makePolicy({ eligibility_tags: ['vehicle'] })}
         adult={30}
       />
     );

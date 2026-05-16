@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "pre-registration required; 50% off per person",
-  "raw": "Type of pass: E-coupon, emailed upon reservation. Pricing: Reduced admission for up to 4 people (adults or children) at 50% off per person. Additional instructions: - Pre-registration is required . Visit the Boston Children’s Museum website to reserve. -When purchasing your timed ticket, expand the “Discount Programs” option and select “Half Price Library Timed Ticket.” The date of your library e-coupon must match the date of your visit. -------------- This coupon is not your ticket. You MUST make a reservation on the Museum's website. Instructions: 1. Visit the Boston Children's Museum website 2. Select \"Discount Programs\" 3. Select \"Purchase Discount Program Tickets\" 4. Select \"Half Price Library Timed Tickets\" 5. Select the correct date (much match coupon) 6. Select the time slot 7. Select the number of tickets (maximum of 4) 8. Select \"Add to Card\" 9. Select \"Check Out\" and complete your payment 10. You will be sent tickets via email The day of your visit, please bring both your coupon from the library and your tickets from the Museum. Your coupon and tickets can be printed out or shown on a smartphone or other device. Problems? Email: Orders@BostonChildrensMuseum.org"
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Type of pass: E-coupon, emailed upon reservation. Pricing: Reduced admission for up to 4 people (adults or children) at 50% off per person. Additional instructions: - Pre-registration is required . Visit the Boston Children’s Museum website to reserve. -When purchasing your timed ticket, expand the “Discount Programs” option and select “Half Price Library Timed Ticket.” The date of your library e-coupon must match the date of your visit. -------------- This coupon is not your ticket. You MUST make a reservation on the Museum's website. Instructions: 1. Visit the Boston Children's Museum website 2. Select \"Discount Programs\" 3. Select \"Purchase Discount Program Tickets\" 4. Select \"Half Price Library Timed Tickets\" 5. Select the correct date (much match coupon) 6. Select the time slot 7. Select the number of tickets (maximum of 4) 8. Select \"Add to Card\" 9. Select \"Check Out\" and complete your payment 10. You will be sent tickets via email The day of your visit, please bring both your coupon from the library and your tickets from the Museum. Your coupon and tickets can be printed out or shown on a smartphone or other device. Problems? Email: Orders@BostonChildrensMuseum.org",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "50% off"
+  }
 }

@@ -2,12 +2,19 @@
   "library_id": "wayland",
   "attraction_slug": "isabella-stewart-gardner-museum",
   "status": "ok",
-  "max_people": null,
+  "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This is an e-voucher . Promo code and confirmation page are e-mailed to the patron. Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are always admitted for free. You must print your library pass confirmation page or display it on your phone. The Museum requires also reserving timed-entry tickets in advance of your visit. PATRONS MUST PRESENT BOTH THE LIBRARY PASS AND THEIR RESERVED TIMED MUSEUM ADMISSION TICKETS FOR ENTRY INTO THE MUSEUM. A library pass is not an admission ticket and does not guarantee a reservation to the Museum."
+  "raw": "This is an e-voucher . Promo code and confirmation page are e-mailed to the patron. Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are always admitted for free. You must print your library pass confirmation page or display it on your phone. The Museum requires also reserving timed-entry tickets in advance of your visit. PATRONS MUST PRESENT BOTH THE LIBRARY PASS AND THEIR RESERVED TIMED MUSEUM ADMISSION TICKETS FOR ENTRY INTO THE MUSEUM. A library pass is not an admission ticket and does not guarantee a reservation to the Museum.",
+  "source_phrases": {
+    "max_people": "up to four (4) people"
+  }
 }

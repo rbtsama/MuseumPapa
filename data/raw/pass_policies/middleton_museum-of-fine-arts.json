@@ -2,12 +2,24 @@
   "library_id": "middleton",
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
-  "max_people": 4,
-  "max_adults": null,
-  "max_children": null,
-  "eligibility": "all",
-  "free_under_age": null,
+  "max_people": 2,
+  "max_adults": 2,
+  "max_children": 4,
+  "free_under_age": 6,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits 2 people at $15 per person (general admission and special exhibition) and up to 4 children ages 7-17 at $10 each (special exhibition only). Children 6 and under are admitted free. There is no discount for children 7-17 for general admission, currently $10. After reserving the library's pass, you will receive a email with a code that you must use to book tickets directly from the MFA. You do not need to bring the library pass to the Museum. You will be e-mailed your ticket(s). Please show Museum staff on a device or a printed copy. Museum hours: Sunday 10 am–5 pm Monday 10 am–5 pm Tuesday Closed Wednesday 10 am–5 pm Thursday 10 am–10 pm Friday 10 am–10 pm Saturday 10 am–5 pm Visit mfa.org for information about health, safety, and what’s on view."
+  "raw": "Each pass admits 2 people at $15 per person (general admission and special exhibition) and up to 4 children ages 7-17 at $10 each (special exhibition only). Children 6 and under are admitted free. There is no discount for children 7-17 for general admission, currently $10. After reserving the library's pass, you will receive a email with a code that you must use to book tickets directly from the MFA. You do not need to bring the library pass to the Museum. You will be e-mailed your ticket(s). Please show Museum staff on a device or a printed copy. Museum hours: Sunday 10 am–5 pm Monday 10 am–5 pm Tuesday Closed Wednesday 10 am–5 pm Thursday 10 am–10 pm Friday 10 am–10 pm Saturday 10 am–5 pm Visit mfa.org for information about health, safety, and what’s on view.",
+  "source_phrases": {
+    "max_people": "admits 2 people",
+    "max_adults": "Each pass admits 2 people at $15 per person",
+    "max_children": "up to 4 children ages 7-17 at $10 each",
+    "free_under_age": "Children 6 and under are admitted free"
+  }
 }

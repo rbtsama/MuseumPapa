@@ -5,9 +5,14 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass must be returned at the Chelsea Public Library the day after use. Free parking for 1 vehicle at state park facilities that charge a parking fee."
+  "raw": "Pass must be returned at the Chelsea Public Library the day after use. Free parking for 1 vehicle at state park facilities that charge a parking fee.",
+  "source_phrases": {}
 }

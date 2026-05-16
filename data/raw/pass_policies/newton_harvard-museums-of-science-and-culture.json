@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits up to 4 people at half off per person. Admission to the Museum of Natural History also allows visitors entry to the Peabody Museum of Archaeology and Ethnology (located in the same complex)."
+  "raw": "Admits up to 4 people at half off per person. Admission to the Museum of Natural History also allows visitors entry to the Peabody Museum of Archaeology and Ethnology (located in the same complex).",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "half off"
+  }
 }

@@ -2,12 +2,19 @@
   "library_id": "stoneham",
   "attraction_slug": "greater-boston-stage-company",
   "status": "ok",
-  "max_people": null,
+  "max_people": 12,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "The coupon code covers the cost of up to 12 tickets per mainstage show. There is a limit of 2 tickets per person. This pass is NOT a reservation and does not need to be picked up at the library. You must reserve a ticket for a specific day and time prior to the performance you wish to attend. Tickets must be reserved by calling the Greater Boston Stage Company at (781) 279-2200. The GBSC Box Office is open noon to 4 pm Tuesday through Friday. Your tickets are only valid for the date and time you reserve. This season's Main Stage shows: Featherbaby opens on Friday, September 12th and runs through Sunday, December 28th. Murder for Two opens on Friday, October 5th and runs through Sunday, November 9th. An Irish Carol opens on Friday, December 5th and runs through Sunday, December 21st. Wait Until Dark opens on Friday, March 6th and runs through Sunday, March 22nd. What the Constitution Means to Me opens on Friday, April 10th and runs through Sunday, April 26th. Annie opens on Friday, May 29th and runs through Sunday, June 28th."
+  "raw": "The coupon code covers the cost of up to 12 tickets per mainstage show. There is a limit of 2 tickets per person. This pass is NOT a reservation and does not need to be picked up at the library. You must reserve a ticket for a specific day and time prior to the performance you wish to attend. Tickets must be reserved by calling the Greater Boston Stage Company at (781) 279-2200. The GBSC Box Office is open noon to 4 pm Tuesday through Friday. Your tickets are only valid for the date and time you reserve. This season's Main Stage shows: Featherbaby opens on Friday, September 12th and runs through Sunday, December 28th. Murder for Two opens on Friday, October 5th and runs through Sunday, November 9th. An Irish Carol opens on Friday, December 5th and runs through Sunday, December 21st. Wait Until Dark opens on Friday, March 6th and runs through Sunday, March 22nd. What the Constitution Means to Me opens on Friday, April 10th and runs through Sunday, April 26th. Annie opens on Friday, May 29th and runs through Sunday, June 28th.",
+  "source_phrases": {
+    "max_people": "up to 12 tickets"
+  }
 }

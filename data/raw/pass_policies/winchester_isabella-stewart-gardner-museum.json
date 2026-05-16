@@ -2,12 +2,21 @@
   "library_id": "winchester",
   "attraction_slug": "isabella-stewart-gardner-museum",
   "status": "ok",
-  "max_people": 4,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "id_required",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Winchester residents only",
-  "raw": "Each pass admits up to 4 adults for $5 each (General Admission only). Reserve a museum pass with the library for a specific date. Click on \"Print this Pass\" in the confirmation email that you receive from the library, to see your promo code. Purchasing timed entrance tickets in advance is strongly encouraged - enter the promo code from the confirmation email for the discount. See our detailed instructions for purchasing tickets from the ISG website. You can also redeem your pass over the phone with the Box Office at 617-278-5156. Please make sure to review the health and safety requirements at isgm.org/welcome before visiting the Museum. Passes are available to Winchester residents only. Call the Library at 781-721-7171 for assistance."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "residents_only"
+  ],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": null,
+  "raw": "Each pass admits up to 4 adults for $5 each (General Admission only). Reserve a museum pass with the library for a specific date. Click on \"Print this Pass\" in the confirmation email that you receive from the library, to see your promo code. Purchasing timed entrance tickets in advance is strongly encouraged - enter the promo code from the confirmation email for the discount. See our detailed instructions for purchasing tickets from the ISG website. You can also redeem your pass over the phone with the Box Office at 617-278-5156. Please make sure to review the health and safety requirements at isgm.org/welcome before visiting the Museum. Passes are available to Winchester residents only. Call the Library at 781-721-7171 for assistance.",
+  "source_phrases": {}
 }

@@ -5,9 +5,19 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "residents_only",
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "DCR MassParks Pass (Department of Conservation and Recreation)- Entitles the bearer to FREE parking for one vehicle (excluding vans or buses) at Massachusetts parks. Pick up and return to library. Pass may be picked up the day before use. Pass must be returned no later than the day after use. Pass allows 1 car and up to 9 passengers into the state park or beach. Pass is for day use only and CANNOT be used for camping. Pass is available to Massachusetts residents only."
+  "raw": "DCR MassParks Pass (Department of Conservation and Recreation)- Entitles the bearer to FREE parking for one vehicle (excluding vans or buses) at Massachusetts parks. Pick up and return to library. Pass may be picked up the day before use. Pass must be returned no later than the day after use. Pass allows 1 car and up to 9 passengers into the state park or beach. Pass is for day use only and CANNOT be used for camping. Pass is available to Massachusetts residents only.",
+  "source_phrases": {
+    "eligibility_tags": "Massachusetts residents only"
+  }
 }

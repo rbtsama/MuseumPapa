@@ -5,9 +5,22 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [
+    "seasonal:may-oct"
+  ],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits a maximum of 4 people for 50% off. Below is the 2025 season information, but make sure to also check the Boston Harbor Islands website for current hours of operation. 2025 Season Schedule: Spectacle Island May 16 - June 15: Thursdays through Sundays June 16 - September 1: every day September 4 - 21: Thursdays through Sundays September 26 - October 13: Fridays through Sundays Georges Island June 16- September 1: every day Peddocks Island June 16 - September 1: every day September 4 - October 13: Thursdays through Sundays"
+  "raw": "Pass admits a maximum of 4 people for 50% off. Below is the 2025 season information, but make sure to also check the Boston Harbor Islands website for current hours of operation. 2025 Season Schedule: Spectacle Island May 16 - June 15: Thursdays through Sundays June 16 - September 1: every day September 4 - 21: Thursdays through Sundays September 26 - October 13: Fridays through Sundays Georges Island June 16- September 1: every day Peddocks Island June 16 - September 1: every day September 4 - October 13: Thursdays through Sundays",
+  "source_phrases": {
+    "max_people": "admits a maximum of 4 people",
+    "discount_percent": "50% off",
+    "exclusions": "2025 Season Schedule: Spectacle Island May 16 - June 15"
+  }
 }

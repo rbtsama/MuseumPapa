@@ -3,11 +3,18 @@
   "attraction_slug": "mfa",
   "status": "ok",
   "max_people": null,
-  "max_adults": 2,
-  "max_children": 4,
-  "eligibility": "all",
+  "max_adults": null,
+  "max_children": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Up to 2 adult tickets at $15 each; up to 4 youth tickets at $10 each via promo code. Promo code redeemable online, by phone, or at MFA ticket desk. Museum closed New Year's, Patriots' Day, 4th of July, Thanksgiving, Christmas.",
-  "raw": "617-267-9300 Each pass is good for up to two adult tickets ($15 each) and four youth tickets ($10 each). After making your reservation you will receive a confirmation email containing a Promo Code which is redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Year's Day, Patriots' Day, Fourth of July, Thanksgiving, and Christmas. Annual Double Pass cost of $800.00 is provided by the Friends of Thayer Public Library. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "617-267-9300 Each pass is good for up to two adult tickets ($15 each) and four youth tickets ($10 each). After making your reservation you will receive a confirmation email containing a Promo Code which is redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Year’s Day, Patriots’ Day, Fourth of July, Thanksgiving, and Christmas. Annual Double Pass cost of $800.00 is provided by the Friends of Thayer Public Library. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {}
 }

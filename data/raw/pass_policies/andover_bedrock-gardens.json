@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Print from home pass. Pass is for free admission for a family to Bedrock Gardens (not special events). -Valid on date of admission only. -To be turned in on admission. -More information can be found at www.bedrockgardens.org."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Pass provides free admission; source: \"free admission for a family to Bedrock Gardens (not special events)\".",
+  "raw": "Print from home pass. Pass is for free admission for a family to Bedrock Gardens (not special events). -Valid on date of admission only. -To be turned in on admission. -More information can be found at www.bedrockgardens.org.",
+  "source_phrases": {
+    "family": "free admission for a family"
+  }
 }

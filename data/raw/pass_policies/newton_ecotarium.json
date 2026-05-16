@@ -2,12 +2,25 @@
   "library_id": "newton",
   "attraction_slug": "ecotarium",
   "status": "ok",
-  "max_people": null,
+  "max_people": 4,
   "max_adults": 2,
   "max_children": 2,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits up to 2 adults and 2 children in one vehicle at a 50% discount for general admission. Not valid for tickets to the Alden Digital Planetarium, the Explorer Express Train, or special ticketed events."
+  "raw": "Admits up to 2 adults and 2 children in one vehicle at a 50% discount for general admission. Not valid for tickets to the Alden Digital Planetarium, the Explorer Express Train, or special ticketed events.",
+  "source_phrases": {
+    "max_adults": "2 adults and 2 children",
+    "max_children": "2 adults and 2 children",
+    "max_people": "2 adults and 2 children",
+    "discount_percent": "50% discount",
+    "eligibility_tags": "vehicle"
+  }
 }

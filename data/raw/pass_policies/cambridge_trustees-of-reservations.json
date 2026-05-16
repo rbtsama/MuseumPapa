@@ -3,11 +3,20 @@
   "attraction_slug": "trustees-of-reservations",
   "status": "ok",
   "max_people": null,
-  "max_adults": 2,
+  "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": 18,
+  "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "SEASONAL. 2 adults + children under 18 at Family Level admission rate. Valid once until expiration date; not date specific. Valid at 100+ Trustees properties. Some properties require pre-registration.",
-  "raw": "978-921-1944 SEASONAL PASS - Each pass admits 2 adults & children under 18 at the Family Level admission rate. Passes are not date specific and can be used once until the expiration date printed on the pass. Valid at more than 100 Trustees properties that collect an admission fee (including Fruitlands, deCordova and The Old Manse). Please note that some properties require pre-registration. Information about properties and advance registration available here: https://thetrustees.org/content/passes/ Physical passes must be picked up from one of the library locations listed in the dropdown menu below. Select your location preference and then pick the dates from the availability calendar."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "978-921-1944 SEASONAL PASS - Each pass admits 2 adults & children under 18 at the Family Level admission rate. Passes are not date specific and can be used once until the expiration date printed on the pass. Valid at more than 100 Trustees properties that collect an admission fee (including Fruitlands, deCordova and The Old Manse). Please note that some properties require pre-registration. Information about properties and advance registration available here: https://thetrustees.org/content/passes/ Physical passes must be picked up from one of the library locations listed in the dropdown menu below. Select your location preference and then pick the dates from the availability calendar.",
+  "source_phrases": {
+    "eligibility_tags_family": "Family"
+  }
 }

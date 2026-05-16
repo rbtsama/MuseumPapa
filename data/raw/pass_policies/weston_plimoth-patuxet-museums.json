@@ -5,9 +5,18 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "A pass admits up to 6 individuals at the reduced rate of $18 per adult and $12 per child ages 5 - 17. One pass available per day."
+  "raw": "A pass admits up to 6 individuals at the reduced rate of $18 per adult and $12 per child ages 5 - 17. One pass available per day.",
+  "source_phrases": {
+    "max_people": "up to 6 individuals"
+  }
 }

@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "pass must be returned to library",
-  "raw": "This pass admits up to 4 people at half off the regular admission price to the Museum’s Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. You do not need to call ahead to reserve a timed ticket. If you have questions or prefer to reserve in advance, you can call 617-723-2500 (9:00 a.m. – 5:00 p.m. daily). This pass is an e-voucher that does not need to be picked up at the library or returned . This pass is only valid for the date printed on the pass . Bring your library pass confirmation email to the museum and present it at the Box Office . If you cannot show your library pass confirmation on a device , please request a paper copy of your confirmation at the library before you visit the museum . This pass is funded by the Friends of the Stoneham Library."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "This pass admits up to 4 people at half off the regular admission price to the Museum’s Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. You do not need to call ahead to reserve a timed ticket. If you have questions or prefer to reserve in advance, you can call 617-723-2500 (9:00 a.m. – 5:00 p.m. daily). This pass is an e-voucher that does not need to be picked up at the library or returned . This pass is only valid for the date printed on the pass . Bring your library pass confirmation email to the museum and present it at the Box Office . If you cannot show your library pass confirmation on a device , please request a paper copy of your confirmation at the library before you visit the museum . This pass is funded by the Friends of the Stoneham Library.",
+  "source_phrases": {
+    "max_people": "admits up to 4 people",
+    "discount_percent": "half off"
+  }
 }

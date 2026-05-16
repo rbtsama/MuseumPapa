@@ -5,9 +5,19 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% off per person",
-  "raw": "Please purchase your ticket online. Use the Library Museum Pass pricing level to receive 50% off admission discount for a family of up to 5 adults/children. For hours and questions, call the NSCM at 978-538-5765 or visit www.nschildrensmuseum.org. This is an electronic pass that will be sent to your email."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Please purchase your ticket online. Use the Library Museum Pass pricing level to receive 50% off admission discount for a family of up to 5 adults/children. For hours and questions, call the NSCM at 978-538-5765 or visit www.nschildrensmuseum.org. This is an electronic pass that will be sent to your email.",
+  "source_phrases": {
+    "discount_percent": "50% off",
+    "eligibility_tags": "family"
+  }
 }

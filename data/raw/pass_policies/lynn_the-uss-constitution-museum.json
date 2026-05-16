@@ -5,9 +5,18 @@
   "max_people": 9,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Discount : Free admission for up to 9 people. Visit the main desk at the library to pick up your discount coupon. Discount coupons can be picked up from the library up to 1 week in advance. To use: Admission to the museum is first come, first serve basis. Be sure to bring the discount coupon with you to the museum the day of your visit. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out your discount pass, you must contact the library in advance. If booking a pass with an e-card , patrons must also provide proof of address when they arrive at the library to pick-up their pass and will be switched over to a physical library card. Unwanted passes MUST BE CANCELLED. Failure to cancel an unwanted pass will result in a 30 day ban on reserving discount passes."
+  "raw": "Discount : Free admission for up to 9 people. Visit the main desk at the library to pick up your discount coupon. Discount coupons can be picked up from the library up to 1 week in advance. To use: Admission to the museum is first come, first serve basis. Be sure to bring the discount coupon with you to the museum the day of your visit. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out your discount pass, you must contact the library in advance. If booking a pass with an e-card , patrons must also provide proof of address when they arrive at the library to pick-up their pass and will be switched over to a physical library card. Unwanted passes MUST BE CANCELLED. Failure to cancel an unwanted pass will result in a 30 day ban on reserving discount passes.",
+  "source_phrases": {
+    "max_people": "up to 9 people"
+  }
 }

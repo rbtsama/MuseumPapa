@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
-  "free_under_age": null,
+  "free_under_age": 18,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are not included in the admission count and are always admitted free. Passes are valid only for general admission. The Isabella Stewart Gardner Museum offers a promo code that may be used online to purchase tickets at a discounted price."
+  "raw": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are not included in the admission count and are always admitted free. Passes are valid only for general admission. The Isabella Stewart Gardner Museum offers a promo code that may be used online to purchase tickets at a discounted price.",
+  "source_phrases": {
+    "max_people": "up to four (4) people",
+    "free_under_age": "Children under the age of 18 are not included in the admission count and are alw..."
+  }
 }

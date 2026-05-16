@@ -2,12 +2,21 @@
   "library_id": "wayland",
   "attraction_slug": "john-f-kennedy-library-and-museum",
   "status": "ok",
-  "max_people": 1,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "single_ticket",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
   "notes": null,
-  "raw": "No pass needed, just your library card! Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on one admission ticket. This offer is valid for visitors aged 13 and over and EACH VISITOR must present a Massachusetts library card to receive the discount. You must have your physical or digital library card in hand at the museum; the museum cannot access the library system to look up your account. A digital version of your library card can be accessed on your mobile device via the Minuteman Library Network app. You will need to know your account username or library card number, and your library account password or PIN. Your password can be reset at https://wayland.minlib.net/MyAccount/Home . Visitors aged 12 and under always receive free admission, with or without a library card. Please reach out to the JFK Library Visitor Services Department with questions at kennedy.groupvisits@nara.gov or 617-514-1600. For the most up-to-date information on museum programs and hours, please visit their website, jfklibrary.org ."
+  "raw": "No pass needed, just your library card! Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on one admission ticket. This offer is valid for visitors aged 13 and over and EACH VISITOR must present a Massachusetts library card to receive the discount. You must have your physical or digital library card in hand at the museum; the museum cannot access the library system to look up your account. A digital version of your library card can be accessed on your mobile device via the Minuteman Library Network app. You will need to know your account username or library card number, and your library account password or PIN. Your password can be reset at https://wayland.minlib.net/MyAccount/Home . Visitors aged 12 and under always receive free admission, with or without a library card. Please reach out to the JFK Library Visitor Services Department with questions at kennedy.groupvisits@nara.gov or 617-514-1600. For the most up-to-date information on museum programs and hours, please visit their website, jfklibrary.org .",
+  "source_phrases": {
+    "discount_percent": "50% discount"
+  }
 }

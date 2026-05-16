@@ -5,9 +5,21 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": 6,
-  "savings_per_person_usd": null,
+  "savings_per_person_usd": 5.0,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "residents_only"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "(RETURNABLE) Each pass admits 4 people at $5.00 off regular admission. Children under 6 are always free. FOR NEEDHAM RESIDENTS ONLY."
+  "raw": "(RETURNABLE) Each pass admits 4 people at $5.00 off regular admission. Children under 6 are always free. FOR NEEDHAM RESIDENTS ONLY.",
+  "source_phrases": {
+    "max_people": "admits 4 people",
+    "free_under_age": "Children under 6 are always free",
+    "eligibility_tags": "RESIDENTS ONLY",
+    "savings_per_person_usd": "$5.00 off regular admission"
+  }
 }

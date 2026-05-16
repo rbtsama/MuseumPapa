@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 2,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits up to four (4) people at $2 per person (children under 2 are free) to any Mass Audubon wildlife sanctuary. Hours of operation vary by sanctuary. Please check https://www.massaudubon.org/places-to-explore/trails before planning a visit."
+  "raw": "Pass admits up to four (4) people at $2 per person (children under 2 are free) to any Mass Audubon wildlife sanctuary. Hours of operation vary by sanctuary. Please check https://www.massaudubon.org/places-to-explore/trails before planning a visit.",
+  "source_phrases": {
+    "max_people": "up to four (4) people",
+    "free_under_age": "children under 2 are free"
+  }
 }

@@ -4,10 +4,18 @@
   "status": "ok",
   "max_people": 6,
   "max_adults": null,
-  "max_children": null,
-  "eligibility": null,
+  "max_children": 95,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Advance reservations for daytime admission is not required. Bring the pass to the admissions gate to purchase your discounted tickets. This pass admits 6 people at $9 per adult and $6 per child. This is a coupon pass and doesn't need to be returned to the Library. You may pick up this pass from the Library up to 1 week in advance. You save by using this pass! Admission without this pass is: Franklin Park Zoo: Adults: $22.95 Senior (62+): $20.95 Child (ages 2-12): $15.95 Children under 2: Free Stone Zoo: Adults: $20.95 Senior Admission (62+): $18.95 Child Admission (ages 2-12): $13.95 Children under 2: Free Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners."
+  "raw": "Advance reservations for daytime admission is not required. Bring the pass to the admissions gate to purchase your discounted tickets. This pass admits 6 people at $9 per adult and $6 per child. This is a coupon pass and doesn't need to be returned to the Library. You may pick up this pass from the Library up to 1 week in advance. You save by using this pass! Admission without this pass is: Franklin Park Zoo: Adults: $22.95 Senior (62+): $20.95 Child (ages 2-12): $15.95 Children under 2: Free Stone Zoo: Adults: $20.95 Senior Admission (62+): $18.95 Child Admission (ages 2-12): $13.95 Children under 2: Free Purchased by the TPL using funding from the State Aid to Public Library program administered by the MA Board of Library Commissioners.",
+  "source_phrases": {
+    "max_people": "admits 6 people",
+    "max_children": "95 Children"
+  }
 }

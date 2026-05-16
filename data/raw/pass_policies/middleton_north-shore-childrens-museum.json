@@ -5,9 +5,18 @@
   "max_people": 5,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Library passes for North Shore Children's Museum admit up to 5 people (adults and children over 12 months) at 50% admission price. As of January 1, 2024, this is an ePass that can either be presented on a mobile device or as a print-out to receive the discounted admission rate in-person. Advanced ticket purchase is strongly recommended but not required. The discounted admission rate can be accessed on our website by selecting Library Museum Pass on the ticketing page . Your library pass will only be honored on the date you reserve. If the museum reaches capacity, visitors will be let in on a one in, one out basis. If you have any questions or issues when reserving tickets, reach out to us at nscminfo@peabody-ma.gov or 978-538-5765. Hours of operation: Wednesday, 1:00 pm – 4:00 pm Thursday, 9:00 am – 12:00 pm, 1:00 pm – 4:00 pm Friday, 9:00 am – 12:00 pm, 1:00 pm – 5:00 pm Saturday, 9:00 am – 12:00 pm, 12:00 pm – 2:00 pm Sunday, 12:00 pm – 4:00 pm Visit museum website for more information."
+  "raw": "Library passes for North Shore Children's Museum admit up to 5 people (adults and children over 12 months) at 50% admission price. As of January 1, 2024, this is an ePass that can either be presented on a mobile device or as a print-out to receive the discounted admission rate in-person. Advanced ticket purchase is strongly recommended but not required. The discounted admission rate can be accessed on our website by selecting Library Museum Pass on the ticketing page . Your library pass will only be honored on the date you reserve. If the museum reaches capacity, visitors will be let in on a one in, one out basis. If you have any questions or issues when reserving tickets, reach out to us at nscminfo@peabody-ma.gov or 978-538-5765. Hours of operation: Wednesday, 1:00 pm – 4:00 pm Thursday, 9:00 am – 12:00 pm, 1:00 pm – 4:00 pm Friday, 9:00 am – 12:00 pm, 1:00 pm – 5:00 pm Saturday, 9:00 am – 12:00 pm, 12:00 pm – 2:00 pm Sunday, 12:00 pm – 4:00 pm Visit museum website for more information.",
+  "source_phrases": {
+    "max_people": "up to 5 people"
+  }
 }

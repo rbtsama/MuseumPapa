@@ -3,11 +3,20 @@
   "attraction_slug": "mfa",
   "status": "ok",
   "max_people": null,
-  "max_adults": 2,
-  "max_children": 4,
-  "eligibility": "all",
-  "free_under_age": 7,
+  "max_adults": null,
+  "max_children": null,
+  "free_under_age": 6,
   "savings_per_person_usd": null,
-  "notes": "2 adults at $15/person (general admission + special exhibition); up to 4 youth ages 7-17 at $15 each (special exhibition only, no general admission discount for this age group). Children 6 and under free.",
-  "raw": "Each library pass admits 2 adults at $15 per person (general admission and special exhibition) and up to 4 youth (ages 7-17) at $15 each for special exhibition only; there is no discount for youth 7-17 for general admission. Children 6 and under are admitted free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": "Pass provides free admission",
+  "raw": "Each library pass admits 2 adults at $15 per person (general admission and special exhibition) and up to 4 youth (ages 7-17) at $15 each for special exhibition only; there is no discount for youth 7-17 for general admission. Children 6 and under are admitted free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "free_under_age": "Children 6 and under are admitted free"
+  }
 }

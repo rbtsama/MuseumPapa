@@ -5,9 +5,19 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "blackout_dates",
   "free_under_age": 2,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits up to 6 persons, $9 per adult and $6 per child. Under age 2 is free. *For daytime general admission to Franklin Park Zoo or Stone Zoo only. Not valid for Boston Lights or ZooLights"
+  "raw": "Pass admits up to 6 persons, $9 per adult and $6 per child. Under age 2 is free. *For daytime general admission to Franklin Park Zoo or Stone Zoo only. Not valid for Boston Lights or ZooLights",
+  "source_phrases": {
+    "max_people": "up to 6 persons",
+    "free_under_age": "Under age 2 is free"
+  }
 }

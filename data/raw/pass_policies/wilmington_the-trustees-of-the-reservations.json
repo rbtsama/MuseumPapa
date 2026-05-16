@@ -2,12 +2,17 @@
   "library_id": "wilmington",
   "attraction_slug": "the-trustees-of-the-reservations",
   "status": "ok",
-  "max_people": 2,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": 1,
+  "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits up to 2 adults and children under 18 (some sites are free, some are discounted). Hours of operation vary by place. Check on your choice before reserving this pass. There are over 100 special places including Crane's Beach, Lyman Reserve, Naumkeag, and Halibut Point. Ask for the guide book at the information desk (in house only) or visit the Trustees of the Reservation website for more information. Please note the following: Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits of passes. To use the pass at Fruitlands, deCordova, or Castle Hill, please enter the promo code GOPASS when securing a timed ticket. Passes are available at https://thetrustees.org/places/ ."
+  "raw": "Pass admits up to 2 adults and children under 18 (some sites are free, some are discounted). Hours of operation vary by place. Check on your choice before reserving this pass. There are over 100 special places including Crane's Beach, Lyman Reserve, Naumkeag, and Halibut Point. Ask for the guide book at the information desk (in house only) or visit the Trustees of the Reservation website for more information. Please note the following: Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits of passes. To use the pass at Fruitlands, deCordova, or Castle Hill, please enter the promo code GOPASS when securing a timed ticket. Passes are available at https://thetrustees.org/places/ .",
+  "source_phrases": {}
 }

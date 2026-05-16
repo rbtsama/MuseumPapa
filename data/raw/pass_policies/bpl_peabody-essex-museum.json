@@ -2,12 +2,19 @@
   "library_id": "bpl",
   "attraction_slug": "peabody-essex-museum",
   "status": "ok",
-  "max_people": 2,
-  "max_adults": 2,
+  "max_people": null,
+  "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Up to 2 adults general admission at reduced rate of $12 per person.",
-  "raw": "Each pass entitles up to two adults general admission at a reduced of $12 per person. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Each pass entitles up to two adults general admission at a reduced of $12 per person. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {}
 }

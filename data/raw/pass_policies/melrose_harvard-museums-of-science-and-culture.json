@@ -5,9 +5,23 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "The library’s pass admits up to 4 people with a 50% discount off regular admission rates to all four HMSC museums. Full admission prices and hours vary by museum - please go to https://hmsc.harvard.edu/ for more information before your visit. The library pass does not guarantee admission on a chosen date. Alternative discounts are available for active military, SNAP, EIB, MA teachers, and MA residents with IDs."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "snap_free"
+  ],
+  "notes": "Alternative discounts for active military, SNAP, EBT, MA teachers, and MA residents with IDs.",
+  "raw": "The library’s pass admits up to 4 people with a 50% discount off regular admission rates to all four HMSC museums. Full admission prices and hours vary by museum - please go to https://hmsc.harvard.edu/ for more information before your visit. The library pass does not guarantee admission on a chosen date. Alternative discounts are available for active military, SNAP, EIB, MA teachers, and MA residents with IDs.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "50% discount",
+    "boosts": "SNAP",
+    "notes": "Alternative discounts are available for active military, SNAP, EIB, MA teachers"
+  }
 }

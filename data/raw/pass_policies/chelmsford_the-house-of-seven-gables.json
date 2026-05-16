@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Patrons receive 50% off admission for up to four people (either the Guided Tour Package or Grounds Pass.)"
+  "raw": "Patrons receive 50% off admission for up to four people (either the Guided Tour Package or Grounds Pass.)",
+  "source_phrases": {
+    "max_people": "up to four people",
+    "discount_percent": "50% off"
+  }
 }

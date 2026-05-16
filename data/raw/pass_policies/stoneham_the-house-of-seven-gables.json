@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass admits up to 4 people at half the regular admission price. This is a physical pass that must be picked up at the library but can be discarded after use . You must make an online reservation before visiting the Museum. Use the code on the pass to make your reservation. You must bring the library pass with you to the House. Masks are currently required inside the House, regardless of vaccination status ."
+  "raw": "This pass admits up to 4 people at half the regular admission price. This is a physical pass that must be picked up at the library but can be discarded after use . You must make an online reservation before visiting the Museum. Use the code on the pass to make your reservation. You must bring the library pass with you to the House. Masks are currently required inside the House, regardless of vaccination status .",
+  "source_phrases": {
+    "max_people": "admits up to 4 people",
+    "discount_percent": "half the regular"
+  }
 }

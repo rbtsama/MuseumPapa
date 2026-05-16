@@ -5,9 +5,22 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "blackout_dates",
   "free_under_age": null,
-  "savings_per_person_usd": null,
-  "notes": "Not valid in October",
-  "raw": "The pass admits up to 6 people for $4 off per ticket. Tickets must be purchased the day of your visit. Full prices are: Adult $19, Senior (62+) $17.50, Child (3-14) $16 Open daily from 10 am to 5 pm (July & August from 10 am to 7 pm) Pass not valid in October Reserve the pass here, then purchase tickets on the day of your reservation by doing the following. 1.) Pickup the pass at the library 2.) Go to https://tickets.salemwitchmuseum.com/ 3.) Agree to terms and click Submit 4.) Choose a time 5,) Chose up to 6 tickets 6.) Click Add selected to cart 7.) Type the code on the pass you picked up in the Enter Coupon Code here 8.) Click Apply Pass 9.) Click Proceed to Checkout 10.) Type you r billing details and credit card number 11.) Click Place order"
+  "savings_per_person_usd": 4.0,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [
+    "blackout_dates"
+  ],
+  "boosts": [],
+  "notes": null,
+  "raw": "The pass admits up to 6 people for $4 off per ticket. Tickets must be purchased the day of your visit. Full prices are: Adult $19, Senior (62+) $17.50, Child (3-14) $16 Open daily from 10 am to 5 pm (July & August from 10 am to 7 pm) Pass not valid in October Reserve the pass here, then purchase tickets on the day of your reservation by doing the following. 1.) Pickup the pass at the library 2.) Go to https://tickets.salemwitchmuseum.com/ 3.) Agree to terms and click Submit 4.) Choose a time 5,) Chose up to 6 tickets 6.) Click Add selected to cart 7.) Type the code on the pass you picked up in the Enter Coupon Code here 8.) Click Apply Pass 9.) Click Proceed to Checkout 10.) Type you r billing details and credit card number 11.) Click Place order",
+  "source_phrases": {
+    "max_people": "up to 6 people",
+    "savings_per_person_usd": "$4 off per ticket",
+    "exclusions_blackout": "not valid in October"
+  }
 }

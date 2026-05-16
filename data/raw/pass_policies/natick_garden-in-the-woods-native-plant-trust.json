@@ -2,12 +2,24 @@
   "library_id": "natick",
   "attraction_slug": "garden-in-the-woods-native-plant-trust",
   "status": "ok",
-  "max_people": null,
-  "max_adults": null,
+  "max_people": 2,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": 5,
   "savings_per_person_usd": null,
-  "notes": "pass must be returned to library; overdue fine $3/day; 50% off per person",
-  "raw": "Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Reduced admission for up to 2 adults at 50% off per person, plus $1 each per child ages 6-17 (children under 5 always free). Additional instructions: -Special events, tours, and classes are not eligible for this discount. -Present pass upon arrival to receive discount. THIS PASS MUST BE RETURNED TO THE MORSE INSTITUTE LIBRARY BY 9:30AM THE DAY AFTER YOUR RESERVATION. OVERDUE FINES ARE $3/DAY. Passes can be returned at the circulation desk or the outside book drops."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Reduced admission for up to 2 adults at 50% off per person, plus $1 each per child ages 6-17 (children under 5 always free). Additional instructions: -Special events, tours, and classes are not eligible for this discount. -Present pass upon arrival to receive discount. THIS PASS MUST BE RETURNED TO THE MORSE INSTITUTE LIBRARY BY 9:30AM THE DAY AFTER YOUR RESERVATION. OVERDUE FINES ARE $3/DAY. Passes can be returned at the circulation desk or the outside book drops.",
+  "source_phrases": {
+    "max_adults": "up to 2 adults at ",
+    "free_under_age": "children under 5 always free",
+    "discount_percent": "50% off",
+    "max_people": "up to 2 adults at 50% off per person"
+  }
 }

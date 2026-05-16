@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% off per person",
-  "raw": "E-coupon Pass admits up to five at 50% off Printed or digital pass MUST be presented at the museum to receive the discount, even if purchased online."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "E-coupon Pass admits up to five at 50% off Printed or digital pass MUST be presented at the museum to receive the discount, even if purchased online.",
+  "source_phrases": {
+    "discount_percent": "50% off"
+  }
 }

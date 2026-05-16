@@ -2,12 +2,22 @@
   "library_id": "quincy",
   "attraction_slug": "heritage-museums-and-gardens",
   "status": "ok",
-  "max_people": null,
+  "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Half-price admission for up to 6 individuals. Cannot be combined with a group tour plan. Not valid for special events. This is a coupon code that will be emailed to you to use ordering tickets online. Follow the instructions in the email to recieve your discount."
+  "raw": "Half-price admission for up to 6 individuals. Cannot be combined with a group tour plan. Not valid for special events. This is a coupon code that will be emailed to you to use ordering tickets online. Follow the instructions in the email to recieve your discount.",
+  "source_phrases": {
+    "max_people": "up to 6 individuals",
+    "discount_percent": "Half-price"
+  }
 }

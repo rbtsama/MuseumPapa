@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": 17,
+  "free_under_age": 18,
   "savings_per_person_usd": null,
-  "notes": "$5.00 per person admission",
-  "raw": "Please check Isabella Stewart Gardner Museum website at gardnermuseum.org/visit/know-before-you-go for updates before visiting. Library passes must be redeemed online ( https://www.gardnermuseum.org/visit ) to reserve a timed ticket. Advance tickets for timed entry are required . Pass admits up to 4 people at $5.00 per person. Children 17 and under admitted free. Museum is closed on Tuesdays. Holiday closings: New Year's Day, Patriot's Day (April), Independence Day, Thanksgiving, and Christmas. Passes are valid only for general admission and do not entitle participants to Gardner museum member benefits. They are not applicable toward discounts on special events, shopping, dining, concerts, lectures, or any other public and member programs. This is an electronic pass that will be sent to your email."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Please check Isabella Stewart Gardner Museum website at gardnermuseum.org/visit/know-before-you-go for updates before visiting. Library passes must be redeemed online ( https://www.gardnermuseum.org/visit ) to reserve a timed ticket. Advance tickets for timed entry are required . Pass admits up to 4 people at $5.00 per person. Children 17 and under admitted free. Museum is closed on Tuesdays. Holiday closings: New Year's Day, Patriot's Day (April), Independence Day, Thanksgiving, and Christmas. Passes are valid only for general admission and do not entitle participants to Gardner museum member benefits. They are not applicable toward discounts on special events, shopping, dining, concerts, lectures, or any other public and member programs. This is an electronic pass that will be sent to your email.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "free_under_age": "Children 17 and under"
+  }
 }

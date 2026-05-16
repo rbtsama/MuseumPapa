@@ -2,12 +2,22 @@
   "library_id": "needham",
   "attraction_slug": "new-england-quilt-museum",
   "status": "ok",
-  "max_people": null,
+  "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "residents_only"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "(RETURNABLE) Pass admits 2. Tuesday - Saturday, 10:00 - 4:00. Closed Sundays and Mondays. FOR NEEDHAM RESIDENTS ONLY"
+  "raw": "(RETURNABLE) Pass admits 2. Tuesday - Saturday, 10:00 - 4:00. Closed Sundays and Mondays. FOR NEEDHAM RESIDENTS ONLY",
+  "source_phrases": {
+    "eligibility_tags": "RESIDENTS ONLY",
+    "max_people": "Pass admits 2"
+  }
 }

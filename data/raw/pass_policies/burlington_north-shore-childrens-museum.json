@@ -5,9 +5,17 @@
   "max_people": 5,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "The pass allows admission for up to five (5) people at 50% off."
+  "raw": "The pass allows admission for up to five (5) people at 50% off.",
+  "source_phrases": {
+    "max_people": "up to five (5) people",
+    "discount_percent": "50% off"
+  }
 }

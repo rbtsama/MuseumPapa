@@ -5,9 +5,16 @@
   "max_people": 1,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "single_ticket",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "SEASONAL. 1 person free. Must pick up pass at Main Library. Architecture Tour upgrade +$15 per ticket. 2026 season runs May 22–September 27.",
-  "raw": "617-621-3001 SEASONAL PASS - Each pass admits 1 person for free. You must pick up your pass at the Main Library. 2026 Season Cruises daily May 22-September 7 Mon-Thurs at 12pm, 1:30pm and 3pm Fri-Sun at 12pm, 1:30pm, 3pm, and 4:30pm Cruises September 9-27 Wed-Thurs at 12pm, 1:30pm, and 3pm Fri-Sun at 12pm, 1:30pm, 3pm, and 4:30pm https://charlesriverboat.com/tours/charles-river-tours/ Upgrade to an Architecture Tour for an additional $15 per ticket. Payment will be collected at time of reservation by phone or in person. Cruises Friday, Saturday, Sunday only, May 22-September 6 at 9:30am Cruises Saturday and Sunday only, September 12-October 18 at 9:30am https://charlesriverboat.com/tours/architecture-cruises/ Physical passes must be picked up from one of the library locations listed in the dropdown menu below. Select your location preference and then pick the dates from the availability calendar."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "617-621-3001 SEASONAL PASS - Each pass admits 1 person for free. You must pick up your pass at the Main Library. 2026 Season Cruises daily May 22-September 7 Mon-Thurs at 12pm, 1:30pm and 3pm Fri-Sun at 12pm, 1:30pm, 3pm, and 4:30pm Cruises September 9-27 Wed-Thurs at 12pm, 1:30pm, and 3pm Fri-Sun at 12pm, 1:30pm, 3pm, and 4:30pm https://charlesriverboat.com/tours/charles-river-tours/ Upgrade to an Architecture Tour for an additional $15 per ticket. Payment will be collected at time of reservation by phone or in person. Cruises Friday, Saturday, Sunday only, May 22-September 6 at 9:30am Cruises Saturday and Sunday only, September 12-October 18 at 9:30am https://charlesriverboat.com/tours/architecture-cruises/ Physical passes must be picked up from one of the library locations listed in the dropdown menu below. Select your location preference and then pick the dates from the availability calendar.",
+  "source_phrases": {
+    "max_people": "admits 1 person"
+  }
 }

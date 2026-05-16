@@ -2,12 +2,22 @@
   "library_id": "middleton",
   "attraction_slug": "harvard-museums-of-science-and-culture",
   "status": "ok",
-  "max_people": 4,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Please pick up a printed coupon at the library. Pass allows 4 visitors at 50% off regular admission at all museums which include: Harvard Museum of Natural History (26 Oxford Street, Cambridge, MA 02138) Peabody Museum of Archaeology & Ethnology (11 Divinity Avenue, Cambridge, MA 02138) Harvard Museum of the Ancient Near East (6 Divinity Avenue, Cambridge, MA 02138) Collection of Historical Scientific Instruments (1 Oxford Street, Cambridge, MA 02138) One member of party must be a MA resident. The coupon cannot be used for group, institutional, or corporate visits and cannot be combined with other offers. The Harvard Museum of the Ancient Near East and the Collection of Historical Scientific Instruments are closed on Saturdays and open Sunday-Friday 11AM-4PM. The Harvard Museum of Natural History and the Peabody Museum of Archaeology & Ethnology are open daily 9AM-5PM."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "One member of party must be a MA resident.",
+  "raw": "Please pick up a printed coupon at the library. Pass allows 4 visitors at 50% off regular admission at all museums which include: Harvard Museum of Natural History (26 Oxford Street, Cambridge, MA 02138) Peabody Museum of Archaeology & Ethnology (11 Divinity Avenue, Cambridge, MA 02138) Harvard Museum of the Ancient Near East (6 Divinity Avenue, Cambridge, MA 02138) Collection of Historical Scientific Instruments (1 Oxford Street, Cambridge, MA 02138) One member of party must be a MA resident. The coupon cannot be used for group, institutional, or corporate visits and cannot be combined with other offers. The Harvard Museum of the Ancient Near East and the Collection of Historical Scientific Instruments are closed on Saturdays and open Sunday-Friday 11AM-4PM. The Harvard Museum of Natural History and the Peabody Museum of Archaeology & Ethnology are open daily 9AM-5PM.",
+  "source_phrases": {
+    "discount_percent": "50% off",
+    "notes": "One member of party must be a MA resident"
+  }
 }

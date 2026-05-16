@@ -5,9 +5,21 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 18,
   "savings_per_person_usd": null,
-  "notes": "Half-price General Admission for up to 4. Extra tickets at normal price. Children under 18 always free (book as child tickets). Must present both library pass and timed museum tickets for entry. Museum closed Tuesdays.",
-  "raw": "617-566-1401 The discount offers half-price off General Admission for up to 4 visitors. Any additional tickets will be normally priced (Children under 18 are always free and should be reserved as child tickets) This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617 278 5156. PATRONS MUST PRESENT BOTH THIS LIBRARY PASS AND THEIR RESERVED TIMED MUSEUM ADMISSION TICKETS FOR ENTRY INTO THE MUSEUM. For more information, including health and safety requirements, please visit isgm.org/welcome MUSEUM HOURS: WEEKDAYS 11 AM – 5 PM | WEEKENDS 10 AM – 5 PM | THURSDAYS 11 AM – 9 PM | CLOSED TUESDAYS Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": null,
+  "raw": "617-566-1401 The discount offers half-price off General Admission for up to 4 visitors. Any additional tickets will be normally priced (Children under 18 are always free and should be reserved as child tickets) This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617 278 5156. PATRONS MUST PRESENT BOTH THIS LIBRARY PASS AND THEIR RESERVED TIMED MUSEUM ADMISSION TICKETS FOR ENTRY INTO THE MUSEUM. For more information, including health and safety requirements, please visit isgm.org/welcome MUSEUM HOURS: WEEKDAYS 11 AM – 5 PM | WEEKENDS 10 AM – 5 PM | THURSDAYS 11 AM – 9 PM | CLOSED TUESDAYS Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "max_people": "up to 4 visitors",
+    "free_under_age": "Children under 18 are always free"
+  }
 }

@@ -5,9 +5,16 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass allows half-price admission for up to 4 people . The email confirmation sent to you serves as your discount pass. Please present this pass (either printed or on your mobile device) upon entry to the museum. Please note that advanced reservations are not required, but still available if interested by visiting the Wenham Museum website ."
+  "raw": "This pass allows half-price admission for up to 4 people . The email confirmation sent to you serves as your discount pass. Please present this pass (either printed or on your mobile device) upon entry to the museum. Please note that advanced reservations are not required, but still available if interested by visiting the Wenham Museum website .",
+  "source_phrases": {
+    "max_people": "for up to 4 people"
+  }
 }

@@ -5,9 +5,19 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
   "free_under_age": 15,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Discount : $12 admission for up to 2 people (separate fee for some areas of the museum may be required). Children under the age of 15 are always free at this museum. A discount code will be sent to your email. If you do not have an email address, a discount code can be picked up from the library up to 1 week in advance. To use : Timed tickets must be purchased in advance through the museum's website, using the discount code provided. Have your ticket confirmation with you at the museum the day of your visit. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out your discount pass, you must contact the library in advance. Please wait until you are ready to book your tickets before selecting the \"Access Pass\" icon in your confirmation email. Discount pass reservations cannot be cancelled once the \"Access Pass\" icon is selected. Unwanted passes MUST BE CANCELLED. Failure to cancel an unwanted pass will result in a 30 day ban on reserving discount passes."
+  "raw": "Discount : $12 admission for up to 2 people (separate fee for some areas of the museum may be required). Children under the age of 15 are always free at this museum. A discount code will be sent to your email. If you do not have an email address, a discount code can be picked up from the library up to 1 week in advance. To use : Timed tickets must be purchased in advance through the museum's website, using the discount code provided. Have your ticket confirmation with you at the museum the day of your visit. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out your discount pass, you must contact the library in advance. Please wait until you are ready to book your tickets before selecting the \"Access Pass\" icon in your confirmation email. Discount pass reservations cannot be cancelled once the \"Access Pass\" icon is selected. Unwanted passes MUST BE CANCELLED. Failure to cancel an unwanted pass will result in a 30 day ban on reserving discount passes.",
+  "source_phrases": {
+    "max_people": "up to 2 people",
+    "free_under_age": "Children under the age of 15 are always free"
+  }
 }

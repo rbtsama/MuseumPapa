@@ -5,9 +5,19 @@
   "max_people": null,
   "max_adults": 2,
   "max_children": 2,
-  "eligibility": null,
   "free_under_age": 2,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass provides a 50% discount for up to 2 adults and 2 children. Children under 2 free. It is not to be combined with other offers, group rates or special event prices. Please fill out the reverse side of the coupon pass prior to using. *This is a coupon pass that must be picked up at the library"
+  "raw": "This pass provides a 50% discount for up to 2 adults and 2 children. Children under 2 free. It is not to be combined with other offers, group rates or special event prices. Please fill out the reverse side of the coupon pass prior to using. *This is a coupon pass that must be picked up at the library",
+  "source_phrases": {
+    "max_adults": "up to 2 adults",
+    "max_children": "2 children",
+    "free_under_age": "Children under 2 free",
+    "discount_percent": "50% discount"
+  }
 }

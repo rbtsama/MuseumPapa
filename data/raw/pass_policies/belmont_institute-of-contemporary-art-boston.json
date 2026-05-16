@@ -5,9 +5,16 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pricing Beginning February 1, 2023, library passes were increased to $10 per admission ticket (discounted from the regular fee of $20 per ticket). As usual, one library pass will be valid for up to two admission tickets at the discounted price. Current pricing and visitor information: https://www.icaboston.org/visit Admission The ICA is no longer requiring timed entry for admission to the museum, however advance reservations are strongly recommended. Please note the following: 1. Patrons must acquire a valid physical pass at their participating library. 2. Advance tickets are recommended and can be arranged online: https://www.icaboston.org/ 3. Click on “Buy Tickets” and select your chosen date for ICA General Museum Admission 4. Click on “Library Pass Coupon” ticket price. Anyone 18 and under receive complimentary admission and should use the ticket price “Youth (0-12)” or “Youth (13-18)” 5. Follow steps to complete order. Your ICA tickets will be emailed to you. 6. When you arrive at the ICA, proceed to the visitor services desk with your tickets and your library pass. The library pass will be collected at this time (if physical) or shown to the staff member at the desk (if digital). If you have questions about the online ordering system, contact visitorservices@icaboston.org. Your ticket is valid for entry any time during the date selected. Please note: last entry to the museum is 20 minutes prior to closing time. Tickets are final sale."
+  "raw": "Pricing Beginning February 1, 2023, library passes were increased to $10 per admission ticket (discounted from the regular fee of $20 per ticket). As usual, one library pass will be valid for up to two admission tickets at the discounted price. Current pricing and visitor information: https://www.icaboston.org/visit Admission The ICA is no longer requiring timed entry for admission to the museum, however advance reservations are strongly recommended. Please note the following: 1. Patrons must acquire a valid physical pass at their participating library. 2. Advance tickets are recommended and can be arranged online: https://www.icaboston.org/ 3. Click on “Buy Tickets” and select your chosen date for ICA General Museum Admission 4. Click on “Library Pass Coupon” ticket price. Anyone 18 and under receive complimentary admission and should use the ticket price “Youth (0-12)” or “Youth (13-18)” 5. Follow steps to complete order. Your ICA tickets will be emailed to you. 6. When you arrive at the ICA, proceed to the visitor services desk with your tickets and your library pass. The library pass will be collected at this time (if physical) or shown to the staff member at the desk (if digital). If you have questions about the online ordering system, contact visitorservices@icaboston.org. Your ticket is valid for entry any time during the date selected. Please note: last entry to the museum is 20 minutes prior to closing time. Tickets are final sale.",
+  "source_phrases": {
+    "max_people": "up to two admission"
+  }
 }

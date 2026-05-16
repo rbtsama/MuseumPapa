@@ -5,9 +5,16 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Print from home pass. Pass admits 2 people for free."
+  "raw": "Print from home pass. Pass admits 2 people for free.",
+  "source_phrases": {
+    "max_people": "admits 2 people"
+  }
 }

@@ -5,9 +5,20 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "id_required",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Winchester residents only",
-  "raw": "Pass gives one car unlimited day-use parking access to state park facilities that charge a parking fee. We encourage you to visit the DCR website before making travel plans to ensure that the location you are interested in is open and you are up-to-date on current health and safety requirements. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [
+    "residents_only"
+  ],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": "Parking pass for DCR/state park facilities",
+  "raw": "Pass gives one car unlimited day-use parking access to state park facilities that charge a parking fee. We encourage you to visit the DCR website before making travel plans to ensure that the location you are interested in is open and you are up-to-date on current health and safety requirements. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance.",
+  "source_phrases": {}
 }

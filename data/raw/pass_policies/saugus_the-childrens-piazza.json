@@ -5,9 +5,20 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% off per person",
-  "raw": "This pass provides 50% off admission for one family (immediate family/household only). Please visit The Children's Piazza website (thechildrenspiazza.com) to make a reservation prior to your visit. Reservations required for entry. Pass only valid on date reserved."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [
+    "reservation_required"
+  ],
+  "boosts": [],
+  "notes": null,
+  "raw": "This pass provides 50% off admission for one family (immediate family/household only). Please visit The Children's Piazza website (thechildrenspiazza.com) to make a reservation prior to your visit. Reservations required for entry. Pass only valid on date reserved.",
+  "source_phrases": {
+    "discount_percent": "50% off"
+  }
 }

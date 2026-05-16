@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "weekday_only",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Allows for 2-for-1 ferry fees on weekdays to either Spectacle or Georges Islands. ALL TICKETS MUST BE PURCHASED ONLINE The code can be used throughout the entire 2026 season, which is listed below: Georges Island • May 15 - June 14: Thursdays through Sundays • June 16 - September 1: every day Spectacle Island • July 15 - September 1: every day • September 4 - 21: Thursdays through Sundays • September 26 - October 13: Fridays through Sundays Peddocks Island from Hingham • June 15 - September 7: every day BUT Tuesdays • September 10 - October 12: Thursdays through Sundays"
+  "raw": "Allows for 2-for-1 ferry fees on weekdays to either Spectacle or Georges Islands. ALL TICKETS MUST BE PURCHASED ONLINE The code can be used throughout the entire 2026 season, which is listed below: Georges Island • May 15 - June 14: Thursdays through Sundays • June 16 - September 1: every day Spectacle Island • July 15 - September 1: every day • September 4 - 21: Thursdays through Sundays • September 26 - October 13: Fridays through Sundays Peddocks Island from Hingham • June 15 - September 7: every day BUT Tuesdays • September 10 - October 12: Thursdays through Sundays",
+  "source_phrases": {
+    "discount_percent": "2-for-1"
+  }
 }

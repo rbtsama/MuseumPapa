@@ -5,9 +5,21 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": 5,
+  "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Each pass admits up to four people for general admission (Adult, Youth 6-17, Students, and Seniors). Admission for children 5 and younger is free. Not valid for special events or for public programming."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [
+    "blackout_dates"
+  ],
+  "boosts": [],
+  "notes": "Not valid for special events or performances",
+  "raw": "Each pass admits up to four people for general admission (Adult, Youth 6-17, Students, and Seniors). Admission for children 5 and younger is free. Not valid for special events or for public programming.",
+  "source_phrases": {
+    "max_people": "up to four people",
+    "exclusions_blackout": "Not valid for special events"
+  }
 }

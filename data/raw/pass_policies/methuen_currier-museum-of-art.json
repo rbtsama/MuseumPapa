@@ -2,12 +2,27 @@
   "library_id": "methuen",
   "attraction_slug": "currier-museum-of-art",
   "status": "ok",
-  "max_people": 2,
-  "max_adults": null,
+  "max_people": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": null,
+  "free_under_age": 18,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "members_discount"
+  ],
   "notes": null,
-  "raw": "Pass will provide 50% off general admission for up to 2 adults (18 years and over). All youth family members (ages 13-17) and children 12 years and under are free with accompanying adults. During their visit, pass holders may participate in any programs which are offered free with general admission (some programs may require a materials fee). Passes are valid any day the museum is open. Passes are not valid for \"just-for-members\" event, member discount at the Museum Shop, for admission to the Frank Lloyd Wright House Tours, or special ticketed events/exhibitions. Tours of the Frank Lloyd Wright Houses are a separate charge and require pre-paid reservations."
+  "raw": "Pass will provide 50% off general admission for up to 2 adults (18 years and over). All youth family members (ages 13-17) and children 12 years and under are free with accompanying adults. During their visit, pass holders may participate in any programs which are offered free with general admission (some programs may require a materials fee). Passes are valid any day the museum is open. Passes are not valid for \"just-for-members\" event, member discount at the Museum Shop, for admission to the Frank Lloyd Wright House Tours, or special ticketed events/exhibitions. Tours of the Frank Lloyd Wright Houses are a separate charge and require pre-paid reservations.",
+  "source_phrases": {
+    "discount_percent": "50% off",
+    "eligibility_tags": "family",
+    "boosts": "member discount",
+    "max_adults": "50% off general admission for up to 2 adults",
+    "free_under_age": "children 12 years and under are free"
+  }
 }

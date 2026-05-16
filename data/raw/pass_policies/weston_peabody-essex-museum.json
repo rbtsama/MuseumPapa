@@ -5,9 +5,17 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": null,
+  "free_under_age": 16,
   "savings_per_person_usd": null,
+  "discount_percent": 100,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits a maximum of two adult visitors at a reduced admission fee of $12 per person any day the Museum is open. Children under age 16 are admitted free. Admission to Yin Yu Tang, the Chinese House, and special ticketed exhibitions require the pass holder to pay a separate fee."
-}
+  "raw": "Each pass admits a maximum of two adult visitors at a reduced admission fee of $12 per person any day the Museum is open. Children under age 16 are admitted free. Admission to Yin Yu Tang, the Chinese House, and special ticketed exhibitions require the pass holder to pay a separate fee.",
+  "source_phrases": {
+    "free_under_age": "age 16 are admitted free",
+    "discount_percent": "admitte

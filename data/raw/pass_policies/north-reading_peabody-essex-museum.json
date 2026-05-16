@@ -5,9 +5,16 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "$12 per person admission",
-  "raw": "Printable/Digital Coupon Pass. Each pass admits up to 2 patrons at $12 per person. You must use the promo code provided in the loan instructions to reserve your pass."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Printable/Digital Coupon Pass. Each pass admits up to 2 patrons at $12 per person. You must use the promo code provided in the loan instructions to reserve your pass.",
+  "source_phrases": {}
 }

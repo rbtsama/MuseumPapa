@@ -5,9 +5,19 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 2,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "THIS IS A COUPON PASS Zoo New England Pass admits 6 people to either Stone Zoo or the Franklin Park Zoo. With this coupon adult admission is reduced to $9.00 and child admission to $6.00 Children under 2 are free. Please check the website for hours of operation and closures. https://www.zoonewengland.org/visit/"
+  "raw": "THIS IS A COUPON PASS Zoo New England Pass admits 6 people to either Stone Zoo or the Franklin Park Zoo. With this coupon adult admission is reduced to $9.00 and child admission to $6.00 Children under 2 are free. Please check the website for hours of operation and closures. https://www.zoonewengland.org/visit/",
+  "source_phrases": {
+    "max_people": "admits 6 people",
+    "free_under_age": "Children under 2 are free"
+  }
 }

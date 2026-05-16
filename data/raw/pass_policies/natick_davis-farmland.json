@@ -5,9 +5,21 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": 10.0,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [
+    "blackout_dates"
+  ],
+  "boosts": [],
   "notes": null,
-  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Reduced admission for up to 6 people at $10 off the at-the-gate admission rate for each guest. Rates change seasonally. Additional instructions: -Tickets must be bought at the ticket booth. Online purchase is not allowed with pass. -Discount is not valid on holidays, for packages, or for use at evening events. -The farm and maze are open weather permitting. Please call or visit the Davis Farmland website the day of your visit to check their status."
+  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Reduced admission for up to 6 people at $10 off the at-the-gate admission rate for each guest. Rates change seasonally. Additional instructions: -Tickets must be bought at the ticket booth. Online purchase is not allowed with pass. -Discount is not valid on holidays, for packages, or for use at evening events. -The farm and maze are open weather permitting. Please call or visit the Davis Farmland website the day of your visit to check their status.",
+  "source_phrases": {
+    "max_people": "up to 6 people",
+    "discount_dollar_off": "$10 off the at-the-gate admission"
+  }
 }

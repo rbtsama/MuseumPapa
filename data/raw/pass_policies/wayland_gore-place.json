@@ -3,11 +3,19 @@
   "attraction_slug": "gore-place",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
-  "max_children": null,
-  "eligibility": null,
+  "max_adults": 2,
+  "max_children": 2,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This is an e-voucher . Coupon is emailed to the patron. Only Valid for the Reserved Date of Visit. This coupon is good for: - Daytime Mansion Tour admission for two adults at $5 per person, and two children free (regularly $16 per adult and $11 for children ages 6-16). Mansion tours are offered Monday, Wednesday, Friday, and Saturdays. -One Take-a-Walk bag rental at $2/hr (regularly $5). Take-a-Walk bags for youth ages 4 and up contain outdoor seasonal activities for up to two children and are available Monday-Saturday. -Story Time for two children at $5 per child, and an accompanying adult free. Please note: The Mansion Tour coupon is good for daytime Mansion tours only and may not be used during evening or special themed tours or during special events such as the Sheep Shearing Festival at Gore Place. Days and times are subject to change, so it is best for visitors to consult the museum website when planning your visit. Event and holiday closings as well as school vacation hours are all listed on goreplace.org/whats-on ."
+  "raw": "This is an e-voucher . Coupon is emailed to the patron. Only Valid for the Reserved Date of Visit. This coupon is good for: - Daytime Mansion Tour admission for two adults at $5 per person, and two children free (regularly $16 per adult and $11 for children ages 6-16). Mansion tours are offered Monday, Wednesday, Friday, and Saturdays. -One Take-a-Walk bag rental at $2/hr (regularly $5). Take-a-Walk bags for youth ages 4 and up contain outdoor seasonal activities for up to two children and are available Monday-Saturday. -Story Time for two children at $5 per child, and an accompanying adult free. Please note: The Mansion Tour coupon is good for daytime Mansion tours only and may not be used during evening or special themed tours or during special events such as the Sheep Shearing Festival at Gore Place. Days and times are subject to change, so it is best for visitors to consult the museum website when planning your visit. Event and holiday closings as well as school vacation hours are all listed on goreplace.org/whats-on .",
+  "source_phrases": {
+    "max_adults": "two adults",
+    "max_children": "two children"
+  }
 }

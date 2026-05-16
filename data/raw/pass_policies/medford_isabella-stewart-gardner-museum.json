@@ -5,9 +5,22 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 18,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [
+    "reservation_required"
+  ],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are always admitted for free. This library pass does not guarantee a reservation to the Museum, you need to reserve a time slot with the Museum as well."
+  "raw": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are always admitted for free. This library pass does not guarantee a reservation to the Museum, you need to reserve a time slot with the Museum as well.",
+  "source_phrases": {
+    "free_under_age": "Children under the age of 18 are always admitted for free",
+    "exclusions": "you need to reserve a time slot with the Museum as well",
+    "max_people": "up to four (4) people with $5 admission per person"
+  }
 }

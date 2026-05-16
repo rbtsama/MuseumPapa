@@ -5,9 +5,17 @@
   "max_people": 3,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. This pass is not an admissions ticket, you must bring the pass to the museum to receive the discounted admission. This pass will be emailed to you when you place the reservation."
+  "raw": "This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. This pass is not an admissions ticket, you must bring the pass to the museum to receive the discounted admission. This pass will be emailed to you when you place the reservation.",
+  "source_phrases": {
+    "max_people": "admits 3 visitors",
+    "discount_percent": "1/2 price"
+  }
 }

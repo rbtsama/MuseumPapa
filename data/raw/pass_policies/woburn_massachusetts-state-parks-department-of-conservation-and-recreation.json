@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "The Dept. of Conservation and Recreation Parks Pass is for free parking at over 50 facilities in the Mass. State parks system that charge a day-use parking fee. Passes must be picked up at the Woburn Public Library. Reminder that the library is closed on Sunday, so please pickup pass on Friday or Saturday for Sunday use. Printouts of reservation confirmations are not accepted by the parks/facilities. For a comprehensive list of participating facilities, please click here . PASS MUST BE RETURNED AFTER USE THE SAME DAY * Funded by the Friends of the WPL"
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Parking pass for DCR/state park facilities",
+  "raw": "The Dept. of Conservation and Recreation Parks Pass is for free parking at over 50 facilities in the Mass. State parks system that charge a day-use parking fee. Passes must be picked up at the Woburn Public Library. Reminder that the library is closed on Sunday, so please pickup pass on Friday or Saturday for Sunday use. Printouts of reservation confirmations are not accepted by the parks/facilities. For a comprehensive list of participating facilities, please click here . PASS MUST BE RETURNED AFTER USE THE SAME DAY * Funded by the Friends of the WPL",
+  "source_phrases": {
+    "eligibility_tags_vehicle": "Parks Pass"
+  }
 }

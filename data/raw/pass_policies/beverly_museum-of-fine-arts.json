@@ -2,12 +2,22 @@
   "library_id": "beverly",
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
-  "max_people": 2,
-  "max_adults": null,
-  "max_children": null,
-  "eligibility": "all",
+  "max_people": 6,
+  "max_adults": 2,
+  "max_children": 4,
   "free_under_age": 6,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits up to 2 adults at $15 per person and 4 youths (ages 7-17) at $10 per person. Ages 6 and under are free. Pass can be presented on a hand held device, as a paper printout at the museum, or used to reserve general admission and special exhibit tickets online."
+  "raw": "Admits up to 2 adults at $15 per person and 4 youths (ages 7-17) at $10 per person. Ages 6 and under are free. Pass can be presented on a hand held device, as a paper printout at the museum, or used to reserve general admission and special exhibit tickets online.",
+  "source_phrases": {
+    "max_adults": "up to 2 adults",
+    "max_children": "4 youths",
+    "max_people": "up to 2 adults",
+    "free_under_age": "Ages 6 and under are free"
+  }
 }

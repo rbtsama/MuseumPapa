@@ -2,12 +2,25 @@
   "library_id": "lincoln",
   "attraction_slug": "isabella-stewart-gardner-museum",
   "status": "ok",
-  "max_people": 4,
-  "max_adults": null,
+  "max_people": null,
+  "max_adults": 4,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": null,
-  "savings_per_person_usd": null,
+  "free_under_age": 18,
+  "savings_per_person_usd": 5.0,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [
+    "reservation_required"
+  ],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass provides up to four (4) people with a $5 discount per person—children under the age of 18 are always admitted free. Timed ticket reservations must be made in advance of visit with library e-voucher on the museum's website. Directions and information regarding e-voucher use will be provided in your confirmation email. For more information about the museum, please visit https://www.gardnermuseum.org/visit. MUSEUM HOURS: WEEKDAYS 11 AM – 5 PM | WEEKENDS 10 AM – 5 PM | THURSDAYS 11 AM – 9 PM | CLOSED TUESDAYS Please note that reserving a library pass does not guarantee that space will be available on your preferred date."
+  "raw": "Each pass provides up to four (4) people with a $5 discount per person—children under the age of 18 are always admitted free. Timed ticket reservations must be made in advance of visit with library e-voucher on the museum's website. Directions and information regarding e-voucher use will be provided in your confirmation email. For more information about the museum, please visit https://www.gardnermuseum.org/visit. MUSEUM HOURS: WEEKDAYS 11 AM – 5 PM | WEEKENDS 10 AM – 5 PM | THURSDAYS 11 AM – 9 PM | CLOSED TUESDAYS Please note that reserving a library pass does not guarantee that space will be available on your preferred date.",
+  "source_phrases": {
+    "free_under_age": "children under the age of 18 are always admitted free",
+    "max_adults": "four (4) people with a $5 discount per person",
+    "savings_per_person_usd": "$5 discount per person"
+  }
 }

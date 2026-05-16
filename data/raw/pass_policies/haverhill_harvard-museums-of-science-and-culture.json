@@ -5,9 +5,18 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass allows FREE admission for up to four people to any of the 4 Harvard Museums: Harvard Museum of Natural History, Peabody Museum of Archaeology and Ethnology, Harvard Museum of the Ancient Near East, and Collection of Historical Scientific Instruments. The pass will need to be picked up from the library. Contact 978-373-1586 x603 with any questions."
+  "raw": "Pass allows FREE admission for up to four people to any of the 4 Harvard Museums: Harvard Museum of Natural History, Peabody Museum of Archaeology and Ethnology, Harvard Museum of the Ancient Near East, and Collection of Historical Scientific Instruments. The pass will need to be picked up from the library. Contact 978-373-1586 x603 with any questions.",
+  "source_phrases": {
+    "max_people": "up to four people"
+  }
 }

@@ -5,9 +5,19 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
   "free_under_age": 2,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Discount : $9 per adult, $6 per child, up to 6 people. Children under the age of 2 are always free. Patrons can use this pass to visit either the Franklin Park Zoo in Boston or the Stone Zoo in Stoneham. Visit the main desk at the library to pick up your discount coupon. Discount coupons can be picked up from the library up to 1 week in advance. The discount pass is not accepted for Zoo Lights. To use: Present the pass at admissions booth at either the Franklin Park Zoo or Stone Zoo to receive your discount. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out your discount pass, you must contact the library in advance. If booking a pass with an e-card , patrons must also provide proof of address when they arrive at the library to pick-up their pass and will be switched over to a physical library card. Unwanted passes MUST BE CANCELLED. Failure to cancel an unwanted pass will result in a 30 day ban on reserving discount passes."
+  "raw": "Discount : $9 per adult, $6 per child, up to 6 people. Children under the age of 2 are always free. Patrons can use this pass to visit either the Franklin Park Zoo in Boston or the Stone Zoo in Stoneham. Visit the main desk at the library to pick up your discount coupon. Discount coupons can be picked up from the library up to 1 week in advance. The discount pass is not accepted for Zoo Lights. To use: Present the pass at admissions booth at either the Franklin Park Zoo or Stone Zoo to receive your discount. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out your discount pass, you must contact the library in advance. If booking a pass with an e-card , patrons must also provide proof of address when they arrive at the library to pick-up their pass and will be switched over to a physical library card. Unwanted passes MUST BE CANCELLED. Failure to cancel an unwanted pass will result in a 30 day ban on reserving discount passes.",
+  "source_phrases": {
+    "max_people": "up to 6 people",
+    "free_under_age": "Children under the age of 2 are always free"
+  }
 }

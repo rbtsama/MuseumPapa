@@ -2,12 +2,20 @@
   "library_id": "sudbury",
   "attraction_slug": "isabella-stewart-gardner-museum",
   "status": "ok",
-  "max_people": null,
+  "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": 18,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "PLEASE NOTE: This is an electronic pass that you will receive in your email. You may then use the code on the pass to purchase advance tickets online. The library’s pass allows general admission for 4 people at $5.00 each. (Regular admission prices: Adult $20, Senior $18, Student $13, Children under 18 free.)"
+  "raw": "PLEASE NOTE: This is an electronic pass that you will receive in your email. You may then use the code on the pass to purchase advance tickets online. The library’s pass allows general admission for 4 people at $5.00 each. (Regular admission prices: Adult $20, Senior $18, Student $13, Children under 18 free.)",
+  "source_phrases": {
+    "max_people": "for 4 people",
+    "free_under_age": "Children under 18 free"
+  }
 }

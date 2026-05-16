@@ -5,9 +5,20 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 1,
   "savings_per_person_usd": null,
-  "notes": "$12 per person (Half Price Library Ticket); children under 1 year old free.",
-  "raw": "$12 admission per person (\"Half Price Library Ticket\") for up to 4 visitors. Children under 1 year old get in for free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "$12 admission per person (\"Half Price Library Ticket\") for up to 4 visitors. Children under 1 year old get in for free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "max_people": "up to 4 visitors",
+    "free_under_age": "Children under 1 year old get in for free",
+    "discount_percent": "Half Price"
+  }
 }

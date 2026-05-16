@@ -5,9 +5,16 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have made a reservation. Pass admits 2 people for $12 per person for general admission only. Children age 16 and under are always admitted free. Reservations for your ticket may be made in advance by calling the museum or by going to pem.org/tickets Timed tickets to Yin Yu Tang Chinese House are included with the museum admission and may be selected as part of the online checkout process."
+  "raw": "This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have made a reservation. Pass admits 2 people for $12 per person for general admission only. Children age 16 and under are always admitted free. Reservations for your ticket may be made in advance by calling the museum or by going to pem.org/tickets Timed tickets to Yin Yu Tang Chinese House are included with the museum admission and may be selected as part of the online checkout process.",
+  "source_phrases": {
+    "max_people": "admits 2 people"
+  }
 }

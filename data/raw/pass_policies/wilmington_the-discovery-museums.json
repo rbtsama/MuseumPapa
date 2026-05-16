@@ -5,9 +5,19 @@
   "max_people": 3,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits 3 people at half price. ($9.50 instead of $19.00) No payment will be collected online, you will pay when you arrive. Note: The museum is closed on Mondays"
+  "raw": "Pass admits 3 people at half price. ($9.50 instead of $19.00) No payment will be collected online, you will pay when you arrive. Note: The museum is closed on Mondays",
+  "source_phrases": {
+    "max_people": "admits 3 people",
+    "discount_percent": "half price"
+  }
 }

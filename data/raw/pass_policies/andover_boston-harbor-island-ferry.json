@@ -5,9 +5,16 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Print from home pass. 50 % discount for up to 4 tickets. For Tickets: www.bostonharborislands.org/ferry-tickets/ Select a date to visit Spectacle Island or Georges Island Select up to 4 tickets then continue to Booking Details Enter the library's unique code found printed on the pass in the \"Coupon/Voucher Code\" field and click apply Complete your transaction & bring your phone or printed copy of your barcode to board the ferry Summer Schedule: June 20 – September 2, 2024 Boston to Spectacle Island: Monday through Friday Boston to Georges Island: Monday through Friday Hingham to Peddocks Island: Monday through Friday Fall Schedule: September 5 – September 22 Boston to Georges Island: Thursday through Sunday End of Season Schedule: September 27 – October 11 Boston to Georges Island: Friday through Sunday"
+  "raw": "Print from home pass. 50 % discount for up to 4 tickets. For Tickets: www.bostonharborislands.org/ferry-tickets/ Select a date to visit Spectacle Island or Georges Island Select up to 4 tickets then continue to Booking Details Enter the library's unique code found printed on the pass in the \"Coupon/Voucher Code\" field and click apply Complete your transaction & bring your phone or printed copy of your barcode to board the ferry Summer Schedule: June 20 – September 2, 2024 Boston to Spectacle Island: Monday through Friday Boston to Georges Island: Monday through Friday Hingham to Peddocks Island: Monday through Friday Fall Schedule: September 5 – September 22 Boston to Georges Island: Thursday through Sunday End of Season Schedule: September 27 – October 11 Boston to Georges Island: Friday through Sunday",
+  "source_phrases": {
+    "max_people": "up to 4 tickets"
+  }
 }

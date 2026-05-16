@@ -5,9 +5,17 @@
   "max_people": 3,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass admits up to 3 people at half the regular admission price per person. Any additional visitors must pay the regular admission price. This pass is an e-ticket which does not need to be picked up at the library . During the school year, the museum is closed on Mondays, unless otherwise noted on their calendar. From June 22 -- September 1, the museum is open 7 days a week with free admission on Friday evenings. Operating hours can be found on the Discovery Museum website . Please be advised, as of 1/7/25 the museum no longer accepts advance reservations for admission."
+  "raw": "This pass admits up to 3 people at half the regular admission price per person. Any additional visitors must pay the regular admission price. This pass is an e-ticket which does not need to be picked up at the library . During the school year, the museum is closed on Mondays, unless otherwise noted on their calendar. From June 22 -- September 1, the museum is open 7 days a week with free admission on Friday evenings. Operating hours can be found on the Discovery Museum website . Please be advised, as of 1/7/25 the museum no longer accepts advance reservations for admission.",
+  "source_phrases": {
+    "max_people": "admits up to 3 people",
+    "discount_percent": "half the regular"
+  }
 }

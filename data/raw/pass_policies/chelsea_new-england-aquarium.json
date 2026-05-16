@@ -5,9 +5,21 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": 2,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "weekends_excluded"
+  ],
+  "boosts": [],
   "notes": null,
-  "raw": "Admits up to 4 people (adults or children) at half price per person. Children 2 and under are free. Passes are not accepted on weekends from June-August. In the event of a closure, passes will be honored up to a week after the original printed date."
+  "raw": "Admits up to 4 people (adults or children) at half price per person. Children 2 and under are free. Passes are not accepted on weekends from June-August. In the event of a closure, passes will be honored up to a week after the original printed date.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "free_under_age": "Children 2 and under are free",
+    "discount_percent": "half price",
+    "weekends_excluded": "Passes are not accepted on weekends"
+  }
 }

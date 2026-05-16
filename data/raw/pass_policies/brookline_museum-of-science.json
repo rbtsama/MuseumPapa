@@ -2,12 +2,22 @@
   "library_id": "brookline",
   "attraction_slug": "museum-of-science",
   "status": "ok",
-  "max_people": 4,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": 3,
+  "free_under_age": 2,
   "savings_per_person_usd": null,
-  "notes": "50% off for up to 4. Children 2 and under free. Does not include Omni Theater, Planetarium, Butterfly Garden, or 4D Theater.",
-  "raw": "617-723-2500 As science and technology increasingly shape our lives, the Museum of Science strives to equip and inspire everyone to use science for the global good. Among the world's largest science centers and New England's most attended cultural institution, we engage nearly five million people a year – at Science Park and in museums around the world, in classrooms, and online. The Museum's singular location connecting Boston and Cambridge puts us at the junction of some of the world's most influential academic institutions and industries, local and state government, schools, and the public. Trusted by each sector, we are ideally positioned to convene, inspire, and create meaningful experiences for all. Pass benefits: Admits up to 4 at half price. Children ages 2 and under receive free admission. Does not include Omni Theater, Planetarium, Butterfly Garden, 4D Theater. Visit the Museum of Science's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "617-723-2500 As science and technology increasingly shape our lives, the Museum of Science strives to equip and inspire everyone to use science for the global good. Among the world’s largest science centers and New England’s most attended cultural institution, we engage nearly five million people a year – at Science Park and in museums around the world, in classrooms, and online. The Museum’s singular location connecting Boston and Cambridge puts us at the junction of some of the world’s most influential academic institutions and industries, local and state government, schools, and the public. Trusted by each sector, we are ideally positioned to convene, inspire, and create meaningful experiences for all. Pass benefits: Admits up to 4 at half price. Children ages 2 and under receive free admission. Does not include Omni Theater, Planetarium, Butterfly Garden, 4D Theater. Visit the Museum of Science's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "free_under_age": "Children ages 2 and under receive free",
+    "discount_percent": "half price"
+  }
 }

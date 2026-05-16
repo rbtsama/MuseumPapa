@@ -5,9 +5,20 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
-  "free_under_age": null,
+  "free_under_age": 18,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "reservation_required"
+  ],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits up to 4 people at $5 per person. Children under the age of 18 are admitted free. Visitors must reserve timed-entry tickets online at gardermuseum.org/visit or through the Box Office (617-278-5156) at least 48 hours before visiting. For Museum questions, visit their website or call 617-566-1401"
+  "raw": "Each pass admits up to 4 people at $5 per person. Children under the age of 18 are admitted free. Visitors must reserve timed-entry tickets online at gardermuseum.org/visit or through the Box Office (617-278-5156) at least 48 hours before visiting. For Museum questions, visit their website or call 617-566-1401",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "free_under_age": "Children under the age of 18 are admitted free",
+    "reservation_required": "must reserve"
+  }
 }

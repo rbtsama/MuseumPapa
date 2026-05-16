@@ -2,12 +2,25 @@
   "library_id": "medford",
   "attraction_slug": "paddle-boston",
   "status": "ok",
-  "max_people": 3,
-  "max_adults": 2,
-  "max_children": 2,
-  "eligibility": "all",
+  "max_people": null,
+  "max_adults": null,
+  "max_children": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "The pass is valid for one boat rental. Passholder must present pass and photo ID at rental desk. This includes: Any type of single kayak or paddleboard (1 person), double kayaks (2 adults), standard canoes (up to 3 adults, or 2 adults and 2 children), and tripper canoes (up to 5 adults). Save time by filling out your waiver ahead of time: paddleboston.com/waiver. Valid at all seven locations: Stoneham, Medford, Somerville, Boston, Cambridge, Newton, Waltham. The Medford (Condon Shell) Location is not yet open for the season. Opening weekend is based on water temperatures and weather conditions-- see paddleboston.com to check!"
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "single_ticket"
+  ],
+  "exclusions": [
+    "id_required"
+  ],
+  "boosts": [],
+  "notes": "Valid for one boat rental; boat types include single kayak/paddleboard (1), double kayak (2 adults), standard canoe (up to 3 adults or 2 adults+2 children), tripper canoe (up to 5 adults).",
+  "raw": "The pass is valid for one boat rental. Passholder must present pass and photo ID at rental desk. This includes: Any type of single kayak or paddleboard (1 person), double kayaks (2 adults), standard canoes (up to 3 adults, or 2 adults and 2 children), and tripper canoes (up to 5 adults). Save time by filling out your waiver ahead of time: paddleboston.com/waiver. Valid at all seven locations: Stoneham, Medford, Somerville, Boston, Cambridge, Newton, Waltham. The Medford (Condon Shell) Location is not yet open for the season. Opening weekend is based on water temperatures and weather conditions-- see paddleboston.com to check!",
+  "source_phrases": {
+    "eligibility_tags": "1 person",
+    "exclusions": "present pass and photo ID",
+    "notes": "valid for one boat rental"
+  }
 }

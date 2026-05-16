@@ -2,12 +2,21 @@
   "library_id": "bpl",
   "attraction_slug": "boston-harbor-islands",
   "status": "ok",
-  "max_people": 4,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% off tickets for up to 4; valid for Georges Island, Spectacle Island, Peddocks Island from Hingham. Promo code pass.",
-  "raw": "The code can be used to purchase up to 4 50% off tickets for the following dates: Georges Island Spectacle Island Peddocks Island from Hingham Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "The code can be used to purchase up to 4 50% off tickets for the following dates: Georges Island Spectacle Island Peddocks Island from Hingham Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "discount_percent": "50% off"
+  }
 }

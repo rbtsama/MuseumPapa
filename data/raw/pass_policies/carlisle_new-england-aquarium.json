@@ -5,9 +5,18 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": null,
+  "free_under_age": 3,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Library ID: 45737 This coupon allows 50% off admission to the New England Aquarium and applies to adult and child pricing. Children under the age of 3 are admitted free. This coupon is not a ticket. Visitors should redeem this coupon in the General Admission line at the Aquarium's ticket booth for discounted admission for up to 4 people. Please visit neaq.org/coupons for details and for updated hours of operation. Review the Aquarium’s website at www.neaq.org/safety ahead of your visit to ensure a safe and accessible experience. This coupon is valid for Aquarium admission only. It does not provide any other discounts and cannot be applied to combo sales. The coupon may not be sold, has no cash value, and is void if altered or copied."
+  "raw": "Library ID: 45737 This coupon allows 50% off admission to the New England Aquarium and applies to adult and child pricing. Children under the age of 3 are admitted free. This coupon is not a ticket. Visitors should redeem this coupon in the General Admission line at the Aquarium's ticket booth for discounted admission for up to 4 people. Please visit neaq.org/coupons for details and for updated hours of operation. Review the Aquarium’s website at www.neaq.org/safety ahead of your visit to ensure a safe and accessible experience. This coupon is valid for Aquarium admission only. It does not provide any other discounts and cannot be applied to combo sales. The coupon may not be sold, has no cash value, and is void if altered or copied.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "free_under_age": "Children under the age of 3 are admitted free",
+    "discount_percent": "50% off"
+  }
 }

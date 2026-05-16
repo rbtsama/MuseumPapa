@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": 3,
+  "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% off for up to 4. Children under 3 free and not counted in the 4. Must call museum to reserve timed ticket. Valid only on reserved date.",
-  "raw": "617-723-2500 E-ticket. Pass admits up to four people for half off the regular admission charge. Your Library pass can only be used on the date you reserved. Click on Pass Info on your confirmation email from the library for the discount code. You must also call the museum to reserve a timed ticket. Children under 3 are not included in the count of 4 and are always admitted for free but must have a timed ticket. Two annual memberships of $700.00 each are provided by the Friends of Thayer Public Library. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": null,
+  "raw": "617-723-2500 E-ticket. Pass admits up to four people for half off the regular admission charge. Your Library pass can only be used on the date you reserved. Click on Pass Info on your confirmation email from the library for the discount code. You must also call the museum to reserve a timed ticket. Children under 3 are not included in the count of 4 and are always admitted for free but must have a timed ticket. Two annual memberships of $700.00 each are provided by the Friends of Thayer Public Library. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "max_people": "up to four people",
+    "discount_percent": "half off"
+  }
 }

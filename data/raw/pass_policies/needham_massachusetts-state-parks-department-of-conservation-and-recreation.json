@@ -5,9 +5,19 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "residents_only",
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "(RETURNABLE) General admission pass to the State Parks System. ParksPass is valid for the passenger vehicle displaying this pass on rearview mirror. FOR NEEDHAM RESIDENTS ONLY"
+  "raw": "(RETURNABLE) General admission pass to the State Parks System. ParksPass is valid for the passenger vehicle displaying this pass on rearview mirror. FOR NEEDHAM RESIDENTS ONLY",
+  "source_phrases": {
+    "eligibility_tags": "RESIDENTS ONLY"
+  }
 }

@@ -5,9 +5,16 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Free Lecture Series Pass. Present pass at entrance to Historical Society events. Pass does not need to be returned. No party-size cap stated.",
-  "raw": "106 South Main Street Cohasset, MA 02025 (781) 383-1434 Get Directions Free Lecture Series Pass. Check this pass out from the library and present it upon entrance to the Historical Society's Event. Pass does not need to be returned. Visit museum website for more information. Isabella Stewart Gardner Museum Learn More"
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "106 South Main Street Cohasset, MA 02025 (781) 383-1434 Get Directions Free Lecture Series Pass. Check this pass out from the library and present it upon entrance to the Historical Society's Event. Pass does not need to be returned. Visit museum website for more information. Isabella Stewart Gardner Museum Learn More",
+  "source_phrases": {}
 }

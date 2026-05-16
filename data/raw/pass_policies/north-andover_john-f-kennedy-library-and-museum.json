@@ -5,9 +5,22 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": 12,
+  "free_under_age": 13,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
   "notes": null,
-  "raw": "Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card to receive the discount. No pass is needed. Visitors aged 12 and under receive free admission. Please reach out to the JFK Library Visitor Services Department with questions at kennedy.groupvisits@nara.gov or 617-514-1600."
+  "raw": "Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card to receive the discount. No pass is needed. Visitors aged 12 and under receive free admission. Please reach out to the JFK Library Visitor Services Department with questions at kennedy.groupvisits@nara.gov or 617-514-1600.",
+  "source_phrases": {
+    "discount_percent": "50% discount",
+    "boosts": "Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card",
+    "free_under_age": "Visitors aged 12 and under receive free admission"
+  }
 }

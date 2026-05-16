@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "residents_only"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "(PRINTABLE) This pass admits 4 guests free of charge. FOR NEEDHAM RESIDENTS ONLY."
+  "raw": "(PRINTABLE) This pass admits 4 guests free of charge. FOR NEEDHAM RESIDENTS ONLY.",
+  "source_phrases": {
+    "max_people": "admits 4 guests",
+    "eligibility_tags": "RESIDENTS ONLY"
+  }
 }

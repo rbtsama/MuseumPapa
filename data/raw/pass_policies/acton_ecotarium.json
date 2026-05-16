@@ -2,12 +2,25 @@
   "library_id": "acton",
   "attraction_slug": "ecotarium",
   "status": "ok",
-  "max_people": 2,
+  "max_people": 4,
   "max_adults": 2,
   "max_children": 2,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass offers a 50% discount admission for up to two (2) adults and two (2) children in one vehicle. Children under two are admitted for free."
+  "raw": "This pass offers a 50% discount admission for up to two (2) adults and two (2) children in one vehicle. Children under two are admitted for free.",
+  "source_phrases": {
+    "max_adults": "up to two (2) adults and two (2) children",
+    "max_children": "up to two (2) adults and two (2) children",
+    "max_people": "up to two (2) adults and two (2) children",
+    "discount_percent": "50% discount",
+    "vehicle": "in one vehicle"
+  }
 }

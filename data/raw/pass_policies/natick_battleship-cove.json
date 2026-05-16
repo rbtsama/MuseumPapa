@@ -2,12 +2,23 @@
   "library_id": "natick",
   "attraction_slug": "battleship-cove",
   "status": "ok",
-  "max_people": null,
+  "max_people": 5,
   "max_adults": 2,
   "max_children": 3,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "pass must be returned to library; overdue fine $3/day; $3 per person admission",
-  "raw": "Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Reduced general admission for up to 2 adults and 3 children at $3 per person. Additional instructions: -Present pass upon arrival to receive discount. THIS PASS MUST BE RETURNED TO THE MORSE INSTITUTE LIBRARY BY 9:30AM THE DAY AFTER YOUR RESERVATION. OVERDUE FINES ARE $3/DAY. Passes can be returned at the circulation desk or the outside book drops."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Reduced general admission for up to 2 adults and 3 children at $3 per person. Additional instructions: -Present pass upon arrival to receive discount. THIS PASS MUST BE RETURNED TO THE MORSE INSTITUTE LIBRARY BY 9:30AM THE DAY AFTER YOUR RESERVATION. OVERDUE FINES ARE $3/DAY. Passes can be returned at the circulation desk or the outside book drops.",
+  "source_phrases": {
+    "max_adults": "2 adults and 3 children",
+    "max_children": "2 adults and 3 children",
+    "max_people": "2 adults and 3 children"
+  }
 }

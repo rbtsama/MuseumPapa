@@ -5,9 +5,19 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": 10.0,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
   "notes": null,
-  "raw": "The Library Pass can be used at either Davis Farmland or Davis Mega Maze. Davis Farmland Opening Day is April 16th – Last Day will be November 1st (weather permitting) • The $10 off discount can be applied for up to 6 guests with just one library pass. Guests will need to present the physical library pass at the gate only. • The discount can only be redeemed with the physical library pass, so please be sure to bring it with you. Photos or reservation emails cannot be accepted, and we want to make sure no one misses out on their savings! • Davis Farmland & Davis Mega Maze are open weather and ground conditions permitting. Please check DavisFarmland.com or DavisMegaMaze.com for up-to-date schedules and weather-related closings. • Adults must be accompanied by at least one child age 12 or younger when visiting our Children’s Discovery Farm. Davis Mega Maze is great for all ages. Davis Farmland Operating Schedule April School Vacation: Open daily April 29 – May 17: Open Wednesday–Sunday (Closed Monday–Tuesday) May 18 – Labor Day: Open 7 days a week After Labor Day – October 12: Open Thursday–Sunday (Closed Monday–Wednesday) October 12 – November 1: Open Saturdays and Sundays Davis Mega Maze Operating Schedule Open weekends in the fall"
+  "raw": "The Library Pass can be used at either Davis Farmland or Davis Mega Maze. Davis Farmland Opening Day is April 16th – Last Day will be November 1st (weather permitting) • The $10 off discount can be applied for up to 6 guests with just one library pass. Guests will need to present the physical library pass at the gate only. • The discount can only be redeemed with the physical library pass, so please be sure to bring it with you. Photos or reservation emails cannot be accepted, and we want to make sure no one misses out on their savings! • Davis Farmland & Davis Mega Maze are open weather and ground conditions permitting. Please check DavisFarmland.com or DavisMegaMaze.com for up-to-date schedules and weather-related closings. • Adults must be accompanied by at least one child age 12 or younger when visiting our Children’s Discovery Farm. Davis Mega Maze is great for all ages. Davis Farmland Operating Schedule April School Vacation: Open daily April 29 – May 17: Open Wednesday–Sunday (Closed Monday–Tuesday) May 18 – Labor Day: Open 7 days a week After Labor Day – October 12: Open Thursday–Sunday (Closed Monday–Wednesday) October 12 – November 1: Open Saturdays and Sundays Davis Mega Maze Operating Schedule Open weekends in the fall",
+  "source_phrases": {
+    "max_people": "up to 6 guests",
+    "discount_dollar_off": "$10 off discount"
+  }
 }

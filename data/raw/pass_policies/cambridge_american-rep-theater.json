@@ -5,9 +5,18 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": 14,
+  "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "SELECT SHOWS — availability 30 days before each run. Each pass admits 2 for free for Friday 7:30pm or Sunday 2:00pm performances. Must contact A.R.T. Ticket Services by 5pm two days before performance. Recommended ages 14+.",
-  "raw": "617-547-8300 SELECT SHOWS - The A.R.T. makes passes available to select performances of select shows. Availability will be determined 30 days before the start of each performance's run. Next show: Black Swan , May 29 - June 28, 2026 Each pass admits 2 people for free for either a Friday 7:30 pm performance or a Sunday 2:00 pm performance. After booking, you will receive an email confirmation with instructions on how to c ontact A.R.T. Ticket Services for your electronic tickets. Please note that you must contact them no later than 5:00 pm two days before your selected performance . NOTE: Black Swan is recommended for at least ages 14 and older and has content warnings for self-injury/harm, sex, haze, flashing lights/strobe, and loud sudden noises. For more information, please visit: https://americanrepertorytheater.org/shows-events/black-swan/ Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "617-547-8300 SELECT SHOWS - The A.R.T. makes passes available to select performances of select shows. Availability will be determined 30 days before the start of each performance's run. Next show: Black Swan , May 29 - June 28, 2026 Each pass admits 2 people for free for either a Friday 7:30 pm performance or a Sunday 2:00 pm performance. After booking, you will receive an email confirmation with instructions on how to c ontact A.R.T. Ticket Services for your electronic tickets. Please note that you must contact them no later than 5:00 pm two days before your selected performance . NOTE: Black Swan is recommended for at least ages 14 and older and has content warnings for self-injury/harm, sex, haze, flashing lights/strobe, and loud sudden noises. For more information, please visit: https://americanrepertorytheater.org/shows-events/black-swan/ Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "max_people": "admits 2 people"
+  }
 }

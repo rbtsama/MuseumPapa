@@ -2,12 +2,22 @@
   "library_id": "haverhill",
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
-  "max_people": 2,
-  "max_adults": null,
+  "max_people": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": null,
+  "free_under_age": 7,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass may be redeemed for up to two adult tickets ($15 each) and four youth tickets ($10 each). Children 6 and under are admitted free. You can purchase timed tickets before your visit using a promo code, or show the pass confirmation email from the library at time of visit. This pass is emailed to you - you will not need to come in to the library to pick it up. Please make sure you enter your current email address when making your reservation."
+  "raw": "Each pass may be redeemed for up to two adult tickets ($15 each) and four youth tickets ($10 each). Children 6 and under are admitted free. You can purchase timed tickets before your visit using a promo code, or show the pass confirmation email from the library at time of visit. This pass is emailed to you - you will not need to come in to the library to pick it up. Please make sure you enter your current email address when making your reservation.",
+  "source_phrases": {
+    "max_adults": "two adult tickets",
+    "free_under_age": "Children 6 and under are admitted free"
+  }
 }

@@ -5,9 +5,19 @@
   "max_people": 5,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Free admission for up to 5 guests.",
-  "raw": "One pass allows free admission for up to five guests. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": 100,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "One pass allows free admission for up to five guests. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "max_people": "up to five guests",
+    "discount_percent": "free admission"
+  }
 }

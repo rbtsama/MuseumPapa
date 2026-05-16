@@ -5,9 +5,16 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Digital coupon pass. Benefits text is only museum description — no party-size cap, discount amount, or eligibility terms stated.",
-  "raw": "The Sandwich Glass Museum is dedicated to the history of the town in which it is located, with a special emphasis on the glass that made it famous in the 19th century. Thirteen galleries display their collection of old and modern examples of glass objects, including roughly 6,000 pieces produced at the Boston & Sandwich Glass Company in the 1800s on the site where the museum sits today. In addition, the museum hosts live demonstrations of glass-blowing. There is a gift store on the premises, which includes work by local glass-blowers. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "The Sandwich Glass Museum is dedicated to the history of the town in which it is located, with a special emphasis on the glass that made it famous in the 19th century. Thirteen galleries display their collection of old and modern examples of glass objects, including roughly 6,000 pieces produced at the Boston & Sandwich Glass Company in the 1800s on the site where the museum sits today. In addition, the museum hosts live demonstrations of glass-blowing. There is a gift store on the premises, which includes work by local glass-blowers. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {}
 }

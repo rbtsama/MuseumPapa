@@ -5,9 +5,23 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% off per person",
-  "raw": "(COUPON) Each pass admits up to 4 visitors at 50% off regular museum admission rates. Pass includes both the Harvard Museum of Natural History (HMNH) and the Peabody Museum of Archaeology & Ethnology (PMAE). Open daily 9-5. FOR NEEDHAM RESIDENTS ONLY. Reservation and adherance to vaccination policy is required."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "residents_only"
+  ],
+  "exclusions": [
+    "reservation_required"
+  ],
+  "boosts": [],
+  "notes": null,
+  "raw": "(COUPON) Each pass admits up to 4 visitors at 50% off regular museum admission rates. Pass includes both the Harvard Museum of Natural History (HMNH) and the Peabody Museum of Archaeology & Ethnology (PMAE). Open daily 9-5. FOR NEEDHAM RESIDENTS ONLY. Reservation and adherance to vaccination policy is required.",
+  "source_phrases": {
+    "max_people": "up to 4 visitors",
+    "discount_percent": "50% off",
+    "eligibility_tags": "RESIDENTS ONLY",
+    "exclusions": "Reservation and adherance to vaccination policy is required"
+  }
 }

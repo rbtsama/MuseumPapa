@@ -5,9 +5,20 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
   "notes": null,
-  "raw": "Trustees GOPASS admits 2 adults & children under 18 at the Family Level admission rate. Valid at more than 100 Trustees properties that collect an admission fee (including Fruitland, deCordova and The Old Manse). Search Visit to view all the locations you are able to visit with this pass. GOPASS must be reserved and picked up at the library and then presented to Trustees property admissions to redeem discount. Check property for timed entry or advance registration status and contact directly to make reservation if required. The Promo Code is located on the back of the paper GOPASS . Click here to reserve tickets to the deCordova. To receive the library discount, enter promo code at checkout. Please Note: This is a coupon pass that must be picked up at the library. Patrons must first reserve a coupon from the library, then reserve timed tickets ONLY for museums and parks that require a timed entry by using the promo code on the back of the library coupon. This pass is not valid for use at parking kiosks, stores, cafes or campgrounds. * Funded by the Friends of the WPL"
+  "raw": "Trustees GOPASS admits 2 adults & children under 18 at the Family Level admission rate. Valid at more than 100 Trustees properties that collect an admission fee (including Fruitland, deCordova and The Old Manse). Search Visit to view all the locations you are able to visit with this pass. GOPASS must be reserved and picked up at the library and then presented to Trustees property admissions to redeem discount. Check property for timed entry or advance registration status and contact directly to make reservation if required. The Promo Code is located on the back of the paper GOPASS . Click here to reserve tickets to the deCordova. To receive the library discount, enter promo code at checkout. Please Note: This is a coupon pass that must be picked up at the library. Patrons must first reserve a coupon from the library, then reserve timed tickets ONLY for museums and parks that require a timed entry by using the promo code on the back of the library coupon. This pass is not valid for use at parking kiosks, stores, cafes or campgrounds. * Funded by the Friends of the WPL",
+  "source_phrases": {
+    "eligibility_tags_family": "Family"
+  }
 }

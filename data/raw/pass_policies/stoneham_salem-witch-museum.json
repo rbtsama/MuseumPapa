@@ -5,9 +5,18 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "pass must be returned to library",
-  "raw": "This pass admits up to 6 people at a discounted rate of $14.00 for adults or seniors , $11.75 for children 3-14 . This is a physical pass that must be picked up at and returned to the library . Present the pass at the ticket booth for discounted admission. Passes are not accepted in the month of October."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "blackout_dates"
+  ],
+  "boosts": [],
+  "notes": "Pass not valid in October.",
+  "raw": "This pass admits up to 6 people at a discounted rate of $14.00 for adults or seniors , $11.75 for children 3-14 . This is a physical pass that must be picked up at and returned to the library . Present the pass at the ticket booth for discounted admission. Passes are not accepted in the month of October.",
+  "source_phrases": {
+    "max_people": "admits up to 6 people"
+  }
 }

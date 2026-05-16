@@ -5,9 +5,19 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": 10.0,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Admission tickets are purchased at the gate with library pass. This pass admits up to 6 guests to Davis Farmland or Davis Mega Maze with a savings of $10 OFF the admission rate per person. Davis Farmland Discovery Farm is open April 16th-November 1st - dates and rates change with the season. Davis Farmland and Davis Mega Maze are only open WEATHER PERMITTING. ALWAYS call or check the web before heading out. Visit DavisFarmland.com for the most up-to-date operating schedule. NOTICE: Adults MUST be accompanied by at least 1 child 12 years or younger when visiting Davis Farmland. This is a physical pass that must be picked up at the Main Library."
+  "raw": "Admission tickets are purchased at the gate with library pass. This pass admits up to 6 guests to Davis Farmland or Davis Mega Maze with a savings of $10 OFF the admission rate per person. Davis Farmland Discovery Farm is open April 16th-November 1st - dates and rates change with the season. Davis Farmland and Davis Mega Maze are only open WEATHER PERMITTING. ALWAYS call or check the web before heading out. Visit DavisFarmland.com for the most up-to-date operating schedule. NOTICE: Adults MUST be accompanied by at least 1 child 12 years or younger when visiting Davis Farmland. This is a physical pass that must be picked up at the Main Library.",
+  "source_phrases": {
+    "max_people": "up to 6 guests",
+    "discount_dollar_off": "$10 OFF the admission"
+  }
 }

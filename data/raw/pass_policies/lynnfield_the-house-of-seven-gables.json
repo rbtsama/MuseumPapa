@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass gives patrons 50% off admission for up to four people. This is a coupon pass that must be picked up at the Library during open business hours."
+  "raw": "Pass gives patrons 50% off admission for up to four people. This is a coupon pass that must be picked up at the Library during open business hours.",
+  "source_phrases": {
+    "max_people": "up to four people",
+    "discount_percent": "50% off"
+  }
 }

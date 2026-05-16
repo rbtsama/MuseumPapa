@@ -3,11 +3,18 @@
   "attraction_slug": "peabody-essex-museum",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": 16,
+  "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "pass must be returned to library; $12 per person admission",
-  "raw": "This pass admits up to 2 adults at a discount rate of $12 per person . Children age 16 and under are free . This pass is an e-voucher that does not need to be picked up at or returned to the library . You must book a date and time for your visit after you have reserved the pass . You can do so by visiting the PEM website or by calling (978) 542-1511 . On the PEM ticket page, enter the unique promo code you received upon reserving the pass, and then select your discounted admission tickets. Timed tickets to Yin Yu Tang: A Chinese Home are included with museum admission and may be selected as part of the online checkout process."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "This pass admits up to 2 adults at a discount rate of $12 per person . Children age 16 and under are free . This pass is an e-voucher that does not need to be picked up at or returned to the library . You must book a date and time for your visit after you have reserved the pass . You can do so by visiting the PEM website or by calling (978) 542-1511 . On the PEM ticket page, enter the unique promo code you received upon reserving the pass, and then select your discounted admission tickets. Timed tickets to Yin Yu Tang: A Chinese Home are included with museum admission and may be selected as part of the online checkout process.",
+  "source_phrases": {
+    "max_adults": "up to 2 adults"
+  }
 }

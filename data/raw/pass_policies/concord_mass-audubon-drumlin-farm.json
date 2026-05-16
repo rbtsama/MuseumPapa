@@ -5,9 +5,18 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary at $2.00 per person over the age of two."
+  "raw": "This Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary at $2.00 per person over the age of two.",
+  "source_phrases": {
+    "max_people": "up to 4 people"
+  }
 }

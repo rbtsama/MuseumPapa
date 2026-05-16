@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
   "notes": null,
-  "raw": "This coupon allows 50% off standard admission to the New England Aquarium. Only applies to adult and child pricing. This is not a ticket. Redeem this coupon in the General Admission line at the Aquarium's ticket booth for discounted admission for up to 4 people. Please visit neaq.org/coupons for details. Review the Aquarium's website at www.neaq.org/safety ahead of your visit to ensure a safe and accessible experience. Valid only for Aquarium admission. This coupon does not provide any other discounts and cannot be applied to combo tickets. Library coupons or tickets obtained with library coupons may not be sold. Void if altered or copied. No cash value. Hours of operation are subject to change."
+  "raw": "This coupon allows 50% off standard admission to the New England Aquarium. Only applies to adult and child pricing. This is not a ticket. Redeem this coupon in the General Admission line at the Aquarium's ticket booth for discounted admission for up to 4 people. Please visit neaq.org/coupons for details. Review the Aquarium's website at www.neaq.org/safety ahead of your visit to ensure a safe and accessible experience. Valid only for Aquarium admission. This coupon does not provide any other discounts and cannot be applied to combo tickets. Library coupons or tickets obtained with library coupons may not be sold. Void if altered or copied. No cash value. Hours of operation are subject to change.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "50% off"
+  }
 }

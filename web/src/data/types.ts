@@ -37,26 +37,47 @@ export interface OriginalPrice {
   source_url: string | null;
 }
 
-export type Eligibility =
+export type EligibilityTag =
   | 'all'
   | 'adults_only'
+  | 'children_only'
   | 'vehicle'
   | 'single_ticket'
-  | 'members'
+  | 'members_free'
   | 'seniors_free'
   | 'students_only'
-  | 'weekday_only'
+  | 'military_free'
+  | 'educator_free'
+  | 'family'
+  | 'groups'
+  | 'residents_only';
+
+export type ExclusionTag =
+  | 'weekdays_only'
+  | 'weekends_only'
   | 'blackout_dates'
   | 'reservation_required'
-  | 'id_required';
+  | 'id_required'
+  | string;  // allow `seasonal:May-Oct` style
+
+export type BoostTag =
+  | 'ebt_discount'
+  | 'snap_free'
+  | 'library_card_required'
+  | 'members_discount'
+  | 'gift_shop_discount';
 
 export interface Policy {
   max_people: number | null;
   max_adults: number | null;
   max_children: number | null;
-  eligibility: Eligibility | null;
   free_under_age: number | null;
   savings_per_person_usd: number | null;
+  discount_percent: number | null;
+  discount_dollar_off: number | null;
+  eligibility_tags: EligibilityTag[];
+  exclusions: ExclusionTag[];
+  boosts: BoostTag[];
   notes: string | null;
   raw: string | null;
 }
@@ -69,7 +90,7 @@ export interface HeroImage {
 export type DayKey = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 
 export interface Hours {
-  status?: 'ok' | 'varies';
+  status?: 'ok' | 'varies' | 'seasonal';
   regular_hours: Record<DayKey, string> | null;  // "Closed" or e.g. "9:00 AM – 5:00 PM"; null when status='varies'
   notes: string | null;
   source_url: string | null;

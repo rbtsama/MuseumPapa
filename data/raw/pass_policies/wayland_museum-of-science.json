@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This is an e-voucher . Pass is e-mailed to the patron. This pass offers up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are always admitted for free. A library pass is not a museum admission ticket. See emailed instructions for how to purchase your tickets at the discounted rate. For the most up-to-date information on museum programs and hours, please visit the museum's website."
+  "raw": "This is an e-voucher . Pass is e-mailed to the patron. This pass offers up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are always admitted for free. A library pass is not a museum admission ticket. See emailed instructions for how to purchase your tickets at the discounted rate. For the most up-to-date information on museum programs and hours, please visit the museum's website.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "50% discount"
+  }
 }

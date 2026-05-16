@@ -5,9 +5,22 @@
   "max_people": 4,
   "max_adults": 2,
   "max_children": 2,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family",
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass admits two adults and two children to any Trustees property in Massachusetts at Family Level membership price. Prices and hours vary by site. Pass cannot be used for parking, stores, cafes, inns, campgrounds, or special events."
+  "raw": "Each pass admits two adults and two children to any Trustees property in Massachusetts at Family Level membership price. Prices and hours vary by site. Pass cannot be used for parking, stores, cafes, inns, campgrounds, or special events.",
+  "source_phrases": {
+    "eligibility_tags": "Family",
+    "max_adults": "two adults and two children",
+    "max_children": "two adults and two children",
+    "max_people": "two adults and two children"
+  }
 }

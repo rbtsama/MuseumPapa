@@ -5,9 +5,19 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": 10.0,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits up to 6 guests to Davis Farmland or Davis Mega Maze with $10 off the at-the-gate admission rate."
+  "raw": "Pass admits up to 6 guests to Davis Farmland or Davis Mega Maze with $10 off the at-the-gate admission rate.",
+  "source_phrases": {
+    "max_people": "up to 6 guests",
+    "discount_dollar_off": "$10 off the at-the-gate admission rate"
+  }
 }

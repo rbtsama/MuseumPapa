@@ -3,11 +3,18 @@
   "attraction_slug": "garden-in-the-woods-native-plant-trust",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "pass must be returned to library",
-  "raw": "The library’s pass admits 2 adults at 50% admission, and children ages 5-17 at $1 each. (Regular admission prices: Adults, $18; Seniors 65+, $15; Students, $12; Youths aged 5-17, $8; Children under 5, free; Active military personnel and military spouses with valid military ID,free. Veterans receive 50 percent discount with proof of service.) LOAN INSTRUCTIONS: This pass may be picked up at least one day before the date of use and must be returned to the library before library opens on its next scheduled day."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "The library’s pass admits 2 adults at 50% admission, and children ages 5-17 at $1 each. (Regular admission prices: Adults, $18; Seniors 65+, $15; Students, $12; Youths aged 5-17, $8; Children under 5, free; Active military personnel and military spouses with valid military ID,free. Veterans receive 50 percent discount with proof of service.) LOAN INSTRUCTIONS: This pass may be picked up at least one day before the date of use and must be returned to the library before library opens on its next scheduled day.",
+  "source_phrases": {
+    "max_adults": "2 adults"
+  }
 }

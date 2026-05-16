@@ -5,9 +5,18 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
-  "free_under_age": 3,
+  "free_under_age": 4,
   "savings_per_person_usd": null,
-  "notes": "pass must be returned to library",
-  "raw": "PLEASE NOTE: This is a returnable pass that must be picked up at and returned to the library. You will receive a code on the reservation confirmation screen, and in your confirmation email that you will need if you prefer to purchase timed tickets online. (Timed tickets are now optional.) In either case you will need to show the physical pass at the Garden. The pass admits 2 people at half price. Children 3 and under are free."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "PLEASE NOTE: This is a returnable pass that must be picked up at and returned to the library. You will receive a code on the reservation confirmation screen, and in your confirmation email that you will need if you prefer to purchase timed tickets online. (Timed tickets are now optional.) In either case you will need to show the physical pass at the Garden. The pass admits 2 people at half price. Children 3 and under are free.",
+  "source_phrases": {
+    "max_people": "admits 2 people",
+    "free_under_age": "Children 3 and under are free",
+    "discount_percent": "half price"
+  }
 }

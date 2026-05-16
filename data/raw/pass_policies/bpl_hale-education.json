@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Returnable physical pass. Free parking for one vehicle for one day during normal business hours + hiking trail access. Not valid for other programming (beach, boating, camping, swimming, etc.). Limited to one booking per month per person.",
-  "raw": "THIS IS A RETURNABLE PASS Coupon allows for free parking for one vehicle for the day at Hale during normal business hours and access to hiking Hale's many trails. Pass is valid for one-time use at Hale. Pass is not valid for use for other programming (beach time, boating, camping, swimming, lessons, etc.) Those offerings must be purchased separately. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Parking pass for DCR/state park facilities; Limited to one booking per month per person",
+  "raw": "THIS IS A RETURNABLE PASS Coupon allows for free parking for one vehicle for the day at Hale during normal business hours and access to hiking Hale’s many trails. Pass is valid for one-time use at Hale. Pass is not valid for use for other programming (beach time, boating, camping, swimming, lessons, etc.) Those offerings must be purchased separately. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.",
+  "source_phrases": {
+    "eligibility_tags_vehicle": "free parking"
+  }
 }

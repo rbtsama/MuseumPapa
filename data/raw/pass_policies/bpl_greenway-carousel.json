@@ -5,9 +5,19 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Free family admission for up to 4 individuals for one ride.",
-  "raw": "Free Greenway Carousel family admission (up to 4 individuals) for one ride ( e-coupon). Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Free Greenway Carousel family admission (up to 4 individuals) for one ride ( e-coupon). Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "max_people": "up to 4 individuals",
+    "eligibility_tags_family": "family"
+  }
 }

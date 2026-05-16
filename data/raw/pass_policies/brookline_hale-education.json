@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Returnable pass, must be picked up and returned to Brookline Village location. Benefits text is only museum description — no party-size or admission price stated. No passes available at this time.",
-  "raw": "(781) 326-1770 Hale Reservation's ponds, trails, plants, animals, birds, fish, and insects spark curiosity. Lifelong learners enjoy limitless opportunities for growth and discovery here, whether they're overcoming a fear of heights on the challenge course or spying a family of deer along a trail. This pass must be reserved through the library's online catalog . The pass must be picked up and returned to the library's Brookline Village location. No passes are available at this time."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "No passes available at time of capture",
+  "raw": "(781) 326-1770 Hale Reservation's ponds, trails, plants, animals, birds, fish, and insects spark curiosity. Lifelong learners enjoy limitless opportunities for growth and discovery here, whether they’re overcoming a fear of heights on the challenge course or spying a family of deer along a trail. This pass must be reserved through the library's online catalog . The pass must be picked up and returned to the library's Brookline Village location. No passes are available at this time.",
+  "source_phrases": {
+    "eligibility_tags_family": "family"
+  }
 }

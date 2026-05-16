@@ -5,9 +5,16 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This single-use Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary. A discounted admission fee of $2 per person will be charged for anyone over the age of 2. Your confirmation e-mail will allow you to print out your pass or present it on your mobile device. Pass must be presented to Mass Audubon staff and is only valid for the date printed on your pass. Please visit https://www.massaudubon.org/get-outdoors for the latest information on sanctuary hours and closure dates due to special fundraising events or inclement weather. Mass Audubon does not guarantee access on any specific date/time if tickets are not available."
+  "raw": "This single-use Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary. A discounted admission fee of $2 per person will be charged for anyone over the age of 2. Your confirmation e-mail will allow you to print out your pass or present it on your mobile device. Pass must be presented to Mass Audubon staff and is only valid for the date printed on your pass. Please visit https://www.massaudubon.org/get-outdoors for the latest information on sanctuary hours and closure dates due to special fundraising events or inclement weather. Mass Audubon does not guarantee access on any specific date/time if tickets are not available.",
+  "source_phrases": {
+    "max_people": "up to 4 people"
+  }
 }

@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 20,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "20% discount on tickets purchased per show. Tickets must be purchased on line at nhphil.org with library discount code."
+  "raw": "20% discount on tickets purchased per show. Tickets must be purchased on line at nhphil.org with library discount code.",
+  "source_phrases": {
+    "discount_percent": "20% discount on tickets purchased per show"
+  }
 }

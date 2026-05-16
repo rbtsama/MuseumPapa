@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "vehicle",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Provides free parking for 1 vehicle (excluding buses and vans) for day-use parking in state parks within MA Dept. of Conservation and Recreation. MassParks Pass is not valid for Lynch Park in Beverly or Crane's Beach in Ipswich. Most parks are open year round; check the web site for details: http://www.mass.gov/eea/agencies/dcr/massparks/places-to-go This is a physical pass that must be picked up at the Main Branch Library."
+  "raw": "Provides free parking for 1 vehicle (excluding buses and vans) for day-use parking in state parks within MA Dept. of Conservation and Recreation. MassParks Pass is not valid for Lynch Park in Beverly or Crane's Beach in Ipswich. Most parks are open year round; check the web site for details: http://www.mass.gov/eea/agencies/dcr/massparks/places-to-go This is a physical pass that must be picked up at the Main Branch Library.",
+  "source_phrases": {
+    "eligibility_tags": "parking"
+  }
 }

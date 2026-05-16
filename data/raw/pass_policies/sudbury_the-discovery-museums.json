@@ -5,9 +5,17 @@
   "max_people": 3,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This is an electronic pass that you will receive in your email. You may then use the code on the pass to purchase tickets at the museum. The museum no long accepts advance reservations. The library’s pass admits 3 people to both the Discovery Museum and Discovery Woods at half price per person (Regular admission prices: Adults, $19; Children, $19; Children under 1, free; teachers, free.)"
+  "raw": "This is an electronic pass that you will receive in your email. You may then use the code on the pass to purchase tickets at the museum. The museum no long accepts advance reservations. The library’s pass admits 3 people to both the Discovery Museum and Discovery Woods at half price per person (Regular admission prices: Adults, $19; Children, $19; Children under 1, free; teachers, free.)",
+  "source_phrases": {
+    "max_people": "admits 3 people",
+    "discount_percent": "half price"
+  }
 }

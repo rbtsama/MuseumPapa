@@ -3,11 +3,19 @@
   "attraction_slug": "sandwich-glass-museum",
   "status": "ok",
   "max_people": null,
-  "max_adults": null,
+  "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Present it at the Sandwich Glass Museum's Admissions Desk for a 50% discount on general admission for up to two adults."
+  "raw": "Present it at the Sandwich Glass Museum's Admissions Desk for a 50% discount on general admission for up to two adults.",
+  "source_phrases": {
+    "max_adults": "up to two adults",
+    "discount_percent": "50% discount"
+  }
 }

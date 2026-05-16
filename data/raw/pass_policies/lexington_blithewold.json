@@ -5,9 +5,18 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Library pass admits pass admits up to 6 people at the discounted rates of $8.50 for adults and $3.00 for visitors (youth) 6- 17 years old. Please check their website https://www.blithewold.org/ for hours of operation and the most updated information. THIS IS A RETURNABLE PASS PASS MUST BE RETURNED TO CARY LIBRARY NO LATER THAN OPENING HOURS THE DAY AFTER USE"
+  "raw": "Library pass admits pass admits up to 6 people at the discounted rates of $8.50 for adults and $3.00 for visitors (youth) 6- 17 years old. Please check their website https://www.blithewold.org/ for hours of operation and the most updated information. THIS IS A RETURNABLE PASS PASS MUST BE RETURNED TO CARY LIBRARY NO LATER THAN OPENING HOURS THE DAY AFTER USE",
+  "source_phrases": {
+    "max_people": "up to 6 people"
+  }
 }

@@ -5,9 +5,18 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This library sponsored pass admits up to three people at half price discount. Additional people in your party pay full price. Pass must be picked up at the library and returned by 10 AM the following morning."
+  "raw": "This library sponsored pass admits up to three people at half price discount. Additional people in your party pay full price. Pass must be picked up at the library and returned by 10 AM the following morning.",
+  "source_phrases": {
+    "discount_percent": "half price"
+  }
 }

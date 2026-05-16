@@ -2,12 +2,19 @@
   "library_id": "reading",
   "attraction_slug": "institute-of-contemporary-art-boston",
   "status": "ok",
-  "max_people": null,
+  "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Each pass allows up to two people a discounted rate of $10 each. The ICA is always free to children 18 and under. Current hours and admission information are available at: https://www.icaboston.org/visit/ Reservations are encouraged, but not required."
+  "raw": "Each pass allows up to two people a discounted rate of $10 each. The ICA is always free to children 18 and under. Current hours and admission information are available at: https://www.icaboston.org/visit/ Reservations are encouraged, but not required.",
+  "source_phrases": {
+    "max_people": "up to two people"
+  }
 }

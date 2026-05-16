@@ -2,12 +2,21 @@
   "library_id": "braintree",
   "attraction_slug": "boston-harbor-islands",
   "status": "ok",
-  "max_people": 4,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
-  "free_under_age": 4,
+  "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% off all Boston Harbor Islands Ferry tickets from Long Wharf for up to 4 (inferred from scope context; text says \"50% off\"). Children under 3 free. Ferries run May–October. Use promo code from confirmation email on Boston Harbor City Cruises website.",
-  "raw": "617-227-4321 Boston Harbor Islands National and State Park is for everyone! The Boston Harbor Islands Partnership is committed to providing free and reduced-fare opportunities for groups and individuals. Library pass provides 50% off all Boston Harbor Islands Ferry tickets from Long Wharf. Based on availability; reservations are recommended. Use the promo code from your confirmation email on the Boston Harbor City Cruises website for the library discount. Public ferries from Long Wharf to the Boston Harbor Islands operate from May – October. 2025 Season Schedule Spectacle Island · May 16 - June 15: Thursdays through Sundays · June 16 - September 1: every day · September 4 - 21: Thursdays through Sundays · September 26 - October 13: Fridays through Sundays Georges Island · June 16- September 1: every day Peddocks Island · June 16 - September 1: every day · September 4 - October 13: Thursdays through Sundays Visit the Boston Harbor Islands National & State Park Event Calendar to learn about special cruises and opportunities to visit the islands in the off season. Visit City Experiences to learn about the $10-off ticket promotion for Boston Harbor Islands Ferry and Peddocks Island Ferry available to Massachusetts residents, Monday-Friday, June 16-October 16, 2025. Provided by Boston Harbor Islands. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": null,
+  "raw": "617-227-4321 Boston Harbor Islands National and State Park is for everyone! The Boston Harbor Islands Partnership is committed to providing free and reduced-fare opportunities for groups and individuals. Library pass provides 50% off all Boston Harbor Islands Ferry tickets from Long Wharf. Based on availability; reservations are recommended. Use the promo code from your confirmation email on the Boston Harbor City Cruises website for the library discount. Public ferries from Long Wharf to the Boston Harbor Islands operate from May – October. 2025 Season Schedule Spectacle Island · May 16 - June 15: Thursdays through Sundays · June 16 - September 1: every day · September 4 - 21: Thursdays through Sundays · September 26 - October 13: Fridays through Sundays Georges Island · June 16- September 1: every day Peddocks Island · June 16 - September 1: every day · September 4 - October 13: Thursdays through Sundays Visit the Boston Harbor Islands National & State Park Event Calendar to learn about special cruises and opportunities to visit the islands in the off season. Visit City Experiences to learn about the $10-off ticket promotion for Boston Harbor Islands Ferry and Peddocks Island Ferry available to Massachusetts residents, Monday-Friday, June 16-October 16, 2025. Provided by Boston Harbor Islands. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "discount_percent": "50% off"
+  }
 }

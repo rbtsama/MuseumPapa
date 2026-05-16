@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This coupon pass allows half-price entry to the Children's Museum for up to 4 people . Passes will be emailed to reserving patrons, without the need to come to the library to pick up the pass! Please contact the library to reserve this pass if you do not have an email address. The Children's Museum is open Wednesday through Monday. All ticketing is done online, with two time slots to reserve: 9:00am-12:00pm, and 1:30-4:30pm. The Children’s Museum is currently operating under full capacity. Upon reserving a library pass, make sure to reserve your timed ticket right away on the Children’s Museum website to ensure availability. Select “Discount Program Admission Tickets” and “Half Price Library Timed Ticket.” You will need to present your ticket and museum pass upon entry. Patrons with questions about the online ordering system should contact Orders@BostonChildrensMuseum.org"
+  "raw": "This coupon pass allows half-price entry to the Children's Museum for up to 4 people . Passes will be emailed to reserving patrons, without the need to come to the library to pick up the pass! Please contact the library to reserve this pass if you do not have an email address. The Children's Museum is open Wednesday through Monday. All ticketing is done online, with two time slots to reserve: 9:00am-12:00pm, and 1:30-4:30pm. The Children’s Museum is currently operating under full capacity. Upon reserving a library pass, make sure to reserve your timed ticket right away on the Children’s Museum website to ensure availability. Select “Discount Program Admission Tickets” and “Half Price Library Timed Ticket.” You will need to present your ticket and museum pass upon entry. Patrons with questions about the online ordering system should contact Orders@BostonChildrensMuseum.org",
+  "source_phrases": {
+    "max_people": "for up to 4 people",
+    "discount_percent": "Half Price"
+  }
 }

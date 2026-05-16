@@ -5,9 +5,21 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "id_required",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "Winchester residents only",
-  "raw": "Pass admits up to 4 visitors at 50% admission per person. Passes must be picked up at the Winchester Public Library Information Services Desk up to a week before use. Bring pass and proof of MA residency for at least one visitor to the museum to purchase discounted tickets. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "residents_only",
+    "id_required"
+  ],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": null,
+  "raw": "Pass admits up to 4 visitors at 50% admission per person. Passes must be picked up at the Winchester Public Library Information Services Desk up to a week before use. Bring pass and proof of MA residency for at least one visitor to the museum to purchase discounted tickets. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance.",
+  "source_phrases": {
+    "max_people": "up to 4 visitors"
+  }
 }

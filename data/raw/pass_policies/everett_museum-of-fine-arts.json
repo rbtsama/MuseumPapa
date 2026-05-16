@@ -2,12 +2,23 @@
   "library_id": "everett",
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
-  "max_people": 4,
-  "max_adults": null,
-  "max_children": null,
-  "eligibility": "all",
-  "free_under_age": null,
+  "max_people": null,
+  "max_adults": 2,
+  "max_children": 4,
+  "free_under_age": 7,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Children 6 and under are admitted free. Each pass allows admission for 2 adults at $10 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10. Please note the MFA is increasing prices for Institutional Pass discounted admission tickets for visit dates beginning January 20, 2026. Going forward, each pass will allow admission for 2 adults at $15 each and up to 4 children ages 7–17 at $10 each."
+  "raw": "Children 6 and under are admitted free. Each pass allows admission for 2 adults at $10 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10. Please note the MFA is increasing prices for Institutional Pass discounted admission tickets for visit dates beginning January 20, 2026. Going forward, each pass will allow admission for 2 adults at $15 each and up to 4 children ages 7–17 at $10 each.",
+  "source_phrases": {
+    "max_adults": "admission for 2 adults",
+    "max_children": "up to 4 children ages",
+    "free_under_age": "Children 6 and under are admitted free"
+  }
 }

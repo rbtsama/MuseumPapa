@@ -5,9 +5,16 @@
   "max_people": 6,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "blackout_dates",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits up to 6 people at a reduced admission of $9 per adult and $6 per child aged 2-12 yrs. Pass can be used at either the Franklin Park Zoo in Boston or the Stone Zoo in Stoneham. Pick up discount pass at the library either the day before or the day of your visit. Bring this pass to the Zoo ticket desk to receive admission discount (passes are not valid for Stone Zoo Zoolights or Franklin Park Zoo Boston Lights). For additional details on Zoo New England's policies and hours of operation please visit there website at zoonewengland.org . Please note: Zoo New England no longer accepts printable passes from confirmation email."
+  "raw": "Pass admits up to 6 people at a reduced admission of $9 per adult and $6 per child aged 2-12 yrs. Pass can be used at either the Franklin Park Zoo in Boston or the Stone Zoo in Stoneham. Pick up discount pass at the library either the day before or the day of your visit. Bring this pass to the Zoo ticket desk to receive admission discount (passes are not valid for Stone Zoo Zoolights or Franklin Park Zoo Boston Lights). For additional details on Zoo New England's policies and hours of operation please visit there website at zoonewengland.org . Please note: Zoo New England no longer accepts printable passes from confirmation email.",
+  "source_phrases": {
+    "max_people": "up to 6 people"
+  }
 }

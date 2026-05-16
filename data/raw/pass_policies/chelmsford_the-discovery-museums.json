@@ -5,9 +5,17 @@
   "max_people": 3,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits three (3) people at half price admission ($9.50) per person; any additional visitors must pay the regular admission price ($19.) Open some Monday holidays. Summer hours (mid-June - August) open 7 days a week."
+  "raw": "Pass admits three (3) people at half price admission ($9.50) per person; any additional visitors must pay the regular admission price ($19.) Open some Monday holidays. Summer hours (mid-June - August) open 7 days a week.",
+  "source_phrases": {
+    "max_people": "admits three (3) people",
+    "discount_percent": "half price"
+  }
 }

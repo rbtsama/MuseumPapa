@@ -5,9 +5,16 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pick up pass at the library. 50% off admission for up to 4. Before visiting all guests must make a reservation and pre-pay using code listed on the pass via the museum website. Pass must accompany prepaid tickets. Can only be used on date printed on pass."
+  "raw": "Pick up pass at the library. 50% off admission for up to 4. Before visiting all guests must make a reservation and pre-pay using code listed on the pass via the museum website. Pass must accompany prepaid tickets. Can only be used on date printed on pass.",
+  "source_phrases": {
+    "discount_percent": "50% off"
+  }
 }

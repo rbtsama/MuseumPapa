@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { screen } from '@testing-library/react';
-import { fireEvent } from '@testing-library/react';
+import { act, fireEvent } from '@testing-library/react';
 import { renderApp } from '../test-utils';
 import { BookingConfirmModal } from './BookingConfirmModal';
 import type { Pass, Library } from '../data/types';
@@ -93,7 +93,7 @@ describe('BookingConfirmModal', () => {
     );
 
     const copyBtns = await screen.findAllByText('COPY');
-    fireEvent.click(copyBtns[0]);
+    await act(async () => { fireEvent.click(copyBtns[0]); });
     expect(writeText).toHaveBeenCalledWith('21000012345678');
   });
 

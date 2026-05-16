@@ -5,9 +5,16 @@
   "max_people": 5,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits 5 people for free, one pass per party."
+  "raw": "Pass admits 5 people for free, one pass per party.",
+  "source_phrases": {
+    "max_people": "admits 5 people"
+  }
 }

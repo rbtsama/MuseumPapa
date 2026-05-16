@@ -5,9 +5,18 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "THE CONFRIMATION EMAIL FOR RESERVING THIS PASS IS YOUR LIBRARY PASS. Pass admits up to 2 visitors at the discounted price of $10 when redeemed at the Holly and David Bruce Visitor Center. The ICA no longer requires timed entry for admission to the museum, however we strongly recommend reserving tickets ahead of your visit. Please note the following: 1. Patrons must first acquire a valid digital library pass at their participating library to receive this discount. 2. Purchase tickets online: https://www.icaboston.org/ 3. Click on “Buy Tickets” and select your chosen date for ICA General Museum Admission 4. Click on “Library Pass Coupon” ticket price. Anyone 18 and under receive complimentary admission and should use the ticket price “Youth (0-12)” or “Youth (13-18)” 5. Follow steps to complete the order. Your ICA tickets will be emailed to you. 6. When you arrive at the ICA, proceed to the visitor services desk with your tickets and your library pass. The library pass will be collected at this time (if physical) or shown to the staff member at the desk (if digital). If you have questions about the online ordering system, contact visitorservices@icaboston.org. Your ticket is valid for entry any time during the date selected. Note: Final museum entry is 20 minutes before closing. Tickets are final sale."
+  "raw": "THE CONFRIMATION EMAIL FOR RESERVING THIS PASS IS YOUR LIBRARY PASS. Pass admits up to 2 visitors at the discounted price of $10 when redeemed at the Holly and David Bruce Visitor Center. The ICA no longer requires timed entry for admission to the museum, however we strongly recommend reserving tickets ahead of your visit. Please note the following: 1. Patrons must first acquire a valid digital library pass at their participating library to receive this discount. 2. Purchase tickets online: https://www.icaboston.org/ 3. Click on “Buy Tickets” and select your chosen date for ICA General Museum Admission 4. Click on “Library Pass Coupon” ticket price. Anyone 18 and under receive complimentary admission and should use the ticket price “Youth (0-12)” or “Youth (13-18)” 5. Follow steps to complete the order. Your ICA tickets will be emailed to you. 6. When you arrive at the ICA, proceed to the visitor services desk with your tickets and your library pass. The library pass will be collected at this time (if physical) or shown to the staff member at the desk (if digital). If you have questions about the online ordering system, contact visitorservices@icaboston.org. Your ticket is valid for entry any time during the date selected. Note: Final museum entry is 20 minutes before closing. Tickets are final sale.",
+  "source_phrases": {
+    "max_people": "up to 2 visitors"
+  }
 }

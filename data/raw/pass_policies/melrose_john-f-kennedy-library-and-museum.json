@@ -2,12 +2,25 @@
   "library_id": "melrose",
   "attraction_slug": "john-f-kennedy-library-and-museum",
   "status": "ok",
-  "max_people": 1,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "single_ticket",
-  "free_under_age": null,
+  "free_under_age": 13,
   "savings_per_person_usd": null,
-  "notes": "library card or ID must be shown at gate; library card presented at gate grants discount",
-  "raw": "UPDATE: Your library card is now your pass. Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on your admission ticket. A valid Massachusetts library card grants the cardholder 50% off one admission ticket. In order to receive the discount, visitors must show their physical or digital Massachusetts library card to staff at the front desk. The discount is valid for the library card holder only. Each patron will need to present a Massachusetts library card in order to receive the discount. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card to receive the discount. No pass is needed. Visitors aged 12 and under receive free admission. Please reach out to the JFK Library Visitor Services department with questions at kennedy.groupvisits@nara.gov or 617-514-1600."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": null,
+  "raw": "UPDATE: Your library card is now your pass. Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on your admission ticket. A valid Massachusetts library card grants the cardholder 50% off one admission ticket. In order to receive the discount, visitors must show their physical or digital Massachusetts library card to staff at the front desk. The discount is valid for the library card holder only. Each patron will need to present a Massachusetts library card in order to receive the discount. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card to receive the discount. No pass is needed. Visitors aged 12 and under receive free admission. Please reach out to the JFK Library Visitor Services department with questions at kennedy.groupvisits@nara.gov or 617-514-1600.",
+  "source_phrases": {
+    "discount_percent": "50% off",
+    "boosts": "Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on your admission ticket. A valid Massachusetts library card grants the cardholder 50% off one admission ticket. In order to receive the discount, visitors must show their physical or digital Massachusetts library card to staff at the front desk. The discount is valid for the library card holder only. Each patron will need to present a Massachusetts library card in order to receive the discount. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card",
+    "free_under_age": "Visitors aged 12 and under receive free admission"
+  }
 }

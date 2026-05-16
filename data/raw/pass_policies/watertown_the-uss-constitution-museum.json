@@ -5,9 +5,16 @@
   "max_people": 5,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass discount provides free admission for up to 5 individuals. This pass is only valid for the museum and does not provide entry to the ship. This returnable pass must be picked up in person at the Library's Circulation desk and presented upon entry. Returnable passes must be returned to the library. Directions and information regarding the returnable pass use will be provided in your confirmation email."
+  "raw": "This pass discount provides free admission for up to 5 individuals. This pass is only valid for the museum and does not provide entry to the ship. This returnable pass must be picked up in person at the Library's Circulation desk and presented upon entry. Returnable passes must be returned to the library. Directions and information regarding the returnable pass use will be provided in your confirmation email.",
+  "source_phrases": {
+    "max_people": "for up to 5 individuals"
+  }
 }

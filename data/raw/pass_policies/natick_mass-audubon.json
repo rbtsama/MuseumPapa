@@ -5,9 +5,20 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": 2,
   "savings_per_person_usd": null,
-  "notes": "pass must be returned to library; $2 per person admission",
-  "raw": "Type of pass: E-code, emailed upon reservation Pricing: Reduced admission for up to 4 people at $2 per person. Children under age 2 are always free. Additional instructions: -Valid during normal hours of operation at any Mass Audubon wildlife sanctuary. -This is a single-use pass and does not need to be returned to the library."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "single_ticket"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Type of pass: E-code, emailed upon reservation Pricing: Reduced admission for up to 4 people at $2 per person. Children under age 2 are always free. Additional instructions: -Valid during normal hours of operation at any Mass Audubon wildlife sanctuary. -This is a single-use pass and does not need to be returned to the library.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "free_under_age": "age 2 are always free",
+    "eligibility_tags": "single-use"
+  }
 }

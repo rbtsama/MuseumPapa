@@ -2,12 +2,17 @@
   "library_id": "belmont",
   "attraction_slug": "armenian-museum-of-america",
   "status": "ok",
-  "max_people": 1,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "The Armenian Museum of America has generously donated a limited number of guest passes to the Belmont Public Library. This pass discount provides free admission for 1 individual. This coupon pass must be picked up in person at the Reference desk."
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Pass provides free admission; source: \"free admission for 1 individual\". Coupon pass; does not need to be returned.",
+  "raw": "The Armenian Museum of America has generously donated a limited number of guest passes to the Belmont Public Library. This pass discount provides free admission for 1 individual. This coupon pass must be picked up in person at the Reference desk.",
+  "source_phrases": {}
 }

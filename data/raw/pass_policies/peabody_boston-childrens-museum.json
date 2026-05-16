@@ -5,9 +5,20 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": null,
-  "raw": "Please check Boston Children's Museum website for updated information before visiting. . Pass admits up to 4 people at half price. Children under 12 months free This is an electronic pass that will be sent to your email. Advance tickets/reservations are highly recommended, especially on weekends, holidays, school vacation weeks."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": "Children under 12 months admitted free.",
+  "raw": "Please check Boston Children's Museum website for updated information before visiting. . Pass admits up to 4 people at half price. Children under 12 months free This is an electronic pass that will be sent to your email. Advance tickets/reservations are highly recommended, especially on weekends, holidays, school vacation weeks.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "half price",
+    "notes": "Children under 12 months free"
+  }
 }

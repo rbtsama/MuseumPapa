@@ -2,12 +2,24 @@
   "library_id": "winchester",
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
-  "max_people": 6,
+  "max_people": null,
   "max_adults": 2,
   "max_children": 4,
-  "eligibility": "id_required",
   "free_under_age": 6,
   "savings_per_person_usd": null,
-  "notes": "Winchester residents only",
-  "raw": "Pass admits 2 adults and up to 4 children ages 7-17 at $15 per person for general admission and special exhibitions. Children 6 and under are admitted free. To reserve tickets for the MFA at mfa.org/tickets , select the date for your visit, locate your promo code by clicking the \"Access Pass\" button in your reservation email, then enter the promo code to activate the reduced admission rate. See our detailed instructions for purchasing discounted tickets. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance."
-}
+  "discount_percent": 100,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [
+    "residents_only"
+  ],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": null,
+  "raw": "Pass admits 2 adults and up to 4 children ages 7-17 at $15 per person for general admission and special exhibitions. Children 6 and under are admitted free. To reserve tickets for the MFA at mfa.org/tickets , select the date for your visit, locate your promo code by clicking the \"Access Pass\" button in your reservation email, then enter the promo code to activate the reduced admission rate. See our detailed instructions for purchasing discounted tickets. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance.",
+  "source_phrases": {
+    "max_adults": "2 adults and up to 4 children",
+    "max_children": "2 adults and up to 4 children",
+    "free_under_age": "Children 6 and under are admitted free",
+    "discount_percent": "admitte

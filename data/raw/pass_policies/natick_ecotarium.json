@@ -2,12 +2,26 @@
   "library_id": "natick",
   "attraction_slug": "ecotarium",
   "status": "ok",
-  "max_people": null,
+  "max_people": 4,
   "max_adults": 2,
   "max_children": 2,
-  "eligibility": "vehicle",
   "free_under_age": 2,
   "savings_per_person_usd": null,
-  "notes": "50% off per person",
-  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Reduced admission for up to 2 adults and 2 children at 50% off per person (children under 2 always free). Additional instructions: -Present pass upon arrival to receive discount. All members of your party must be in one vehicle. -The Alden Digital Planetarium, Explorer Express Train, or any special events are not eligible for this discount."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Reduced admission for up to 2 adults and 2 children at 50% off per person (children under 2 always free). Additional instructions: -Present pass upon arrival to receive discount. All members of your party must be in one vehicle. -The Alden Digital Planetarium, Explorer Express Train, or any special events are not eligible for this discount.",
+  "source_phrases": {
+    "max_adults": "2 adults and 2 children",
+    "max_children": "2 adults and 2 children",
+    "max_people": "2 adults and 2 children",
+    "free_under_age": "children under 2 always free",
+    "discount_percent": "50% off",
+    "eligibility_tags": "vehicle"
+  }
 }

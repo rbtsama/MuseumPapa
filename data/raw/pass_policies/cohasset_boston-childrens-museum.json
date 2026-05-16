@@ -2,12 +2,23 @@
   "library_id": "cohasset",
   "attraction_slug": "boston-childrens-museum",
   "status": "ok",
-  "max_people": 4,
+  "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "reservation_required",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% off for up to 4. Physical coupon — must make reservation on Museum website. Must bring both library coupon and Museum tickets day of visit.",
-  "raw": "308 Congress Street Boston, MA 02210 617-426-6500 Get Directions Updated 10/27/2025 This coupon is not your ticket. You MUST make a reservation on the Museum's website. Hours of Operation: Wednesday - Monday, 9:00am - 4:00pm Please Note: Boston Children's Museum will be closed September 8, 2025 -September 16, 2025 for regularly scheduled Annual Maintenance. Visit https://bostonchildrensmuseum.org/ticketing Select Discount programs Select Purchase Discount Program Tickets Select Half Price Library Timed Tickets Select the correct date (must match coupon) Select time slot Select number of tickets (maximum 4) Select Add to cart Select Check out and complete payment You will be sent tickets via email The day of your visit, please bring both your coupon from the library and your tickets from the Museum. Your coupon and tickets can be printed out or shown on a smartphone or other device. Visit museum website for more information. Boston Harbor Island Ferry Learn More"
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [
+    "reservation_required"
+  ],
+  "boosts": [],
+  "notes": null,
+  "raw": "308 Congress Street Boston, MA 02210 617-426-6500 Get Directions Updated 10/27/2025 This coupon is not your ticket. You MUST make a reservation on the Museum's website. Hours of Operation: Wednesday â€“ Monday, 9:00am - 4:00pm Please Note: Boston Children's Museum will be closed September 8, 2025 -September 16, 2025 for regularly scheduled Annual Maintenance. Visit https://bostonchildrensmuseum.org/ticketing Select â€œDiscount programsâ€ Select \"Purchase Discount Program Tickets\" Select \"Half Price Library Timed Tickets\" Select the correct date (must match coupon) Select time slot Select number of tickets (maximum 4) Select \"Add to cart\" Select \"Check out\" and complete payment You will be sent tickets via email The day of your visit, please bring both your coupon from the library and your tickets from the Museum. Your coupon and tickets can be printed out or shown on a smartphone or other device. Visit museum website for more information. Boston Harbor Island Ferry Learn More",
+  "source_phrases": {
+    "discount_percent": "Half Price"
+  }
 }

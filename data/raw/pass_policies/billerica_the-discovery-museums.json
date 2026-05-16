@@ -5,9 +5,17 @@
   "max_people": 3,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This digital pass admits three (3) people at half price. Additional people in your party pay the regular admission price: Adult: $19.00 ; Senior (60+): $18.00 ; Child: $19.00 ; Under 1 year old: Free ; Teachers are always free! All discounts (including the library pass) are applied on arrival. See Discovery Museum website for most up to date information. This pass is generously sponsored by the Family Friends of the Billerica Public Library."
+  "raw": "This digital pass admits three (3) people at half price. Additional people in your party pay the regular admission price: Adult: $19.00 ; Senior (60+): $18.00 ; Child: $19.00 ; Under 1 year old: Free ; Teachers are always free! All discounts (including the library pass) are applied on arrival. See Discovery Museum website for most up to date information. This pass is generously sponsored by the Family Friends of the Billerica Public Library.",
+  "source_phrases": {
+    "max_people": "admits three (3) people",
+    "discount_percent": "half price"
+  }
 }

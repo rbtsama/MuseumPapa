@@ -5,9 +5,19 @@
   "max_people": 2,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% off for up to 2. Best for children ages 1-7. Returnable physical pass.",
-  "raw": "508-230-3789 Pass admits up to two people for 50% off admission price. Best for children ages one through seven. Annual membership of $300 provided by the Friends of Thayer Public Library. Physical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below."
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [],
+  "notes": null,
+  "raw": "508-230-3789 Pass admits up to two people for 50% off admission price. Best for children ages one through seven. Annual membership of $300 provided by the Friends of Thayer Public Library. Physical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below.",
+  "source_phrases": {
+    "max_people": "up to two people",
+    "discount_percent": "50% off"
+  }
 }

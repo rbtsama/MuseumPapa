@@ -5,9 +5,20 @@
   "max_people": null,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "id_required",
-  "free_under_age": 13,
+  "free_under_age": null,
   "savings_per_person_usd": null,
-  "notes": "50% off for visitors 13+ with MA library card. No pass needed. Children 12 and under free. Open daily 10am-5pm.",
-  "raw": "Columbia Point Boston, MA 02125 617-514-1600 Get Directions Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card to receive the discount. No pass is needed. Visitors aged 12 and under receive free admission. Please reach out to the JFK Library Visitor Services Department with questions at kennedy.groupvisits@nara.gov or 617-514-1600. Open seven days a week 10:00am - 5:00pm. Visit museum website for more information. Massachusetts State Parks Learn More"
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "all"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "library_card_required"
+  ],
+  "notes": null,
+  "raw": "Columbia Point Boston, MA 02125 617-514-1600 Get Directions Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card to receive the discount. No pass is needed. Visitors aged 12 and under receive free admission. Please reach out to the JFK Library Visitor Services Department with questions at kennedy.groupvisits@nara.gov or 617-514-1600. Open seven days a week 10:00am - 5:00pm. Visit museum website for more information. Massachusetts State Parks Learn More",
+  "source_phrases": {
+    "discount_percent": "50% discount"
+  }
 }

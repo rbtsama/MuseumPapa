@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": "all",
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Pass admits up to 4 people at 1/2 off admission price. Click \"Reserve a Pass\" below to select the date you would like to visit and receive a discount coupon to the Children's Museum. Your email confirmation will include the printable discount coupon and instructions for ordering timed tickets to the Children's Museum with the library discount. Timed tickets are currently required to enter the museum and your discount coupon and entry dates must match. Pass cannot be combined with other discounts."
+  "raw": "Pass admits up to 4 people at 1/2 off admission price. Click \"Reserve a Pass\" below to select the date you would like to visit and receive a discount coupon to the Children's Museum. Your email confirmation will include the printable discount coupon and instructions for ordering timed tickets to the Children's Museum with the library discount. Timed tickets are currently required to enter the museum and your discount coupon and entry dates must match. Pass cannot be combined with other discounts.",
+  "source_phrases": {
+    "max_people": "up to 4 people",
+    "discount_percent": "1/2 off"
+  }
 }

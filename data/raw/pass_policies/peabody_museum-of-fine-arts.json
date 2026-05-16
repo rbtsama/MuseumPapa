@@ -2,12 +2,24 @@
   "library_id": "peabody",
   "attraction_slug": "museum-of-fine-arts",
   "status": "ok",
-  "max_people": null,
-  "max_adults": null,
-  "max_children": null,
-  "eligibility": null,
+  "max_people": 2,
+  "max_adults": 2,
+  "max_children": 4,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "vehicle"
+  ],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "Please check Museum of Fine Arts website for any updates before visiting. General admission tickets are available in person or in advance online at: mfa.org/tickets, or by phone. A library pass will not be accepted for admission into the Museum. Patrons can use the promo code ( given when you reserve your pass ) to reserve discounted admission tickets ahead of the reservation date. Patrons receive an e-mail with their admission ticket(s) and need to present their ticket(s) when they arrive at the Museum, preferably on a phone or device, but tickets printed on paper are accepted. A physical library pass will not be used for admission. Promo codes and library passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. Pass admits 2 adults at $15 each (general and special exhibition) and up to 4 children ages 7-17 at $10 (general or special exhibition). This is an electronic pass that will be sent to your email."
+  "raw": "Please check Museum of Fine Arts website for any updates before visiting. General admission tickets are available in person or in advance online at: mfa.org/tickets, or by phone. A library pass will not be accepted for admission into the Museum. Patrons can use the promo code ( given when you reserve your pass ) to reserve discounted admission tickets ahead of the reservation date. Patrons receive an e-mail with their admission ticket(s) and need to present their ticket(s) when they arrive at the Museum, preferably on a phone or device, but tickets printed on paper are accepted. A physical library pass will not be used for admission. Promo codes and library passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. Pass admits 2 adults at $15 each (general and special exhibition) and up to 4 children ages 7-17 at $10 (general or special exhibition). This is an electronic pass that will be sent to your email.",
+  "source_phrases": {
+    "max_people": "admits 2 adults",
+    "max_adults": "2 adults at ",
+    "eligibility_tags": "parking",
+    "max_children": "up to 4 children ages 7-17 at $10"
+  }
 }

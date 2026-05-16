@@ -5,9 +5,20 @@
   "max_people": null,
   "max_adults": 2,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": null,
+  "discount_dollar_off": null,
+  "eligibility_tags": [
+    "family"
+  ],
+  "exclusions": [],
+  "boosts": [
+    "members_discount"
+  ],
   "notes": null,
-  "raw": "Admission is equivalent to a Trustees Family Membership price (2 adults and children under 18) at Trustees properties that charge an admission fee. GO Passes are valid for admission fees only. Passes are not valid for discounts at parking kiosks, stores, cafes, Inns, campgrounds, special events, or equipment rentals. This coupon pass must be picked up in person at the Library's Circulation desk. Advanced ticket reservations made in advance of visit are strongly encouraged on the museum's website. Directions and information regarding the coupon pass use will be provided in your confirmation email."
+  "raw": "Admission is equivalent to a Trustees Family Membership price (2 adults and children under 18) at Trustees properties that charge an admission fee. GO Passes are valid for admission fees only. Passes are not valid for discounts at parking kiosks, stores, cafes, Inns, campgrounds, special events, or equipment rentals. This coupon pass must be picked up in person at the Library's Circulation desk. Advanced ticket reservations made in advance of visit are strongly encouraged on the museum's website. Directions and information regarding the coupon pass use will be provided in your confirmation email.",
+  "source_phrases": {
+    "max_adults": "2 adults"
+  }
 }

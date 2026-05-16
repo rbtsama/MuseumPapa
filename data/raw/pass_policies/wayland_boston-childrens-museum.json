@@ -5,9 +5,17 @@
   "max_people": 4,
   "max_adults": null,
   "max_children": null,
-  "eligibility": null,
   "free_under_age": null,
   "savings_per_person_usd": null,
+  "discount_percent": 50,
+  "discount_dollar_off": null,
+  "eligibility_tags": [],
+  "exclusions": [],
+  "boosts": [],
   "notes": null,
-  "raw": "This pass is an e-voucher . Coupon is delivered by email. Coupon offers admission for up to 4 people (adults or children) at half price per person. All visitors after their first birthday require a ticket. After receiving a library discount coupon, the Boston Children’s Museum recommends reserving your entry ticket with them online as museum capacity is limited at this time. A library pass is not an admission ticket and does not guarantee a reservation to the Museum."
+  "raw": "This pass is an e-voucher . Coupon is delivered by email. Coupon offers admission for up to 4 people (adults or children) at half price per person. All visitors after their first birthday require a ticket. After receiving a library discount coupon, the Boston Children’s Museum recommends reserving your entry ticket with them online as museum capacity is limited at this time. A library pass is not an admission ticket and does not guarantee a reservation to the Museum.",
+  "source_phrases": {
+    "max_people": "for up to 4 people",
+    "discount_percent": "half price"
+  }
 }
