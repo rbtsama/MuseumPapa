@@ -7,16 +7,17 @@
   "max_children": null,
   "free_under_age": 6,
   "savings_per_person_usd": null,
-  "discount_percent": null,
+  "discount_percent": 100,
   "discount_dollar_off": null,
   "eligibility_tags": [],
   "exclusions": [],
   "boosts": [
     "library_card_required"
   ],
-  "notes": "Pass provides free admission",
+  "notes": null,
   "raw": "Each library pass admits 2 adults at $15 per person (general admission and special exhibition) and up to 4 youth (ages 7-17) at $15 each for special exhibition only; there is no discount for youth 7-17 for general admission. Children 6 and under are admitted free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
   "source_phrases": {
-    "free_under_age": "Children 6 and under are admitted free"
+    "free_under_age": "Children 6 and under are admitted free",
+    "discount_percent": "admitted free"
   }
 }

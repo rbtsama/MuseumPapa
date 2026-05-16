@@ -7,7 +7,7 @@
   "max_children": null,
   "free_under_age": 17,
   "savings_per_person_usd": null,
-  "discount_percent": null,
+  "discount_percent": 100,
   "discount_dollar_off": null,
   "eligibility_tags": [
     "all"
@@ -17,6 +17,7 @@
   "notes": null,
   "raw": "With this pass, we welcome up to four adults free of charge to the Mapparium™ globe in the How Do You See the World? experience (value $6 per Adult). Youth 17 and younger are always free. All other exhibits in the How Do You See the World? experience are always free, as are weekend church tours, and neither require a ticket. You may redeem this pass for tickets onsite in the Welcome Hall; ticket reservations are not available ahead of time. All Mapparium showtimes are first come, first serve; this pass doesn't guarantee tickets for a specific time or day. Just print out this pass and bring it with you or display it on your phone or device. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
   "source_phrases": {
-    "free_under_age": "Youth 17 and younger are always free"
+    "free_under_age": "Youth 17 and younger are always free",
+    "discount_percent": "free of charge to the"
   }
 }
