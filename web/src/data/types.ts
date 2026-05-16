@@ -103,7 +103,8 @@ export interface Attraction {
   website: string;
   phone: string | null;
   description: string | null;
-  categories: string[];
+  categories: string[];          // canonical 7-class set: Children | History | Nature | Science | Art | Performance | Sports
+  categories_raw?: string[];     // original Assabet labels (audit / debug only)
   sources: string[];
   original_price: OriginalPrice | null;
   hero_image: HeroImage | null;

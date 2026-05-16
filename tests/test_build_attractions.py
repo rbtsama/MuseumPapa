@@ -40,7 +40,8 @@ def test_build_attractions_merges_price_image_geo():
     a = out["attractions"][0]
     assert a["slug"] == "mos"
     assert a["museum_name"] == "Museum of Science"
-    assert set(a["categories"]) == {"Science", "Family"}
+    assert set(a["categories"]) == {"Science", "Children"}  # Family/Science → Children/Science via canonicalize
+    assert set(a["categories_raw"]) == {"Science", "Family"}  # raw labels preserved
     assert set(a["sources"]) == {"wakefield", "reading"}
     assert a["original_price"]["adult"] == 33
     assert a["original_price"]["child"] == 28

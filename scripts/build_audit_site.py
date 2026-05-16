@@ -1024,38 +1024,14 @@ def page_attractions(attr_data) -> str:
         "bucket_varies":     "Varies by property · 景点本身有多 property(非图书馆分馆问题)",
         "bucket_nodata":     "No data · 无数据",
     }
-    # Categories — display-time normalization: 21 raw labels → 7 essential ones
-    # Rule: merge by essential subject matter, not by row count.
-    #   Sports kept distinct (Naismith/Patriots are sports museums — sports-fan
-    #     families specifically search for these, even though only 2 rows).
-    #   Tours dropped: all 4 also tagged History; 'guided walk through historic
-    #     site' is a presentation format, not a subject.
-    #   Recreation dropped: 7/10 also tagged Nature; the rest (YMCA, Sandmagination)
-    #     fall under Family/Children which they're already tagged with.
-    CAT_NORMALIZE = {
-        "Art": "Art", "Crafts": "Art",
-        "Family": "Children", "Children": "Children",
-        "History": "History", "Architecture": "History", "Governance": "History",
-        "Military": "History", "Tours": "History",
-        "Nature": "Nature", "Ocean": "Nature", "Sky": "Nature", "Zoo": "Nature",
-        "Recreation": "Nature",
-        "Music": "Performance", "Theatre": "Performance", "Dance": "Performance",
-        "Entertainment": "Performance",
-        "Science": "Science", "Technology": "Science",
-        "Sports": "Sports",
-    }
-    CANON_CATEGORIES = ["Children", "History", "Nature", "Science", "Art", "Performance", "Sports"]
-
-    cat_counter = Counter()       # raw 21 labels
-    cat_canon_counter = Counter() # normalized 7 labels
+    # Categories — read straight from data layer (already normalized by build/categories.py)
+    cat_canon_counter = Counter()  # canonical 7-class
+    cat_counter = Counter()        # raw labels (categories_raw, kept for audit)
     for A in attrs:
-        raw_cats = A.get("categories") or []
-        for c in raw_cats:
-            cat_counter[c] += 1
-        canon = {CAT_NORMALIZE.get(c) for c in raw_cats}
-        canon.discard(None)
-        for c in canon:
+        for c in A.get("categories") or []:
             cat_canon_counter[c] += 1
+        for c in A.get("categories_raw") or []:
+            cat_counter[c] += 1
     # Coverage of non-price fields
     cov_counter = Counter()
     for A in attrs:

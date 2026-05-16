@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import datetime as dt
 
+from malibbene.build.categories import canonicalize as canonicalize_categories
+
 
 def _price_block(rec: dict | None) -> dict | None:
     if not rec or rec.get("status") != "ok":
@@ -103,7 +105,8 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
                 "website": p.get("website", ""),
                 "phone": p.get("phone"),
                 "description": p.get("description"),
-                "categories": [],
+                "categories": [],            # canonical 7-class set (written below)
+                "categories_raw": [],        # union of raw Assabet labels (kept for audit / debug)
                 "sources": [],
             })
             if lib_id not in entry["sources"]:
@@ -112,8 +115,12 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
                 if not entry.get(fld) and p.get(fld):
                     entry[fld] = p[fld]
             for c in p.get("categories", []):
-                if c not in entry["categories"]:
-                    entry["categories"].append(c)
+                if c not in entry["categories_raw"]:
+                    entry["categories_raw"].append(c)
+
+    # After accumulation, normalize raw labels → canonical 7-class set.
+    for entry in accum.values():
+        entry["categories"] = canonicalize_categories(entry["categories_raw"])
 
     out = []
     for slug, base in accum.items():
