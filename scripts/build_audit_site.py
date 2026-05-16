@@ -533,7 +533,10 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
     <b>口径</b>:分母 = 全部 {n_passes} 条 pass。分子 = 含该标签的 pass 数。<br>
     每条 pass 可有 <b>0、1 或多个</b>标签 → 各行加总可大于或小于 100%。<br>
     本期实际加总 ≈ {sum(tag_counter.values())}/{n_passes} = <b>{round(100*sum(tag_counter.values())/n_passes)}%</b> &lt; 100%,
-    因为多数 pass 一个标签都没有(见末行 "no tag")。这通常意味着 raw 原文未声明特别人群限制(隐含"任何人均可"),或 AI 因 raw 过短未抽取出标签。
+    因为多数 pass 一个标签都没有(见末行 "no tag")。<br>
+    <b>"open to all" 与 "no tag" 语义实际等价</b>(AI 抽样比较两组 raw,措辞几乎一致,差异主要来自 AI 抽取阈值的不稳定性)。
+    两者合并视为 <b>default access · 默认全员可用 = {tag_counter.get('all', 0) + (n_passes - n_with_any_elig)} 条 = {round(100*(tag_counter.get('all',0) + (n_passes-n_with_any_elig))/n_passes)}%</b>。
+    其余非默认标签合计 {n_with_any_elig - tag_counter.get('all', 0)} 条才是真正"有人群门槛"的 pass。
   </p>
   {histogram_with_notag(tag_counter, ELIG_LABEL, n_passes, n_passes - n_with_any_elig, "no tag · 未标任何 eligibility 标签")}
 </section>
