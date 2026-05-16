@@ -12,7 +12,11 @@
         "zip": "02143"
       },
       "hours_raw": null,
-      "extraction_notes": "Address from footer widget (line 1491). No hours block on this hub page; hours are on the sub-page /library/hours-locations/central-library/."
+      "extraction_notes": "Address from footer widget (line 1491). No hours block on this hub page; hours are on the sub-page /library/hours-locations/central-library/.",
+      "geo": {
+        "lat": 42.3857881,
+        "lon": -71.0944054
+      }
     },
     {
       "branch_id": "somerville--east",
@@ -24,7 +28,11 @@
         "zip": "02145"
       },
       "hours_raw": "Monday: 9:00 AM — 9:00 PM; Tuesday - Wednesday: 9:00 AM — 6:00 PM; Thursday: 9:00 AM — 9:00 PM; Friday: 9:00 AM — 6:00 PM; Saturday: 9:00 AM — 1:00 PM; Sunday: Closed. Closed on all state and federal holidays.",
-      "extraction_notes": "Address and hours from sub-page /library/hours-locations/east-branch/ (somerville_east-branch.html line 1359 for address, line 1347 for hours table). Zip 02145 from Google Maps URL in the Location link."
+      "extraction_notes": "Address and hours from sub-page /library/hours-locations/east-branch/ (somerville_east-branch.html line 1359 for address, line 1347 for hours table). Zip 02145 from Google Maps URL in the Location link.",
+      "geo": {
+        "lat": 42.3879283,
+        "lon": -71.0835579
+      }
     },
     {
       "branch_id": "somerville--west",
@@ -36,7 +44,11 @@
         "zip": "02144"
       },
       "hours_raw": "Monday: 9:00 AM — 9:00 PM; Tuesday: 9:00 AM — 6:00 PM; Wednesday: 9:00 AM — 9:00 PM; Thursday - Friday: 9:00 AM — 6:00 PM; Saturday: 9:00 AM — 1:00 PM; Sunday: Closed. Closed on all state and federal holidays.",
-      "extraction_notes": "Address and hours from sub-page /library/hours-locations/west-branch/ (somerville_west-branch.html line 1359 for address, line 1347 for hours table). Zip 02144 from Google Maps URL in the Location link."
+      "extraction_notes": "Address and hours from sub-page /library/hours-locations/west-branch/ (somerville_west-branch.html line 1359 for address, line 1347 for hours table). Zip 02144 from Google Maps URL in the Location link.",
+      "geo": {
+        "lat": 42.3981484,
+        "lon": -71.1217138
+      }
     }
   ]
 }

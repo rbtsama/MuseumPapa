@@ -12,7 +12,11 @@
         "zip": "01960"
       },
       "hours_raw": "Monday: 9am-9pm\nTuesday: 9am-9pm\nWednesday: 9am-9pm\nThursday: 9am-9pm\nFriday: 9am-1pm\nSaturday: 9am-5pm\nSunday: 1pm-5pm *CLOSED Memorial Day - Labor Day*",
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.5249222,
+        "lon": -70.9242115
+      }
     },
     {
       "branch_id": "peabody--south-branch",
@@ -24,7 +28,11 @@
         "zip": "01960"
       },
       "hours_raw": "Monday: 9am-5pm\nTuesday: 9am-9pm\nWednesday: 9am-5pm\nThursday: 1pm-9pm\nSaturday: 9am-1pm",
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.5127095,
+        "lon": -70.9465445
+      }
     },
     {
       "branch_id": "peabody--west-branch",
@@ -36,7 +44,11 @@
         "zip": "01960"
       },
       "hours_raw": "Monday: 9am-5pm\nTuesday: 9am-9pm\nWednesday: 9am-5pm\nThursday: 1pm-9pm\nSaturday: 9am-1pm",
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.5490692,
+        "lon": -70.9924346
+      }
     }
   ]
 }

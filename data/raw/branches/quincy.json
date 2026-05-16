@@ -12,7 +12,11 @@
         "zip": "02169"
       },
       "hours_raw": "Monday 9 AM − 9 PM; Tuesday 9 AM − 9 PM; Wednesday 9 AM − 9 PM; Thursday 9 AM − 9 PM; Friday 9 AM − 5 PM; Saturday 9 AM − 5 PM; Sunday 1 PM − 5 PM",
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.2515107,
+        "lon": -71.0008246
+      }
     },
     {
       "branch_id": "quincy--north-quincy",
@@ -24,7 +28,11 @@
         "zip": "02171"
       },
       "hours_raw": "Monday 9 AM − 5 PM; Tuesday 1 PM − 9 PM; Wednesday 9 AM − 5 PM; Thursday 1 PM − 5 PM; Friday 1 PM − 5 PM; Saturday 9 AM − 5 PM; Sunday Closed",
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.2739863,
+        "lon": -71.0263856
+      }
     },
     {
       "branch_id": "quincy--adams-shore",
@@ -36,7 +44,11 @@
         "zip": "02169"
       },
       "hours_raw": "Monday 1 PM − 9 PM; Tuesday 9 AM − 5 PM; Wednesday 1 PM − 5 PM; Thursday 1 PM − 5 PM; Friday Closed; Saturday Closed; Sunday Closed",
-      "extraction_notes": "Adams Shore branch appears active in HTML with full address and hours as of snapshot date."
+      "extraction_notes": "Adams Shore branch appears active in HTML with full address and hours as of snapshot date.",
+      "geo": {
+        "lat": 42.2606346,
+        "lon": -70.9790579
+      }
     },
     {
       "branch_id": "quincy--wollaston",
@@ -48,7 +60,11 @@
         "zip": "02171"
       },
       "hours_raw": "Monday 9 AM − 1 PM; Tuesday 1 PM − 5 PM; Wednesday 1 PM − 5 PM; Thursday 9 AM − 1 PM; Friday Closed; Saturday Closed; Sunday Closed",
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.266837,
+        "lon": -71.0178951
+      }
     }
   ]
 }
