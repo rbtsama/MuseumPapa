@@ -12,7 +12,11 @@
         "zip": "02122"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.2862449,
+        "lon": -71.0543931
+      }
     },
     {
       "branch_id": "bpl--brighton",
@@ -24,7 +28,11 @@
         "zip": "02135"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.347559,
+        "lon": -71.1526263
+      }
     },
     {
       "branch_id": "bpl--central-library-in-copley-square",
@@ -36,7 +44,11 @@
         "zip": "02116"
       },
       "hours_raw": null,
-      "extraction_notes": "Address confirmed verbatim in HTML footer: '700 Boylston St. Boston, MA 02116'"
+      "extraction_notes": "Address confirmed verbatim in HTML footer: '700 Boylston St. Boston, MA 02116'",
+      "geo": {
+        "lat": 42.3493298,
+        "lon": -71.0786547
+      }
     },
     {
       "branch_id": "bpl--charlestown",
@@ -48,7 +60,11 @@
         "zip": "02129"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.375776,
+        "lon": -71.0646208
+      }
     },
     {
       "branch_id": "bpl--chinatown",
@@ -60,7 +76,11 @@
         "zip": "02116"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3520843,
+        "lon": -71.0631338
+      }
     },
     {
       "branch_id": "bpl--codman-square",
@@ -72,7 +92,11 @@
         "zip": "02124"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.2877145,
+        "lon": -71.070848
+      }
     },
     {
       "branch_id": "bpl--connolly",
@@ -84,7 +108,11 @@
         "zip": "02130"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3206515,
+        "lon": -71.1110858
+      }
     },
     {
       "branch_id": "bpl--east-boston",
@@ -96,7 +124,11 @@
         "zip": "02128"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3777815,
+        "lon": -71.0280956
+      }
     },
     {
       "branch_id": "bpl--egleston-square",
@@ -108,7 +140,11 @@
         "zip": "02119"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3141061,
+        "lon": -71.0957166
+      }
     },
     {
       "branch_id": "bpl--faneuil",
@@ -120,7 +156,11 @@
         "zip": "02135"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3513286,
+        "lon": -71.1678718
+      }
     },
     {
       "branch_id": "bpl--fields-corner",
@@ -132,7 +172,11 @@
         "zip": "02122"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.2988842,
+        "lon": -71.0603971
+      }
     },
     {
       "branch_id": "bpl--grove-hall",
@@ -144,7 +188,11 @@
         "zip": "02121"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.308334,
+        "lon": -71.0822078
+      }
     },
     {
       "branch_id": "bpl--honan-allston",
@@ -156,7 +204,11 @@
         "zip": "02134"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3601192,
+        "lon": -71.1277246
+      }
     },
     {
       "branch_id": "bpl--hyde-park",
@@ -168,7 +220,11 @@
         "zip": "02136"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.25687,
+        "lon": -71.122235
+      }
     },
     {
       "branch_id": "bpl--jamaica-plain",
@@ -180,7 +236,11 @@
         "zip": "02130"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3086446,
+        "lon": -71.1149102
+      }
     },
     {
       "branch_id": "bpl--lower-mills",
@@ -192,7 +252,11 @@
         "zip": "02124"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.2734799,
+        "lon": -71.0684875
+      }
     },
     {
       "branch_id": "bpl--mattapan",
@@ -204,7 +268,11 @@
         "zip": "02126"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.277345,
+        "lon": -71.0930048
+      }
     },
     {
       "branch_id": "bpl--north-end",
@@ -216,7 +284,11 @@
         "zip": "02113"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3640992,
+        "lon": -71.0549216
+      }
     },
     {
       "branch_id": "bpl--parker-hill",
@@ -228,7 +300,11 @@
         "zip": "02120"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3316942,
+        "lon": -71.0943203
+      }
     },
     {
       "branch_id": "bpl--roslindale",
@@ -240,7 +316,11 @@
         "zip": "02131"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.2856452,
+        "lon": -71.1286097
+      }
     },
     {
       "branch_id": "bpl--shaw-roxbury",
@@ -252,7 +332,11 @@
         "zip": "02119"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3280581,
+        "lon": -71.0836027
+      }
     },
     {
       "branch_id": "bpl--south-boston",
@@ -264,7 +348,11 @@
         "zip": "02127"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3358744,
+        "lon": -71.0387246
+      }
     },
     {
       "branch_id": "bpl--south-end",
@@ -276,7 +364,11 @@
         "zip": "02118"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3413995,
+        "lon": -71.0769618
+      }
     },
     {
       "branch_id": "bpl--uphams-corner",
@@ -288,7 +380,11 @@
         "zip": "02125"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.314814,
+        "lon": -71.0676285
+      }
     },
     {
       "branch_id": "bpl--west-end",
@@ -300,7 +396,11 @@
         "zip": "02114"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3615437,
+        "lon": -71.0650037
+      }
     },
     {
       "branch_id": "bpl--west-roxbury",
@@ -312,7 +412,11 @@
         "zip": "02132"
       },
       "hours_raw": null,
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.2835214,
+        "lon": -71.1573821
+      }
     }
   ]
 }

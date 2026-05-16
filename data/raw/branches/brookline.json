@@ -12,7 +12,11 @@
         "zip": "02445"
       },
       "hours_raw": "Sunday: 1:00 PM - 5:00 PM; Monday: 10:00 AM - 9:00 PM; Tuesday: 10:00 AM - 9:00 PM; Wednesday: 10:00 AM - 9:00 PM; Thursday: 10:00 AM - 9:00 PM; Friday: 10:00 AM - 5:00 PM; Saturday: 10:00 AM - 5:00 PM",
-      "extraction_notes": "Main branch at Brookline Village. City shown as Brookline, MA 02445 in HTML."
+      "extraction_notes": "Main branch at Brookline Village. City shown as Brookline, MA 02445 in HTML.",
+      "geo": {
+        "lat": 42.3346378,
+        "lon": -71.1213843
+      }
     },
     {
       "branch_id": "brookline--coolidge-corner",
@@ -24,7 +28,11 @@
         "zip": "02446"
       },
       "hours_raw": "Sunday: 1:00 PM - 5:00 PM; Monday: 10:00 AM - 6:00 PM; Tuesday: 10:00 AM - 9:00 PM; Wednesday: 10:00 AM - 6:00 PM; Thursday: 10:00 AM - 9:00 PM; Friday: 10:00 AM - 5:00 PM; Saturday: 10:00 AM - 5:00 PM",
-      "extraction_notes": ""
+      "extraction_notes": "",
+      "geo": {
+        "lat": 42.3435193,
+        "lon": -71.1191436
+      }
     },
     {
       "branch_id": "brookline--putterham",
@@ -36,7 +44,11 @@
         "zip": "02467"
       },
       "hours_raw": "Sunday: Closed; Monday: 10:00 AM - 9:00 PM; Tuesday: 10:00 AM - 6:00 PM; Wednesday: 10:00 AM - 9:00 PM; Thursday: 10:00 AM - 6:00 PM; Friday: 9:30 AM - 5:00 PM; Saturday: 9:30 AM - 5:00 PM",
-      "extraction_notes": "Operated by Brookline Public Library; physical address in Chestnut Hill, MA 02467 — kept as Chestnut Hill so geocoding resolves to the actual location."
+      "extraction_notes": "Operated by Brookline Public Library; physical address in Chestnut Hill, MA 02467 — kept as Chestnut Hill so geocoding resolves to the actual location.",
+      "geo": {
+        "lat": 42.308594,
+        "lon": -71.159178
+      }
     }
   ]
 }

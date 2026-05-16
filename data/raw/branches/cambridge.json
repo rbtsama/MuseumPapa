@@ -12,7 +12,11 @@
         "zip": "02138"
       },
       "hours_raw": "Sun: 1PM - 5PM | Mon - Thu: 9AM - 9PM | Fri - Sat: 9AM - 5PM",
-      "extraction_notes": "Featured location on page. Hours from footer hoursOfServiceList section."
+      "extraction_notes": "Featured location on page. Hours from footer hoursOfServiceList section.",
+      "geo": {
+        "lat": 42.3739871,
+        "lon": -71.1104696
+      }
     },
     {
       "branch_id": "cambridge--boudreau",
@@ -24,7 +28,11 @@
         "zip": "02138"
       },
       "hours_raw": null,
-      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown."
+      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown.",
+      "geo": {
+        "lat": 42.3833739,
+        "lon": -71.1325764
+      }
     },
     {
       "branch_id": "cambridge--central-square",
@@ -36,7 +44,11 @@
         "zip": "02139"
       },
       "hours_raw": null,
-      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown."
+      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown.",
+      "geo": {
+        "lat": 42.363788,
+        "lon": -71.103714
+      }
     },
     {
       "branch_id": "cambridge--collins",
@@ -48,7 +60,11 @@
         "zip": "02138"
       },
       "hours_raw": null,
-      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown."
+      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown.",
+      "geo": {
+        "lat": 42.3769056,
+        "lon": -71.1468839
+      }
     },
     {
       "branch_id": "cambridge--oconnell",
@@ -60,7 +76,11 @@
         "zip": "02141"
       },
       "hours_raw": null,
-      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown."
+      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown.",
+      "geo": {
+        "lat": 42.370447,
+        "lon": -71.0848239
+      }
     },
     {
       "branch_id": "cambridge--oneill",
@@ -72,7 +92,11 @@
         "zip": "02140"
       },
       "hours_raw": null,
-      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown."
+      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown.",
+      "geo": {
+        "lat": 42.3921964,
+        "lon": -71.1280369
+      }
     },
     {
       "branch_id": "cambridge--valente",
@@ -84,7 +108,11 @@
         "zip": "02141"
       },
       "hours_raw": null,
-      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown."
+      "extraction_notes": "No per-branch hours block on this page; only open/closed status shown.",
+      "geo": {
+        "lat": 42.3721548,
+        "lon": -71.0902467
+      }
     }
   ]
 }
