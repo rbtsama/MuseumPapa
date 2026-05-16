@@ -15,17 +15,30 @@
 
 <section class="dist-grid">
   <div class="panel dist-panel">
-    <h3>Price tier 覆盖率 · 8 个层级</h3>
-    <table class="histogram"><tr><td>Adult · 成人</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">78</td><td class="pct">73%</td></tr><tr><td>Senior · 老人</td><td class="bar-cell"><span class="bar">█████████████████████████</span></td><td class="num">49</td><td class="pct">46%</td></tr><tr><td>Child · 儿童</td><td class="bar-cell"><span class="bar">█████████████████</span></td><td class="num">34</td><td class="pct">32%</td></tr><tr><td>Student · 学生</td><td class="bar-cell"><span class="bar">███████████████</span></td><td class="num">30</td><td class="pct">28%</td></tr><tr><td>Military · 军人</td><td class="bar-cell"><span class="bar">██████████</span></td><td class="num">20</td><td class="pct">19%</td></tr><tr><td>Youth · 青少年</td><td class="bar-cell"><span class="bar">█████████</span></td><td class="num">17</td><td class="pct">16%</td></tr><tr><td>Educator · 教师</td><td class="bar-cell"><span class="bar">████</span></td><td class="num">7</td><td class="pct">7%</td></tr><tr><td>Family · 家庭通票</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">2</td><td class="pct">2%</td></tr></table>
-    <p class="methodology" style="margin-top:8px">
-      口径:分母 = 全部 107 个景点。Adult 73% 是基本盘;Educator (7%) / Family (2%) 太稀疏,前端可考虑不展示。
+    <h3>Price tier 覆盖率 · 核心 5 类</h3>
+    <p class="methodology" style="margin-bottom:8px">
+      <b>家庭用户核心关注</b>:成人 / 年轻人 / 儿童 / 学生 / 教师。<br>
+      schema 升级方向(plan-7):分成两层 = <b>年龄定价</b>(adult/youth/child 带具体年龄区间,如 "3-7 岁 $14",不模糊到"儿童")+ <b>身份定价</b>(student/educator)。
     </p>
+    <table class="histogram"><tr><td>Adult · 成人</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">78</td><td class="pct">73%</td></tr><tr><td>Child · 儿童</td><td class="bar-cell"><span class="bar">█████████████████</span></td><td class="num">34</td><td class="pct">32%</td></tr><tr><td>Student · 学生</td><td class="bar-cell"><span class="bar">███████████████</span></td><td class="num">30</td><td class="pct">28%</td></tr><tr><td>Youth · 年轻人</td><td class="bar-cell"><span class="bar">█████████</span></td><td class="num">17</td><td class="pct">16%</td></tr><tr><td>Educator · 教师</td><td class="bar-cell"><span class="bar">████</span></td><td class="num">7</td><td class="pct">7%</td></tr></table>
   </div>
   <div class="panel dist-panel">
-    <h3>Hours 状态分布</h3>
-    <table class="histogram"><tr><td>ok · 全周固定小时</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">94</td><td class="pct">88%</td></tr><tr><td>varies · 跨分馆/分区,小时不一</td><td class="bar-cell"><span class="bar">█████</span></td><td class="num">11</td><td class="pct">10%</td></tr><tr><td>seasonal · 季节性开放</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">2</td><td class="pct">2%</td></tr></table>
+    <h3>Price tier 覆盖率 · 次级 3 类</h3>
+    <p class="methodology" style="margin-bottom:8px">
+      Senior / Military / Family-套票 — 数据仍抓,但前端不放主视觉。<br>
+      <b>军人免费</b>本身是博物馆固有政策,与领 coupon 决策无关。<b>EBT / 互惠会员 / 本校学生 / 本镇居民</b> 等边缘群体不进 schema,留 notes 兜底或让用户去官网核实。
+    </p>
+    <table class="histogram"><tr><td>Senior · 老人</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">49</td><td class="pct">46%</td></tr><tr><td>Military · 军人</td><td class="bar-cell"><span class="bar">████████████████</span></td><td class="num">20</td><td class="pct">19%</td></tr><tr><td>Family · 家庭通票</td><td class="bar-cell"><span class="bar">██</span></td><td class="num">2</td><td class="pct">2%</td></tr></table>
+  </div>
+  <div class="panel dist-panel">
+    <h3>Hours 分布 · 3 大类</h3>
+    <table class="histogram"><tr><td>Partially closed · 部分天关闭(博物馆主流模式)</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">48</td><td class="pct">45%</td></tr><tr><td>Open every day · 全周开放</td><td class="bar-cell"><span class="bar">██████████████████████████████████████</span></td><td class="num">45</td><td class="pct">42%</td></tr><tr><td>Varies by branch · 多分馆汇总(plan-6 拆完会消失)</td><td class="bar-cell"><span class="bar">█████████</span></td><td class="num">11</td><td class="pct">10%</td></tr><tr><td>Seasonal · 仅特定月份开放</td><td class="bar-cell"><span class="bar">██</span></td><td class="num">3</td><td class="pct">3%</td></tr></table>
     <p class="methodology" style="margin-top:8px">
-      varies = Trustees / Mass Audubon 这类多分馆网络;seasonal = 仅特定月份开放;ok = 全周可查。
+      <b>用户视角 3 类</b>:<br>
+      ① <b>Open every day</b> — 任何时候都行<br>
+      ② <b>Partially closed</b> — 一周有 1+ 天关(博物馆主流,典型 Tue closed 或 weekends-only);用户必须看具体哪天关<br>
+      ③ <b>Seasonal</b> — 仅特定月份开放<br>
+      <i>Varies by branch</i> 是多分馆汇总的过渡状态,plan-6 branch 拆分后会变成单独 branch 的 hours,不再聚合。
     </p>
   </div>
   <div class="panel dist-panel">

@@ -93,16 +93,16 @@
     这一节列出 AI 抽取过程中可能值得人工抽查的"可疑点"。每条都说明了"是什么/含义/怎么追溯"。
     数字旁的链接跳转到相应专题页,可逐条核对 raw 原文与 AI 输出。
   </p>
-  <ul class="anomaly-list"><li><b>69</b> 条 pass 的 raw 原文存在,但 AI 没给出任何 source_phrases 引用 — 含义:AI 抽出了字段却没注明引自原文哪一句,**审计抽查首选项**(可能是 AI 偷懒或 raw 过短) — <a href='policies.html'>see Policies</a></li><li><b>63</b> 条 pass 的 raw 原文存在,但 policy 的所有数值字段(人数上限/折扣百分比/标签等)都为空 — 含义:AI 完全没抽出任何结构化信息,可能 raw 过短或措辞特殊</li><li><b>23</b> 条 pass 的 pass_type 是 unknown(没归类成 digital/physical/loan-card 中的任一个) — 含义:从原始 HTML 抓不到明确的 pass 类型标识符</li><li><b>8</b> 对 attraction slug 重复(同一景点被存了两条记录) — 含义:数据建模历史遗留 bug,前端会显示成两张不同的卡,需合并 — <a href='duplicates.html'>see Duplicates</a></li><li><b>26</b> 个景点没有任何价格层级(adult/child/youth/senior/...)— 含义:景点官网无公开标价,或票价是 per-show / per-vehicle 浮动 — <a href='gaps.html'>see Gaps</a></li><li><b>7</b> 个景点没有简介文字 — 含义:景点官网无 og:description / about 页 抓取失败 / 网站 403 拦截</li></ul>
+  <ul class="anomaly-list"><li><b>69</b> 条 pass 的 raw 原文存在,但 AI 没给出任何 source_phrases 引用 — 含义:AI 抽出了字段却没注明引自原文哪一句,**审计抽查首选项**(可能是 AI 偷懒或 raw 过短) — <a href='policies.html'>see Policies</a></li><li><b>64</b> 条 pass 的 raw 原文存在,但 policy 的所有数值字段(人数上限/折扣百分比/标签等)都为空 — 含义:AI 完全没抽出任何结构化信息,可能 raw 过短或措辞特殊</li><li><b>23</b> 条 pass 的 pass_type 是 unknown(没归类成 digital/physical/loan-card 中的任一个) — 含义:从原始 HTML 抓不到明确的 pass 类型标识符</li><li><b>8</b> 对 attraction slug 重复(同一景点被存了两条记录) — 含义:数据建模历史遗留 bug,前端会显示成两张不同的卡,需合并 — <a href='duplicates.html'>see Duplicates</a></li><li><b>26</b> 个景点没有任何价格层级(adult/child/youth/senior/...)— 含义:景点官网无公开标价,或票价是 per-show / per-vehicle 浮动 — <a href='gaps.html'>see Gaps</a></li><li><b>7</b> 个景点没有简介文字 — 含义:景点官网无 og:description / about 页 抓取失败 / 网站 403 拦截</li></ul>
 </section>
 
 <footer class="page-foot">
-  Built 2026-05-16 15:07 UTC ·
+  Built 2026-05-16 15:48 UTC ·
   <a href="#" class="view-json-link" data-json-key="meta">View JSON of dataset summary</a>
 </footer>
 
 </main>
 <div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>
-<script id="data-blob" type="application/json">{"meta": {"libraries": {"built_at": "2026-05-16T04:27:48Z", "n_libraries": 59, "n_with_address": 55, "n_with_geo": 59}, "attractions": {"built_at": "2026-05-16T04:27:48Z", "n_attractions": 107, "n_with_price": 81, "n_with_image": 104, "n_with_geo": 107, "n_with_hours": 107}, "passes": {"built_at": "2026-05-16T04:27:48Z", "n_passes": 1008, "n_with_availability": 974, "n_with_policy": 1008}, "library_catalog": {"built_at": "2026-05-16T04:27:48Z", "n_libraries": 59, "n_passes_total": 1008, "n_unmapped_passes_per_platform": {"assabet": 0, "libcal": 0, "museumkey": 0}}}}</script>
+<script id="data-blob" type="application/json">{"meta": {"libraries": {"built_at": "2026-05-16T15:32:48Z", "n_libraries": 59, "n_with_address": 55, "n_with_geo": 59}, "attractions": {"built_at": "2026-05-16T15:32:48Z", "n_attractions": 107, "n_with_price": 81, "n_with_image": 104, "n_with_geo": 107, "n_with_hours": 107}, "passes": {"built_at": "2026-05-16T15:32:48Z", "n_passes": 1008, "n_with_availability": 974, "n_with_policy": 1008, "n_physical_at_branch": 438, "n_digital": 570}, "library_catalog": {"built_at": "2026-05-16T15:32:48Z", "n_libraries": 59, "n_passes_total": 1008, "n_unmapped_passes_per_platform": {"assabet": 0, "libcal": 0, "museumkey": 0}}}}</script>
 <script src="assets/audit.js"></script>
 </body></html>

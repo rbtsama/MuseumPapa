@@ -977,27 +977,53 @@ def page_attractions(attr_data) -> str:
 
     # ── Distribution stats ─────────────────────────────────────────────
     n_attrs = len(attrs)
-    # Price tier coverage
-    tiers = [("adult","Adult · 成人"),("senior","Senior · 老人"),("child","Child · 儿童"),
-             ("student","Student · 学生"),("military","Military · 军人"),
-             ("youth","Youth · 青少年"),("educator","Educator · 教师"),("family","Family · 家庭通票")]
-    tier_counter = Counter()
+    # Price tier coverage — split into 2 named groups per family-user persona:
+    #   CORE: adult / youth / child / student / educator
+    #   SECONDARY: senior / military / family
+    CORE_TIERS = [("adult","Adult · 成人"), ("youth","Youth · 年轻人"),
+                  ("child","Child · 儿童"), ("student","Student · 学生"),
+                  ("educator","Educator · 教师")]
+    SECONDARY_TIERS = [("senior","Senior · 老人"), ("military","Military · 军人"),
+                       ("family","Family · 家庭通票")]
+    core_counter = Counter()
+    secondary_counter = Counter()
     for A in attrs:
         p = A.get("original_price") or {}
-        for k, _ in tiers:
-            if p.get(k) is not None:
-                tier_counter[k] += 1
-    tier_label_map = dict(tiers)
-    # Hours status
+        for k, _ in CORE_TIERS:
+            if p.get(k) is not None: core_counter[k] += 1
+        for k, _ in SECONDARY_TIERS:
+            if p.get(k) is not None: secondary_counter[k] += 1
+    tier_label_map = {**dict(CORE_TIERS), **dict(SECONDARY_TIERS)}
+    # Hours buckets — 3 user-facing categories + 2 footnote categories.
+    # Rule: a status="ok" record with ALL 7 days closed is treated as seasonal
+    # (data bug fix — e.g. cohasset whose notes say "summer only" but status was 'ok').
     hours_status_counter = Counter()
     for A in attrs:
         h = A.get("hours")
         if not h:
-            hours_status_counter["(no data)"] += 1
+            hours_status_counter["bucket_nodata"] += 1
+            continue
+        st = h.get("status")
+        rh = h.get("regular_hours") or {}
+        days = ['mon','tue','wed','thu','fri','sat','sun']
+        n_closed = sum(1 for d in days if (rh.get(d) or '').lower() in ('closed', '', 'none'))
+        if st == "varies":
+            hours_status_counter["bucket_varies"] += 1
+        elif st == "seasonal" or (st == "ok" and n_closed == 7):
+            hours_status_counter["bucket_seasonal"] += 1
+        elif st == "ok" and n_closed == 0:
+            hours_status_counter["bucket_open_daily"] += 1
+        elif st == "ok" and n_closed > 0:
+            hours_status_counter["bucket_partial"] += 1
         else:
-            hours_status_counter[h.get("status") or "(no data)"] += 1
-    hours_label_map = {"ok": "ok · 全周固定小时", "varies": "varies · 跨分馆/分区,小时不一",
-                       "seasonal": "seasonal · 季节性开放", "(no data)": "(无数据)"}
+            hours_status_counter["bucket_nodata"] += 1
+    hours_label_map = {
+        "bucket_open_daily": "Open every day · 全周开放",
+        "bucket_partial":    "Partially closed · 部分天关闭(博物馆主流模式)",
+        "bucket_seasonal":   "Seasonal · 仅特定月份开放",
+        "bucket_varies":     "Varies by branch · 多分馆汇总(plan-6 拆完会消失)",
+        "bucket_nodata":     "No data · 无数据",
+    }
     # Categories
     cat_counter = Counter()
     for A in attrs:
@@ -1028,17 +1054,30 @@ def page_attractions(attr_data) -> str:
 
 <section class="dist-grid">
   <div class="panel dist-panel">
-    <h3>Price tier 覆盖率 · 8 个层级</h3>
-    {histogram_table(tier_counter, n_attrs, tier_label_map)}
-    <p class="methodology" style="margin-top:8px">
-      口径:分母 = 全部 {n_attrs} 个景点。Adult 73% 是基本盘;Educator (7%) / Family (2%) 太稀疏,前端可考虑不展示。
+    <h3>Price tier 覆盖率 · 核心 5 类</h3>
+    <p class="methodology" style="margin-bottom:8px">
+      <b>家庭用户核心关注</b>:成人 / 年轻人 / 儿童 / 学生 / 教师。<br>
+      schema 升级方向(plan-7):分成两层 = <b>年龄定价</b>(adult/youth/child 带具体年龄区间,如 "3-7 岁 $14",不模糊到"儿童")+ <b>身份定价</b>(student/educator)。
     </p>
+    {histogram_table(core_counter, n_attrs, tier_label_map)}
   </div>
   <div class="panel dist-panel">
-    <h3>Hours 状态分布</h3>
+    <h3>Price tier 覆盖率 · 次级 3 类</h3>
+    <p class="methodology" style="margin-bottom:8px">
+      Senior / Military / Family-套票 — 数据仍抓,但前端不放主视觉。<br>
+      <b>军人免费</b>本身是博物馆固有政策,与领 coupon 决策无关。<b>EBT / 互惠会员 / 本校学生 / 本镇居民</b> 等边缘群体不进 schema,留 notes 兜底或让用户去官网核实。
+    </p>
+    {histogram_table(secondary_counter, n_attrs, tier_label_map)}
+  </div>
+  <div class="panel dist-panel">
+    <h3>Hours 分布 · 3 大类</h3>
     {histogram_table(hours_status_counter, n_attrs, hours_label_map)}
     <p class="methodology" style="margin-top:8px">
-      varies = Trustees / Mass Audubon 这类多分馆网络;seasonal = 仅特定月份开放;ok = 全周可查。
+      <b>用户视角 3 类</b>:<br>
+      ① <b>Open every day</b> — 任何时候都行<br>
+      ② <b>Partially closed</b> — 一周有 1+ 天关(博物馆主流,典型 Tue closed 或 weekends-only);用户必须看具体哪天关<br>
+      ③ <b>Seasonal</b> — 仅特定月份开放<br>
+      <i>Varies by branch</i> 是多分馆汇总的过渡状态,plan-6 branch 拆分后会变成单独 branch 的 hours,不再聚合。
     </p>
   </div>
   <div class="panel dist-panel">
