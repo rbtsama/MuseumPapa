@@ -678,7 +678,7 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
 # PAGE 2 — libraries.html
 # =========================================================================
 
-def page_libraries(libs_data, libcat=None) -> str:
+def page_libraries(libs_data, libcat=None, branches_data=None) -> str:
     libs = libs_data["libraries"]
     n_libs = len(libs)
     plat_counter = Counter(L.get("platform") or "(unknown)" for L in libs)
@@ -732,18 +732,16 @@ def page_libraries(libs_data, libcat=None) -> str:
     <br>① <b>电子券(digital pass)</b>:用户只关心折扣 — "MFA 半价" — 无需任何"组织"前缀。展示 "by BPL" 或 "by Wakefield Library" 是噪音
     <br>② <b>实体券(physical / loan-card)</b>:用户需要<b>具体物理地址</b>开车去取 — "BPL 总部" 这个抽象不能告诉用户去 Copley Square 还是 East Boston;前者 Back Bay 后者隔海港
   </p>
-  <p class="methodology">
-    <b>plan-6 工作项</b>:数据模型升级 →
-    <br>· 新增 <code>pickup_method</code> 字段(digital | physical_at_branch)
-    <br>· 实体券新增 <code>pickup_branches[]</code> 字段,每个 branch 带自己的 address/geo
-    <br>· 优先重抓:BPL(26 分馆,10 个 branch-exclusive pass)、Cambridge(7 分馆)、Brookline(3 分馆参与)
-    <br>· 前端展示规则:电子券隐藏 lib_id 抽象;实体券强制按 branch 显示物理地址
+  <p class="methodology" style="color: var(--g);">
+    <b>✅ plan-6 已落地</b>:passes.json 现已带 <code>pickup_method</code>(digital | physical_at_branch)+ <code>pickup_branches[]</code>;
+    BPL/Cambridge/Brookline 三家多分馆 lib 的 branch 明细见<b>本页底部的"多分馆 lib"面板</b>。
+    单分馆 lib 自动合成 <code>&lt;lib_id&gt;--main</code> branch(地址 = 该 lib 自己的地址)。
   </p>
 </section>
 
 <p class="methodology">
   下面这张表是<b>本期数据爬取层</b>的视图:59 个 lib_id 各自唯一,无重复。
-  当 plan-6 完成 branch 拆分后,本表会扩展出 BPL/Cambridge/Brookline 的 branch 行。
+  BPL/Cambridge/Brookline 三家的 branch 拆分见底部"多分馆 lib"面板。
 </p>
 
 <section class="dist-grid">
@@ -769,9 +767,57 @@ def page_libraries(libs_data, libcat=None) -> str:
 <tbody>{"".join(rows)}</tbody>
 </table>
 <p class="foot-link"><a href="#" class="view-json-link" data-json-key="libraries">View full libraries.json</a></p>
+
+{_multi_branch_panel(branches_data)}
 """
     blob = json.dumps({"libraries": libs_data}, ensure_ascii=False)
     return page_shell("Libraries", body, "libraries.html", data_blob=blob)
+
+
+def _multi_branch_panel(branches_data) -> str:
+    """Render a panel of sub-tables for libraries with >1 branch.
+
+    Serves both audit needs at once (per [[audit-panel-must-serve-real-decision]]):
+      (a) data correctness — every branch's name + street is a verifiable claim
+      (b) user decision — these are the actual driveable addresses a physical
+          pass holder needs.
+    Nothing else lives here (no histograms, no branch × pass matrix).
+    """
+    if not branches_data:
+        return ""
+    by_parent: dict[str, list[dict]] = {}
+    for b in branches_data.get("branches", []):
+        by_parent.setdefault(b["parent_lib_id"], []).append(b)
+    multi = {lid: bs for lid, bs in by_parent.items() if len(bs) > 1}
+    if not multi:
+        return ""
+    sections = []
+    for lid in sorted(multi):
+        bs = sorted(multi[lid], key=lambda x: x["id"])
+        rows = "".join(
+            f'<tr><td class="mono">{esc(b["id"])}</td>'
+            f'<td>{esc(b["name"])}</td>'
+            f'<td>{esc(b["address"]["street"])}</td>'
+            f'<td>{esc(b["address"]["city"])}</td>'
+            f'<td>{esc(b["address"].get("zip") or "")}</td>'
+            f'<td class="mono">{b["geo"]["lat"]:.4f}, {b["geo"]["lon"]:.4f}</td></tr>'
+            for b in bs
+        )
+        sections.append(f"""
+<h3 style="margin-top:18px">{esc(lid)} · {len(bs)} 分馆</h3>
+<table class="data-table">
+<thead><tr><th>branch_id</th><th>name</th><th>street</th><th>city</th><th>zip</th><th>geo</th></tr></thead>
+<tbody>{rows}</tbody>
+</table>""")
+    return f"""
+<h2 class="section-title">多分馆 lib · Branch breakdown</h2>
+<p class="methodology">
+  这张表服务两件事:① <b>数据正确性</b> — 审计可以直接对照官网核对每个 branch 的地址;
+  ② <b>用户决策</b> — 持实体券的用户必须开车到这里取卡,这是 plan-6 的核心交付。
+  其余 56 个 lib 自动合成 <code>&lt;lib_id&gt;--main</code> branch,不再单独列。
+</p>
+{"".join(sections)}
+"""
 
 
 # =========================================================================
@@ -1943,6 +1989,8 @@ def main():
     attr_data = load_json(STRUCT / "attractions.json")
     passes_data = load_json(STRUCT / "passes.json")
     libcat = load_json(STRUCT / "library_catalog.json")
+    branches_path = STRUCT / "branches.json"
+    branches_data = load_json(branches_path) if branches_path.exists() else None
 
     pages = []
 
@@ -1957,7 +2005,7 @@ def main():
     write("index.html", page_index(libs_data, attr_data, passes_data, libcat))
 
     print("[3/8] libraries.html")
-    write("libraries.html", page_libraries(libs_data, libcat=libcat))
+    write("libraries.html", page_libraries(libs_data, libcat=libcat, branches_data=branches_data))
 
     print("[4/8] attractions.html")
     attr_html, missing_image = page_attractions(attr_data)
