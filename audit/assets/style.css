@@ -110,26 +110,34 @@ main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
 .unexplained { color: var(--rd); background: var(--rd-pale); }
 
 /* Attractions */
-/* Attractions — large 2-column card */
+/* Attractions — header + (image | meta) two-col top + full-width sections below */
 .attr-list { display: flex; flex-direction: column; gap: 28px; }
 .attr-card {
   background: var(--white); border: 1px solid var(--rule); border-radius: 10px;
-  padding: 24px; font-size: 13px; display: flex; gap: 28px;
+  padding: 24px; font-size: 13px;
 }
-.attr-card .hero-col { flex: 0 0 500px; }
-.attr-card .info-col { flex: 1 1 auto; min-width: 0; }
+
+.attr-card .top-row {
+  display: flex; gap: 24px; margin: 14px 0 18px;
+  padding-bottom: 18px; border-bottom: 1px solid var(--rule);
+}
+.attr-card .hero-side { flex: 0 0 250px; }
+.attr-card .meta-side { flex: 1 1 auto; min-width: 0; }
 
 .hero-big {
-  width: 500px; max-width: 100%; height: auto; max-height: 380px;
+  width: 250px; max-width: 100%; height: auto; max-height: 200px;
   object-fit: cover; border-radius: 8px; cursor: zoom-in; display: block;
   border: 1px solid var(--rule);
 }
 .hero-big.noimg {
-  width: 500px; max-width: 100%; height: 200px;
+  width: 250px; max-width: 100%; height: 160px;
   background: var(--paper); border: 1px dashed var(--rule-strong); border-radius: 8px;
   display: flex; align-items: center; justify-content: center; color: var(--ink-3);
   font-size: 12px;
 }
+
+.v.closed { color: var(--rd); font-weight: 600; }
+.v.dash { color: var(--rule-strong); }
 
 .attr-card .attr-header { border-bottom: 1px solid var(--rule); padding-bottom: 12px; margin-bottom: 14px; }
 .attr-card .attr-name {
