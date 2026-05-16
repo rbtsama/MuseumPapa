@@ -1,5 +1,5 @@
 {
-  "_comment": "BPL/Cambridge/Brookline 三家多分馆 LibCal 馆的 locations 入口页。其余 56 lib 视为单分馆,在 build_branches 阶段自动合成 <lib_id>--main。plan-6。",
+  "_comment": "Multi-branch library locations entry pages. Plan-6 added BPL/Cambridge/Brookline (LibCal). Plan-7 added Peabody/Somerville/Quincy (Assabet). All other libs are single-branch and get a synthetic <lib_id>--main branch from libraries.json.",
   "multi_branch_libs": [
     {
       "lib_id": "bpl",
@@ -14,6 +14,21 @@
     {
       "lib_id": "brookline",
       "locations_url": "https://www.brooklinelibrary.org/hours-locations/",
+      "expected_branch_count": 3
+    },
+    {
+      "lib_id": "peabody",
+      "locations_url": "https://www.peabodylibrary.org/",
+      "expected_branch_count": 3
+    },
+    {
+      "lib_id": "somerville",
+      "locations_url": "https://www.somervillepubliclibrary.org/library/hours-locations/",
+      "expected_branch_count": 3
+    },
+    {
+      "lib_id": "quincy",
+      "locations_url": "https://tcplquincy.org/visit/locations/",
       "expected_branch_count": 3
     }
   ]
