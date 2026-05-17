@@ -2,6 +2,7 @@ import type { AgeRange, AudiencePolicy, Coupon, CouponCapacity } from '../data/t
 
 interface Props {
   coupon: Coupon;
+  align?: 'left' | 'right';
 }
 
 type AudienceBucket = 'Adult' | 'Youth' | 'Child' | 'Everyone';
@@ -57,8 +58,11 @@ function fmtAudienceLabel(p: AudiencePolicy): string | null {
 }
 
 function PersonIcon() {
+  // viewBox cropped from 0-24 to 4-20 (drops natural padding around the figure
+  // so a row of icons sits flush). Render width is 9px; combined with negative
+  // letter-spacing on the wrapper they overlap into a tight cluster.
   return (
-    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden
+    <svg width="9" height="11" viewBox="4 0 16 24" fill="currentColor" aria-hidden
       style={{ display: 'inline-block', verticalAlign: '-1px' }}>
       <path d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0zM3.75 20.1a8.25 8.25 0 0 1 16.5 0 .75.75 0 0 1-.44.69 18.7 18.7 0 0 1-7.81 1.7c-2.79 0-5.43-.6-7.81-1.7a.75.75 0 0 1-.44-.69z" />
     </svg>
@@ -73,7 +77,7 @@ function CapacityNode({ capacity, color }: { capacity: CouponCapacity; color: st
     return (
       <span className="inline-flex items-baseline" style={{ color, gap: 3 }}>
         <span>up to</span>
-        <span className="inline-flex items-center" style={{ gap: 1 }}>
+        <span className="inline-flex items-center" style={{ gap: 0 }}>
           {Array.from({ length: capacity.n }).map((_, i) => <PersonIcon key={i} />)}
         </span>
       </span>
@@ -89,11 +93,12 @@ function isNonAdmissionCoupon(coupon: Coupon): boolean {
   return coupon.audience_policies.some(p => p.audience === 'Vehicle');
 }
 
-export function CouponLine({ coupon }: Props) {
+export function CouponLine({ coupon, align = 'right' }: Props) {
   if (!coupon.audience_policies.length) return null;
 
   const dim = 'var(--ink-3)';
   const amount = 'var(--g)';
+  const justify = align === 'right' ? 'justify-end' : 'justify-start';
 
   if (isNonAdmissionCoupon(coupon)) {
     return (
@@ -108,7 +113,7 @@ export function CouponLine({ coupon }: Props) {
 
   return (
     <span
-      className="inline-flex flex-wrap items-baseline justify-end gap-x-1.5 gap-y-0.5"
+      className={`inline-flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 ${justify}`}
       style={{ fontSize: 12, lineHeight: 1.2 }}
     >
       {hasCapacity && <CapacityNode capacity={coupon.capacity} color={dim} />}

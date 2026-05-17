@@ -200,30 +200,31 @@ export function AttractionCard({
               ? `${t.library.town} · ${branches.length} branches`
               : null;
 
+            const locationText = isDigital ? t.library.name
+              : branchSummary ? branchSummary
+              : showBranchLabel ? `${branches[0].name} · ${branches[0].address.street}`
+              : t.library.town;
+
             return (
               <div
                 key={`${t.pass.library_id}-${i}`}
-                className="flex items-center gap-2 px-3 py-2.5"
+                className="flex items-center gap-2 px-3 py-2"
                 style={{ borderTop: i === 0 ? 'none' : '1px solid var(--rule)' }}
               >
                 <PassTypeLabel type={t.pass.pass_type} />
 
-                <div className="flex-grow min-w-0">
+                <div className="flex-grow min-w-0 flex flex-col gap-0.5">
                   <div style={{ fontSize: 13, color: 'var(--ink-2)', fontWeight: 500,
                     overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                    {isDigital ? t.library.name
-                      : branchSummary ? branchSummary
-                      : showBranchLabel ? `${branches[0].name} · ${branches[0].address.street}`
-                      : t.library.town}
+                    {locationText}
                     {!isDigital && t.distanceMi != null && (
                       <span style={{ fontSize: 11, color: 'var(--ink-3)', fontWeight: 400 }}>
-                        {' '}· {Math.round(t.distanceMi)} mi
+                        {' '}· {Math.round(t.distanceMi)} mi from you
                       </span>
                     )}
                   </div>
+                  <CouponLine coupon={t.pass.coupon} align="left" />
                 </div>
-
-                <CouponLine coupon={t.pass.coupon} />
 
                 <span
                   role="button"
