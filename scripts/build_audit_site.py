@@ -460,9 +460,9 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
         f"<li><b>{n_unknown_pt}</b> 条 pass 的 pass_type 是 unknown(没归类成 digital/physical/loan-card 中的任一个) — "
         f"含义:从原始 HTML 抓不到明确的 pass 类型标识符</li>"
     )
-    # plan-10: count only pairs where BOTH slugs are still present as separate entities.
-    _attr_slugs = {a["slug"] for a in attr_data["attractions"]}
-    n_dup = sum(1 for a, b in KNOWN_DUPLICATES if a in _attr_slugs and b in _attr_slugs)
+    # filter pairs whose slugs already merged
+    attr_slugs = {a["slug"] for a in attr_data["attractions"]}
+    n_dup = sum(1 for a, b in KNOWN_DUPLICATES if a in attr_slugs and b in attr_slugs)
     anomalies.append(
         f"<li><b>{n_dup}</b> 对 attraction slug 重复(同一景点被存了两条记录) — "
         f"含义:数据建模历史遗留 bug,前端会显示成两张不同的卡,需合并 — "
@@ -1426,8 +1426,7 @@ def page_gaps(attr_data, libs_data) -> str:
 
 def page_duplicates(attr_data) -> str:
     attrs = {A["slug"]: A for A in attr_data["attractions"]}
-    # plan-10: filter to only pairs where BOTH slugs still exist as separate entities.
-    # Once a legacy slug is collapsed to its canonical winner, the pair is resolved.
+    # filter pairs whose slugs already merged
     active_pairs = [(a, b) for a, b in KNOWN_DUPLICATES if a in attrs and b in attrs]
 
     def render_record(A: dict) -> str:
@@ -1477,10 +1476,15 @@ def page_duplicates(attr_data) -> str:
   <div class="dup-grid">{render_record(A)}{render_record(B)}</div>
   <p class="suggestion"><b>Suggested:</b> keep <code>{esc(keep)}</code>, drop <code>{esc(drop)}</code></p>
 </section>""")
+    resolved_note = (
+        "<p><i>All known duplicate pairs have been collapsed to canonical entities. "
+        "Mapping table: <code>src/malibbene/build/slug_canonical.py</code>.</i></p>"
+        if not active_pairs else ""
+    )
     body = f"""
 <h1 class="page-title">Duplicates · {len(active_pairs)} pairs</h1>
 <p>Pairs of attraction slugs that refer to the same real-world venue. Goal: pick one canonical slug, migrate libraries, retire the other.</p>
-{"<p><i>All known duplicate pairs have been collapsed to canonical entities (plan-10). Mapping table: <code>src/malibbene/build/slug_canonical.py</code>.</i></p>" if not active_pairs else ""}
+{resolved_note}
 {"".join(pairs_html)}
 """
     return page_shell("Duplicates", body, "duplicates.html")

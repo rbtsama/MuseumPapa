@@ -120,7 +120,7 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
                 "description": p.get("description"),
                 "categories": [],            # canonical 7-class set (written below)
                 "categories_raw": [],        # union of raw Assabet labels (kept for audit / debug)
-                "legacy_slugs": [],          # plan-10: track collapsed legacy slugs
+                "legacy_slugs": [],
                 "sources": [],
             })
             if raw_slug != slug and raw_slug not in entry["legacy_slugs"]:
@@ -139,12 +139,7 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
         entry["categories"] = canonicalize_categories(entry["categories_raw"])
 
     def _lookup(d: dict, slug: str, legacy_slugs: list[str]):
-        """Lookup `d[slug]`, falling back to any collapsed legacy slug.
-
-        Raw enrichment files (prices/images/hours/descriptions) are still keyed
-        by their original slug; we don't rename them. So if the canonical key
-        isn't present, try each legacy alias.
-        """
+        """Raw enrichment files are keyed by legacy slug; fall back through aliases."""
         if slug in d:
             return d[slug]
         for ls in legacy_slugs:

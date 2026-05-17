@@ -1,13 +1,10 @@
 """Canonical slug mapping for attraction entities.
 
 Some attractions are referenced by multiple slugs across platforms (Assabet vs
-LibCal vs MuseumKey). plan-10 Task 1 collapses these duplicates by mapping each
-legacy slug to a single canonical winner. The mapping is applied in the build
-pipeline (attractions accumulator + passes emitter) so downstream consumers
-only ever see canonical slugs.
-
-Winners are LOCKED — do not re-litigate in this file. To add a new pair,
-append a row to LEGACY_TO_CANONICAL.
+LibCal vs MuseumKey). This mapping collapses duplicates by mapping each legacy
+slug to a single canonical winner. Applied in the build pipeline (attractions
+accumulator + passes emitter) so downstream consumers only ever see canonical
+slugs.
 """
 from __future__ import annotations
 

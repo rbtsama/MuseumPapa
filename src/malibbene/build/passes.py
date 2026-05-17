@@ -109,7 +109,7 @@ def build_passes(
         for raw_slug, p in lib_entry.get("passes", {}).items():
             cal = p.get("calendar")
             canon = canonical_slug(raw_slug)
-            # plan-10: raw coupon files weren't renamed; try raw key first then canonical.
+            # raw coupon files keyed by legacy slug; try raw first, fall back to canonical
             coupon_key_raw = f"{lib_id}_{raw_slug}"
             coupon_key_canon = f"{lib_id}_{canon}"
             coupon_rec = coupons.get(coupon_key_raw) or coupons.get(coupon_key_canon)
