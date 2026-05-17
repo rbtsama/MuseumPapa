@@ -132,7 +132,7 @@ export function AttractionCard({
           {/* Multi-tier admission price line — surface up to 4 known tiers
               (adult / youth / kids / senior or student). Calm bold black; the
               real-money attention belongs on the discounted option rows below. */}
-          {tiers.length > 0 && (
+          {(tiers.length > 0 || op?.age_pricing?.free_under_age != null) && (
             <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5" style={{ fontSize: 12 }}>
               {tiers.slice(0, 4).map((t, i) => (
                 <span key={`${t.label}-${i}`} className="inline-flex items-baseline gap-1">
@@ -145,6 +145,11 @@ export function AttractionCard({
                   )}
                 </span>
               ))}
+              {op?.age_pricing?.free_under_age != null && (
+                <span style={{ color: 'var(--ink-3)', fontSize: 12 }}>
+                  {tiers.length > 0 ? '· ' : ''}kids &lt;{op.age_pricing.free_under_age} free
+                </span>
+              )}
             </p>
           )}
 

@@ -7,9 +7,15 @@ from malibbene.build.categories import canonicalize as canonicalize_categories
 from malibbene.build.slug_canonical import canonical as canonical_slug
 
 
-def _price_block(rec: dict | None) -> dict | None:
+def _price_block(rec: dict | None, free_under_age_override: int | None = None) -> dict | None:
+    # When no real price record exists, a detected free-under-N can still be
+    # surfaced — but only as a stub price block (everything else null) so the
+    # UI gets the "+ kids <N free" hint even for attractions whose admission
+    # page we never scraped.
     if not rec or rec.get("status") != "ok":
-        return None
+        if free_under_age_override is None:
+            return None
+        rec = {"free_under_age": free_under_age_override}
 
     def _age_tier(value):
         return {"price": value, "min_age": None, "max_age": None} if value is not None else None
@@ -17,13 +23,17 @@ def _price_block(rec: dict | None) -> dict | None:
     def _identity_tier(value):
         return {"price": value, "requires": None} if value is not None else None
 
+    # Museum's own statement (rec.free_under_age from raw extraction) wins;
+    # the consensus-detected override only fills the gap when raw is missing.
+    free_under = rec.get("free_under_age") if rec.get("free_under_age") is not None else free_under_age_override
+
     return {
         "age_pricing": {
             "adult":  _age_tier(rec.get("adult")),
             "youth":  _age_tier(rec.get("youth")),
             "child":  _age_tier(rec.get("child")),
             "senior": _age_tier(rec.get("senior")),
-            "free_under_age": rec.get("free_under_age"),
+            "free_under_age": free_under,
         },
         "identity_pricing": {
             "student":  _identity_tier(rec.get("student")),
@@ -94,7 +104,8 @@ def _apply_description_fallback(entry: dict, desc_rec: dict | None) -> None:
 
 def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
                        hours: dict | None = None,
-                       descriptions: dict | None = None) -> dict:
+                       descriptions: dict | None = None,
+                       free_under_age_overrides: dict[str, int] | None = None) -> dict:
     """Return {attractions: [...], _meta: {...}}.
 
     Args:
@@ -107,6 +118,7 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
     attr_geo = geo.get("attractions", {})
     hours = hours or {}
     descriptions = descriptions or {}
+    free_under_age_overrides = free_under_age_overrides or {}
     accum: dict[str, dict] = {}
     for lib_id, lib_entry in catalog.get("libraries", {}).items():
         for raw_slug, p in lib_entry.get("passes", {}).items():
@@ -153,7 +165,10 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
         _apply_description_fallback(base, _lookup(descriptions, slug, legacy_aliases))
         out.append({
             **base,
-            "original_price": _price_block(_lookup(prices, slug, legacy_aliases)),
+            "original_price": _price_block(
+                _lookup(prices, slug, legacy_aliases),
+                free_under_age_overrides.get(slug),
+            ),
             "hero_image": _image_block(_lookup(images, slug, legacy_aliases)),
             "geo": _geo_block(_lookup(attr_geo, slug, legacy_aliases)),
             "hours": _hours_block(_lookup(hours, slug, legacy_aliases)),

@@ -191,6 +191,30 @@ describe('AttractionCard', () => {
     expect(screen.getByText('$30')).toBeInTheDocument();
   });
 
+  it('renders "kids <N free" hint when free_under_age is set', () => {
+    const a = makeAttraction();
+    a.original_price!.age_pricing.free_under_age = 3;
+    renderApp(
+      <AttractionCard
+        attraction={a}
+        pickedTags={[]}
+        isGuestOrEmpty={false}
+      />
+    );
+    expect(screen.getByText(/kids <3 free/)).toBeInTheDocument();
+  });
+
+  it('does not render "kids <N free" hint when free_under_age is null', () => {
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        pickedTags={[]}
+        isGuestOrEmpty={false}
+      />
+    );
+    expect(screen.queryByText(/kids </)).not.toBeInTheDocument();
+  });
+
   it('shows "+ N more" when more than 4 tags', () => {
     const tags = Array.from({ length: 6 }, (_, i) =>
       makePickedTag({ library_id: `lib-${i}`, pass_type: 'physical-coupon' }, { id: `lib-${i}`, town: `Town${i}` })

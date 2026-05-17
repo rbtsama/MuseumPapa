@@ -17,7 +17,11 @@ import type { OriginalPrice } from '../data/types';
 
 function formatOriginalAdult(op: OriginalPrice | null): string {
   const adult = op?.age_pricing?.adult?.price;
-  return adult != null ? `Original Adult $${adult}` : 'Price unavailable';
+  const free = op?.age_pricing?.free_under_age;
+  const suffix = free != null ? ` · kids <${free} free` : '';
+  if (adult != null) return `Original Adult $${adult}${suffix}`;
+  if (free != null) return `Kids <${free} free`;
+  return 'Price unavailable';
 }
 import { BookingConfirmModal } from '../components/BookingConfirmModal';
 import { weeklyHoursList } from '../lib/hours';

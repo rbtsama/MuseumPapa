@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "built_at": "2026-05-17T05:22:51Z",
+    "built_at": "2026-05-17T06:19:24Z",
     "n_attractions": 98,
-    "n_with_price": 76,
+    "n_with_price": 82,
     "n_with_image": 95,
     "n_with_geo": 98,
     "n_with_hours": 98
@@ -166,7 +166,23 @@
         "weston",
         "woburn"
       ],
-      "original_price": null,
+      "original_price": {
+        "age_pricing": {
+          "adult": null,
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": 5
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
+        "family": null,
+        "notes": null,
+        "source_url": null
+      },
       "hero_image": {
         "og_image_url": "https://concordmuseum.org/wp-content/uploads/2023/09/share-fb_concord-museum.jpg",
         "local_path": "static/images/concord-museum.jpg"
@@ -414,7 +430,7 @@
           "youth": null,
           "child": null,
           "senior": null,
-          "free_under_age": null
+          "free_under_age": 2
         },
         "identity_pricing": {
           "student": null,
@@ -924,7 +940,23 @@
         "brookline",
         "cohasset"
       ],
-      "original_price": null,
+      "original_price": {
+        "age_pricing": {
+          "adult": null,
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": 13
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
+        "family": null,
+        "notes": null,
+        "source_url": null
+      },
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/JFK_library_Stitch_Crop.jpg",
         "local_path": "static/images/jfk-library.jpg"
@@ -1555,7 +1587,23 @@
         "wilmington",
         "woburn"
       ],
-      "original_price": null,
+      "original_price": {
+        "age_pricing": {
+          "adult": null,
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": 4
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
+        "family": null,
+        "notes": null,
+        "source_url": null
+      },
       "hero_image": {
         "og_image_url": "https://nebg.org/wp-content/uploads/2022/10/entry-garden.jpg",
         "local_path": "static/images/new-england-botanic-garden-at-tower-hill.jpg"
@@ -1770,7 +1818,23 @@
         "cohasset",
         "hingham"
       ],
-      "original_price": null,
+      "original_price": {
+        "age_pricing": {
+          "adult": null,
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": 18
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
+        "family": null,
+        "notes": null,
+        "source_url": null
+      },
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Great_House_-_Castle_Hill_on_the_Crane_Estate_-_Ipswich%2C_Massachusetts_-_DSC06125.jpg/960px-Great_House_-_Castle_Hill_on_the_Crane_Estate_-_Ipswich%2C_Massachusetts_-_DSC06125.jpg",
         "local_path": "static/images/trustees-of-reservations.jpg"
@@ -1861,7 +1925,23 @@
         "cohasset",
         "hingham"
       ],
-      "original_price": null,
+      "original_price": {
+        "age_pricing": {
+          "adult": null,
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": 2
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
+        "family": null,
+        "notes": null,
+        "source_url": null
+      },
       "hero_image": {
         "og_image_url": "http://www.zoonewengland.org/media/1259935/zoo-new-england.jpg",
         "local_path": "static/images/zoo-new-england.jpg"
@@ -2215,7 +2295,23 @@
         "stoneham",
         "waltham"
       ],
-      "original_price": null,
+      "original_price": {
+        "age_pricing": {
+          "adult": null,
+          "youth": null,
+          "child": null,
+          "senior": null,
+          "free_under_age": 18
+        },
+        "identity_pricing": {
+          "student": null,
+          "educator": null,
+          "military": null
+        },
+        "family": null,
+        "notes": null,
+        "source_url": null
+      },
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Lyman_Estate%2C_Waltham%2C_Massachusetts_-_front_facade.JPG",
         "local_path": "static/images/historic-new-england.jpg"

@@ -15,6 +15,7 @@ from malibbene.build.catalog import build_library_catalog
 from malibbene.build.libraries import build_libraries
 from malibbene.build.attractions import build_attractions
 from malibbene.build.passes import build_passes
+from malibbene.build.museum_policy import detect_free_under_age
 
 # Local import (sibling script) — kept inside build_branches namespace so its
 # logging stays attributed to that step rather than this orchestrator.
@@ -90,9 +91,17 @@ def main() -> int:
     print(f"  {libs_doc['_meta']['n_libraries']} libraries "
           f"({libs_doc['_meta']['n_with_address']} addr, {libs_doc['_meta']['n_with_geo']} geo)")
 
+    # Load coupons up-front so we can detect museum-default free-under-N age tiers
+    # and thread the result into BOTH attractions (as enrichment) and passes
+    # (so redundant museum-policy rows get filtered from audience_policies).
+    coupons = _load_dir_jsons(raw_root / "pass_coupons")
+    free_map = detect_free_under_age(coupons)
+    print(f"  detected free_under_age for {len(free_map)} attractions from coupon consensus")
+
     # 3. attractions.json
     print("Building attractions.json...")
-    attr_doc = build_attractions(catalog, prices, images, geo, hours, descriptions)
+    attr_doc = build_attractions(catalog, prices, images, geo, hours, descriptions,
+                                  free_under_age_overrides=free_map)
     _apply_overrides(attr_doc, "slug", "attractions", overrides.get("attractions", {}))
     (structured / "attractions.json").write_text(
         json.dumps(attr_doc, indent=2, ensure_ascii=False), encoding="utf-8"
@@ -113,7 +122,6 @@ def main() -> int:
 
     # 4. passes.json
     print("Building passes.json...")
-    coupons = _load_dir_jsons(raw_root / "pass_coupons")
     # Subagent (plan-6, LibCal) and deterministic (plan-7, Assabet) classifications:
     # {lib_id: {pass_id: {pickup_method, pickup_branches, evidence}}}.
     # Glob auto-discovers any lib that has a _classified.json — no per-lib enum to maintain.
@@ -127,6 +135,7 @@ def main() -> int:
         coupons=coupons,
         classifications=classifications,
         branches_doc=branches_doc,
+        free_under_age_overrides=free_map,
     )
     _apply_pass_overrides(passes_doc, overrides.get("passes", {}))
     (structured / "passes.json").write_text(

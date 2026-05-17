@@ -80,6 +80,7 @@ def build_passes(
     *,
     classifications: dict | None = None,
     branches_doc: dict | None = None,
+    free_under_age_overrides: dict[str, int] | None = None,
 ) -> dict:
     """Return {passes: [...], _meta: {...}}.
 
@@ -98,6 +99,7 @@ def build_passes(
     """
     coupons = coupons or {}
     classifications = classifications or {}
+    free_under_age_overrides = free_under_age_overrides or {}
     branch_ids_by_lib: dict[str, list[str]] = {}
     if branches_doc:
         for b in branches_doc.get("branches", []):
@@ -128,6 +130,7 @@ def build_passes(
             )
             if pickup_method == "physical_at_branch":
                 n_physical += 1
+            museum_free = free_under_age_overrides.get(canon)
             out.append({
                 "library_id": lib_id,
                 "attraction_slug": canon,
@@ -135,7 +138,7 @@ def build_passes(
                 "pass_type_raw": p.get("pass_type_raw", ""),
                 "pickup_method": pickup_method,
                 "pickup_branches": pickup_branches,
-                "coupon": coupon_block(coupon_rec),
+                "coupon": coupon_block(coupon_rec, museum_free_under_age=museum_free),
                 "restrictions": restrictions_block(coupon_rec),
                 "source_url": p.get("source_url", ""),
                 "availability": cal if cal else None,
