@@ -55,15 +55,20 @@ export function ZipPill({ onDark = false }: Props) {
   const labelColor = onDark ? 'rgba(255,255,255,0.72)' : 'var(--ink-3)';
   const okBorder = onDark ? 'rgba(255,255,255,0.4)' : 'var(--rule)';
   const okText = onDark ? 'var(--white)' : 'var(--ink-2)';
-  const bgColor = onDark ? 'rgba(255,255,255,0.12)' : 'var(--white)';
+  const okBg = onDark ? 'rgba(255,255,255,0.12)' : 'var(--white)';
+  // Error state: switch to a solid white bubble so the red border + red text
+  // stay readable even on the dark-green TopBar.
+  const inputBg = isInvalid ? 'var(--white)' : okBg;
+  const inputText = isInvalid ? 'var(--rd)' : okText;
+  const inputBorder = isInvalid ? 'var(--rd)' : okBorder;
 
   return (
-    <div className="inline-flex flex-col items-start">
-      <div className="inline-flex items-center gap-2">
-        <span style={{
-          fontSize: 11, color: labelColor,
-          textTransform: 'uppercase', letterSpacing: '0.06em', whiteSpace: 'nowrap',
-        }}>ZIP code</span>
+    <div className="inline-flex items-center gap-2">
+      <span style={{
+        fontSize: 11, color: labelColor,
+        textTransform: 'uppercase', letterSpacing: '0.06em', whiteSpace: 'nowrap',
+      }}>ZIP code</span>
+      <div style={{ position: 'relative' }}>
         <input
           value={draft}
           onChange={(e) => handleChange(e.target.value)}
@@ -77,22 +82,38 @@ export function ZipPill({ onDark = false }: Props) {
           style={{
             width: 70,
             padding: '5px 8px',
-            border: `1px solid ${isInvalid ? 'var(--rd)' : okBorder}`,
+            border: `1px solid ${inputBorder}`,
             borderRadius: 4,
             fontSize: 13, fontWeight: 600, textAlign: 'center',
-            color: isInvalid ? 'var(--rd)' : okText,
-            background: bgColor,
+            color: inputText,
+            background: inputBg,
             outline: 'none',
             opacity: validating ? 0.6 : 1,
-            transition: 'border-color 0.12s, color 0.12s',
+            transition: 'border-color 0.12s, color 0.12s, background 0.12s',
           }}
         />
+        {invalidReason && (
+          <span
+            role="alert"
+            style={{
+              position: 'absolute',
+              top: 'calc(100% + 6px)',
+              right: 0,
+              padding: '4px 8px',
+              background: 'var(--white)',
+              border: '1px solid var(--rd)',
+              borderRadius: 4,
+              color: 'var(--rd)',
+              fontSize: 11,
+              fontWeight: 500,
+              whiteSpace: 'nowrap',
+              zIndex: 50,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
+              pointerEvents: 'none',
+            }}
+          >{invalidReason}</span>
+        )}
       </div>
-      {invalidReason && (
-        <span style={{
-          fontSize: 11, color: 'var(--rd)', marginTop: 4,
-        }}>{invalidReason}</span>
-      )}
     </div>
   );
 }
