@@ -119,7 +119,7 @@ export function AttractionCard({
           alt=""
           loading="lazy"
           className="rounded-md object-cover bg-[color:var(--paper)] flex-shrink-0"
-          style={{ width: 110, height: 110 }}
+          style={{ width: 78, height: 78 }}
         />
 
         <div className="flex-grow min-w-0 pr-9">

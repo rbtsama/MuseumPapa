@@ -85,7 +85,7 @@ export function CouponLine({ coupon, align = 'right' }: Props) {
 
   if (isNonAdmissionCoupon(coupon)) {
     return (
-      <span style={{ fontSize: 12, color: dim, lineHeight: 1.2 }}>
+      <span style={{ fontSize: 13, fontWeight: 700, color: amount, lineHeight: 1.2 }}>
         Parking Discount
       </span>
     );
