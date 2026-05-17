@@ -3,7 +3,7 @@ import type { Attraction, Pass } from '../data/types';
 import type { PickedTag } from '../lib/tag-algorithm';
 import { FavoriteButton } from './FavoriteButton';
 import { PassTypeLabel } from './PassTypeLabel';
-import { CouponLine, formatCapacity } from './CouponLine';
+import { CouponLine, CapacityRow } from './CouponLine';
 import { MuseumReservationBanner } from './MuseumReservationBanner';
 import { hoursDisplay } from '../lib/hours';
 import { heroSrc } from '../lib/hero';
@@ -180,23 +180,25 @@ export function AttractionCard({
       </div>
 
       {/* Body: pass options, or empty / guest state */}
-      {closedToday ? null : isGuestOrEmpty ? (
-        <div className="px-3 pb-3" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
-          Sign in to view <b>{sourceCountForGuest}</b> discount option{sourceCountForGuest === 1 ? '' : 's'}
-        </div>
-      ) : total === 0 ? (
-        <div className="px-3 pb-3 text-center" style={{ fontSize: 11, color: 'var(--ink-3)', fontStyle: 'italic' }}>
-          No coupons available today
-        </div>
-      ) : (
+      {closedToday ? null : (
         <div className="border-t" style={{ borderColor: 'var(--rule)' }}>
-          {attraction.museum_reservation && (
-            <MuseumReservationBanner
-              reservation={attraction.museum_reservation}
-              attractionName={attraction.museum_name}
-              variant="card"
-            />
-          )}
+          {isGuestOrEmpty ? (
+            <div className="px-3 py-3" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
+              Sign in to view <b>{sourceCountForGuest}</b> discount option{sourceCountForGuest === 1 ? '' : 's'}
+            </div>
+          ) : total === 0 ? (
+            <div className="px-3 py-3 text-center" style={{ fontSize: 11, color: 'var(--ink-3)', fontStyle: 'italic' }}>
+              No coupons available today
+            </div>
+          ) : (
+            <>
+              {attraction.museum_reservation && (
+                <MuseumReservationBanner
+                  reservation={attraction.museum_reservation}
+                  attractionName={attraction.museum_name}
+                  variant="card"
+                />
+              )}
           {pickedTags.slice(0, MAX_ROWS_VISIBLE).map((t, i) => {
             const isDigital = t.pass.pickup_method === 'digital';
             // For physical, prefer the actual pickup branch(es). Single-branch
@@ -212,7 +214,6 @@ export function AttractionCard({
               : branchSummary ? branchSummary
               : showBranchLabel ? `${branches[0].name} · ${branches[0].address.street}`
               : t.library.town;
-            const capacityText = formatCapacity(t.pass.coupon.capacity);
 
             return (
               <div
@@ -232,10 +233,8 @@ export function AttractionCard({
                         <DistanceIcon /> {Math.round(t.distanceMi)} mi
                       </span>
                     )}
-                    {capacityText && (
-                      <span className="flex-shrink-0" style={{ fontSize: 11 }}>· {capacityText}</span>
-                    )}
                   </div>
+                  <CapacityRow capacity={t.pass.coupon.capacity} />
                   <CouponLine coupon={t.pass.coupon} align="left" />
                 </div>
 
@@ -269,6 +268,8 @@ export function AttractionCard({
             }}>
               + {total - MAX_ROWS_VISIBLE} more option{total - MAX_ROWS_VISIBLE === 1 ? '' : 's'} →
             </div>
+          )}
+            </>
           )}
         </div>
       )}

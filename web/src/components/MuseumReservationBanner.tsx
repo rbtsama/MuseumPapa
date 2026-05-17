@@ -45,8 +45,7 @@ export function MuseumReservationBanner({ reservation, attractionName, variant }
         onKeyDown={(e) => { e.stopPropagation(); handleKey(e); }}
         aria-label={`This pass requires a museum reservation at ${attractionName}`}
         className="flex items-center justify-between gap-3"
-        style={{ ...baseStyle, fontSize: 12, padding: '8px 12px', lineHeight: 1.3,
-                 borderBottom: '1px solid var(--rule)' }}
+        style={{ ...baseStyle, fontSize: 12, padding: '8px 12px', lineHeight: 1.3 }}
       >
         <span>Pass requires a museum reservation</span>
         {cta}
