@@ -14,14 +14,27 @@ function fmtAmount(p: AudiencePolicy): string {
   }
 }
 
+// Age range is only worth showing when it tells the user something the audience
+// label doesn't already imply. "Child <18", "Adult 18+", "Senior 65+", "Youth 13-17"
+// all just restate the audience — drop them. Narrow tiers like "Child <6" or
+// "Adult 13+" carry real semantic value — keep them.
+function isRedundantAge(audience: AudiencePolicy['audience'], age: AgeRange): boolean {
+  const { min, max } = age;
+  if (audience === 'Adult'  && max == null && min != null && min >= 18 && min <= 19) return true;
+  if (audience === 'Child'  && min == null && max != null && max >= 17 && max <= 18) return true;
+  if (audience === 'Senior' && max == null && min != null && min >= 60 && min <= 65) return true;
+  if (audience === 'Youth'  && min == null && max != null && max >= 17 && max <= 18) return true;
+  if (audience === 'Youth'  && min === 13 && max === 17) return true;
+  return false;
+}
+
 function fmtAudience(audience: AudiencePolicy['audience'], age: AgeRange | null): string {
-  let ageTxt = '';
-  if (age) {
-    if (age.min != null && age.max != null) ageTxt = ` ${age.min}-${age.max}`;
-    else if (age.max != null) ageTxt = ` <${age.max + 1}`;
-    else if (age.min != null) ageTxt = ` ${age.min}+`;
-  }
-  return `${audience}${ageTxt}`;
+  if (!age || isRedundantAge(audience, age)) return audience;
+  const { min, max } = age;
+  if (min != null && max != null) return `${audience} ${min}-${max}`;
+  if (max != null) return `${audience} <${max + 1}`;
+  if (min != null) return `${audience} ${min}+`;
+  return audience;
 }
 
 // Heroicons "user" solid — round head + smooth shoulder silhouette, tighter than a stick figure.
