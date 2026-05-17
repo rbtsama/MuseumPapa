@@ -20,8 +20,12 @@ export function MuseumReservationBanner({ reservation, attractionName, variant }
   };
 
   const interactive = url != null;
+  // Light tinted background gives it an "interactive strip" feel without the
+  // heavy borders / left rule that made it look like a hard alert; sits as
+  // its own row between the attraction info and the pass list.
   const baseStyle: React.CSSProperties = {
     color: 'var(--or)',
+    background: 'var(--or-pale)',
     cursor: interactive ? 'pointer' : 'default',
     userSelect: 'none',
   };
@@ -41,7 +45,8 @@ export function MuseumReservationBanner({ reservation, attractionName, variant }
         onKeyDown={(e) => { e.stopPropagation(); handleKey(e); }}
         aria-label={`This pass requires a museum reservation at ${attractionName}`}
         className="flex items-center justify-between gap-3"
-        style={{ ...baseStyle, fontSize: 12, padding: '4px 12px', lineHeight: 1.3 }}
+        style={{ ...baseStyle, fontSize: 12, padding: '8px 12px', lineHeight: 1.3,
+                 borderBottom: '1px solid var(--rule)' }}
       >
         <span>Pass requires a museum reservation</span>
         {cta}
@@ -57,7 +62,7 @@ export function MuseumReservationBanner({ reservation, attractionName, variant }
       onKeyDown={handleKey}
       aria-label={`This pass requires a museum reservation at ${attractionName}`}
       className="flex items-center justify-between gap-3"
-      style={{ ...baseStyle, fontSize: 13, padding: '4px 0', lineHeight: 1.4 }}
+      style={{ ...baseStyle, fontSize: 13, padding: '10px 14px', lineHeight: 1.4, borderRadius: 4 }}
     >
       <span>
         This pass requires a museum reservation at {attractionName} before use.

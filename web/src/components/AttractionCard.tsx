@@ -179,14 +179,6 @@ export function AttractionCard({
         </div>
       </div>
 
-      {attraction.museum_reservation && (
-        <MuseumReservationBanner
-          reservation={attraction.museum_reservation}
-          attractionName={attraction.museum_name}
-          variant="card"
-        />
-      )}
-
       {/* Body: pass options, or empty / guest state */}
       {closedToday ? null : isGuestOrEmpty ? (
         <div className="px-3 pb-3" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
@@ -198,6 +190,13 @@ export function AttractionCard({
         </div>
       ) : (
         <div className="border-t" style={{ borderColor: 'var(--rule)' }}>
+          {attraction.museum_reservation && (
+            <MuseumReservationBanner
+              reservation={attraction.museum_reservation}
+              attractionName={attraction.museum_name}
+              variant="card"
+            />
+          )}
           {pickedTags.slice(0, MAX_ROWS_VISIBLE).map((t, i) => {
             const isDigital = t.pass.pickup_method === 'digital';
             // For physical, prefer the actual pickup branch(es). Single-branch
