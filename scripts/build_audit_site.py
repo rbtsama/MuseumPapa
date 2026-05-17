@@ -178,62 +178,53 @@ def highlight_raw(raw: str, source_phrases: dict | None) -> tuple[str, list[tupl
 # ---------- Pattern clustering ----------
 
 def signature(pass_obj: dict) -> tuple:
-    pol = pass_obj.get("policy") or {}
-    dc = pass_obj.get("discount", {}).get("class", "unknown")
-    tags = pol.get("eligibility_tags") or []
-    primary = None
-    for t in tags:
-        if t != "all":
-            primary = t
-            break
-    if primary is None and "all" in tags:
-        primary = "all"
-    has_cap = bool(pol.get("max_people") or pol.get("max_adults") or pol.get("max_children"))
-    has_under = pol.get("free_under_age") is not None
-    has_per_person = pol.get("savings_per_person_usd") is not None
-    has_excl = bool(pol.get("exclusions"))
-    return (dc, primary, has_cap, has_under, has_per_person, has_excl)
+    """Derive a grouping signature from the coupon model (plan-9)."""
+    coupon = pass_obj.get("coupon") or {}
+    cap = coupon.get("capacity") or {}
+    cap_kind = cap.get("kind") or "unspecified"
+    cap_n = cap.get("n")  # int or None
+    aps = coupon.get("audience_policies") or []
+    forms = tuple(sorted({ap.get("form", "discount") for ap in aps}))
+    n_tiers = len(aps)
+    has_restrictions = bool(pass_obj.get("restrictions"))
+    return (cap_kind, cap_n, forms, n_tiers, has_restrictions)
 
 
-DISCOUNT_LABEL_EN = {
-    "free": "Free admission",
-    "half": "Half-price",
-    "percent-off": "Percent off",
-    "dollar-off": "Dollar off",
-    "price": "Fixed price",
-    "discount": "Discount",
-    "unknown": "Unspecified discount",
+COUPON_FORM_LABEL_EN = {
+    "free":             "FREE",
+    "percent-off":      "Percent off",
+    "dollar-off":       "Dollar off",
+    "per-person-price": "Per-person price",
+    "discount":         "Generic discount",
 }
-DISCOUNT_LABEL_ZH = {
-    "free": "免费",
-    "half": "半价",
-    "percent-off": "百分比折扣",
-    "dollar-off": "立减金额",
-    "price": "固定价格",
-    "discount": "折扣",
-    "unknown": "未明示折扣",
+COUPON_FORM_LABEL_ZH = {
+    "free":             "免费",
+    "percent-off":      "百分比折扣",
+    "dollar-off":       "立减金额",
+    "per-person-price": "人头定价",
+    "discount":         "笼统折扣",
+}
+CAP_KIND_LABEL = {
+    "people":      "People · 人数",
+    "vehicle":     "Vehicle · 车辆",
+    "ticket":      "Ticket · 单张票",
+    "unspecified": "Unspecified · 未明示",
 }
 
 
 def signature_name(sig: tuple) -> tuple[str, str]:
-    dc, primary, has_cap, has_under, has_per, has_excl = sig
-    en_parts = [DISCOUNT_LABEL_EN.get(dc, dc)]
-    zh_parts = [DISCOUNT_LABEL_ZH.get(dc, dc)]
-    if has_cap:
-        en_parts.append("admits up to N")
-        zh_parts.append("上限 N 人")
-    if has_under:
-        en_parts.append("kids under age free")
-        zh_parts.append("低龄儿童免费")
-    if has_per:
-        en_parts.append("per-person savings")
-        zh_parts.append("按人折扣")
-    if primary:
-        lab = ELIG_LABEL.get(primary, primary)
-        en_parts.append(lab)
-        zh_parts.append(lab)
-    if has_excl:
-        en_parts.append("with restrictions")
+    cap_kind, cap_n, forms, n_tiers, has_restrictions = sig
+    forms_en = " + ".join(COUPON_FORM_LABEL_EN.get(f, f) for f in forms) if forms else "no form"
+    forms_zh = " + ".join(COUPON_FORM_LABEL_ZH.get(f, f) for f in forms) if forms else "无 form"
+    cap_str = CAP_KIND_LABEL.get(cap_kind, cap_kind)
+    if cap_kind == "people" and cap_n is not None:
+        cap_str = f"≤{cap_n} people"
+    tiers_str = f"{n_tiers}-tier" if n_tiers != 1 else "single-tier"
+    restr_str = "w/ restrictions" if has_restrictions else ""
+    en_parts = [forms_en, cap_str, tiers_str]
+    zh_parts = [forms_zh, cap_str, tiers_str]
+    if restr_str:
+        en_parts.append(restr_str)
         zh_parts.append("含限制")
     return " · ".join(en_parts), " · ".join(zh_parts)
 
@@ -399,66 +390,48 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
         "Geo coordinates · 经纬度": sum(1 for A in attrs if A.get("geo")),
     }
     pass_cov = {
-        "Policy extracted · 结构化优惠规则": sum(1 for p in passes if p.get("policy")),
-        "Discount classified · 折扣类型已分类": sum(1 for p in passes if p.get("discount", {}).get("class") not in (None, "unknown")),
+        "Coupon extracted · 优惠已结构化(plan-9)": sum(1 for p in passes if p.get("coupon")),
+        "Coupon summary present · 摘要文字已生成": sum(1 for p in passes if (p.get("coupon") or {}).get("summary")),
         "Pass type known · 取券方式已分类": sum(1 for p in passes if p.get("pass_type") not in (None, "unknown")),
         "Availability calendar · 库存日历(空位可见)": sum(1 for p in passes if p.get("availability")),
     }
 
-    tag_counter = Counter()
-    excl_counter = Counter()
-    boost_counter = Counter()
-    # Display-time normalization (raw data unchanged):
-    # - weekends_excluded / no_weekends  → weekdays_only  (semantic dup)
-    # - residents_only (in exclusions)   → drop (handled by eligibility tag)
-    # - id_required                      → moved to boosts as library_card_required
-    #   (raw evidence: JFK pattern "show your MA library card at admissions desk")
-    EXCL_REMAP = {"weekends_excluded": "weekdays_only", "no_weekends": "weekdays_only"}
-    EXCL_DROP = {"residents_only", "id_required"}
-    BOOST_FROM_EXCL = {"id_required": "library_card_required"}
-
-    def _normalize_excl(t: str) -> str | None:
-        """Return normalized tag or None to drop. Also handles seasonal:* fold."""
-        if t in BOOST_FROM_EXCL or t in EXCL_DROP:
-            return None
-        if isinstance(t, str) and t.startswith("seasonal:"):
-            return "seasonal"
-        return EXCL_REMAP.get(t, t)
-
-    # Split exclusions into 2 buckets per audit taxonomy:
-    #  - date_counter:    "WHEN can this pass be used" (blackout/seasonal/weekdays_only/...)
-    #  - excl_counter:    "process requirements" (reservation_required, ...)
-    DATE_TAGS = {"blackout_dates", "weekdays_only", "weekends_only", "weekends_excluded", "no_weekends"}
-    date_counter: Counter = Counter()
-    n_excl_dropped = 0
-    n_excl_merged = 0
-    n_excl_seasonal_folded = 0
+    # ── Coupon model distributions (plan-9) ──────────────────────────────
+    # Coupon form distribution: count every audience_policies[*].form
+    coupon_form_counter: Counter = Counter()
     for p in passes:
-        pol = p.get("policy") or {}
-        for t in pol.get("eligibility_tags") or []:
-            tag_counter[t] += 1
-        for t in pol.get("exclusions") or []:
-            if t in BOOST_FROM_EXCL:
-                boost_counter[BOOST_FROM_EXCL[t]] += 1
-                n_excl_dropped += 1
-                continue
-            if t in EXCL_DROP:
-                n_excl_dropped += 1
-                continue
-            if isinstance(t, str) and t.startswith("seasonal:"):
-                date_counter["seasonal"] += 1
-                n_excl_seasonal_folded += 1
-                continue
-            if t in DATE_TAGS:
-                mapped = EXCL_REMAP.get(t, t)
-                if mapped != t:
-                    n_excl_merged += 1
-                date_counter[mapped] += 1
-                continue
-            # remaining → real process restriction
-            excl_counter[t] += 1
-        for t in pol.get("boosts") or []:
-            boost_counter[t] += 1
+        for ap in (p.get("coupon") or {}).get("audience_policies") or []:
+            f = ap.get("form") or "discount"
+            coupon_form_counter[f] += 1
+
+    # Capacity distribution
+    cap_kind_counter: Counter = Counter()
+    cap_people_n_counter: Counter = Counter()
+    for p in passes:
+        cap = (p.get("coupon") or {}).get("capacity") or {}
+        kind = cap.get("kind") or "unspecified"
+        if kind == "people":
+            n = cap.get("n")
+            if n is not None:
+                cap_people_n_counter[n] += 1
+            else:
+                cap_people_n_counter["(unspecified n)"] += 1
+        else:
+            cap_kind_counter[kind] += 1
+
+    # Audience-split distribution: how many audience_policies entries per pass
+    audience_split_counter: Counter = Counter()
+    for p in passes:
+        aps = (p.get("coupon") or {}).get("audience_policies") or []
+        n = len(aps)
+        if n == 0:
+            audience_split_counter["0 (no extraction)"] += 1
+        elif n == 1:
+            audience_split_counter["1 (party-wide single tier)"] += 1
+        elif n == 2:
+            audience_split_counter["2 (typical mixed)"] += 1
+        else:
+            audience_split_counter[f"{n} (complex)"] += 1
 
     def coverage_list(cov: dict, total: int) -> str:
         rows = []
@@ -467,87 +440,20 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
             rows.append(f'<li><span class="cov-label">{esc(k)}</span><span class="cov-frac">{v}/{total}</span><span class="cov-pct">{pct}%</span></li>')
         return f'<ul class="coverage">{"".join(rows)}</ul>'
 
-    def histogram(counter: Counter, label_map: dict, total: int) -> str:
-        rows = []
-        most = counter.most_common()
-        max_n = most[0][1] if most else 1
-        for key, n in most:
-            lab = label_map.get(key, key) if not key.startswith("seasonal:") else f"Open {key.split(':',1)[1]}"
-            bar_w = round(40 * n / max_n)
-            pct = round(100 * n / total) if total else 0
-            rows.append(f'<tr><td>{esc(lab)}</td><td class="bar-cell"><span class="bar">{"█"*bar_w}</span></td><td class="num">{n}</td><td class="pct">{pct}%</td></tr>')
-        return f'<table class="histogram">{"".join(rows)}</table>'
-
-    def histogram_with_notag(counter: Counter, label_map: dict, total: int,
-                             n_zero: int, zero_label: str) -> str:
-        """Histogram that adds a final '(no tag)' row so rows visually sum to total."""
-        most = counter.most_common()
-        max_n = max([n for _, n in most] + [n_zero, 1])
-        rows = []
-        for key, n in most:
-            lab = label_map.get(key, key) if isinstance(key, str) and not key.startswith("seasonal:") else (
-                f"Open {key.split(':',1)[1]}" if isinstance(key, str) and key.startswith("seasonal:") else str(key)
-            )
-            bar_w = round(40 * n / max_n)
-            pct = round(100 * n / total) if total else 0
-            rows.append(f'<tr><td>{esc(lab)}</td><td class="bar-cell"><span class="bar">{"█"*bar_w}</span></td><td class="num">{n}</td><td class="pct">{pct}%</td></tr>')
-        # 0-tag row, dashed style
-        bar_w = round(40 * n_zero / max_n)
-        pct = round(100 * n_zero / total) if total else 0
-        rows.append(
-            f'<tr class="zero-row"><td><i>{esc(zero_label)}</i></td>'
-            f'<td class="bar-cell"><span class="bar" style="color:var(--ink-3)">{"░"*bar_w}</span></td>'
-            f'<td class="num">{n_zero}</td><td class="pct">{pct}%</td></tr>'
-        )
-        return f'<table class="histogram">{"".join(rows)}</table>'
-
-    # Coverage for multi-valued tag fields (how many policies carry ≥1 tag etc.)
-    n_with_any_elig = sum(1 for p in passes if (p.get("policy") or {}).get("eligibility_tags"))
-    # Use NORMALIZED exclusions (after drops/remaps) — so a pass whose only
-    # exclusion was id_required or residents_only now correctly counts as 0.
-    def _split_excls(pol: dict) -> tuple[set, set]:
-        """Return (date_set, process_set) after normalization."""
-        date_s, proc_s = set(), set()
-        for t in pol.get("exclusions") or []:
-            if t in EXCL_DROP or t in BOOST_FROM_EXCL:
-                continue
-            if isinstance(t, str) and t.startswith("seasonal:"):
-                date_s.add("seasonal"); continue
-            if t in DATE_TAGS:
-                date_s.add(EXCL_REMAP.get(t, t)); continue
-            proc_s.add(t)
-        return date_s, proc_s
-    n_with_any_date = sum(1 for p in passes if _split_excls(p.get("policy") or {})[0])
-    n_with_any_excl = sum(1 for p in passes if _split_excls(p.get("policy") or {})[1])
-    n_with_any_boost = sum(1 for p in passes
-                            if (p.get("policy") or {}).get("boosts")
-                            or any(t in BOOST_FROM_EXCL for t in (p.get("policy") or {}).get("exclusions") or []))
-
     plat_counter = Counter(libcat["libraries"][lid]["platform"] for lid in libcat["libraries"])
 
     anomalies = []
-    # passes with raw text but no source_phrases
-    n_no_src = 0
-    n_unexpl_null = 0
-    for p in passes:
-        pol = p.get("policy") or {}
-        raw = pol.get("raw") or p.get("discount", {}).get("raw") or ""
-        sp = None
-        rp = read_raw("pass_policies", f"{p['library_id']}_{p['attraction_slug']}")
-        if rp:
-            sp = rp.get("source_phrases")
-        if raw and (not sp):
-            n_no_src += 1
-        if pol.get("max_people") is None and pol.get("discount_percent") is None and not (pol.get("eligibility_tags") or []) and raw:
-            n_unexpl_null += 1
+    # passes with no coupon summary (extraction gap)
+    n_no_summary = sum(1 for p in passes if not (p.get("coupon") or {}).get("summary"))
+    n_no_coupon = sum(1 for p in passes if not p.get("coupon"))
     anomalies.append(
-        f"<li><b>{n_no_src}</b> 条 pass 的 raw 原文存在,但 AI 没给出任何 source_phrases 引用 — "
-        f"含义:AI 抽出了字段却没注明引自原文哪一句,**审计抽查首选项**(可能是 AI 偷懒或 raw 过短) — "
+        f"<li><b>{n_no_coupon}</b> 条 pass 没有 coupon 字段 — "
+        f"含义:plan-9 再抽取未覆盖到这些行,需补跑 subagent — "
         f"<a href='policies.html'>see Policies</a></li>"
     )
     anomalies.append(
-        f"<li><b>{n_unexpl_null}</b> 条 pass 的 raw 原文存在,但 policy 的所有数值字段(人数上限/折扣百分比/标签等)都为空 — "
-        f"含义:AI 完全没抽出任何结构化信息,可能 raw 过短或措辞特殊</li>"
+        f"<li><b>{n_no_summary}</b> 条 pass 的 coupon.summary 为空(含 coupon 字段缺失的) — "
+        f"含义:AI 抽出了结构但没生成摘要文字,前端 fallback 会显示 '(no extraction)'</li>"
     )
     n_unknown_pt = sum(1 for p in passes if p.get("pass_type") == "unknown")
     anomalies.append(
@@ -572,6 +478,24 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
         f"含义:景点官网无 og:description / about 页 抓取失败 / 网站 403 拦截</li>"
     )
 
+    # Precompute histogram HTML (dicts can't be inlined in f-strings)
+    _coupon_form_label = {
+        "free":             "FREE · 完全免费",
+        "percent-off":      "Percent off · 百分比折扣",
+        "dollar-off":       "Dollar off · 固定金额减免",
+        "per-person-price": "Per-person price · 人头定价",
+        "discount":         "Generic discount · 笼统折扣(无数值)",
+    }
+    _cap_kind_label = {
+        "vehicle":     "vehicle · 按车",
+        "ticket":      "ticket · 单张票",
+        "unspecified": "unspecified · 未明示",
+    }
+    _coupon_form_html = histogram_table(coupon_form_counter, sum(coupon_form_counter.values()) or 1, _coupon_form_label)
+    _cap_people_html = histogram_table(cap_people_n_counter, n_passes)
+    _cap_kind_html = histogram_table(cap_kind_counter, n_passes, _cap_kind_label) if cap_kind_counter else ""
+    _audience_split_html = histogram_table(audience_split_counter, n_passes)
+
     body = f"""
 <h1 class="page-title">MuseumPapa <span class="font-serif">数据审计 Data Audit</span></h1>
 <p class="subtitle">Non-technical verification view of the structured dataset behind the MuseumPapa frontend.</p>
@@ -589,55 +513,36 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
 </section>
 
 <section class="panel">
-  <h3>Eligibility tags · 适用人群标签 直方图</h3>
   <p class="methodology">
-    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。分子 = 含该标签的 pass 数。<br>
-    每条 pass 可有 <b>0、1 或多个</b>标签 → 各行加总可大于或小于 100%。<br>
-    本期实际加总 ≈ {sum(tag_counter.values())}/{n_passes} = <b>{round(100*sum(tag_counter.values())/n_passes)}%</b> &lt; 100%,
-    因为多数 pass 一个标签都没有(见末行 "no tag")。<br>
-    <b>"open to all" 与 "no tag" 语义实际等价</b>(AI 抽样比较两组 raw,措辞几乎一致,差异主要来自 AI 抽取阈值的不稳定性)。
-    两者合并视为 <b>default access · 默认全员可用 = {tag_counter.get('all', 0) + (n_passes - n_with_any_elig)} 条 = {round(100*(tag_counter.get('all',0) + (n_passes-n_with_any_elig))/n_passes)}%</b>。
-    其余非默认标签合计 {n_with_any_elig - tag_counter.get('all', 0)} 条才是真正"有人群门槛"的 pass。
+    Plan-9 将旧版 <code>discount</code> + <code>policy</code> 两个字段合并为统一的 <b>Coupon 模型</b>
+    (<code>capacity</code> + <code>audience_policies</code> + <code>summary</code>)。
+    以下三个面板展示新 schema 的分布情况,替代了原有的 eligibility-tags / restrictions / bonuses 直方图。
   </p>
-  {histogram_with_notag(tag_counter, ELIG_LABEL, n_passes, n_passes - n_with_any_elig, "no tag · 未标任何 eligibility 标签")}
 </section>
 
 <section class="panel">
-  <h3>Date · Pass 日期限制 直方图</h3>
+  <h3>Coupon form 分布 · {sum(coupon_form_counter.values())} audience-policy 条目(含多条目 pass)</h3>
   <p class="methodology">
-    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。分子 = pass 含该种"日期/时间不可用"标签的数量。<br>
-    本类属于"<b>什么时候这张 pass 不能用</b>",与博物馆本身的 opening hours 是同一个维度的事(具体到 pass 这一层来表达)。<br>
-    本期加总 ≈ {sum(date_counter.values())}/{n_passes} = <b>{round(100*sum(date_counter.values())/n_passes)}%</b>。
-    其中 <code>seasonal</code> 的具体月份段去 Policies 看 raw。
+    <b>口径</b>:每条 pass 的 <code>coupon.audience_policies</code> 数组中每个条目各计一次,分母是条目总数。
   </p>
-  {histogram_with_notag(date_counter, EXCL_LABEL, n_passes, n_passes - n_with_any_date, "no date limit · 无日期限制")}
+  {_coupon_form_html}
 </section>
 
 <section class="panel">
-  <h3>Restrictions · 流程限制 直方图</h3>
+  <h3>Capacity 分布 · people(n) 明细</h3>
   <p class="methodology">
-    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。分子 = 含该流程要求的 pass 数。<br>
-    <b>本类只保留"流程性要求"</b>(典型 = 需预约 reservation_required),不含任何"哪天能用"类(已分到上面 Date 面板)。
+    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。<code>people</code> 类按具体 n 值展开;其它 kind 合并显示。
   </p>
-  <p class="methodology">
-    <b>对原始 AI 抽取做了 4 个归一化</b>(raw 数据未改):
-    <br>① <code>weekends_excluded</code> + <code>no weekends</code> → 合并为 <code>weekdays_only</code>(语义等价,共 {n_excl_merged} 条);<b>移至 Date 面板</b>
-    <br>② <code>residents_only</code> 被移除 — 它本质是 eligibility 不是入场限制,且本产品默认用户已是 cardholder
-    <br>③ <code>id_required</code> 被移除 — raw 抽样显示绝大多数是 "出示 MA 图书馆卡 = 拿到折扣" 的机制(典型如 JFK Library),应归类为 <code>library_card_required</code>(已转移到 Bonuses)
-    <br>④ 所有 <code>seasonal:&lt;月-月&gt;</code> 变体合并为单行 <code>seasonal</code>(共 {n_excl_seasonal_folded} 条);<b>移至 Date 面板</b>
-    <br>合计 <b>{n_excl_dropped} 条</b> AI 错位标签被剔除/迁移到正确归类。
-  </p>
-  {histogram_with_notag(excl_counter, EXCL_LABEL, n_passes, n_passes - n_with_any_excl, "no process restriction · 无流程限制")}
+  {_cap_people_html}
+  {_cap_kind_html}
 </section>
 
 <section class="panel">
-  <h3>Bonuses · 增益条件 直方图</h3>
+  <h3>Audience-split 分布 · audience_policies 条目数 per pass</h3>
   <p class="methodology">
-    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。分子 = 含该增益的 pass 数(每条可有 0 或多个)。<br>
-    本期加总 ≈ {sum(boost_counter.values())}/{n_passes} = <b>{round(100*sum(boost_counter.values())/n_passes)}%</b>。
-    EBT / SNAP / library card required 等是产品可单独突出的增益项。
+    <b>1 条</b>= party-wide 统一优惠(无需按大人/小孩分价);<b>2+ 条</b>= 多层级 (adult / child / ...) 各自有不同优惠,前端需逐行渲染。
   </p>
-  {histogram_with_notag(boost_counter, BOOST_LABEL, n_passes, n_passes - n_with_any_boost, "no bonus · 无增益")}
+  {_audience_split_html}
 </section>
 
 <section class="panel">
@@ -824,10 +729,51 @@ def _multi_branch_panel(branches_data) -> str:
 # PAGE 3 — attractions.html
 # =========================================================================
 
-def page_attractions(attr_data) -> str:
+def _build_coupon_compare(slug: str, passes_by_slug: dict, lib_by_id: dict) -> str:
+    """Build a <details> coupon comparison table for one attraction (plan-9)."""
+    matching = passes_by_slug.get(slug) or []
+    if not matching:
+        return '<p class="honest-gap">No passes found for this attraction.</p>'
+    rows_html = []
+    for mp in matching:
+        lib_name = (lib_by_id.get(mp["library_id"]) or {}).get("name") or mp["library_id"]
+        pickup = mp.get("pickup_method") or ""
+        if pickup == "digital":
+            method_label = "E-pass"
+        elif pickup == "physical_at_branch":
+            branches = mp.get("pickup_branches") or []
+            method_label = f"Pickup at {branches[0]}" if branches else "Pickup at branch"
+        else:
+            method_label = pickup or "(unknown)"
+        summary = (mp.get("coupon") or {}).get("summary") or "(no extraction)"
+        rows_html.append(
+            f'<tr><td>{esc(lib_name)}</td>'
+            f'<td>{esc(method_label)}</td>'
+            f'<td><b>{esc(summary)}</b></td></tr>'
+        )
+    return (
+        f'<details><summary>Coupon comparison · {len(matching)} library option(s)</summary>'
+        '<table class="coupon-compare"><thead><tr>'
+        '<th>Library</th><th>Pickup</th><th>Coupon</th></tr></thead><tbody>'
+        + "".join(rows_html)
+        + "</tbody></table></details>"
+    )
+
+
+def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
     attrs = attr_data["attractions"]
     slug_counts = Counter(A["slug"] for A in attrs)
     all_cats = sorted({c for A in attrs for c in (A.get("categories") or [])})
+
+    # Build lookup tables for coupon comparison panel
+    passes_list = (passes_data or {}).get("passes") or []
+    # index passes by attraction_slug for O(1) lookup
+    passes_by_slug: dict[str, list] = defaultdict(list)
+    for _p in passes_list:
+        passes_by_slug[_p["attraction_slug"]].append(_p)
+    lib_by_id: dict[str, dict] = {}
+    for _L in ((libs_data or {}).get("libraries") or []):
+        lib_by_id[_L["id"]] = _L
 
     rows = []
     missing_image = []
@@ -1020,6 +966,10 @@ def page_attractions(attr_data) -> str:
     <h3 class="block-title">提供此 pass 的图书馆 <span class="block-meta">{n_libs} 个馆收录此景点</span></h3>
     <p class="sources-list">{sources_html}</p>
   </section>
+
+  <section class="coupon-compare-block">
+    {_build_coupon_compare(slug, passes_by_slug, lib_by_id)}
+  </section>
 </article>""")
 
     cat_options = "".join(f'<option value="{esc(c)}">{esc(c)}</option>' for c in all_cats)
@@ -1192,15 +1142,15 @@ def page_attractions(attr_data) -> str:
 
 def page_policies(passes_data, libs_data, attr_data) -> str:
     passes = passes_data["passes"]
-    # Compute signatures, take top 15 by frequency, rest = P16 Other
-    sigs = Counter(signature(p) for p in passes if p.get("policy"))
+    # Compute signatures from coupon model, take top 15 by frequency, rest = P16 Other
+    sigs = Counter(signature(p) for p in passes if p.get("coupon"))
     top = sigs.most_common(15)
     sig_to_pid = {sig: f"P{i+1}" for i, (sig, _) in enumerate(top)}
 
     # Group passes by pid
     by_pid: dict[str, list] = defaultdict(list)
     for p in passes:
-        if not p.get("policy"):
+        if not p.get("coupon"):
             by_pid["P16"].append(p)
             continue
         sig = signature(p)
@@ -1224,43 +1174,48 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     def render_pass_article(p: dict, idx: int) -> str:
         lib = p["library_id"]
         slug = p["attraction_slug"]
-        pol = p.get("policy") or {}
-        raw = pol.get("raw") or p.get("discount", {}).get("raw") or ""
-        rp = read_raw("pass_policies", f"{lib}_{slug}") or {}
-        src_phrases = rp.get("source_phrases") or {}
-        marked, found = highlight_raw(raw, src_phrases)
+        coupon = p.get("coupon") or {}
+        summary = coupon.get("summary") or ""
+        aps = coupon.get("audience_policies") or []
+        cap = coupon.get("capacity") or {}
+        restrictions = p.get("restrictions") or {}
 
-        # Extracted line
-        ext_parts = []
-        field_to_idx = {f: i for f, _, i in found if i}
-        for fname in ("max_people", "max_adults", "max_children", "free_under_age",
-                      "discount_percent", "discount_dollar_off", "savings_per_person_usd"):
-            val = pol.get(fname)
-            if val is None:
-                continue
-            sup = f' ↩<sup>{field_to_idx[fname]}</sup>' if fname in field_to_idx else ""
-            ext_parts.append(f'<span class="ext">{esc(fname)} <b>{esc(val)}</b>{sup}</span>')
+        # Build coupon details
+        cap_str = ""
+        if cap:
+            kind = cap.get("kind", "unspecified")
+            n = cap.get("n")
+            cap_str = f'<span class="ext">capacity <b>{esc(kind)}{(" ×"+str(n)) if n is not None else ""}</b></span>'
 
-        tags_b = elig_badges(pol.get("eligibility_tags") or [])
-        excl_b = excl_badges(pol.get("exclusions") or [])
-        boost_b = boost_badges(pol.get("boosts") or [])
+        ap_parts = []
+        for ap in aps:
+            audience = ap.get("audience", "")
+            form = ap.get("form", "")
+            value = ap.get("value")
+            val_str = f" {value}" if value is not None else ""
+            form_label = COUPON_FORM_LABEL_EN.get(form, form)
+            ap_parts.append(f'<span class="ext badge badge-disc-{esc(form)}">{esc(audience)}: {esc(form_label)}{esc(str(val_str))}</span>')
+
+        restr_parts = []
+        if restrictions:
+            for k, v in restrictions.items():
+                if v:
+                    restr_parts.append(f'<span class="badge badge-excl">{esc(k)}</span>')
 
         src_link = ""
         if p.get("source_url"):
             src_link = f'<a href="{esc(p["source_url"])}" target="_blank" rel="noopener">↗ source</a>'
 
-        json_key = f"pol_{lib}_{slug}"
-
-        return f"""<article class="policy-row" data-search="{esc((lib+' '+slug+' '+raw).lower()[:400])}">
+        search_text = (lib + " " + slug + " " + summary).lower()[:400]
+        return f"""<article class="policy-row" data-search="{esc(search_text)}">
   <header>
     <span class="lib-arrow-slug"><b>{esc(lib)}</b> → <code>{esc(slug)}</code></span>
     {pass_type_badge(p.get("pass_type", "unknown"))}
-    {discount_badge(p.get("discount") or {})}
-    {tags_b}{excl_b}{boost_b}
+    {"".join(restr_parts)}
   </header>
-  <p class="raw">{marked or '<i class="honest-gap">(no raw text)</i>'}</p>
-  {"<p class='extracted'>"+ " · ".join(ext_parts) +"</p>" if ext_parts else ""}
-  <p class="src-link">{src_link} {('· <a href="#" class="view-json-link" data-json-key="'+json_key+'">JSON</a>') if rp else ''}</p>
+  <p class="raw"><b>{esc(summary) if summary else '<i class="honest-gap">(no extraction)</i>'}</b></p>
+  <p class="extracted">{cap_str} {"".join(ap_parts)}</p>
+  <p class="src-link">{src_link}</p>
 </article>"""
 
     # Build sections (By Pattern view)
@@ -1294,44 +1249,31 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
         rows = "".join(render_pass_article(p, i) for i, p in enumerate(plist))
         lib_sections.append(f'<section class="pattern-section" id="L_{esc(lid)}"><h2 class="pattern-header"><b>{esc(lid)}</b> <span class="pattern-meta">{len(plist)} passes</span></h2><div class="pattern-rows">{rows}</div></section>')
 
-    # ── Distribution stats for policies page ─────────────────────────
+    # ── Distribution stats for policies page (plan-9 coupon model) ───────
     n_passes = len(passes)
-    disc_counter = Counter((p.get("discount") or {}).get("class") or "(unknown)" for p in passes)
     pt_counter = Counter(p.get("pass_type") or "(unknown)" for p in passes)
-    # plan-6: pickup_method distribution (canonical "where do I actually get this pass")
+    # pickup_method distribution
     pm_counter = Counter(p.get("pickup_method") or "(unknown)" for p in passes)
-    # how many physical passes pick up at >1 branch (BPL fan-out)
     n_multi_branch = sum(1 for p in passes if p.get("pickup_method") == "physical_at_branch" and len(p.get("pickup_branches") or []) > 1)
-    # max_people
-    maxp_counter = Counter()
+    # coupon form distribution (per audience_policy entry)
+    pol_form_counter: Counter = Counter()
     for p in passes:
-        v = ((p.get("policy") or {}).get("max_people"))
-        maxp_counter[v if v is not None else "(unspecified)"] += 1
-    # Eligibility tags + restrictions counters (multi-valued)
-    elig_counter = Counter()
-    excl_counter = Counter()
+        for ap in (p.get("coupon") or {}).get("audience_policies") or []:
+            pol_form_counter[ap.get("form", "discount")] += 1
+    # capacity n distribution (people kind only)
+    pol_cap_counter: Counter = Counter()
     for p in passes:
-        pol = p.get("policy") or {}
-        for t in pol.get("eligibility_tags") or []:
-            elig_counter[t] += 1
-        for t in pol.get("exclusions") or []:
-            excl_counter[t] += 1
-    # Half-price sub-pattern A/B/C/D/E
-    subcat = Counter()
+        cap = (p.get("coupon") or {}).get("capacity") or {}
+        if cap.get("kind") == "people":
+            pol_cap_counter[cap.get("n") if cap.get("n") is not None else "(unspecified n)"] += 1
+    # restrictions distribution
+    restr_counter: Counter = Counter()
     for p in passes:
-        raw = ((p.get("policy") or {}).get("raw") or "") or (p.get("discount") or {}).get("raw") or ""
-        sp = half_price_subpattern(raw)
-        if sp != "none":
-            subcat[sp] += 1
-    subcat_label_map = {
-        "A": "A · 整组同折扣(party-wide)",
-        "B": "B · 大小人分价",
-        "C": "C · 含 N 岁以下免费",
-        "D": "D · 仅部分客票适用",
-        "E": "E · 按一辆车 / 单张票",
-    }
-    total_half = sum(subcat.values())
-    # Pattern frequency
+        r = p.get("restrictions") or {}
+        for k, v in r.items():
+            if v:
+                restr_counter[k] += 1
+    # Pattern frequency table
     pattern_count_table = "".join(
         f'<tr><td class="mono"><a href="#{pid}">{pid}</a></td>'
         f'<td>{esc(en)}</td>'
@@ -1339,43 +1281,32 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
         f'<td class="num">{n}</td><td class="pct">{round(100 * n / n_passes)}%</td></tr>'
         for pid, en, zh, n in pattern_meta
     )
-
-    disc_label_map = {
-        "free": "Free · 免费",
-        "half": "Half · 半价(50% off)",
-        "percent-off": "Percent off · 百分比减额",
-        "dollar-off": "Dollar off · 金额减额",
-        "price": "Per-person price · 定价",
-        "discount": "Discount · 折扣(笼统)",
-        "unknown": "(未分类)",
-    }
-    pt_label_map = {
-        "digital": "Digital · 在线打印/下载",
-        "physical-coupon": "Physical coupon · 纸质券",
-        "physical-circ": "Physical · 借实体",
-        "loan-card": "Loan card · 借实体卡",
-        "unknown": "(未分类)",
-    }
-
-    body = f"""
-<h1 class="page-title">Policies · {n_passes} passes · {len(pattern_meta)} patterns</h1>
-
-<section class="dist-grid">
-  <div class="panel dist-panel">
-    <h3>Discount 类型分布 · {n_passes} passes</h3>
-    {histogram_table(disc_counter, n_passes, disc_label_map)}
-    <p class="methodology" style="margin-top:8px">
-      Free + Half 通常占大头 → 产品上"全免"和"半价"两类是默认主推方式。
-    </p>
-  </div>
-  <div class="panel dist-panel dist-wide">
-    <h3>Pass 形式 · 3 种取券方式(与前端术语一致)</h3>
-    {histogram_table(pt_counter, n_passes, {
+    # Precompute histogram HTML (dicts can't be inlined in f-strings)
+    _pt_label = {
         "digital": "E-pass · 在线即取(无需开车)",
         "physical-coupon": "Pickup · 去馆里取一次,不用还",
         "physical-circ": "Pickup &amp; Return · 去馆里取 + 还回去",
         "unknown": "Pass · 未分类(数据 bug,审计追)",
-    })}
+    }
+    _form_label = {
+        "free":             "FREE · 完全免费",
+        "percent-off":      "Percent off · 百分比折扣",
+        "dollar-off":       "Dollar off · 固定金额减免",
+        "per-person-price": "Per-person price · 人头定价",
+        "discount":         "Generic discount · 笼统折扣(无数值)",
+    }
+    _pol_pt_html = histogram_table(pt_counter, n_passes, _pt_label)
+    _pol_form_html = histogram_table(pol_form_counter, sum(pol_form_counter.values()) or 1, _form_label)
+    _pol_cap_html = histogram_table(pol_cap_counter, n_passes, max_rows=10)
+    _pol_restr_html = histogram_table(restr_counter, n_passes)
+
+    body = f"""
+<h1 class="page-title">Policies · {n_passes} passes · {len(pattern_meta)} patterns (plan-9 coupon model)</h1>
+
+<section class="dist-grid">
+  <div class="panel dist-panel dist-wide">
+    <h3>Pass 形式 · 3 种取券方式(与前端术语一致)</h3>
+    {_pol_pt_html}
     <p class="methodology" style="margin-top:8px">
       <b>用户决策核心维度</b>:三种取券方式与前端 PassTypeLabel 完全对齐:<br>
       ① <b>E-pass</b>:邮件/promo code 在家就拿到 — 最低摩擦<br>
@@ -1383,44 +1314,30 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
       ③ <b>Pickup &amp; Return</b>:去分馆借实体券/卡,用完次日要还回 — 最高摩擦<br>
       其中 <b>{n_multi_branch} 条 physical pass 可在 ≥2 个分馆取</b>(BPL/Cambridge/Brookline 的 fan-out),用户可选最近的。
     </p>
-    <p class="methodology" style="background: var(--rd-pale); border-left-color: var(--rd);">
-      <b>⚠ 已发现 type 系统不一致 bug</b>:前端 <code>PassTypeKind</code> 写的是 <code>loan-card</code>(对应"Pickup &amp; Return"),
-      但数据实际写的是 <code>physical-circ</code>。结果 <b>172 条 Pickup &amp; Return 类的 pass 在前端走 fallback 显示成 "Pass" (unknown)</b>,丢了"还要还"这个关键摩擦信号。
-      <br>修复方向:统一前端 enum 接 <code>physical-circ</code>(plan-7 工作项)。
+  </div>
+  <div class="panel dist-panel">
+    <h3>Coupon form 分布(plan-9 · audience_policy 条目)</h3>
+    {_pol_form_html}
+    <p class="methodology" style="margin-top:8px">
+      每条 pass 的 coupon.audience_policies 数组中每个条目各计一次。
     </p>
   </div>
   <div class="panel dist-panel">
-    <h3>Half-price 子模式 · {total_half} 条</h3>
-    {histogram_table(subcat, total_half, subcat_label_map)}
+    <h3>Capacity n 分布(people kind · {sum(pol_cap_counter.values())} passes)</h3>
+    {_pol_cap_html}
     <p class="methodology" style="margin-top:8px">
-      <b>A 整组同折扣 = 简单"adult × N × 0.5"乘法</b>(85% 占比)。
-      <b>C 含 N 岁以下免费 = 简单减法</b>(5%)。
-      <b>D/E 复杂场景</b>(10%)需要 "see fine print" — 不要试图用一个金额表达,直接展示原文。
+      "4 人" 是行业默认配置;前端价格估算应缺省按 4 人。
     </p>
   </div>
   <div class="panel dist-panel">
-    <h3>Party 人数上限分布</h3>
-    {histogram_table(maxp_counter, n_passes, max_rows=10)}
+    <h3>Restrictions 分布(plan-9 side-channel)</h3>
+    {_pol_restr_html}
     <p class="methodology" style="margin-top:8px">
-      "4 人" 是行业默认配置;"未限定"通常意味着 raw 原文没提供数字,前端价格估算应缺省按 4 人。
-    </p>
-  </div>
-  <div class="panel dist-panel">
-    <h3>Eligibility 标签(多值)</h3>
-    {histogram_table(elig_counter, n_passes)}
-    <p class="methodology" style="margin-top:8px">
-      口径同 Overview:每条 pass 可有 0 或多个标签,加总 &gt; 100%。<b>residents_only 仅 28 条</b> — 已按产品决策忽略此类限制(默认用户已是 cardholder)。
-    </p>
-  </div>
-  <div class="panel dist-panel">
-    <h3>Restrictions · 限制条款(多值)</h3>
-    {histogram_table(excl_counter, n_passes)}
-    <p class="methodology" style="margin-top:8px">
-      reservation_required (35) / blackout_dates (21) 是用户体验上最敏感的限制 — 卡片上要明确展示。
+      reservation_required / blackout_dates 是用户体验上最敏感的限制 — 卡片上要明确展示。
     </p>
   </div>
   <div class="panel dist-panel dist-wide">
-    <h3>16 个 Pattern 占比</h3>
+    <h3>{len(pattern_meta)} 个 Coupon Pattern 占比(按 capacity/form/tiers 分组)</h3>
     <table class="histogram"><thead><tr><th>id</th><th>name</th><th></th><th class="num">n</th><th class="pct">%</th></tr></thead><tbody>{pattern_count_table}</tbody></table>
     <p class="methodology" style="margin-top:8px">
       点击 P1/P2... 直接跳转到该模式 section。前 5 个模式覆盖大约 ~70% passes,产品 UI 优先支持这几种。
@@ -1680,58 +1597,30 @@ def page_schema() -> str:
         <li><b>unknown</b>:未能识别(23 个)。</li>
       </ul>
     </li>
-    <li><b>discount</b>:折扣类型与展示标签。class 五种:
+    <li><b>coupon</b>(plan-9):统一优惠模型,替代旧版 discount + policy 两个字段:
       <ul>
-        <li><b>free</b>:完全免费(277 个)</li>
-        <li><b>half</b>:半价 / 50% off(290 个)</li>
-        <li><b>percent-off</b>:其它百分比折扣(4 个)</li>
-        <li><b>dollar-off</b>:固定金额减免,如 $5 off(19 个)</li>
-        <li><b>price</b>:打到一个固定低价,如 "Adults $5 / Kids $3"(342 个)</li>
-        <li><b>discount</b>:笼统折扣(23 个);<b>unknown</b>:未识别(53 个)</li>
+        <li><b>capacity</b>:<code>{"kind": "people"|"vehicle"|"ticket"|"unspecified", "n": int|null}</code> — 整张 coupon 覆盖的容量上限</li>
+        <li><b>audience_policies</b>:数组,每项 = <code>{"audience", "age_range", "count", "form", "value"}</code>。
+          <ul>
+            <li><b>audience</b>: Everyone / Adult / Child / Youth / Senior / Vehicle / Single ticket</li>
+            <li><b>form</b>: <code>free</code> / <code>percent-off</code> / <code>dollar-off</code> / <code>per-person-price</code> / <code>discount</code></li>
+            <li><b>value</b>: 数值(如 50 = 50% off, 5 = $5 off),或 null(无数值/笼统)</li>
+          </ul>
+        </li>
+        <li><b>summary</b>:人可读摘要,如 "Up to 4 · 50% off" — 前端展示核心字段</li>
       </ul>
     </li>
-    <li><b>policy</b>:从 raw 文本中抽出的结构化字段:
-      <ul>
-        <li><b>max_people</b>(总人数上限) / <b>max_adults</b> / <b>max_children</b></li>
-        <li><b>free_under_age</b>:低于该岁数免费</li>
-        <li><b>discount_percent / discount_dollar_off / savings_per_person_usd</b>:折扣量</li>
-        <li><b>eligibility_tags</b>:适用人群标签(见下)</li>
-        <li><b>exclusions</b>:限制条件(见下)</li>
-        <li><b>boosts</b>:额外福利</li>
-        <li><b>raw</b>:原始优惠说明,所有抽取都基于它</li>
-      </ul>
-    </li>
-    <li><b>source_phrases</b>(在 raw/pass_policies/*.json 中):每个抽取字段对应在 raw 中的子串,供审计高亮。</li>
+    <li><b>restrictions</b>(side-channel):使用限制 — <code>{"blackout_dates": bool, "weekdays_only": bool, "seasonal": str|null, "reservation_required": bool}</code></li>
     <li><b>availability</b>:未来 30 天的可预订状态字典(museumkey 不可用)。</li>
   </ul>
 
-  <h3>Eligibility 标签 · 13 种</h3>
+  <h3>Coupon form 值域</h3>
   <ul class="schema-list">
-    <li><b>all</b> · open to all — 默认值,任何持卡人都能用</li>
-    <li><b>vehicle</b> · per vehicle — 按车而非按人(适用州立公园)</li>
-    <li><b>single_ticket</b> · 1 ticket — 单张票,而非"上限 N 人"</li>
-    <li><b>family</b> · family pass — family pass,常含父母 + 子女</li>
-    <li><b>groups</b> · group rate — 按团体打折</li>
-    <li><b>residents_only</b> · residents only — 仅特定市镇居民</li>
-    <li><b>adults_only</b> / <b>children_only</b> — 只覆盖成人或儿童一种票种</li>
-    <li><b>seniors_free</b> · <b>students_only</b> · <b>military_free</b> · <b>educator_free</b> · <b>members_free</b> — 该群体特殊免费</li>
-  </ul>
-
-  <h3>Exclusions 限制</h3>
-  <ul class="schema-list">
-    <li><b>weekdays_only / weekends_only / weekends_excluded</b>:工作日 / 周末限制</li>
-    <li><b>blackout_dates</b>:特定日期不可用</li>
-    <li><b>reservation_required</b>:必须先预约</li>
-    <li><b>id_required</b>:入场需出示证件</li>
-    <li><b>seasonal:X-Y</b>:仅在某月份范围内开放,例如 <code>seasonal:apr-oct</code></li>
-  </ul>
-
-  <h3>Boosts 加成</h3>
-  <ul class="schema-list">
-    <li><b>library_card_required</b>:进入景点需出示图书馆卡</li>
-    <li><b>members_discount</b>:景点会员另享折扣</li>
-    <li><b>gift_shop_discount</b>:礼品店折扣</li>
-    <li><b>ebt_discount / snap_free</b>:EBT / SNAP 低收入援助</li>
+    <li><b>free</b>:完全免费入场</li>
+    <li><b>percent-off</b>:百分比折扣,如 50% off</li>
+    <li><b>dollar-off</b>:固定金额减免,如 $5 off</li>
+    <li><b>per-person-price</b>:固定人头价,如 Adults $5 / Kids $3</li>
+    <li><b>discount</b>:笼统折扣(AI 无法提取具体数值)</li>
   </ul>
 </section>
 
@@ -1740,12 +1629,13 @@ def page_schema() -> str:
     blob = json.dumps({
         "schema": {
             "passes_row_keys": ["library_id", "attraction_slug", "pass_type", "pass_type_raw",
-                                 "discount", "policy", "source_url", "availability"],
-            "policy_keys": ["max_people", "max_adults", "max_children", "free_under_age",
-                            "savings_per_person_usd", "discount_percent", "discount_dollar_off",
-                            "eligibility_tags", "exclusions", "boosts", "notes", "raw"],
-            "discount_classes": ["free", "half", "percent-off", "dollar-off", "price", "discount", "unknown"],
-            "pass_types": ["digital", "physical-coupon", "physical-circ", "loan-card", "unknown"],
+                                "pickup_method", "pickup_branches", "coupon", "restrictions",
+                                "source_url", "availability"],
+            "coupon_keys": ["capacity", "audience_policies", "summary"],
+            "audience_policy_keys": ["audience", "age_range", "count", "form", "value"],
+            "coupon_forms": ["free", "percent-off", "dollar-off", "per-person-price", "discount"],
+            "capacity_kinds": ["people", "vehicle", "ticket", "unspecified"],
+            "pass_types": ["digital", "physical-coupon", "physical-circ", "unknown"],
         }
     }, ensure_ascii=False)
     return page_shell("Schema", body, "schema.html", data_blob=blob)
@@ -2160,7 +2050,7 @@ def main():
     write("libraries.html", page_libraries(libs_data, libcat=libcat, branches_data=branches_data))
 
     print("[4/8] attractions.html")
-    attr_html, missing_image = page_attractions(attr_data)
+    attr_html, missing_image = page_attractions(attr_data, passes_data=passes_data, libs_data=libs_data)
     write("attractions.html", attr_html)
 
     print("[5/8] policies.html")

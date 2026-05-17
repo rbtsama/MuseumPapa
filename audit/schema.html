@@ -63,58 +63,30 @@
         <li><b>unknown</b>:未能识别(23 个)。</li>
       </ul>
     </li>
-    <li><b>discount</b>:折扣类型与展示标签。class 五种:
+    <li><b>coupon</b>(plan-9):统一优惠模型,替代旧版 discount + policy 两个字段:
       <ul>
-        <li><b>free</b>:完全免费(277 个)</li>
-        <li><b>half</b>:半价 / 50% off(290 个)</li>
-        <li><b>percent-off</b>:其它百分比折扣(4 个)</li>
-        <li><b>dollar-off</b>:固定金额减免,如 $5 off(19 个)</li>
-        <li><b>price</b>:打到一个固定低价,如 "Adults $5 / Kids $3"(342 个)</li>
-        <li><b>discount</b>:笼统折扣(23 个);<b>unknown</b>:未识别(53 个)</li>
+        <li><b>capacity</b>:<code>{"kind": "people"|"vehicle"|"ticket"|"unspecified", "n": int|null}</code> — 整张 coupon 覆盖的容量上限</li>
+        <li><b>audience_policies</b>:数组,每项 = <code>{"audience", "age_range", "count", "form", "value"}</code>。
+          <ul>
+            <li><b>audience</b>: Everyone / Adult / Child / Youth / Senior / Vehicle / Single ticket</li>
+            <li><b>form</b>: <code>free</code> / <code>percent-off</code> / <code>dollar-off</code> / <code>per-person-price</code> / <code>discount</code></li>
+            <li><b>value</b>: 数值(如 50 = 50% off, 5 = $5 off),或 null(无数值/笼统)</li>
+          </ul>
+        </li>
+        <li><b>summary</b>:人可读摘要,如 "Up to 4 · 50% off" — 前端展示核心字段</li>
       </ul>
     </li>
-    <li><b>policy</b>:从 raw 文本中抽出的结构化字段:
-      <ul>
-        <li><b>max_people</b>(总人数上限) / <b>max_adults</b> / <b>max_children</b></li>
-        <li><b>free_under_age</b>:低于该岁数免费</li>
-        <li><b>discount_percent / discount_dollar_off / savings_per_person_usd</b>:折扣量</li>
-        <li><b>eligibility_tags</b>:适用人群标签(见下)</li>
-        <li><b>exclusions</b>:限制条件(见下)</li>
-        <li><b>boosts</b>:额外福利</li>
-        <li><b>raw</b>:原始优惠说明,所有抽取都基于它</li>
-      </ul>
-    </li>
-    <li><b>source_phrases</b>(在 raw/pass_policies/*.json 中):每个抽取字段对应在 raw 中的子串,供审计高亮。</li>
+    <li><b>restrictions</b>(side-channel):使用限制 — <code>{"blackout_dates": bool, "weekdays_only": bool, "seasonal": str|null, "reservation_required": bool}</code></li>
     <li><b>availability</b>:未来 30 天的可预订状态字典(museumkey 不可用)。</li>
   </ul>
 
-  <h3>Eligibility 标签 · 13 种</h3>
+  <h3>Coupon form 值域</h3>
   <ul class="schema-list">
-    <li><b>all</b> · open to all — 默认值,任何持卡人都能用</li>
-    <li><b>vehicle</b> · per vehicle — 按车而非按人(适用州立公园)</li>
-    <li><b>single_ticket</b> · 1 ticket — 单张票,而非"上限 N 人"</li>
-    <li><b>family</b> · family pass — family pass,常含父母 + 子女</li>
-    <li><b>groups</b> · group rate — 按团体打折</li>
-    <li><b>residents_only</b> · residents only — 仅特定市镇居民</li>
-    <li><b>adults_only</b> / <b>children_only</b> — 只覆盖成人或儿童一种票种</li>
-    <li><b>seniors_free</b> · <b>students_only</b> · <b>military_free</b> · <b>educator_free</b> · <b>members_free</b> — 该群体特殊免费</li>
-  </ul>
-
-  <h3>Exclusions 限制</h3>
-  <ul class="schema-list">
-    <li><b>weekdays_only / weekends_only / weekends_excluded</b>:工作日 / 周末限制</li>
-    <li><b>blackout_dates</b>:特定日期不可用</li>
-    <li><b>reservation_required</b>:必须先预约</li>
-    <li><b>id_required</b>:入场需出示证件</li>
-    <li><b>seasonal:X-Y</b>:仅在某月份范围内开放,例如 <code>seasonal:apr-oct</code></li>
-  </ul>
-
-  <h3>Boosts 加成</h3>
-  <ul class="schema-list">
-    <li><b>library_card_required</b>:进入景点需出示图书馆卡</li>
-    <li><b>members_discount</b>:景点会员另享折扣</li>
-    <li><b>gift_shop_discount</b>:礼品店折扣</li>
-    <li><b>ebt_discount / snap_free</b>:EBT / SNAP 低收入援助</li>
+    <li><b>free</b>:完全免费入场</li>
+    <li><b>percent-off</b>:百分比折扣,如 50% off</li>
+    <li><b>dollar-off</b>:固定金额减免,如 $5 off</li>
+    <li><b>per-person-price</b>:固定人头价,如 Adults $5 / Kids $3</li>
+    <li><b>discount</b>:笼统折扣(AI 无法提取具体数值)</li>
   </ul>
 </section>
 
@@ -122,6 +94,6 @@
 
 </main>
 <div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>
-<script id="data-blob" type="application/json">{"schema": {"passes_row_keys": ["library_id", "attraction_slug", "pass_type", "pass_type_raw", "discount", "policy", "source_url", "availability"], "policy_keys": ["max_people", "max_adults", "max_children", "free_under_age", "savings_per_person_usd", "discount_percent", "discount_dollar_off", "eligibility_tags", "exclusions", "boosts", "notes", "raw"], "discount_classes": ["free", "half", "percent-off", "dollar-off", "price", "discount", "unknown"], "pass_types": ["digital", "physical-coupon", "physical-circ", "loan-card", "unknown"]}}</script>
+<script id="data-blob" type="application/json">{"schema": {"passes_row_keys": ["library_id", "attraction_slug", "pass_type", "pass_type_raw", "pickup_method", "pickup_branches", "coupon", "restrictions", "source_url", "availability"], "coupon_keys": ["capacity", "audience_policies", "summary"], "audience_policy_keys": ["audience", "age_range", "count", "form", "value"], "coupon_forms": ["free", "percent-off", "dollar-off", "per-person-price", "discount"], "capacity_kinds": ["people", "vehicle", "ticket", "unspecified"], "pass_types": ["digital", "physical-coupon", "physical-circ", "unknown"]}}</script>
 <script src="assets/audit.js"></script>
 </body></html>
