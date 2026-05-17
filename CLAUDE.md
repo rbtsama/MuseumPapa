@@ -50,7 +50,7 @@ Massachusetts eastern MA 区域的图书馆 museum-pass 福利数据建设项目
 │       └── policies.py        # 各馆办卡资格抓取
 ├── scripts/                   # CLI 入口(scrape_static / scrape_dynamic / snapshot_diff / diff_catalog / geocode_all / fetch_*_pages / build)
 ├── data/raw/<platform>/       # scraper 直接产出
-├── data/raw/pass_policies/    # 1008 个 (lib × attraction) policy JSON(subagent 抽取 benefits_text,plan-5)
+├── data/raw/pass_coupons/     # 1008 个 (lib × attraction) coupon JSON(plan-9 subagent re-extracted with source_phrases provenance)
 ├── data/structured/           # build pipeline 产出
 │   ├── library_catalog.json   # 规范化中间快照 + diff 锚点(每 lib_id → passes by canonical slug,带 benefit_label/calendar)
 │   ├── libraries.json         # 59 馆 final metadata(town/network/card_page/address/geo/eligibility)
@@ -124,6 +124,7 @@ cd web && pnpm install && pnpm run dev
 - **Geocoding**:OSM Nominatim(免费、1 req/sec)via `malibbene.common.geocode.geocode(query)`,结果缓存到 `data/.cache/geocode.json`。直线距离用 `haversine_miles`。失败区分:`no_results`(语义命中,缓存)vs 网络异常(瞬时,不缓存,下次重试)
 - **LLM 提取**(铁律:不调 Anthropic API):需要 LLM 时,Python fetcher 只把 HTML 落盘到 `_pages/`,extraction 通过 subagent dispatch 完成(controller 派 Sonnet),subagent 用 Read/Grep 读 HTML、Write 落 JSON
 - **Hero images**:从景点官网 `<meta property="og:image">` 抓,缓存到 `data/static/images/<slug>.<ext>`(gitignored,体积大);抓不到时前端 fallback `data/static/placeholders/<category>.svg`
+- **Pass.coupon**(plan-9):单一字段承载"这张 pass 给用户什么"。形状 `{capacity {kind, n}, audience_policies [{audience, age_range, count, form, value}], summary}`。`summary` 是后端生成的移动端电商风字符串("50% off" / "FREE" / "$5 off" / "$9/person"),用户看到的就是这串,自己心算对照 `attraction.original_price`(不自动算"省多少钱",见 [[feedback_core_product_value]])。日期/流程类限制(blackout / weekdays_only / seasonal / reservation_required)走 `Pass.restrictions` 旁路,UI 用 ⚠ 角标提示,不参与排序
 
 ## Reusable code from `backup/`
 

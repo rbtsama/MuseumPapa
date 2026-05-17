@@ -1363,12 +1363,12 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
 <div id="tab-library" class="tab-panel">{"".join(lib_sections)}</div>
 """
 
-    # Build minimal data blob: per-pass policy raw JSON, key="pol_<lib>_<slug>"
+    # Build minimal data blob: per-pass coupon raw JSON, key="cou_<lib>_<slug>"
     blob_d = {}
     for p in passes:
-        rp = read_raw("pass_policies", f"{p['library_id']}_{p['attraction_slug']}")
+        rp = read_raw("pass_coupons", f"{p['library_id']}_{p['attraction_slug']}")
         if rp:
-            blob_d[f"pol_{p['library_id']}_{p['attraction_slug']}"] = rp
+            blob_d[f"cou_{p['library_id']}_{p['attraction_slug']}"] = rp
     blob = json.dumps(blob_d, ensure_ascii=False)
     return page_shell("Policies", body, "policies.html", data_blob=blob), len(pattern_meta)
 
@@ -1509,7 +1509,7 @@ def page_lineage() -> str:
   <g><rect class="node node-raw" x="460" y="40" width="170" height="60" rx="6"><a href="schema.html"/></rect><text class="label" x="545" y="68" text-anchor="middle">data/raw/&lt;platform&gt;</text><text class="sub" x="545" y="86" text-anchor="middle">scraper JSON</text></g>
   <g><rect class="node" x="680" y="40" width="200" height="60" rx="6"/><text class="label" x="780" y="68" text-anchor="middle">Subagent extract</text><text class="sub" x="780" y="86" text-anchor="middle">Sonnet → policy fields</text></g>
 
-  <g><rect class="node node-raw" x="240" y="180" width="170" height="60" rx="6"/><text class="label" x="325" y="208" text-anchor="middle">raw/pass_policies/</text><text class="sub" x="325" y="226" text-anchor="middle">1008 cells</text></g>
+  <g><rect class="node node-raw" x="240" y="180" width="170" height="60" rx="6"/><text class="label" x="325" y="208" text-anchor="middle">raw/pass_coupons/</text><text class="sub" x="325" y="226" text-anchor="middle">1008 cells</text></g>
   <g><rect class="node node-raw" x="460" y="180" width="170" height="60" rx="6"/><text class="label" x="545" y="208" text-anchor="middle">raw/attraction_*</text><text class="sub" x="545" y="226" text-anchor="middle">price · hours · desc</text></g>
   <g><rect class="node" x="680" y="180" width="200" height="60" rx="6"/><text class="label" x="780" y="208" text-anchor="middle">scripts/build.py</text><text class="sub" x="780" y="226" text-anchor="middle">merge + normalize</text></g>
 
