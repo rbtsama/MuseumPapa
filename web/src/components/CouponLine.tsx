@@ -57,32 +57,14 @@ function fmtAudienceLabel(p: AudiencePolicy): string | null {
   return b;
 }
 
-function PersonIcon() {
-  // viewBox cropped from 0-24 to 4-20 (drops natural padding around the figure
-  // so a row of icons sits flush). Render width is 9px; combined with negative
-  // letter-spacing on the wrapper they overlap into a tight cluster.
-  return (
-    <svg width="9" height="11" viewBox="4 0 16 24" fill="currentColor" aria-hidden
-      style={{ display: 'inline-block', verticalAlign: '-1px' }}>
-      <path d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0zM3.75 20.1a8.25 8.25 0 0 1 16.5 0 .75.75 0 0 1-.44.69 18.7 18.7 0 0 1-7.81 1.7c-2.79 0-5.43-.6-7.81-1.7a.75.75 0 0 1-.44-.69z" />
-    </svg>
-  );
-}
-
-function CapacityNode({ capacity, color }: { capacity: CouponCapacity; color: string }) {
-  // people and ticket are both headcount-limited; render identically.
-  // Single-ticket coupons (JFK Library) admit one person — same UX as people-n=1.
+/** Plain-text capacity label like "Up to 4" / "1 ticket". Returns null when the
+ *  coupon isn't headcount-shaped — capacity lives next to location info on the
+ *  card, NOT next to prices, so callers render it themselves.
+ */
+export function formatCapacity(capacity: CouponCapacity): string | null {
   if (capacity.n == null || capacity.n <= 0) return null;
-  if (capacity.kind === 'people' || capacity.kind === 'ticket') {
-    return (
-      <span className="inline-flex items-baseline" style={{ color, gap: 3 }}>
-        <span>up to</span>
-        <span className="inline-flex items-center" style={{ gap: 0 }}>
-          {Array.from({ length: capacity.n }).map((_, i) => <PersonIcon key={i} />)}
-        </span>
-      </span>
-    );
-  }
+  if (capacity.kind === 'people') return `Up to ${capacity.n}`;
+  if (capacity.kind === 'ticket') return `Up to ${capacity.n}`;
   return null;
 }
 
@@ -108,20 +90,16 @@ export function CouponLine({ coupon, align = 'right' }: Props) {
     );
   }
 
-  const hasCapacity = coupon.capacity.n != null && coupon.capacity.n > 0
-    && coupon.capacity.kind !== 'vehicle';
-
   return (
     <span
       className={`inline-flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 ${justify}`}
       style={{ fontSize: 12, lineHeight: 1.2 }}
     >
-      {hasCapacity && <CapacityNode capacity={coupon.capacity} color={dim} />}
       {coupon.audience_policies.map((p, i) => {
         const label = fmtAudienceLabel(p);
         return (
           <span key={i} className="inline-flex items-baseline gap-1">
-            {(i > 0 || hasCapacity) && <span style={{ color: dim }}>·</span>}
+            {i > 0 && <span style={{ color: dim }}>·</span>}
             <span style={{ color: amount, fontWeight: 700, fontSize: 13 }}>{fmtAmount(p)}</span>
             {label && <span style={{ color: dim }}>{label}</span>}
           </span>

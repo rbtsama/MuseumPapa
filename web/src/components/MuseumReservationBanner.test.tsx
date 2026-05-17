@@ -22,8 +22,8 @@ describe('MuseumReservationBanner', () => {
         variant="detail"
       />
     );
-    expect(screen.getByText(/Reserve a timed entry at/)).toBeInTheDocument();
-    expect(screen.getByText('ICA Boston')).toBeInTheDocument();
+    expect(screen.getByText(/This pass requires a museum reservation at ICA Boston/)).toBeInTheDocument();
+    expect(screen.getByText(/Reserve/)).toBeInTheDocument();
   });
 
   it('renders the card-variant single-line text', () => {
@@ -34,7 +34,7 @@ describe('MuseumReservationBanner', () => {
         variant="card"
       />
     );
-    expect(screen.getByText('Reserve admission at the museum first')).toBeInTheDocument();
+    expect(screen.getByText('Pass requires a museum reservation')).toBeInTheDocument();
   });
 
   it('opens the museum URL in a new tab on click', () => {

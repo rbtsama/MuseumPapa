@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { CouponLine } from './CouponLine';
+import { CouponLine, formatCapacity } from './CouponLine';
 import type { AudiencePolicy, Coupon, CouponCapacity } from '../data/types';
 
 const make = (
@@ -60,14 +60,6 @@ describe('CouponLine', () => {
     expect(screen.queryByText(/age \d+-\d+/)).toBeNull();
   });
 
-  it('renders ticket capacity as a single person icon — same UX as people-n=1', () => {
-    const { container } = render(<CouponLine coupon={make([
-      { audience: 'Everyone', age_range: null, count: null, form: 'free', value: null },
-    ], { kind: 'ticket', n: 1 })} />);
-    expect(container.querySelectorAll('svg').length).toBe(1);
-    expect(screen.queryByText(/ticket/i)).toBeNull();
-  });
-
   it('renders parking coupons as a single dim "Other discount · parking" line', () => {
     render(<CouponLine coupon={make([
       { audience: 'Vehicle', age_range: null, count: null, form: 'free', value: null },
@@ -90,10 +82,29 @@ describe('CouponLine', () => {
     expect(container.firstChild).toBeNull();
   });
 
-  it('emits N person-icon SVGs when capacity.kind = people', () => {
+  it('no longer renders person-icon SVGs (capacity lives elsewhere)', () => {
     const { container } = render(<CouponLine coupon={make([
       { audience: 'Everyone', age_range: null, count: null, form: 'free', value: null },
     ], { kind: 'people', n: 4 })} />);
-    expect(container.querySelectorAll('svg').length).toBe(4);
+    expect(container.querySelectorAll('svg').length).toBe(0);
+  });
+});
+
+describe('formatCapacity', () => {
+  it('returns "Up to N" for people kind', () => {
+    expect(formatCapacity({ kind: 'people', n: 4 })).toBe('Up to 4');
+  });
+
+  it('returns "Up to N" for single-ticket kind (same headcount semantic)', () => {
+    expect(formatCapacity({ kind: 'ticket', n: 1 })).toBe('Up to 1');
+  });
+
+  it('returns null for vehicle (parking coupons render their own label)', () => {
+    expect(formatCapacity({ kind: 'vehicle', n: 1 })).toBeNull();
+  });
+
+  it('returns null when n is missing', () => {
+    expect(formatCapacity({ kind: 'people', n: null })).toBeNull();
+    expect(formatCapacity({ kind: 'unspecified', n: null })).toBeNull();
   });
 });

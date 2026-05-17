@@ -3,7 +3,7 @@ import type { Attraction, Pass } from '../data/types';
 import type { PickedTag } from '../lib/tag-algorithm';
 import { FavoriteButton } from './FavoriteButton';
 import { PassTypeLabel } from './PassTypeLabel';
-import { CouponLine } from './CouponLine';
+import { CouponLine, formatCapacity } from './CouponLine';
 import { MuseumReservationBanner } from './MuseumReservationBanner';
 import { hoursDisplay } from '../lib/hours';
 import { heroSrc } from '../lib/hero';
@@ -22,6 +22,15 @@ interface Props {
 }
 
 const MAX_ROWS_VISIBLE = 4;
+
+function DistanceIcon() {
+  return (
+    <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor" aria-hidden
+      style={{ display: 'inline-block', verticalAlign: '-1px' }}>
+      <path d="M12 2a8 8 0 0 0-8 8c0 5.4 6.5 11.2 7.3 11.8a1 1 0 0 0 1.4 0C13.5 21.2 20 15.4 20 10a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+    </svg>
+  );
+}
 
 function fmtMoney(v: number | null | undefined): string {
   if (v == null) return '';
@@ -204,6 +213,7 @@ export function AttractionCard({
               : branchSummary ? branchSummary
               : showBranchLabel ? `${branches[0].name} · ${branches[0].address.street}`
               : t.library.town;
+            const capacityText = formatCapacity(t.pass.coupon.capacity);
 
             return (
               <div
@@ -211,16 +221,20 @@ export function AttractionCard({
                 className="flex items-center gap-2 px-3 py-2"
                 style={{ borderTop: i === 0 ? 'none' : '1px solid var(--rule)' }}
               >
-                <PassTypeLabel type={t.pass.pass_type} />
-
                 <div className="flex-grow min-w-0 flex flex-col gap-0.5">
-                  <div style={{ fontSize: 13, color: 'var(--ink-2)', fontWeight: 500,
-                    overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                    {locationText}
+                  <div className="flex items-center gap-1.5 min-w-0" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
+                    <PassTypeLabel type={t.pass.pass_type} />
+                    <span style={{ color: 'var(--ink-2)', fontWeight: 500, fontSize: 13,
+                      overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {locationText}
+                    </span>
                     {!isDigital && t.distanceMi != null && (
-                      <span style={{ fontSize: 11, color: 'var(--ink-3)', fontWeight: 400 }}>
-                        {' '}· {Math.round(t.distanceMi)} mi from you
+                      <span className="flex-shrink-0 inline-flex items-center" style={{ fontSize: 11, gap: 2 }}>
+                        <DistanceIcon /> {Math.round(t.distanceMi)} mi
                       </span>
+                    )}
+                    {capacityText && (
+                      <span className="flex-shrink-0" style={{ fontSize: 11 }}>· {capacityText}</span>
                     )}
                   </div>
                   <CouponLine coupon={t.pass.coupon} align="left" />
