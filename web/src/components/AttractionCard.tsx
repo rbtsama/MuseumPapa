@@ -4,6 +4,7 @@ import type { PickedTag } from '../lib/tag-algorithm';
 import { FavoriteButton } from './FavoriteButton';
 import { PassTypeLabel } from './PassTypeLabel';
 import { CouponLine } from './CouponLine';
+import { RestrictionsBadge } from './RestrictionsBadge';
 import { hoursDisplay } from '../lib/hours';
 import { heroSrc } from '../lib/hero';
 import { getBranchesForPass } from '../data/load';
@@ -207,6 +208,7 @@ export function AttractionCard({
                 </div>
 
                 <CouponLine coupon={t.pass.coupon} />
+                <RestrictionsBadge restrictions={t.pass.restrictions} />
 
                 <span
                   role="button"

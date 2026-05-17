@@ -54,6 +54,12 @@ def geocode(query: str, *, cache_path: Path = DEFAULT_CACHE) -> dict:
     ``cache_path``. Network / parse errors are returned but NOT cached, so a
     later run after the transient issue passes will retry.
     """
+    # Nominatim will happily resolve "MA" to Morocco — guard against bare
+    # state/country codes and ultra-short inputs that can't be a real address.
+    q = (query or "").strip()
+    if len(q) < 5 or q.upper() in {"MA", "US", "USA", "U.S.", "U.S.A."}:
+        return {"ok": False, "error": "query_too_short"}
+
     cache = _load_cache(cache_path)
     if query in cache:
         return cache[query]

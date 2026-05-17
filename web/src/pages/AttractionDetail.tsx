@@ -5,6 +5,7 @@ import {
 } from '../data/load';
 import { PassTypeLabel } from '../components/PassTypeLabel';
 import { CouponLine } from '../components/CouponLine';
+import { RestrictionsBadge } from '../components/RestrictionsBadge';
 import { GuestLockedRow } from '../components/GuestLockedRow';
 import { SignInModal } from '../components/SignInModal';
 import { FavoriteButton } from '../components/FavoriteButton';
@@ -283,8 +284,9 @@ export function AttractionDetail() {
                           </span>
                         )}
                       </span>
-                      <span className="ml-auto">
+                      <span className="ml-auto inline-flex items-center gap-2">
                         <CouponLine coupon={r.pass.coupon} />
+                        <RestrictionsBadge restrictions={r.pass.restrictions} />
                       </span>
                     </button>
                   );
