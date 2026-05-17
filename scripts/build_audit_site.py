@@ -1419,46 +1419,119 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
 # PAGE 5 — gaps.html
 # =========================================================================
 
-def page_gaps(attr_data, libs_data) -> str:
+def page_gaps(attr_data, libs_data, passes_data=None) -> str:
     attrs = attr_data["attractions"]
     slug_counts = Counter(A["slug"] for A in attrs)
+    n_attrs = len(attrs)
+    passes = (passes_data or {}).get("passes", []) if passes_data else []
+    n_passes = len(passes)
+
+    # Each entry: key -> (en_title, zh_title, denominator, zh_business_impact)
+    GAP_META = {
+        "Missing price data": (
+            "Attractions missing original_price",
+            "缺失票价的景点",
+            n_attrs,
+            "用户在前端看不到原价对比,coupon 的价值无法直观判断,降低成交信心。",
+        ),
+        "Missing description": (
+            "Attractions missing description",
+            "缺失简介的景点",
+            n_attrs,
+            "卡片上没有一句话介绍,用户难以判断是否值得点进去,影响点击率。",
+        ),
+        "Missing phone": (
+            "Attractions missing phone",
+            "缺失联系电话的景点",
+            n_attrs,
+            "用户想电话确认是否需要预约或当天是否开放时无法直接联系景点。",
+        ),
+        "Geo geocode failure": (
+            "Attractions missing geo coordinates",
+            "缺失经纬度的景点",
+            n_attrs,
+            "无法按距离排序,持卡用户在远郊看到的优先级次序会失真。",
+        ),
+        "Hours vary by location / season": (
+            "Attractions with non-fixed hours",
+            "营业时间随场地/季节变动的景点",
+            n_attrs,
+            "页面无法给出固定开放时间,需要额外提示用户出门前自查。",
+        ),
+        "Duplicate slug pairs": (
+            "Attractions appearing under duplicate slugs",
+            "存在重复 slug 的景点",
+            n_attrs,
+            "同一家场馆出现在两个 ID 下,会被前端误显示成两条独立景点,稀释优惠。",
+        ),
+        "Missing hero image": (
+            "Attractions missing hero image",
+            "缺失封面图的景点",
+            n_attrs,
+            "卡片上只能显示分类占位 SVG,视觉冲击力弱,用户停留时间下降。",
+        ),
+        "Passes missing source_url": (
+            "Passes missing source_url",
+            "缺失来源 URL 的 pass 行",
+            n_passes,
+            "审核时无法一键回链到图书馆原页面,影响数据可追溯性。",
+        ),
+    }
 
     sections = defaultdict(list)
     for A in attrs:
         slug = A["slug"]
         name = A.get("museum_name") or ""
         if not A.get("original_price"):
-            sections["Missing price data"].append((slug, name, "no price extracted (theater / event-priced / blocked / 403)"))
+            sections["Missing price data"].append((slug, name))
         if not A.get("description"):
-            sections["Missing description"].append((slug, name, "no description extracted"))
+            sections["Missing description"].append((slug, name))
         if not A.get("phone"):
-            sections["Missing phone"].append((slug, name, "no phone extracted"))
+            sections["Missing phone"].append((slug, name))
         if not A.get("geo"):
-            sections["Geo geocode failure"].append((slug, name, "no lat/lon"))
+            sections["Geo geocode failure"].append((slug, name))
         if (A.get("hours") or {}).get("status") and (A.get("hours") or {})["status"] != "ok":
-            sections["Hours vary by location / season"].append((slug, name, (A.get("hours") or {}).get("status")))
+            sections["Hours vary by location / season"].append((slug, name))
         if slug_counts[slug] > 1:
-            sections["Duplicate slug pairs"].append((slug, name, "see duplicates page"))
+            sections["Duplicate slug pairs"].append((slug, name))
         if not (A.get("hero_image") or {}).get("local_path"):
-            sections["Missing hero image"].append((slug, name, "fallback to placeholder"))
+            sections["Missing hero image"].append((slug, name))
+
+    for p in passes:
+        if not p.get("source_url"):
+            sections["Passes missing source_url"].append((
+                f'{p.get("library_id","")} → {p.get("attraction_slug","")}',
+                "",
+            ))
 
     out = []
-    for label, items in sections.items():
+    # Order: preserve insertion order from GAP_META so visual layout is stable
+    for label, meta in GAP_META.items():
+        items = sections.get(label) or []
         if not items:
             continue
-        # Reason is identical for every row in a section — surface it once in the
-        # section header instead of repeating it in every row.
-        section_reason = items[0][2] if items else ""
+        en_title, zh_title, denom, zh_impact = meta
+        pct = round(100 * len(items) / max(denom, 1))
         rows = "".join(
-            f'<tr><td class="mono">{esc(s)}</td><td>{esc(n)}</td><td>—</td></tr>'
-            for s, n, _why in items
+            f'<tr><td class="mono">{esc(s)}</td><td>{esc(n)}</td></tr>'
+            for s, n in items
         )
-        reason_html = f' <span class="section-reason" style="font-weight:400;color:var(--ink-3);font-size:13px">· {esc(section_reason)}</span>' if section_reason else ""
-        out.append(f'<section class="panel"><h2>{esc(label)} <span class="num-pill">{len(items)}</span>{reason_html}</h2><table class="data-table"><thead><tr><th>slug</th><th>name</th><th>note</th></tr></thead><tbody>{rows}</tbody></table></section>')
+        pill = (
+            f'<span class="num-pill">{len(items)} / {denom} · {pct}%</span>'
+        )
+        out.append(f"""
+<section class="panel">
+  <h2>{esc(en_title)} {pill}<span class="zh-sub">{esc(zh_title)}</span></h2>
+  <p class="gap-impact">{esc(zh_impact)}</p>
+  <table class="data-table">
+    <thead><tr><th>slug / lib → slug</th><th>name</th></tr></thead>
+    <tbody>{rows}</tbody>
+  </table>
+</section>""")
 
     body = f"""
-<h1 class="page-title">Gaps · Known data holes</h1>
-<p>Each section groups attractions where the corresponding field could not be auto-collected. Action: manual override or accept gap.</p>
+<h1 class="page-title">Data gaps<span class="zh-sub">数据缺口 · 哪些字段当前还没拿到</span></h1>
+<p class="subtitle">每个分组列出未能自动采集到对应字段的景点或 pass。百分比基于该字段的全集(景点共 {n_attrs} 条 / pass 共 {n_passes} 条)。处理方式:人工补录 (<code>manual_overrides.json</code>) 或接受当前缺口。</p>
 {"".join(out)}
 """
     return page_shell("Gaps", body, "gaps.html")
@@ -1538,57 +1611,108 @@ def page_duplicates(attr_data) -> str:
 # PAGE 7 — lineage.html
 # =========================================================================
 
-def page_lineage() -> str:
-    body = """
-<h1 class="page-title">Data lineage</h1>
-<p>How a single fact (e.g. "Acton offers half-price BCM admission for 4 people") travels from a library website to the user's screen.</p>
+def page_lineage(libs_data, attr_data, passes_data) -> str:
+    n_libs = len(libs_data["libraries"])
+    n_attrs = len(attr_data["attractions"])
+    n_passes = len(passes_data["passes"])
+    n_with_avail = sum(
+        1 for p in passes_data["passes"]
+        if (p.get("availability") or {}) and len(p.get("availability") or {}) > 0
+    )
 
-<svg class="lineage-svg" viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4A4845"/>
-    </marker>
-    <style>
-      .node { fill: #FAFAF7; stroke: #B5B2A8; stroke-width: 1.5; }
-      .node-raw { fill: #F4EFE8; }
-      .node-out { fill: #EAF1EE; }
-      .label { font: 13px 'DM Sans', sans-serif; fill: #1A1917; }
-      .sub { font: 11px 'DM Sans', sans-serif; fill: #4A4845; }
-      .edge { stroke: #4A4845; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
-    </style>
-  </defs>
+    stages = [
+        {
+            "n": "1",
+            "en_title": "Collect from library websites",
+            "zh_title": "从图书馆网站采集",
+            "in_": "Library pass-program pages — public URLs we visit on a schedule",
+            "do": "Scrape every page, save the raw HTML and the listing JSON",
+            "out": "Raw page snapshots, one folder per library",
+            "metric": f"{n_libs} library websites scraped",
+            "zh": "我们按计划访问每家图书馆的 museum-pass 页面,把原始 HTML 和列表数据原样存档,作为后续抽取的唯一真相来源。",
+        },
+        {
+            "n": "2",
+            "en_title": "Catalog the attractions",
+            "zh_title": "建立景点目录",
+            "in_": "Raw library listings naming hundreds of museums, parks, theaters",
+            "do": "Deduplicate name variants into one canonical attraction record per real-world venue, enrich with phone / address / hours / hero image / price from each attraction's official site",
+            "out": "One row per unique attraction",
+            "metric": f"{n_attrs} unique attractions catalogued",
+            "zh": "把不同图书馆对同一家博物馆的不同写法合并成一条规范记录,再从景点官网补齐电话、地址、营业时间、票价、封面图,形成统一目录。",
+        },
+        {
+            "n": "3",
+            "en_title": "Structure each pass into a clean record",
+            "zh_title": "把每张 pass 整理成结构化记录",
+            "in_": "Free-text benefit descriptions written by each library in their own style",
+            "do": "Read the natural language and extract who the pass covers, what discount it gives, how it is delivered, and any usage restrictions",
+            "out": "One row per (library × attraction) combination, with a uniform discount summary",
+            "metric": f"{n_passes} attraction/library pass combinations",
+            "zh": "每家图书馆描述福利的文字风格都不一样,我们把它们翻译成统一的字段:覆盖人群、折扣形式、取卡方式、使用限制,让前端可以横向对比。",
+        },
+        {
+            "n": "4",
+            "en_title": "Attach live booking availability",
+            "zh_title": "接入实时预订日历",
+            "in_": "Each library's reservation system (Assabet, LibCal, MuseumKey)",
+            "do": "Refresh the next 30 days of slots daily so users see what is bookable right now",
+            "out": "Per-pass availability calendar refreshed on a schedule",
+            "metric": f"{n_with_avail} with live booking calendar",
+            "zh": "每天自动刷新未来 30 天的预订位,用户打开页面看到的是接近实时的可借状态,不是静态截图。",
+        },
+        {
+            "n": "5",
+            "en_title": "Ship to the live site",
+            "zh_title": "推送到线上站点",
+            "in_": "Structured library / attraction / pass records + live calendar",
+            "do": "Bundle the four data files and publish them to the consumer-facing web app",
+            "out": "What the cardholder sees in the browser",
+            "metric": "Live product",
+            "zh": "把整理好的数据打包推送到面向用户的网站,持卡人打开页面就能查到自己手里的卡能用在哪、当天能不能预订。",
+        },
+    ]
 
-  <g><rect class="node" x="20" y="40" width="170" height="60" rx="6"/><text class="label" x="105" y="68" text-anchor="middle">Library website</text><text class="sub" x="105" y="86" text-anchor="middle">59 sources</text></g>
-  <g><rect class="node" x="240" y="40" width="170" height="60" rx="6"/><text class="label" x="325" y="68" text-anchor="middle">Python fetcher</text><text class="sub" x="325" y="86" text-anchor="middle">sources/&lt;platform&gt;</text></g>
-  <g><rect class="node node-raw" x="460" y="40" width="170" height="60" rx="6"><a href="schema.html"/></rect><text class="label" x="545" y="68" text-anchor="middle">data/raw/&lt;platform&gt;</text><text class="sub" x="545" y="86" text-anchor="middle">scraper JSON</text></g>
-  <g><rect class="node" x="680" y="40" width="200" height="60" rx="6"/><text class="label" x="780" y="68" text-anchor="middle">Subagent extract</text><text class="sub" x="780" y="86" text-anchor="middle">Sonnet → policy fields</text></g>
+    stage_html_parts = []
+    for s in stages:
+        stage_html_parts.append(f"""
+<section class="lineage-stage">
+  <div class="lineage-num">{s['n']}</div>
+  <div class="lineage-body">
+    <h3 class="lineage-stage-title">{esc(s['en_title'])}<span class="zh-sub">{esc(s['zh_title'])}</span></h3>
+    <p class="lineage-zh">{esc(s['zh'])}</p>
+    <dl class="lineage-io">
+      <dt>In</dt><dd>{esc(s['in_'])}</dd>
+      <dt>We do</dt><dd>{esc(s['do'])}</dd>
+      <dt>Out</dt><dd>{esc(s['out'])}</dd>
+    </dl>
+    <div class="lineage-metric">{esc(s['metric'])}</div>
+  </div>
+</section>""")
 
-  <g><rect class="node node-raw" x="240" y="180" width="170" height="60" rx="6"/><text class="label" x="325" y="208" text-anchor="middle">raw/pass_coupons/</text><text class="sub" x="325" y="226" text-anchor="middle">1008 cells</text></g>
-  <g><rect class="node node-raw" x="460" y="180" width="170" height="60" rx="6"/><text class="label" x="545" y="208" text-anchor="middle">raw/attraction_*</text><text class="sub" x="545" y="226" text-anchor="middle">price · hours · desc</text></g>
-  <g><rect class="node" x="680" y="180" width="200" height="60" rx="6"/><text class="label" x="780" y="208" text-anchor="middle">scripts/build.py</text><text class="sub" x="780" y="226" text-anchor="middle">merge + normalize</text></g>
+    volumes_html = f"""
+<section class="lineage-volumes panel">
+  <h2>By the numbers<span class="zh-sub">关键产出量</span></h2>
+  <ol class="lineage-flow-line">
+    <li><b>{n_libs}</b> library websites scraped<span class="zh-sub">家图书馆官网</span></li>
+    <li><b>{n_attrs}</b> unique attractions catalogued<span class="zh-sub">条独立景点记录</span></li>
+    <li><b>{n_passes}</b> attraction × library pass rows<span class="zh-sub">条 景点×图书馆 组合</span></li>
+    <li><b>{n_with_avail}</b> with live booking calendar<span class="zh-sub">条带实时预订日历</span></li>
+  </ol>
+</section>
+"""
 
-  <g><rect class="node node-out" x="20" y="320" width="200" height="60" rx="6"><a href="libraries.html"/></rect><text class="label" x="120" y="348" text-anchor="middle">structured/libraries.json</text><text class="sub" x="120" y="366" text-anchor="middle">59 rows</text></g>
-  <g><rect class="node node-out" x="250" y="320" width="200" height="60" rx="6"><a href="attractions.html"/></rect><text class="label" x="350" y="348" text-anchor="middle">structured/attractions.json</text><text class="sub" x="350" y="366" text-anchor="middle">107 rows</text></g>
-  <g><rect class="node node-out" x="480" y="320" width="200" height="60" rx="6"><a href="policies.html"/></rect><text class="label" x="580" y="348" text-anchor="middle">structured/passes.json</text><text class="sub" x="580" y="366" text-anchor="middle">1008 rows</text></g>
-  <g><rect class="node" x="710" y="320" width="170" height="60" rx="6"/><text class="label" x="795" y="348" text-anchor="middle">React frontend</text><text class="sub" x="795" y="366" text-anchor="middle">web/</text></g>
+    body = f"""
+<h1 class="page-title">Data lineage<span class="zh-sub">数据血缘 · 从图书馆官网到用户屏幕</span></h1>
+<p class="subtitle">How a single fact — for example "Acton library offers half-price admission for 4 people at the children's museum" — travels from a library website to the cardholder's screen. 一条优惠从图书馆官网走到用户眼前要经过 5 个阶段,下面逐步说明每个阶段做了什么、产出了多少。</p>
 
-  <path class="edge" d="M 190 70 L 240 70"/>
-  <path class="edge" d="M 410 70 L 460 70"/>
-  <path class="edge" d="M 630 70 L 680 70"/>
-  <path class="edge" d="M 780 100 L 780 180"/>
-  <path class="edge" d="M 545 100 L 545 180"/>
-  <path class="edge" d="M 680 210 L 630 210"/>
-  <path class="edge" d="M 680 210 L 410 210"/>
-  <path class="edge" d="M 780 240 L 780 290 L 580 290 L 580 320"/>
-  <path class="edge" d="M 780 240 L 350 290 L 350 320"/>
-  <path class="edge" d="M 780 240 L 120 290 L 120 320"/>
-  <path class="edge" d="M 680 350 L 710 350"/>
-</svg>
+{volumes_html}
 
-<p class="lineage-foot">
-  Tap a green box to inspect its structure on this audit site. The schema definitions are in
-  <a href="schema.html">schema.html</a>.
-</p>
+<div class="lineage-flow">
+{''.join(stage_html_parts)}
+</div>
+
+<p class="lineage-foot">数据结构字段定义请见 <a href="schema.html">schema</a>;质量检查项请见 <a href="data_quality.html">data quality</a>。</p>
 """
     return page_shell("Lineage", body, "lineage.html")
 
@@ -1598,85 +1722,171 @@ def page_lineage() -> str:
 # =========================================================================
 
 def page_schema() -> str:
-    body = """
-<h1 class="page-title">数据结构说明 · Schema</h1>
+    # Each entity is a list of field tuples:
+    #   (field_name, type_str, en_desc, zh_desc, why)
+    LIBRARY_FIELDS = [
+        ("id", "string", "Short library code used in cross-references.",
+         "图书馆短代码,所有外键都用它,如 wakefield。",
+         "Stable join key between libraries and passes."),
+        ("name", "string", "Formal library name as it appears on signage.",
+         "图书馆正式名称,如 Lucius Beebe Memorial Library。",
+         "Shown to the cardholder on the library card chip."),
+        ("town", "string", "Town the library serves.",
+         "图书馆所在市镇。",
+         "Used for distance grouping and town-level filters."),
+        ("network", "string", "Library consortium membership (NOBLE / MLN / Minuteman ...).",
+         "图书馆所属网络/联盟,如 NOBLE、MLN、Minuteman。",
+         "Determines reciprocal borrowing rights for the cardholder."),
+        ("platform", "enum", "Pass-booking backend: assabet / libcal / museumkey.",
+         "通行证后台平台:Assabet(52 馆)/ LibCal(5 馆)/ MuseumKey(2 馆)。",
+         "Selects the scraper and decides whether live availability is available."),
+        ("card_page", "url", "Public page describing how to get a library card.",
+         "本馆的办卡说明页 URL。",
+         "Drives the 'how to get a card' deep-link on the frontend."),
+        ("eligibility", "enum", "Who may obtain a card: open_ma_resident or residents_only.",
+         "办卡资格:open_ma_resident 麻州居民均可 / residents_only 仅本镇居民。",
+         "Tells the user whether they can sign up for this card at all."),
+        ("supports_availability", "bool", "Whether the platform exposes next-30-day slot data.",
+         "本馆所属平台是否能查未来 30 天的预订情况(MuseumKey 不支持)。",
+         "Controls whether the live calendar UI shows for this library."),
+        ("address", "object", "Street / city / state / zip / formatted.",
+         "街道地址,拆成 5 个字段。",
+         "Powers the map pin and walking-distance card."),
+        ("geo", "object {lat,lon}", "Geocoded coordinates from OSM Nominatim.",
+         "经纬度,由 OSM Nominatim 解析得到,缓存在 data/.cache/geocode.json。",
+         "Enables distance-based sort against the user's home."),
+    ]
 
-<section class="panel">
-  <h2>1. 图书馆 Libraries</h2>
-  <ul class="schema-list">
-    <li><b>id</b>:库的短代码,如 <code>wakefield</code>。所有交叉引用都用它。</li>
-    <li><b>name</b>:正式馆名,如 "Lucius Beebe Memorial Library"。</li>
-    <li><b>town · network</b>:所在市镇 / 隶属网络(NOBLE / MLN / Minuteman 等)。</li>
-    <li><b>platform</b>:博物馆通行证后台,目前有三种 — Assabet(52 馆)/ LibCal(5 馆)/ MuseumKey(2 馆)。决定了我们用哪个 scraper。</li>
-    <li><b>card_page</b>:办卡说明页 URL。</li>
-    <li><b>eligibility</b>:办卡资格 — <code>open_ma_resident</code> 表示麻州居民均可办,<code>residents_only</code> 表示仅本镇居民。</li>
-    <li><b>supports_availability</b>:平台是否可查未来 30 天的库存(MuseumKey 不支持)。</li>
-    <li><b>address</b>:街道地址,5 个字段。</li>
-    <li><b>geo</b>:经纬度,由 OSM Nominatim 反查得到,缓存在 <code>data/.cache/geocode.json</code>。</li>
-  </ul>
+    ATTRACTION_FIELDS = [
+        ("slug", "string", "URL-safe stable ID for the attraction.",
+         "景点的 URL 友好稳定 ID,如 boston-childrens-museum。",
+         "Foreign key used by every pass row."),
+        ("museum_name", "string", "Formal venue name.",
+         "景点正式名称。",
+         "Headline shown on the attraction card."),
+        ("address / website / phone", "string", "Contact and locator info, mostly from the official site.",
+         "联系地址、官网、电话,主要来自景点官网。",
+         "Lets the user verify or call ahead before visiting."),
+        ("description", "string", "One-paragraph plain-text intro to the venue.",
+         "景点简介,纯文本一段。",
+         "Drives whether a user clicks into detail; missing = cold card."),
+        ("categories", "array of string", "Tag list (Children / Family / Science / Art / Nature / History ...).",
+         "分类标签数组(儿童 / 家庭 / 科学 / 艺术 / 自然 / 历史 等)。",
+         "Powers category filter and placeholder-image fallback."),
+        ("sources", "array of library_id", "Libraries currently offering a pass to this attraction.",
+         "数组,列出所有提供本景点 pass 的图书馆 id。",
+         "Lets the UI surface 'X of your libraries offer this'."),
+        ("original_price", "object", "Two-layer pricing model: age_pricing + identity_pricing + family.",
+         "景点门市原价,两层:age_pricing 按年龄、identity_pricing 按身份、family 家庭票。",
+         "The number the user mentally compares the coupon against."),
+        ("original_price.age_pricing", "object", "adult / youth / child / senior tiers, each {price, min_age, max_age}, plus free_under_age (age threshold, not a price).",
+         "按年龄定价:adult/youth/child/senior 各一档,以及 free_under_age(低于该岁数免费,是年龄阈值数字而非价格)。",
+         "Anyone meeting the age band qualifies — no proof needed."),
+        ("original_price.identity_pricing", "object", "student / educator / military tiers, each {price, requires}.",
+         "按身份定价:student/educator/military,需出示证件。",
+         "Some coupons stack with identity tiers; we keep the base price for comparison."),
+        ("hero_image", "object", "Cover image scraped from the attraction's og:image, cached locally.",
+         "景点封面图,来自官网 og:image,本地缓存(gitignored)。",
+         "Drives card visual impact; falls back to category placeholder SVG."),
+        ("hours", "object", "Mon–Sun opening hours plus a status field (ok / varies / seasonal / missing).",
+         "周一至周日营业时间,加 status 标识(ok / varies / seasonal / missing)。",
+         "Tells the UI whether to show hard hours or a 'check with venue' warning."),
+        ("geo", "object {lat,lon}", "Geocoded attraction coordinates.",
+         "景点经纬度,用于距离排序。",
+         "Sorts attractions by distance from the user."),
+    ]
+
+    PASS_FIELDS = [
+        ("library_id", "string", "Foreign key to libraries.id.",
+         "外键指向 libraries.id。",
+         "Identifies which library issues this pass."),
+        ("attraction_slug", "string", "Foreign key to attractions.slug.",
+         "外键指向 attractions.slug。",
+         "Identifies which venue the pass admits the user to."),
+        ("pass_type", "enum", "digital (Email) / physical-coupon (Pickup) / physical-circ (Pickup & Return) / unknown.",
+         "通行证形态:digital 邮件 / physical-coupon 门店取一次性纸券 / physical-circ 循环借阅卡 / unknown 未分类。",
+         "Determines pickup workflow shown to the user."),
+        ("source_url", "url", "Library page where this pass is described.",
+         "本 pass 在图书馆官网上的来源页面 URL。",
+         "Lets the auditor and the curious user verify against the original."),
+        ("coupon", "object", "Unified discount model — what the user actually gets.",
+         "统一优惠模型 — 这张 pass 实际能给用户什么。",
+         "Single source of truth for the discount summary on every card."),
+        ("coupon.capacity", "object {kind,n}", "Coverage cap: kind in people / vehicle / ticket / unspecified, plus headcount.",
+         "整张 coupon 的容量上限,kind: people / vehicle / ticket / unspecified,n 为人数或车数。",
+         "Tells the user how many people / vehicles fit under one coupon."),
+        ("coupon.audience_policies", "array of object", "Per-audience policy rows: {audience, age_range, count, form, value}.",
+         "数组,每项是一个人群规则:{audience 人群, age_range 年龄区间, count 人数, form 优惠形式, value 数值}。",
+         "Drives the per-audience discount lines on the card."),
+        ("coupon.audience_policies[].form", "enum", "free / percent-off / dollar-off / per-person-price / discount.",
+         "优惠形式:free 免费 / percent-off 百分比 / dollar-off 固定减免 / per-person-price 人头价 / discount 笼统折扣。",
+         "Controls the badge color and short label shown to the user."),
+        ("coupon.summary", "string", "Mobile-ecommerce-style short string (FREE / 50% off / $5 off / $9 / person).",
+         "电商风短字符串,如 FREE / 50% off / $5 off / $9/人。",
+         "The single line the cardholder reads — they mentally compare it against original_price."),
+        ("restrictions", "object", "Usage limits: {blackout_dates, weekdays_only, seasonal, reservation_required}.",
+         "使用限制:节假日 blackout、仅工作日、季节性、需要预约。",
+         "Surfaces ⚠ warning icons before a user commits to a date."),
+        ("availability", "object", "Next 30 days bookable-status map per slot (MuseumKey libraries: empty).",
+         "未来 30 天的可预订状态字典,MuseumKey 平台为空。",
+         "Powers the live calendar; tells the user if today is bookable."),
+    ]
+
+    COUPON_FORMS = [
+        ("free", "Free admission for the audience tier.", "该人群完全免费入场。"),
+        ("percent-off", "Percentage off the gate price, e.g. 50.", "门市价百分比折扣,如 50 表示 50% off。"),
+        ("dollar-off", "Fixed dollar amount off, e.g. 5 = $5 off.", "固定金额减免,如 5 表示 $5 off。"),
+        ("per-person-price", "Flat per-head price negotiated with the library, e.g. $5 / person.", "与图书馆协商的固定人头价,如每人 $5。"),
+        ("discount", "Free-text discount language the extractor could not quantify.", "原文是笼统折扣描述,抽取器无法提取具体数值。"),
+    ]
+
+    def render_field_rows(fields):
+        rows = []
+        for name, typ, en, zh, why in fields:
+            rows.append(f"""
+<div class="schema-row">
+  <div class="schema-fname"><code>{esc(name)}</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">{esc(typ)}</div>
+    <div class="schema-fdesc">{esc(en)}<span class="zh-sub">{esc(zh)}</span></div>
+    <div class="schema-fwhy"><b>Why</b> — {esc(why)}</div>
+  </div>
+</div>""")
+        return "".join(rows)
+
+    forms_rows = "".join(
+        f'<tr><td class="mono">{esc(f)}</td><td>{esc(en)}<span class="zh-sub">{esc(zh)}</span></td></tr>'
+        for f, en, zh in COUPON_FORMS
+    )
+
+    body = f"""
+<h1 class="page-title">Schema<span class="zh-sub">数据结构 · 字段对照</span></h1>
+<p class="subtitle schema-banner">本文档解释 backend → frontend 的字段定义,运营 / 审计可对照确认数据是否覆盖业务需求。字段名(field names)是 API 契约,保留英文不翻译;描述和"为什么需要这个字段"提供中英双语。</p>
+
+<section class="panel schema-entity">
+  <h2>Library<span class="zh-sub">图书馆 · {len(LIBRARY_FIELDS)} 个字段</span></h2>
+  <div class="schema-fields">{render_field_rows(LIBRARY_FIELDS)}</div>
 </section>
 
-<section class="panel">
-  <h2>2. 景点 Attractions</h2>
-  <ul class="schema-list">
-    <li><b>slug</b>:URL 友好的稳定 ID,如 <code>boston-childrens-museum</code>。</li>
-    <li><b>museum_name</b>:正式名称。</li>
-    <li><b>address / website / phone / description</b>:景点元数据,来自景点官网或 Wikipedia。</li>
-    <li><b>categories</b>:分类标签数组(Children / Family / Science / Art / Nature / History ...)。</li>
-    <li><b>sources</b>:提供本景点 pass 的所有图书馆 id 数组。</li>
-    <li><b>original_price</b>:景点门市原价,两层模型。
-      <ul>
-        <li><b>age_pricing</b>:按年龄定价,任何符合年龄的访客都适用。包含 adult / youth / child / senior 四种(每种是 <code>{price, min_age, max_age}</code> 或 null),以及 <code>free_under_age</code>(低于该岁数免费,是年龄阈值数字而非票价)。</li>
-        <li><b>identity_pricing</b>:按身份定价,需出示证件。包含 student / educator / military 三种(每种是 <code>{price, requires}</code> 或 null)。</li>
-        <li><b>family</b>:家庭通票价(顶层数字)。<b>notes / source_url</b>:备注与数据源。</li>
-      </ul>
-    </li>
-    <li><b>hero_image</b>:景点官网 <code>&lt;meta property="og:image"&gt;</code> 抓取的封面图;<code>local_path</code> 是本地缓存路径(gitignored)。</li>
-    <li><b>hours</b>:周一至周日营业时间;<code>status</code> 字段表示数据可信度(ok / varies / seasonal / missing)。</li>
-    <li><b>geo</b>:经纬度,用于距离排序。</li>
-  </ul>
+<section class="panel schema-entity">
+  <h2>Attraction<span class="zh-sub">景点 · {len(ATTRACTION_FIELDS)} 个字段</span></h2>
+  <div class="schema-fields">{render_field_rows(ATTRACTION_FIELDS)}</div>
 </section>
 
-<section class="panel">
-  <h2>3. 优惠规则 Passes</h2>
-  <p>每行表示一个 (lib × attraction) 组合,共 1008 行。</p>
-  <ul class="schema-list">
-    <li><b>library_id / attraction_slug</b>:主键,联合唯一。</li>
-    <li><b>pass_type</b>:三种 pass 形态 —
-      <ul>
-        <li><b>digital</b>(显示为 <b>Email</b>)</li>
-        <li><b>physical-coupon</b>:门店取纸质券,用完不归还(260 个)。</li>
-        <li><b>physical-circ</b>:循环借阅卡,用完需归还图书馆(172 个)。</li>
-        <li><b>unknown</b>:未能识别(23 个)。</li>
-      </ul>
-    </li>
-    <li><b>coupon</b>:统一优惠模型:
-      <ul>
-        <li><b>capacity</b>:<code>{"kind": "people"|"vehicle"|"ticket"|"unspecified", "n": int|null}</code> — 整张 coupon 覆盖的容量上限</li>
-        <li><b>audience_policies</b>:数组,每项 = <code>{"audience", "age_range", "count", "form", "value"}</code>。
-          <ul>
-            <li><b>audience</b>: Everyone / Adult / Child / Youth / Senior / Vehicle / Single ticket</li>
-            <li><b>form</b>: <code>free</code> / <code>percent-off</code> / <code>dollar-off</code> / <code>per-person-price</code> / <code>discount</code></li>
-            <li><b>value</b>: 数值(如 50 = 50% off, 5 = $5 off),或 null(无数值/笼统)</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><b>restrictions</b>:使用限制 — <code>{"blackout_dates": bool, "weekdays_only": bool, "seasonal": str|null, "reservation_required": bool}</code></li>
-    <li><b>availability</b>:未来 30 天的可预订状态字典(museumkey 不可用)。</li>
-  </ul>
-
-  <h3>Coupon form 值域</h3>
-  <ul class="schema-list">
-    <li><b>free</b>:完全免费入场</li>
-    <li><b>percent-off</b>:百分比折扣,如 50% off</li>
-    <li><b>dollar-off</b>:固定金额减免,如 $5 off</li>
-    <li><b>per-person-price</b>:固定人头价,如 Adults $5 / Kids $3</li>
-    <li><b>discount</b>:笼统折扣(AI 无法提取具体数值)</li>
-  </ul>
+<section class="panel schema-entity">
+  <h2>Pass<span class="zh-sub">通行证 · 每行 = 一个 library × attraction 组合 · {len(PASS_FIELDS)} 个字段</span></h2>
+  <div class="schema-fields">{render_field_rows(PASS_FIELDS)}</div>
 </section>
 
-<p class="foot-link"><a href="#" class="view-json-link" data-json-key="schema">查看技术 JSON 结构</a></p>
+<section class="panel schema-entity">
+  <h2>Coupon form values<span class="zh-sub">优惠形式枚举</span></h2>
+  <table class="data-table">
+    <thead><tr><th>form</th><th>meaning</th></tr></thead>
+    <tbody>{forms_rows}</tbody>
+  </table>
+</section>
+
+<p class="foot-link"><a href="#" class="view-json-link" data-json-key="schema">查看完整 JSON 字段清单</a></p>
 """
     blob = json.dumps({
         "schema": {
@@ -1966,78 +2176,132 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir, status
         table(["filename", "status"], p7_rows, 30)
     )
 
-    # ── Summary table ───────────────────────────────────────────────────
-    summary = [
-        ("1", "HIGH", "Empty coupon where catalog says a pass exists", p1_count),
-        ("2", "INFO", "Cross-library price variance", p2_count),
-        ("3", "LOW",  "form=discount with null value", p3_count),
-        ("4", "MED",  "age_range contradicts the labelled audience", p4_count),
-        ("5", "HIGH", "Orphan raw coupon files (slug drift)", p5_count),
-        ("6", "LOW",  "Umbrella attractions", p6_count),
-        ("7", "MED",  "Raw extraction failures (status != ok)", p7_count),
+    # ── Panel metadata (severity, bilingual title, why-paragraph) ───────
+    # NOTE: panel order in the rendered page is driven by severity (HIGH→MED→
+    # LOW→INFO) then descending count, then by panel id. All-clear (count==0)
+    # panels sink to the bottom of their severity bucket.
+    PANELS = [
+        {
+            "id": "dq1", "sev": "HIGH", "count": p1_count, "html": p1_html,
+            "en": "Empty coupon where catalog says a pass exists",
+            "zh": "空 coupon 行 — 编目说有 pass,但抽取后内容为空",
+            "why": "Each library pass should carry the discount it offers; an empty one means the user sees no value at all on that row. We watch this to make sure every advertised pass shows a real benefit on the live site.",
+            "why_zh": "图书馆目录里说有一张 pass,但我们抽取出来的优惠是空的,用户在前端看到这一行没有任何优惠信息,等于白展示。该列表必须接近 0 才算数据齐全。",
+        },
+        {
+            "id": "dq5", "sev": "HIGH", "count": p5_count, "html": p5_html,
+            "en": "Orphan raw coupon files (slug drift)",
+            "zh": "孤立的原始 coupon 文件 — slug 改名后没接回",
+            "why": "When an attraction's canonical slug changes, old extraction files can be left dangling. Surfacing them prevents silently losing a real discount the library actually offers.",
+            "why_zh": "景点 slug 改名后,旧的抽取文件可能没接回主表,等于这家图书馆这条优惠从产品里消失了。这一项必须为 0,否则有真实优惠在前端不可见。",
+        },
+        {
+            "id": "dq4", "sev": "MED", "count": p4_count, "html": p4_html,
+            "en": "age_range contradicts the labelled audience",
+            "zh": "年龄区间与人群标签矛盾 — 多半是抽取出错",
+            "why": "An 'Adult' tier flagged for under-13s, or a 'Child' tier flagged for 18+, is almost always an extraction mistake. Cleaning these prevents the UI from showing nonsensical age bands to the user.",
+            "why_zh": "标着 Adult 却写 13 岁以下,或者标着 Child 却写 18 岁以上,基本都是抽取错误。清掉这些避免前端显示前后矛盾的年龄区间,影响用户对数据的信任。",
+        },
+        {
+            "id": "dq7", "sev": "MED", "count": p7_count, "html": p7_html,
+            "en": "Raw extraction failures (status != ok)",
+            "zh": "原始抽取失败 — extractor 在这些文件上放弃了",
+            "why": "These are files where the AI extractor returned a non-ok status. They never make it into the live data, so each one is a missing discount on the site. Goal: drive this number toward zero with re-runs or manual override.",
+            "why_zh": "AI 抽取器在这些文件上失败了,对应的优惠完全没进产品。每多一条就少一条用户能看到的折扣,需要重跑或人工补录把它降到 0。",
+        },
+        {
+            "id": "dq3", "sev": "LOW", "count": p3_count, "html": p3_html,
+            "en": "form=discount with null value",
+            "zh": "笼统折扣 — 原文写得太模糊,抽不到具体数值",
+            "why": "These passes carry a real discount but the library wrote it in free-text that can't be parsed to a number (e.g. 'discounted admission'). Acceptable, but we monitor the trend — too many means our pricing comparison loses precision.",
+            "why_zh": "原页面写的是'优惠门票'这类模糊语,虽然是真实的折扣但拿不到具体数值。可接受,但量太大会让前端无法给出精确的价值对比。",
+        },
+        {
+            "id": "dq6", "sev": "LOW", "count": p6_count, "html": p6_html,
+            "en": "Umbrella attractions",
+            "zh": "伞型景点 — 一个 slug 下包含多个分馆/分园",
+            "why": "An attraction like 'MA State Parks' covers many sub-venues with different hours and prices. The 'one slug = one price' model can't represent them cleanly. Listed here so the auditor can decide whether to split the slug or accept the umbrella.",
+            "why_zh": "比如 MA State Parks 这种,一个 slug 实际上覆盖了几十个分园,每个营业时间和票价都不同。'一个 slug 一个价格'的模型表达不了,需要决定要不要拆分。",
+        },
+        {
+            "id": "dq2", "sev": "INFO", "count": p2_count, "html": p2_html,
+            "en": "Cross-library price variance",
+            "zh": "跨馆同景点价差 — 每馆和景点单独谈价,本就会不同",
+            "why": "Each library negotiates its own per-person rate with an attraction, so the same museum can carry different discounted prices across libraries. This is real product info, not a bug — surfaced so a multi-card user can see which of their cards gives the best deal.",
+            "why_zh": "每家图书馆和景点单独谈价,所以同一家博物馆在不同馆的折后价不一样,这是产品本身的特征,不是数据缺陷。列出来是为了让持多卡的用户能挑出最划算的那张。",
+        },
     ]
+    SEV_RANK = {"HIGH": 0, "MED": 1, "LOW": 2, "INFO": 3}
+
+    def panel_sort_key(p):
+        # 1. severity rank; 2. all-clear last within severity;
+        # 3. descending count; 4. panel id for stability
+        return (SEV_RANK[p["sev"]], 0 if p["count"] > 0 else 1, -p["count"], p["id"])
+
+    PANELS_SORTED = sorted(PANELS, key=panel_sort_key)
+
+    SEV_BADGE = {
+        "HIGH": '<span class="sev-badge sev-high">HIGH</span>',
+        "MED":  '<span class="sev-badge sev-med">MED</span>',
+        "LOW":  '<span class="sev-badge sev-low">LOW</span>',
+        "INFO": '<span class="sev-badge sev-info">INFO</span>',
+    }
+
+    # ── Summary table — ordered by severity, then descending count ──────
     sum_rows = []
-    for idx, sev, label, n in summary:
+    for p in PANELS_SORTED:
         style = ""
-        if n > 0:
-            if sev == "HIGH":
+        if p["count"] > 0:
+            if p["sev"] == "HIGH":
                 style = ' style="background:var(--rd-pale);color:var(--rd);font-weight:600"'
-            elif sev == "MED":
+            elif p["sev"] == "MED":
                 style = ' style="background:var(--or-pale);color:var(--or)"'
         sum_rows.append(
-            f'<tr{style}><td>{idx}</td><td>{sev}</td><td>{esc(label)}</td>'
-            f'<td class="num">{n}</td></tr>'
+            f'<tr{style}><td>{SEV_BADGE[p["sev"]]}</td>'
+            f'<td><a href="#{p["id"]}">{esc(p["en"])}</a>'
+            f'<span class="zh-sub">{esc(p["zh"])}</span></td>'
+            f'<td class="num">{p["count"]}</td></tr>'
         )
     summary_html = (
         '<table class="data-table"><thead><tr>'
-        '<th>#</th><th>severity</th><th>category</th><th>count</th>'
+        '<th>severity</th><th>category</th><th>count</th>'
         f'</tr></thead><tbody>{"".join(sum_rows)}</tbody></table>'
     )
 
+    severity_caption = """
+<p class="sev-caption">
+  <span class="sev-badge sev-high">HIGH</span> 立即修复,影响用户决策<br>
+  <span class="sev-badge sev-med">MED</span> 关注,可能影响用户信任<br>
+  <span class="sev-badge sev-low">LOW</span> 已知可接受,标识为参考<br>
+  <span class="sev-badge sev-info">INFO</span> 数据信号,非缺陷
+</p>"""
+
+    panel_sections = []
+    for p in PANELS_SORTED:
+        sev_b = SEV_BADGE[p["sev"]]
+        pill_class = "num-pill"
+        if p["count"] == 0:
+            pill_class += " num-pill-zero"
+        panel_sections.append(f"""
+<section class="panel dq-panel" id="{p['id']}">
+  <h3>{sev_b} {esc(p['en'])} <span class="{pill_class}">{p['count']}</span>
+      <span class="zh-sub">{esc(p['zh'])}</span></h3>
+  <p class="dq-why">{esc(p['why'])}<br><span class="dq-why-zh">{esc(p['why_zh'])}</span></p>
+  {p['html']}
+</section>""")
+
     body = f"""
-<h1 class="page-title">Data Quality · 数据质量红旗</h1>
+<h1 class="page-title">Data quality<span class="zh-sub">数据质量 · 红旗汇总</span></h1>
 
 {status_banner}
 
 <section class="panel">
-  <h3>Summary <span class="num-pill">7 categories</span></h3>
+  <h3>Summary <span class="num-pill">{len(PANELS)} categories</span><span class="zh-sub">汇总 · 按严重程度排序</span></h3>
   {summary_html}
+  {severity_caption}
 </section>
 
-<section class="panel" id="dq1">
-  <h3>1. Empty coupon where catalog says a pass exists <span class="num-pill">{p1_count}</span></h3>
-  {p1_html}
-</section>
-
-<section class="panel" id="dq2">
-  <h3>2. Cross-library price variance <span class="num-pill">{p2_count}</span> · informational</h3>
-  {p2_html}
-</section>
-
-<section class="panel" id="dq3">
-  <h3>3. form=discount with null value <span class="num-pill">{p3_count}</span></h3>
-  {p3_html}
-</section>
-
-<section class="panel" id="dq4">
-  <h3>4. age_range contradicts the labelled audience <span class="num-pill">{p4_count}</span></h3>
-  {p4_html}
-</section>
-
-<section class="panel" id="dq5">
-  <h3>5. Orphan raw coupon files <span class="num-pill">{p5_count}</span></h3>
-  {p5_html}
-</section>
-
-<section class="panel" id="dq6">
-  <h3>6. Umbrella attractions <span class="num-pill">{p6_count}</span></h3>
-  {p6_html}
-</section>
-
-<section class="panel" id="dq7">
-  <h3>7. Raw extraction failures <span class="num-pill">{p7_count}</span></h3>
-  {p7_html}
-</section>
+{"".join(panel_sections)}
 """
     return body
 
@@ -2348,9 +2612,54 @@ mark sup { font-size: 9px; margin-left: 2px; color: var(--ink-3); }
 .schema-list b { color: var(--ink); }
 .schema-list ul { margin-top: 6px; padding-left: 18px; }
 
-/* Lineage */
+/* Lineage — boss-readable 5-stage flow */
 .lineage-svg { width: 100%; max-width: 900px; height: auto; display: block; margin: 20px auto; background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 16px; }
-.lineage-foot { text-align: center; color: var(--ink-3); }
+.lineage-foot { color: var(--ink-3); font-size: 12px; margin-top: 24px; }
+.lineage-volumes { padding: 18px 22px; }
+.lineage-volumes h2 { margin: 0 0 12px; font-family: 'Libre Baskerville', Georgia, serif; font-size: 16px; }
+.lineage-flow-line { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.lineage-flow-line li { background: var(--paper); border-left: 3px solid var(--g); padding: 10px 12px; border-radius: 0 6px 6px 0; font-size: 12.5px; color: var(--ink-2); }
+.lineage-flow-line li b { display: block; font-size: 22px; color: var(--g); font-family: 'Libre Baskerville', Georgia, serif; line-height: 1.1; margin-bottom: 2px; }
+.lineage-flow { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+.lineage-stage { background: var(--white); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 22px; display: grid; grid-template-columns: 48px 1fr; gap: 18px; }
+.lineage-num { font-family: 'Libre Baskerville', Georgia, serif; font-size: 30px; font-weight: 700; color: var(--g); line-height: 1; text-align: center; }
+.lineage-stage-title { margin: 0 0 6px; font-family: 'Libre Baskerville', Georgia, serif; font-size: 17px; color: var(--ink); }
+.lineage-zh { color: var(--ink-3); font-size: 12.5px; line-height: 1.7; margin: 0 0 12px; }
+.lineage-io { display: grid; grid-template-columns: 80px 1fr; gap: 6px 14px; margin: 0 0 10px; font-size: 12.5px; }
+.lineage-io dt { color: var(--ink-3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; font-size: 11px; padding-top: 2px; }
+.lineage-io dd { margin: 0; color: var(--ink-2); }
+.lineage-metric { display: inline-block; background: var(--g-pale); color: var(--g); padding: 4px 10px; border-radius: 12px; font-size: 11.5px; font-weight: 600; }
+@media (max-width: 720px) {
+  .lineage-flow-line { grid-template-columns: 1fr 1fr; }
+}
+
+/* Gaps — business-impact subtitle */
+.gap-impact { color: var(--ink-3); font-size: 12px; margin: -4px 0 10px; padding: 6px 10px; background: var(--paper); border-left: 3px solid var(--rule-strong); border-radius: 0 4px 4px 0; line-height: 1.6; }
+
+/* Schema — entity sections with field rows */
+.schema-banner { background: var(--g-pale); border-left: 3px solid var(--g); padding: 10px 14px; border-radius: 0 4px 4px 0; color: var(--ink-2); font-size: 12.5px; }
+.schema-entity h2 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 18px; padding-bottom: 6px; border-bottom: 2px solid var(--g); }
+.schema-fields { display: flex; flex-direction: column; gap: 0; }
+.schema-row { display: grid; grid-template-columns: 220px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px dotted var(--rule); }
+.schema-row:last-child { border-bottom: none; }
+.schema-fname code { font-family: 'JetBrains Mono', 'Courier New', monospace; background: var(--paper); padding: 2px 8px; border-radius: 4px; color: var(--ink); font-size: 12px; word-break: break-all; }
+.schema-fbody { font-size: 12.5px; line-height: 1.7; }
+.schema-ftype { display: inline-block; background: var(--au-pale); color: var(--au); padding: 1px 8px; border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-bottom: 6px; }
+.schema-fdesc { color: var(--ink-2); margin-bottom: 4px; }
+.schema-fwhy { color: var(--ink-3); font-size: 12px; }
+.schema-fwhy b { color: var(--g); font-weight: 600; }
+
+/* Data quality — severity badges + why paragraphs */
+.sev-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; margin-right: 6px; font-family: 'DM Sans', sans-serif; vertical-align: middle; }
+.sev-high { background: var(--rd); color: var(--white); }
+.sev-med  { background: var(--or); color: var(--white); }
+.sev-low  { background: var(--paper); color: var(--ink-3); border: 1px solid var(--rule-strong); }
+.sev-info { background: var(--g-pale); color: var(--g); }
+.sev-caption { color: var(--ink-3); font-size: 12px; line-height: 2; margin: 12px 0 0; padding: 10px 14px; background: var(--paper); border-radius: 6px; }
+.dq-panel h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.dq-why { color: var(--ink-3); font-size: 12px; line-height: 1.7; margin: -4px 0 12px; padding: 8px 12px; background: var(--paper); border-left: 3px solid var(--rule-strong); border-radius: 0 4px 4px 0; }
+.dq-why-zh { display: block; color: var(--ink-3); margin-top: 4px; }
+.num-pill-zero { background: var(--g-pale); color: var(--g); }
 
 /* Modal */
 .modal-root { position: fixed; inset: 0; z-index: 100; }
@@ -2518,13 +2827,13 @@ def main():
     write("policies.html", pol_html)
 
     print("[6/8] gaps.html")
-    write("gaps.html", page_gaps(attr_data, libs_data))
+    write("gaps.html", page_gaps(attr_data, libs_data, passes_data))
 
     print("[7/8] duplicates.html")
     write("duplicates.html", page_duplicates(attr_data))
 
     print("[7.5/8] lineage.html")
-    write("lineage.html", page_lineage())
+    write("lineage.html", page_lineage(libs_data, attr_data, passes_data))
 
     print("[8/8] schema.html")
     write("schema.html", page_schema())

@@ -11,48 +11,64 @@
 </header>
 <main>
 
-<h1 class="page-title">Data Quality · 数据质量红旗</h1>
+<h1 class="page-title">Data quality<span class="zh-sub">数据质量 · 红旗汇总</span></h1>
 
-<section class="status-banner banner-amber"><span class="banner-icon">⚠</span><span class="banner-verdict"><b>Data foundation — 86 low · 5 info finding(s).</b> HIGH 0 · MED 0 · LOW 86 · INFO 5.</span><span class="banner-meta">Built 2026-05-17 19:31 UTC · <a href="data_quality.html">see Data Quality</a></span></section>
+<section class="status-banner banner-amber"><span class="banner-icon">⚠</span><span class="banner-verdict"><b>Data foundation — 86 low · 5 info finding(s).</b> HIGH 0 · MED 0 · LOW 86 · INFO 5.</span><span class="banner-meta">Built 2026-05-17 19:38 UTC · <a href="data_quality.html">see Data Quality</a></span></section>
 
 <section class="panel">
-  <h3>Summary <span class="num-pill">7 categories</span></h3>
-  <table class="data-table"><thead><tr><th>#</th><th>severity</th><th>category</th><th>count</th></tr></thead><tbody><tr><td>1</td><td>HIGH</td><td>Empty coupon where catalog says a pass exists</td><td class="num">0</td></tr><tr><td>2</td><td>INFO</td><td>Cross-library price variance</td><td class="num">5</td></tr><tr><td>3</td><td>LOW</td><td>form=discount with null value</td><td class="num">80</td></tr><tr><td>4</td><td>MED</td><td>age_range contradicts the labelled audience</td><td class="num">0</td></tr><tr><td>5</td><td>HIGH</td><td>Orphan raw coupon files (slug drift)</td><td class="num">0</td></tr><tr><td>6</td><td>LOW</td><td>Umbrella attractions</td><td class="num">6</td></tr><tr><td>7</td><td>MED</td><td>Raw extraction failures (status != ok)</td><td class="num">0</td></tr></tbody></table>
+  <h3>Summary <span class="num-pill">7 categories</span><span class="zh-sub">汇总 · 按严重程度排序</span></h3>
+  <table class="data-table"><thead><tr><th>severity</th><th>category</th><th>count</th></tr></thead><tbody><tr><td><span class="sev-badge sev-high">HIGH</span></td><td><a href="#dq1">Empty coupon where catalog says a pass exists</a><span class="zh-sub">空 coupon 行 — 编目说有 pass,但抽取后内容为空</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-high">HIGH</span></td><td><a href="#dq5">Orphan raw coupon files (slug drift)</a><span class="zh-sub">孤立的原始 coupon 文件 — slug 改名后没接回</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-med">MED</span></td><td><a href="#dq4">age_range contradicts the labelled audience</a><span class="zh-sub">年龄区间与人群标签矛盾 — 多半是抽取出错</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-med">MED</span></td><td><a href="#dq7">Raw extraction failures (status != ok)</a><span class="zh-sub">原始抽取失败 — extractor 在这些文件上放弃了</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-low">LOW</span></td><td><a href="#dq3">form=discount with null value</a><span class="zh-sub">笼统折扣 — 原文写得太模糊,抽不到具体数值</span></td><td class="num">80</td></tr><tr><td><span class="sev-badge sev-low">LOW</span></td><td><a href="#dq6">Umbrella attractions</a><span class="zh-sub">伞型景点 — 一个 slug 下包含多个分馆/分园</span></td><td class="num">6</td></tr><tr><td><span class="sev-badge sev-info">INFO</span></td><td><a href="#dq2">Cross-library price variance</a><span class="zh-sub">跨馆同景点价差 — 每馆和景点单独谈价,本就会不同</span></td><td class="num">5</td></tr></tbody></table>
+  
+<p class="sev-caption">
+  <span class="sev-badge sev-high">HIGH</span> 立即修复,影响用户决策<br>
+  <span class="sev-badge sev-med">MED</span> 关注,可能影响用户信任<br>
+  <span class="sev-badge sev-low">LOW</span> 已知可接受,标识为参考<br>
+  <span class="sev-badge sev-info">INFO</span> 数据信号,非缺陷
+</p>
 </section>
 
-<section class="panel" id="dq1">
-  <h3>1. Empty coupon where catalog says a pass exists <span class="num-pill">0</span></h3>
+
+<section class="panel dq-panel" id="dq1">
+  <h3><span class="sev-badge sev-high">HIGH</span> Empty coupon where catalog says a pass exists <span class="num-pill num-pill-zero">0</span>
+      <span class="zh-sub">空 coupon 行 — 编目说有 pass,但抽取后内容为空</span></h3>
+  <p class="dq-why">Each library pass should carry the discount it offers; an empty one means the user sees no value at all on that row. We watch this to make sure every advertised pass shows a real benefit on the live site.<br><span class="dq-why-zh">图书馆目录里说有一张 pass,但我们抽取出来的优惠是空的,用户在前端看到这一行没有任何优惠信息,等于白展示。该列表必须接近 0 才算数据齐全。</span></p>
   <p class="honest-gap">all clear · 0</p>
 </section>
-
-<section class="panel" id="dq2">
-  <h3>2. Cross-library price variance <span class="num-pill">5</span> · informational</h3>
-  <h4>Adult price</h4><table class="data-table"><thead><tr><th>attraction_slug</th><th>distinct adult prices</th><th>n libs reporting</th></tr></thead><tbody><tr><td><code class="mono">mfa</code></td><td>$10, $15</td><td>56</td></tr><tr><td><code class="mono">plimoth-patuxet</code></td><td>$16, $18</td><td>16</td></tr><tr><td><code class="mono">salem-witch-museum</code></td><td>$13.25, $13.5, $13.75, $14</td><td>12</td></tr></tbody></table><h4>Child price</h4><table class="data-table"><thead><tr><th>attraction_slug</th><th>distinct child prices</th><th>n libs reporting</th></tr></thead><tbody><tr><td><code class="mono">plimoth-patuxet</code></td><td>$10, $12</td><td>16</td></tr><tr><td><code class="mono">salem-witch-museum</code></td><td>$10.75, $11.25, $11.75</td><td>12</td></tr></tbody></table>
+<section class="panel dq-panel" id="dq5">
+  <h3><span class="sev-badge sev-high">HIGH</span> Orphan raw coupon files (slug drift) <span class="num-pill num-pill-zero">0</span>
+      <span class="zh-sub">孤立的原始 coupon 文件 — slug 改名后没接回</span></h3>
+  <p class="dq-why">When an attraction&#x27;s canonical slug changes, old extraction files can be left dangling. Surfacing them prevents silently losing a real discount the library actually offers.<br><span class="dq-why-zh">景点 slug 改名后,旧的抽取文件可能没接回主表,等于这家图书馆这条优惠从产品里消失了。这一项必须为 0,否则有真实优惠在前端不可见。</span></p>
+  <p class="honest-gap">all clear · 0</p>
 </section>
-
-<section class="panel" id="dq3">
-  <h3>3. form=discount with null value <span class="num-pill">80</span></h3>
+<section class="panel dq-panel" id="dq4">
+  <h3><span class="sev-badge sev-med">MED</span> age_range contradicts the labelled audience <span class="num-pill num-pill-zero">0</span>
+      <span class="zh-sub">年龄区间与人群标签矛盾 — 多半是抽取出错</span></h3>
+  <p class="dq-why">An &#x27;Adult&#x27; tier flagged for under-13s, or a &#x27;Child&#x27; tier flagged for 18+, is almost always an extraction mistake. Cleaning these prevents the UI from showing nonsensical age bands to the user.<br><span class="dq-why-zh">标着 Adult 却写 13 岁以下,或者标着 Child 却写 18 岁以上,基本都是抽取错误。清掉这些避免前端显示前后矛盾的年龄区间,影响用户对数据的信任。</span></p>
+  <p class="honest-gap">all clear · 0</p>
+</section>
+<section class="panel dq-panel" id="dq7">
+  <h3><span class="sev-badge sev-med">MED</span> Raw extraction failures (status != ok) <span class="num-pill num-pill-zero">0</span>
+      <span class="zh-sub">原始抽取失败 — extractor 在这些文件上放弃了</span></h3>
+  <p class="dq-why">These are files where the AI extractor returned a non-ok status. They never make it into the live data, so each one is a missing discount on the site. Goal: drive this number toward zero with re-runs or manual override.<br><span class="dq-why-zh">AI 抽取器在这些文件上失败了,对应的优惠完全没进产品。每多一条就少一条用户能看到的折扣,需要重跑或人工补录把它降到 0。</span></p>
+  <p class="honest-gap">all clear · 0</p>
+</section>
+<section class="panel dq-panel" id="dq3">
+  <h3><span class="sev-badge sev-low">LOW</span> form=discount with null value <span class="num-pill">80</span>
+      <span class="zh-sub">笼统折扣 — 原文写得太模糊,抽不到具体数值</span></h3>
+  <p class="dq-why">These passes carry a real discount but the library wrote it in free-text that can&#x27;t be parsed to a number (e.g. &#x27;discounted admission&#x27;). Acceptable, but we monitor the trend — too many means our pricing comparison loses precision.<br><span class="dq-why-zh">原页面写的是&#x27;优惠门票&#x27;这类模糊语,虽然是真实的折扣但拿不到具体数值。可接受,但量太大会让前端无法给出精确的价值对比。</span></p>
   <table class="data-table"><thead><tr><th>library_id</th><th>attraction_slug</th></tr></thead><tbody><tr><td>acton</td><td>trustees-of-reservations</td></tr><tr><td>acton</td><td>trustees-of-reservations</td></tr><tr><td>andover</td><td>historic-new-england</td></tr><tr><td>andover</td><td>historic-new-england</td></tr><tr><td>andover</td><td>trustees-of-reservations</td></tr><tr><td>bedford</td><td>trustees-of-reservations</td></tr><tr><td>bedford</td><td>trustees-of-reservations</td></tr><tr><td>belmont</td><td>trustees-of-reservations</td></tr><tr><td>belmont</td><td>trustees-of-reservations</td></tr><tr><td>burlington</td><td>peabody-essex-museum</td></tr><tr><td>burlington</td><td>trustees-of-reservations</td></tr><tr><td>burlington</td><td>trustees-of-reservations</td></tr><tr><td>carlisle</td><td>ica-boston</td></tr><tr><td>carlisle</td><td>salem-witch-museum</td></tr><tr><td>carlisle</td><td>trustees-of-reservations</td></tr><tr><td>carlisle</td><td>trustees-of-reservations</td></tr><tr><td>chelmsford</td><td>trustees-of-reservations</td></tr><tr><td>chelmsford</td><td>trustees-of-reservations</td></tr><tr><td>concord</td><td>trustees-of-reservations</td></tr><tr><td>concord</td><td>trustees-of-reservations</td></tr><tr><td>everett</td><td>trustees-of-reservations</td></tr><tr><td>everett</td><td>trustees-of-reservations</td></tr><tr><td>lexington</td><td>trustees-of-reservations</td></tr><tr><td>lincoln</td><td>trustees-of-reservations</td></tr><tr><td>lynnfield</td><td>isabella-stewart-gardner-museum</td></tr><tr><td>lynnfield</td><td>trustees-of-reservations</td></tr><tr><td>malden</td><td>trustees-of-reservations</td></tr><tr><td>maynard</td><td>trustees-of-reservations</td></tr><tr><td>medford</td><td>trustees-of-reservations</td></tr><tr><td>medford</td><td>trustees-of-reservations</td></tr><tr><td colspan="2" class="honest-gap">+50 more</td></tr></tbody></table>
 </section>
-
-<section class="panel" id="dq4">
-  <h3>4. age_range contradicts the labelled audience <span class="num-pill">0</span></h3>
-  <p class="honest-gap">all clear · 0</p>
-</section>
-
-<section class="panel" id="dq5">
-  <h3>5. Orphan raw coupon files <span class="num-pill">0</span></h3>
-  <p class="honest-gap">all clear · 0</p>
-</section>
-
-<section class="panel" id="dq6">
-  <h3>6. Umbrella attractions <span class="num-pill">6</span></h3>
+<section class="panel dq-panel" id="dq6">
+  <h3><span class="sev-badge sev-low">LOW</span> Umbrella attractions <span class="num-pill">6</span>
+      <span class="zh-sub">伞型景点 — 一个 slug 下包含多个分馆/分园</span></h3>
+  <p class="dq-why">An attraction like &#x27;MA State Parks&#x27; covers many sub-venues with different hours and prices. The &#x27;one slug = one price&#x27; model can&#x27;t represent them cleanly. Listed here so the auditor can decide whether to split the slug or accept the umbrella.<br><span class="dq-why-zh">比如 MA State Parks 这种,一个 slug 实际上覆盖了几十个分园,每个营业时间和票价都不同。&#x27;一个 slug 一个价格&#x27;的模型表达不了,需要决定要不要拆分。</span></p>
   <table class="data-table"><thead><tr><th>slug</th><th>museum_name</th><th>n libs offering</th><th>hours.notes</th></tr></thead><tbody><tr><td><code class="mono">ma-state-parks</code></td><td>Massachusetts State Parks (Department of Conservation and Recreation)</td><td><span class="num">51</span></td><td><details class="notes-details"><summary>Massachusetts DCR operates 450+ parks, beaches, and forests, each with different hours. No…</summary><div class="notes-full">Massachusetts DCR operates 450+ parks, beaches, and forests, each with different hours. No single schedule applies. Most outdoor spaces are open dawn to dusk. Same as massachusetts-state-parks-department-of-conservation-and-recreation.</div></details></td></tr><tr><td><code class="mono">trustees-of-reservations</code></td><td>Trustees of Reservations (with deCordova Sculpture Park and Museum)</td><td><span class="num">44</span></td><td><details class="notes-details"><summary>The Trustees GO Pass covers 120+ properties across Massachusetts, each with its own hours.…</summary><div class="notes-full">The Trustees GO Pass covers 120+ properties across Massachusetts, each with its own hours. No single schedule applies. See individual property pages at thetrustees.org.</div></details></td></tr><tr><td><code class="mono">historic-new-england</code></td><td>Historic New England</td><td><span class="num">10</span></td><td><span class="notes">Multiple properties with varying hours; no single schedule applies.</span></td></tr><tr><td><code class="mono">wheelock-family-theatre</code></td><td>Wheelock Family Theatre</td><td><span class="num">1</span></td><td><span class="notes">Performance venue — no fixed visiting hours. Shows and box office hours vary by production schedule.</span></td></tr><tr><td><code class="mono">greater-boston-stage-company</code></td><td>Greater Boston Stage Company</td><td><span class="num">1</span></td><td><details class="notes-details"><summary>Performance venue — no fixed visiting hours. Show schedules vary by production. Box office…</summary><div class="notes-full">Performance venue — no fixed visiting hours. Show schedules vary by production. Box office hours vary seasonally.</div></details></td></tr><tr><td><code class="mono">boch-center</code></td><td>Boch Center Tours</td><td><span class="num">1</span></td><td><details class="notes-details"><summary>Large performance venue (Wang Theatre, Shubert Theatre) — no fixed visiting hours. Open fo…</summary><div class="notes-full">Large performance venue (Wang Theatre, Shubert Theatre) — no fixed visiting hours. Open for ticketed performances only; schedule varies by production.</div></details></td></tr></tbody></table>
 </section>
-
-<section class="panel" id="dq7">
-  <h3>7. Raw extraction failures <span class="num-pill">0</span></h3>
-  <p class="honest-gap">all clear · 0</p>
+<section class="panel dq-panel" id="dq2">
+  <h3><span class="sev-badge sev-info">INFO</span> Cross-library price variance <span class="num-pill">5</span>
+      <span class="zh-sub">跨馆同景点价差 — 每馆和景点单独谈价,本就会不同</span></h3>
+  <p class="dq-why">Each library negotiates its own per-person rate with an attraction, so the same museum can carry different discounted prices across libraries. This is real product info, not a bug — surfaced so a multi-card user can see which of their cards gives the best deal.<br><span class="dq-why-zh">每家图书馆和景点单独谈价,所以同一家博物馆在不同馆的折后价不一样,这是产品本身的特征,不是数据缺陷。列出来是为了让持多卡的用户能挑出最划算的那张。</span></p>
+  <h4>Adult price</h4><table class="data-table"><thead><tr><th>attraction_slug</th><th>distinct adult prices</th><th>n libs reporting</th></tr></thead><tbody><tr><td><code class="mono">mfa</code></td><td>$10, $15</td><td>56</td></tr><tr><td><code class="mono">plimoth-patuxet</code></td><td>$16, $18</td><td>16</td></tr><tr><td><code class="mono">salem-witch-museum</code></td><td>$13.25, $13.5, $13.75, $14</td><td>12</td></tr></tbody></table><h4>Child price</h4><table class="data-table"><thead><tr><th>attraction_slug</th><th>distinct child prices</th><th>n libs reporting</th></tr></thead><tbody><tr><td><code class="mono">plimoth-patuxet</code></td><td>$10, $12</td><td>16</td></tr><tr><td><code class="mono">salem-witch-museum</code></td><td>$10.75, $11.25, $11.75</td><td>12</td></tr></tbody></table>
 </section>
 
 </main>

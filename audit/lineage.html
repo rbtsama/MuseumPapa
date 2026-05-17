@@ -11,55 +11,91 @@
 </header>
 <main>
 
-<h1 class="page-title">Data lineage</h1>
-<p>How a single fact (e.g. "Acton offers half-price BCM admission for 4 people") travels from a library website to the user's screen.</p>
+<h1 class="page-title">Data lineage<span class="zh-sub">数据血缘 · 从图书馆官网到用户屏幕</span></h1>
+<p class="subtitle">How a single fact — for example "Acton library offers half-price admission for 4 people at the children's museum" — travels from a library website to the cardholder's screen. 一条优惠从图书馆官网走到用户眼前要经过 5 个阶段,下面逐步说明每个阶段做了什么、产出了多少。</p>
 
-<svg class="lineage-svg" viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4A4845"/>
-    </marker>
-    <style>
-      .node { fill: #FAFAF7; stroke: #B5B2A8; stroke-width: 1.5; }
-      .node-raw { fill: #F4EFE8; }
-      .node-out { fill: #EAF1EE; }
-      .label { font: 13px 'DM Sans', sans-serif; fill: #1A1917; }
-      .sub { font: 11px 'DM Sans', sans-serif; fill: #4A4845; }
-      .edge { stroke: #4A4845; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
-    </style>
-  </defs>
 
-  <g><rect class="node" x="20" y="40" width="170" height="60" rx="6"/><text class="label" x="105" y="68" text-anchor="middle">Library website</text><text class="sub" x="105" y="86" text-anchor="middle">59 sources</text></g>
-  <g><rect class="node" x="240" y="40" width="170" height="60" rx="6"/><text class="label" x="325" y="68" text-anchor="middle">Python fetcher</text><text class="sub" x="325" y="86" text-anchor="middle">sources/&lt;platform&gt;</text></g>
-  <g><rect class="node node-raw" x="460" y="40" width="170" height="60" rx="6"><a href="schema.html"/></rect><text class="label" x="545" y="68" text-anchor="middle">data/raw/&lt;platform&gt;</text><text class="sub" x="545" y="86" text-anchor="middle">scraper JSON</text></g>
-  <g><rect class="node" x="680" y="40" width="200" height="60" rx="6"/><text class="label" x="780" y="68" text-anchor="middle">Subagent extract</text><text class="sub" x="780" y="86" text-anchor="middle">Sonnet → policy fields</text></g>
+<section class="lineage-volumes panel">
+  <h2>By the numbers<span class="zh-sub">关键产出量</span></h2>
+  <ol class="lineage-flow-line">
+    <li><b>59</b> library websites scraped<span class="zh-sub">家图书馆官网</span></li>
+    <li><b>97</b> unique attractions catalogued<span class="zh-sub">条独立景点记录</span></li>
+    <li><b>1026</b> attraction × library pass rows<span class="zh-sub">条 景点×图书馆 组合</span></li>
+    <li><b>975</b> with live booking calendar<span class="zh-sub">条带实时预订日历</span></li>
+  </ol>
+</section>
 
-  <g><rect class="node node-raw" x="240" y="180" width="170" height="60" rx="6"/><text class="label" x="325" y="208" text-anchor="middle">raw/pass_coupons/</text><text class="sub" x="325" y="226" text-anchor="middle">1008 cells</text></g>
-  <g><rect class="node node-raw" x="460" y="180" width="170" height="60" rx="6"/><text class="label" x="545" y="208" text-anchor="middle">raw/attraction_*</text><text class="sub" x="545" y="226" text-anchor="middle">price · hours · desc</text></g>
-  <g><rect class="node" x="680" y="180" width="200" height="60" rx="6"/><text class="label" x="780" y="208" text-anchor="middle">scripts/build.py</text><text class="sub" x="780" y="226" text-anchor="middle">merge + normalize</text></g>
 
-  <g><rect class="node node-out" x="20" y="320" width="200" height="60" rx="6"><a href="libraries.html"/></rect><text class="label" x="120" y="348" text-anchor="middle">structured/libraries.json</text><text class="sub" x="120" y="366" text-anchor="middle">59 rows</text></g>
-  <g><rect class="node node-out" x="250" y="320" width="200" height="60" rx="6"><a href="attractions.html"/></rect><text class="label" x="350" y="348" text-anchor="middle">structured/attractions.json</text><text class="sub" x="350" y="366" text-anchor="middle">107 rows</text></g>
-  <g><rect class="node node-out" x="480" y="320" width="200" height="60" rx="6"><a href="policies.html"/></rect><text class="label" x="580" y="348" text-anchor="middle">structured/passes.json</text><text class="sub" x="580" y="366" text-anchor="middle">1008 rows</text></g>
-  <g><rect class="node" x="710" y="320" width="170" height="60" rx="6"/><text class="label" x="795" y="348" text-anchor="middle">React frontend</text><text class="sub" x="795" y="366" text-anchor="middle">web/</text></g>
+<div class="lineage-flow">
 
-  <path class="edge" d="M 190 70 L 240 70"/>
-  <path class="edge" d="M 410 70 L 460 70"/>
-  <path class="edge" d="M 630 70 L 680 70"/>
-  <path class="edge" d="M 780 100 L 780 180"/>
-  <path class="edge" d="M 545 100 L 545 180"/>
-  <path class="edge" d="M 680 210 L 630 210"/>
-  <path class="edge" d="M 680 210 L 410 210"/>
-  <path class="edge" d="M 780 240 L 780 290 L 580 290 L 580 320"/>
-  <path class="edge" d="M 780 240 L 350 290 L 350 320"/>
-  <path class="edge" d="M 780 240 L 120 290 L 120 320"/>
-  <path class="edge" d="M 680 350 L 710 350"/>
-</svg>
+<section class="lineage-stage">
+  <div class="lineage-num">1</div>
+  <div class="lineage-body">
+    <h3 class="lineage-stage-title">Collect from library websites<span class="zh-sub">从图书馆网站采集</span></h3>
+    <p class="lineage-zh">我们按计划访问每家图书馆的 museum-pass 页面,把原始 HTML 和列表数据原样存档,作为后续抽取的唯一真相来源。</p>
+    <dl class="lineage-io">
+      <dt>In</dt><dd>Library pass-program pages — public URLs we visit on a schedule</dd>
+      <dt>We do</dt><dd>Scrape every page, save the raw HTML and the listing JSON</dd>
+      <dt>Out</dt><dd>Raw page snapshots, one folder per library</dd>
+    </dl>
+    <div class="lineage-metric">59 library websites scraped</div>
+  </div>
+</section>
+<section class="lineage-stage">
+  <div class="lineage-num">2</div>
+  <div class="lineage-body">
+    <h3 class="lineage-stage-title">Catalog the attractions<span class="zh-sub">建立景点目录</span></h3>
+    <p class="lineage-zh">把不同图书馆对同一家博物馆的不同写法合并成一条规范记录,再从景点官网补齐电话、地址、营业时间、票价、封面图,形成统一目录。</p>
+    <dl class="lineage-io">
+      <dt>In</dt><dd>Raw library listings naming hundreds of museums, parks, theaters</dd>
+      <dt>We do</dt><dd>Deduplicate name variants into one canonical attraction record per real-world venue, enrich with phone / address / hours / hero image / price from each attraction&#x27;s official site</dd>
+      <dt>Out</dt><dd>One row per unique attraction</dd>
+    </dl>
+    <div class="lineage-metric">97 unique attractions catalogued</div>
+  </div>
+</section>
+<section class="lineage-stage">
+  <div class="lineage-num">3</div>
+  <div class="lineage-body">
+    <h3 class="lineage-stage-title">Structure each pass into a clean record<span class="zh-sub">把每张 pass 整理成结构化记录</span></h3>
+    <p class="lineage-zh">每家图书馆描述福利的文字风格都不一样,我们把它们翻译成统一的字段:覆盖人群、折扣形式、取卡方式、使用限制,让前端可以横向对比。</p>
+    <dl class="lineage-io">
+      <dt>In</dt><dd>Free-text benefit descriptions written by each library in their own style</dd>
+      <dt>We do</dt><dd>Read the natural language and extract who the pass covers, what discount it gives, how it is delivered, and any usage restrictions</dd>
+      <dt>Out</dt><dd>One row per (library × attraction) combination, with a uniform discount summary</dd>
+    </dl>
+    <div class="lineage-metric">1026 attraction/library pass combinations</div>
+  </div>
+</section>
+<section class="lineage-stage">
+  <div class="lineage-num">4</div>
+  <div class="lineage-body">
+    <h3 class="lineage-stage-title">Attach live booking availability<span class="zh-sub">接入实时预订日历</span></h3>
+    <p class="lineage-zh">每天自动刷新未来 30 天的预订位,用户打开页面看到的是接近实时的可借状态,不是静态截图。</p>
+    <dl class="lineage-io">
+      <dt>In</dt><dd>Each library&#x27;s reservation system (Assabet, LibCal, MuseumKey)</dd>
+      <dt>We do</dt><dd>Refresh the next 30 days of slots daily so users see what is bookable right now</dd>
+      <dt>Out</dt><dd>Per-pass availability calendar refreshed on a schedule</dd>
+    </dl>
+    <div class="lineage-metric">975 with live booking calendar</div>
+  </div>
+</section>
+<section class="lineage-stage">
+  <div class="lineage-num">5</div>
+  <div class="lineage-body">
+    <h3 class="lineage-stage-title">Ship to the live site<span class="zh-sub">推送到线上站点</span></h3>
+    <p class="lineage-zh">把整理好的数据打包推送到面向用户的网站,持卡人打开页面就能查到自己手里的卡能用在哪、当天能不能预订。</p>
+    <dl class="lineage-io">
+      <dt>In</dt><dd>Structured library / attraction / pass records + live calendar</dd>
+      <dt>We do</dt><dd>Bundle the four data files and publish them to the consumer-facing web app</dd>
+      <dt>Out</dt><dd>What the cardholder sees in the browser</dd>
+    </dl>
+    <div class="lineage-metric">Live product</div>
+  </div>
+</section>
+</div>
 
-<p class="lineage-foot">
-  Tap a green box to inspect its structure on this audit site. The schema definitions are in
-  <a href="schema.html">schema.html</a>.
-</p>
+<p class="lineage-foot">数据结构字段定义请见 <a href="schema.html">schema</a>;质量检查项请见 <a href="data_quality.html">data quality</a>。</p>
 
 </main>
 <div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>

@@ -11,84 +11,297 @@
 </header>
 <main>
 
-<h1 class="page-title">数据结构说明 · Schema</h1>
+<h1 class="page-title">Schema<span class="zh-sub">数据结构 · 字段对照</span></h1>
+<p class="subtitle schema-banner">本文档解释 backend → frontend 的字段定义,运营 / 审计可对照确认数据是否覆盖业务需求。字段名(field names)是 API 契约,保留英文不翻译;描述和"为什么需要这个字段"提供中英双语。</p>
 
-<section class="panel">
-  <h2>1. 图书馆 Libraries</h2>
-  <ul class="schema-list">
-    <li><b>id</b>:库的短代码,如 <code>wakefield</code>。所有交叉引用都用它。</li>
-    <li><b>name</b>:正式馆名,如 "Lucius Beebe Memorial Library"。</li>
-    <li><b>town · network</b>:所在市镇 / 隶属网络(NOBLE / MLN / Minuteman 等)。</li>
-    <li><b>platform</b>:博物馆通行证后台,目前有三种 — Assabet(52 馆)/ LibCal(5 馆)/ MuseumKey(2 馆)。决定了我们用哪个 scraper。</li>
-    <li><b>card_page</b>:办卡说明页 URL。</li>
-    <li><b>eligibility</b>:办卡资格 — <code>open_ma_resident</code> 表示麻州居民均可办,<code>residents_only</code> 表示仅本镇居民。</li>
-    <li><b>supports_availability</b>:平台是否可查未来 30 天的库存(MuseumKey 不支持)。</li>
-    <li><b>address</b>:街道地址,5 个字段。</li>
-    <li><b>geo</b>:经纬度,由 OSM Nominatim 反查得到,缓存在 <code>data/.cache/geocode.json</code>。</li>
-  </ul>
+<section class="panel schema-entity">
+  <h2>Library<span class="zh-sub">图书馆 · 10 个字段</span></h2>
+  <div class="schema-fields">
+<div class="schema-row">
+  <div class="schema-fname"><code>id</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Short library code used in cross-references.<span class="zh-sub">图书馆短代码,所有外键都用它,如 wakefield。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Stable join key between libraries and passes.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>name</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Formal library name as it appears on signage.<span class="zh-sub">图书馆正式名称,如 Lucius Beebe Memorial Library。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Shown to the cardholder on the library card chip.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>town</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Town the library serves.<span class="zh-sub">图书馆所在市镇。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Used for distance grouping and town-level filters.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>network</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Library consortium membership (NOBLE / MLN / Minuteman ...).<span class="zh-sub">图书馆所属网络/联盟,如 NOBLE、MLN、Minuteman。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Determines reciprocal borrowing rights for the cardholder.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>platform</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">enum</div>
+    <div class="schema-fdesc">Pass-booking backend: assabet / libcal / museumkey.<span class="zh-sub">通行证后台平台:Assabet(52 馆)/ LibCal(5 馆)/ MuseumKey(2 馆)。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Selects the scraper and decides whether live availability is available.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>card_page</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">url</div>
+    <div class="schema-fdesc">Public page describing how to get a library card.<span class="zh-sub">本馆的办卡说明页 URL。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Drives the &#x27;how to get a card&#x27; deep-link on the frontend.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>eligibility</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">enum</div>
+    <div class="schema-fdesc">Who may obtain a card: open_ma_resident or residents_only.<span class="zh-sub">办卡资格:open_ma_resident 麻州居民均可 / residents_only 仅本镇居民。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Tells the user whether they can sign up for this card at all.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>supports_availability</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">bool</div>
+    <div class="schema-fdesc">Whether the platform exposes next-30-day slot data.<span class="zh-sub">本馆所属平台是否能查未来 30 天的预订情况(MuseumKey 不支持)。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Controls whether the live calendar UI shows for this library.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>address</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Street / city / state / zip / formatted.<span class="zh-sub">街道地址,拆成 5 个字段。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Powers the map pin and walking-distance card.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>geo</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object {lat,lon}</div>
+    <div class="schema-fdesc">Geocoded coordinates from OSM Nominatim.<span class="zh-sub">经纬度,由 OSM Nominatim 解析得到,缓存在 data/.cache/geocode.json。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Enables distance-based sort against the user&#x27;s home.</div>
+  </div>
+</div></div>
 </section>
 
-<section class="panel">
-  <h2>2. 景点 Attractions</h2>
-  <ul class="schema-list">
-    <li><b>slug</b>:URL 友好的稳定 ID,如 <code>boston-childrens-museum</code>。</li>
-    <li><b>museum_name</b>:正式名称。</li>
-    <li><b>address / website / phone / description</b>:景点元数据,来自景点官网或 Wikipedia。</li>
-    <li><b>categories</b>:分类标签数组(Children / Family / Science / Art / Nature / History ...)。</li>
-    <li><b>sources</b>:提供本景点 pass 的所有图书馆 id 数组。</li>
-    <li><b>original_price</b>:景点门市原价,两层模型。
-      <ul>
-        <li><b>age_pricing</b>:按年龄定价,任何符合年龄的访客都适用。包含 adult / youth / child / senior 四种(每种是 <code>{price, min_age, max_age}</code> 或 null),以及 <code>free_under_age</code>(低于该岁数免费,是年龄阈值数字而非票价)。</li>
-        <li><b>identity_pricing</b>:按身份定价,需出示证件。包含 student / educator / military 三种(每种是 <code>{price, requires}</code> 或 null)。</li>
-        <li><b>family</b>:家庭通票价(顶层数字)。<b>notes / source_url</b>:备注与数据源。</li>
-      </ul>
-    </li>
-    <li><b>hero_image</b>:景点官网 <code>&lt;meta property="og:image"&gt;</code> 抓取的封面图;<code>local_path</code> 是本地缓存路径(gitignored)。</li>
-    <li><b>hours</b>:周一至周日营业时间;<code>status</code> 字段表示数据可信度(ok / varies / seasonal / missing)。</li>
-    <li><b>geo</b>:经纬度,用于距离排序。</li>
-  </ul>
+<section class="panel schema-entity">
+  <h2>Attraction<span class="zh-sub">景点 · 12 个字段</span></h2>
+  <div class="schema-fields">
+<div class="schema-row">
+  <div class="schema-fname"><code>slug</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">URL-safe stable ID for the attraction.<span class="zh-sub">景点的 URL 友好稳定 ID,如 boston-childrens-museum。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Foreign key used by every pass row.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>museum_name</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Formal venue name.<span class="zh-sub">景点正式名称。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Headline shown on the attraction card.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>address / website / phone</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Contact and locator info, mostly from the official site.<span class="zh-sub">联系地址、官网、电话,主要来自景点官网。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Lets the user verify or call ahead before visiting.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>description</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">One-paragraph plain-text intro to the venue.<span class="zh-sub">景点简介,纯文本一段。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Drives whether a user clicks into detail; missing = cold card.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>categories</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">array of string</div>
+    <div class="schema-fdesc">Tag list (Children / Family / Science / Art / Nature / History ...).<span class="zh-sub">分类标签数组(儿童 / 家庭 / 科学 / 艺术 / 自然 / 历史 等)。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Powers category filter and placeholder-image fallback.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>sources</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">array of library_id</div>
+    <div class="schema-fdesc">Libraries currently offering a pass to this attraction.<span class="zh-sub">数组,列出所有提供本景点 pass 的图书馆 id。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Lets the UI surface &#x27;X of your libraries offer this&#x27;.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>original_price</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Two-layer pricing model: age_pricing + identity_pricing + family.<span class="zh-sub">景点门市原价,两层:age_pricing 按年龄、identity_pricing 按身份、family 家庭票。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — The number the user mentally compares the coupon against.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>original_price.age_pricing</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">adult / youth / child / senior tiers, each {price, min_age, max_age}, plus free_under_age (age threshold, not a price).<span class="zh-sub">按年龄定价:adult/youth/child/senior 各一档,以及 free_under_age(低于该岁数免费,是年龄阈值数字而非价格)。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Anyone meeting the age band qualifies — no proof needed.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>original_price.identity_pricing</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">student / educator / military tiers, each {price, requires}.<span class="zh-sub">按身份定价:student/educator/military,需出示证件。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Some coupons stack with identity tiers; we keep the base price for comparison.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>hero_image</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Cover image scraped from the attraction&#x27;s og:image, cached locally.<span class="zh-sub">景点封面图,来自官网 og:image,本地缓存(gitignored)。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Drives card visual impact; falls back to category placeholder SVG.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>hours</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Mon–Sun opening hours plus a status field (ok / varies / seasonal / missing).<span class="zh-sub">周一至周日营业时间,加 status 标识(ok / varies / seasonal / missing)。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Tells the UI whether to show hard hours or a &#x27;check with venue&#x27; warning.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>geo</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object {lat,lon}</div>
+    <div class="schema-fdesc">Geocoded attraction coordinates.<span class="zh-sub">景点经纬度,用于距离排序。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Sorts attractions by distance from the user.</div>
+  </div>
+</div></div>
 </section>
 
-<section class="panel">
-  <h2>3. 优惠规则 Passes</h2>
-  <p>每行表示一个 (lib × attraction) 组合,共 1008 行。</p>
-  <ul class="schema-list">
-    <li><b>library_id / attraction_slug</b>:主键,联合唯一。</li>
-    <li><b>pass_type</b>:三种 pass 形态 —
-      <ul>
-        <li><b>digital</b>(显示为 <b>Email</b>)</li>
-        <li><b>physical-coupon</b>:门店取纸质券,用完不归还(260 个)。</li>
-        <li><b>physical-circ</b>:循环借阅卡,用完需归还图书馆(172 个)。</li>
-        <li><b>unknown</b>:未能识别(23 个)。</li>
-      </ul>
-    </li>
-    <li><b>coupon</b>:统一优惠模型:
-      <ul>
-        <li><b>capacity</b>:<code>{"kind": "people"|"vehicle"|"ticket"|"unspecified", "n": int|null}</code> — 整张 coupon 覆盖的容量上限</li>
-        <li><b>audience_policies</b>:数组,每项 = <code>{"audience", "age_range", "count", "form", "value"}</code>。
-          <ul>
-            <li><b>audience</b>: Everyone / Adult / Child / Youth / Senior / Vehicle / Single ticket</li>
-            <li><b>form</b>: <code>free</code> / <code>percent-off</code> / <code>dollar-off</code> / <code>per-person-price</code> / <code>discount</code></li>
-            <li><b>value</b>: 数值(如 50 = 50% off, 5 = $5 off),或 null(无数值/笼统)</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><b>restrictions</b>:使用限制 — <code>{"blackout_dates": bool, "weekdays_only": bool, "seasonal": str|null, "reservation_required": bool}</code></li>
-    <li><b>availability</b>:未来 30 天的可预订状态字典(museumkey 不可用)。</li>
-  </ul>
-
-  <h3>Coupon form 值域</h3>
-  <ul class="schema-list">
-    <li><b>free</b>:完全免费入场</li>
-    <li><b>percent-off</b>:百分比折扣,如 50% off</li>
-    <li><b>dollar-off</b>:固定金额减免,如 $5 off</li>
-    <li><b>per-person-price</b>:固定人头价,如 Adults $5 / Kids $3</li>
-    <li><b>discount</b>:笼统折扣(AI 无法提取具体数值)</li>
-  </ul>
+<section class="panel schema-entity">
+  <h2>Pass<span class="zh-sub">通行证 · 每行 = 一个 library × attraction 组合 · 11 个字段</span></h2>
+  <div class="schema-fields">
+<div class="schema-row">
+  <div class="schema-fname"><code>library_id</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Foreign key to libraries.id.<span class="zh-sub">外键指向 libraries.id。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Identifies which library issues this pass.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>attraction_slug</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Foreign key to attractions.slug.<span class="zh-sub">外键指向 attractions.slug。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Identifies which venue the pass admits the user to.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>pass_type</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">enum</div>
+    <div class="schema-fdesc">digital (Email) / physical-coupon (Pickup) / physical-circ (Pickup &amp; Return) / unknown.<span class="zh-sub">通行证形态:digital 邮件 / physical-coupon 门店取一次性纸券 / physical-circ 循环借阅卡 / unknown 未分类。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Determines pickup workflow shown to the user.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>source_url</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">url</div>
+    <div class="schema-fdesc">Library page where this pass is described.<span class="zh-sub">本 pass 在图书馆官网上的来源页面 URL。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Lets the auditor and the curious user verify against the original.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>coupon</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Unified discount model — what the user actually gets.<span class="zh-sub">统一优惠模型 — 这张 pass 实际能给用户什么。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Single source of truth for the discount summary on every card.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>coupon.capacity</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object {kind,n}</div>
+    <div class="schema-fdesc">Coverage cap: kind in people / vehicle / ticket / unspecified, plus headcount.<span class="zh-sub">整张 coupon 的容量上限,kind: people / vehicle / ticket / unspecified,n 为人数或车数。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Tells the user how many people / vehicles fit under one coupon.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>coupon.audience_policies</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">array of object</div>
+    <div class="schema-fdesc">Per-audience policy rows: {audience, age_range, count, form, value}.<span class="zh-sub">数组,每项是一个人群规则:{audience 人群, age_range 年龄区间, count 人数, form 优惠形式, value 数值}。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Drives the per-audience discount lines on the card.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>coupon.audience_policies[].form</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">enum</div>
+    <div class="schema-fdesc">free / percent-off / dollar-off / per-person-price / discount.<span class="zh-sub">优惠形式:free 免费 / percent-off 百分比 / dollar-off 固定减免 / per-person-price 人头价 / discount 笼统折扣。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Controls the badge color and short label shown to the user.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>coupon.summary</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Mobile-ecommerce-style short string (FREE / 50% off / $5 off / $9 / person).<span class="zh-sub">电商风短字符串,如 FREE / 50% off / $5 off / $9/人。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — The single line the cardholder reads — they mentally compare it against original_price.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>restrictions</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Usage limits: {blackout_dates, weekdays_only, seasonal, reservation_required}.<span class="zh-sub">使用限制:节假日 blackout、仅工作日、季节性、需要预约。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Surfaces ⚠ warning icons before a user commits to a date.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>availability</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Next 30 days bookable-status map per slot (MuseumKey libraries: empty).<span class="zh-sub">未来 30 天的可预订状态字典,MuseumKey 平台为空。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Powers the live calendar; tells the user if today is bookable.</div>
+  </div>
+</div></div>
 </section>
 
-<p class="foot-link"><a href="#" class="view-json-link" data-json-key="schema">查看技术 JSON 结构</a></p>
+<section class="panel schema-entity">
+  <h2>Coupon form values<span class="zh-sub">优惠形式枚举</span></h2>
+  <table class="data-table">
+    <thead><tr><th>form</th><th>meaning</th></tr></thead>
+    <tbody><tr><td class="mono">free</td><td>Free admission for the audience tier.<span class="zh-sub">该人群完全免费入场。</span></td></tr><tr><td class="mono">percent-off</td><td>Percentage off the gate price, e.g. 50.<span class="zh-sub">门市价百分比折扣,如 50 表示 50% off。</span></td></tr><tr><td class="mono">dollar-off</td><td>Fixed dollar amount off, e.g. 5 = $5 off.<span class="zh-sub">固定金额减免,如 5 表示 $5 off。</span></td></tr><tr><td class="mono">per-person-price</td><td>Flat per-head price negotiated with the library, e.g. $5 / person.<span class="zh-sub">与图书馆协商的固定人头价,如每人 $5。</span></td></tr><tr><td class="mono">discount</td><td>Free-text discount language the extractor could not quantify.<span class="zh-sub">原文是笼统折扣描述,抽取器无法提取具体数值。</span></td></tr></tbody>
+  </table>
+</section>
+
+<p class="foot-link"><a href="#" class="view-json-link" data-json-key="schema">查看完整 JSON 字段清单</a></p>
 
 </main>
 <div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>
