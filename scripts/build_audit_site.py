@@ -435,7 +435,7 @@ def page_index(libs_data, attr_data, passes_data, libcat, status_banner: str = "
         "Geo coordinates · 经纬度": sum(1 for A in attrs if A.get("geo")),
     }
     pass_cov = {
-        "Coupon extracted · 优惠已结构化(plan-9)": sum(1 for p in passes if p.get("coupon")),
+        "Coupon extracted · 优惠已结构化": sum(1 for p in passes if p.get("coupon")),
         "Pass type known · 取券方式已分类": sum(1 for p in passes if p.get("pass_type") not in (None, "unknown")),
         "Availability calendar · 库存日历(空位可见)": sum(1 for p in passes if p.get("availability")),
     }
