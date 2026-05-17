@@ -1,5 +1,6 @@
 import type { Library, Pass } from '../data/types';
 import { PassTypeLabel } from './PassTypeLabel';
+import { CouponLine } from './CouponLine';
 
 interface Props {
   pass: Pass;
@@ -30,7 +31,7 @@ export function GuestLockedRow({ pass, library, onSignInRequest }: Props) {
         {library?.name ?? pass.library_id}
       </span>
       <span className="ml-auto flex items-center gap-2">
-        <span style={{ fontSize: 13, color: 'var(--ink-3)' }}>{pass.coupon.summary}</span>
+        <CouponLine coupon={pass.coupon} size="sm" />
         <span aria-hidden style={{ fontSize: 14, color: 'var(--ink-3)' }}>🔒</span>
       </span>
     </button>
