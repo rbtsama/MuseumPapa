@@ -13,12 +13,12 @@ const make = (
 });
 
 describe('CouponLine', () => {
-  it('hides the Everyone label when it is the only audience', () => {
+  it('always shows the Everyone label so the audience is never ambiguous', () => {
     render(<CouponLine coupon={make([
-      { audience: 'Everyone', age_range: null, count: null, form: 'free', value: null },
-    ])} />);
-    expect(screen.getByText('FREE')).toBeInTheDocument();
-    expect(screen.queryByText('Everyone')).toBeNull();
+      { audience: 'Everyone', age_range: null, count: null, form: 'per-person-price', value: 10 },
+    ], 2)} />);
+    expect(screen.getByText('$10')).toBeInTheDocument();
+    expect(screen.getByText('Everyone')).toBeInTheDocument();
   });
 
   it('renders amount + audience separately for tiered policies', () => {
@@ -29,14 +29,48 @@ describe('CouponLine', () => {
     expect(screen.getByText('$5')).toBeInTheDocument();
     expect(screen.getByText('Adult')).toBeInTheDocument();
     expect(screen.getByText('FREE')).toBeInTheDocument();
-    expect(screen.getByText('Child <6')).toBeInTheDocument();
+    expect(screen.getByText('Youth <6')).toBeInTheDocument();
   });
 
-  it('formats percent-off and dollar-off amounts', () => {
+  it('folds Senior into the Adult bucket', () => {
     render(<CouponLine coupon={make([
-      { audience: 'Everyone', age_range: null, count: null, form: 'percent-off', value: 50 },
+      { audience: 'Senior', age_range: { min: 65, max: null }, count: null, form: 'per-person-price', value: 17 },
     ])} />);
-    expect(screen.getByText('50% off')).toBeInTheDocument();
+    expect(screen.getByText('Adult')).toBeInTheDocument();
+    expect(screen.queryByText('Senior')).toBeNull();
+    expect(screen.queryByText(/65\+/)).toBeNull();
+  });
+
+  it('folds Child into the Youth bucket', () => {
+    render(<CouponLine coupon={make([
+      { audience: 'Child', age_range: { min: null, max: 12 }, count: null, form: 'free', value: null },
+    ])} />);
+    expect(screen.getByText('Youth <13')).toBeInTheDocument();
+    expect(screen.queryByText(/Child/)).toBeNull();
+  });
+
+  it('hides redundant age ranges that just restate the bucket', () => {
+    render(<CouponLine coupon={make([
+      { audience: 'Adult', age_range: { min: 18,   max: null }, count: null, form: 'free', value: null },
+      { audience: 'Child', age_range: { min: null, max: 17   }, count: null, form: 'free', value: null },
+      { audience: 'Youth', age_range: { min: 13,   max: 17   }, count: null, form: 'free', value: null },
+    ])} />);
+    expect(screen.getByText('Adult')).toBeInTheDocument();
+    expect(screen.getAllByText('Youth').length).toBeGreaterThan(0);
+    expect(screen.queryByText(/18\+/)).toBeNull();
+    expect(screen.queryByText(/<18/)).toBeNull();
+    expect(screen.queryByText(/13-17/)).toBeNull();
+  });
+
+  it('keeps narrow age ranges that carry real semantic value', () => {
+    render(<CouponLine coupon={make([
+      { audience: 'Adult', age_range: { min: 13,   max: null }, count: null, form: 'per-person-price', value: 10 },
+      { audience: 'Child', age_range: { min: null, max: 5    }, count: null, form: 'free',             value: null },
+      { audience: 'Youth', age_range: { min: 7,    max: 17   }, count: null, form: 'per-person-price', value: 5 },
+    ])} />);
+    expect(screen.getByText('Adult 13+')).toBeInTheDocument();
+    expect(screen.getByText('Youth <6')).toBeInTheDocument();
+    expect(screen.getByText('Youth 7-17')).toBeInTheDocument();
   });
 
   it('renders nothing when there are no audience_policies', () => {
@@ -51,34 +85,6 @@ describe('CouponLine', () => {
       { audience: 'Everyone', age_range: null, count: null, form: 'free', value: null },
     ], null)} />);
     expect(container.querySelector('svg')).toBeNull();
-  });
-
-  it('hides redundant age ranges that just restate the audience', () => {
-    render(<CouponLine coupon={make([
-      { audience: 'Adult',  age_range: { min: 18,   max: null }, count: null, form: 'free', value: null },
-      { audience: 'Child',  age_range: { min: null, max: 17   }, count: null, form: 'free', value: null },
-      { audience: 'Senior', age_range: { min: 65,   max: null }, count: null, form: 'free', value: null },
-      { audience: 'Youth',  age_range: { min: 13,   max: 17   }, count: null, form: 'free', value: null },
-    ])} />);
-    expect(screen.getByText('Adult')).toBeInTheDocument();
-    expect(screen.getByText('Child')).toBeInTheDocument();
-    expect(screen.getByText('Senior')).toBeInTheDocument();
-    expect(screen.getByText('Youth')).toBeInTheDocument();
-    expect(screen.queryByText(/18\+/)).toBeNull();
-    expect(screen.queryByText(/<18/)).toBeNull();
-    expect(screen.queryByText(/65\+/)).toBeNull();
-    expect(screen.queryByText(/13-17/)).toBeNull();
-  });
-
-  it('keeps narrow age ranges that carry real semantic value', () => {
-    render(<CouponLine coupon={make([
-      { audience: 'Adult', age_range: { min: 13,   max: null }, count: null, form: 'per-person-price', value: 10 },
-      { audience: 'Child', age_range: { min: null, max: 5    }, count: null, form: 'free',             value: null },
-      { audience: 'Youth', age_range: { min: 7,    max: 17   }, count: null, form: 'per-person-price', value: 5 },
-    ])} />);
-    expect(screen.getByText('Adult 13+')).toBeInTheDocument();
-    expect(screen.getByText('Child <6')).toBeInTheDocument();
-    expect(screen.getByText('Youth 7-17')).toBeInTheDocument();
   });
 
   it('emits N person-icon SVGs when capacity.kind = people', () => {

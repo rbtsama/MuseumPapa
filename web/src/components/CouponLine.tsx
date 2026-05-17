@@ -4,6 +4,23 @@ interface Props {
   coupon: Coupon;
 }
 
+type AudienceBucket = 'Adult' | 'Youth' | 'Everyone';
+
+// Collapse the raw schema audiences into the three buckets the product uses.
+// Senior/Student/Military/Educator fold into Adult; Child folds into Youth.
+// Vehicle and Single-ticket aren't audiences — capacity carries their unit.
+function bucket(audience: AudiencePolicy['audience']): AudienceBucket | null {
+  switch (audience) {
+    case 'Adult':
+    case 'Senior':           return 'Adult';
+    case 'Child':
+    case 'Youth':            return 'Youth';
+    case 'Everyone':         return 'Everyone';
+    case 'Vehicle':
+    case 'Single ticket':    return null;
+  }
+}
+
 function fmtAmount(p: AudiencePolicy): string {
   switch (p.form) {
     case 'free': return 'FREE';
@@ -14,30 +31,29 @@ function fmtAmount(p: AudiencePolicy): string {
   }
 }
 
-// Age range is only worth showing when it tells the user something the audience
-// label doesn't already imply. "Child <18", "Adult 18+", "Senior 65+", "Youth 13-17"
-// all just restate the audience — drop them. Narrow tiers like "Child <6" or
-// "Adult 13+" carry real semantic value — keep them.
-function isRedundantAge(audience: AudiencePolicy['audience'], age: AgeRange): boolean {
+// Age range is only worth showing when narrower than the bucket implies.
+// Adult ≥18, Youth <18, Senior ≥65 are defaults — drop. Adult 13+ at JFK, Youth <6 at MFA — keep.
+function isRedundantAge(b: AudienceBucket, audience: AudiencePolicy['audience'], age: AgeRange): boolean {
   const { min, max } = age;
-  if (audience === 'Adult'  && max == null && min != null && min >= 18 && min <= 19) return true;
-  if (audience === 'Child'  && min == null && max != null && max >= 17 && max <= 18) return true;
-  if (audience === 'Senior' && max == null && min != null && min >= 60 && min <= 65) return true;
-  if (audience === 'Youth'  && min == null && max != null && max >= 17 && max <= 18) return true;
-  if (audience === 'Youth'  && min === 13 && max === 17) return true;
+  if (b === 'Adult' && max == null && min != null && min >= 18 && min <= 19) return true;
+  if (b === 'Adult' && audience === 'Senior') return true;
+  if (b === 'Youth' && min == null && max != null && max >= 17 && max <= 18) return true;
+  if (b === 'Youth' && min === 13 && max === 17) return true;
   return false;
 }
 
-function fmtAudience(audience: AudiencePolicy['audience'], age: AgeRange | null): string {
-  if (!age || isRedundantAge(audience, age)) return audience;
+function fmtAudienceLabel(p: AudiencePolicy): string | null {
+  const b = bucket(p.audience);
+  if (b == null) return null;
+  const age = p.age_range;
+  if (!age || isRedundantAge(b, p.audience, age)) return b;
   const { min, max } = age;
-  if (min != null && max != null) return `${audience} ${min}-${max}`;
-  if (max != null) return `${audience} <${max + 1}`;
-  if (min != null) return `${audience} ${min}+`;
-  return audience;
+  if (min != null && max != null) return `${b} ${min}-${max}`;
+  if (max != null) return `${b} <${max + 1}`;
+  if (min != null) return `${b} ${min}+`;
+  return b;
 }
 
-// Heroicons "user" solid — round head + smooth shoulder silhouette, tighter than a stick figure.
 function PersonIcon() {
   return (
     <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden
@@ -74,9 +90,6 @@ export function CouponLine({ coupon }: Props) {
   const dim = 'var(--ink-3)';
   const amount = 'var(--g)';
   const hasCapacity = coupon.capacity.n != null && coupon.capacity.n > 0;
-  const hideAudienceLabel =
-    coupon.audience_policies.length === 1 &&
-    coupon.audience_policies[0].audience === 'Everyone';
 
   return (
     <span
@@ -84,15 +97,16 @@ export function CouponLine({ coupon }: Props) {
       style={{ fontSize: 12, lineHeight: 1.2 }}
     >
       {hasCapacity && <CapacityNode capacity={coupon.capacity} color={dim} />}
-      {coupon.audience_policies.map((p, i) => (
-        <span key={i} className="inline-flex items-baseline gap-1">
-          {(i > 0 || hasCapacity) && <span style={{ color: dim }}>·</span>}
-          <span style={{ color: amount, fontWeight: 700, fontSize: 13 }}>{fmtAmount(p)}</span>
-          {!hideAudienceLabel && (
-            <span style={{ color: dim }}>{fmtAudience(p.audience, p.age_range)}</span>
-          )}
-        </span>
-      ))}
+      {coupon.audience_policies.map((p, i) => {
+        const label = fmtAudienceLabel(p);
+        return (
+          <span key={i} className="inline-flex items-baseline gap-1">
+            {(i > 0 || hasCapacity) && <span style={{ color: dim }}>·</span>}
+            <span style={{ color: amount, fontWeight: 700, fontSize: 13 }}>{fmtAmount(p)}</span>
+            {label && <span style={{ color: dim }}>{label}</span>}
+          </span>
+        );
+      })}
     </span>
   );
 }
