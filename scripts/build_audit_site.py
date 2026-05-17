@@ -306,6 +306,50 @@ def histogram_table(counter: Counter, total: int, label_map: dict | None = None,
     return f'<table class="histogram">{"".join(rows)}</table>'
 
 
+def capacity_matrix_html(matrix: dict, total: int) -> str:
+    """Render the 3-bucket × n capacity matrix as a single table.
+
+    Buckets: headcount (people + ticket, both are "1 person per unit"),
+    vehicle (per-car coupons), other (kind=unspecified / missing).
+    """
+    all_n: list = sorted(
+        {n for b in matrix.values() for n in b if n != "null"},
+        key=lambda x: (isinstance(x, str), x),
+    )
+    cols = all_n + ["null"]
+    bucket_label = {
+        "headcount": "Headcount · 有人数限制",
+        "vehicle":   "Per-vehicle · 按车",
+        "other":     "Other · 其他",
+    }
+    head_cells = "".join(
+        f'<th class="num">{esc("∅" if c == "null" else str(c))}</th>'
+        for c in cols
+    )
+    rows = []
+    for bucket in ("headcount", "vehicle", "other"):
+        counter = matrix[bucket]
+        bucket_total = sum(counter.values())
+        if bucket_total == 0:
+            continue
+        cells = "".join(
+            f'<td class="num">{counter[c]}</td>' if counter.get(c) else '<td class="num"></td>'
+            for c in cols
+        )
+        pct = round(100 * bucket_total / total) if total else 0
+        rows.append(
+            f'<tr><td>{bilingual(bucket_label[bucket])}</td>'
+            f'{cells}'
+            f'<td class="num"><b>{bucket_total}</b></td><td class="pct">{pct}%</td></tr>'
+        )
+    return (
+        f'<table class="data-table capacity-matrix">'
+        f'<thead><tr><th>bucket</th>{head_cells}'
+        f'<th class="num">total</th><th class="pct">%</th></tr></thead>'
+        f'<tbody>{"".join(rows)}</tbody></table>'
+    )
+
+
 def page_shell(title: str, body: str, current: str, extra_head: str = "", data_blob: str = "") -> str:
     nav = " · ".join(
         f'<a href="{href}" class="{"current" if href == current else ""}">{label}</a>'
@@ -375,20 +419,24 @@ def page_index(libs_data, attr_data, passes_data, libcat, status_banner: str = "
             f = ap.get("form") or "discount"
             coupon_form_counter[f] += 1
 
-    # Capacity distribution
-    cap_kind_counter: Counter = Counter()
-    cap_people_n_counter: Counter = Counter()
+    # Capacity distribution — fold into 3 user-facing buckets.
+    # ticket is a degenerate headcount (single-ticket = "1 person max"), so it
+    # joins people under the Headcount bucket. Vehicle stays separate; everything
+    # else (kind=unspecified, weird/missing) goes to Other.
+    def _capacity_bucket(cap: dict) -> str:
+        k = (cap or {}).get("kind") or "unspecified"
+        if k in ("people", "ticket"): return "headcount"
+        if k == "vehicle":            return "vehicle"
+        return "other"
+
+    cap_matrix: dict[str, Counter] = {
+        "headcount": Counter(), "vehicle": Counter(), "other": Counter(),
+    }
     for p in passes:
         cap = (p.get("coupon") or {}).get("capacity") or {}
-        kind = cap.get("kind") or "unspecified"
-        if kind == "people":
-            n = cap.get("n")
-            if n is not None:
-                cap_people_n_counter[n] += 1
-            else:
-                cap_people_n_counter["(unspecified n)"] += 1
-        else:
-            cap_kind_counter[kind] += 1
+        b = _capacity_bucket(cap)
+        n = cap.get("n")
+        cap_matrix[b][n if n is not None else "null"] += 1
 
     # Audience-split distribution: how many audience_policies entries per pass
     audience_split_counter: Counter = Counter()
@@ -465,14 +513,8 @@ def page_index(libs_data, attr_data, passes_data, libcat, status_banner: str = "
         "per-person-price": "Per-person price · 人头定价",
         "discount":         "Generic discount · 笼统折扣(无数值)",
     }
-    _cap_kind_label = {
-        "vehicle":     "vehicle · 按车",
-        "ticket":      "ticket · 单张票",
-        "unspecified": "unspecified · 未明示",
-    }
     _coupon_form_html = histogram_table(coupon_form_counter, sum(coupon_form_counter.values()) or 1, _coupon_form_label)
-    _cap_people_html = histogram_table(cap_people_n_counter, n_passes)
-    _cap_kind_html = histogram_table(cap_kind_counter, n_passes, _cap_kind_label) if cap_kind_counter else ""
+    _cap_matrix_html = capacity_matrix_html(cap_matrix, n_passes)
     _audience_split_html = histogram_table(audience_split_counter, n_passes)
 
     body = f"""
@@ -499,9 +541,8 @@ def page_index(libs_data, attr_data, passes_data, libcat, status_banner: str = "
 </section>
 
 <section class="panel">
-  <h3>Capacity 分布 · people(n) 明细</h3>
-  {_cap_people_html}
-  {_cap_kind_html}
+  <h3>Capacity 分布 · bucket × n 矩阵</h3>
+  {_cap_matrix_html}
 </section>
 
 <section class="panel">
@@ -1244,12 +1285,16 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     for p in passes:
         for ap in (p.get("coupon") or {}).get("audience_policies") or []:
             pol_form_counter[ap.get("form", "discount")] += 1
-    # capacity n distribution (people kind only)
-    pol_cap_counter: Counter = Counter()
+    # capacity bucket × n matrix (people+ticket → headcount, vehicle, other)
+    pol_cap_matrix: dict[str, Counter] = {
+        "headcount": Counter(), "vehicle": Counter(), "other": Counter(),
+    }
     for p in passes:
         cap = (p.get("coupon") or {}).get("capacity") or {}
-        if cap.get("kind") == "people":
-            pol_cap_counter[cap.get("n") if cap.get("n") is not None else "(unspecified n)"] += 1
+        k = cap.get("kind") or "unspecified"
+        bucket = "headcount" if k in ("people", "ticket") else ("vehicle" if k == "vehicle" else "other")
+        n = cap.get("n")
+        pol_cap_matrix[bucket][n if n is not None else "null"] += 1
     # restrictions distribution
     restr_counter: Counter = Counter()
     for p in passes:
@@ -1281,7 +1326,7 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     }
     _pol_pt_html = histogram_table(pt_counter, n_passes, _pt_label)
     _pol_form_html = histogram_table(pol_form_counter, sum(pol_form_counter.values()) or 1, _form_label)
-    _pol_cap_html = histogram_table(pol_cap_counter, n_passes, max_rows=10)
+    _pol_cap_html = capacity_matrix_html(pol_cap_matrix, n_passes)
     _pol_restr_html = histogram_table(restr_counter, n_passes)
 
     body = f"""
@@ -1297,7 +1342,7 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     {_pol_form_html}
   </div>
   <div class="panel dist-panel">
-    <h3>Capacity n 分布(people kind · {sum(pol_cap_counter.values())} passes)</h3>
+    <h3>Capacity 分布 · bucket × n 矩阵</h3>
     {_pol_cap_html}
   </div>
   <div class="panel dist-panel">

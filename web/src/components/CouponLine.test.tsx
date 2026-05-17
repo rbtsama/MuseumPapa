@@ -60,6 +60,14 @@ describe('CouponLine', () => {
     expect(screen.queryByText(/age \d+-\d+/)).toBeNull();
   });
 
+  it('renders ticket capacity as a single person icon — same UX as people-n=1', () => {
+    const { container } = render(<CouponLine coupon={make([
+      { audience: 'Everyone', age_range: null, count: null, form: 'free', value: null },
+    ], { kind: 'ticket', n: 1 })} />);
+    expect(container.querySelectorAll('svg').length).toBe(1);
+    expect(screen.queryByText(/ticket/i)).toBeNull();
+  });
+
   it('renders parking coupons as a single dim "Other discount · parking" line', () => {
     render(<CouponLine coupon={make([
       { audience: 'Vehicle', age_range: null, count: null, form: 'free', value: null },

@@ -66,8 +66,10 @@ function PersonIcon() {
 }
 
 function CapacityNode({ capacity, color }: { capacity: CouponCapacity; color: string }) {
+  // people and ticket are both headcount-limited; render identically.
+  // Single-ticket coupons (JFK Library) admit one person — same UX as people-n=1.
   if (capacity.n == null || capacity.n <= 0) return null;
-  if (capacity.kind === 'people') {
+  if (capacity.kind === 'people' || capacity.kind === 'ticket') {
     return (
       <span className="inline-flex items-baseline" style={{ color, gap: 3 }}>
         <span>up to</span>
@@ -76,9 +78,6 @@ function CapacityNode({ capacity, color }: { capacity: CouponCapacity; color: st
         </span>
       </span>
     );
-  }
-  if (capacity.kind === 'ticket') {
-    return <span style={{ color }}>{capacity.n} ticket{capacity.n > 1 ? 's' : ''}</span>;
   }
   return null;
 }
