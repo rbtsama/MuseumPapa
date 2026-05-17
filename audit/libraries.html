@@ -15,42 +15,14 @@
 
 <section class="panel" style="border-left: 4px solid var(--rd); background: var(--rd-pale);">
   <h3 style="color: var(--rd); margin-top:0">⚠ lib_id 是数据爬取模型,不是用户产品概念</h3>
-  <p class="methodology">
-    <b>本期 lib_id 设计</b>:每个 id = 一个发券组织(例如 <code>bpl</code> 代表整个 BPL 系统,即使它下辖 25+ 物理分馆)。
-    这只在<b>数据爬取层</b>有意义 — 用于聚合从同一平台/账号爬下来的 passes。
-  </p>
-  <p class="methodology">
-    <b>但对用户产品体验,lib_id 没有正确语义</b>:
-    <br>① <b>电子券(digital pass)</b>:用户只关心折扣 — "MFA 半价" — 无需任何"组织"前缀。展示 "by BPL" 或 "by Wakefield Library" 是噪音
-    <br>② <b>实体券(physical / loan-card)</b>:用户需要<b>具体物理地址</b>开车去取 — "BPL 总部" 这个抽象不能告诉用户去 Copley Square 还是 East Boston;前者 Back Bay 后者隔海港
-  </p>
-  <p class="methodology" style="color: var(--g);">
-    <b>✅ plan-6 已落地</b>:passes.json 现已带 <code>pickup_method</code>(digital | physical_at_branch)+ <code>pickup_branches[]</code>;
-    BPL/Cambridge/Brookline 三家多分馆 lib 的 branch 明细见<b>本页底部的"多分馆 lib"面板</b>。
-    单分馆 lib 自动合成 <code>&lt;lib_id&gt;--main</code> branch(地址 = 该 lib 自己的地址)。
-  </p>
 </section>
-
-<p class="methodology">
-  下面这张表是<b>本期数据爬取层</b>的视图:59 个 lib_id 各自唯一,无重复。
-  BPL/Cambridge/Brookline 三家的 branch 拆分见底部"多分馆 lib"面板。
-</p>
 
 <section class="dist-grid">
   <div class="panel dist-panel dist-wide">
     <h3>数据爬取平台 · Scraping platform <span class="block-meta">基础设施视角 · 不直接对用户暴露</span></h3>
     <table class="histogram"><tr><td>assabet</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">52</td><td class="pct">88%</td></tr><tr><td>libcal</td><td class="bar-cell"><span class="bar">████</span></td><td class="num">5</td><td class="pct">8%</td></tr><tr><td>museumkey</td><td class="bar-cell"><span class="bar">██</span></td><td class="num">2</td><td class="pct">3%</td></tr></table>
-    <p class="methodology" style="margin-top:8px">
-      <b>这一项是 ops/审计视角,不是产品决策</b>。Assabet / LibCal / MuseumKey 是图书馆使用的 pass 管理后端系统,用户感知不到。<br>
-      <b>价值</b>:① <b>数据脆弱性</b> — 88% 数据靠 Assabet 单一来源,若失效或收费,影响面广;② <b>功能差异</b> — 不同平台暴露的字段不同(库存日历 / 还回规则等),影响下游能爬到多少元数据。
-    </p>
   </div>
 </section>
-
-<p class="methodology" style="background: var(--g-pale); border-left-color: var(--g);">
-  <b>本页不展示"馆际网络分布"等组织抽象</b> — 网络归属与 lib_id 一样,只在数据建模层有意义,不是用户做"我能不能用这张 pass"决策时关心的事。
-  网络字段仍保留在下方明细表的 <code>network</code> 列里供审计核对,但不再单独建直方图占面板位置。
-</p>
 
 <h2 class="section-title">明细表 · Full table</h2>
 <div class="toolbar"><input type="search" class="search-box" placeholder="filter rows... (id / name / town / network)" data-target="libs-table"></div>
@@ -593,11 +565,6 @@
 
 
 <h2 class="section-title">多分馆 lib · Branch breakdown</h2>
-<p class="methodology">
-  这张表服务两件事:① <b>数据正确性</b> — 审计可以直接对照官网核对每个 branch 的地址;
-  ② <b>用户决策</b> — 持实体券的用户必须开车到这里取卡,这是 plan-6 的核心交付。
-  其余 56 个 lib 自动合成 <code>&lt;lib_id&gt;--main</code> branch,不再单独列。
-</p>
 
 <h3 style="margin-top:18px">bpl · 26 分馆</h3>
 <table class="data-table">

@@ -27,35 +27,18 @@
 </section>
 
 <section class="panel">
-  <p class="methodology">
-    Plan-9 将旧版 <code>discount</code> + <code>policy</code> 两个字段合并为统一的 <b>Coupon 模型</b>
-    (<code>capacity</code> + <code>audience_policies</code> + <code>summary</code>)。
-    以下三个面板展示新 schema 的分布情况,替代了原有的 eligibility-tags / restrictions / bonuses 直方图。
-  </p>
-</section>
-
-<section class="panel">
   <h3>Coupon form 分布 · 1583 audience-policy 条目(含多条目 pass)</h3>
-  <p class="methodology">
-    <b>口径</b>:每条 pass 的 <code>coupon.audience_policies</code> 数组中每个条目各计一次,分母是条目总数。
-  </p>
   <table class="histogram"><tr><td>FREE · 完全免费</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">574</td><td class="pct">36%</td></tr><tr><td>Per-person price · 人头定价</td><td class="bar-cell"><span class="bar">█████████████████████████████████</span></td><td class="num">477</td><td class="pct">30%</td></tr><tr><td>Percent off · 百分比折扣</td><td class="bar-cell"><span class="bar">█████████████████████████████</span></td><td class="num">422</td><td class="pct">27%</td></tr><tr><td>Generic discount · 笼统折扣(无数值)</td><td class="bar-cell"><span class="bar">██████</span></td><td class="num">80</td><td class="pct">5%</td></tr><tr><td>Dollar off · 固定金额减免</td><td class="bar-cell"><span class="bar">██</span></td><td class="num">30</td><td class="pct">2%</td></tr></table>
 </section>
 
 <section class="panel">
   <h3>Capacity 分布 · people(n) 明细</h3>
-  <p class="methodology">
-    <b>口径</b>:分母 = 全部 1008 条 pass。<code>people</code> 类按具体 n 值展开;其它 kind 合并显示。
-  </p>
   <table class="histogram"><tr><td>4</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">374</td><td class="pct">37%</td></tr><tr><td>6</td><td class="bar-cell"><span class="bar">███████████████</span></td><td class="num">142</td><td class="pct">14%</td></tr><tr><td>2</td><td class="bar-cell"><span class="bar">██████████████</span></td><td class="num">135</td><td class="pct">13%</td></tr><tr><td>(unspecified n)</td><td class="bar-cell"><span class="bar">█████████</span></td><td class="num">86</td><td class="pct">9%</td></tr><tr><td>5</td><td class="bar-cell"><span class="bar">█████</span></td><td class="num">48</td><td class="pct">5%</td></tr><tr><td>3</td><td class="bar-cell"><span class="bar">███</span></td><td class="num">32</td><td class="pct">3%</td></tr><tr><td>9</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">11</td><td class="pct">1%</td></tr><tr><td>1</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">10</td><td class="pct">1%</td></tr><tr><td>10</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr></table>
   <table class="histogram"><tr><td>unspecified · 未明示</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">68</td><td class="pct">7%</td></tr><tr><td>vehicle · 按车</td><td class="bar-cell"><span class="bar">███████████████████████████████████</span></td><td class="num">59</td><td class="pct">6%</td></tr><tr><td>ticket · 单张票</td><td class="bar-cell"><span class="bar">█████████████████████████</span></td><td class="num">42</td><td class="pct">4%</td></tr></table>
 </section>
 
 <section class="panel">
   <h3>Audience-split 分布 · audience_policies 条目数 per pass</h3>
-  <p class="methodology">
-    <b>1 条</b>= party-wide 统一优惠(无需按大人/小孩分价);<b>2+ 条</b>= 多层级 (adult / child / ...) 各自有不同优惠,前端需逐行渲染。
-  </p>
   <table class="histogram"><tr><td>1 (party-wide single tier)</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">523</td><td class="pct">52%</td></tr><tr><td>2 (typical mixed)</td><td class="bar-cell"><span class="bar">██████████████████████████████</span></td><td class="num">388</td><td class="pct">38%</td></tr><tr><td>3 (complex)</td><td class="bar-cell"><span class="bar">███████</span></td><td class="num">93</td><td class="pct">9%</td></tr><tr><td>0 (no extraction)</td><td class="bar-cell"><span class="bar"></span></td><td class="num">3</td><td class="pct">0%</td></tr><tr><td>5 (complex)</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr></table>
 </section>
 
@@ -70,15 +53,11 @@
 
 <section class="panel">
   <h3>数据质量信号 · 优先抽查项</h3>
-  <p class="methodology">
-    这一节列出 AI 抽取过程中可能值得人工抽查的"可疑点"。每条都说明了"是什么/含义/怎么追溯"。
-    数字旁的链接跳转到相应专题页,可逐条核对 raw 原文与 AI 输出。
-  </p>
   <ul class="anomaly-list"><li><b>0</b> 条 pass 没有 coupon 字段 — 含义:plan-9 再抽取未覆盖到这些行,需补跑 subagent — <a href='policies.html'>see Policies</a></li><li><b>3</b> 条 pass 的 coupon.summary 为空(含 coupon 字段缺失的) — 含义:AI 抽出了结构但没生成摘要文字,前端 fallback 会显示 '(no extraction)'</li><li><b>0</b> 条 pass 的 pass_type 是 unknown(没归类成 digital/physical/loan-card 中的任一个) — 含义:从原始 HTML 抓不到明确的 pass 类型标识符</li><li><b>0</b> 对 attraction slug 重复(同一景点被存了两条记录) — 含义:数据建模历史遗留 bug,前端会显示成两张不同的卡,需合并 — <a href='duplicates.html'>see Duplicates</a></li><li><b>22</b> 个景点没有任何价格层级(adult/child/youth/senior/...)— 含义:景点官网无公开标价,或票价是 per-show / per-vehicle 浮动 — <a href='gaps.html'>see Gaps</a></li><li><b>4</b> 个景点没有简介文字 — 含义:景点官网无 og:description / about 页 抓取失败 / 网站 403 拦截</li></ul>
 </section>
 
 <footer class="page-foot">
-  Built 2026-05-17 05:27 UTC ·
+  Built 2026-05-17 05:31 UTC ·
   <a href="#" class="view-json-link" data-json-key="meta">View JSON of dataset summary</a>
 </footer>
 

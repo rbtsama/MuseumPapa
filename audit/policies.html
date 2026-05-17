@@ -17,41 +17,22 @@
   <div class="panel dist-panel dist-wide">
     <h3>Pass 形式 · 3 种取券方式(与前端术语一致)</h3>
     <table class="histogram"><tr><td>E-pass · 在线即取(无需开车)</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">570</td><td class="pct">57%</td></tr><tr><td>Pickup · 去馆里取一次,不用还</td><td class="bar-cell"><span class="bar">███████████████████</span></td><td class="num">264</td><td class="pct">26%</td></tr><tr><td>Pickup &amp;amp; Return · 去馆里取 + 还回去</td><td class="bar-cell"><span class="bar">████████████</span></td><td class="num">174</td><td class="pct">17%</td></tr></table>
-    <p class="methodology" style="margin-top:8px">
-      <b>用户决策核心维度</b>:三种取券方式与前端 PassTypeLabel 完全对齐:<br>
-      ① <b>E-pass</b>:邮件/promo code 在家就拿到 — 最低摩擦<br>
-      ② <b>Pickup</b>:去分馆领纸券或 promo paper,不用还 — 中等摩擦<br>
-      ③ <b>Pickup &amp; Return</b>:去分馆借实体券/卡,用完次日要还回 — 最高摩擦<br>
-      其中 <b>27 条 physical pass 可在 ≥2 个分馆取</b>(BPL/Cambridge/Brookline 的 fan-out),用户可选最近的。
-    </p>
   </div>
   <div class="panel dist-panel">
     <h3>Coupon form 分布(plan-9 · audience_policy 条目)</h3>
     <table class="histogram"><tr><td>FREE · 完全免费</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">574</td><td class="pct">36%</td></tr><tr><td>Per-person price · 人头定价</td><td class="bar-cell"><span class="bar">█████████████████████████████████</span></td><td class="num">477</td><td class="pct">30%</td></tr><tr><td>Percent off · 百分比折扣</td><td class="bar-cell"><span class="bar">█████████████████████████████</span></td><td class="num">422</td><td class="pct">27%</td></tr><tr><td>Generic discount · 笼统折扣(无数值)</td><td class="bar-cell"><span class="bar">██████</span></td><td class="num">80</td><td class="pct">5%</td></tr><tr><td>Dollar off · 固定金额减免</td><td class="bar-cell"><span class="bar">██</span></td><td class="num">30</td><td class="pct">2%</td></tr></table>
-    <p class="methodology" style="margin-top:8px">
-      每条 pass 的 coupon.audience_policies 数组中每个条目各计一次。
-    </p>
   </div>
   <div class="panel dist-panel">
     <h3>Capacity n 分布(people kind · 839 passes)</h3>
     <table class="histogram"><tr><td>4</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">374</td><td class="pct">37%</td></tr><tr><td>6</td><td class="bar-cell"><span class="bar">███████████████</span></td><td class="num">142</td><td class="pct">14%</td></tr><tr><td>2</td><td class="bar-cell"><span class="bar">██████████████</span></td><td class="num">135</td><td class="pct">13%</td></tr><tr><td>(unspecified n)</td><td class="bar-cell"><span class="bar">█████████</span></td><td class="num">86</td><td class="pct">9%</td></tr><tr><td>5</td><td class="bar-cell"><span class="bar">█████</span></td><td class="num">48</td><td class="pct">5%</td></tr><tr><td>3</td><td class="bar-cell"><span class="bar">███</span></td><td class="num">32</td><td class="pct">3%</td></tr><tr><td>9</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">11</td><td class="pct">1%</td></tr><tr><td>1</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">10</td><td class="pct">1%</td></tr><tr><td>10</td><td class="bar-cell"><span class="bar"></span></td><td class="num">1</td><td class="pct">0%</td></tr></table>
-    <p class="methodology" style="margin-top:8px">
-      "4 人" 是行业默认配置;前端价格估算应缺省按 4 人。
-    </p>
   </div>
   <div class="panel dist-panel">
     <h3>Restrictions 分布(plan-9 side-channel)</h3>
     <table class="histogram"><tr><td>reservation_required</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">83</td><td class="pct">8%</td></tr><tr><td>blackout_dates</td><td class="bar-cell"><span class="bar">██████████████████</span></td><td class="num">38</td><td class="pct">4%</td></tr><tr><td>seasonal</td><td class="bar-cell"><span class="bar">██████████████</span></td><td class="num">29</td><td class="pct">3%</td></tr><tr><td>weekdays_only</td><td class="bar-cell"><span class="bar">█</span></td><td class="num">3</td><td class="pct">0%</td></tr></table>
-    <p class="methodology" style="margin-top:8px">
-      reservation_required / blackout_dates 是用户体验上最敏感的限制 — 卡片上要明确展示。
-    </p>
   </div>
   <div class="panel dist-panel dist-wide">
     <h3>16 个 Coupon Pattern 占比(按 capacity/form/tiers 分组)</h3>
     <table class="histogram"><thead><tr><th>id</th><th>name</th><th></th><th class="num">n</th><th class="pct">%</th></tr></thead><tbody><tr><td class="mono"><a href="#P1">P1</a></td><td>Percent off · ≤4 people · single-tier</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">117</td><td class="pct">12%</td></tr><tr><td class="mono"><a href="#P2">P2</a></td><td>FREE + Percent off · ≤4 people · 2-tier</td><td class="bar-cell"><span class="bar">█████████████████████████</span></td><td class="num">72</td><td class="pct">7%</td></tr><tr><td class="mono"><a href="#P3">P3</a></td><td>FREE + Per-person price · ≤6 people · 3-tier</td><td class="bar-cell"><span class="bar">█████████████████</span></td><td class="num">50</td><td class="pct">5%</td></tr><tr><td class="mono"><a href="#P4">P4</a></td><td>FREE · Vehicle · 车辆 · single-tier</td><td class="bar-cell"><span class="bar">█████████████████</span></td><td class="num">49</td><td class="pct">5%</td></tr><tr><td class="mono"><a href="#P5">P5</a></td><td>FREE + Per-person price · ≤4 people · 2-tier</td><td class="bar-cell"><span class="bar">████████████████</span></td><td class="num">47</td><td class="pct">5%</td></tr><tr><td class="mono"><a href="#P6">P6</a></td><td>Per-person price · ≤6 people · 2-tier</td><td class="bar-cell"><span class="bar">██████████████</span></td><td class="num">41</td><td class="pct">4%</td></tr><tr><td class="mono"><a href="#P7">P7</a></td><td>FREE + Per-person price · ≤2 people · 2-tier</td><td class="bar-cell"><span class="bar">████████████</span></td><td class="num">36</td><td class="pct">4%</td></tr><tr><td class="mono"><a href="#P8">P8</a></td><td>Per-person price · ≤2 people · single-tier</td><td class="bar-cell"><span class="bar">███████████</span></td><td class="num">33</td><td class="pct">3%</td></tr><tr><td class="mono"><a href="#P9">P9</a></td><td>Percent off · ≤4 people · single-tier · w/ restrictions</td><td class="bar-cell"><span class="bar">██████████</span></td><td class="num">30</td><td class="pct">3%</td></tr><tr><td class="mono"><a href="#P10">P10</a></td><td>FREE · ≤4 people · single-tier</td><td class="bar-cell"><span class="bar">██████████</span></td><td class="num">29</td><td class="pct">3%</td></tr><tr><td class="mono"><a href="#P11">P11</a></td><td>FREE · ≤5 people · single-tier</td><td class="bar-cell"><span class="bar">█████████</span></td><td class="num">26</td><td class="pct">3%</td></tr><tr><td class="mono"><a href="#P12">P12</a></td><td>Percent off · ≤3 people · single-tier</td><td class="bar-cell"><span class="bar">█████████</span></td><td class="num">25</td><td class="pct">2%</td></tr><tr><td class="mono"><a href="#P13">P13</a></td><td>FREE + Per-person price · People · 人数 · 3-tier</td><td class="bar-cell"><span class="bar">████████</span></td><td class="num">24</td><td class="pct">2%</td></tr><tr><td class="mono"><a href="#P14">P14</a></td><td>Percent off · ≤2 people · single-tier</td><td class="bar-cell"><span class="bar">███████</span></td><td class="num">21</td><td class="pct">2%</td></tr><tr><td class="mono"><a href="#P15">P15</a></td><td>FREE + Per-person price · ≤4 people · 2-tier · w/ restrictions</td><td class="bar-cell"><span class="bar">██████</span></td><td class="num">18</td><td class="pct">2%</td></tr><tr><td class="mono"><a href="#P16">P16</a></td><td>Other / Long-tail patterns</td><td class="bar-cell"><span class="bar">█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████</span></td><td class="num">390</td><td class="pct">39%</td></tr></tbody></table>
-    <p class="methodology" style="margin-top:8px">
-      点击 P1/P2... 直接跳转到该模式 section。前 5 个模式覆盖大约 ~70% passes,产品 UI 优先支持这几种。
-    </p>
   </div>
 </section>
 

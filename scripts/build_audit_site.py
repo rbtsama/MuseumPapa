@@ -515,35 +515,18 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
 </section>
 
 <section class="panel">
-  <p class="methodology">
-    Plan-9 将旧版 <code>discount</code> + <code>policy</code> 两个字段合并为统一的 <b>Coupon 模型</b>
-    (<code>capacity</code> + <code>audience_policies</code> + <code>summary</code>)。
-    以下三个面板展示新 schema 的分布情况,替代了原有的 eligibility-tags / restrictions / bonuses 直方图。
-  </p>
-</section>
-
-<section class="panel">
   <h3>Coupon form 分布 · {sum(coupon_form_counter.values())} audience-policy 条目(含多条目 pass)</h3>
-  <p class="methodology">
-    <b>口径</b>:每条 pass 的 <code>coupon.audience_policies</code> 数组中每个条目各计一次,分母是条目总数。
-  </p>
   {_coupon_form_html}
 </section>
 
 <section class="panel">
   <h3>Capacity 分布 · people(n) 明细</h3>
-  <p class="methodology">
-    <b>口径</b>:分母 = 全部 {n_passes} 条 pass。<code>people</code> 类按具体 n 值展开;其它 kind 合并显示。
-  </p>
   {_cap_people_html}
   {_cap_kind_html}
 </section>
 
 <section class="panel">
   <h3>Audience-split 分布 · audience_policies 条目数 per pass</h3>
-  <p class="methodology">
-    <b>1 条</b>= party-wide 统一优惠(无需按大人/小孩分价);<b>2+ 条</b>= 多层级 (adult / child / ...) 各自有不同优惠,前端需逐行渲染。
-  </p>
   {_audience_split_html}
 </section>
 
@@ -558,10 +541,6 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
 
 <section class="panel">
   <h3>数据质量信号 · 优先抽查项</h3>
-  <p class="methodology">
-    这一节列出 AI 抽取过程中可能值得人工抽查的"可疑点"。每条都说明了"是什么/含义/怎么追溯"。
-    数字旁的链接跳转到相应专题页,可逐条核对 raw 原文与 AI 输出。
-  </p>
   <ul class="anomaly-list">{"".join(anomalies)}</ul>
 </section>
 
@@ -630,42 +609,14 @@ def page_libraries(libs_data, libcat=None, branches_data=None) -> str:
 
 <section class="panel" style="border-left: 4px solid var(--rd); background: var(--rd-pale);">
   <h3 style="color: var(--rd); margin-top:0">⚠ lib_id 是数据爬取模型,不是用户产品概念</h3>
-  <p class="methodology">
-    <b>本期 lib_id 设计</b>:每个 id = 一个发券组织(例如 <code>bpl</code> 代表整个 BPL 系统,即使它下辖 25+ 物理分馆)。
-    这只在<b>数据爬取层</b>有意义 — 用于聚合从同一平台/账号爬下来的 passes。
-  </p>
-  <p class="methodology">
-    <b>但对用户产品体验,lib_id 没有正确语义</b>:
-    <br>① <b>电子券(digital pass)</b>:用户只关心折扣 — "MFA 半价" — 无需任何"组织"前缀。展示 "by BPL" 或 "by Wakefield Library" 是噪音
-    <br>② <b>实体券(physical / loan-card)</b>:用户需要<b>具体物理地址</b>开车去取 — "BPL 总部" 这个抽象不能告诉用户去 Copley Square 还是 East Boston;前者 Back Bay 后者隔海港
-  </p>
-  <p class="methodology" style="color: var(--g);">
-    <b>✅ plan-6 已落地</b>:passes.json 现已带 <code>pickup_method</code>(digital | physical_at_branch)+ <code>pickup_branches[]</code>;
-    BPL/Cambridge/Brookline 三家多分馆 lib 的 branch 明细见<b>本页底部的"多分馆 lib"面板</b>。
-    单分馆 lib 自动合成 <code>&lt;lib_id&gt;--main</code> branch(地址 = 该 lib 自己的地址)。
-  </p>
 </section>
-
-<p class="methodology">
-  下面这张表是<b>本期数据爬取层</b>的视图:59 个 lib_id 各自唯一,无重复。
-  BPL/Cambridge/Brookline 三家的 branch 拆分见底部"多分馆 lib"面板。
-</p>
 
 <section class="dist-grid">
   <div class="panel dist-panel dist-wide">
     <h3>数据爬取平台 · Scraping platform <span class="block-meta">基础设施视角 · 不直接对用户暴露</span></h3>
     {histogram_table(plat_counter, n_libs)}
-    <p class="methodology" style="margin-top:8px">
-      <b>这一项是 ops/审计视角,不是产品决策</b>。Assabet / LibCal / MuseumKey 是图书馆使用的 pass 管理后端系统,用户感知不到。<br>
-      <b>价值</b>:① <b>数据脆弱性</b> — 88% 数据靠 Assabet 单一来源,若失效或收费,影响面广;② <b>功能差异</b> — 不同平台暴露的字段不同(库存日历 / 还回规则等),影响下游能爬到多少元数据。
-    </p>
   </div>
 </section>
-
-<p class="methodology" style="background: var(--g-pale); border-left-color: var(--g);">
-  <b>本页不展示"馆际网络分布"等组织抽象</b> — 网络归属与 lib_id 一样,只在数据建模层有意义,不是用户做"我能不能用这张 pass"决策时关心的事。
-  网络字段仍保留在下方明细表的 <code>network</code> 列里供审计核对,但不再单独建直方图占面板位置。
-</p>
 
 <h2 class="section-title">明细表 · Full table</h2>
 <div class="toolbar"><input type="search" class="search-box" placeholder="filter rows... (id / name / town / network)" data-target="libs-table"></div>
@@ -718,11 +669,6 @@ def _multi_branch_panel(branches_data) -> str:
 </table>""")
     return f"""
 <h2 class="section-title">多分馆 lib · Branch breakdown</h2>
-<p class="methodology">
-  这张表服务两件事:① <b>数据正确性</b> — 审计可以直接对照官网核对每个 branch 的地址;
-  ② <b>用户决策</b> — 持实体券的用户必须开车到这里取卡,这是 plan-6 的核心交付。
-  其余 56 个 lib 自动合成 <code>&lt;lib_id&gt;--main</code> branch,不再单独列。
-</p>
 {"".join(sections)}
 """
 
@@ -1079,49 +1025,23 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
 <section class="dist-grid">
   <div class="panel dist-panel">
     <h3>Price tier 覆盖率 · 核心 5 类</h3>
-    <p class="methodology" style="margin-bottom:8px">
-      <b>家庭用户核心关注</b>:成人 / 年轻人 / 儿童 / 学生 / 教师。<br>
-      schema 升级方向(plan-7):分成两层 = <b>年龄定价</b>(adult/youth/child 带具体年龄区间,如 "3-7 岁 $14",不模糊到"儿童")+ <b>身份定价</b>(student/educator)。
-    </p>
     {histogram_table(core_counter, n_attrs, tier_label_map)}
   </div>
   <div class="panel dist-panel">
     <h3>Price tier 覆盖率 · 次级 3 类</h3>
-    <p class="methodology" style="margin-bottom:8px">
-      Senior / Military / Family-套票 — 数据仍抓,但前端不放主视觉。<br>
-      <b>军人免费</b>本身是博物馆固有政策,与领 coupon 决策无关。<b>EBT / 互惠会员 / 本校学生 / 本镇居民</b> 等边缘群体不进 schema,留 notes 兜底或让用户去官网核实。
-    </p>
     {histogram_table(secondary_counter, n_attrs, tier_label_map)}
   </div>
   <div class="panel dist-panel">
     <h3>Hours 分布 · 3 大类</h3>
     {histogram_table(hours_status_counter, n_attrs, hours_label_map)}
-    <p class="methodology" style="margin-top:8px">
-      <b>用户视角 3 类</b>:<br>
-      ① <b>Open every day</b> — 任何时候都行<br>
-      ② <b>Partially closed</b> — 一周有 1+ 天关(博物馆主流,典型 Tue closed 或 weekends-only);用户必须看具体哪天关<br>
-      ③ <b>Seasonal</b> — 仅特定月份开放<br>
-      <i>Varies by property</i> 指<b>景点本身有多 property</b>(Trustees of Reservations 100+ properties / Mass Audubon 80+ / 剧院按演出日期排时间)— 不是图书馆分馆问题(那个 plan-6 已经解决)。这 11 个目前以聚合方式保留,详情需查景点官网。
-    </p>
   </div>
   <div class="panel dist-panel">
     <h3>类别分布 · Categories(7 个粗类)</h3>
     {histogram_table(cat_canon_counter, n_attrs)}
-    <p class="methodology" style="margin-top:8px">
-      <b>显示规则</b>:原 21 个 Assabet 标签按"本质归属"合并到 7 个干净的粗类(每个 1 个英文单词)。
-      合并规则不按数量、按主题:<br>
-      ① <b>Tours / Recreation 被吸收</b> — Tours 4 条 100% 同时标 History(导览只是表现形式),Recreation 7/10 同时标 Nature(都是户外空间)<br>
-      ② <b>Sports 保留</b> — 虽然仅 2 条(Naismith / Patriots Hall of Fame),但体育主题独特,sports-fan 家庭会专门搜<br>
-      ③ <b>Family ↔ Children 合并</b> — 我们产品本来就是给家庭用户,Family 标签信息量低<br>
-      合并映射表:Art ← Art+Crafts · Children ← Family+Children · History ← History+Architecture+Governance+Military+Tours · Nature ← Nature+Ocean+Sky+Zoo+Recreation · Performance ← Music+Theatre+Dance+Entertainment · Science ← Science+Technology · Sports ← Sports
-    </p>
   </div>
   <div class="panel dist-panel">
     <h3>字段覆盖率</h3>
     {histogram_table(cov_counter, n_attrs)}
-    <p class="methodology" style="margin-top:8px">
-      Hero image / hours / geo 接近全覆盖。Price 76%、Phone 90%、Description 93% — 剩余为诚实失败(theater / no_website / 403)。
-    </p>
   </div>
 </section>
 
@@ -1254,9 +1174,6 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     # ── Distribution stats for policies page (plan-9 coupon model) ───────
     n_passes = len(passes)
     pt_counter = Counter(p.get("pass_type") or "(unknown)" for p in passes)
-    # pickup_method distribution
-    pm_counter = Counter(p.get("pickup_method") or "(unknown)" for p in passes)
-    n_multi_branch = sum(1 for p in passes if p.get("pickup_method") == "physical_at_branch" and len(p.get("pickup_branches") or []) > 1)
     # coupon form distribution (per audience_policy entry)
     pol_form_counter: Counter = Counter()
     for p in passes:
@@ -1309,41 +1226,22 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
   <div class="panel dist-panel dist-wide">
     <h3>Pass 形式 · 3 种取券方式(与前端术语一致)</h3>
     {_pol_pt_html}
-    <p class="methodology" style="margin-top:8px">
-      <b>用户决策核心维度</b>:三种取券方式与前端 PassTypeLabel 完全对齐:<br>
-      ① <b>E-pass</b>:邮件/promo code 在家就拿到 — 最低摩擦<br>
-      ② <b>Pickup</b>:去分馆领纸券或 promo paper,不用还 — 中等摩擦<br>
-      ③ <b>Pickup &amp; Return</b>:去分馆借实体券/卡,用完次日要还回 — 最高摩擦<br>
-      其中 <b>{n_multi_branch} 条 physical pass 可在 ≥2 个分馆取</b>(BPL/Cambridge/Brookline 的 fan-out),用户可选最近的。
-    </p>
   </div>
   <div class="panel dist-panel">
     <h3>Coupon form 分布(plan-9 · audience_policy 条目)</h3>
     {_pol_form_html}
-    <p class="methodology" style="margin-top:8px">
-      每条 pass 的 coupon.audience_policies 数组中每个条目各计一次。
-    </p>
   </div>
   <div class="panel dist-panel">
     <h3>Capacity n 分布(people kind · {sum(pol_cap_counter.values())} passes)</h3>
     {_pol_cap_html}
-    <p class="methodology" style="margin-top:8px">
-      "4 人" 是行业默认配置;前端价格估算应缺省按 4 人。
-    </p>
   </div>
   <div class="panel dist-panel">
     <h3>Restrictions 分布(plan-9 side-channel)</h3>
     {_pol_restr_html}
-    <p class="methodology" style="margin-top:8px">
-      reservation_required / blackout_dates 是用户体验上最敏感的限制 — 卡片上要明确展示。
-    </p>
   </div>
   <div class="panel dist-panel dist-wide">
     <h3>{len(pattern_meta)} 个 Coupon Pattern 占比(按 capacity/form/tiers 分组)</h3>
     <table class="histogram"><thead><tr><th>id</th><th>name</th><th></th><th class="num">n</th><th class="pct">%</th></tr></thead><tbody>{pattern_count_table}</tbody></table>
-    <p class="methodology" style="margin-top:8px">
-      点击 P1/P2... 直接跳转到该模式 section。前 5 个模式覆盖大约 ~70% passes,产品 UI 优先支持这几种。
-    </p>
   </div>
 </section>
 
