@@ -38,7 +38,7 @@ const mockLibrary: Library = {
 const cardpackWithCard: CardPack = {
   zip: '01880',
   cards: {
-    wakefield: { barcode: '21000012345678', lastName: 'Test', pin: '1234' },
+    wakefield: { barcode: '21000012345678', pin: '1234' },
   },
 };
 
@@ -85,33 +85,22 @@ describe('BookingConfirmModal', () => {
     renderApp(
       <BookingConfirmModal pass={mockPass} library={mockLibrary} cardpack={cardpackWithoutCard} onClose={onClose} />
     );
-    expect(await screen.findByText("You don't have a card for this library yet.")).toBeInTheDocument();
+    expect(await screen.findByText(/You don't have a card from/)).toBeInTheDocument();
   });
 
-  it('COPY button calls clipboard.writeText with barcode', async () => {
+  it('Copy-and-go button copies barcode and opens source_url', async () => {
     const onClose = vi.fn();
     const writeText = vi.fn().mockResolvedValue(undefined);
     Object.assign(navigator, { clipboard: { writeText } });
-
-    renderApp(
-      <BookingConfirmModal pass={mockPass} library={mockLibrary} cardpack={cardpackWithCard} onClose={onClose} />
-    );
-
-    const copyBtns = await screen.findAllByText('COPY');
-    await act(async () => { fireEvent.click(copyBtns[0]); });
-    expect(writeText).toHaveBeenCalledWith('21000012345678');
-  });
-
-  it('go-to-library button calls window.open', async () => {
-    const onClose = vi.fn();
     const windowOpen = vi.spyOn(window, 'open').mockImplementation(() => null);
 
     renderApp(
       <BookingConfirmModal pass={mockPass} library={mockLibrary} cardpack={cardpackWithCard} onClose={onClose} />
     );
 
-    const goBtn = await screen.findByRole('button', { name: /Go to library website/i });
-    fireEvent.click(goBtn);
+    const goBtn = await screen.findByRole('button', { name: /Copy card # and go/i });
+    await act(async () => { fireEvent.click(goBtn); });
+    expect(writeText).toHaveBeenCalledWith('21000012345678');
     expect(windowOpen).toHaveBeenCalledWith('https://example.com/book', '_blank', 'noopener,noreferrer');
     windowOpen.mockRestore();
   });

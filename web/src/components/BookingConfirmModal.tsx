@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button,
 } from '@heroui/react';
@@ -22,15 +21,6 @@ async function copyToClipboard(text: string): Promise<boolean> {
 }
 
 function CredentialBox({ label, value }: { label: string; value: string }) {
-  const [copied, setCopied] = useState(false);
-  const handleCopy = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (await copyToClipboard(value)) {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    }
-  };
-
   return (
     <div className="mb-2">
       <div style={{
@@ -40,7 +30,7 @@ function CredentialBox({ label, value }: { label: string; value: string }) {
         {label}
       </div>
       <div
-        className="flex items-center justify-between gap-2 rounded-md"
+        className="rounded-md"
         style={{
           border: '1px solid var(--rule)',
           background: 'var(--white)',
@@ -57,22 +47,6 @@ function CredentialBox({ label, value }: { label: string; value: string }) {
         }}>
           {value}
         </span>
-        <button
-          type="button"
-          onClick={handleCopy}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            padding: '4px 6px',
-            cursor: 'pointer',
-            fontSize: 11,
-            fontWeight: 600,
-            color: copied ? 'var(--g)' : 'var(--g-2)',
-            letterSpacing: '0.06em',
-          }}
-        >
-          {copied ? 'COPIED ✓' : 'COPY'}
-        </button>
       </div>
     </div>
   );
@@ -84,9 +58,20 @@ export function BookingConfirmModal({ pass, library, cardpack, onClose }: Props)
   const hasCard = !!card?.barcode;
   const libraryName = library?.name ?? pass.library_id;
 
-  const goToBooking = () => {
+  const handleCopyAndGo = async () => {
+    if (card?.barcode) {
+      await copyToClipboard(card.barcode);
+    }
     if (pass.source_url) {
       window.open(pass.source_url, '_blank', 'noopener,noreferrer');
+    }
+    onClose();
+  };
+
+  const handleApplyForCard = () => {
+    const url = library?.card_page || library?.platform || '';
+    if (url) {
+      window.open(url, '_blank', 'noopener,noreferrer');
     }
     onClose();
   };
@@ -117,26 +102,34 @@ export function BookingConfirmModal({ pass, library, cardpack, onClose }: Props)
           ) : (
             <div style={{
               padding: 12,
-              background: 'var(--rd-pale)',
+              background: 'var(--au-pale)',
               borderRadius: 6,
               fontSize: 13,
-              color: 'var(--rd)',
+              color: 'var(--au)',
             }}>
-              <p style={{ fontWeight: 600, marginBottom: 4 }}>
-                You don't have a card for this library yet.
-              </p>
-              <p style={{ fontSize: 12 }}>
-                Add one in <a href="/settings/passes" style={{ color: 'var(--rd)', textDecoration: 'underline' }}>
-                My passes</a> to use this offer.
+              <p style={{ fontWeight: 600 }}>
+                You don't have a card from {libraryName} yet.
               </p>
             </div>
           )}
         </ModalBody>
         <ModalFooter>
-          <Button variant="light" onClick={onClose}>Cancel</Button>
-          {hasCard && (
-            <Button color="primary" onClick={goToBooking}>
-              Go to library website →
+          <Button variant="light" size="sm" onClick={onClose}>Cancel</Button>
+          {hasCard ? (
+            <Button
+              size="sm"
+              style={{ background: 'var(--g)', color: 'var(--white)' }}
+              onClick={handleCopyAndGo}
+            >
+              {pass.source_url ? 'Copy card # and go →' : 'Copy card # ✓'}
+            </Button>
+          ) : (
+            <Button
+              size="sm"
+              style={{ background: 'var(--g)', color: 'var(--white)' }}
+              onClick={handleApplyForCard}
+            >
+              Apply for a card at {libraryName} →
             </Button>
           )}
         </ModalFooter>

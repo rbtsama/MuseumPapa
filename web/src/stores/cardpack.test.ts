@@ -43,7 +43,7 @@ describe('cardpack store', () => {
 
   it('saveCard adds a new card', () => {
     useCardpack.getState().load('admin');
-    useCardpack.getState().saveCard('wakefield', { barcode: '123', lastName: 'X', pin: '' });
+    useCardpack.getState().saveCard('wakefield', { barcode: '123', pin: '' });
     expect(useCardpack.getState().pack.cards.wakefield.barcode).toBe('123');
   });
 

@@ -263,19 +263,27 @@ export function AttractionCard({
                   tabIndex={0}
                   onClick={(e) => handleBook(e, t.pass)}
                   onKeyDown={(e) => handleBookKeyDown(e, t.pass)}
-                  className="flex-shrink-0 rounded-md inline-block"
+                  className="flex-shrink-0 rounded-md inline-flex flex-col items-center"
                   style={{
-                    background: 'var(--g)',
-                    color: 'var(--white)',
+                    background: t.userHasCard ? 'var(--g)' : 'var(--paper)',
+                    color: t.userHasCard ? 'var(--white)' : 'var(--ink-3)',
                     fontSize: 12,
                     fontWeight: 600,
                     padding: '6px 12px',
                     border: 'none',
                     cursor: 'pointer',
                     userSelect: 'none',
+                    lineHeight: 1.1,
                   }}
+                  title={t.userHasCard ? undefined : 'You don\'t have a card from this library'}
                 >
-                  Book
+                  <span>Book</span>
+                  {!t.userHasCard && (
+                    <span style={{
+                      fontSize: 9, fontWeight: 400, fontStyle: 'italic',
+                      color: 'var(--ink-3)', marginTop: 1,
+                    }}>no card</span>
+                  )}
                 </span>
               </div>
             );

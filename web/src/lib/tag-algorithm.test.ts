@@ -91,7 +91,7 @@ describe('pickTags', () => {
     expect(out[0].pass.library_id).toBe('wakefield');
   });
 
-  it('filters by userCardLibIds', () => {
+  it('tags userHasCard but does not filter', () => {
     const passes = [
       pass('bpl', 'digital', 'free'),
       pass('wakefield', 'physical-coupon', 'half'),
@@ -100,8 +100,12 @@ describe('pickTags', () => {
       passes, libraries: [wak, bpl], userCardLibIds: new Set(['wakefield']),
       date: '2026-05-16', userGeo: null,
     });
-    expect(out.length).toBe(1);
-    expect(out[0].pass.library_id).toBe('wakefield');
+    // Both passes show up — uncovered ones are deprioritized, not filtered.
+    expect(out.length).toBe(2);
+    const wakRow = out.find(t => t.pass.library_id === 'wakefield');
+    const bplRow = out.find(t => t.pass.library_id === 'bpl');
+    expect(wakRow?.userHasCard).toBe(true);
+    expect(bplRow?.userHasCard).toBe(false);
   });
 
   it('filters out passes whose calendar marks date booked', () => {

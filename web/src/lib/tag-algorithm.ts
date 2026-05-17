@@ -26,6 +26,7 @@ export interface PickedTag {
   pass: Pass;
   library: Library;
   distanceMi: number | null;
+  userHasCard: boolean;
 }
 
 export interface PickTagsInput {
@@ -44,7 +45,6 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
 
   const candidates: PickedTag[] = [];
   for (const pass of passes) {
-    if (userCardLibIds && !userCardLibIds.has(pass.library_id)) continue;
     // Align with AttractionDetail: missing date = available (scrape failure or
     // future-window date should not silently hide a pass).
     if (pass.availability) {
@@ -57,7 +57,8 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
     const dist = userGeo && library.geo
       ? haversineMiles(userGeo, library.geo)
       : null;
-    candidates.push({ pass, library, distanceMi: dist });
+    const userHasCard = userCardLibIds ? userCardLibIds.has(pass.library_id) : true;
+    candidates.push({ pass, library, distanceMi: dist, userHasCard });
   }
 
   const digital = candidates.filter(c => c.pass.pass_type === 'digital');
@@ -66,16 +67,7 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
 
   const tagsOut: PickedTag[] = [];
 
-  if (digital.length > 0) {
-    digital.sort((a, b) => {
-      const ra = couponRank(a.pass.coupon);
-      const rb = couponRank(b.pass.coupon);
-      if (ra !== rb) return ra - rb;
-      return a.library.id.localeCompare(b.library.id);
-    });
-    tagsOut.push(digital[0]);
-  }
-
+  // Sort that prioritizes userHasCard, then coupon rank, then distance.
   const distCmp = (a: PickedTag, b: PickedTag) => {
     if (a.distanceMi == null && b.distanceMi == null) return 0;
     if (a.distanceMi == null) return 1;
@@ -83,8 +75,9 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
     return a.distanceMi - b.distanceMi;
   };
 
-  const sortByRankThenDist = (group: PickedTag[]) => {
+  const sortGroup = (group: PickedTag[]) => {
     group.sort((a, b) => {
+      if (a.userHasCard !== b.userHasCard) return a.userHasCard ? -1 : 1;
       const ra = couponRank(a.pass.coupon);
       const rb = couponRank(b.pass.coupon);
       if (ra !== rb) return ra - rb;
@@ -92,13 +85,18 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
     });
   };
 
-  sortByRankThenDist(physical);
+  if (digital.length > 0) {
+    sortGroup(digital);
+    tagsOut.push(digital[0]);
+  }
+
+  sortGroup(physical);
   for (const t of physical) {
     if (tagsOut.length >= maxTags) break;
     tagsOut.push(t);
   }
 
-  sortByRankThenDist(circ);
+  sortGroup(circ);
   for (const t of circ) {
     if (tagsOut.length >= maxTags) break;
     tagsOut.push(t);

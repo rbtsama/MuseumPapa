@@ -38,6 +38,7 @@ interface Row {
   library: Library;
   distanceMi: number | null;
   available: boolean;
+  userHasCard: boolean;
 }
 
 export function AttractionDetail() {
@@ -105,19 +106,19 @@ export function AttractionDetail() {
     for (const pass of allPasses) {
       const library = libById.get(pass.library_id);
       if (!library) continue;
-      const userCanUse = !userCardLibIds || userCardLibIds.has(pass.library_id);
-      if (userCardLibIds && !userCanUse) continue;
       if (passBlockedByRestrictions(pass.restrictions, date)) continue;
       const availStatus = pass.availability?.[date];
       const available = availStatus === 'available' || availStatus === undefined;
       const dist = userGeo && library.geo ? haversineMiles(userGeo, library.geo) : null;
-      rows.push({ pass, library, distanceMi: dist, available });
+      const userHasCard = userCardLibIds ? userCardLibIds.has(pass.library_id) : true;
+      rows.push({ pass, library, distanceMi: dist, available, userHasCard });
     }
     return rows;
   }, [allPasses, libById, userCardLibIds, userGeo]);
 
   const sortRows = useMemo(() => (rows: Row[]) => {
     return [...rows].sort((a, b) => {
+      if (a.userHasCard !== b.userHasCard) return a.userHasCard ? -1 : 1;
       const ra = couponRank(a.pass.coupon);
       const rb = couponRank(b.pass.coupon);
       if (ra !== rb) return ra - rb;
@@ -333,6 +334,7 @@ export function AttractionDetail() {
               );
             }
             const isDigital = r.pass.pass_type === 'digital';
+            const dim = !r.userHasCard;
             return (
               <button
                 key={`${r.pass.library_id}-${i}`}
@@ -340,19 +342,31 @@ export function AttractionDetail() {
                 onClick={() => setBookingPass(r.pass)}
                 className="flex items-center gap-2 rounded-md text-left"
                 style={{
-                  background: 'var(--white)',
+                  background: dim ? 'var(--paper)' : 'var(--white)',
                   border: '1px solid var(--rule)',
                   padding: '8px 12px',
                   cursor: 'pointer',
+                  color: dim ? 'var(--ink-3)' : 'inherit',
                 }}
+                title={dim ? "You don't have a card from this library" : undefined}
               >
                 <PassTypeLabel type={r.pass.pass_type} />
-                <span style={{ fontSize: 13, color: 'var(--ink-2)', fontWeight: 500 }}>
+                <span style={{
+                  fontSize: 13,
+                  color: dim ? 'var(--ink-3)' : 'var(--ink-2)',
+                  fontWeight: 500,
+                }}>
                   {isDigital ? r.library.name : r.library.town}
                   {!isDigital && r.distanceMi != null && (
                     <span style={{ fontSize: 11, color: 'var(--ink-3)', fontWeight: 400 }}>
                       {' '}· {Math.round(r.distanceMi)} mi
                     </span>
+                  )}
+                  {dim && (
+                    <span style={{
+                      fontSize: 11, fontStyle: 'italic',
+                      color: 'var(--ink-3)', marginLeft: 6,
+                    }}>· no card</span>
                   )}
                 </span>
                 <span className="ml-auto">

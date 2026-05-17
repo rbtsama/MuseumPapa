@@ -40,7 +40,7 @@ describe('Banner', () => {
       currentUser: { username: 'u', displayName: 'U', persona: 'heavy' },
     });
     useCardpack.setState({
-      pack: { zip: '01880', cards: { wakefield: { barcode: '123', lastName: 'A', pin: '' } } },
+      pack: { zip: '01880', cards: { wakefield: { barcode: '123', pin: '' } } },
     });
     renderApp(<Banner onSignInClick={() => {}} />);
     expect(screen.queryByText(/Add your library passes/i)).not.toBeInTheDocument();

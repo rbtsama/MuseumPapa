@@ -27,7 +27,22 @@ export function AttractionsList() {
 
   const [signInOpen, setSignInOpen] = useState(false);
   const [date, setDate] = useState(() => todayIso());
-  const [sort, setSort] = useState<SortOption>('recommended');
+  // Default sort: distance when the user has set a ZIP, else recommended.
+  const [sort, setSort] = useState<SortOption>(() =>
+    (cardpack.zip && cardpack.zip.length === 5) ? 'distance' : 'recommended',
+  );
+  // If the ZIP becomes available after first render (load from storage), bump
+  // the default to distance — but only while the user hasn't manually chosen.
+  const [sortTouched, setSortTouched] = useState(false);
+  useEffect(() => {
+    if (sortTouched) return;
+    if (cardpack.zip && cardpack.zip.length === 5 && sort === 'recommended') {
+      setSort('distance');
+    } else if ((!cardpack.zip || cardpack.zip.length !== 5) && sort === 'distance') {
+      setSort('recommended');
+    }
+  }, [cardpack.zip, sort, sortTouched]);
+  const handleSortChange = (v: SortOption) => { setSortTouched(true); setSort(v); };
   const [category, setCategory] = useState<string>('all');
   const [favoritesOnly, setFavoritesOnly] = useState(false);
   const [search, setSearch] = useState<string>('');
@@ -187,7 +202,7 @@ export function AttractionsList() {
             <DatePicker value={date} onChange={setDate} />
           </div>
           <div className="flex gap-2 items-center flex-wrap">
-            <SortDropdown value={sort} onChange={setSort} distanceEnabled={!!userGeo} />
+            <SortDropdown value={sort} onChange={handleSortChange} distanceEnabled={!!userGeo} />
             <CategoryDropdown attractions={attractions} value={category} onChange={setCategory} />
             <FavoritesToggle
               active={favoritesOnly}

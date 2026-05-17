@@ -3,7 +3,6 @@ import { lsGetUser, lsSetUser } from '../lib/localStorage';
 
 export interface LibraryCard {
   barcode: string;
-  lastName: string;
   pin: string;
 }
 
@@ -18,17 +17,17 @@ const SEEDS: Record<string, CardPack> = {
   alex: {
     zip: '01880',
     cards: {
-      wakefield: { barcode: '21000000000001', lastName: 'Alex', pin: '' },
-      reading:   { barcode: '21000000000002', lastName: 'Alex', pin: '' },
-      bpl:       { barcode: '21000000000003', lastName: 'Alex', pin: '' },
-      wilmington:{ barcode: '21000000000004', lastName: 'Alex', pin: '' },
-      somerville:{ barcode: '21000000000005', lastName: 'Alex', pin: '' },
+      wakefield: { barcode: '21000000000001', pin: '' },
+      reading:   { barcode: '21000000000002', pin: '' },
+      bpl:       { barcode: '21000000000003', pin: '' },
+      wilmington:{ barcode: '21000000000004', pin: '' },
+      somerville:{ barcode: '21000000000005', pin: '' },
     },
   },
   rbt: {
     zip: '01880',
     cards: {
-      wakefield: { barcode: '21000000009999', lastName: 'rbt', pin: '' },
+      wakefield: { barcode: '21000000009999', pin: '' },
     },
   },
   admin: { zip: '', cards: {} },
