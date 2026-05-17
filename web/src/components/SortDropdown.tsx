@@ -14,11 +14,8 @@ interface Props {
   distanceEnabled: boolean;
 }
 
-/**
- * Compact pill-style sort selector. Uses HeroUI Dropdown for a popover menu
- * instead of HeroUI Select (which forces a labeled input look).
- */
 export function SortDropdown({ value, onChange, distanceEnabled }: Props) {
+  const isDefault = value === 'recommended';
   return (
     <Dropdown>
       <DropdownTrigger>
@@ -26,16 +23,22 @@ export function SortDropdown({ value, onChange, distanceEnabled }: Props) {
           type="button"
           className="inline-flex items-center gap-1 rounded-md cursor-pointer"
           style={{
-            background: 'transparent',
-            border: '1px solid var(--rule)',
+            background: isDefault ? 'transparent' : 'var(--g)',
+            border: `1px solid ${isDefault ? 'var(--rule)' : 'var(--g)'}`,
             padding: '6px 10px',
             fontSize: 12,
-            color: 'var(--ink-2)',
+            color: isDefault ? 'var(--ink-2)' : 'var(--white)',
           }}
         >
-          <span aria-hidden style={{ fontSize: 13, color: 'var(--ink-3)' }}>↕</span>
-          <span style={{ fontWeight: 500 }}>{LABELS[value]}</span>
-          <span aria-hidden style={{ color: 'var(--ink-3)', fontSize: 11, marginLeft: 2 }}>▾</span>
+          <span aria-hidden style={{
+            fontSize: 13,
+            color: isDefault ? 'var(--ink-3)' : 'var(--white)',
+          }}>↕</span>
+          <span style={{ fontWeight: 500 }}>{isDefault ? 'Sort' : LABELS[value]}</span>
+          <span aria-hidden style={{
+            color: isDefault ? 'var(--ink-3)' : 'var(--white)',
+            fontSize: 11, marginLeft: 2,
+          }}>▾</span>
         </button>
       </DropdownTrigger>
       <DropdownMenu

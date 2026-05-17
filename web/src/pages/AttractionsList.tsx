@@ -6,7 +6,7 @@ import { DatePicker } from '../components/DatePicker';
 import { FavoritesToggle } from '../components/FavoritesToggle';
 import { SortDropdown, type SortOption } from '../components/SortDropdown';
 import { SearchBox } from '../components/SearchBox';
-import { CategoryChips } from '../components/CategoryChips';
+import { CategoryDropdown } from '../components/CategoryDropdown';
 import { pickTags, type PickedTag } from '../lib/tag-algorithm';
 import { useAuth } from '../auth/store';
 import { useCardpack } from '../stores/cardpack';
@@ -182,21 +182,19 @@ export function AttractionsList() {
         }}
       >
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-wrap gap-2 mb-3 items-center">
+          <div className="flex gap-2 mb-2 items-center">
             <SearchBox value={search} onChange={setSearch} />
             <DatePicker value={date} onChange={setDate} />
+          </div>
+          <div className="flex gap-2 items-center flex-wrap">
             <SortDropdown value={sort} onChange={setSort} distanceEnabled={!!userGeo} />
+            <CategoryDropdown attractions={attractions} value={category} onChange={setCategory} />
             <FavoritesToggle
               active={favoritesOnly}
               count={favoritesLive.size}
               onToggle={() => setFavoritesOnly(v => !v)}
             />
           </div>
-          <CategoryChips
-            attractions={attractions}
-            value={category}
-            onChange={setCategory}
-          />
         </div>
       </div>
 

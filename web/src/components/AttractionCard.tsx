@@ -146,19 +146,19 @@ export function AttractionCard({
               {tiers.map((t, i) => (
                 <span key={`${t.label}-${i}`} className="inline-flex items-baseline gap-1">
                   {i > 0 && <span style={{ color: 'var(--ink-3)' }}>·</span>}
+                  {tiers.length > 1 && (
+                    <span style={{ color: 'var(--ink-3)' }}>{t.label}</span>
+                  )}
                   <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink-2)' }}>
                     {fmtMoney(t.value)}
                   </span>
-                  {t.label && tiers.length > 1 && (
-                    <span style={{ color: 'var(--ink-3)' }}>{t.label}</span>
-                  )}
                 </span>
               ))}
               {freeUnder != null && (
                 <span className="inline-flex items-baseline gap-1">
                   {tiers.length > 0 && <span style={{ color: 'var(--ink-3)' }}>·</span>}
-                  <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink-2)' }}>FREE</span>
                   <span style={{ color: 'var(--ink-3)' }}>age &lt;{freeUnder}</span>
+                  <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink-2)' }}>FREE</span>
                 </span>
               )}
             </p>
@@ -230,13 +230,17 @@ export function AttractionCard({
                         · {Math.round(t.distanceMi)} mi
                       </span>
                     )}
-                    <span className="ml-auto flex-shrink-0">
+                    <span className="flex-shrink-0" style={{ fontSize: 11 }}>·</span>
+                    <span className="flex-shrink-0">
                       <PassTypeLabel type={t.pass.pass_type} />
                     </span>
                   </div>
                   <div className="flex items-baseline flex-wrap gap-x-1.5 gap-y-0.5 min-w-0">
                     {capacityText && (
-                      <span style={{ fontSize: 11, color: 'var(--ink-3)' }}>{capacityText.toLowerCase()}</span>
+                      <>
+                        <span style={{ fontSize: 11, color: 'var(--ink-3)' }}>{capacityText.toLowerCase()}</span>
+                        <span style={{ fontSize: 11, color: 'var(--ink-3)' }}>·</span>
+                      </>
                     )}
                     <CouponLine coupon={t.pass.coupon} align="left" />
                   </div>
