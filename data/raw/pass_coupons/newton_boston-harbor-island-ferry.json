@@ -1,0 +1,30 @@
+{
+  "library_id": "newton",
+  "attraction_slug": "boston-harbor-island-ferry",
+  "status": "ok",
+  "raw": "Admits 50% off up to 4 ferry tickets from Boston to Spectacle Island and Georges Island, or from Hingham to Peddocks Island. This is a SEASONAL pass available mid-May through early October. Please CHECK SCHEDULE on website before booking. Not all islands are open every day. Specific dates and islands for the current 2026 season are at https://www.bostonharborislands.org/ferryschedule/",
+  "capacity": {
+    "kind": "ticket",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "mid-May through early October",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 ferry tickets",
+    "audience_policies[0].form": "50% off",
+    "restrictions.seasonal": "mid-May through early October"
+  }
+}

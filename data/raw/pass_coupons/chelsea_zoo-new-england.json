@@ -1,0 +1,37 @@
+{
+  "library_id": "chelsea",
+  "attraction_slug": "zoo-new-england",
+  "status": "ok",
+  "raw": "Pass admits up to 6 people at $9/adult and $6/child. Pass may be used at either Stoneham Zoo or Franklin Park Zoo. Passes are not date-specific so plan for any day that works for you, up to the expiration date on the pass itself. You might consider going with another family on the same day and each family can get their own pass.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 9
+    },
+    {
+      "audience": "Child",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 6
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$9/adult",
+    "audience_policies[1].form": "$6/child"
+  }
+}

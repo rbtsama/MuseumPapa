@@ -1,0 +1,32 @@
+{
+  "library_id": "maynard",
+  "attraction_slug": "boston-harbor-island-ferry",
+  "status": "ok",
+  "raw": "PLEASE NOTE: This is an electronic code that you will receive via email. You must purchase your tickets through the institution before your visit. This library pass discounts tickets at a 2-for-1 rate. You can buy up to 4 tickets for the price of just 2. Weekdays in late May to early October. Ferry from Boston to Spectacle Island runs Thursday through Sunday in the fall. Summer Schedule: June 20 – September 2 Boston to Spectacle Island: Monday through Friday Boston to Georges Island: Monday through Friday Hingham to Peddocks Island: Monday through Friday Fall Schedule: September 5 – September 22 Boston to Georges Island: Thursday through Sunday End of Season Schedule: September 27 – October 11 Boston to Georges Island: Friday through Sunday",
+  "capacity": {
+    "kind": "ticket",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": true,
+    "seasonal": "late May to early October",
+    "reservation_required": true
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 tickets",
+    "audience_policies[0].form": "2-for-1 rate (50% off)",
+    "restrictions.weekdays_only": "Weekdays in late May to early October",
+    "restrictions.seasonal": "late May to early October",
+    "restrictions.reservation_required": "purchase your tickets through the institution before your visit"
+  }
+}

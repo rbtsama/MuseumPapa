@@ -1,0 +1,29 @@
+{
+  "library_id": "haverhill",
+  "attraction_slug": "boston-harbor-island-ferry",
+  "status": "ok",
+  "raw": "This pass gives you 50% off on up to 4 tickets. A discount code will be emailed to you - please enter your current email address when making your reservation. Tickets must be bought online at https://www.bostonharborislands.org/ferry-tickets/ using the discount code from the library. Visit www.bostonharborislands.org or access Boston Harbor Island's resources here to learn about the islands and to access the ferry schedule.",
+  "capacity": {
+    "kind": "ticket",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 tickets",
+    "audience_policies[0].form": "50% off"
+  }
+}

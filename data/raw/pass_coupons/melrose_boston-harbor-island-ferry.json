@@ -1,0 +1,30 @@
+{
+  "library_id": "melrose",
+  "attraction_slug": "boston-harbor-island-ferry",
+  "status": "ok",
+  "raw": "This pass offers library cardholders the opportunity to purchase ferry tickets for up to four people at a 50% discount, using a unique discount code. Ferries are boarded at Long Wharf North in Downtown Boston to Spectacle Island and Georges Island. Please note, there is no direct service from Boston/Long Wharf to Peddocks Island. All Peddocks Island departures will be from the Hingham Ferry Shipyard (some may choose to take the MBTA Ferry from Boston to Hingham first, in order to catch the ferry to Peddocks). Reserve your Melrose Public Library pass for desired date. You will receive a confirmation email with an \"Access Pass\" link which will include the discount code. If you do not have an email account, a printed confirmation may be picked up at the Main Desk of the library. 2026 Schedule: Georges Island May 15 - June 14: Thursdays through Sundays June 16 - September 1: every day Spectacle Island July 15 - September 1: every day September 4 - 21: Thursdays through Sundays September 26 - October 13: Fridays through Sundays Peddocks Island from Hingham June 15 - September 7: every day BUT Tuesdays September 10 - October 12: Thursdays through Sundays",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "May–Oct 2026",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four people",
+    "audience_policies[0].form": "50% discount",
+    "restrictions.seasonal": "2026 Schedule May 15 - October 12"
+  }
+}

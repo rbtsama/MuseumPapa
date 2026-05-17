@@ -1,0 +1,30 @@
+{
+  "library_id": "billerica",
+  "attraction_slug": "boston-harbor-island-ferry",
+  "status": "ok",
+  "raw": "This pass provides a 50% off discount on Boston Harbor Island Ferry tickets for up to 4 people. This pass is a digital discount code. You will receive the code via email after reserving this pass. You will submit the discount code when purchasing tickets online at www.bostonharborislands.org . The discount code can be used throughout the entire 2026 season, which is listed below: Georges Island May 15 - June 14: Thursdays through Sundays June 16 - September 1: every day Spectacle Island July 15 - September 1: every day September 4 - 21: Thursdays through Sundays September 26 - October 13: Fridays through Sundays Peddocks Island from Hingham June 15 - September 7: every day BUT Tuesdays September 10 - October 12: Thursdays through Sundays",
+  "capacity": {
+    "kind": "people",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "May–Oct 2026",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 4 people",
+    "audience_policies[0].form": "50% off discount",
+    "restrictions.seasonal": "2026 season May 15 - October 13"
+  }
+}

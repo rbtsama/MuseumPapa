@@ -1,0 +1,40 @@
+{
+  "library_id": "reading",
+  "attraction_slug": "plimoth-patuxet",
+  "status": "ok",
+  "raw": "This pass provides a discounted on Heritage Passes, Combination Passes, and Plimoth Patuxet Only Passes of $18 per adult and $12 per child ages 5-17, for up to 6 people. Patrons are not able to purchase tickets online, this pass must be presented at the museum for the discount.",
+  "capacity": {
+    "kind": "people",
+    "n": 6
+  },
+  "audience_policies": [
+    {
+      "audience": "Adult",
+      "age_range": null,
+      "count": null,
+      "form": "per-person-price",
+      "value": 18
+    },
+    {
+      "audience": "Child",
+      "age_range": {
+        "min": 5,
+        "max": 17
+      },
+      "count": null,
+      "form": "per-person-price",
+      "value": 12
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": null,
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to 6 people",
+    "audience_policies[0].form": "$18 per adult",
+    "audience_policies[1].form": "$12 per child ages 5-17"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "library_id": "lynnfield",
+  "attraction_slug": "boston-harbor-island-ferry",
+  "status": "ok",
+  "raw": "This pass offers 50% off up to four ferry tickets to select Boston Harbor Islands. Ferries to Georges and Spectacle Islands are boarded at Long Wharf North Gate 5 in Downtown Boston. Ferries to Peddocks Island are boarded from Hingham. The Pass can be used for: Georges Island May 1 - June 14: Thursdays through Sundays June 16 - September 1: every day Spectacle Island July 15 - September 1: every day September 4 - 21: Thursdays through Sundays September 26 - October 13: Fridays through Sundays Peddocks Island from Hingham June 15 - September 7: every day BUT Tuesdays September 10 - October 12: Fridays through Sundays",
+  "capacity": {
+    "kind": "ticket",
+    "n": 4
+  },
+  "audience_policies": [
+    {
+      "audience": "Everyone",
+      "age_range": null,
+      "count": null,
+      "form": "percent-off",
+      "value": 50
+    }
+  ],
+  "restrictions": {
+    "blackout_dates": false,
+    "weekdays_only": false,
+    "seasonal": "May–Oct",
+    "reservation_required": false
+  },
+  "source_phrases": {
+    "capacity.n": "up to four ferry tickets",
+    "audience_policies[0].form": "50% off",
+    "restrictions.seasonal": "May 1 - October 13"
+  }
+}
