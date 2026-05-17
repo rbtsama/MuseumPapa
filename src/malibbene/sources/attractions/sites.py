@@ -5,7 +5,6 @@ URL discovery (in priority order):
 1. ``config/benefit_seeds.json`` if present (Claude-defined canonical map)
 2. Assabet ``index_page`` records — JSON-LD ``url`` field (often missing) plus
    the ``[Visit Website]`` anchor in the panel
-3. BPL ``index_page`` — ``website`` field (set on the public detail page)
 
 For each unique museum URL, fetch the homepage; if it loads, additionally try
 common ``/visit/``, ``/hours/``, ``/plan-your-visit/`` paths. Save cleaned text
@@ -35,7 +34,6 @@ OUT_DIR = REPO_ROOT / "data" / "raw" / "attraction_sites"
 META_PATH = OUT_DIR / "_meta.json"
 
 ASSABET_INDEX_DIR = REPO_ROOT / "data" / "raw" / "assabet" / "index"
-BPL_INDEX_PATH = REPO_ROOT / "data" / "raw" / "bpl" / "index.json"
 
 VISIT_PATHS = ["visit/", "hours/", "plan-your-visit/", "plan-a-visit/", "visit"]
 
@@ -99,12 +97,6 @@ def discover_attraction_urls() -> dict[str, dict]:
             for p in data.get("passes", []):
                 name = p.get("museum_name")
                 add(name, p.get("website"), f"assabet:{f.stem}:jsonld")
-
-    # BPL — website on detail page
-    if BPL_INDEX_PATH.exists():
-        bpl = json.loads(BPL_INDEX_PATH.read_text(encoding="utf-8"))
-        for p in bpl.get("passes", []):
-            add(p.get("museum_name"), p.get("website"), f"bpl:{p['pass_id']}")
 
     # Heuristic Assabet anchor scan — read one page per library raw HTML
     # cache (already populated). Cheaper than another fetch.

@@ -11,8 +11,8 @@ from __future__ import annotations
 
 import html
 import json
-import os
 import re
+import sys
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -23,59 +23,6 @@ RAW = ROOT / "data" / "raw"
 WEB_IMG = ROOT / "web" / "public" / "images"
 OUT = ROOT / "audit"
 ASSETS = OUT / "assets"
-
-# ---------- Label maps (must match web/src/lib/discount-display.ts) ----------
-ELIG_LABEL = {
-    "vehicle": "per vehicle",
-    "adults_only": "adults only",
-    "children_only": "kids only",
-    "single_ticket": "1 ticket",
-    "members_free": "members free",
-    "seniors_free": "seniors free",
-    "students_only": "students only",
-    "military_free": "military free",
-    "educator_free": "educators free",
-    "family": "family pass",
-    "groups": "group rate",
-    "residents_only": "residents only",
-    "all": "open to all",
-}
-EXCL_LABEL = {
-    "weekdays_only": "weekdays only · 仅工作日",
-    "weekends_only": "weekends only · 仅周末",
-    "weekends_excluded": "no weekends · 不接受周末",
-    "blackout_dates": "blackout dates · 部分日期黑名单",
-    "reservation_required": "reservation needed · 需预约",
-    "id_required": "ID at gate · 入场出示证件",
-    "residents_only": "residents only · 仅居民",
-    "seasonal": "seasonal · 季节性开放(详见原文)",
-}
-BOOST_LABEL = {
-    "ebt_discount": "EBT discount",
-    "snap_free": "SNAP free",
-    "library_card_required": "library card required",
-    "members_discount": "members discount",
-    "gift_shop_discount": "gift shop discount",
-}
-
-# Eligibility semantic group
-ELIG_GROUP = {
-    "all": "default",
-    "vehicle": "structural",
-    "single_ticket": "structural",
-    "family": "structural",
-    "groups": "structural",
-    "residents_only": "structural",
-    "adults_only": "audience",
-    "children_only": "audience",
-    "seniors_free": "free-group",
-    "students_only": "free-group",
-    "military_free": "free-group",
-    "educator_free": "free-group",
-    "members_free": "free-group",
-}
-
-OWN_CARDS = {"wakefield", "reading", "bpl", "wilmington", "somerville"}
 
 KNOWN_DUPLICATES = [
     ("mfa", "museum-of-fine-arts"),
@@ -121,58 +68,6 @@ def read_raw(subdir: str, name: str) -> dict | None:
             return json.load(f)
     except Exception:
         return None
-
-
-# ---------- Source-phrase highlighting ----------
-
-def highlight_raw(raw: str, source_phrases: dict | None) -> tuple[str, list[tuple[str, str, int]]]:
-    """Return (html_with_marks, list of (field, phrase, idx)).
-
-    Source phrases may be None or missing or not actually present in raw text.
-    Only ones found get superscripts; others still listed at idx=0 (no mark).
-    """
-    if not raw:
-        return "", []
-    raw_text = raw
-    found = []  # list of (field, phrase, idx_or_None)
-    spans = []  # (start, end, idx, field)
-    idx = 0
-    if source_phrases:
-        for field, phrase in source_phrases.items():
-            if not phrase:
-                found.append((field, phrase, None))
-                continue
-            # case-insensitive substring search
-            lower_raw = raw_text.lower()
-            lower_phrase = str(phrase).lower()
-            pos = lower_raw.find(lower_phrase)
-            if pos < 0:
-                found.append((field, phrase, None))
-                continue
-            idx += 1
-            end = pos + len(phrase)
-            spans.append((pos, end, idx, field))
-            found.append((field, phrase, idx))
-    # Sort spans by start
-    spans.sort()
-    # Merge: drop overlaps (keep earlier)
-    cleaned = []
-    last_end = -1
-    for s, e, i, f in spans:
-        if s < last_end:
-            continue
-        cleaned.append((s, e, i, f))
-        last_end = e
-    # Build HTML
-    out = []
-    cursor = 0
-    for s, e, i, _f in cleaned:
-        out.append(esc(raw_text[cursor:s]))
-        color_cls = f"src-{((i - 1) % 6) + 1}"
-        out.append(f'<mark class="{color_cls}">{esc(raw_text[s:e])}<sup>{i}</sup></mark>')
-        cursor = e
-    out.append(esc(raw_text[cursor:]))
-    return "".join(out), found
 
 
 # ---------- Pattern clustering ----------
@@ -235,44 +130,8 @@ def badge(text: str, cls: str) -> str:
     return f'<span class="badge {cls}">{esc(text)}</span>'
 
 
-def discount_badge(d: dict) -> str:
-    cls = d.get("class", "unknown")
-    label = d.get("label") or DISCOUNT_LABEL_EN.get(cls, cls)
-    glyph = {"free": "■", "half": "▣", "percent-off": "%", "dollar-off": "$", "price": "$$", "discount": "◇"}.get(cls, "·")
-    return f'<span class="badge badge-disc-{cls}">{esc(glyph)} {esc(label)}</span>'
-
-
 def pass_type_badge(pt: str) -> str:
     return f'<span class="badge badge-pt-{esc(pt)}">{esc(pt)}</span>'
-
-
-def elig_badges(tags: list[str]) -> str:
-    out = []
-    for t in tags or []:
-        grp = ELIG_GROUP.get(t, "structural")
-        lab = ELIG_LABEL.get(t, t)
-        out.append(f'<span class="badge badge-elig-{grp}">{esc(lab)}</span>')
-    return "".join(out)
-
-
-def excl_badges(tags: list[str]) -> str:
-    out = []
-    for t in tags or []:
-        if t.startswith("seasonal:"):
-            rng = t.split(":", 1)[1]
-            out.append(f'<span class="badge badge-seasonal">Open {esc(rng)}</span>')
-        else:
-            lab = EXCL_LABEL.get(t, t)
-            out.append(f'<span class="badge badge-excl">{esc(lab)}</span>')
-    return "".join(out)
-
-
-def boost_badges(tags: list[str]) -> str:
-    out = []
-    for t in tags or []:
-        lab = BOOST_LABEL.get(t, t)
-        out.append(f'<span class="badge badge-boost">{esc(lab)}</span>')
-    return "".join(out)
 
 
 # ---------- Page chrome ----------
@@ -312,27 +171,6 @@ def histogram_table(counter: Counter, total: int, label_map: dict | None = None,
             f'<td class="num">{n}</td><td class="pct">{pct}%</td></tr>'
         )
     return f'<table class="histogram">{"".join(rows)}</table>'
-
-
-def half_price_subpattern(raw: str) -> str:
-    """Classify a half-price pass into A/B/C/D/E or 'other' by raw text."""
-    import re
-    r = (raw or "").lower()
-    if not r:
-        return "none"
-    if not ("half" in r or "50%" in r or "1/2 price" in r):
-        return "none"
-    if re.search(r'one\s+vehicle|per\s+car|per\s+vehicle|in\s+one\s+car|in 1 vehicle', r):
-        return "E"
-    if re.search(r'\d+\s+adults?.{0,40}\d+\s+children?\s+at\s+\$\d', r):
-        return "B"
-    if re.search(r'adults?\s+at\s+(?:50%|half|1/2)\s*.{0,80}children?\s+at\s+\$\d', r):
-        return "B"
-    if re.search(r'only applies to adult|adult and child pricing|adult\s+pricing only', r):
-        return "D"
-    if re.search(r'under\s+\d+\s+(?:are|admitted)?\s*free|under\s+\d+.*always.*free|children\s+under', r):
-        return "C"
-    return "A"
 
 
 def page_shell(title: str, body: str, current: str, extra_head: str = "", data_blob: str = "") -> str:
@@ -1572,25 +1410,17 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir) -> str
     No methodology / explanatory paragraphs in HTML output (per
     feedback_audit_no_transitional_text). Pure data + short labels only.
     """
-    import sys as _sys
-    from pathlib import Path as _Path
     _src = str(ROOT / "src")
-    if _src not in _sys.path:
-        _sys.path.insert(0, _src)
-    try:
-        from malibbene.build.slug_canonical import canonical, LEGACY_TO_CANONICAL  # noqa: F401
-    except Exception:
-        # Fall-back: identity canonical if import path issue
-        def canonical(s):  # type: ignore
-            return s
-        LEGACY_TO_CANONICAL = {}  # type: ignore
+    if _src not in sys.path:
+        sys.path.insert(0, _src)
+    from malibbene.build.slug_canonical import canonical, LEGACY_TO_CANONICAL  # noqa: F401
 
     passes = passes_data["passes"]
     attrs = attr_data["attractions"]
     attr_by_slug = {A["slug"]: A for A in attrs}
 
     def empty_state(n: int) -> str:
-        return f'<p class="honest-gap">all clear · 0</p>' if n == 0 else ""
+        return '<p class="honest-gap">all clear · 0</p>' if n == 0 else ""
 
     def table(headers: list[str], rows: list[list[str]], max_rows: int) -> str:
         n_total = len(rows)
@@ -1745,7 +1575,7 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir) -> str
         if coupon.get("audience_policies") or cap.get("n") is not None:
             consumed.add((p.get("library_id", ""), p.get("attraction_slug", "")))
 
-    raw_dir = _Path(raw_coupons_dir)
+    raw_dir = Path(raw_coupons_dir)
     p5_rows = []
     if raw_dir.exists():
         for f in sorted(raw_dir.glob("*.json")):
@@ -1829,12 +1659,6 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir) -> str
         ("6", "LOW",  "Umbrella attractions (structurally inapplicable)", p6_count),
         ("7", "MED",  "Raw extraction failures (status != ok)", p7_count),
     ]
-    sev_class = {
-        "HIGH": "rd",   # red if count > 0  — actionable defects
-        "MED":  "or",   # orange if count > 0 — review-worthy
-        "LOW":  "ink-3",
-        "INFO": "ink-3",  # informational only — not a defect
-    }
     sum_rows = []
     for idx, sev, label, n in summary:
         style = ""

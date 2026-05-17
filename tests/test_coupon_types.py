@@ -1,11 +1,12 @@
 """Schema lock for Pass.coupon — keeps build output stable across refactors."""
 import json
-import glob
+import pathlib
 
 
 def test_coupon_raw_extraction_schema_lock():
     """Each pass_coupons/*.json file must conform to the locked schema."""
-    files = glob.glob('data/raw/pass_coupons/*.json')
+    raw_dir = pathlib.Path(__file__).resolve().parents[1] / "data" / "raw" / "pass_coupons"
+    files = sorted(str(p) for p in raw_dir.glob("*.json"))
     if not files:
         # Plan-9 not yet executed past Task 2; skip when raw dir empty.
         import pytest

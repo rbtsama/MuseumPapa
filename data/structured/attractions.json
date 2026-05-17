@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "built_at": "2026-05-17T07:00:49Z",
+    "built_at": "2026-05-17T09:42:00Z",
     "n_attractions": 98,
     "n_with_price": 82,
     "n_with_image": 95,
-    "n_with_geo": 98,
+    "n_with_geo": 97,
     "n_with_hours": 98
   },
   "attractions": [
@@ -3027,10 +3027,7 @@
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Gordon_Hall%2C_Massachusetts_Audubon_Society%2C_Lincoln_MA.jpg/960px-Gordon_Hall%2C_Massachusetts_Audubon_Society%2C_Lincoln_MA.jpg",
         "local_path": "static/images/mass-audubon.jpg"
       },
-      "geo": {
-        "lat": 31.1728205,
-        "lon": -7.3362482
-      },
+      "geo": null,
       "hours": {
         "status": "varies",
         "regular_hours": null,

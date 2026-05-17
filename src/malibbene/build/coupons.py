@@ -4,7 +4,6 @@ Reads data/raw/pass_coupons/<lib>_<slug>.json files written by Task 2.
 """
 from __future__ import annotations
 
-from malibbene.build.coupon_summary import format_summary
 from malibbene.build.museum_policy import is_museum_default_policy
 
 
@@ -21,7 +20,6 @@ def coupon_block(rec: dict | None, *, museum_free_under_age: int | None = None) 
         return {
             "capacity": {"kind": "unspecified", "n": None},
             "audience_policies": [],
-            "summary": "",
         }
     cap = rec.get("capacity") or {}
     cap_block = {
@@ -36,7 +34,6 @@ def coupon_block(rec: dict | None, *, museum_free_under_age: int | None = None) 
     return {
         "capacity": cap_block,
         "audience_policies": aps,
-        "summary": format_summary(cap_block, aps),
     }
 
 

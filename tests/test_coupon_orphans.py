@@ -29,8 +29,12 @@ def test_no_orphan_raw_coupon_files():
         rec = json.loads(f.read_text(encoding="utf-8"))
         if rec.get("status") != "ok":
             continue
-        lib_id = rec.get("library_id") or f.stem.split("_", 1)[0]
-        raw_slug = rec.get("attraction_slug") or f.stem.split("_", 1)[1]
+        if "_" in f.stem:
+            stem_lib, stem_slug = f.stem.split("_", 1)
+        else:
+            stem_lib, stem_slug = f.stem, ""
+        lib_id = rec.get("library_id") or stem_lib
+        raw_slug = rec.get("attraction_slug") or stem_slug
         canon = canonical(raw_slug)
         if (lib_id, canon) not in consumed:
             orphans.append(f.name)

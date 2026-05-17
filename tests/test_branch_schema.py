@@ -31,7 +31,7 @@ def test_branches_json_shape():
         for k in ("id", "name", "parent_lib_id", "address", "geo"):
             assert k in b, f"branch {b.get('id')} missing {k}"
         assert b["address"].get("street")
-        assert b["geo"].get("lat") and b["geo"].get("lon")
+        assert b["geo"].get("lat") is not None and b["geo"].get("lon") is not None
 
 
 def test_pickup_branch_ids_resolve():

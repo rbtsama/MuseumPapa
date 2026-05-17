@@ -42,41 +42,17 @@
       "lon": -71.1149279,
       "query": "11 Divinity Avenue, Cambridge, MA 02138"
     },
-    "institute-of-contemporary-art-boston": {
-      "ok": true,
-      "lat": 42.3528651,
-      "lon": -71.0429628,
-      "query": "25 Harbor Shore Drive, Boston, MA 02210"
-    },
     "isabella-stewart-gardner-museum": {
       "ok": true,
       "lat": 42.338245,
       "lon": -71.0991538,
       "query": "25 Evans Way, Boston, MA 02115"
     },
-    "john-f-kennedy-library-and-museum": {
-      "ok": true,
-      "lat": 42.3320968,
-      "lon": -71.0284871,
-      "query": "Columbia Point, Boston, MA 02125"
-    },
     "mass-audubon-drumlin-farm": {
       "ok": true,
       "lat": 42.4047062,
       "lon": -71.3208652,
       "query": "208 South Great Road, Lincoln, MA 01773"
-    },
-    "massachusetts-state-parks-department-of-conservation-and-recreation": {
-      "ok": true,
-      "lat": 42.3664598,
-      "lon": -71.0589378,
-      "query": "251 Causeway Street, Boston, MA 02114"
-    },
-    "museum-of-fine-arts": {
-      "ok": true,
-      "lat": 42.3394573,
-      "lon": -71.093897,
-      "query": "465 Huntington Avenue, Boston, MA 02115"
     },
     "museum-of-science": {
       "ok": true,
@@ -101,12 +77,6 @@
       "lat": 42.5215925,
       "lon": -70.8921931,
       "query": "161 Essex Street, Salem, MA 01970-3783"
-    },
-    "the-trustees-of-the-reservations": {
-      "ok": true,
-      "lat": 42.5051034,
-      "lon": -73.0370034,
-      "query": "Trustees of Reservations, Massachusetts, USA"
     },
     "zoo-new-england": {
       "ok": true,
@@ -168,12 +138,6 @@
       "lon": -70.9269447,
       "query": "10 Main Street, Peabody, MA 01960"
     },
-    "plimoth-patuxet-museums": {
-      "ok": true,
-      "lat": 41.9393938,
-      "lon": -70.625786,
-      "query": "137 Warren Avenue, Plymouth, MA 02360"
-    },
     "salem-witch-museum": {
       "ok": true,
       "lat": 42.5237449,
@@ -193,10 +157,8 @@
       "query": "132 Main Street, Wenham, MA 01984"
     },
     "mass-audubon": {
-      "ok": true,
-      "lat": 31.1728205,
-      "lon": -7.3362482,
-      "query": "MA"
+      "ok": false,
+      "error": "bare_state_query_rejected"
     },
     "armenian-museum-of-america": {
       "ok": true,
@@ -233,18 +195,6 @@
       "lat": 42.3943996,
       "lon": -71.5444777,
       "query": "568 Main Street, Hudson, MA 01749"
-    },
-    "the-butterfly-place": {
-      "ok": true,
-      "lat": 42.6419513,
-      "lon": -71.43968,
-      "query": "120 Tyngsboro Road, Westford, MA 01886"
-    },
-    "trustees-of-the-reservations": {
-      "ok": true,
-      "lat": 31.1728205,
-      "lon": -7.3362482,
-      "query": "MA"
     },
     "boston-athenaeum": {
       "ok": true,
@@ -485,12 +435,6 @@
       "lat": 42.0894304,
       "lon": -71.2603702,
       "query": "One Patriot Place, Foxborough, MA 02035"
-    },
-    "american-rep-theater": {
-      "ok": true,
-      "lat": 42.3748602,
-      "lon": -71.1229496,
-      "query": "64 Brattle Street, Cambridge, Massachusetts, 02138"
     },
     "boch-center": {
       "ok": true,

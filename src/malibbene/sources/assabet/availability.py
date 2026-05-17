@@ -85,7 +85,10 @@ def scrape_library(lib_id: str, domain: str) -> tuple[str, dict]:
             "passes": {},
         }
     index = json.loads(index_path.read_text(encoding="utf-8"))
-    slugs = [p["slug"] for p in index["passes"]]
+    slugs = [
+        p["slug"] for p in index["passes"]
+        if not str(p.get("status", "")).startswith("failed")
+    ]
 
     passes: dict[str, dict] = {}
     summary = status.StatusSummary()

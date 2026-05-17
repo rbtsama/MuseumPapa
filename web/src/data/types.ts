@@ -102,7 +102,6 @@ export interface AudiencePolicy {
 export interface Coupon {
   capacity: CouponCapacity;
   audience_policies: AudiencePolicy[];
-  summary: string;
 }
 
 export interface PassRestrictions {
@@ -135,6 +134,7 @@ export interface Attraction {
   description: string | null;
   categories: string[];          // canonical 7-class set: Children | History | Nature | Science | Art | Performance | Sports
   categories_raw?: string[];     // original Assabet labels (audit / debug only)
+  legacy_slugs?: string[];       // alternate slugs that map to this canonical attraction
   sources: string[];
   original_price: OriginalPrice | null;
   hero_image: HeroImage | null;
