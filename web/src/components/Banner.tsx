@@ -14,11 +14,11 @@ export function Banner({ onSignInClick }: Props) {
   if (user && hasCards) return null;
 
   const text = user
-    ? 'Set up your library passes to see discounts'
-    : 'Add your library pass to unlock discounts';
+    ? 'Add your library passes to unlock discounts'
+    : 'Add your library passes to unlock discounts';
   const action = user
     ? <Link to="/settings/passes" className="font-medium whitespace-nowrap"
-        style={{ color: 'var(--g)' }}>Open My passes →</Link>
+        style={{ color: 'var(--g)' }}>Manage passes →</Link>
     : <button onClick={onSignInClick} className="font-medium whitespace-nowrap"
         style={{ background: 'transparent', border: 'none', color: 'var(--g)', cursor: 'pointer', font: 'inherit' }}>
         Sign in →

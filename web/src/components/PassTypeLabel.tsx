@@ -4,7 +4,7 @@ import type { PassTypeKind } from '../data/types';
  * Small colored text label for the three pass types.
  *
  * Color gradient (calm → cautious — what UX feels increasingly inconvenient):
- *   - Online           = forest green (calm, instant, no friction)
+ *   - Email            = forest green (calm, instant, no friction)
  *   - Pickup           = amber (some friction, you drive once)
  *   - Pickup & Return  = orange (most friction, you drive twice)
  *

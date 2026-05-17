@@ -239,6 +239,8 @@ def status_banner_html(counts: dict) -> str:
         cls = "banner-red"; icon = "🔴"; verdict = f"{high} critical issue(s)"
     elif med > 0:
         cls = "banner-amber"; icon = "⚠"; verdict = f"{med} medium issue(s)"
+    elif low > 0 or info > 0:
+        cls = "banner-amber"; icon = "⚠"; verdict = f"{low} low · {info} info finding(s)"
     else:
         cls = "banner-green"; icon = "✅"; verdict = "all clear"
     built = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
@@ -263,8 +265,17 @@ def bilingual(label: str) -> str:
     return f'{esc(en)}<span class="zh-sub">{esc(zh)}</span>'
 
 
+_PT_DISPLAY_LABEL = {
+    "digital": "Email",
+    "physical-coupon": "Pickup",
+    "physical-circ": "Pickup & Return",
+    "unknown": "Pass",
+}
+
+
 def pass_type_badge(pt: str) -> str:
-    return f'<span class="badge badge-pt-{esc(pt)}">{esc(pt)}</span>'
+    label = _PT_DISPLAY_LABEL.get(pt, pt)
+    return f'<span class="badge badge-pt-{esc(pt)}">{esc(label)}</span>'
 
 
 # ---------- Page chrome ----------
@@ -464,11 +475,11 @@ def page_index(libs_data, attr_data, passes_data, libcat, status_banner: str = "
         if n == 0:
             audience_split_counter["0 (no extraction)"] += 1
         elif n == 1:
-            audience_split_counter["1 (party-wide single tier)"] += 1
+            audience_split_counter["1"] += 1
         elif n == 2:
-            audience_split_counter["2 (typical mixed)"] += 1
+            audience_split_counter["2"] += 1
         else:
-            audience_split_counter[f"{n} (complex)"] += 1
+            audience_split_counter[f"{n}"] += 1
 
     def coverage_list(cov: dict, total: int) -> str:
         rows = []
@@ -483,7 +494,6 @@ def page_index(libs_data, attr_data, passes_data, libcat, status_banner: str = "
     n_no_coupon = sum(1 for p in passes if not p.get("coupon"))
     anomalies.append(
         f"<li><b>{n_no_coupon}</b> 条 pass 没有 coupon 字段 — "
-        f"含义:plan-9 再抽取未覆盖到这些行,需补跑 subagent — "
         f"<a href='policies.html'>see Policies</a></li>"
     )
     # form=discount with null value — generic discount language we couldn't quantify
@@ -494,33 +504,28 @@ def page_index(libs_data, attr_data, passes_data, libcat, status_banner: str = "
         if ap.get("form") == "discount" and ap.get("value") is None
     )
     anomalies.append(
-        f"<li><b>{n_disc_null_ap}</b> 条 audience_policy 是 <code>form=discount</code> 且 <code>value=null</code>(笼统折扣,无具体数值) — "
-        f"含义:原 HTML 用了 '与门票打折' 之类的措辞,subagent 抽不出具体百分比/金额 — "
+        f"<li><b>{n_disc_null_ap}</b> 条 audience_policy 是 <code>form=discount</code> 且 <code>value=null</code> — "
         f"<a href='data_quality.html#dq3'>see Data Quality §3</a></li>"
     )
     n_unknown_pt = sum(1 for p in passes if p.get("pass_type") == "unknown")
     anomalies.append(
-        f"<li><b>{n_unknown_pt}</b> 条 pass 的 pass_type 是 unknown(没归类成 Email / Pickup / Pickup &amp; Return) — "
-        f"含义:从原始 HTML 抓不到明确的 pass 类型标识符</li>"
+        f"<li><b>{n_unknown_pt}</b> 条 pass 的 pass_type 是 unknown</li>"
     )
     # filter pairs whose slugs already merged
     attr_slugs = {a["slug"] for a in attr_data["attractions"]}
     n_dup = sum(1 for a, b in KNOWN_DUPLICATES if a in attr_slugs and b in attr_slugs)
     anomalies.append(
-        f"<li><b>{n_dup}</b> 对 attraction slug 重复(同一景点被存了两条记录) — "
-        f"含义:数据建模历史遗留 bug,前端会显示成两张不同的卡,需合并 — "
+        f"<li><b>{n_dup}</b> 对 attraction slug 重复 — "
         f"<a href='duplicates.html'>see Duplicates</a></li>"
     )
     n_missing_price = n_attrs - attr_cov["Ticket price (any tier) · 票价(任一层级)"]
     anomalies.append(
-        f"<li><b>{n_missing_price}</b> 个景点没有任何价格层级(adult/child/youth/senior/...)— "
-        f"含义:景点官网无公开标价,或票价是 per-show / per-vehicle 浮动 — "
+        f"<li><b>{n_missing_price}</b> 个景点没有任何价格层级 — "
         f"<a href='gaps.html'>see Gaps</a></li>"
     )
     n_missing_desc = n_attrs - attr_cov["Description · 简介"]
     anomalies.append(
-        f"<li><b>{n_missing_desc}</b> 个景点没有简介文字 — "
-        f"含义:景点官网无 og:description / about 页 抓取失败 / 网站 403 拦截</li>"
+        f"<li><b>{n_missing_desc}</b> 个景点没有简介文字</li>"
     )
 
     # Precompute histogram HTML (dicts can't be inlined in f-strings)
@@ -554,7 +559,7 @@ def page_index(libs_data, attr_data, passes_data, libcat, status_banner: str = "
 </section>
 
 <section class="panel">
-  <h3>Coupon form 分布 · {sum(coupon_form_counter.values())} audience-policy 条目(含多条目 pass)</h3>
+  <h3>Coupon form 分布 · {sum(coupon_form_counter.values())} audience-policy 条目</h3>
   {_coupon_form_html}
 </section>
 
@@ -1192,9 +1197,17 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
             audience = ap.get("audience", "")
             form = ap.get("form", "")
             value = ap.get("value")
-            val_str = f" {value}" if value is not None else ""
-            form_label = COUPON_FORM_LABEL_EN.get(form, form)
-            ap_parts.append(f'<span class="ext badge badge-disc-{esc(form)}">{esc(audience)}: {esc(form_label)}{esc(str(val_str))}</span>')
+            if form == "free":
+                amount = "FREE"
+            elif form == "percent-off" and value is not None:
+                amount = f"{value}% off"
+            elif form == "dollar-off" and value is not None:
+                amount = f"${value} off"
+            elif form == "per-person-price" and value is not None:
+                amount = f"${value}"
+            else:
+                amount = "discount"
+            ap_parts.append(f'<span class="ext badge badge-disc-{esc(form)}">{esc(audience)} {esc(amount)}</span>')
 
         restr_parts = []
         if restrictions:
@@ -1319,15 +1332,15 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     _pol_restr_html = histogram_table(restr_counter, n_passes)
 
     body = f"""
-<h1 class="page-title">Policies · {n_passes} passes · {len(pattern_meta)} patterns (plan-9 coupon model)</h1>
+<h1 class="page-title">Policies · {n_passes} passes · {len(pattern_meta)} patterns</h1>
 
 <section class="dist-grid">
   <div class="panel dist-panel dist-wide">
-    <h3>Pass 形式 · 3 种取券方式(与前端术语一致)</h3>
+    <h3>Pass 形式</h3>
     {_pol_pt_html}
   </div>
   <div class="panel dist-panel">
-    <h3>Coupon form 分布(plan-9 · audience_policy 条目)</h3>
+    <h3>Coupon form 分布</h3>
     {_pol_form_html}
   </div>
   <div class="panel dist-panel">
@@ -1335,11 +1348,11 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     {_pol_cap_html}
   </div>
   <div class="panel dist-panel">
-    <h3>Restrictions 分布(plan-9 side-channel)</h3>
+    <h3>Restrictions 分布</h3>
     {_pol_restr_html}
   </div>
   <div class="panel dist-panel dist-wide">
-    <h3>{len(pattern_meta)} 个 Coupon Pattern 占比(按 capacity/form/tiers 分组)</h3>
+    <h3>Coupon patterns</h3>
     <table class="histogram"><thead><tr><th>id</th><th>name</th><th></th><th class="num">n</th><th class="pct">%</th></tr></thead><tbody>{pattern_count_table}</tbody></table>
   </div>
 </section>
@@ -1403,11 +1416,15 @@ def page_gaps(attr_data, libs_data) -> str:
     for label, items in sections.items():
         if not items:
             continue
+        # Reason is identical for every row in a section — surface it once in the
+        # section header instead of repeating it in every row.
+        section_reason = items[0][2] if items else ""
         rows = "".join(
-            f'<tr><td class="mono">{esc(s)}</td><td>{esc(n)}</td><td>{esc(why)}</td></tr>'
-            for s, n, why in items
+            f'<tr><td class="mono">{esc(s)}</td><td>{esc(n)}</td><td>—</td></tr>'
+            for s, n, _why in items
         )
-        out.append(f'<section class="panel"><h2>{esc(label)} <span class="num-pill">{len(items)}</span></h2><table class="data-table"><thead><tr><th>slug</th><th>name</th><th>reason / note</th></tr></thead><tbody>{rows}</tbody></table></section>')
+        reason_html = f' <span class="section-reason" style="font-weight:400;color:var(--ink-3);font-size:13px">· {esc(section_reason)}</span>' if section_reason else ""
+        out.append(f'<section class="panel"><h2>{esc(label)} <span class="num-pill">{len(items)}</span>{reason_html}</h2><table class="data-table"><thead><tr><th>slug</th><th>name</th><th>note</th></tr></thead><tbody>{rows}</tbody></table></section>')
 
     body = f"""
 <h1 class="page-title">Gaps · Known data holes</h1>
@@ -1553,7 +1570,6 @@ def page_lineage() -> str:
 def page_schema() -> str:
     body = """
 <h1 class="page-title">数据结构说明 · Schema</h1>
-<p>本页用自然语言解释三大产物中的每个字段,包括字段意义、可能的值、示例,以及为什么这个字段会存在。</p>
 
 <section class="panel">
   <h2>1. 图书馆 Libraries</h2>
@@ -1598,13 +1614,13 @@ def page_schema() -> str:
     <li><b>library_id / attraction_slug</b>:主键,联合唯一。</li>
     <li><b>pass_type</b>:三种 pass 形态 —
       <ul>
-        <li><b>digital</b>(展示为 <b>Email</b>):邮件即时发送的电子券,用户可立即下载并使用。</li>
+        <li><b>digital</b>(显示为 <b>Email</b>)</li>
         <li><b>physical-coupon</b>:门店取纸质券,用完不归还(260 个)。</li>
-        <li><b>physical-circ / loan-card</b>:循环借阅卡,用完需归还图书馆(172 个)。</li>
+        <li><b>physical-circ</b>:循环借阅卡,用完需归还图书馆(172 个)。</li>
         <li><b>unknown</b>:未能识别(23 个)。</li>
       </ul>
     </li>
-    <li><b>coupon</b>(plan-9):统一优惠模型,替代旧版 discount + policy 两个字段:
+    <li><b>coupon</b>:统一优惠模型:
       <ul>
         <li><b>capacity</b>:<code>{"kind": "people"|"vehicle"|"ticket"|"unspecified", "n": int|null}</code> — 整张 coupon 覆盖的容量上限</li>
         <li><b>audience_policies</b>:数组,每项 = <code>{"audience", "age_range", "count", "form", "value"}</code>。
@@ -1616,7 +1632,7 @@ def page_schema() -> str:
         </li>
       </ul>
     </li>
-    <li><b>restrictions</b>(side-channel):使用限制 — <code>{"blackout_dates": bool, "weekdays_only": bool, "seasonal": str|null, "reservation_required": bool}</code></li>
+    <li><b>restrictions</b>:使用限制 — <code>{"blackout_dates": bool, "weekdays_only": bool, "seasonal": str|null, "reservation_required": bool}</code></li>
     <li><b>availability</b>:未来 30 天的可预订状态字典(museumkey 不可用)。</li>
   </ul>
 
@@ -1923,11 +1939,11 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir, status
     # ── Summary table ───────────────────────────────────────────────────
     summary = [
         ("1", "HIGH", "Empty coupon where catalog says a pass exists", p1_count),
-        ("2", "INFO", "Cross-library price variance (real, not a bug)", p2_count),
-        ("3", "LOW",  "form=discount with null value (known, acceptable)", p3_count),
+        ("2", "INFO", "Cross-library price variance", p2_count),
+        ("3", "LOW",  "form=discount with null value", p3_count),
         ("4", "MED",  "age_range contradicts the labelled audience", p4_count),
         ("5", "HIGH", "Orphan raw coupon files (slug drift)", p5_count),
-        ("6", "LOW",  "Umbrella attractions (structurally inapplicable)", p6_count),
+        ("6", "LOW",  "Umbrella attractions", p6_count),
         ("7", "MED",  "Raw extraction failures (status != ok)", p7_count),
     ]
     sum_rows = []
@@ -1984,7 +2000,7 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir, status
 </section>
 
 <section class="panel" id="dq6">
-  <h3>6. Umbrella attractions (structurally inapplicable) <span class="num-pill">{p6_count}</span></h3>
+  <h3>6. Umbrella attractions <span class="num-pill">{p6_count}</span></h3>
   {p6_html}
 </section>
 

@@ -57,14 +57,14 @@ function fmtAudienceLabel(p: AudiencePolicy): string | null {
   return b;
 }
 
-/** Plain-text capacity label like "Up to 4" / "1 ticket". Returns null when the
+/** Plain-text capacity label like "up to 4" / "up to 1". Returns null when the
  *  coupon isn't headcount-shaped — capacity lives next to location info on the
  *  card, NOT next to prices, so callers render it themselves.
  */
 export function formatCapacity(capacity: CouponCapacity): string | null {
   if (capacity.n == null || capacity.n <= 0) return null;
-  if (capacity.kind === 'people') return `Up to ${capacity.n}`;
-  if (capacity.kind === 'ticket') return `Up to ${capacity.n}`;
+  if (capacity.kind === 'people') return `up to ${capacity.n}`;
+  if (capacity.kind === 'ticket') return `up to ${capacity.n}`;
   return null;
 }
 

@@ -227,6 +227,6 @@ describe('AttractionCard', () => {
         isGuestOrEmpty={false}
       />
     );
-    expect(screen.getByText(/\+ 2 more options/)).toBeInTheDocument();
+    expect(screen.getByText(/\+ 2 more coupons/)).toBeInTheDocument();
   });
 });

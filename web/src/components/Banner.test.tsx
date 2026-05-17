@@ -30,8 +30,8 @@ describe('Banner', () => {
       currentUser: { username: 'u', displayName: 'U', persona: 'empty' },
     });
     renderApp(<Banner onSignInClick={() => {}} />);
-    expect(screen.getByText(/Set up your library passes/i)).toBeInTheDocument();
-    const link = screen.getByText(/Open My passes/i);
+    expect(screen.getByText(/Add your library passes/i)).toBeInTheDocument();
+    const link = screen.getByText(/Manage passes/i);
     expect(link.closest('a')).toHaveAttribute('href', '/settings/passes');
   });
 
@@ -43,7 +43,6 @@ describe('Banner', () => {
       pack: { zip: '01880', cards: { wakefield: { barcode: '123', lastName: 'A', pin: '' } } },
     });
     renderApp(<Banner onSignInClick={() => {}} />);
-    expect(screen.queryByText(/Add your library pass/i)).not.toBeInTheDocument();
-    expect(screen.queryByText(/Set up your library passes/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Add your library passes/i)).not.toBeInTheDocument();
   });
 });

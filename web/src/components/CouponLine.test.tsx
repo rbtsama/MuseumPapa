@@ -91,12 +91,12 @@ describe('CouponLine', () => {
 });
 
 describe('formatCapacity', () => {
-  it('returns "Up to N" for people kind', () => {
-    expect(formatCapacity({ kind: 'people', n: 4 })).toBe('Up to 4');
+  it('returns "up to N" for people kind', () => {
+    expect(formatCapacity({ kind: 'people', n: 4 })).toBe('up to 4');
   });
 
-  it('returns "Up to N" for single-ticket kind (same headcount semantic)', () => {
-    expect(formatCapacity({ kind: 'ticket', n: 1 })).toBe('Up to 1');
+  it('returns "up to N" for single-ticket kind (same headcount semantic)', () => {
+    expect(formatCapacity({ kind: 'ticket', n: 1 })).toBe('up to 1');
   });
 
   it('returns null for vehicle (parking coupons render their own label)', () => {

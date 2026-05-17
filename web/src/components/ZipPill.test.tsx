@@ -17,7 +17,7 @@ beforeEach(() => {
 describe('ZipPill', () => {
   it('renders input with "your location" label', () => {
     renderApp(<ZipPill />);
-    expect(screen.getByText('your location')).toBeInTheDocument();
+    expect(screen.getByText('ZIP code')).toBeInTheDocument();
     expect(screen.getByRole('textbox', { name: 'Your ZIP code' })).toBeInTheDocument();
   });
 

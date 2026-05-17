@@ -46,7 +46,7 @@ export function MyPasses() {
         My passes
       </h1>
       <p style={{ color: 'var(--ink-3)', fontSize: 12, marginBottom: 16 }}>
-        Stored only in your browser, namespaced by your username.
+        Stored only in your browser, tied to your account.
       </p>
 
       <div style={{ borderBottom: '1px solid var(--rule)', paddingBottom: 16, marginBottom: 16 }}>
@@ -152,7 +152,7 @@ function LibraryRow({ libraryName, town, card, hasCard, onAdd, onSave, onRemove 
           }}
         >
           <span style={{ fontWeight: 500, color: 'var(--ink-2)' }}>{libraryName}</span>
-          <span style={{ color: 'var(--ink-3)', marginLeft: 8 }}>({town})</span>
+          <span style={{ color: 'var(--ink-3)', marginLeft: 8 }}>· {town}</span>
         </button>
       </div>
       {hasCard && open && (

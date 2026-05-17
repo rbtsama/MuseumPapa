@@ -34,7 +34,7 @@ function PersonIcon() {
 
 function fmtMoney(v: number | null | undefined): string {
   if (v == null) return '';
-  if (v === 0) return 'Free';
+  if (v === 0) return 'FREE';
   if (Number.isInteger(v)) return `$${v}`;
   return `$${v.toFixed(2)}`;
 }
@@ -74,7 +74,7 @@ export function AttractionCard({
   if (seniorPrice != null && seniorPrice !== adultPrice) tiers.push({ label: 'senior', value: seniorPrice });
   if (youthPrice != null && youthPrice !== adultPrice) tiers.push({ label: 'youth', value: youthPrice });
   if (childPrice != null && childPrice !== adultPrice) {
-    const lbl = freeUnder != null ? `age ${freeUnder}+` : 'kids';
+    const lbl = freeUnder != null ? `age ${freeUnder}+` : 'child';
     tiers.push({ label: lbl, value: childPrice });
   }
   if (studentPrice != null && studentPrice !== adultPrice) tiers.push({ label: 'student', value: studentPrice });
@@ -135,7 +135,7 @@ export function AttractionCard({
 
           {hoursInfo && !closedToday && (
             <p className="mt-0.5" style={{ fontSize: 11, color: 'var(--ink-3)' }}>
-              🕘 {hoursInfo.varies ? <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span> : <>Open today · <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span></>}
+              🕘 {hoursInfo.varies ? <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span> : <>Open · <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span></>}
             </p>
           )}
 
@@ -189,7 +189,7 @@ export function AttractionCard({
         <div className="border-t" style={{ borderColor: 'var(--rule)' }}>
           {isGuestOrEmpty ? (
             <div className="px-3 py-3" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
-              Sign in to view <b>{sourceCountForGuest}</b> discount option{sourceCountForGuest === 1 ? '' : 's'}
+              Sign in to view <b>{sourceCountForGuest}</b> coupon{sourceCountForGuest === 1 ? '' : 's'}
             </div>
           ) : total === 0 ? (
             <div className="px-3 py-3 text-center" style={{ fontSize: 11, color: 'var(--ink-3)', fontStyle: 'italic' }}>
@@ -249,7 +249,7 @@ export function AttractionCard({
                       <>
                         <span className="inline-flex items-center gap-1"
                           style={{ fontSize: 11, color: 'var(--ink-3)' }}>
-                          <PersonIcon /> {capacityText.toLowerCase()}
+                          <PersonIcon /> {capacityText}
                         </span>
                         <span style={{ fontSize: 11, color: 'var(--ink-3)' }}>·</span>
                       </>
@@ -286,7 +286,7 @@ export function AttractionCard({
               borderTop: '1px solid var(--rule)', background: 'var(--bg)',
               fontSize: 12, color: 'var(--g)', fontWeight: 500,
             }}>
-              + {total - MAX_ROWS_VISIBLE} more option{total - MAX_ROWS_VISIBLE === 1 ? '' : 's'} →
+              + {total - MAX_ROWS_VISIBLE} more coupon{total - MAX_ROWS_VISIBLE === 1 ? '' : 's'} →
             </div>
           )}
             </>

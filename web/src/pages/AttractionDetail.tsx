@@ -21,9 +21,9 @@ import type { OriginalPrice } from '../data/types';
 function formatOriginalAdult(op: OriginalPrice | null): string {
   const adult = op?.age_pricing?.adult?.price;
   const free = op?.age_pricing?.free_under_age;
-  const suffix = free != null ? ` · FREE age <${free}` : '';
-  if (adult != null) return `Original Adult $${adult}${suffix}`;
-  if (free != null) return `FREE age <${free}`;
+  const suffix = free != null ? ` · FREE age<${free}` : '';
+  if (adult != null) return `Adult $${adult}${suffix}`;
+  if (free != null) return `FREE age<${free}`;
   return 'Price unavailable';
 }
 import { BookingConfirmModal } from '../components/BookingConfirmModal';
@@ -190,7 +190,7 @@ export function AttractionDetail() {
           {attraction.website && (
             <p style={{ marginTop: 8, fontSize: 13 }}>
               <a href={attraction.website} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--g)' }}>
-                Visit official site →
+                Visit museum's website →
               </a>
             </p>
           )}
@@ -296,7 +296,7 @@ export function AttractionDetail() {
       </div>
       {selectedDayRows.length === 0 ? (
         <div style={{ fontSize: 12, color: 'var(--ink-3)', fontStyle: 'italic', marginBottom: 16 }}>
-          No coupons available on this date.
+          No coupons available on this date
         </div>
       ) : (
         <div className="flex flex-col gap-1.5 mb-4">
@@ -353,7 +353,7 @@ export function AttractionDetail() {
         {attraction.sources.slice(0, 30).map(libId => {
           const l = libById.get(libId);
           return <li key={libId} style={{ padding: '2px 0' }}>
-            {l ? `${l.name} (${l.town})` : libId}
+            {l ? `${l.name} · ${l.town}` : libId}
           </li>;
         })}
       </ul>

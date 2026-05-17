@@ -1,24 +1,9 @@
 import { useRef } from 'react';
-import { todayIso, tomorrowIso } from '../lib/dates';
+import { formatFriendlyDate } from '../lib/dates';
 
 interface Props {
   value: string;
   onChange: (v: string) => void;
-}
-
-const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const DOWS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-
-function fmt(iso: string): string {
-  if (iso === todayIso()) return `Today, ${shortDate(iso)}`;
-  if (iso === tomorrowIso()) return `Tomorrow, ${shortDate(iso)}`;
-  const d = new Date(iso + 'T00:00:00');
-  return `${DOWS[d.getDay()]}, ${MONTHS[d.getMonth()]} ${d.getDate()}`;
-}
-
-function shortDate(iso: string): string {
-  const d = new Date(iso + 'T00:00:00');
-  return `${MONTHS[d.getMonth()]} ${d.getDate()}`;
 }
 
 export function DatePicker({ value, onChange }: Props) {
@@ -53,7 +38,7 @@ export function DatePicker({ value, onChange }: Props) {
       }}
     >
       <span aria-hidden style={{ fontSize: 13, color: 'var(--ink-3)' }}>📅</span>
-      <span style={{ fontWeight: 500 }}>{fmt(value)}</span>
+      <span style={{ fontWeight: 500 }}>{formatFriendlyDate(value)}</span>
       <input
         ref={inputRef}
         type="date"

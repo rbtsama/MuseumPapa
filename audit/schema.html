@@ -12,7 +12,6 @@
 <main>
 
 <h1 class="page-title">数据结构说明 · Schema</h1>
-<p>本页用自然语言解释三大产物中的每个字段,包括字段意义、可能的值、示例,以及为什么这个字段会存在。</p>
 
 <section class="panel">
   <h2>1. 图书馆 Libraries</h2>
@@ -57,13 +56,13 @@
     <li><b>library_id / attraction_slug</b>:主键,联合唯一。</li>
     <li><b>pass_type</b>:三种 pass 形态 —
       <ul>
-        <li><b>digital</b>(展示为 <b>Email</b>):邮件即时发送的电子券,用户可立即下载并使用。</li>
+        <li><b>digital</b>(显示为 <b>Email</b>)</li>
         <li><b>physical-coupon</b>:门店取纸质券,用完不归还(260 个)。</li>
-        <li><b>physical-circ / loan-card</b>:循环借阅卡,用完需归还图书馆(172 个)。</li>
+        <li><b>physical-circ</b>:循环借阅卡,用完需归还图书馆(172 个)。</li>
         <li><b>unknown</b>:未能识别(23 个)。</li>
       </ul>
     </li>
-    <li><b>coupon</b>(plan-9):统一优惠模型,替代旧版 discount + policy 两个字段:
+    <li><b>coupon</b>:统一优惠模型:
       <ul>
         <li><b>capacity</b>:<code>{"kind": "people"|"vehicle"|"ticket"|"unspecified", "n": int|null}</code> — 整张 coupon 覆盖的容量上限</li>
         <li><b>audience_policies</b>:数组,每项 = <code>{"audience", "age_range", "count", "form", "value"}</code>。
@@ -75,7 +74,7 @@
         </li>
       </ul>
     </li>
-    <li><b>restrictions</b>(side-channel):使用限制 — <code>{"blackout_dates": bool, "weekdays_only": bool, "seasonal": str|null, "reservation_required": bool}</code></li>
+    <li><b>restrictions</b>:使用限制 — <code>{"blackout_dates": bool, "weekdays_only": bool, "seasonal": str|null, "reservation_required": bool}</code></li>
     <li><b>availability</b>:未来 30 天的可预订状态字典(museumkey 不可用)。</li>
   </ul>
 

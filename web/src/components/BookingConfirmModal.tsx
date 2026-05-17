@@ -109,13 +109,10 @@ export function BookingConfirmModal({ pass, library, cardpack, onClose }: Props)
           {hasCard ? (
             <>
               <p style={{ fontSize: 13, color: 'var(--ink-3)', marginBottom: 12 }}>
-                Use these credentials when the library's reservation page asks for them.
+                Use these credentials when the library's pickup page asks for them.
               </p>
               <CredentialBox label="Card number" value={card.barcode} />
               {card.pin && <CredentialBox label="PIN" value={card.pin} />}
-              <p style={{ fontSize: 11, color: 'var(--ink-3)', fontStyle: 'italic', marginTop: 8 }}>
-                Tap COPY to copy a value, then paste it into the form on the next page.
-              </p>
             </>
           ) : (
             <div style={{

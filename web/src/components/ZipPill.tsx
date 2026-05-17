@@ -59,7 +59,7 @@ export function ZipPill({ onDark = false }: Props) {
           whiteSpace: 'nowrap',
         }}
       >
-        your location
+        ZIP code
       </span>
       <input
         value={draft}

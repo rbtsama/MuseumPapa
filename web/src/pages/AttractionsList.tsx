@@ -15,7 +15,7 @@ import { geocodeZip } from '../lib/distance';
 import { SignInModal } from '../components/SignInModal';
 import { BookingConfirmModal } from '../components/BookingConfirmModal';
 import { isClosedOn } from '../lib/hours';
-import { todayIso } from '../lib/dates';
+import { todayIso, formatFriendlyDate } from '../lib/dates';
 import type { Geo, Pass } from '../data/types';
 
 export function AttractionsList() {
@@ -200,7 +200,7 @@ export function AttractionsList() {
 
       <div className="max-w-6xl mx-auto px-3 sm:px-6 py-3 sm:py-4">
         <p className="mb-3" style={{ color: 'var(--ink-3)', fontSize: 11 }}>
-          Showing {sortedRows.length} attractions for {date}
+          Showing {sortedRows.length} attractions for {formatFriendlyDate(date)}
         </p>
         <div>
           {sortedRows.map(r => (
