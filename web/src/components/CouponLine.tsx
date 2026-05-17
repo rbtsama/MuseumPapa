@@ -2,7 +2,6 @@ import type { AgeRange, AudiencePolicy, Coupon, CouponCapacity } from '../data/t
 
 interface Props {
   coupon: Coupon;
-  size?: 'sm' | 'md';
 }
 
 function fmtAmount(p: AudiencePolicy): string {
@@ -25,25 +24,25 @@ function fmtAudience(audience: AudiencePolicy['audience'], age: AgeRange | null)
   return `${audience}${ageTxt}`;
 }
 
-function PersonIcon({ size }: { size: number }) {
+// Heroicons "user" solid — round head + smooth shoulder silhouette, tighter than a stick figure.
+function PersonIcon() {
   return (
-    <svg width={size} height={size} viewBox="0 0 16 16" fill="currentColor" aria-hidden>
-      <circle cx="8" cy="4.5" r="2.6" />
-      <path d="M2.5 14c0-3 2.5-5 5.5-5s5.5 2 5.5 5v.5H2.5z" />
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden
+      style={{ display: 'inline-block', verticalAlign: '-1px' }}>
+      <path d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0zM3.75 20.1a8.25 8.25 0 0 1 16.5 0 .75.75 0 0 1-.44.69 18.7 18.7 0 0 1-7.81 1.7c-2.79 0-5.43-.6-7.81-1.7a.75.75 0 0 1-.44-.69z" />
     </svg>
   );
 }
 
-function CapacityIcons({ capacity, color, iconSize }: {
-  capacity: CouponCapacity; color: string; iconSize: number;
-}) {
+function CapacityNode({ capacity, color }: { capacity: CouponCapacity; color: string }) {
   if (capacity.n == null || capacity.n <= 0) return null;
   if (capacity.kind === 'people') {
     return (
-      <span className="inline-flex items-center gap-0.5" style={{ color }}>
-        {Array.from({ length: capacity.n }).map((_, i) => (
-          <PersonIcon key={i} size={iconSize} />
-        ))}
+      <span className="inline-flex items-baseline" style={{ color, gap: 3 }}>
+        <span>up to</span>
+        <span className="inline-flex items-center" style={{ gap: 1 }}>
+          {Array.from({ length: capacity.n }).map((_, i) => <PersonIcon key={i} />)}
+        </span>
       </span>
     );
   }
@@ -56,42 +55,31 @@ function CapacityIcons({ capacity, color, iconSize }: {
   return null;
 }
 
-export function CouponLine({ coupon, size = 'md' }: Props) {
+export function CouponLine({ coupon }: Props) {
   if (!coupon.audience_policies.length) return null;
 
-  const fontSize = size === 'sm' ? 13 : 14;
-  const iconSize = size === 'sm' ? 10 : 11;
   const dim = 'var(--ink-3)';
   const amount = 'var(--g)';
-
+  const hasCapacity = coupon.capacity.n != null && coupon.capacity.n > 0;
   const hideAudienceLabel =
     coupon.audience_policies.length === 1 &&
     coupon.audience_policies[0].audience === 'Everyone';
 
-  const capacityNode = (
-    <CapacityIcons capacity={coupon.capacity} color={dim} iconSize={iconSize} />
-  );
-  const hasCapacity = coupon.capacity.n != null && coupon.capacity.n > 0;
-
   return (
-    <div className="text-right flex-shrink-0">
-      <span
-        className="inline-flex items-center gap-1.5 flex-wrap justify-end"
-        style={{ fontSize, lineHeight: 1.2 }}
-      >
-        {hasCapacity && capacityNode}
-        {coupon.audience_policies.map((p, i) => (
-          <span key={i} className="inline-flex items-baseline gap-1">
-            {(i > 0 || hasCapacity) && (
-              <span style={{ color: dim }}>·</span>
-            )}
-            <span style={{ color: amount, fontWeight: 700 }}>{fmtAmount(p)}</span>
-            {!hideAudienceLabel && (
-              <span style={{ color: dim }}>{fmtAudience(p.audience, p.age_range)}</span>
-            )}
-          </span>
-        ))}
-      </span>
-    </div>
+    <span
+      className="inline-flex flex-wrap items-baseline justify-end gap-x-1.5 gap-y-0.5"
+      style={{ fontSize: 12, lineHeight: 1.2 }}
+    >
+      {hasCapacity && <CapacityNode capacity={coupon.capacity} color={dim} />}
+      {coupon.audience_policies.map((p, i) => (
+        <span key={i} className="inline-flex items-baseline gap-1">
+          {(i > 0 || hasCapacity) && <span style={{ color: dim }}>·</span>}
+          <span style={{ color: amount, fontWeight: 700, fontSize: 13 }}>{fmtAmount(p)}</span>
+          {!hideAudienceLabel && (
+            <span style={{ color: dim }}>{fmtAudience(p.audience, p.age_range)}</span>
+          )}
+        </span>
+      ))}
+    </span>
   );
 }
