@@ -3,7 +3,7 @@ import type { Attraction, Pass } from '../data/types';
 import type { PickedTag } from '../lib/tag-algorithm';
 import { FavoriteButton } from './FavoriteButton';
 import { PassTypeLabel } from './PassTypeLabel';
-import { CouponLine, CapacityRow } from './CouponLine';
+import { CouponLine, formatCapacity } from './CouponLine';
 import { MuseumReservationBanner } from './MuseumReservationBanner';
 import { hoursDisplay } from '../lib/hours';
 import { heroSrc } from '../lib/hero';
@@ -22,15 +22,6 @@ interface Props {
 }
 
 const MAX_ROWS_VISIBLE = 4;
-
-function DistanceIcon() {
-  return (
-    <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor" aria-hidden
-      style={{ display: 'inline-block', verticalAlign: '-1px' }}>
-      <path d="M12 2a8 8 0 0 0-8 8c0 5.4 6.5 11.2 7.3 11.8a1 1 0 0 0 1.4 0C13.5 21.2 20 15.4 20 10a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-    </svg>
-  );
-}
 
 function fmtMoney(v: number | null | undefined): string {
   if (v == null) return '';
@@ -59,19 +50,27 @@ export function AttractionCard({
   const studentPrice = op?.identity_pricing?.student?.price ?? null;
   const educatorPrice = op?.identity_pricing?.educator?.price ?? null;
   const militaryPrice = op?.identity_pricing?.military?.price ?? null;
+  const freeUnder = op?.age_pricing?.free_under_age ?? null;
   const total = pickedTags.length;
 
-  // Main price line shows only age-based tiers that have data; identity-based
-  // waivers (student / educator / military) surface as a one-line note below.
-  const tiers: Array<{ label: string | null; value: number }> = [];
+  // Price tiers — list each only when it differs from the adult price. Same-
+  // price tiers are noise (Boston Children's Museum has Adult=Child=$24 → just
+  // show Adult). When free_under_age is set AND child has its own price, label
+  // the child tier with its lower bound so the gap reads cleanly:
+  //   $26 adult · $21 senior · $18 age 5+ · FREE age <5
+  // Identity tiers (student/educator/military) inline alongside age tiers, no
+  // "Waivers" wrapper.
+  const tiers: Array<{ label: string; value: number }> = [];
   if (adultPrice != null) tiers.push({ label: 'adult', value: adultPrice });
-  if (youthPrice != null) tiers.push({ label: 'youth', value: youthPrice });
-  if (childPrice != null) tiers.push({ label: 'kids', value: childPrice });
-  if (seniorPrice != null) tiers.push({ label: 'senior', value: seniorPrice });
-  const waivers: Array<{ label: string; value: number }> = [];
-  if (studentPrice != null)  waivers.push({ label: 'Student',  value: studentPrice });
-  if (educatorPrice != null) waivers.push({ label: 'Educator', value: educatorPrice });
-  if (militaryPrice != null) waivers.push({ label: 'Military', value: militaryPrice });
+  if (seniorPrice != null && seniorPrice !== adultPrice) tiers.push({ label: 'senior', value: seniorPrice });
+  if (youthPrice != null && youthPrice !== adultPrice) tiers.push({ label: 'youth', value: youthPrice });
+  if (childPrice != null && childPrice !== adultPrice) {
+    const lbl = freeUnder != null ? `age ${freeUnder}+` : 'kids';
+    tiers.push({ label: lbl, value: childPrice });
+  }
+  if (studentPrice != null && studentPrice !== adultPrice) tiers.push({ label: 'student', value: studentPrice });
+  if (educatorPrice != null && educatorPrice !== adultPrice) tiers.push({ label: 'educator', value: educatorPrice });
+  if (militaryPrice != null && militaryPrice !== adultPrice) tiers.push({ label: 'military', value: militaryPrice });
   const hoursInfo = date ? hoursDisplay(attraction, date) : null;
 
   const dim = closedToday ? { filter: 'grayscale(0.7)', opacity: 0.55 } : {};
@@ -142,9 +141,9 @@ export function AttractionCard({
             </div>
           )}
 
-          {(tiers.length > 0 || op?.age_pricing?.free_under_age != null) && (
+          {(tiers.length > 0 || freeUnder != null) && (
             <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5" style={{ fontSize: 12 }}>
-              {tiers.slice(0, 4).map((t, i) => (
+              {tiers.map((t, i) => (
                 <span key={`${t.label}-${i}`} className="inline-flex items-baseline gap-1">
                   {i > 0 && <span style={{ color: 'var(--ink-3)' }}>·</span>}
                   <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink-2)' }}>
@@ -155,20 +154,13 @@ export function AttractionCard({
                   )}
                 </span>
               ))}
-              {op?.age_pricing?.free_under_age != null && (
+              {freeUnder != null && (
                 <span className="inline-flex items-baseline gap-1">
                   {tiers.length > 0 && <span style={{ color: 'var(--ink-3)' }}>·</span>}
-                  <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--g)' }}>FREE</span>
-                  <span style={{ color: 'var(--ink-3)', fontSize: 12 }}>
-                    age &lt;{op.age_pricing.free_under_age}
-                  </span>
+                  <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink-2)' }}>FREE</span>
+                  <span style={{ color: 'var(--ink-3)' }}>age &lt;{freeUnder}</span>
                 </span>
               )}
-            </p>
-          )}
-          {waivers.length > 0 && (
-            <p className="mt-1" style={{ fontSize: 11, color: 'var(--ink-3)' }}>
-              Waivers: {waivers.map(w => `${w.label} ${fmtMoney(w.value)}`).join(' · ')}
             </p>
           )}
 
@@ -219,15 +211,14 @@ export function AttractionCard({
               : showBranchLabel ? `${branches[0].name} · ${branches[0].address.street}`
               : t.library.town;
 
+            const capacityText = formatCapacity(t.pass.coupon.capacity);
+
             return (
               <div
                 key={`${t.pass.library_id}-${i}`}
                 className="flex items-center gap-3 px-3 py-2"
                 style={{ borderTop: i === 0 ? 'none' : '1px solid var(--rule)' }}
               >
-                <span className="flex-shrink-0">
-                  <PassTypeLabel type={t.pass.pass_type} />
-                </span>
                 <div className="flex-grow min-w-0 flex flex-col gap-0.5">
                   <div className="flex items-center gap-1.5 min-w-0" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
                     <span style={{ color: 'var(--ink-2)', fontWeight: 500, fontSize: 13,
@@ -235,13 +226,20 @@ export function AttractionCard({
                       {locationText}
                     </span>
                     {!isDigital && t.distanceMi != null && (
-                      <span className="flex-shrink-0 inline-flex items-center" style={{ fontSize: 11, gap: 2 }}>
-                        <DistanceIcon /> {Math.round(t.distanceMi)} mi
+                      <span className="flex-shrink-0" style={{ fontSize: 11 }}>
+                        · {Math.round(t.distanceMi)} mi
                       </span>
                     )}
+                    <span className="ml-auto flex-shrink-0">
+                      <PassTypeLabel type={t.pass.pass_type} />
+                    </span>
                   </div>
-                  <CapacityRow capacity={t.pass.coupon.capacity} />
-                  <CouponLine coupon={t.pass.coupon} align="left" />
+                  <div className="flex items-baseline flex-wrap gap-x-1.5 gap-y-0.5 min-w-0">
+                    {capacityText && (
+                      <span style={{ fontSize: 11, color: 'var(--ink-3)' }}>{capacityText.toLowerCase()}</span>
+                    )}
+                    <CouponLine coupon={t.pass.coupon} align="left" />
+                  </div>
                 </div>
 
                 <span

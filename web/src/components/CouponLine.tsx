@@ -68,30 +68,6 @@ export function formatCapacity(capacity: CouponCapacity): string | null {
   return null;
 }
 
-function PersonIcon() {
-  return (
-    <svg width="11" height="11" viewBox="4 0 16 24" fill="currentColor" aria-hidden
-      style={{ display: 'inline-block', verticalAlign: '-1px' }}>
-      <path d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0zM3.75 20.1a8.25 8.25 0 0 1 16.5 0 .75.75 0 0 1-.44.69 18.7 18.7 0 0 1-7.81 1.7c-2.79 0-5.43-.6-7.81-1.7a.75.75 0 0 1-.44-.69z" />
-    </svg>
-  );
-}
-
-/** Standalone "up to 👤×N" capacity row, intended to sit on its own line.
- *  Returns null for non-headcount kinds (vehicle / unspecified / null).
- */
-export function CapacityRow({ capacity }: { capacity: CouponCapacity }) {
-  if (capacity.n == null || capacity.n <= 0) return null;
-  if (capacity.kind !== 'people' && capacity.kind !== 'ticket') return null;
-  return (
-    <span className="inline-flex items-baseline" style={{ color: 'var(--ink-3)', fontSize: 12, gap: 4 }}>
-      <span>up to</span>
-      <span className="inline-flex items-center" style={{ gap: 0 }}>
-        {Array.from({ length: capacity.n }).map((_, i) => <PersonIcon key={i} />)}
-      </span>
-    </span>
-  );
-}
 
 // A coupon is "non-admission" when any policy carries vehicle as the unit.
 // Display it as a single dim line so it doesn't get compared against admission discounts.
