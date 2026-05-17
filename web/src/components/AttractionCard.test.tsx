@@ -191,7 +191,7 @@ describe('AttractionCard', () => {
     expect(screen.getByText('$30')).toBeInTheDocument();
   });
 
-  it('renders "kids <N free" hint when free_under_age is set', () => {
+  it('renders the "FREE age<N" hint when free_under_age is set', () => {
     const a = makeAttraction();
     a.original_price!.age_pricing.free_under_age = 3;
     renderApp(
@@ -201,10 +201,11 @@ describe('AttractionCard', () => {
         isGuestOrEmpty={false}
       />
     );
-    expect(screen.getByText(/kids <3 free/)).toBeInTheDocument();
+    expect(screen.getByText('FREE')).toBeInTheDocument();
+    expect(screen.getByText(/age <3/)).toBeInTheDocument();
   });
 
-  it('does not render "kids <N free" hint when free_under_age is null', () => {
+  it('does not render the FREE-age hint when free_under_age is null', () => {
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
@@ -212,7 +213,7 @@ describe('AttractionCard', () => {
         isGuestOrEmpty={false}
       />
     );
-    expect(screen.queryByText(/kids </)).not.toBeInTheDocument();
+    expect(screen.queryByText(/age </)).not.toBeInTheDocument();
   });
 
   it('shows "+ N more" when more than 4 tags', () => {

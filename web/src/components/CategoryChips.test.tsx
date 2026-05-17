@@ -18,6 +18,7 @@ function makeAttraction(slug: string, categories: string[]): Attraction {
     hero_image: null,
     geo: null,
     hours: null,
+    museum_reservation: null,
   };
 }
 
@@ -31,45 +32,18 @@ describe('CategoryChips', () => {
   it('renders "All" chip with total count', () => {
     const onChange = vi.fn();
     renderApp(
-      <CategoryChips
-        attractions={attractions}
-        value="all"
-        onChange={onChange}
-        favoritesCount={0}
-      />
+      <CategoryChips attractions={attractions} value="all" onChange={onChange} />
     );
-    // All chip should show total count = 3
     const allBtn = screen.getByRole('button', { name: /All/ });
     expect(allBtn).toBeInTheDocument();
     expect(allBtn).toHaveTextContent('3');
   });
 
-  it('renders Favorites chip', () => {
-    const onChange = vi.fn();
-    renderApp(
-      <CategoryChips
-        attractions={attractions}
-        value="all"
-        onChange={onChange}
-        favoritesCount={2}
-      />
-    );
-    const favBtn = screen.getByRole('button', { name: /Favorites/ });
-    expect(favBtn).toBeInTheDocument();
-    expect(favBtn).toHaveTextContent('2');
-  });
-
   it('renders category chips from attraction data', () => {
     const onChange = vi.fn();
     renderApp(
-      <CategoryChips
-        attractions={attractions}
-        value="all"
-        onChange={onChange}
-        favoritesCount={0}
-      />
+      <CategoryChips attractions={attractions} value="all" onChange={onChange} />
     );
-    // Family appears in 2 attractions, Animals in 2 — both should be chips
     expect(screen.getByRole('button', { name: /Family/ })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Animals/ })).toBeInTheDocument();
   });
@@ -77,43 +51,26 @@ describe('CategoryChips', () => {
   it('clicking a category calls onChange with that category', () => {
     const onChange = vi.fn();
     renderApp(
-      <CategoryChips
-        attractions={attractions}
-        value="all"
-        onChange={onChange}
-        favoritesCount={0}
-      />
+      <CategoryChips attractions={attractions} value="all" onChange={onChange} />
     );
-    const familyBtn = screen.getByRole('button', { name: /Family/ });
-    fireEvent.click(familyBtn);
+    fireEvent.click(screen.getByRole('button', { name: /Family/ }));
     expect(onChange).toHaveBeenCalledWith('Family');
   });
 
   it('clicking All chip calls onChange with "all"', () => {
     const onChange = vi.fn();
     renderApp(
-      <CategoryChips
-        attractions={attractions}
-        value="Family"
-        onChange={onChange}
-        favoritesCount={0}
-      />
+      <CategoryChips attractions={attractions} value="Family" onChange={onChange} />
     );
     fireEvent.click(screen.getByRole('button', { name: /All/ }));
     expect(onChange).toHaveBeenCalledWith('all');
   });
 
-  it('clicking Favorites chip calls onChange with "favorites"', () => {
+  it('no longer renders a Favorites chip (extracted to FavoritesToggle)', () => {
     const onChange = vi.fn();
     renderApp(
-      <CategoryChips
-        attractions={attractions}
-        value="all"
-        onChange={onChange}
-        favoritesCount={1}
-      />
+      <CategoryChips attractions={attractions} value="all" onChange={onChange} />
     );
-    fireEvent.click(screen.getByRole('button', { name: /Favorites/ }));
-    expect(onChange).toHaveBeenCalledWith('favorites');
+    expect(screen.queryByRole('button', { name: /Favorites/ })).toBeNull();
   });
 });

@@ -156,8 +156,12 @@ export function AttractionCard({
                 </span>
               ))}
               {op?.age_pricing?.free_under_age != null && (
-                <span style={{ color: 'var(--ink-3)', fontSize: 12 }}>
-                  {tiers.length > 0 ? '· ' : ''}kids &lt;{op.age_pricing.free_under_age} free
+                <span className="inline-flex items-baseline gap-1">
+                  {tiers.length > 0 && <span style={{ color: 'var(--ink-3)' }}>·</span>}
+                  <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--g)' }}>FREE</span>
+                  <span style={{ color: 'var(--ink-3)', fontSize: 12 }}>
+                    age &lt;{op.age_pricing.free_under_age}
+                  </span>
                 </span>
               )}
             </p>
@@ -218,12 +222,14 @@ export function AttractionCard({
             return (
               <div
                 key={`${t.pass.library_id}-${i}`}
-                className="flex items-center gap-2 px-3 py-2"
+                className="flex items-center gap-3 px-3 py-2"
                 style={{ borderTop: i === 0 ? 'none' : '1px solid var(--rule)' }}
               >
+                <span className="flex-shrink-0">
+                  <PassTypeLabel type={t.pass.pass_type} />
+                </span>
                 <div className="flex-grow min-w-0 flex flex-col gap-0.5">
                   <div className="flex items-center gap-1.5 min-w-0" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
-                    <PassTypeLabel type={t.pass.pass_type} />
                     <span style={{ color: 'var(--ink-2)', fontWeight: 500, fontSize: 13,
                       overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {locationText}

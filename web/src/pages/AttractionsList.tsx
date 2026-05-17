@@ -3,6 +3,7 @@ import { getAttractions, getPasses, getLibraries } from '../data/load';
 import { AttractionCard } from '../components/AttractionCard';
 import { Banner } from '../components/Banner';
 import { DatePicker } from '../components/DatePicker';
+import { FavoritesToggle } from '../components/FavoritesToggle';
 import { SortDropdown, type SortOption } from '../components/SortDropdown';
 import { SearchBox } from '../components/SearchBox';
 import { CategoryChips } from '../components/CategoryChips';
@@ -28,6 +29,7 @@ export function AttractionsList() {
   const [date, setDate] = useState(() => todayIso());
   const [sort, setSort] = useState<SortOption>('recommended');
   const [category, setCategory] = useState<string>('all');
+  const [favoritesOnly, setFavoritesOnly] = useState(false);
   const [search, setSearch] = useState<string>('');
   const [userGeo, setUserGeo] = useState<Geo | null>(null);
   const [bookingPass, setBookingPass] = useState<Pass | null>(null);
@@ -48,7 +50,7 @@ export function AttractionsList() {
     // Intentionally NOT depending on favoritesLive — we only want to re-snapshot
     // when these "structural" inputs change.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sort, date, category, user]);
+  }, [sort, date, category, favoritesOnly, user]);
 
   useEffect(() => {
     const zip = cardpack.zip;
@@ -97,12 +99,12 @@ export function AttractionsList() {
     [search],
   );
 
-  // Category / Favorites / Search filter
   const filteredRows = useMemo(() => {
     let out = rows;
-    if (category === 'favorites') {
+    if (favoritesOnly) {
       out = out.filter(r => favoritesLive.has(r.attraction.slug));
-    } else if (category !== 'all') {
+    }
+    if (category !== 'all') {
       out = out.filter(r => r.attraction.categories.includes(category));
     }
     if (searchTokens.length > 0) {
@@ -113,7 +115,7 @@ export function AttractionsList() {
       });
     }
     return out;
-  }, [rows, category, favoritesLive, searchTokens]);
+  }, [rows, category, favoritesOnly, favoritesLive, searchTokens]);
 
   const sortedRows = useMemo(() => {
     const copy = [...filteredRows];
@@ -184,12 +186,16 @@ export function AttractionsList() {
             <SearchBox value={search} onChange={setSearch} />
             <DatePicker value={date} onChange={setDate} />
             <SortDropdown value={sort} onChange={setSort} distanceEnabled={!!userGeo} />
+            <FavoritesToggle
+              active={favoritesOnly}
+              count={favoritesLive.size}
+              onToggle={() => setFavoritesOnly(v => !v)}
+            />
           </div>
           <CategoryChips
             attractions={attractions}
             value={category}
             onChange={setCategory}
-            favoritesCount={favoritesLive.size}
           />
         </div>
       </div>

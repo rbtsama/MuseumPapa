@@ -1,7 +1,8 @@
+import { useRef } from 'react';
 import { todayIso, tomorrowIso } from '../lib/dates';
 
 interface Props {
-  value: string;           // YYYY-MM-DD
+  value: string;
   onChange: (v: string) => void;
 }
 
@@ -20,38 +21,52 @@ function shortDate(iso: string): string {
   return `${MONTHS[d.getMonth()]} ${d.getDate()}`;
 }
 
-/**
- * Pill-style date picker. Visually compact (icon + label + value on a single
- * line) while still triggering the browser's native date dialog for selection
- * — best UX on mobile (iOS Safari and Chrome both render a familiar picker).
- */
 export function DatePicker({ value, onChange }: Props) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const openPicker = () => {
+    const el = inputRef.current;
+    if (!el) return;
+    // showPicker() is the reliable cross-browser API; fall back to focus+click
+    // for older browsers where it's not yet available.
+    type WithShowPicker = HTMLInputElement & { showPicker?: () => void };
+    const withPicker = el as WithShowPicker;
+    if (typeof withPicker.showPicker === 'function') {
+      withPicker.showPicker();
+    } else {
+      el.focus();
+      el.click();
+    }
+  };
+
   return (
-    <label
-      className="relative inline-flex items-center gap-1.5 rounded-md cursor-pointer"
+    <button
+      type="button"
+      onClick={openPicker}
+      className="inline-flex items-center gap-1.5 rounded-md cursor-pointer"
       style={{
         background: 'transparent',
         border: '1px solid var(--rule)',
         padding: '6px 10px',
         fontSize: 12,
-        minWidth: 180,
+        color: 'var(--ink-2)',
       }}
     >
       <span aria-hidden style={{ fontSize: 13, color: 'var(--ink-3)' }}>📅</span>
-      <span style={{ color: 'var(--ink-3)', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-        Date
-      </span>
-      <span style={{ color: 'var(--ink-2)', fontWeight: 600, fontSize: 12 }}>
-        {fmt(value)}
-      </span>
-      {/* invisible native input — captures clicks anywhere in the label */}
+      <span style={{ fontWeight: 500 }}>{fmt(value)}</span>
       <input
+        ref={inputRef}
         type="date"
         value={value}
-        onChange={(e) => e.target.value && onChange(e.target.value)}
-        className="absolute inset-0"
-        style={{ opacity: 0, cursor: 'pointer' }}
+        onChange={(e) => { if (e.target.value) onChange(e.target.value); }}
+        style={{
+          position: 'absolute',
+          width: 1, height: 1,
+          opacity: 0, pointerEvents: 'none',
+        }}
+        tabIndex={-1}
+        aria-hidden
       />
-    </label>
+    </button>
   );
 }

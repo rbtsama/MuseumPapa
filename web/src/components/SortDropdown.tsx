@@ -43,19 +43,11 @@ export function SortDropdown({ value, onChange, distanceEnabled }: Props) {
         selectedKeys={new Set([value])}
         selectionMode="single"
         onAction={(key) => onChange(key as SortOption)}
+        disabledKeys={distanceEnabled ? undefined : ['distance']}
       >
-        <DropdownItem key="recommended" description="Favorites first, then nearest">
-          Recommended
-        </DropdownItem>
-        <DropdownItem key="alpha" description="Alphabetical">
-          A–Z
-        </DropdownItem>
-        <DropdownItem
-          key="distance"
-          description={distanceEnabled ? 'Closest first' : 'Set your ZIP first'}
-        >
-          Distance
-        </DropdownItem>
+        <DropdownItem key="recommended">Recommended</DropdownItem>
+        <DropdownItem key="alpha">A–Z</DropdownItem>
+        <DropdownItem key="distance">Distance</DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );
