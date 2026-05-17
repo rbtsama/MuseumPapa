@@ -1,11 +1,11 @@
 {
   "_meta": {
-    "built_at": "2026-05-17T03:21:47Z",
-    "n_attractions": 107,
-    "n_with_price": 81,
-    "n_with_image": 104,
-    "n_with_geo": 107,
-    "n_with_hours": 107
+    "built_at": "2026-05-17T05:22:51Z",
+    "n_attractions": 98,
+    "n_with_price": 76,
+    "n_with_image": 95,
+    "n_with_geo": 98,
+    "n_with_hours": 98
   },
   "attractions": [
     {
@@ -26,6 +26,7 @@
         "Family",
         "Technology"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "andover",
@@ -148,6 +149,7 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "andover",
@@ -205,6 +207,7 @@
         "Nature",
         "Zoo"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "billerica",
@@ -283,6 +286,7 @@
         "Family",
         "Science"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "andover",
@@ -390,6 +394,7 @@
         "Nature",
         "Science"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "burlington",
@@ -461,6 +466,7 @@
         "Family",
         "Nature"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "burlington",
@@ -555,6 +561,7 @@
         "Nature",
         "Science"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "andover",
@@ -644,7 +651,7 @@
       }
     },
     {
-      "slug": "institute-of-contemporary-art-boston",
+      "slug": "ica-boston",
       "museum_name": "Institute of Contemporary Art/Boston",
       "address": "25 Harbor Shore Drive, Boston, MA 02210",
       "website": "https://www.icaboston.org/",
@@ -660,6 +667,9 @@
         "Family",
         "Music",
         "Dance"
+      ],
+      "legacy_slugs": [
+        "institute-of-contemporary-art-boston"
       ],
       "sources": [
         "acton",
@@ -689,7 +699,13 @@
         "wellesley",
         "weston",
         "wilmington",
-        "winchester"
+        "winchester",
+        "bpl",
+        "braintree",
+        "brookline",
+        "cambridge",
+        "milton",
+        "hingham"
       ],
       "original_price": {
         "age_pricing": {
@@ -716,12 +732,12 @@
           "military": null
         },
         "family": null,
-        "notes": "Adults: $20; Students: $15; Seniors (65+): $17; Ages 18 and under: free; BPS students: free. Free every Thursday 5-9 PM. Library pass: $10/person.",
+        "notes": "Duplicate of institute-of-contemporary-art-boston. Adults: $20; Students: $15; Seniors (65+): $17; Ages 18 and under: free; BPS students: free. Free every Thursday 5-9 PM. Library pass: $10/person.",
         "source_url": "https://www.icaboston.org/visit"
       },
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Institute_of_Contemporary_Art%2C_Boston.jpg/960px-Institute_of_Contemporary_Art%2C_Boston.jpg",
-        "local_path": "static/images/institute-of-contemporary-art-boston.jpg"
+        "local_path": "static/images/ica-boston.jpg"
       },
       "geo": {
         "lat": 42.3528651,
@@ -759,6 +775,7 @@
         "Family",
         "Music"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "andover",
@@ -862,7 +879,7 @@
       }
     },
     {
-      "slug": "john-f-kennedy-library-and-museum",
+      "slug": "jfk-library",
       "museum_name": "John F. Kennedy Library & Museum",
       "address": "Columbia Point, Boston, MA 02125",
       "website": "https://www.jfklibrary.org/",
@@ -876,6 +893,9 @@
         "Family",
         "Governance",
         "History"
+      ],
+      "legacy_slugs": [
+        "john-f-kennedy-library-and-museum"
       ],
       "sources": [
         "acton",
@@ -900,12 +920,14 @@
         "wakefield",
         "wayland",
         "wellesley",
-        "weston"
+        "weston",
+        "brookline",
+        "cohasset"
       ],
       "original_price": null,
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/JFK_library_Stitch_Crop.jpg",
-        "local_path": "static/images/john-f-kennedy-library-and-museum.jpg"
+        "local_path": "static/images/jfk-library.jpg"
       },
       "geo": {
         "lat": 42.3320968,
@@ -922,8 +944,8 @@
           "sat": "10:00 AM – 5:00 PM",
           "sun": "10:00 AM – 5:00 PM"
         },
-        "notes": "Open daily. Closes at 2:00 PM day before Thanksgiving, Christmas Eve, and New Year's Eve.",
-        "source_url": "https://www.jfklibrary.org/visit-museum/visit/plan-your-trip/hours-and-admission"
+        "notes": "Open daily 10 AM–5 PM. Last entry at 3:30 PM. Closed Thanksgiving, Christmas, and New Year's Day. Same attraction as john-f-kennedy-library-and-museum.",
+        "source_url": "https://www.jfklibrary.org/visit-us/hours-and-directions"
       }
     },
     {
@@ -942,6 +964,7 @@
         "Family",
         "Nature"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "belmont",
@@ -1004,7 +1027,7 @@
       }
     },
     {
-      "slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "slug": "ma-state-parks",
       "museum_name": "Massachusetts State Parks (Department of Conservation and Recreation)",
       "address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104",
       "website": "http://www.mass.gov/eea/agencies/dcr/massparks/",
@@ -1019,6 +1042,9 @@
         "Family",
         "Nature",
         "Recreation"
+      ],
+      "legacy_slugs": [
+        "massachusetts-state-parks-department-of-conservation-and-recreation"
       ],
       "sources": [
         "acton",
@@ -1066,12 +1092,17 @@
         "weston",
         "wilmington",
         "winchester",
-        "woburn"
+        "woburn",
+        "bpl",
+        "braintree",
+        "brookline",
+        "cohasset",
+        "hingham"
       ],
       "original_price": null,
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Halibut_point_state_park_rockport.JPG",
-        "local_path": "static/images/massachusetts-state-parks-department-of-conservation-and-recreation.jpg"
+        "local_path": "static/images/ma-state-parks.jpg"
       },
       "geo": {
         "lat": 42.3664598,
@@ -1080,12 +1111,12 @@
       "hours": {
         "status": "varies",
         "regular_hours": null,
-        "notes": "Massachusetts DCR operates 450+ parks, beaches, and forests across the state, each with different hours. No single schedule applies. Most outdoor spaces are open dawn to dusk; visitor centers have limited hours. See mass.gov/dcr for specific park hours.",
+        "notes": "Massachusetts DCR operates 450+ parks, beaches, and forests, each with different hours. No single schedule applies. Most outdoor spaces are open dawn to dusk. Same as massachusetts-state-parks-department-of-conservation-and-recreation.",
         "source_url": "https://www.mass.gov/orgs/department-of-conservation-and-recreation"
       }
     },
     {
-      "slug": "museum-of-fine-arts",
+      "slug": "mfa",
       "museum_name": "Museum of Fine Arts",
       "address": "465 Huntington Avenue, Boston, MA 02115",
       "website": "http://www.mfa.org/",
@@ -1100,6 +1131,9 @@
         "Art",
         "Family",
         "History"
+      ],
+      "legacy_slugs": [
+        "museum-of-fine-arts"
       ],
       "sources": [
         "acton",
@@ -1153,7 +1187,14 @@
         "weston",
         "wilmington",
         "winchester",
-        "woburn"
+        "woburn",
+        "bpl",
+        "braintree",
+        "brookline",
+        "cambridge",
+        "milton",
+        "cohasset",
+        "hingham"
       ],
       "original_price": {
         "age_pricing": {
@@ -1177,12 +1218,12 @@
           "military": null
         },
         "family": null,
-        "notes": "Adults: $30; Youths 7-17: $14; Youths 0-6: free. Members: free. Additional free and discounted admission opportunities listed separately on site.",
+        "notes": "Duplicate of museum-of-fine-arts. Adults: $30; Youths 7-17: $14; Youths 0-6: free. Members: free.",
         "source_url": "https://www.mfa.org/visit/plan-your-visit"
       },
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Museum_of_Fine_Arts%2C_Boston_%2854954248311%29.jpg/960px-Museum_of_Fine_Arts%2C_Boston_%2854954248311%29.jpg",
-        "local_path": "static/images/museum-of-fine-arts.jpg"
+        "local_path": "static/images/mfa.jpg"
       },
       "geo": {
         "lat": 42.3394573,
@@ -1199,7 +1240,7 @@
           "sat": "10 AM – 5 PM",
           "sun": "10 AM – 5 PM"
         },
-        "notes": "Closed New Year's Day, Patriots' Day, Independence Day, Thanksgiving, and Christmas.",
+        "notes": "Closed New Year's Day, Patriots' Day, Independence Day, Thanksgiving, and Christmas. Same attraction as museum-of-fine-arts.",
         "source_url": "https://www.mfa.org/visit"
       }
     },
@@ -1225,6 +1266,7 @@
         "Technology",
         "Sky"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "andover",
@@ -1356,6 +1398,7 @@
         "Science",
         "Ocean"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "andover",
@@ -1487,6 +1530,7 @@
         "Family",
         "Nature"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "andover",
@@ -1554,6 +1598,7 @@
         "History",
         "Ocean"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "arlington",
@@ -1656,12 +1701,12 @@
       }
     },
     {
-      "slug": "the-trustees-of-the-reservations",
+      "slug": "trustees-of-reservations",
       "museum_name": "Trustees of Reservations (with deCordova Sculpture Park and Museum)",
-      "address": "",
+      "address": "MA",
       "website": "http://www.thetrustees.org/",
-      "phone": "617-542-7696",
-      "description": "The Trustees of Reservations protects and shares exceptional Massachusetts places—including over 120 reservations featuring trails, historic homes, gardens, farms, and beaches—for their scenic, historic, and ecological value.",
+      "phone": "978-921-1944",
+      "description": "The Trustees of the Reservations preserve and protect more than 100 special properties of exceptional scenic, historic, and ecological value—nearly 25,000 acres—all around Massachusetts. From Crane's Beach in Ipswich and World's End in Hingham to The Old Manse in Concord and Fruitlands Museum in Harvard, visitors to Trustees sites enjoy local history and nature in its various forms: beaches, meadows, forests, swamps and more.",
       "categories": [
         "Children",
         "History",
@@ -1675,27 +1720,42 @@
         "Nature",
         "Recreation"
       ],
+      "legacy_slugs": [
+        "the-trustees-of-the-reservations",
+        "trustees-of-the-reservations"
+      ],
       "sources": [
         "acton",
         "andover",
         "arlington",
         "bedford",
         "belmont",
+        "billerica",
+        "burlington",
+        "carlisle",
         "chelmsford",
         "concord",
+        "everett",
         "lexington",
+        "lincoln",
         "lynnfield",
         "malden",
         "maynard",
         "medford",
         "melrose",
+        "natick",
         "needham",
         "newton",
+        "north-andover",
         "north-reading",
         "peabody",
         "reading",
         "somerville",
+        "stoneham",
         "sudbury",
+        "tewksbury",
+        "topsfield",
+        "wakefield",
         "waltham",
         "watertown",
         "wayland",
@@ -1703,41 +1763,26 @@
         "weston",
         "wilmington",
         "winchester",
-        "woburn"
+        "woburn",
+        "bpl",
+        "brookline",
+        "cambridge",
+        "cohasset",
+        "hingham"
       ],
-      "original_price": {
-        "age_pricing": {
-          "adult": {
-            "price": 0,
-            "min_age": null,
-            "max_age": null
-          },
-          "youth": null,
-          "child": null,
-          "senior": null,
-          "free_under_age": null
-        },
-        "identity_pricing": {
-          "student": null,
-          "educator": null,
-          "military": null
-        },
-        "family": null,
-        "notes": "Free admission noted on page; Trustees members always free",
-        "source_url": "http://www.thetrustees.org/"
-      },
+      "original_price": null,
       "hero_image": {
-        "og_image_url": "https://thetrustees.org/wp-content/uploads/2020/07/Metadata.jpg",
-        "local_path": "static/images/the-trustees-of-the-reservations.jpg"
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Great_House_-_Castle_Hill_on_the_Crane_Estate_-_Ipswich%2C_Massachusetts_-_DSC06125.jpg/960px-Great_House_-_Castle_Hill_on_the_Crane_Estate_-_Ipswich%2C_Massachusetts_-_DSC06125.jpg",
+        "local_path": "static/images/trustees-of-reservations.jpg"
       },
       "geo": {
-        "lat": 42.5051034,
-        "lon": -73.0370034
+        "lat": 42.3568611,
+        "lon": -71.0518611
       },
       "hours": {
         "status": "varies",
         "regular_hours": null,
-        "notes": "The Trustees operates 120+ properties across Massachusetts, each with its own hours. No single schedule applies. See individual property pages at thetrustees.org.",
+        "notes": "The Trustees GO Pass covers 120+ properties across Massachusetts, each with its own hours. No single schedule applies. See individual property pages at thetrustees.org.",
         "source_url": "https://thetrustees.org/places/"
       }
     },
@@ -1756,6 +1801,7 @@
         "Family",
         "Zoo"
       ],
+      "legacy_slugs": [],
       "sources": [
         "acton",
         "andover",
@@ -1858,6 +1904,7 @@
         "Technology",
         "Sky"
       ],
+      "legacy_slugs": [],
       "sources": [
         "andover",
         "methuen",
@@ -1934,6 +1981,7 @@
         "Art",
         "Nature"
       ],
+      "legacy_slugs": [],
       "sources": [
         "andover"
       ],
@@ -1997,6 +2045,7 @@
         "Nature",
         "Recreation"
       ],
+      "legacy_slugs": [],
       "sources": [
         "andover",
         "everett",
@@ -2085,6 +2134,7 @@
         "Science",
         "Technology"
       ],
+      "legacy_slugs": [],
       "sources": [
         "andover",
         "haverhill"
@@ -2152,6 +2202,7 @@
         "Nature",
         "Recreation"
       ],
+      "legacy_slugs": [],
       "sources": [
         "andover",
         "belmont",
@@ -2196,6 +2247,7 @@
         "Family",
         "Science"
       ],
+      "legacy_slugs": [],
       "sources": [
         "andover",
         "burlington",
@@ -2280,6 +2332,7 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "andover",
         "burlington",
@@ -2351,6 +2404,7 @@
         "Family",
         "Music"
       ],
+      "legacy_slugs": [],
       "sources": [
         "andover",
         "haverhill",
@@ -2415,6 +2469,7 @@
         "Family",
         "Science"
       ],
+      "legacy_slugs": [],
       "sources": [
         "andover",
         "beverly",
@@ -2484,7 +2539,7 @@
       }
     },
     {
-      "slug": "plimoth-patuxet-museums",
+      "slug": "plimoth-patuxet",
       "museum_name": "Plimoth Patuxet Museums",
       "address": "137 Warren Avenue, Plymouth, MA 02360",
       "website": "http://www.plimoth.org/",
@@ -2501,6 +2556,9 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [
+        "plimoth-patuxet-museums"
+      ],
       "sources": [
         "andover",
         "belmont",
@@ -2513,7 +2571,10 @@
         "wakefield",
         "wellesley",
         "weston",
-        "winchester"
+        "winchester",
+        "braintree",
+        "cohasset",
+        "hingham"
       ],
       "original_price": {
         "age_pricing": {
@@ -2541,12 +2602,12 @@
           "military": null
         },
         "family": null,
-        "notes": "Plimoth Patuxet Only: Adult $35, Senior $31.50, Child $20. Heritage Pass (all sites, 2 days): Adult $46, Senior $41.40, Child $29. Combination Pass (2 days): Adult $44, Senior $39.60, Child $27. Mayflower II only: Adult $19, Senior $17.10, Child $13. Plimoth Grist Mill only: Adult $11, Senior $9.90, Child $8.",
+        "notes": "Duplicate of plimoth-patuxet-museums. Plimoth Patuxent Only: Adult $35, Senior $31.50, Child $20. Heritage Pass (all sites, 2 days): Adult $46, Senior $41.40, Child $29. Combination Pass (2 days): Adult $44, Senior $39.60, Child $27. Mayflower II only: Adult $19, Senior $17.10, Child $13.",
         "source_url": "https://plimoth.org/plan-your-visit/hours-tickets-directions"
       },
       "hero_image": {
-        "og_image_url": "https://plimoth.nyc3.digitaloceanspaces.com/_1200x630_crop_center-center_82_none/General-Fallback-1.png?mtime=1624287484",
-        "local_path": "static/images/plimoth-patuxet-museums.png"
+        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Plimoth_Plantation_Fence.JPG/960px-Plimoth_Plantation_Fence.JPG",
+        "local_path": "static/images/plimoth-patuxet.jpg"
       },
       "geo": {
         "lat": 41.9393938,
@@ -2563,8 +2624,8 @@
           "sat": "9 AM – 5 PM",
           "sun": "9 AM – 5 PM"
         },
-        "notes": "Seasonal (open through Sunday after Thanksgiving). Last ticket sales at 4:15 PM.",
-        "source_url": "https://plimoth.org/plan-your-visit/hours-tickets-directions"
+        "notes": "Open daily 9 AM–5 PM. Hours may vary seasonally. Same attraction as plimoth-patuxet-museums.",
+        "source_url": "https://plimoth.org/plan-your-visit/hours-directions/"
       }
     },
     {
@@ -2583,6 +2644,7 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "andover",
         "billerica",
@@ -2671,6 +2733,7 @@
         "Science",
         "Ocean"
       ],
+      "legacy_slugs": [],
       "sources": [
         "andover",
         "billerica",
@@ -2749,6 +2812,7 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "andover",
         "beverly",
@@ -2825,6 +2889,7 @@
         "Nature",
         "Recreation"
       ],
+      "legacy_slugs": [],
       "sources": [
         "bedford",
         "carlisle",
@@ -2895,6 +2960,7 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "belmont",
         "watertown"
@@ -2967,6 +3033,7 @@
         "History",
         "Tours"
       ],
+      "legacy_slugs": [],
       "sources": [
         "belmont",
         "medford",
@@ -3034,6 +3101,7 @@
         "History",
         "Tours"
       ],
+      "legacy_slugs": [],
       "sources": [
         "belmont",
         "burlington",
@@ -3109,6 +3177,7 @@
         "History",
         "Tours"
       ],
+      "legacy_slugs": [],
       "sources": [
         "belmont",
         "carlisle",
@@ -3188,6 +3257,7 @@
         "History",
         "Ocean"
       ],
+      "legacy_slugs": [],
       "sources": [
         "beverly",
         "billerica",
@@ -3291,6 +3361,7 @@
         "History",
         "Military"
       ],
+      "legacy_slugs": [],
       "sources": [
         "billerica",
         "burlington",
@@ -3359,7 +3430,7 @@
       }
     },
     {
-      "slug": "the-butterfly-place",
+      "slug": "butterfly-place",
       "museum_name": "The Butterfly Place",
       "address": "120 Tyngsboro Road, Westford, MA 01886",
       "website": "https://www.butterflyplace-ma.com/",
@@ -3376,6 +3447,9 @@
         "Nature",
         "Science"
       ],
+      "legacy_slugs": [
+        "the-butterfly-place"
+      ],
       "sources": [
         "billerica",
         "burlington",
@@ -3384,16 +3458,17 @@
         "north-reading",
         "tewksbury",
         "wilmington",
-        "woburn"
+        "woburn",
+        "cohasset"
       ],
       "original_price": null,
       "hero_image": {
         "og_image_url": "https://butterflyplace-ma.com/images/Atrium-Telegraph.jpg",
-        "local_path": "static/images/the-butterfly-place.jpg"
+        "local_path": "static/images/butterfly-place.jpg"
       },
       "geo": {
-        "lat": 42.6419513,
-        "lon": -71.43968
+        "lat": 42.6417838,
+        "lon": -71.4400553
       },
       "hours": {
         "status": "ok",
@@ -3406,75 +3481,8 @@
           "sat": "10:00 AM – 4:00 PM",
           "sun": "10:00 AM – 4:00 PM"
         },
-        "notes": "Seasonal (Valentine's Day through Columbus Day). Last admission at 3:30 PM.",
-        "source_url": "https://butterflyplace-ma.com/schedule/"
-      }
-    },
-    {
-      "slug": "trustees-of-the-reservations",
-      "museum_name": "Trustees of the Reservations",
-      "address": "MA",
-      "website": "http://www.thetrustees.org/",
-      "phone": "978-921-1944",
-      "description": "The Trustees of the Reservations preserve and protect more than 100 special properties of exceptional scenic, historic, and ecological value—nearly 25,000 acres—all around Massachusetts. From Crane's Beach in Ipswich and World's End in Hingham to The Old Manse in Concord and Fruitlands Museum in Harvard, visitors to Trustees sites enjoy local history and nature in its various forms: beaches, meadows, forests, swamps and more.",
-      "categories": [
-        "Children",
-        "History",
-        "Nature"
-      ],
-      "categories_raw": [
-        "Family",
-        "History",
-        "Nature",
-        "Recreation"
-      ],
-      "sources": [
-        "billerica",
-        "burlington",
-        "carlisle",
-        "everett",
-        "lincoln",
-        "natick",
-        "north-andover",
-        "stoneham",
-        "tewksbury",
-        "topsfield",
-        "wakefield"
-      ],
-      "original_price": {
-        "age_pricing": {
-          "adult": {
-            "price": 0,
-            "min_age": null,
-            "max_age": null
-          },
-          "youth": null,
-          "child": null,
-          "senior": null,
-          "free_under_age": null
-        },
-        "identity_pricing": {
-          "student": null,
-          "educator": null,
-          "military": null
-        },
-        "family": null,
-        "notes": "Free admission noted on page; Trustees members always free",
-        "source_url": "http://www.thetrustees.org/"
-      },
-      "hero_image": {
-        "og_image_url": "https://thetrustees.org/wp-content/uploads/2020/07/Metadata.jpg",
-        "local_path": "static/images/trustees-of-the-reservations.jpg"
-      },
-      "geo": {
-        "lat": 31.1728205,
-        "lon": -7.3362482
-      },
-      "hours": {
-        "status": "varies",
-        "regular_hours": null,
-        "notes": "The Trustees operates 120+ properties across Massachusetts, each with its own hours. No single schedule applies. See individual property pages at thetrustees.org.",
-        "source_url": "https://thetrustees.org/places/"
+        "notes": "Open daily 10 AM–4 PM, weather permitting. Typically open late March through Columbus Day weekend. Same attraction as the-butterfly-place.",
+        "source_url": "https://www.butterflyplace-ma.com/"
       }
     },
     {
@@ -3495,6 +3503,7 @@
         "Governance",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "concord"
       ],
@@ -3569,6 +3578,7 @@
         "Children",
         "Family"
       ],
+      "legacy_slugs": [],
       "sources": [
         "danvers",
         "lynn",
@@ -3636,6 +3646,7 @@
         "Art",
         "Family"
       ],
+      "legacy_slugs": [],
       "sources": [
         "danvers",
         "medford",
@@ -3680,6 +3691,7 @@
         "Family",
         "Sports"
       ],
+      "legacy_slugs": [],
       "sources": [
         "danvers",
         "lexington",
@@ -3753,6 +3765,7 @@
         "Children",
         "Family"
       ],
+      "legacy_slugs": [],
       "sources": [
         "framingham",
         "lincoln",
@@ -3828,6 +3841,7 @@
         "History",
         "Military"
       ],
+      "legacy_slugs": [],
       "sources": [
         "framingham",
         "maynard",
@@ -3905,6 +3919,7 @@
         "Science",
         "Technology"
       ],
+      "legacy_slugs": [],
       "sources": [
         "haverhill",
         "methuen"
@@ -3982,6 +3997,7 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "haverhill",
         "methuen"
@@ -4058,6 +4074,7 @@
         "History",
         "Technology"
       ],
+      "legacy_slugs": [],
       "sources": [
         "haverhill",
         "methuen"
@@ -4133,6 +4150,7 @@
         "History",
         "Science"
       ],
+      "legacy_slugs": [],
       "sources": [
         "haverhill",
         "methuen",
@@ -4195,6 +4213,7 @@
       "categories_raw": [
         "Theatre"
       ],
+      "legacy_slugs": [],
       "sources": [
         "lawrence"
       ],
@@ -4232,6 +4251,7 @@
         "History",
         "Nature"
       ],
+      "legacy_slugs": [],
       "sources": [
         "lexington"
       ],
@@ -4311,6 +4331,7 @@
         "History",
         "Technology"
       ],
+      "legacy_slugs": [],
       "sources": [
         "lincoln",
         "waltham"
@@ -4391,6 +4412,7 @@
         "History",
         "Science"
       ],
+      "legacy_slugs": [],
       "sources": [
         "lynn",
         "lynnfield",
@@ -4468,8 +4490,13 @@
         "Family",
         "Entertainment"
       ],
+      "legacy_slugs": [
+        "american-rep-theater"
+      ],
       "sources": [
-        "malden"
+        "malden",
+        "bpl",
+        "cambridge"
       ],
       "original_price": null,
       "hero_image": {
@@ -4511,6 +4538,7 @@
         "Family",
         "Recreation"
       ],
+      "legacy_slugs": [],
       "sources": [
         "malden",
         "medford",
@@ -4560,6 +4588,7 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "maynard",
         "natick"
@@ -4630,6 +4659,7 @@
         "Children",
         "Recreation"
       ],
+      "legacy_slugs": [],
       "sources": [
         "medford",
         "middleton",
@@ -4702,6 +4732,7 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "melrose"
       ],
@@ -4766,6 +4797,7 @@
         "History",
         "Tours"
       ],
+      "legacy_slugs": [],
       "sources": [
         "melrose"
       ],
@@ -4840,6 +4872,7 @@
         "Family",
         "Nature"
       ],
+      "legacy_slugs": [],
       "sources": [
         "middleton"
       ],
@@ -4907,6 +4940,7 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "middleton",
         "natick",
@@ -4977,6 +5011,7 @@
         "Technology",
         "Ocean"
       ],
+      "legacy_slugs": [],
       "sources": [
         "middleton"
       ],
@@ -5020,6 +5055,7 @@
         "Family",
         "Zoo"
       ],
+      "legacy_slugs": [],
       "sources": [
         "middleton"
       ],
@@ -5094,6 +5130,7 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "middleton",
         "tewksbury"
@@ -5172,6 +5209,7 @@
         "Military",
         "Technology"
       ],
+      "legacy_slugs": [],
       "sources": [
         "natick",
         "winchester"
@@ -5246,6 +5284,7 @@
         "Art",
         "Family"
       ],
+      "legacy_slugs": [],
       "sources": [
         "natick"
       ],
@@ -5319,6 +5358,7 @@
         "Science",
         "Recreation"
       ],
+      "legacy_slugs": [],
       "sources": [
         "natick"
       ],
@@ -5389,6 +5429,7 @@
         "History",
         "Nature"
       ],
+      "legacy_slugs": [],
       "sources": [
         "natick",
         "weston"
@@ -5463,6 +5504,7 @@
         "History",
         "Nature"
       ],
+      "legacy_slugs": [],
       "sources": [
         "newton"
       ],
@@ -5508,6 +5550,7 @@
         "History",
         "Technology"
       ],
+      "legacy_slugs": [],
       "sources": [
         "newton"
       ],
@@ -5584,6 +5627,7 @@
         "Family",
         "Recreation"
       ],
+      "legacy_slugs": [],
       "sources": [
         "newton"
       ],
@@ -5663,6 +5707,7 @@
         "History",
         "Nature"
       ],
+      "legacy_slugs": [],
       "sources": [
         "quincy"
       ],
@@ -5739,6 +5784,7 @@
         "Nature",
         "Ocean"
       ],
+      "legacy_slugs": [],
       "sources": [
         "quincy"
       ],
@@ -5816,6 +5862,7 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "quincy"
       ],
@@ -5888,6 +5935,7 @@
         "Dance",
         "Theatre"
       ],
+      "legacy_slugs": [],
       "sources": [
         "stoneham"
       ],
@@ -5923,6 +5971,7 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "wayland"
       ],
@@ -5989,6 +6038,7 @@
         "Family",
         "History"
       ],
+      "legacy_slugs": [],
       "sources": [
         "weston"
       ],
@@ -6052,6 +6102,7 @@
         "Science",
         "Technology"
       ],
+      "legacy_slugs": [],
       "sources": [
         "wilmington"
       ],
@@ -6116,6 +6167,7 @@
         "History",
         "Sports"
       ],
+      "legacy_slugs": [],
       "sources": [
         "wilmington",
         "hingham"
@@ -6179,43 +6231,6 @@
       }
     },
     {
-      "slug": "american-rep-theater",
-      "museum_name": "American Repertory Theatre",
-      "address": "64 Brattle Street, Cambridge, Massachusetts, 02138",
-      "website": "https://americanrepertorytheater.org/",
-      "phone": "617-547-8300",
-      "description": "The A.R.T. at Harvard University is a leading force in American theater, producing groundbreaking work that expands the boundaries of theater in Cambridge and beyond.",
-      "categories": [],
-      "categories_raw": [],
-      "sources": [
-        "bpl",
-        "cambridge"
-      ],
-      "original_price": null,
-      "hero_image": {
-        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/American_Repertory_Theater_-_Loeb_Drama_Center_%2854939977987%29.jpg/960px-American_Repertory_Theater_-_Loeb_Drama_Center_%2854939977987%29.jpg",
-        "local_path": "static/images/american-rep-theater.jpg"
-      },
-      "geo": {
-        "lat": 42.3748602,
-        "lon": -71.1229496
-      },
-      "hours": {
-        "status": "ok",
-        "regular_hours": {
-          "mon": "Closed",
-          "tue": "12:00 PM – 5:00 PM",
-          "wed": "12:00 PM – 5:00 PM",
-          "thu": "12:00 PM – 5:00 PM",
-          "fri": "12:00 PM – 5:00 PM",
-          "sat": "12:00 PM – 5:00 PM",
-          "sun": "Closed"
-        },
-        "notes": "Box office hours Tue–Sat Noon–5 PM. Performance schedule varies; show times are separate from box office hours. Same attraction as american-repertory-theater.",
-        "source_url": "https://americanrepertorytheater.org/"
-      }
-    },
-    {
       "slug": "boch-center",
       "museum_name": "Boch Center Tours",
       "address": "",
@@ -6224,6 +6239,7 @@
       "description": null,
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "bpl"
       ],
@@ -6252,6 +6268,7 @@
       "description": "Boston Harbor Islands National and State Park comprises 34 islands and peninsulas just minutes from downtown Boston, offering outdoor recreation, relaxation, and learning opportunities accessible by seasonal ferry service.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "bpl",
         "braintree",
@@ -6306,38 +6323,6 @@
       }
     },
     {
-      "slug": "ma-state-parks",
-      "museum_name": "DCR ParksPass",
-      "address": "Various Locations",
-      "website": "https://www.mass.gov/visit-massachusetts-state-parks",
-      "phone": null,
-      "description": null,
-      "categories": [],
-      "categories_raw": [],
-      "sources": [
-        "bpl",
-        "braintree",
-        "brookline",
-        "cohasset",
-        "hingham"
-      ],
-      "original_price": null,
-      "hero_image": {
-        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Halibut_point_state_park_rockport.JPG",
-        "local_path": "static/images/ma-state-parks.jpg"
-      },
-      "geo": {
-        "lat": 42.3664598,
-        "lon": -71.0589378
-      },
-      "hours": {
-        "status": "varies",
-        "regular_hours": null,
-        "notes": "Massachusetts DCR operates 450+ parks, beaches, and forests, each with different hours. No single schedule applies. Most outdoor spaces are open dawn to dusk. Same as massachusetts-state-parks-department-of-conservation-and-recreation.",
-        "source_url": "https://www.mass.gov/orgs/department-of-conservation-and-recreation"
-      }
-    },
-    {
       "slug": "hale-education",
       "museum_name": "Hale Education",
       "address": "80 Carby Street, Westwood, MA, 02090",
@@ -6346,6 +6331,7 @@
       "description": "Hale Education is a private nonprofit helping people learn, grow, and thrive in the outdoors for over a century through camps, youth programs, family activities, and school partnerships across 1,200 acres in the Greater Boston area.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "bpl",
         "brookline"
@@ -6403,6 +6389,7 @@
       "description": "The Harvard Museums of Science & Culture is a partnership of Harvard University museums offering interdisciplinary exhibitions, events, lectures, and educational programs for students, teachers, and the general public.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "bpl",
         "braintree",
@@ -6474,6 +6461,7 @@
       "description": "The 'How Do You See the World?' experience at the Christian Science Plaza features the iconic three-story Mapparium globe (frozen in 1935) and exhibits exploring progress and possibilities worldwide through stories of positive change.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "bpl",
         "cambridge"
@@ -6523,74 +6511,6 @@
       }
     },
     {
-      "slug": "ica-boston",
-      "museum_name": "Institute of Contemporary Art",
-      "address": "25 Harbor Shore Drive, Boston, MA, 02120",
-      "website": "https://www.icaboston.org/",
-      "phone": "617-478-3100",
-      "description": "The Institute of Contemporary Art Boston is a contemporary art museum located on the Boston waterfront, featuring exhibitions, events, performances, educational programs, and a wine and coffee bar with waterfront views.",
-      "categories": [],
-      "categories_raw": [],
-      "sources": [
-        "bpl",
-        "braintree",
-        "brookline",
-        "cambridge",
-        "milton",
-        "hingham"
-      ],
-      "original_price": {
-        "age_pricing": {
-          "adult": {
-            "price": 20.0,
-            "min_age": null,
-            "max_age": null
-          },
-          "youth": null,
-          "child": null,
-          "senior": {
-            "price": 17.0,
-            "min_age": null,
-            "max_age": null
-          },
-          "free_under_age": 18
-        },
-        "identity_pricing": {
-          "student": {
-            "price": 15.0,
-            "requires": null
-          },
-          "educator": null,
-          "military": null
-        },
-        "family": null,
-        "notes": "Duplicate of institute-of-contemporary-art-boston. Adults: $20; Students: $15; Seniors (65+): $17; Ages 18 and under: free; BPS students: free. Free every Thursday 5-9 PM. Library pass: $10/person.",
-        "source_url": "https://www.icaboston.org/visit"
-      },
-      "hero_image": {
-        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Institute_of_Contemporary_Art%2C_Boston.jpg/960px-Institute_of_Contemporary_Art%2C_Boston.jpg",
-        "local_path": "static/images/ica-boston.jpg"
-      },
-      "geo": {
-        "lat": 42.3528651,
-        "lon": -71.0429628
-      },
-      "hours": {
-        "status": "ok",
-        "regular_hours": {
-          "mon": "Closed",
-          "tue": "10 AM – 5 PM",
-          "wed": "10 AM – 5 PM",
-          "thu": "10 AM – 9 PM",
-          "fri": "10 AM – 9 PM",
-          "sat": "10 AM – 5 PM",
-          "sun": "10 AM – 5 PM"
-        },
-        "notes": "Free admission Thursdays 5–9 PM. First Friday of each month closes at 5 PM for 21+ event.",
-        "source_url": "https://www.icaboston.org/visit/"
-      }
-    },
-    {
       "slug": "isabella-stewart-gardner",
       "museum_name": "Isabella Stewart Gardner Museum",
       "address": "25 Evans Way, Boston, Massachusetts, 02115",
@@ -6599,6 +6519,7 @@
       "description": "The Isabella Stewart Gardner Museum, opened in 1903, is an art museum housing a world-class collection in a Venetian-style palace, offering exhibitions, educational programs, and serving as a cultural institution dedicated to public enjoyment.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "bpl",
         "braintree",
@@ -6668,6 +6589,7 @@
       "description": "The Larz Anderson Auto Museum in Brookline, Massachusetts showcases America's oldest car collection in a historic carriage house. Located ten minutes from Boston, it offers exhibits, educational programs, and community events celebrating automotive heritage.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "bpl",
         "brookline"
@@ -6731,72 +6653,6 @@
       }
     },
     {
-      "slug": "mfa",
-      "museum_name": "Museum of Fine Arts",
-      "address": "465 Huntington Avenue, Boston, MA, 02115",
-      "website": "https://www.mfa.org/",
-      "phone": "617-267-9300",
-      "description": "Boston's premier art museum featuring extensive collections spanning Africa, Asia, Europe, Americas, and more, with current exhibitions, educational programs, and cultural events.",
-      "categories": [],
-      "categories_raw": [],
-      "sources": [
-        "bpl",
-        "braintree",
-        "brookline",
-        "cambridge",
-        "milton",
-        "cohasset",
-        "hingham"
-      ],
-      "original_price": {
-        "age_pricing": {
-          "adult": {
-            "price": 30.0,
-            "min_age": null,
-            "max_age": null
-          },
-          "youth": {
-            "price": 14.0,
-            "min_age": null,
-            "max_age": null
-          },
-          "child": null,
-          "senior": null,
-          "free_under_age": 7
-        },
-        "identity_pricing": {
-          "student": null,
-          "educator": null,
-          "military": null
-        },
-        "family": null,
-        "notes": "Duplicate of museum-of-fine-arts. Adults: $30; Youths 7-17: $14; Youths 0-6: free. Members: free.",
-        "source_url": "https://www.mfa.org/visit/plan-your-visit"
-      },
-      "hero_image": {
-        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Museum_of_Fine_Arts%2C_Boston_%2854954248311%29.jpg/960px-Museum_of_Fine_Arts%2C_Boston_%2854954248311%29.jpg",
-        "local_path": "static/images/mfa.jpg"
-      },
-      "geo": {
-        "lat": 42.3394573,
-        "lon": -71.093897
-      },
-      "hours": {
-        "status": "ok",
-        "regular_hours": {
-          "mon": "10 AM – 5 PM",
-          "tue": "Closed",
-          "wed": "10 AM – 5 PM",
-          "thu": "10 AM – 10 PM",
-          "fri": "10 AM – 10 PM",
-          "sat": "10 AM – 5 PM",
-          "sun": "10 AM – 5 PM"
-        },
-        "notes": "Closed New Year's Day, Patriots' Day, Independence Day, Thanksgiving, and Christmas. Same attraction as museum-of-fine-arts.",
-        "source_url": "https://www.mfa.org/visit"
-      }
-    },
-    {
       "slug": "revolutionary-spaces",
       "museum_name": "Revolutionary Spaces",
       "address": "",
@@ -6805,6 +6661,7 @@
       "description": "Revolutionary Spaces is a nonprofit organization that brings people together to explore America's struggle to create and sustain a free society through the Old State House and Old South Meeting House.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "bpl"
       ],
@@ -6872,6 +6729,7 @@
       "description": null,
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "bpl"
       ],
@@ -6908,6 +6766,7 @@
       "description": null,
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "bpl"
       ],
@@ -6936,38 +6795,6 @@
       }
     },
     {
-      "slug": "trustees-of-reservations",
-      "museum_name": "Trustees GO Pass",
-      "address": "200 High Street, Boston, MA, 02110",
-      "website": "https://thetrustees.org/",
-      "phone": "617-542-7696",
-      "description": "The Trustees of Reservations protects and shares Massachusetts places of exceptional scenic, historic, and ecological value, including trails, gardens, beaches, and historic homes across 120+ reservations.",
-      "categories": [],
-      "categories_raw": [],
-      "sources": [
-        "bpl",
-        "brookline",
-        "cambridge",
-        "cohasset",
-        "hingham"
-      ],
-      "original_price": null,
-      "hero_image": {
-        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Great_House_-_Castle_Hill_on_the_Crane_Estate_-_Ipswich%2C_Massachusetts_-_DSC06125.jpg/960px-Great_House_-_Castle_Hill_on_the_Crane_Estate_-_Ipswich%2C_Massachusetts_-_DSC06125.jpg",
-        "local_path": "static/images/trustees-of-reservations.jpg"
-      },
-      "geo": {
-        "lat": 42.3568611,
-        "lon": -71.0518611
-      },
-      "hours": {
-        "status": "varies",
-        "regular_hours": null,
-        "notes": "The Trustees GO Pass covers 120+ properties across Massachusetts, each with its own hours. No single schedule applies. See individual property pages at thetrustees.org.",
-        "source_url": "https://thetrustees.org/places/"
-      }
-    },
-    {
       "slug": "uss-constitution-museum",
       "museum_name": "USS Constitution Museum",
       "address": "USS Constitution Museum Building 22, Charlestown, MA, 02129",
@@ -6976,6 +6803,7 @@
       "description": "The USS Constitution Museum is a top-rated institution dedicated to sparking excitement about maritime heritage, naval service, and the American experience through exhibits, collections, and educational programs.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "bpl",
         "brookline",
@@ -7044,6 +6872,7 @@
       "description": "The Children's Museum in Easton offers interactive exhibits and educational programming including art classes, music exploration, and hands-on activities designed to inspire learning through play for young children.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "braintree"
       ],
@@ -7107,6 +6936,7 @@
       "description": "Heritage Museums & Gardens is a 100-acre destination in Sandwich, MA featuring art, history, and nature exhibits including a 1908 Looff Carousel and American Automobile Collection, plus extensive gardens with rhododendrons and nature trails.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "braintree",
         "hingham"
@@ -7160,109 +6990,6 @@
       }
     },
     {
-      "slug": "plimoth-patuxet",
-      "museum_name": "Plimoth Patuxet Museums",
-      "address": "137 Warren Avenue, Plymouth, MA, 02360",
-      "website": "https://plimoth.org/",
-      "phone": "508-746-1622",
-      "description": "Plimoth Patuxent is a vibrant cultural hub in Plymouth, Massachusetts exploring the stories of the Wampanoag and English people who met along these historic shores, offering open-air museum experiences about 400 years of history.",
-      "categories": [],
-      "categories_raw": [],
-      "sources": [
-        "braintree",
-        "cohasset",
-        "hingham"
-      ],
-      "original_price": {
-        "age_pricing": {
-          "adult": {
-            "price": 35.0,
-            "min_age": null,
-            "max_age": null
-          },
-          "youth": null,
-          "child": {
-            "price": 20.0,
-            "min_age": null,
-            "max_age": null
-          },
-          "senior": {
-            "price": 31.5,
-            "min_age": null,
-            "max_age": null
-          },
-          "free_under_age": null
-        },
-        "identity_pricing": {
-          "student": null,
-          "educator": null,
-          "military": null
-        },
-        "family": null,
-        "notes": "Duplicate of plimoth-patuxet-museums. Plimoth Patuxent Only: Adult $35, Senior $31.50, Child $20. Heritage Pass (all sites, 2 days): Adult $46, Senior $41.40, Child $29. Combination Pass (2 days): Adult $44, Senior $39.60, Child $27. Mayflower II only: Adult $19, Senior $17.10, Child $13.",
-        "source_url": "https://plimoth.org/plan-your-visit/hours-tickets-directions"
-      },
-      "hero_image": {
-        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Plimoth_Plantation_Fence.JPG/960px-Plimoth_Plantation_Fence.JPG",
-        "local_path": "static/images/plimoth-patuxet.jpg"
-      },
-      "geo": {
-        "lat": 41.9393938,
-        "lon": -70.625786
-      },
-      "hours": {
-        "status": "ok",
-        "regular_hours": {
-          "mon": "9 AM – 5 PM",
-          "tue": "9 AM – 5 PM",
-          "wed": "9 AM – 5 PM",
-          "thu": "9 AM – 5 PM",
-          "fri": "9 AM – 5 PM",
-          "sat": "9 AM – 5 PM",
-          "sun": "9 AM – 5 PM"
-        },
-        "notes": "Open daily 9 AM–5 PM. Hours may vary seasonally. Same attraction as plimoth-patuxet-museums.",
-        "source_url": "https://plimoth.org/plan-your-visit/hours-directions/"
-      }
-    },
-    {
-      "slug": "jfk-library",
-      "museum_name": "John F. Kennedy Library and Museum",
-      "address": "Columbia Point, Boston, MA, 02125",
-      "website": "https://www.jfklibrary.org/",
-      "phone": null,
-      "description": null,
-      "categories": [],
-      "categories_raw": [],
-      "sources": [
-        "brookline",
-        "cohasset"
-      ],
-      "original_price": null,
-      "hero_image": {
-        "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/JFK_library_Stitch_Crop.jpg",
-        "local_path": "static/images/jfk-library.jpg"
-      },
-      "geo": {
-        "lat": 42.3320968,
-        "lon": -71.0284871
-      },
-      "hours": {
-        "status": "ok",
-        "regular_hours": {
-          "mon": "10:00 AM – 5:00 PM",
-          "tue": "10:00 AM – 5:00 PM",
-          "wed": "10:00 AM – 5:00 PM",
-          "thu": "10:00 AM – 5:00 PM",
-          "fri": "10:00 AM – 5:00 PM",
-          "sat": "10:00 AM – 5:00 PM",
-          "sun": "10:00 AM – 5:00 PM"
-        },
-        "notes": "Open daily 10 AM–5 PM. Last entry at 3:30 PM. Closed Thanksgiving, Christmas, and New Year's Day. Same attraction as john-f-kennedy-library-and-museum.",
-        "source_url": "https://www.jfklibrary.org/visit-us/hours-and-directions"
-      }
-    },
-    {
       "slug": "maah",
       "museum_name": "Museum of African American History",
       "address": "46 Joy St., Boston, MA, 02114",
@@ -7271,6 +6998,7 @@
       "description": "New England's largest museum dedicated to preserving and interpreting African American contributions through historic sites and trails in Boston and Nantucket, showcasing stories from the Colonial Period through the 19th century.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "brookline",
         "cambridge"
@@ -7308,6 +7036,7 @@
       "description": "Boston's premier boat company offering public and private cruises on the Charles River and Boston Harbor, featuring sightseeing tours, sunset cruises, weddings, and corporate events.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "cambridge"
       ],
@@ -7344,6 +7073,7 @@
       "description": "A museum in Medford, MA preserving the history of the Royall family and the enslaved people whose labor built their wealth. As one of the few remaining freestanding slave quarters in the North, it documents eighteenth-century bondage and resistance.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "cambridge"
       ],
@@ -7410,6 +7140,7 @@
       "description": "Since 1965, Maplewood has provided summer camp and year-round enrichment for children ages 3-14 in South Easton, MA, featuring 50+ activities, expert swim instruction, and a welcoming family environment.",
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "milton"
       ],
@@ -7435,42 +7166,6 @@
       }
     },
     {
-      "slug": "butterfly-place",
-      "museum_name": "The Butterfly Place",
-      "address": "",
-      "website": "",
-      "phone": null,
-      "description": null,
-      "categories": [],
-      "categories_raw": [],
-      "sources": [
-        "cohasset"
-      ],
-      "original_price": null,
-      "hero_image": {
-        "og_image_url": "https://butterflyplace-ma.com/images/Atrium-Telegraph.jpg",
-        "local_path": "static/images/butterfly-place.jpg"
-      },
-      "geo": {
-        "lat": 42.6417838,
-        "lon": -71.4400553
-      },
-      "hours": {
-        "status": "ok",
-        "regular_hours": {
-          "mon": "10:00 AM – 4:00 PM",
-          "tue": "10:00 AM – 4:00 PM",
-          "wed": "10:00 AM – 4:00 PM",
-          "thu": "10:00 AM – 4:00 PM",
-          "fri": "10:00 AM – 4:00 PM",
-          "sat": "10:00 AM – 4:00 PM",
-          "sun": "10:00 AM – 4:00 PM"
-        },
-        "notes": "Open daily 10 AM–4 PM, weather permitting. Typically open late March through Columbus Day weekend. Same attraction as the-butterfly-place.",
-        "source_url": "https://www.butterflyplace-ma.com/"
-      }
-    },
-    {
       "slug": "cohasset-historical-society",
       "museum_name": "Cohasset Historical Society",
       "address": "",
@@ -7479,6 +7174,7 @@
       "description": null,
       "categories": [],
       "categories_raw": [],
+      "legacy_slugs": [],
       "sources": [
         "cohasset"
       ],

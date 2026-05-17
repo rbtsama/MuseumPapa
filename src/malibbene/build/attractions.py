@@ -4,6 +4,7 @@ from __future__ import annotations
 import datetime as dt
 
 from malibbene.build.categories import canonicalize as canonicalize_categories
+from malibbene.build.slug_canonical import canonical as canonical_slug
 
 
 def _price_block(rec: dict | None) -> dict | None:
@@ -108,7 +109,8 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
     descriptions = descriptions or {}
     accum: dict[str, dict] = {}
     for lib_id, lib_entry in catalog.get("libraries", {}).items():
-        for slug, p in lib_entry.get("passes", {}).items():
+        for raw_slug, p in lib_entry.get("passes", {}).items():
+            slug = canonical_slug(raw_slug)
             entry = accum.setdefault(slug, {
                 "slug": slug,
                 "museum_name": p.get("museum_name", ""),
@@ -118,8 +120,11 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
                 "description": p.get("description"),
                 "categories": [],            # canonical 7-class set (written below)
                 "categories_raw": [],        # union of raw Assabet labels (kept for audit / debug)
+                "legacy_slugs": [],          # plan-10: track collapsed legacy slugs
                 "sources": [],
             })
+            if raw_slug != slug and raw_slug not in entry["legacy_slugs"]:
+                entry["legacy_slugs"].append(raw_slug)
             if lib_id not in entry["sources"]:
                 entry["sources"].append(lib_id)
             for fld in ("museum_name", "address", "website", "phone", "description"):
@@ -133,15 +138,30 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
     for entry in accum.values():
         entry["categories"] = canonicalize_categories(entry["categories_raw"])
 
+    def _lookup(d: dict, slug: str, legacy_slugs: list[str]):
+        """Lookup `d[slug]`, falling back to any collapsed legacy slug.
+
+        Raw enrichment files (prices/images/hours/descriptions) are still keyed
+        by their original slug; we don't rename them. So if the canonical key
+        isn't present, try each legacy alias.
+        """
+        if slug in d:
+            return d[slug]
+        for ls in legacy_slugs:
+            if ls in d:
+                return d[ls]
+        return None
+
     out = []
     for slug, base in accum.items():
-        _apply_description_fallback(base, descriptions.get(slug))
+        legacy_aliases = base.get("legacy_slugs", [])
+        _apply_description_fallback(base, _lookup(descriptions, slug, legacy_aliases))
         out.append({
             **base,
-            "original_price": _price_block(prices.get(slug)),
-            "hero_image": _image_block(images.get(slug)),
-            "geo": _geo_block(attr_geo.get(slug)),
-            "hours": _hours_block(hours.get(slug)),
+            "original_price": _price_block(_lookup(prices, slug, legacy_aliases)),
+            "hero_image": _image_block(_lookup(images, slug, legacy_aliases)),
+            "geo": _geo_block(_lookup(attr_geo, slug, legacy_aliases)),
+            "hours": _hours_block(_lookup(hours, slug, legacy_aliases)),
         })
 
     return {

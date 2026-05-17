@@ -4,6 +4,7 @@ from __future__ import annotations
 import datetime as dt
 
 from .coupons import coupon_block, restrictions_block
+from .slug_canonical import canonical as canonical_slug
 
 # pass_type values from normalize_benefit that imply a physical pickup at the
 # library branch (vs. an email-delivered digital coupon).
@@ -105,14 +106,17 @@ def build_passes(
     out = []
     n_physical = 0
     for lib_id, lib_entry in catalog.get("libraries", {}).items():
-        for slug, p in lib_entry.get("passes", {}).items():
+        for raw_slug, p in lib_entry.get("passes", {}).items():
             cal = p.get("calendar")
-            coupon_key = f"{lib_id}_{slug}"
-            coupon_rec = coupons.get(coupon_key)
+            canon = canonical_slug(raw_slug)
+            # plan-10: raw coupon files weren't renamed; try raw key first then canonical.
+            coupon_key_raw = f"{lib_id}_{raw_slug}"
+            coupon_key_canon = f"{lib_id}_{canon}"
+            coupon_rec = coupons.get(coupon_key_raw) or coupons.get(coupon_key_canon)
             pass_type = p.get("pass_type", "unknown")
             pickup_method, pickup_branches = _resolve_pickup(
                 library_id=lib_id,
-                attraction_slug=slug,
+                attraction_slug=raw_slug,
                 pass_type=pass_type,
                 classifications=classifications,
                 branch_ids_by_lib=branch_ids_by_lib,
@@ -126,7 +130,7 @@ def build_passes(
                 n_physical += 1
             out.append({
                 "library_id": lib_id,
-                "attraction_slug": slug,
+                "attraction_slug": canon,
                 "pass_type": pass_type,
                 "pass_type_raw": p.get("pass_type_raw", ""),
                 "pickup_method": pickup_method,

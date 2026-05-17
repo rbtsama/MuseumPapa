@@ -16,13 +16,13 @@
 
 <section class="cards-row">
   <div class="num-card"><div class="num">59</div><div class="label">Libraries 图书馆</div></div>
-  <div class="num-card"><div class="num">107</div><div class="label">Attractions 景点</div></div>
+  <div class="num-card"><div class="num">98</div><div class="label">Attractions 景点</div></div>
   <div class="num-card"><div class="num">1008</div><div class="label">Passes 优惠</div></div>
 </section>
 
 <section class="grid-3">
   <div class="panel"><h3>Libraries coverage</h3><ul class="coverage"><li><span class="cov-label">Street address · 街道地址</span><span class="cov-frac">59/59</span><span class="cov-pct">100%</span></li><li><span class="cov-label">Geo coordinates · 经纬度</span><span class="cov-frac">59/59</span><span class="cov-pct">100%</span></li><li><span class="cov-label">Card-application page · 办卡说明页 URL</span><span class="cov-frac">59/59</span><span class="cov-pct">100%</span></li></ul></div>
-  <div class="panel"><h3>Attractions coverage</h3><ul class="coverage"><li><span class="cov-label">Hero image · 封面图</span><span class="cov-frac">104/107</span><span class="cov-pct">97%</span></li><li><span class="cov-label">Ticket price (any tier) · 票价(任一层级)</span><span class="cov-frac">81/107</span><span class="cov-pct">76%</span></li><li><span class="cov-label">Opening hours · 营业时间</span><span class="cov-frac">107/107</span><span class="cov-pct">100%</span></li><li><span class="cov-label">Description · 简介</span><span class="cov-frac">100/107</span><span class="cov-pct">93%</span></li><li><span class="cov-label">Phone · 电话</span><span class="cov-frac">96/107</span><span class="cov-pct">90%</span></li><li><span class="cov-label">Geo coordinates · 经纬度</span><span class="cov-frac">107/107</span><span class="cov-pct">100%</span></li></ul></div>
+  <div class="panel"><h3>Attractions coverage</h3><ul class="coverage"><li><span class="cov-label">Hero image · 封面图</span><span class="cov-frac">95/98</span><span class="cov-pct">97%</span></li><li><span class="cov-label">Ticket price (any tier) · 票价(任一层级)</span><span class="cov-frac">76/98</span><span class="cov-pct">78%</span></li><li><span class="cov-label">Opening hours · 营业时间</span><span class="cov-frac">98/98</span><span class="cov-pct">100%</span></li><li><span class="cov-label">Description · 简介</span><span class="cov-frac">94/98</span><span class="cov-pct">96%</span></li><li><span class="cov-label">Phone · 电话</span><span class="cov-frac">90/98</span><span class="cov-pct">92%</span></li><li><span class="cov-label">Geo coordinates · 经纬度</span><span class="cov-frac">98/98</span><span class="cov-pct">100%</span></li></ul></div>
   <div class="panel"><h3>Passes coverage</h3><ul class="coverage"><li><span class="cov-label">Coupon extracted · 优惠已结构化(plan-9)</span><span class="cov-frac">1008/1008</span><span class="cov-pct">100%</span></li><li><span class="cov-label">Coupon summary present · 摘要文字已生成</span><span class="cov-frac">1005/1008</span><span class="cov-pct">100%</span></li><li><span class="cov-label">Pass type known · 取券方式已分类</span><span class="cov-frac">1008/1008</span><span class="cov-pct">100%</span></li><li><span class="cov-label">Availability calendar · 库存日历(空位可见)</span><span class="cov-frac">974/1008</span><span class="cov-pct">97%</span></li></ul></div>
 </section>
 
@@ -74,16 +74,16 @@
     这一节列出 AI 抽取过程中可能值得人工抽查的"可疑点"。每条都说明了"是什么/含义/怎么追溯"。
     数字旁的链接跳转到相应专题页,可逐条核对 raw 原文与 AI 输出。
   </p>
-  <ul class="anomaly-list"><li><b>0</b> 条 pass 没有 coupon 字段 — 含义:plan-9 再抽取未覆盖到这些行,需补跑 subagent — <a href='policies.html'>see Policies</a></li><li><b>3</b> 条 pass 的 coupon.summary 为空(含 coupon 字段缺失的) — 含义:AI 抽出了结构但没生成摘要文字,前端 fallback 会显示 '(no extraction)'</li><li><b>0</b> 条 pass 的 pass_type 是 unknown(没归类成 digital/physical/loan-card 中的任一个) — 含义:从原始 HTML 抓不到明确的 pass 类型标识符</li><li><b>8</b> 对 attraction slug 重复(同一景点被存了两条记录) — 含义:数据建模历史遗留 bug,前端会显示成两张不同的卡,需合并 — <a href='duplicates.html'>see Duplicates</a></li><li><b>26</b> 个景点没有任何价格层级(adult/child/youth/senior/...)— 含义:景点官网无公开标价,或票价是 per-show / per-vehicle 浮动 — <a href='gaps.html'>see Gaps</a></li><li><b>7</b> 个景点没有简介文字 — 含义:景点官网无 og:description / about 页 抓取失败 / 网站 403 拦截</li></ul>
+  <ul class="anomaly-list"><li><b>0</b> 条 pass 没有 coupon 字段 — 含义:plan-9 再抽取未覆盖到这些行,需补跑 subagent — <a href='policies.html'>see Policies</a></li><li><b>3</b> 条 pass 的 coupon.summary 为空(含 coupon 字段缺失的) — 含义:AI 抽出了结构但没生成摘要文字,前端 fallback 会显示 '(no extraction)'</li><li><b>0</b> 条 pass 的 pass_type 是 unknown(没归类成 digital/physical/loan-card 中的任一个) — 含义:从原始 HTML 抓不到明确的 pass 类型标识符</li><li><b>0</b> 对 attraction slug 重复(同一景点被存了两条记录) — 含义:数据建模历史遗留 bug,前端会显示成两张不同的卡,需合并 — <a href='duplicates.html'>see Duplicates</a></li><li><b>22</b> 个景点没有任何价格层级(adult/child/youth/senior/...)— 含义:景点官网无公开标价,或票价是 per-show / per-vehicle 浮动 — <a href='gaps.html'>see Gaps</a></li><li><b>4</b> 个景点没有简介文字 — 含义:景点官网无 og:description / about 页 抓取失败 / 网站 403 拦截</li></ul>
 </section>
 
 <footer class="page-foot">
-  Built 2026-05-17 03:21 UTC ·
+  Built 2026-05-17 05:24 UTC ·
   <a href="#" class="view-json-link" data-json-key="meta">View JSON of dataset summary</a>
 </footer>
 
 </main>
 <div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>
-<script id="data-blob" type="application/json">{"meta": {"libraries": {"built_at": "2026-05-17T03:21:47Z", "n_libraries": 59, "n_with_address": 55, "n_with_geo": 59}, "attractions": {"built_at": "2026-05-17T03:21:47Z", "n_attractions": 107, "n_with_price": 81, "n_with_image": 104, "n_with_geo": 107, "n_with_hours": 107}, "passes": {"built_at": "2026-05-17T03:21:47Z", "n_passes": 1008, "n_with_availability": 974, "n_with_coupon": 1005, "n_with_restrictions": 142, "n_physical_at_branch": 438, "n_digital": 570}, "library_catalog": {"built_at": "2026-05-17T03:21:47Z", "n_libraries": 59, "n_passes_total": 1008, "n_unmapped_passes_per_platform": {"assabet": 0, "libcal": 0, "museumkey": 0}}}}</script>
+<script id="data-blob" type="application/json">{"meta": {"libraries": {"built_at": "2026-05-17T05:22:51Z", "n_libraries": 59, "n_with_address": 55, "n_with_geo": 59}, "attractions": {"built_at": "2026-05-17T05:22:51Z", "n_attractions": 98, "n_with_price": 76, "n_with_image": 95, "n_with_geo": 98, "n_with_hours": 98}, "passes": {"built_at": "2026-05-17T05:22:51Z", "n_passes": 1008, "n_with_availability": 974, "n_with_coupon": 1005, "n_with_restrictions": 142, "n_physical_at_branch": 438, "n_digital": 570}, "library_catalog": {"built_at": "2026-05-17T05:22:51Z", "n_libraries": 59, "n_passes_total": 1008, "n_unmapped_passes_per_platform": {"assabet": 0, "libcal": 0, "museumkey": 0}}}}</script>
 <script src="assets/audit.js"></script>
 </body></html>
