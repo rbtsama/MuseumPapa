@@ -1,19 +1,20 @@
 {
   "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/",
-  "scraped_at": "2026-05-13T15:56:37+00:00",
+  "scraped_at": "2026-05-17T13:54:15+00:00",
   "meta": {
     "fetch_status": "ok",
     "status_summary": {
-      "ok": 25,
+      "ok": 26,
       "empty": 0,
       "failed": {},
-      "total": 25,
+      "total": 26,
       "ok_ratio": 1.0
     }
   },
   "passes": [
     {
       "slug": "boston-childrens-museum",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "museum_name": "Boston Children's Museum",
       "address": "308 Congress Street, Boston, MA 02210",
       "phone": "617-426-6500",
@@ -31,7 +32,26 @@
       "status": "ok"
     },
     {
+      "slug": "boston-harbor-island-ferry",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-harbor-island-ferry",
+      "museum_name": "Boston Harbor Island Ferry",
+      "address": "15 State Street, Suite 1100, Boston, MA 02109",
+      "phone": "617-223-8666",
+      "website": "http://www.bostonharborislands.org/",
+      "description": "The largest recreational open space in Eastern Massachusetts, the Boston Harbor Islands National and State Park is comprised of 34 islands and mainland parks that deliver access to historic sites and provide opportunities to hike and camp. Transportation to the islands is by ferry and, depending on the location, your own boat. Please refer to their website for the most up-to-date information about what is open and how to get there.",
+      "categories": [
+        "Family",
+        "Nature",
+        "Recreation"
+      ],
+      "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning), Printable/Digital Coupon Pass (link delivered by email)",
+      "pass_type": "physical-coupon",
+      "benefits_text": "Apply the promo code for up to four \"50%-off\" tickets for Spectacle, Peddocks or Georges Island.",
+      "status": "ok"
+    },
+    {
       "slug": "christian-science-plaza",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-christian-science-plaza",
       "museum_name": "Christian Science Plaza",
       "website": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza",
       "categories": [
@@ -46,6 +66,7 @@
     },
     {
       "slug": "concord-museum",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-concord-museum",
       "museum_name": "Concord Museum",
       "address": "200 Lexington Road, Concord, MA 01742",
       "phone": "978-369-9763",
@@ -62,6 +83,7 @@
     },
     {
       "slug": "the-discovery-museums",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-discovery-museums",
       "museum_name": "Discovery Museum",
       "address": "177 Main Street, Acton, MA 01720",
       "phone": "978-264-4200",
@@ -79,6 +101,7 @@
     },
     {
       "slug": "garden-in-the-woods-native-plant-trust",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-garden-in-the-woods-native-plant-trust",
       "museum_name": "Garden in the Woods (Native Plant Trust)",
       "address": "180 Hemenway Road, Framingham, MA 01701",
       "phone": "508-877-7630",
@@ -95,6 +118,7 @@
     },
     {
       "slug": "gore-place",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-gore-place",
       "museum_name": "Gore Place",
       "address": "52 Gore Street, Waltham, MA 02453",
       "phone": "781-894-2798",
@@ -113,6 +137,7 @@
     },
     {
       "slug": "harvard-museums-of-science-and-culture",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-harvard-museums-of-science-and-culture",
       "museum_name": "Harvard Museums of Science and Culture",
       "address": "11 Divinity Avenue, Cambridge, MA 02138",
       "phone": "617-496-1638",
@@ -132,6 +157,7 @@
     },
     {
       "slug": "the-house-of-seven-gables",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-house-of-seven-gables",
       "museum_name": "The House of Seven Gables",
       "address": "115 Derby Street, Salem, MA 01970",
       "phone": "978-744-0991",
@@ -149,6 +175,7 @@
     },
     {
       "slug": "institute-of-contemporary-art-boston",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-institute-of-contemporary-art-boston",
       "museum_name": "Institute of Contemporary Art/Boston",
       "address": "25 Harbor Shore Drive, Boston, MA 02210",
       "phone": "617-478-3100",
@@ -167,6 +194,7 @@
     },
     {
       "slug": "isabella-stewart-gardner-museum",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "museum_name": "Isabella Stewart Gardner Museum",
       "address": "25 Evans Way, Boston, MA 02115",
       "phone": "617-566-1401",
@@ -184,6 +212,7 @@
     },
     {
       "slug": "john-f-kennedy-library-and-museum",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-john-f-kennedy-library-and-museum",
       "museum_name": "John F. Kennedy Library & Museum",
       "address": "Columbia Point, Boston, MA 02125",
       "phone": "617-514-1600",
@@ -201,6 +230,7 @@
     },
     {
       "slug": "mass-audubon-drumlin-farm",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-mass-audubon-drumlin-farm",
       "museum_name": "Mass Audubon (Drumlin Farm)",
       "address": "208 South Great Road, Lincoln, MA 01773",
       "phone": "781-259-2200",
@@ -218,6 +248,7 @@
     },
     {
       "slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-massachusetts-state-parks-department-of-conservation-and-recreation",
       "museum_name": "Massachusetts State Parks (Department of Conservation and Recreation)",
       "address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104",
       "phone": "617-626-1250",
@@ -236,6 +267,7 @@
     },
     {
       "slug": "museum-of-fine-arts",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-museum-of-fine-arts",
       "museum_name": "Museum of Fine Arts",
       "address": "465 Huntington Avenue, Boston, MA 02115",
       "phone": "617-267-9300",
@@ -253,6 +285,7 @@
     },
     {
       "slug": "museum-of-science",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-museum-of-science",
       "museum_name": "Museum of Science",
       "address": "1 Science Park, Boston, MA 02114",
       "phone": "617-723-2500",
@@ -274,6 +307,7 @@
     },
     {
       "slug": "new-england-aquarium",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-new-england-aquarium",
       "museum_name": "New England Aquarium",
       "address": "1 Central Wharf, Boston, MA 02110",
       "phone": "617-973-5200",
@@ -293,6 +327,7 @@
     },
     {
       "slug": "old-sturbridge-village",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-old-sturbridge-village",
       "museum_name": "Old Sturbridge Village/Coggeshall Farm",
       "website": "https://www.osv.org/",
       "categories": [
@@ -309,6 +344,7 @@
     },
     {
       "slug": "peabody-essex-museum",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-peabody-essex-museum",
       "museum_name": "Peabody Essex Museum",
       "address": "161 Essex Street, Salem, MA 01970-3783",
       "phone": "978-745-9500",
@@ -327,6 +363,7 @@
     },
     {
       "slug": "plimoth-patuxet-museums",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-plimoth-patuxet-museums",
       "museum_name": "Plimoth Patuxet Museums",
       "address": "137 Warren Avenue, Plymouth, MA 02360",
       "phone": "508-746-1622",
@@ -345,6 +382,7 @@
     },
     {
       "slug": "salem-witch-museum",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-salem-witch-museum",
       "museum_name": "Salem Witch Museum",
       "address": "19 1/2 Washington Square, Salem, MA 01970",
       "phone": "978-744-1692",
@@ -362,6 +400,7 @@
     },
     {
       "slug": "the-spellman-museum-of-stamps-and-postal-history",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-spellman-museum-of-stamps-and-postal-history",
       "museum_name": "The Spellman Museum of Stamps & Postal History",
       "address": "241 Wellesley Street, Weston, MA 02493",
       "phone": "781-768-8367",
@@ -379,6 +418,7 @@
     },
     {
       "slug": "the-trustees-of-the-reservations",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-trustees-of-the-reservations",
       "museum_name": "Trustees of Reservations (with deCordova Sculpture Park and Museum)",
       "website": "http://www.thetrustees.org/",
       "categories": [
@@ -395,6 +435,7 @@
     },
     {
       "slug": "the-uss-constitution-museum",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-uss-constitution-museum",
       "museum_name": "USS Constitution Museum",
       "address": "Charlestown Navy Yard, Building 22, Charlestown, MA 02129",
       "phone": "617-426-1812",
@@ -413,6 +454,7 @@
     },
     {
       "slug": "worcester-art-museum",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-worcester-art-museum",
       "museum_name": "Worcester Art Museum",
       "address": "55 Salisbury Street, Worcester, MA 01609",
       "phone": "508-799-4406",
@@ -431,6 +473,7 @@
     },
     {
       "slug": "zoo-new-england",
+      "url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-zoo-new-england",
       "museum_name": "Zoo New England",
       "address": "1 Franklin Park Road, Boston, MA 02121",
       "phone": "617-541-5466",

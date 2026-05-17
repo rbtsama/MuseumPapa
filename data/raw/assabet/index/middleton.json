@@ -1,53 +1,20 @@
 {
   "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/",
-  "scraped_at": "2026-05-13T15:56:35+00:00",
+  "scraped_at": "2026-05-17T13:54:12+00:00",
   "meta": {
     "fetch_status": "ok",
     "status_summary": {
-      "ok": 20,
+      "ok": 18,
       "empty": 0,
       "failed": {},
-      "total": 20,
+      "total": 18,
       "ok_ratio": 1.0
     }
   },
   "passes": [
     {
-      "slug": "animal-adventures",
-      "museum_name": "Animal Adventures",
-      "address": "336 Sugar Road, Bolton, MA 01740",
-      "phone": "978-779-8988",
-      "website": "http://www.animaladventures.net/",
-      "description": "Begun in 1997, Animal Adventures is a an exotic animal rescue center located in Bolton, MA. These animals are the basis of educational programs and a family-run zoo. Live animal shows take place daily, and private tours of different types of animals may be booked. For more information, please visit the website.",
-      "categories": [
-        "Children",
-        "Family",
-        "Nature"
-      ],
-      "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
-      "pass_type": "physical-circ",
-      "benefits_text": "This pass admits 4 at $8.00 per person.",
-      "status": "ok"
-    },
-    {
-      "slug": "boston-harbor-island-ferry",
-      "museum_name": "Boston Harbor Island Ferry",
-      "address": "15 State Street, Suite 1100, Boston, MA 02109",
-      "phone": "617-223-8666",
-      "website": "http://www.bostonharborislands.org/",
-      "description": "The largest recreational open space in Eastern Massachusetts, the Boston Harbor Islands National and State Park is comprised of 34 islands and mainland parks that deliver access to historic sites and provide opportunities to hike and camp. Transportation to the islands is by ferry and, depending on the location, your own boat. Please refer to their website for the most up-to-date information about what is open and how to get there.",
-      "categories": [
-        "Family",
-        "Nature",
-        "Recreation"
-      ],
-      "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
-      "pass_type": "digital",
-      "benefits_text": "Pass admits a maximum of 4 people for 50% off. Below is the 2025 season information, but make sure to also check the Boston Harbor Islands website for current hours of operation. 2025 Season Schedule: Spectacle Island May 16 - June 15: Thursdays through Sundays June 16 - September 1: every day September 4 - 21: Thursdays through Sundays September 26 - October 13: Fridays through Sundays Georges Island June 16- September 1: every day Peddocks Island June 16 - September 1: every day September 4 - October 13: Thursdays through Sundays",
-      "status": "ok"
-    },
-    {
       "slug": "christian-science-plaza",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-christian-science-plaza",
       "museum_name": "Christian Science Plaza",
       "website": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza",
       "categories": [
@@ -62,6 +29,7 @@
     },
     {
       "slug": "davis-farmland",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-davis-farmland",
       "museum_name": "Davis Farmland",
       "address": "145 Redstone Hill, Sterling, MA 01564",
       "phone": "978-422-6666",
@@ -80,6 +48,7 @@
     },
     {
       "slug": "harvard-museums-of-science-and-culture",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-harvard-museums-of-science-and-culture",
       "museum_name": "Harvard Museums of Science and Culture",
       "address": "11 Divinity Avenue, Cambridge, MA 02138",
       "phone": "617-496-1638",
@@ -99,6 +68,7 @@
     },
     {
       "slug": "isabella-stewart-gardner-museum",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "museum_name": "Isabella Stewart Gardner Museum",
       "address": "25 Evans Way, Boston, MA 02115",
       "phone": "617-566-1401",
@@ -116,6 +86,7 @@
     },
     {
       "slug": "john-f-kennedy-library-and-museum",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-john-f-kennedy-library-and-museum",
       "museum_name": "John F. Kennedy Library & Museum",
       "address": "Columbia Point, Boston, MA 02125",
       "phone": "617-514-1600",
@@ -133,6 +104,7 @@
     },
     {
       "slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-massachusetts-state-parks-department-of-conservation-and-recreation",
       "museum_name": "Massachusetts State Parks (Department of Conservation and Recreation)",
       "address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104",
       "phone": "617-626-1250",
@@ -151,6 +123,7 @@
     },
     {
       "slug": "museum-of-fine-arts",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-museum-of-fine-arts",
       "museum_name": "Museum of Fine Arts",
       "address": "465 Huntington Avenue, Boston, MA 02115",
       "phone": "617-267-9300",
@@ -168,6 +141,7 @@
     },
     {
       "slug": "museum-of-science",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-museum-of-science",
       "museum_name": "Museum of Science",
       "address": "1 Science Park, Boston, MA 02114",
       "phone": "617-723-2500",
@@ -189,6 +163,7 @@
     },
     {
       "slug": "new-england-aquarium",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-new-england-aquarium",
       "museum_name": "New England Aquarium",
       "address": "1 Central Wharf, Boston, MA 02110",
       "phone": "617-973-5200",
@@ -208,6 +183,7 @@
     },
     {
       "slug": "north-shore-childrens-museum",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-north-shore-childrens-museum",
       "museum_name": "North Shore Children's Museum",
       "address": "10 Main Street, Peabody, MA 01960",
       "phone": "978-538-5765",
@@ -225,6 +201,7 @@
     },
     {
       "slug": "peabody-essex-museum",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-peabody-essex-museum",
       "museum_name": "Peabody Essex Museum",
       "address": "161 Essex Street, Salem, MA 01970-3783",
       "phone": "978-745-9500",
@@ -243,6 +220,7 @@
     },
     {
       "slug": "real-pirates-salem",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-real-pirates-salem",
       "museum_name": "Real Pirates Salem",
       "address": "285 Derby Street, Salem, MA 01970",
       "phone": "978-259-1717",
@@ -263,6 +241,7 @@
     },
     {
       "slug": "roger-williams-park-zoo",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-roger-williams-park-zoo",
       "museum_name": "Roger Williams Park Zoo",
       "address": "1000 Elmwood Avenue, Providence, RI 02907",
       "phone": "401-785-3510",
@@ -280,6 +259,7 @@
     },
     {
       "slug": "salem-witch-museum",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-salem-witch-museum",
       "museum_name": "Salem Witch Museum",
       "address": "19 1/2 Washington Square, Salem, MA 01970",
       "phone": "978-744-1692",
@@ -297,6 +277,7 @@
     },
     {
       "slug": "sandmagination",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-sandmagination",
       "museum_name": "Sandmagination",
       "address": "210 Andover Street, Peabody, MA 01960",
       "phone": "978-482-4297",
@@ -313,6 +294,7 @@
     },
     {
       "slug": "seacoast-science-center",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-seacoast-science-center",
       "museum_name": "Seacoast Science Center",
       "address": "570 Ocean Boulevard, Odiorne Point State Park, Rye, NH 03870",
       "phone": "603-436-8043",
@@ -332,6 +314,7 @@
     },
     {
       "slug": "strawbery-banke-museum",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-strawbery-banke-museum",
       "museum_name": "Strawbery Banke Museum",
       "address": "14 Hancock Street, Portsmouth, NH 03801",
       "phone": "603-433-1100",
@@ -351,6 +334,7 @@
     },
     {
       "slug": "zoo-new-england",
+      "url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-zoo-new-england",
       "museum_name": "Zoo New England",
       "address": "1 Franklin Park Road, Boston, MA 02121",
       "phone": "617-541-5466",

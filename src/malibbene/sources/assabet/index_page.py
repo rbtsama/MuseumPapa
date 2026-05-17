@@ -94,8 +94,12 @@ def _parse_jsonld(block: str) -> dict:
         return {}
 
 
-def parse_pass_block(slug: str, block: str) -> dict:
+def parse_pass_block(slug: str, block: str, page_url: str = "") -> dict:
     record: dict = {"slug": slug}
+    if page_url:
+        # Assabet renders all passes on one /by-museum/ page; per-pass deep-link
+        # uses the location-class slug as a fragment hint.
+        record["url"] = f"{page_url}#museum-{slug}"
     ld = _parse_jsonld(block)
     if ld:
         if ld.get("name"):
@@ -155,7 +159,7 @@ def scrape_library(lib_id: str, domain: str) -> tuple[str, dict]:
             "passes": [],
         }
 
-    passes = [parse_pass_block(slug, block) for slug, block in _split_blocks(html_body)]
+    passes = [parse_pass_block(slug, block, url) for slug, block in _split_blocks(html_body)]
     summary = status.StatusSummary()
     for p in passes:
         summary.add(p["status"])

@@ -149,6 +149,7 @@ def scrape_library(
             {
                 "slug": slug,
                 "musid": musid,
+                "url": f"{url}#detail{musid}",
                 "museum_name": name,
                 "pass_type": ptype,
                 "pass_type_raw": ptype_raw,

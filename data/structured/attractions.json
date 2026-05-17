@@ -1,11 +1,11 @@
 {
   "_meta": {
-    "built_at": "2026-05-17T09:45:39Z",
-    "n_attractions": 98,
-    "n_with_price": 82,
-    "n_with_image": 95,
-    "n_with_geo": 97,
-    "n_with_hours": 98
+    "built_at": "2026-05-17T14:13:51Z",
+    "n_attractions": 97,
+    "n_with_price": 81,
+    "n_with_image": 94,
+    "n_with_geo": 96,
+    "n_with_hours": 97
   },
   "attractions": [
     {
@@ -810,6 +810,7 @@
         "everett",
         "framingham",
         "haverhill",
+        "lexington",
         "lincoln",
         "lynn",
         "lynnfield",
@@ -1878,6 +1879,7 @@
         "burlington",
         "carlisle",
         "chelmsford",
+        "chelsea",
         "concord",
         "danvers",
         "everett",
@@ -2128,10 +2130,26 @@
       "legacy_slugs": [],
       "sources": [
         "andover",
+        "bedford",
+        "billerica",
+        "chelsea",
         "everett",
+        "haverhill",
+        "lexington",
+        "lynn",
+        "lynnfield",
         "malden",
-        "middleton",
+        "maynard",
+        "melrose",
+        "methuen",
+        "natick",
+        "newton",
+        "north-andover",
+        "quincy",
+        "reading",
         "waltham",
+        "wayland",
+        "weston",
         "wilmington",
         "winchester"
       ],
@@ -2664,6 +2682,7 @@
         "needham",
         "peabody",
         "quincy",
+        "reading",
         "wakefield",
         "wellesley",
         "weston",
@@ -4947,74 +4966,6 @@
         },
         "notes": "Summer (Apr 15–Oct 31): 10 AM–5:15 PM daily. Winter (Nov 1–Apr 14): 10 AM–4:15 PM. Closed Mon in Jan/Feb/Mar. Closed Thanksgiving, Christmas Eve, Christmas, New Year's Day.",
         "source_url": "https://www.paulreverehouse.org/hours-prices/"
-      }
-    },
-    {
-      "slug": "animal-adventures",
-      "museum_name": "Animal Adventures",
-      "address": "336 Sugar Road, Bolton, MA 01740",
-      "website": "http://www.animaladventures.net/",
-      "phone": "978-779-8988",
-      "description": "Begun in 1997, Animal Adventures is a an exotic animal rescue center located in Bolton, MA. These animals are the basis of educational programs and a family-run zoo. Live animal shows take place daily, and private tours of different types of animals may be booked. For more information, please visit the website.",
-      "categories": [
-        "Children",
-        "Nature"
-      ],
-      "categories_raw": [
-        "Children",
-        "Family",
-        "Nature"
-      ],
-      "legacy_slugs": [],
-      "sources": [
-        "middleton"
-      ],
-      "original_price": {
-        "age_pricing": {
-          "adult": {
-            "price": 17.44,
-            "min_age": null,
-            "max_age": null
-          },
-          "youth": null,
-          "child": {
-            "price": 7.63,
-            "min_age": null,
-            "max_age": null
-          },
-          "senior": null,
-          "free_under_age": 2
-        },
-        "identity_pricing": {
-          "student": null,
-          "educator": null,
-          "military": null
-        },
-        "family": null,
-        "notes": "General admission ages 4+ $17.44; Toddlers 2-3 $7.63; Under 2 free; Various other tours available at different prices",
-        "source_url": "http://www.animaladventures.net/"
-      },
-      "hero_image": {
-        "og_image_url": "http://static1.squarespace.com/static/6749ecca8f2ea01242d8a812/t/674a2425dc1b9d0a3f23aa1b/1732912165376/AA_Color+Logo_With+Aligator+-+Copy.png?format=1500w",
-        "local_path": "static/images/animal-adventures.png"
-      },
-      "geo": {
-        "lat": 42.4509712,
-        "lon": -71.5846761
-      },
-      "hours": {
-        "status": "ok",
-        "regular_hours": {
-          "mon": "10:00 AM – 5:00 PM",
-          "tue": "10:00 AM – 5:00 PM",
-          "wed": "10:00 AM – 5:00 PM",
-          "thu": "10:00 AM – 5:00 PM",
-          "fri": "10:00 AM – 5:00 PM",
-          "sat": "10:00 AM – 5:00 PM",
-          "sun": "11:00 AM – 5:00 PM"
-        },
-        "notes": "Hubbardston location: Wed–Sun 10 AM – 4 PM.",
-        "source_url": "https://www.animaladventuresne.com/"
       }
     },
     {
