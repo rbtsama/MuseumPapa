@@ -1,8 +1,8 @@
 {
   "library_id": "wakefield",
-  "attraction_slug": "plimoth-patuxent-museums",
+  "attraction_slug": "plimoth-patuxet-museums",
   "status": "ok",
-  "raw": "This library pass must be presented to Plimoth Patuxent Museums guest services staff upon arrival at the Museum for Library patrons to purchase a Heritage Pass, Combination Pass, or Plimoth Patuxent Only pass for up to six individuals at the reduced rate of $18 per adult; $12 per child ages 5-17. This coupon is for one time use only by the patron. Visit plimoth.org/plan-your-visit for up to date visitor information including new safety protocols, or call 508-746-1622 for hours, directions or other information.",
+  "raw": "This library pass must be presented to Plimoth Patuxet Museums guest services staff upon arrival at the Museum for Library patrons to purchase a Heritage Pass, Combination Pass, or Plimoth Patuxet Only pass for up to six individuals at the reduced rate of $18 per adult; $12 per child ages 5-17. This coupon is for one time use only by the patron. Visit plimoth.org/plan-your-visit for up to date visitor information including new safety protocols, or call 508-746-1622 for hours, directions or other information.",
   "capacity": {
     "kind": "people",
     "n": 6
@@ -17,7 +17,10 @@
     },
     {
       "audience": "Child",
-      "age_range": {"min": 5, "max": 17},
+      "age_range": {
+        "min": 5,
+        "max": 17
+      },
       "count": null,
       "form": "per-person-price",
       "value": 12

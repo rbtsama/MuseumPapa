@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "built_at": "2026-05-17T06:19:24Z",
+    "built_at": "2026-05-17T07:00:49Z",
     "n_passes": 1008,
     "n_with_availability": 974,
-    "n_with_coupon": 1005,
+    "n_with_coupon": 1008,
     "n_with_restrictions": 142,
     "n_physical_at_branch": 438,
     "n_digital": 570
@@ -9651,11 +9651,29 @@
       "pickup_branches": [],
       "coupon": {
         "capacity": {
-          "kind": "unspecified",
-          "n": null
+          "kind": "people",
+          "n": 6
         },
-        "audience_policies": [],
-        "summary": ""
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": null,
+            "form": "per-person-price",
+            "value": 18
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": 5,
+              "max": 17
+            },
+            "count": null,
+            "form": "per-person-price",
+            "value": 12
+          }
+        ],
+        "summary": "Up to 6 · $18/person (Adult) · $12/person (Child 5-17)"
       },
       "restrictions": null,
       "source_url": "",
@@ -15916,11 +15934,29 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "unspecified",
-          "n": null
+          "kind": "people",
+          "n": 6
         },
-        "audience_policies": [],
-        "summary": ""
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": null,
+            "form": "per-person-price",
+            "value": 18
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": 5,
+              "max": 17
+            },
+            "count": null,
+            "form": "per-person-price",
+            "value": 12
+          }
+        ],
+        "summary": "Up to 6 · $18/person (Adult) · $12/person (Child 5-17)"
       },
       "restrictions": null,
       "source_url": "",
@@ -37563,11 +37599,29 @@
       "pickup_branches": [],
       "coupon": {
         "capacity": {
-          "kind": "unspecified",
-          "n": null
+          "kind": "people",
+          "n": 6
         },
-        "audience_policies": [],
-        "summary": ""
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": null,
+            "form": "per-person-price",
+            "value": 18
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": 5,
+              "max": 17
+            },
+            "count": null,
+            "form": "per-person-price",
+            "value": 12
+          }
+        ],
+        "summary": "Up to 6 · $18/person (Adult) · $12/person (Child 5-17)"
       },
       "restrictions": null,
       "source_url": "",

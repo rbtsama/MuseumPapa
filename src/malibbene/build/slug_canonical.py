@@ -16,6 +16,8 @@ LEGACY_TO_CANONICAL: dict[str, str] = {
     "the-trustees-of-the-reservations": "trustees-of-reservations",
     "trustees-of-the-reservations": "trustees-of-reservations",
     "plimoth-patuxet-museums": "plimoth-patuxet",
+    "plimoth-patuxent-museums": "plimoth-patuxet",
+    "plimoth-patuxent": "plimoth-patuxet",
     "american-rep-theater": "american-repertory-theater",
     "massachusetts-state-parks-department-of-conservation-and-recreation": "ma-state-parks",
     "the-butterfly-place": "butterfly-place",

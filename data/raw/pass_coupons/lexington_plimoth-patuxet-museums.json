@@ -1,6 +1,6 @@
 {
   "library_id": "lexington",
-  "attraction_slug": "plimoth-patuxent-museums",
+  "attraction_slug": "plimoth-patuxet-museums",
   "status": "ok",
   "raw": "This pass entitles the library patron to purchase Plimoth Plantation Heritage Pass Tickets for up to six individuals at the reduced rate of $18 per adult, $12 per child ages 5-17. May not be used with any other discount. Borrower's ID must match name on pass. Paid admission may be applied toward purchase of Plimoth Plantation membership within 30 days with receipt. Visit https://plimoth.org/ or call 508-746-1622 for hours, directions or other information. If you are unable to visit the museum on the date you've reserved, please contact your library to cancel this pass and make it available for another patron. Thank you. THIS IS A COUPON PASS PASS DOES NOT NEED TO BE RETURNED",
   "capacity": {
@@ -17,7 +17,10 @@
     },
     {
       "audience": "Child",
-      "age_range": {"min": 5, "max": 17},
+      "age_range": {
+        "min": 5,
+        "max": 17
+      },
       "count": null,
       "form": "per-person-price",
       "value": 12

@@ -4,16 +4,16 @@ interface Props {
   coupon: Coupon;
 }
 
-type AudienceBucket = 'Adult' | 'Youth' | 'Everyone';
+type AudienceBucket = 'Adult' | 'Youth' | 'Child' | 'Everyone';
 
-// Collapse the raw schema audiences into the three buckets the product uses.
-// Senior/Student/Military/Educator fold into Adult; Child folds into Youth.
-// Vehicle and Single-ticket aren't audiences — capacity carries their unit.
+// Coupon-side audiences collapse to 4 buckets. Senior/Student/Educator/Military
+// are attraction-side identity tiers; on the coupon they all fold into Adult.
+// Vehicle / Single ticket aren't admission audiences — handled as special rows.
 function bucket(audience: AudiencePolicy['audience']): AudienceBucket | null {
   switch (audience) {
     case 'Adult':
     case 'Senior':           return 'Adult';
-    case 'Child':
+    case 'Child':            return 'Child';
     case 'Youth':            return 'Youth';
     case 'Everyone':         return 'Everyone';
     case 'Vehicle':
@@ -31,13 +31,14 @@ function fmtAmount(p: AudiencePolicy): string {
   }
 }
 
-// Age range is only worth showing when narrower than the bucket implies.
-// Adult ≥18, Youth <18, Senior ≥65 are defaults — drop. Adult 13+ at JFK, Youth <6 at MFA — keep.
+// Adult ≥18, Senior ≥65, Youth <18, Child <18 are the bucket-implicit defaults;
+// suppress age ranges that just restate them. Narrow tiers (Adult 13+ at JFK,
+// Child age<6 at MFA, Youth age 7-17) survive.
 function isRedundantAge(b: AudienceBucket, audience: AudiencePolicy['audience'], age: AgeRange): boolean {
   const { min, max } = age;
   if (b === 'Adult' && max == null && min != null && min >= 18 && min <= 19) return true;
   if (b === 'Adult' && audience === 'Senior') return true;
-  if (b === 'Youth' && min == null && max != null && max >= 17 && max <= 18) return true;
+  if ((b === 'Youth' || b === 'Child') && min == null && max != null && max >= 17 && max <= 18) return true;
   if (b === 'Youth' && min === 13 && max === 17) return true;
   return false;
 }
@@ -48,9 +49,9 @@ function fmtAudienceLabel(p: AudiencePolicy): string | null {
   const age = p.age_range;
   if (!age || isRedundantAge(b, p.audience, age)) return b;
   const { min, max } = age;
-  if (min != null && max != null) return `${b} ${min}-${max}`;
-  if (max != null) return `${b} <${max + 1}`;
-  if (min != null) return `${b} ${min}+`;
+  if (min != null && max != null) return `age ${min}-${max}`;
+  if (max != null) return `age<${max + 1}`;
+  if (min != null) return `age>=${min}`;
   return b;
 }
 
@@ -75,13 +76,17 @@ function CapacityNode({ capacity, color }: { capacity: CouponCapacity; color: st
       </span>
     );
   }
-  if (capacity.kind === 'vehicle') {
-    return <span style={{ color }}>{capacity.n} vehicle{capacity.n > 1 ? 's' : ''}</span>;
-  }
   if (capacity.kind === 'ticket') {
     return <span style={{ color }}>{capacity.n} ticket{capacity.n > 1 ? 's' : ''}</span>;
   }
   return null;
+}
+
+// A coupon is "non-admission" when any policy carries vehicle as the unit.
+// Display it as a single dim line so it doesn't get compared against admission discounts.
+function isNonAdmissionCoupon(coupon: Coupon): boolean {
+  if (coupon.capacity.kind === 'vehicle') return true;
+  return coupon.audience_policies.some(p => p.audience === 'Vehicle');
 }
 
 export function CouponLine({ coupon }: Props) {
@@ -89,7 +94,17 @@ export function CouponLine({ coupon }: Props) {
 
   const dim = 'var(--ink-3)';
   const amount = 'var(--g)';
-  const hasCapacity = coupon.capacity.n != null && coupon.capacity.n > 0;
+
+  if (isNonAdmissionCoupon(coupon)) {
+    return (
+      <span style={{ fontSize: 12, color: dim, lineHeight: 1.2 }}>
+        Other discount · parking
+      </span>
+    );
+  }
+
+  const hasCapacity = coupon.capacity.n != null && coupon.capacity.n > 0
+    && coupon.capacity.kind !== 'vehicle';
 
   return (
     <span
