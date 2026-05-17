@@ -5,6 +5,7 @@ import {
 } from '../data/load';
 import { PassTypeLabel } from '../components/PassTypeLabel';
 import { CouponLine } from '../components/CouponLine';
+import { MuseumReservationBanner } from '../components/MuseumReservationBanner';
 import { passBlockedByRestrictions } from '../lib/restrictions';
 import { GuestLockedRow } from '../components/GuestLockedRow';
 import { SignInModal } from '../components/SignInModal';
@@ -214,6 +215,13 @@ export function AttractionDetail() {
         </div>
       )}
 
+      <div style={{ marginBottom: 14 }}>
+        <MuseumReservationBanner
+          reservation={attraction.museum_reservation}
+          attractionName={attraction.museum_name}
+          variant="detail"
+        />
+      </div>
       <h2 className="font-serif" style={{ fontSize: 18, marginBottom: 8, color: 'var(--ink-2)' }}>
         Available coupons
       </h2>

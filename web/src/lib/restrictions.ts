@@ -54,5 +54,8 @@ export function passBlockedByRestrictions(
     const win = parseSeasonalWindow(restrictions.seasonal);
     if (win && !isWithinSeasonalWindow(d, win)) return true;
   }
+  if (restrictions.blackout_dates && restrictions.blackout_dates.includes(isoDate)) {
+    return true;
+  }
   return false;
 }

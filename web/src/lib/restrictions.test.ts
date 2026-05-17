@@ -26,7 +26,7 @@ describe('passBlockedByRestrictions', () => {
   });
 
   it('blocks weekdays_only passes on Saturday and Sunday', () => {
-    const r = { blackout_dates: false, weekdays_only: true, seasonal: null, reservation_required: false };
+    const r = { blackout_dates: [], weekdays_only: true, seasonal: null };
     expect(passBlockedByRestrictions(r, '2026-05-16')).toBe(true);  // Saturday
     expect(passBlockedByRestrictions(r, '2026-05-17')).toBe(true);  // Sunday
     expect(passBlockedByRestrictions(r, '2026-05-18')).toBe(false); // Monday
@@ -34,20 +34,17 @@ describe('passBlockedByRestrictions', () => {
   });
 
   it('blocks seasonal passes outside their window', () => {
-    const r = { blackout_dates: false, weekdays_only: false, seasonal: 'May–Oct', reservation_required: false };
+    const r = { blackout_dates: [], weekdays_only: false, seasonal: 'May–Oct' };
     expect(passBlockedByRestrictions(r, '2026-06-15')).toBe(false);
     expect(passBlockedByRestrictions(r, '2026-10-31')).toBe(false);
     expect(passBlockedByRestrictions(r, '2026-11-01')).toBe(true);
     expect(passBlockedByRestrictions(r, '2026-04-30')).toBe(true);
   });
 
-  it('does not block on the binary blackout_dates flag (data is too coarse to filter)', () => {
-    const r = { blackout_dates: true, weekdays_only: false, seasonal: null, reservation_required: false };
-    expect(passBlockedByRestrictions(r, '2026-07-04')).toBe(false);
-  });
-
-  it('does not block on reservation_required (date-orthogonal workflow signal)', () => {
-    const r = { blackout_dates: false, weekdays_only: false, seasonal: null, reservation_required: true };
-    expect(passBlockedByRestrictions(r, '2026-05-17')).toBe(false);
+  it('blocks specific dates listed in blackout_dates', () => {
+    const r = { blackout_dates: ['2026-07-04', '2026-12-25'], weekdays_only: false, seasonal: null };
+    expect(passBlockedByRestrictions(r, '2026-07-04')).toBe(true);
+    expect(passBlockedByRestrictions(r, '2026-12-25')).toBe(true);
+    expect(passBlockedByRestrictions(r, '2026-07-05')).toBe(false);
   });
 });

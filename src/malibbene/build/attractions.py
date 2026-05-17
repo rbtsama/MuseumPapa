@@ -105,7 +105,8 @@ def _apply_description_fallback(entry: dict, desc_rec: dict | None) -> None:
 def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
                        hours: dict | None = None,
                        descriptions: dict | None = None,
-                       free_under_age_overrides: dict[str, int] | None = None) -> dict:
+                       free_under_age_overrides: dict[str, int] | None = None,
+                       museum_reservation: dict | None = None) -> dict:
     """Return {attractions: [...], _meta: {...}}.
 
     Args:
@@ -159,6 +160,18 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
                 return d[ls]
         return None
 
+    museum_res_map = (museum_reservation or {}).get("attractions") or {}
+
+    def _museum_res_block(slug: str, legacy_aliases: list[str]) -> dict | None:
+        rec = museum_res_map.get(slug)
+        if not rec:
+            for alias in legacy_aliases:
+                rec = museum_res_map.get(alias)
+                if rec: break
+        if not rec or not rec.get("required"):
+            return None
+        return {"required": True, "url": rec.get("url")}
+
     out = []
     for slug, base in accum.items():
         legacy_aliases = base.get("legacy_slugs", [])
@@ -172,6 +185,7 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
             "hero_image": _image_block(_lookup(images, slug, legacy_aliases)),
             "geo": _geo_block(_lookup(attr_geo, slug, legacy_aliases)),
             "hours": _hours_block(_lookup(hours, slug, legacy_aliases)),
+            "museum_reservation": _museum_res_block(slug, legacy_aliases),
         })
 
     return {

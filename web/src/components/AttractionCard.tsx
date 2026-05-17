@@ -4,6 +4,7 @@ import type { PickedTag } from '../lib/tag-algorithm';
 import { FavoriteButton } from './FavoriteButton';
 import { PassTypeLabel } from './PassTypeLabel';
 import { CouponLine } from './CouponLine';
+import { MuseumReservationBanner } from './MuseumReservationBanner';
 import { hoursDisplay } from '../lib/hours';
 import { heroSrc } from '../lib/hero';
 import { getBranchesForPass } from '../data/load';
@@ -168,6 +169,14 @@ export function AttractionCard({
           )}
         </div>
       </div>
+
+      {attraction.museum_reservation && (
+        <MuseumReservationBanner
+          reservation={attraction.museum_reservation}
+          attractionName={attraction.museum_name}
+          variant="card"
+        />
+      )}
 
       {/* Body: pass options, or empty / guest state */}
       {closedToday ? null : isGuestOrEmpty ? (

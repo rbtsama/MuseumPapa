@@ -105,10 +105,14 @@ export interface Coupon {
 }
 
 export interface PassRestrictions {
-  blackout_dates: boolean;
+  blackout_dates: string[];
   weekdays_only: boolean;
   seasonal: string | null;
-  reservation_required: boolean;
+}
+
+export interface MuseumReservation {
+  required: true;
+  url: string | null;
 }
 
 export interface HeroImage {
@@ -140,6 +144,7 @@ export interface Attraction {
   hero_image: HeroImage | null;
   geo: Geo | null;
   hours: Hours | null;
+  museum_reservation: MuseumReservation | null;
 }
 
 export type PassTypeKind = 'digital' | 'physical-coupon' | 'physical-circ' | 'unknown';

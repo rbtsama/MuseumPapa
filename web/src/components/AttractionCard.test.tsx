@@ -40,6 +40,7 @@ function makeAttraction(overrides: Partial<Attraction> = {}): Attraction {
     hero_image: null,
     geo: null,
     hours: null,
+    museum_reservation: null,
     ...overrides,
   };
 }

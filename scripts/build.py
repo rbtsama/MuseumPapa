@@ -100,8 +100,11 @@ def main() -> int:
 
     # 3. attractions.json
     print("Building attractions.json...")
+    museum_res_path = structured / "museum_reservation.json"
+    museum_res = json.loads(museum_res_path.read_text(encoding="utf-8")) if museum_res_path.exists() else {}
     attr_doc = build_attractions(catalog, prices, images, geo, hours, descriptions,
-                                  free_under_age_overrides=free_map)
+                                  free_under_age_overrides=free_map,
+                                  museum_reservation=museum_res)
     _apply_overrides(attr_doc, "slug", "attractions", overrides.get("attractions", {}))
     (structured / "attractions.json").write_text(
         json.dumps(attr_doc, indent=2, ensure_ascii=False), encoding="utf-8"
