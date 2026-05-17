@@ -72,56 +72,59 @@ def read_raw(subdir: str, name: str) -> dict | None:
 
 # ---------- Pattern clustering ----------
 
-def signature(pass_obj: dict) -> tuple:
-    """Derive a grouping signature from the coupon model (plan-9)."""
-    coupon = pass_obj.get("coupon") or {}
-    cap = coupon.get("capacity") or {}
-    cap_kind = cap.get("kind") or "unspecified"
-    cap_n = cap.get("n")  # int or None
-    aps = coupon.get("audience_policies") or []
-    forms = tuple(sorted({ap.get("form", "discount") for ap in aps}))
-    n_tiers = len(aps)
-    has_restrictions = bool(pass_obj.get("restrictions"))
-    return (cap_kind, cap_n, forms, n_tiers, has_restrictions)
+CAP_BUCKETS = ["people", "vehicle", "other"]
+CAP_LABEL_EN = {"people": "Headcount", "vehicle": "Vehicle", "other": "Other"}
+CAP_LABEL_ZH = {"people": "人数",      "vehicle": "车辆",    "other": "其他"}
 
-
-COUPON_FORM_LABEL_EN = {
-    "free":             "FREE",
-    "percent-off":      "Percent off",
-    "dollar-off":       "Dollar off",
-    "per-person-price": "Per-person price",
-    "discount":         "Generic discount",
+FORM_BUCKETS = ["percent", "fixed", "free", "vague", "other"]
+FORM_LABEL_EN = {
+    "percent": "Percent off",
+    "fixed":   "Fixed amount",
+    "free":    "FREE",
+    "vague":   "Vague discount",
+    "other":   "Other",
 }
-COUPON_FORM_LABEL_ZH = {
-    "free":             "免费",
-    "percent-off":      "百分比折扣",
-    "dollar-off":       "立减金额",
-    "per-person-price": "人头定价",
-    "discount":         "笼统折扣",
-}
-CAP_KIND_LABEL = {
-    "people":      "People · 人数",
-    "vehicle":     "Vehicle · 车辆",
-    "ticket":      "Ticket · 单张票",
-    "unspecified": "Unspecified · 未明示",
+FORM_LABEL_ZH = {
+    "percent": "百分比",
+    "fixed":   "固定金额",
+    "free":    "免费",
+    "vague":   "模糊优惠",
+    "other":   "其他",
 }
 
 
-def signature_name(sig: tuple) -> tuple[str, str]:
-    cap_kind, cap_n, forms, n_tiers, has_restrictions = sig
-    forms_en = " + ".join(COUPON_FORM_LABEL_EN.get(f, f) for f in forms) if forms else "no form"
-    forms_zh = " + ".join(COUPON_FORM_LABEL_ZH.get(f, f) for f in forms) if forms else "无 form"
-    cap_str = CAP_KIND_LABEL.get(cap_kind, cap_kind)
-    if cap_kind == "people" and cap_n is not None:
-        cap_str = f"≤{cap_n} people"
-    tiers_str = f"{n_tiers}-tier" if n_tiers != 1 else "single-tier"
-    restr_str = "w/ restrictions" if has_restrictions else ""
-    en_parts = [forms_en, cap_str, tiers_str]
-    zh_parts = [forms_zh, cap_str, tiers_str]
-    if restr_str:
-        en_parts.append(restr_str)
-        zh_parts.append("含限制")
-    return " · ".join(en_parts), " · ".join(zh_parts)
+def cap_bucket(pass_obj: dict) -> str:
+    """Capacity dimension: 3 buckets — Headcount (people+ticket), Vehicle, Other."""
+    cap = (pass_obj.get("coupon") or {}).get("capacity") or {}
+    k = cap.get("kind") or "unspecified"
+    if k in ("people", "ticket"): return "people"
+    if k == "vehicle":            return "vehicle"
+    return "other"
+
+
+def form_bucket(pass_obj: dict) -> str:
+    """Discount form dimension: 5 buckets — derived from the primary audience_policy."""
+    aps = (pass_obj.get("coupon") or {}).get("audience_policies") or []
+    if not aps:
+        return "other"
+    f = aps[0].get("form", "discount")
+    if f == "percent-off":                            return "percent"
+    if f in ("dollar-off", "per-person-price"):       return "fixed"
+    if f == "free":                                   return "free"
+    if f == "discount":                               return "vague"
+    return "other"
+
+
+def signature(pass_obj: dict) -> tuple[str, str]:
+    """Two-dimensional grouping — 3 capacity buckets × 5 form buckets = 15 cells."""
+    return (cap_bucket(pass_obj), form_bucket(pass_obj))
+
+
+def signature_name(sig: tuple[str, str]) -> tuple[str, str]:
+    cap, form = sig
+    en = f"{FORM_LABEL_EN[form]} · {CAP_LABEL_EN[cap]}"
+    zh = f"{FORM_LABEL_ZH[form]} · {CAP_LABEL_ZH[cap]}"
+    return en, zh
 
 
 # ---------- Badges ----------
@@ -1113,28 +1116,24 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
 
 def page_policies(passes_data, libs_data, attr_data) -> str:
     passes = passes_data["passes"]
-    # Compute signatures from coupon model, take top 15 by frequency, rest = P16 Other
-    sigs = Counter(signature(p) for p in passes if p.get("coupon"))
-    top = sigs.most_common(15)
-    sig_to_pid = {sig: f"P{i+1}" for i, (sig, _) in enumerate(top)}
-
-    # Group passes by pid
+    # Group passes by (capacity-bucket, form-bucket) — 3 × 5 = 15 cells.
     by_pid: dict[str, list] = defaultdict(list)
+    cell_counts: dict[tuple[str, str], int] = {}
     for p in passes:
-        if not p.get("coupon"):
-            by_pid["P16"].append(p)
-            continue
         sig = signature(p)
-        pid = sig_to_pid.get(sig, "P16")
+        pid = f"P_{sig[0]}_{sig[1]}"
         by_pid[pid].append(p)
+        cell_counts[sig] = cell_counts.get(sig, 0) + 1
 
-    # Build pattern metadata
+    # Pattern metadata in matrix order, only non-empty cells.
     pattern_meta = []
-    for i, (sig, n) in enumerate(top):
-        en, zh = signature_name(sig)
-        pattern_meta.append((f"P{i+1}", en, zh, n))
-    if "P16" in by_pid:
-        pattern_meta.append(("P16", "Other / Long-tail patterns", "其它 / 长尾", len(by_pid["P16"])))
+    for cap in CAP_BUCKETS:
+        for form in FORM_BUCKETS:
+            n = cell_counts.get((cap, form), 0)
+            if n == 0: continue
+            pid = f"P_{cap}_{form}"
+            en, zh = signature_name((cap, form))
+            pattern_meta.append((pid, en, zh, n))
 
     # TOC
     toc_items = "".join(
@@ -1304,13 +1303,40 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
         for k, v in r.items():
             if v:
                 restr_counter[k] += 1
-    # Pattern frequency table
+    max_n = max((n for _, _, _, n in pattern_meta), default=1)
     pattern_count_table = "".join(
         f'<tr><td class="mono"><a href="#{pid}">{pid}</a></td>'
         f'<td>{esc(en)}</td>'
-        f'<td class="bar-cell"><span class="bar">{"█" * round(40 * n / max(1, pattern_meta[0][3]))}</span></td>'
+        f'<td class="bar-cell"><span class="bar">{"█" * round(40 * n / max(1, max_n))}</span></td>'
         f'<td class="num">{n}</td><td class="pct">{round(100 * n / n_passes)}%</td></tr>'
         for pid, en, zh, n in pattern_meta
+    )
+
+    # 3 × 5 matrix view — quick visual summary above the pattern detail list.
+    matrix_html_rows = []
+    matrix_html_rows.append(
+        '<tr><th></th>'
+        + ''.join(f'<th class="num">{FORM_LABEL_EN[f]}<span class="zh-sub">{FORM_LABEL_ZH[f]}</span></th>' for f in FORM_BUCKETS)
+        + '<th class="num">total</th></tr>'
+    )
+    for cap in CAP_BUCKETS:
+        cells = []
+        row_total = 0
+        for form in FORM_BUCKETS:
+            n = cell_counts.get((cap, form), 0)
+            row_total += n
+            pid = f"P_{cap}_{form}"
+            cells.append(
+                f'<td class="num"><a href="#{pid}">{n}</a></td>' if n else '<td class="num"></td>'
+            )
+        if row_total == 0: continue
+        label = f'<th>{CAP_LABEL_EN[cap]}<span class="zh-sub">{CAP_LABEL_ZH[cap]}</span></th>'
+        matrix_html_rows.append(f'<tr>{label}{"".join(cells)}<td class="num"><b>{row_total}</b></td></tr>')
+    pattern_matrix_html = (
+        '<table class="data-table capacity-matrix">'
+        f'<thead>{matrix_html_rows[0]}</thead>'
+        f'<tbody>{"".join(matrix_html_rows[1:])}</tbody>'
+        '</table>'
     )
     # Precompute histogram HTML (dicts can't be inlined in f-strings)
     _pt_label = {
@@ -1352,7 +1378,11 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     {_pol_restr_html}
   </div>
   <div class="panel dist-panel dist-wide">
-    <h3>Coupon patterns</h3>
+    <h3>Coupon patterns · 限制 × 优惠</h3>
+    {pattern_matrix_html}
+  </div>
+  <div class="panel dist-panel dist-wide">
+    <h3>Coupon patterns · ranked</h3>
     <table class="histogram"><thead><tr><th>id</th><th>name</th><th></th><th class="num">n</th><th class="pct">%</th></tr></thead><tbody>{pattern_count_table}</tbody></table>
   </div>
 </section>
