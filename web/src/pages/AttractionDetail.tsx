@@ -20,9 +20,9 @@ import type { OriginalPrice } from '../data/types';
 function formatOriginalAdult(op: OriginalPrice | null): string {
   const adult = op?.age_pricing?.adult?.price;
   const free = op?.age_pricing?.free_under_age;
-  const suffix = free != null ? ` · kids <${free} free` : '';
+  const suffix = free != null ? ` · FREE age <${free}` : '';
   if (adult != null) return `Original Adult $${adult}${suffix}`;
-  if (free != null) return `Kids <${free} free`;
+  if (free != null) return `FREE age <${free}`;
   return 'Price unavailable';
 }
 import { BookingConfirmModal } from '../components/BookingConfirmModal';
@@ -134,7 +134,7 @@ export function AttractionDetail() {
           width: 280, height: 210, objectFit: 'cover', borderRadius: 4, background: 'var(--paper)',
         }} />
         <div style={{ flexGrow: 1, minWidth: 280 }}>
-          <h1 className="font-serif" style={{ fontSize: 28, color: 'var(--ink-2)', marginBottom: 4 }}>
+          <h1 className="font-serif" style={{ fontSize: 22, color: 'var(--ink-2)', marginBottom: 4}}>
             {attraction.museum_name}
           </h1>
           <p style={{ color: 'var(--ink-3)', fontSize: 13 }}>
@@ -173,7 +173,7 @@ export function AttractionDetail() {
         <div className="mb-6 rounded-md p-3"
           style={{ border: '1px solid var(--rule)', background: 'var(--white)' }}>
           <div className="flex items-center gap-2 mb-1">
-            <span aria-hidden style={{ fontSize: 14, color: 'var(--ink-3)' }}>🕘</span>
+            <span aria-hidden style={{ fontSize: 13, color: 'var(--ink-3)' }}>🕘</span>
             <h2 className="font-serif" style={{ fontSize: 16, color: 'var(--ink-2)' }}>Hours vary by location</h2>
           </div>
           {attraction.hours.notes && (
@@ -186,7 +186,7 @@ export function AttractionDetail() {
         <div className="mb-6 rounded-md p-3"
           style={{ border: '1px solid var(--rule)', background: 'var(--white)' }}>
           <div className="flex items-center gap-2 mb-2">
-            <span aria-hidden style={{ fontSize: 14, color: 'var(--ink-3)' }}>🕘</span>
+            <span aria-hidden style={{ fontSize: 13, color: 'var(--ink-3)' }}>🕘</span>
             <h2 className="font-serif" style={{ fontSize: 16, color: 'var(--ink-2)' }}>Hours</h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-7 gap-x-3 gap-y-1">
@@ -222,7 +222,7 @@ export function AttractionDetail() {
           variant="detail"
         />
       </div>
-      <h2 className="font-serif" style={{ fontSize: 18, marginBottom: 8, color: 'var(--ink-2)' }}>
+      <h2 className="font-serif" style={{ fontSize: 16, marginBottom: 8, color: 'var(--ink-2)' }}>
         Available coupons
       </h2>
       <div style={{ display: 'flex', gap: 12, marginBottom: 16, alignItems: 'center', flexWrap: 'wrap' }}>
@@ -308,7 +308,7 @@ export function AttractionDetail() {
         );
       })}
 
-      <h2 className="font-serif" style={{ fontSize: 18, marginTop: 24, marginBottom: 8 }}>
+      <h2 className="font-serif" style={{ fontSize: 16, marginTop: 24, marginBottom: 8 }}>
         Participating libraries ({attraction.sources.length})
       </h2>
       <ul style={{ fontSize: 13, color: 'var(--ink-3)' }}>

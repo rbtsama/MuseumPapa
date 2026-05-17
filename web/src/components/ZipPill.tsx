@@ -52,7 +52,7 @@ export function ZipPill({ onDark = false }: Props) {
     <div className="inline-flex items-center gap-2">
       <span
         style={{
-          fontSize: 10,
+          fontSize: 11,
           color: labelColor,
           textTransform: 'uppercase',
           letterSpacing: '0.06em',

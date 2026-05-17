@@ -42,7 +42,7 @@ export function MyPasses() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
-      <h1 className="font-serif" style={{ fontSize: 24, marginBottom: 4, color: 'var(--ink-2)' }}>
+      <h1 className="font-serif" style={{ fontSize: 22, marginBottom: 4, color: 'var(--ink-2)'}}>
         My passes
       </h1>
       <p style={{ color: 'var(--ink-3)', fontSize: 12, marginBottom: 16 }}>
@@ -50,7 +50,7 @@ export function MyPasses() {
       </p>
 
       <div style={{ borderBottom: '1px solid var(--rule)', paddingBottom: 16, marginBottom: 16 }}>
-        <h2 style={{ fontSize: 14, fontWeight: 500, marginBottom: 8 }}>ZIP code</h2>
+        <h2 style={{ fontSize: 13, fontWeight: 500, marginBottom: 8 }}>ZIP code</h2>
         <div style={{ display: 'flex', gap: 8, alignItems: 'end' }}>
           <Input
             size="sm"
@@ -69,7 +69,7 @@ export function MyPasses() {
         </p>
       </div>
 
-      <h2 style={{ fontSize: 14, fontWeight: 500, marginBottom: 8 }}>
+      <h2 style={{ fontSize: 13, fontWeight: 500, marginBottom: 8 }}>
         Your library cards ({Object.keys(pack.cards).length})
       </h2>
 

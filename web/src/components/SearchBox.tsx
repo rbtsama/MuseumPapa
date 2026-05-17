@@ -68,7 +68,7 @@ export function SearchBox({ value, onChange, placeholder = 'Search attractions' 
             border: 'none',
             cursor: 'pointer',
             color: 'var(--ink-3)',
-            fontSize: 14,
+            fontSize: 13,
             lineHeight: 1,
             padding: 4,
           }}

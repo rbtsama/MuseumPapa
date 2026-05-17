@@ -49,7 +49,7 @@ function CredentialBox({ label, value }: { label: string; value: string }) {
       >
         <span style={{
           fontFamily: '"DM Mono", "Courier New", monospace',
-          fontSize: 14,
+          fontSize: 13,
           fontWeight: 600,
           color: 'var(--ink-2)',
           letterSpacing: '0.02em',
@@ -101,7 +101,7 @@ export function BookingConfirmModal({ pass, library, cardpack, onClose }: Props)
           }}>
             Get pass from
           </span>
-          <span className="font-serif" style={{ fontSize: 17, color: 'var(--ink-2)' }}>
+          <span className="font-serif" style={{ fontSize: 16, color: 'var(--ink-2)' }}>
             {libraryName}
           </span>
         </ModalHeader>

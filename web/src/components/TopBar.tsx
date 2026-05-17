@@ -22,7 +22,7 @@ export function TopBar() {
       style={{ background: 'var(--g)', zIndex: 50 }}
     >
       <Link to="/" className="font-serif truncate flex-shrink-0"
-        style={{ fontSize: 17, color: 'var(--white)' }}>
+        style={{ fontSize: 16, color: 'var(--white)' }}>
         MuseumPapa
       </Link>
 
