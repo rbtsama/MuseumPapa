@@ -5,6 +5,7 @@ import {
 } from '../data/load';
 import { PassTypeLabel } from '../components/PassTypeLabel';
 import { CouponLine } from '../components/CouponLine';
+import { CouponCalendar } from '../components/CouponCalendar';
 import { MuseumReservationBanner } from '../components/MuseumReservationBanner';
 import { passBlockedByRestrictions } from '../lib/restrictions';
 import { GuestLockedRow } from '../components/GuestLockedRow';
@@ -31,16 +32,6 @@ import { heroSrc } from '../lib/hero';
 import { todayIso } from '../lib/dates';
 import type { Geo, Pass, Library } from '../data/types';
 
-function days(start: string, n: number): string[] {
-  const out: string[] = [];
-  const d = new Date(start);
-  for (let i = 0; i < n; i++) {
-    const dd = new Date(d);
-    dd.setDate(d.getDate() + i);
-    out.push(`${dd.getFullYear()}-${String(dd.getMonth()+1).padStart(2,'0')}-${String(dd.getDate()).padStart(2,'0')}`);
-  }
-  return out;
-}
 
 interface Row {
   pass: Pass;
@@ -56,8 +47,9 @@ export function AttractionDetail() {
   const loadCardpack = useCardpack(s => s.load);
   const loadFavorites = useFavorites(s => s.load);
   const [userGeo, setUserGeo] = useState<Geo | null>(null);
-  const [startDate, setStartDate] = useState(() => todayIso());
-  const [windowSize, setWindowSize] = useState(7);
+  const today = useMemo(() => todayIso(), []);
+  const [month, setMonth] = useState(() => today.slice(0, 7));
+  const [selectedDate, setSelectedDate] = useState<string>(today);
   const [bookingPass, setBookingPass] = useState<Pass | null>(null);
   const [signInOpen, setSignInOpen] = useState(false);
 
@@ -85,7 +77,28 @@ export function AttractionDetail() {
     [user, cardpack.cards],
   );
 
-  const dateList = useMemo(() => days(startDate, windowSize), [startDate, windowSize]);
+  // Six-month pill row starting from today's month
+  const monthPills = useMemo(() => {
+    const out: string[] = [];
+    const base = new Date(`${today}T00:00:00`);
+    base.setDate(1);
+    for (let i = 0; i < 6; i++) {
+      const d = new Date(base);
+      d.setMonth(base.getMonth() + i);
+      out.push(`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`);
+    }
+    return out;
+  }, [today]);
+
+  // Dates in the currently-selected month (1..lastDay).
+  const datesOfMonth = useMemo(() => {
+    const [yStr, mStr] = month.split('-');
+    const year = Number(yStr); const m = Number(mStr);
+    const lastDay = new Date(year, m, 0).getDate();
+    return Array.from({ length: lastDay }, (_, i) =>
+      `${yStr}-${mStr}-${String(i + 1).padStart(2, '0')}`,
+    );
+  }, [month]);
 
   const rowsForDate = useMemo(() => (date: string): Row[] => {
     const rows: Row[] = [];
@@ -118,6 +131,21 @@ export function AttractionDetail() {
   const heroImg = useMemo(
     () => attraction ? heroSrc(attraction) : '/placeholders/default.svg',
     [attraction],
+  );
+
+  // Available-pass count per date in the visible month (for the calendar grid).
+  const availableCounts = useMemo(() => {
+    const out: Record<string, number> = {};
+    for (const d of datesOfMonth) {
+      out[d] = rowsForDate(d).filter(r => r.available).length;
+    }
+    return out;
+  }, [datesOfMonth, rowsForDate]);
+
+  // Selected day's passes, sorted.
+  const selectedDayRows = useMemo(
+    () => sortRows(rowsForDate(selectedDate).filter(r => r.available)),
+    [selectedDate, rowsForDate, sortRows],
   );
 
   if (!slug) return <div className="max-w-6xl mx-auto px-4 py-6">Missing slug.</div>;
@@ -225,88 +253,98 @@ export function AttractionDetail() {
       <h2 className="font-serif" style={{ fontSize: 16, marginBottom: 8, color: 'var(--ink-2)' }}>
         Available coupons
       </h2>
-      <div style={{ display: 'flex', gap: 12, marginBottom: 16, alignItems: 'center', flexWrap: 'wrap' }}>
-        <label style={{ fontSize: 12, color: 'var(--ink-3)' }}>From:</label>
-        <input
-          type="date"
-          value={startDate}
-          onChange={e => setStartDate(e.target.value)}
-          style={{ padding: '4px 8px', border: '1px solid var(--rule)', borderRadius: 4, fontSize: 13 }}
-        />
-        <label style={{ fontSize: 12, color: 'var(--ink-3)' }}>Window:</label>
-        <select
-          value={windowSize}
-          onChange={e => setWindowSize(parseInt(e.target.value, 10))}
-          style={{ padding: '4px 8px', border: '1px solid var(--rule)', borderRadius: 4, fontSize: 13 }}
-        >
-          <option value={3}>3 days</option>
-          <option value={7}>7 days</option>
-          <option value={14}>14 days</option>
-          <option value={30}>30 days</option>
-        </select>
+
+      <div className="flex flex-wrap gap-1.5 mb-3">
+        {monthPills.map(m => {
+          const active = m === month;
+          const d = new Date(`${m}-01T00:00:00`);
+          const lbl = d.toLocaleString('en-US', { month: 'short', year: 'numeric' });
+          return (
+            <button
+              key={m}
+              type="button"
+              onClick={() => setMonth(m)}
+              className="rounded-md whitespace-nowrap"
+              style={{
+                padding: '4px 10px', fontSize: 12, fontWeight: 500,
+                background: active ? 'var(--g)' : 'transparent',
+                color: active ? 'var(--white)' : 'var(--ink-2)',
+                border: `1px solid ${active ? 'var(--g)' : 'var(--rule)'}`,
+                cursor: 'pointer',
+              }}
+            >{lbl}</button>
+          );
+        })}
       </div>
 
-      {dateList.map(date => {
-        const rows = sortRows(rowsForDate(date).filter(r => r.available));
-        return (
-          <div key={date} style={{ marginBottom: 16, borderBottom: '1px solid var(--rule)', paddingBottom: 12 }}>
-            <div style={{ fontSize: 13, color: 'var(--ink-3)', marginBottom: 6 }}>
-              {date} · {rows.length} coupon{rows.length === 1 ? '' : 's'} available
-            </div>
-            {rows.length === 0 ? (
-              <div style={{ fontSize: 12, color: 'var(--ink-3)', fontStyle: 'italic' }}>
-                No passes available on this day.
-              </div>
-            ) : (
-              <div className="flex flex-col gap-1.5">
-                {rows.slice(0, 10).map((r, i) => {
-                  if (!user) {
-                    return (
-                      <GuestLockedRow
-                        key={`${r.pass.library_id}-${i}`}
-                        pass={r.pass}
-                        library={r.library}
-                        onSignInRequest={() => setSignInOpen(true)}
-                      />
-                    );
-                  }
-                  const isDigital = r.pass.pass_type === 'digital';
-                  return (
-                    <button
-                      key={`${r.pass.library_id}-${i}`}
-                      type="button"
-                      onClick={() => setBookingPass(r.pass)}
-                      className="flex items-center gap-2 rounded-md text-left"
-                      style={{
-                        background: 'var(--white)',
-                        border: '1px solid var(--rule)',
-                        padding: '8px 12px',
-                        cursor: 'pointer',
-                      }}
-                    >
-                      <PassTypeLabel type={r.pass.pass_type} />
-                      <span style={{ fontSize: 13, color: 'var(--ink-2)', fontWeight: 500 }}>
-                        {isDigital ? r.library.name : r.library.town}
-                        {!isDigital && r.distanceMi != null && (
-                          <span style={{ fontSize: 11, color: 'var(--ink-3)', fontWeight: 400 }}>
-                            {' '}· {Math.round(r.distanceMi)} mi
-                          </span>
-                        )}
-                      </span>
-                      <span className="ml-auto">
-                        <CouponLine coupon={r.pass.coupon} />
-                      </span>
-                    </button>
-                  );
-                })}
-                {rows.length > 10 && (
-                  <span style={{ fontSize: 12, color: 'var(--ink-3)' }}>+{rows.length - 10} more</span>
-                )}
-              </div>
-            )}
-          </div>
-        );
-      })}
+      <div className="mb-4">
+        <CouponCalendar
+          month={month}
+          selectedDate={selectedDate}
+          todayIso={today}
+          availableCounts={availableCounts}
+          onSelect={setSelectedDate}
+        />
+      </div>
+
+      <div style={{ fontSize: 13, color: 'var(--ink-3)', marginBottom: 8 }}>
+        {new Date(`${selectedDate}T00:00:00`).toLocaleDateString('en-US', {
+          weekday: 'long', month: 'short', day: 'numeric',
+        })}
+        {' · '}
+        {selectedDayRows.length} coupon{selectedDayRows.length === 1 ? '' : 's'} available
+      </div>
+      {selectedDayRows.length === 0 ? (
+        <div style={{ fontSize: 12, color: 'var(--ink-3)', fontStyle: 'italic', marginBottom: 16 }}>
+          No coupons available on this date.
+        </div>
+      ) : (
+        <div className="flex flex-col gap-1.5 mb-4">
+          {selectedDayRows.slice(0, 10).map((r, i) => {
+            if (!user) {
+              return (
+                <GuestLockedRow
+                  key={`${r.pass.library_id}-${i}`}
+                  pass={r.pass}
+                  library={r.library}
+                  onSignInRequest={() => setSignInOpen(true)}
+                />
+              );
+            }
+            const isDigital = r.pass.pass_type === 'digital';
+            return (
+              <button
+                key={`${r.pass.library_id}-${i}`}
+                type="button"
+                onClick={() => setBookingPass(r.pass)}
+                className="flex items-center gap-2 rounded-md text-left"
+                style={{
+                  background: 'var(--white)',
+                  border: '1px solid var(--rule)',
+                  padding: '8px 12px',
+                  cursor: 'pointer',
+                }}
+              >
+                <PassTypeLabel type={r.pass.pass_type} />
+                <span style={{ fontSize: 13, color: 'var(--ink-2)', fontWeight: 500 }}>
+                  {isDigital ? r.library.name : r.library.town}
+                  {!isDigital && r.distanceMi != null && (
+                    <span style={{ fontSize: 11, color: 'var(--ink-3)', fontWeight: 400 }}>
+                      {' '}· {Math.round(r.distanceMi)} mi
+                    </span>
+                  )}
+                </span>
+                <span className="ml-auto">
+                  <CouponLine coupon={r.pass.coupon} />
+                </span>
+              </button>
+            );
+          })}
+          {selectedDayRows.length > 10 && (
+            <span style={{ fontSize: 12, color: 'var(--ink-3)' }}>+{selectedDayRows.length - 10} more</span>
+          )}
+        </div>
+      )}
 
       <h2 className="font-serif" style={{ fontSize: 16, marginTop: 24, marginBottom: 8 }}>
         Participating libraries ({attraction.sources.length})
