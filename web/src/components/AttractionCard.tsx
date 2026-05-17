@@ -135,7 +135,7 @@ export function AttractionCard({
             <div className="mt-1.5 flex flex-wrap gap-1">
               {attraction.categories.slice(0, 3).map(c => (
                 <span key={c} className="px-1.5 py-0.5 rounded"
-                  style={{ fontSize: 10, background: 'var(--paper)', color: 'var(--ink-3)' }}>
+                  style={{ fontSize: 11, background: 'var(--paper)', color: 'var(--ink-3)' }}>
                   {c}
                 </span>
               ))}

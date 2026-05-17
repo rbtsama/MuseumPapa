@@ -35,7 +35,7 @@ export function SortDropdown({ value, onChange, distanceEnabled }: Props) {
         >
           <span aria-hidden style={{ fontSize: 13, color: 'var(--ink-3)' }}>↕</span>
           <span style={{ fontWeight: 500 }}>{LABELS[value]}</span>
-          <span aria-hidden style={{ color: 'var(--ink-3)', fontSize: 10, marginLeft: 2 }}>▾</span>
+          <span aria-hidden style={{ color: 'var(--ink-3)', fontSize: 11, marginLeft: 2 }}>▾</span>
         </button>
       </DropdownTrigger>
       <DropdownMenu
