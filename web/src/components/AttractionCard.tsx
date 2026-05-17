@@ -5,6 +5,7 @@ import { FavoriteButton } from './FavoriteButton';
 import { PassTypeLabel } from './PassTypeLabel';
 import { CouponLine } from './CouponLine';
 import { hoursDisplay } from '../lib/hours';
+import { heroSrc } from '../lib/hero';
 import { getBranchesForPass } from '../data/load';
 
 interface Props {
@@ -20,16 +21,6 @@ interface Props {
 }
 
 const MAX_ROWS_VISIBLE = 4;
-
-function heroSrc(a: Attraction): string {
-  if (a.hero_image?.local_path) {
-    const filename = a.hero_image.local_path.split(/[\\/]/).pop() ?? '';
-    if (filename) return `/images/${filename}`;
-  }
-  const cat = a.categories?.[0]?.toLowerCase() ?? 'default';
-  const known = ['family','children','history','nature','art','science','ocean','recreation'];
-  return `/placeholders/${known.includes(cat) ? cat : 'default'}.svg`;
-}
 
 function fmtMoney(v: number | null | undefined): string {
   if (v == null) return '';
@@ -63,16 +54,22 @@ export function AttractionCard({
   if (adultPrice != null) tiers.push({ label: 'adult', value: adultPrice });
   if (youthPrice != null) tiers.push({ label: 'youth', value: youthPrice });
   if (childPrice != null) tiers.push({ label: 'kids', value: childPrice });
-  if (seniorPrice != null && tiers.length < 4) tiers.push({ label: 'senior', value: seniorPrice });
-  if (studentPrice != null && tiers.length < 4) tiers.push({ label: 'student', value: studentPrice });
+  if (seniorPrice != null) tiers.push({ label: 'senior', value: seniorPrice });
+  if (studentPrice != null) tiers.push({ label: 'student', value: studentPrice });
   const hoursInfo = date ? hoursDisplay(attraction, date) : null;
 
   const dim = closedToday ? { filter: 'grayscale(0.7)', opacity: 0.55 } : {};
 
-  const handleBook = (e: React.MouseEvent, pass: Pass) => {
+  const handleBook = (e: React.SyntheticEvent, pass: Pass) => {
     e.preventDefault();
     e.stopPropagation();
     onBookPass?.(pass);
+  };
+
+  const handleBookKeyDown = (e: React.KeyboardEvent, pass: Pass) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      handleBook(e, pass);
+    }
   };
 
   return (
@@ -211,10 +208,12 @@ export function AttractionCard({
 
                 <CouponLine coupon={t.pass.coupon} />
 
-                <button
-                  type="button"
+                <span
+                  role="button"
+                  tabIndex={0}
                   onClick={(e) => handleBook(e, t.pass)}
-                  className="flex-shrink-0 rounded-md"
+                  onKeyDown={(e) => handleBookKeyDown(e, t.pass)}
+                  className="flex-shrink-0 rounded-md inline-block"
                   style={{
                     background: 'var(--g)',
                     color: 'var(--white)',
@@ -223,10 +222,11 @@ export function AttractionCard({
                     padding: '6px 12px',
                     border: 'none',
                     cursor: 'pointer',
+                    userSelect: 'none',
                   }}
                 >
                   Book
-                </button>
+                </span>
               </div>
             );
           })}

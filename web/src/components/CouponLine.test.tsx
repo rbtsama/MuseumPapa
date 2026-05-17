@@ -9,7 +9,6 @@ const make = (
 ): Coupon => ({
   capacity,
   audience_policies: policies,
-  summary: '',
 });
 
 describe('CouponLine', () => {
@@ -78,7 +77,7 @@ describe('CouponLine', () => {
 
   it('renders nothing when there are no audience_policies', () => {
     const { container } = render(<CouponLine coupon={{
-      capacity: { kind: 'unspecified', n: null }, audience_policies: [], summary: '',
+      capacity: { kind: 'unspecified', n: null }, audience_policies: [],
     }} />);
     expect(container.firstChild).toBeNull();
   });

@@ -168,27 +168,17 @@ export interface Branch {
 }
 
 export interface BranchesJson {
-  _meta: { built_at: string; n_branches: number; n_multi_branch_libs: number };
   branches: Branch[];
 }
 
 export interface LibrariesJson {
-  _meta: { built_at: string; n_libraries: number; n_with_address: number; n_with_geo: number };
   libraries: Library[];
 }
 
 export interface AttractionsJson {
-  _meta: {
-    built_at: string;
-    n_attractions: number;
-    n_with_price: number;
-    n_with_image: number;
-    n_with_geo: number;
-  };
   attractions: Attraction[];
 }
 
 export interface PassesJson {
-  _meta: { built_at: string; n_passes: number; n_with_availability: number };
   passes: Pass[];
 }

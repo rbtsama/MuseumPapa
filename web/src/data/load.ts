@@ -17,10 +17,6 @@ export function getLibraries(): Library[] {
   return _libraries.libraries;
 }
 
-export function getLibraryById(id: string): Library | undefined {
-  return _libraries.libraries.find(l => l.id === id);
-}
-
 export function getAttractions(): Attraction[] {
   return _attractions.attractions;
 }
@@ -35,18 +31,6 @@ export function getPasses(): Pass[] {
 
 export function getPassesForAttraction(slug: string): Pass[] {
   return _passes.passes.filter(p => p.attraction_slug === slug);
-}
-
-export function getPassesForLibrary(libId: string): Pass[] {
-  return _passes.passes.filter(p => p.library_id === libId);
-}
-
-export function getBranches(): Branch[] {
-  return _branches.branches;
-}
-
-export function getBranchById(id: string): Branch | undefined {
-  return _branchById.get(id);
 }
 
 export function getBranchesForPass(p: Pass): Branch[] {

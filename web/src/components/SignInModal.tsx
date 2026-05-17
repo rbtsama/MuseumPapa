@@ -47,14 +47,15 @@ export function SignInModal({ isOpen, onClose }: Props) {
             onValueChange={setPassword}
             onKeyDown={(e) => { if (e.key === 'Enter') handleSubmit(); }}
           />
-          <p style={{ fontSize: '11px', color: 'var(--ink-3)' }}>
-            Demo accounts: alex / rbt / admin (password = username)
-          </p>
+          {import.meta.env.DEV && (
+            <p style={{ fontSize: '11px', color: 'var(--ink-3)' }}>
+              Demo accounts: alex / rbt / admin (password = username)
+            </p>
+          )}
         </ModalBody>
         <ModalFooter>
           <Button variant="light" onClick={onClose}>Cancel</Button>
           <Button color="primary" onClick={handleSubmit}>Sign in</Button>
-          <Button disabled title="Sign-up coming soon">Sign up</Button>
         </ModalFooter>
       </ModalContent>
     </Modal>

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
-  getLibraries, getLibraryById, getAttractions, getAttractionBySlug,
-  getPasses, getPassesForAttraction, getPassesForLibrary,
+  getLibraries, getAttractions, getAttractionBySlug,
+  getPasses, getPassesForAttraction,
 } from './load';
 
 describe('data loader', () => {
@@ -17,12 +17,6 @@ describe('data loader', () => {
     expect(getPasses().length).toBeGreaterThanOrEqual(500);
   });
 
-  it('looks up library by id', () => {
-    const w = getLibraryById('wakefield');
-    expect(w).toBeDefined();
-    expect(w!.town).toBe('Wakefield');
-  });
-
   it('looks up attraction by slug', () => {
     const mos = getAttractionBySlug('museum-of-science');
     expect(mos).toBeDefined();
@@ -32,10 +26,5 @@ describe('data loader', () => {
   it('filters passes by attraction slug', () => {
     const mosPasses = getPassesForAttraction('museum-of-science');
     expect(mosPasses.length).toBeGreaterThan(0);
-  });
-
-  it('filters passes by library id', () => {
-    const wakPasses = getPassesForLibrary('wakefield');
-    expect(wakPasses.length).toBeGreaterThan(0);
   });
 });

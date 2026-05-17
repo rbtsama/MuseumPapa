@@ -101,7 +101,6 @@ export function MyPasses() {
           return (
             <LibraryRow
               key={l.id}
-              libraryId={l.id}
               libraryName={l.name}
               town={l.town}
               card={card}
@@ -118,7 +117,6 @@ export function MyPasses() {
 }
 
 interface RowProps {
-  libraryId: string;
   libraryName: string;
   town: string;
   card?: LibraryCard;
@@ -128,7 +126,7 @@ interface RowProps {
   onRemove: () => void;
 }
 
-function LibraryRow({ libraryId: _libraryId, libraryName, town, card, hasCard, onAdd, onSave, onRemove }: RowProps) {
+function LibraryRow({ libraryName, town, card, hasCard, onAdd, onSave, onRemove }: RowProps) {
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState<LibraryCard>(card ?? { barcode: '', lastName: '', pin: '' });
 

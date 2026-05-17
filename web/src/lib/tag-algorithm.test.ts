@@ -14,12 +14,12 @@ const couponFor = (tier: RankTier): Coupon => {
   const ap = (form: CouponForm, value: number | null = null): AudiencePolicy =>
     ({ audience: 'Everyone', age_range: null, count: null, form, value });
   switch (tier) {
-    case 'free':         return { capacity: { kind: 'people', n: 4 }, audience_policies: [ap('free')],                       summary: 'Up to 4 · FREE' };
-    case 'half':         return { capacity: { kind: 'people', n: 4 }, audience_policies: [ap('percent-off', 50)],             summary: 'Up to 4 · 50% off' };
-    case 'percent-low':  return { capacity: { kind: 'people', n: 4 }, audience_policies: [ap('percent-off', 30)],             summary: 'Up to 4 · 30% off' };
-    case 'dollar-off':   return { capacity: { kind: 'people', n: 4 }, audience_policies: [ap('dollar-off', 5)],               summary: 'Up to 4 · $5 off' };
-    case 'per-person':   return { capacity: { kind: 'people', n: 4 }, audience_policies: [ap('per-person-price', 9)],         summary: 'Up to 4 · $9/person' };
-    case 'discount':     return { capacity: { kind: 'people', n: 4 }, audience_policies: [ap('discount')],                    summary: 'Up to 4 · Special offer' };
+    case 'free':         return { capacity: { kind: 'people', n: 4 }, audience_policies: [ap('free')] };
+    case 'half':         return { capacity: { kind: 'people', n: 4 }, audience_policies: [ap('percent-off', 50)] };
+    case 'percent-low':  return { capacity: { kind: 'people', n: 4 }, audience_policies: [ap('percent-off', 30)] };
+    case 'dollar-off':   return { capacity: { kind: 'people', n: 4 }, audience_policies: [ap('dollar-off', 5)] };
+    case 'per-person':   return { capacity: { kind: 'people', n: 4 }, audience_policies: [ap('per-person-price', 9)] };
+    case 'discount':     return { capacity: { kind: 'people', n: 4 }, audience_policies: [ap('discount')] };
   }
 };
 

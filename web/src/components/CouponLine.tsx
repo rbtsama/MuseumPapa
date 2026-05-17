@@ -18,6 +18,7 @@ function bucket(audience: AudiencePolicy['audience']): AudienceBucket | null {
     case 'Everyone':         return 'Everyone';
     case 'Vehicle':
     case 'Single ticket':    return null;
+    default:                 return null;
   }
 }
 

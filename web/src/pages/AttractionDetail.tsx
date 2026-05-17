@@ -25,6 +25,8 @@ function formatOriginalAdult(op: OriginalPrice | null): string {
 }
 import { BookingConfirmModal } from '../components/BookingConfirmModal';
 import { weeklyHoursList } from '../lib/hours';
+import { heroSrc } from '../lib/hero';
+import { todayIso } from '../lib/dates';
 import type { Geo, Pass, Library } from '../data/types';
 
 function days(start: string, n: number): string[] {
@@ -36,11 +38,6 @@ function days(start: string, n: number): string[] {
     out.push(`${dd.getFullYear()}-${String(dd.getMonth()+1).padStart(2,'0')}-${String(dd.getDate()).padStart(2,'0')}`);
   }
   return out;
-}
-
-function todayIso(): string {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 
 interface Row {
@@ -79,16 +76,16 @@ export function AttractionDetail() {
   const libraries = useMemo(() => getLibraries(), []);
   const libById = useMemo(() => new Map(libraries.map(l => [l.id, l])), [libraries]);
 
-  if (!slug) return <div className="max-w-6xl mx-auto px-4 py-6">Missing slug.</div>;
-  if (!attraction) return <div className="max-w-6xl mx-auto px-4 py-6">Attraction "{slug}" not found.</div>;
+  const userCardLibIds = useMemo(
+    () => (user && Object.keys(cardpack.cards).length > 0)
+      ? new Set(Object.keys(cardpack.cards))
+      : null,
+    [user, cardpack.cards],
+  );
 
-  const userCardLibIds = (user && Object.keys(cardpack.cards).length > 0)
-    ? new Set(Object.keys(cardpack.cards))
-    : null;
+  const dateList = useMemo(() => days(startDate, windowSize), [startDate, windowSize]);
 
-  const dateList = days(startDate, windowSize);
-
-  const rowsForDate = (date: string): Row[] => {
+  const rowsForDate = useMemo(() => (date: string): Row[] => {
     const rows: Row[] = [];
     for (const pass of allPasses) {
       const library = libById.get(pass.library_id);
@@ -101,9 +98,9 @@ export function AttractionDetail() {
       rows.push({ pass, library, distanceMi: dist, available });
     }
     return rows;
-  };
+  }, [allPasses, libById, userCardLibIds, userGeo]);
 
-  const sortRows = (rows: Row[]) => {
+  const sortRows = useMemo(() => (rows: Row[]) => {
     return [...rows].sort((a, b) => {
       const ra = couponRank(a.pass.coupon);
       const rb = couponRank(b.pass.coupon);
@@ -113,17 +110,15 @@ export function AttractionDetail() {
       if (a.distanceMi != null && b.distanceMi != null) return a.distanceMi - b.distanceMi;
       return a.library.id.localeCompare(b.library.id);
     });
-  };
+  }, []);
 
-  const heroSrc = (() => {
-    if (attraction.hero_image?.local_path) {
-      const filename = attraction.hero_image.local_path.split(/[\\/]/).pop() ?? '';
-      if (filename) return `/images/${filename}`;
-    }
-    const cat = attraction.categories?.[0]?.toLowerCase() ?? 'default';
-    const known = ['family','children','history','nature','art','science','ocean','recreation'];
-    return `/placeholders/${known.includes(cat) ? cat : 'default'}.svg`;
-  })();
+  const heroImg = useMemo(
+    () => attraction ? heroSrc(attraction) : '/placeholders/default.svg',
+    [attraction],
+  );
+
+  if (!slug) return <div className="max-w-6xl mx-auto px-4 py-6">Missing slug.</div>;
+  if (!attraction) return <div className="max-w-6xl mx-auto px-4 py-6">Attraction "{slug}" not found.</div>;
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
@@ -132,7 +127,7 @@ export function AttractionDetail() {
         <FavoriteButton slug={attraction.slug} />
       </div>
       <div style={{ display: 'flex', gap: 24, marginBottom: 24, alignItems: 'flex-start', flexWrap: 'wrap' }}>
-        <img src={heroSrc} alt="" style={{
+        <img src={heroImg} alt="" style={{
           width: 280, height: 210, objectFit: 'cover', borderRadius: 4, background: 'var(--paper)',
         }} />
         <div style={{ flexGrow: 1, minWidth: 280 }}>
@@ -231,7 +226,7 @@ export function AttractionDetail() {
         <label style={{ fontSize: 12, color: 'var(--ink-3)' }}>Window:</label>
         <select
           value={windowSize}
-          onChange={e => setWindowSize(parseInt(e.target.value))}
+          onChange={e => setWindowSize(parseInt(e.target.value, 10))}
           style={{ padding: '4px 8px', border: '1px solid var(--rule)', borderRadius: 4, fontSize: 13 }}
         >
           <option value={3}>3 days</option>

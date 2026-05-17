@@ -16,7 +16,6 @@ const mockPass: Pass = {
   coupon: {
     capacity: { kind: 'people', n: 4 },
     audience_policies: [{ audience: 'Everyone', age_range: null, count: null, form: 'free', value: null }],
-    summary: 'Up to 4 · FREE',
   },
   restrictions: null,
   source_url: 'https://example.com/book',

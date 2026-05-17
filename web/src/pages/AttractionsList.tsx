@@ -14,12 +14,8 @@ import { geocodeZip } from '../lib/distance';
 import { SignInModal } from '../components/SignInModal';
 import { BookingConfirmModal } from '../components/BookingConfirmModal';
 import { isClosedOn } from '../lib/hours';
+import { todayIso } from '../lib/dates';
 import type { Geo, Pass } from '../data/types';
-
-function todayIso(): string {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-}
 
 export function AttractionsList() {
   const user = useAuth(s => s.currentUser);

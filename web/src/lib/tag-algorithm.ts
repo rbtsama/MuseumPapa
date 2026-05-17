@@ -44,8 +44,12 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
   const candidates: PickedTag[] = [];
   for (const pass of passes) {
     if (userCardLibIds && !userCardLibIds.has(pass.library_id)) continue;
-    if (pass.availability && pass.availability[date] !== 'available') continue;
-    if (pass.availability && !(date in pass.availability)) continue;
+    // Align with AttractionDetail: missing date = available (scrape failure or
+    // future-window date should not silently hide a pass).
+    if (pass.availability) {
+      const status = pass.availability[date];
+      if (status !== undefined && status !== 'available') continue;
+    }
     const library = libById.get(pass.library_id);
     if (!library) continue;
     const dist = userGeo && library.geo
