@@ -1,5 +1,6 @@
 import type { Pass, Library, Geo, Coupon } from '../data/types';
 import { haversineMiles } from './distance';
+import { passBlockedByRestrictions } from './restrictions';
 
 export type DiscountRank = number; // lower is better
 
@@ -50,6 +51,7 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
       const status = pass.availability[date];
       if (status !== undefined && status !== 'available') continue;
     }
+    if (passBlockedByRestrictions(pass.restrictions, date)) continue;
     const library = libById.get(pass.library_id);
     if (!library) continue;
     const dist = userGeo && library.geo

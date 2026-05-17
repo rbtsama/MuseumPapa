@@ -5,7 +5,7 @@ import {
 } from '../data/load';
 import { PassTypeLabel } from '../components/PassTypeLabel';
 import { CouponLine } from '../components/CouponLine';
-import { RestrictionsBadge } from '../components/RestrictionsBadge';
+import { passBlockedByRestrictions } from '../lib/restrictions';
 import { GuestLockedRow } from '../components/GuestLockedRow';
 import { SignInModal } from '../components/SignInModal';
 import { FavoriteButton } from '../components/FavoriteButton';
@@ -93,6 +93,7 @@ export function AttractionDetail() {
       if (!library) continue;
       const userCanUse = !userCardLibIds || userCardLibIds.has(pass.library_id);
       if (userCardLibIds && !userCanUse) continue;
+      if (passBlockedByRestrictions(pass.restrictions, date)) continue;
       const availStatus = pass.availability?.[date];
       const available = availStatus === 'available' || availStatus === undefined;
       const dist = userGeo && library.geo ? haversineMiles(userGeo, library.geo) : null;
@@ -284,9 +285,8 @@ export function AttractionDetail() {
                           </span>
                         )}
                       </span>
-                      <span className="ml-auto inline-flex items-center gap-2">
+                      <span className="ml-auto">
                         <CouponLine coupon={r.pass.coupon} />
-                        <RestrictionsBadge restrictions={r.pass.restrictions} />
                       </span>
                     </button>
                   );
