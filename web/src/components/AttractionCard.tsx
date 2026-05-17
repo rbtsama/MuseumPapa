@@ -23,6 +23,15 @@ interface Props {
 
 const MAX_ROWS_VISIBLE = 4;
 
+function PersonIcon() {
+  return (
+    <svg width="10" height="10" viewBox="4 0 16 24" fill="currentColor" aria-hidden
+      style={{ display: 'inline-block', verticalAlign: '-1px' }}>
+      <path d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0zM3.75 20.1a8.25 8.25 0 0 1 16.5 0 .75.75 0 0 1-.44.69 18.7 18.7 0 0 1-7.81 1.7c-2.79 0-5.43-.6-7.81-1.7a.75.75 0 0 1-.44-.69z" />
+    </svg>
+  );
+}
+
 function fmtMoney(v: number | null | undefined): string {
   if (v == null) return '';
   if (v === 0) return 'Free';
@@ -169,7 +178,7 @@ export function AttractionCard({
               fontSize: 11, fontWeight: 500,
               background: 'var(--rd-pale)', color: 'var(--rd)',
             }}>
-              Closed today
+              Closed
             </span>
           )}
         </div>
@@ -184,7 +193,7 @@ export function AttractionCard({
             </div>
           ) : total === 0 ? (
             <div className="px-3 py-3 text-center" style={{ fontSize: 11, color: 'var(--ink-3)', fontStyle: 'italic' }}>
-              No coupons available today
+              No coupons available on this date
             </div>
           ) : (
             <>
@@ -238,7 +247,10 @@ export function AttractionCard({
                   <div className="flex items-baseline flex-wrap gap-x-1.5 gap-y-0.5 min-w-0">
                     {capacityText && (
                       <>
-                        <span style={{ fontSize: 11, color: 'var(--ink-3)' }}>{capacityText.toLowerCase()}</span>
+                        <span className="inline-flex items-center gap-1"
+                          style={{ fontSize: 11, color: 'var(--ink-3)' }}>
+                          <PersonIcon /> {capacityText.toLowerCase()}
+                        </span>
                         <span style={{ fontSize: 11, color: 'var(--ink-3)' }}>·</span>
                       </>
                     )}

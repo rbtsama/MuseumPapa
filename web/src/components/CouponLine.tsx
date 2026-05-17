@@ -101,8 +101,8 @@ export function CouponLine({ coupon, align = 'right' }: Props) {
         return (
           <span key={i} className="inline-flex items-baseline gap-1">
             {i > 0 && <span style={{ color: dim }}>·</span>}
-            <span style={{ color: amount, fontWeight: 700, fontSize: 13 }}>{fmtAmount(p)}</span>
             {label && <span style={{ color: dim }}>{label}</span>}
+            <span style={{ color: amount, fontWeight: 700, fontSize: 13 }}>{fmtAmount(p)}</span>
           </span>
         );
       })}

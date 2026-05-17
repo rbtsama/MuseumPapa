@@ -143,7 +143,7 @@ describe('AttractionCard', () => {
     expect(onBookPass).toHaveBeenCalledWith(pass);
   });
 
-  it('renders "No coupons available today" when no tags and not guest', () => {
+  it('renders the no-coupons message when no tags and not guest', () => {
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
@@ -151,7 +151,7 @@ describe('AttractionCard', () => {
         isGuestOrEmpty={false}
       />
     );
-    expect(screen.getByText('No coupons available today')).toBeInTheDocument();
+    expect(screen.getByText(/No coupons available/)).toBeInTheDocument();
   });
 
   it('renders closed state when closedToday=true', () => {
@@ -163,7 +163,7 @@ describe('AttractionCard', () => {
         closedToday
       />
     );
-    expect(screen.getByText('Closed today')).toBeInTheDocument();
+    expect(screen.getByText('Closed')).toBeInTheDocument();
     // Book buttons should not appear when closed
     expect(screen.queryByText('Book')).not.toBeInTheDocument();
   });
