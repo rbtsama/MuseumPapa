@@ -48,15 +48,21 @@ export function AttractionCard({
   const childPrice = op?.age_pricing?.child?.price ?? null;
   const seniorPrice = op?.age_pricing?.senior?.price ?? null;
   const studentPrice = op?.identity_pricing?.student?.price ?? null;
+  const educatorPrice = op?.identity_pricing?.educator?.price ?? null;
+  const militaryPrice = op?.identity_pricing?.military?.price ?? null;
   const total = pickedTags.length;
 
-  // Up to 4 known tiers, in display priority order. "adult" is shown without label.
+  // Main price line shows only age-based tiers that have data; identity-based
+  // waivers (student / educator / military) surface as a one-line note below.
   const tiers: Array<{ label: string | null; value: number }> = [];
   if (adultPrice != null) tiers.push({ label: 'adult', value: adultPrice });
   if (youthPrice != null) tiers.push({ label: 'youth', value: youthPrice });
   if (childPrice != null) tiers.push({ label: 'kids', value: childPrice });
   if (seniorPrice != null) tiers.push({ label: 'senior', value: seniorPrice });
-  if (studentPrice != null) tiers.push({ label: 'student', value: studentPrice });
+  const waivers: Array<{ label: string; value: number }> = [];
+  if (studentPrice != null)  waivers.push({ label: 'Student',  value: studentPrice });
+  if (educatorPrice != null) waivers.push({ label: 'Educator', value: educatorPrice });
+  if (militaryPrice != null) waivers.push({ label: 'Military', value: militaryPrice });
   const hoursInfo = date ? hoursDisplay(attraction, date) : null;
 
   const dim = closedToday ? { filter: 'grayscale(0.7)', opacity: 0.55 } : {};
@@ -127,9 +133,6 @@ export function AttractionCard({
             </div>
           )}
 
-          {/* Multi-tier admission price line — surface up to 4 known tiers
-              (adult / youth / kids / senior or student). Calm bold black; the
-              real-money attention belongs on the discounted option rows below. */}
           {(tiers.length > 0 || op?.age_pricing?.free_under_age != null) && (
             <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5" style={{ fontSize: 12 }}>
               {tiers.slice(0, 4).map((t, i) => (
@@ -148,6 +151,11 @@ export function AttractionCard({
                   {tiers.length > 0 ? '· ' : ''}kids &lt;{op.age_pricing.free_under_age} free
                 </span>
               )}
+            </p>
+          )}
+          {waivers.length > 0 && (
+            <p className="mt-1" style={{ fontSize: 11, color: 'var(--ink-3)' }}>
+              Waivers: {waivers.map(w => `${w.label} ${fmtMoney(w.value)}`).join(' · ')}
             </p>
           )}
 

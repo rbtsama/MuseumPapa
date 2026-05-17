@@ -236,6 +236,8 @@ main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
 .kv .v.verified { color: var(--g); font-weight: 600; }
 .kv .v.honest-gap { color: var(--ink-3); }
 .kv-gap .k { color: var(--ink-3); opacity: 0.7; }
+.price-note { font-size: 11.5px; color: var(--ink-3); margin: 6px 0 0; line-height: 1.4; }
+.price-note b { color: var(--ink-2); font-weight: 600; }
 
 .src-line { margin-top: 8px; font-size: 11.5px; color: var(--ink-3); }
 .src-line a { color: var(--g); }

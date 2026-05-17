@@ -283,10 +283,28 @@ NAV_LINKS = [
 
 
 # Shared helper for histogram tables on detail pages
+_TRAILING_KEYS = {"unknown", "unspecified", "other", "others", "未知", "未明示",
+                  "未分类", "no_data", "nodata", "bucket_nodata", "none", "(none)",
+                  "(unknown)", "(no extraction)", "(unspecified n)"}
+
+
+def _is_trailing_key(key) -> bool:
+    """Sentinel keys (unknown / others / null) belong at the bottom of any
+    rank-ordered histogram regardless of count — investment-bank table convention.
+    """
+    if key is None:
+        return True
+    s = str(key).strip().lower()
+    return s in _TRAILING_KEYS or s == "null" or s == "(none)"
+
+
 def histogram_table(counter: Counter, total: int, label_map: dict | None = None, max_rows: int | None = None) -> str:
     if not counter:
         return '<p class="honest-gap">无数据</p>'
-    most = counter.most_common(max_rows) if max_rows else counter.most_common()
+    items = counter.most_common(max_rows) if max_rows else counter.most_common()
+    head = [it for it in items if not _is_trailing_key(it[0])]
+    tail = [it for it in items if _is_trailing_key(it[0])]
+    most = head + tail
     max_n = most[0][1] if most else 1
     rows = []
     for key, n in most:
@@ -627,13 +645,9 @@ def page_libraries(libs_data, libcat=None, branches_data=None) -> str:
     body = f"""
 <h1 class="page-title">Libraries · 59</h1>
 
-<section class="panel" style="border-left: 4px solid var(--rd); background: var(--rd-pale);">
-  <h3 style="color: var(--rd); margin-top:0">⚠ lib_id 是数据爬取模型,不是用户产品概念</h3>
-</section>
-
 <section class="dist-grid">
   <div class="panel dist-panel dist-wide">
-    <h3>数据爬取平台 · Scraping platform <span class="block-meta">基础设施视角 · 不直接对用户暴露</span></h3>
+    <h3>Platform · 数据平台分布</h3>
     {histogram_table(plat_counter, n_libs)}
   </div>
 </section>
@@ -814,72 +828,54 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
             return t.get("price") if isinstance(t, dict) else None
 
         any_price = False
+        # Main tiers — render only the ones that have a value.
         age_rows_html = []
         for k, label_en, label_zh in [
             ("adult",  "Adult",  "成人"),
-            ("youth",  "Youth",  "青少年 (11-17)"),
+            ("youth",  "Youth",  "青少年"),
             ("child",  "Child",  "儿童"),
-            ("senior", "Senior", "老人 (65+)"),
+            ("senior", "Senior", "老人"),
         ]:
             v = _tier_price(age_p, k)
             if v is None:
-                age_rows_html.append(
-                    f'<div class="kv kv-gap"><span class="k">{label_en} · {label_zh}</span>'
-                    f'<span class="v dash">-</span></div>'
-                )
-            else:
-                any_price = True
-                age_rows_html.append(
-                    f'<div class="kv"><span class="k">{label_en} · {label_zh}</span>'
-                    f'<span class="v verified">${esc(str(v))}</span></div>'
-                )
+                continue
+            any_price = True
+            age_rows_html.append(
+                f'<div class="kv"><span class="k">{label_en} · {label_zh}</span>'
+                f'<span class="v verified">${esc(str(v))}</span></div>'
+            )
         fua = age_p.get("free_under_age")
         if fua is not None:
+            any_price = True
             age_rows_html.append(
                 f'<div class="kv"><span class="k">Free under · 免费年龄</span>'
-                f'<span class="v verified">N &lt; {fua}</span></div>'
+                f'<span class="v verified">age &lt; {fua}</span></div>'
             )
-
-        identity_rows_html = []
-        for k, label_en, label_zh in [
-            ("student",  "Student",  "学生"),
-            ("educator", "Educator", "教师"),
-            ("military", "Military", "军人"),
-        ]:
-            v = _tier_price(ident_p, k)
-            if v is None:
-                identity_rows_html.append(
-                    f'<div class="kv kv-gap"><span class="k">{label_en} · {label_zh}</span>'
-                    f'<span class="v dash">-</span></div>'
-                )
-            else:
-                any_price = True
-                identity_rows_html.append(
-                    f'<div class="kv"><span class="k">{label_en} · {label_zh}</span>'
-                    f'<span class="v verified">${esc(str(v))}</span></div>'
-                )
-
         family_v = price.get("family") if price else None
-        family_row_html = ""
-        if family_v is None:
-            family_row_html = (
-                '<div class="kv kv-gap"><span class="k">Family · 家庭通票</span>'
-                '<span class="v dash">-</span></div>'
-            )
-        else:
+        if family_v is not None:
             any_price = True
-            family_row_html = (
+            age_rows_html.append(
                 f'<div class="kv"><span class="k">Family · 家庭通票</span>'
                 f'<span class="v verified">${esc(str(family_v))}</span></div>'
             )
 
+        # Identity-based waivers — show as a one-line note, ONLY entries that exist.
+        identity_notes = []
+        for k, label_en in [("student", "Student"), ("educator", "Educator"), ("military", "Military")]:
+            v = _tier_price(ident_p, k)
+            if v is not None:
+                any_price = True
+                identity_notes.append(f"{label_en} ${esc(str(v))}")
+        identity_note_html = (
+            f'<p class="price-note"><b>Waivers · 豁免:</b> {" · ".join(identity_notes)}</p>'
+            if identity_notes else ""
+        )
+
         notes = price.get("notes") if price else None
-        notes_row_html = ""
-        if notes:
-            notes_row_html = (
-                f'<div class="kv kv-wide"><span class="k">Notes · 备注</span>'
-                f'<span class="v">{esc(notes)}</span></div>'
-            )
+        notes_row_html = (
+            f'<p class="price-note"><b>Notes · 备注:</b> {esc(notes)}</p>'
+            if notes else ""
+        )
         price_src = price.get("source_url") if price else None
         price_footer = (
             f'<div class="src-line">↗ 价格数据源: <a href="{esc(price_src)}" target="_blank" rel="noopener">{esc(price_src)}</a></div>'
@@ -948,13 +944,10 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
   </div>
 
   <section class="prices-block">
-    <h3 class="block-title">Prices · 票价层级 <span class="block-meta">两层模型 · 年龄定价 + 身份定价 · 有数据绿色 · 无数据灰色短划</span></h3>
-    <h4 class="block-subtitle">年龄定价 · Age-based pricing <span class="block-meta">适用任何符合年龄的访客</span></h4>
-    <div class="kv-grid">{"".join(age_rows_html)}</div>
-    <h4 class="block-subtitle">身份定价 · Identity-based pricing <span class="block-meta">需出示证件(学生证 / 教师 ID / 军人证)</span></h4>
-    <div class="kv-grid">{"".join(identity_rows_html)}</div>
-    <h4 class="block-subtitle">Family / Notes</h4>
-    <div class="kv-grid">{family_row_html}{notes_row_html}</div>
+    <h3 class="block-title">Pricing · 票价</h3>
+    {('<div class="kv-grid">' + "".join(age_rows_html) + "</div>") if age_rows_html else '<p class="honest-gap">No tier data</p>'}
+    {identity_note_html}
+    {notes_row_html}
     {price_footer}
   </section>
 
@@ -1040,11 +1033,11 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
         else:
             hours_status_counter["bucket_nodata"] += 1
     hours_label_map = {
-        "bucket_open_daily": "Open every day · 全周开放",
-        "bucket_partial":    "Partially closed · 部分天关闭(博物馆主流模式)",
-        "bucket_seasonal":   "Seasonal · 仅特定月份开放",
-        "bucket_varies":     "Varies by property · 景点本身有多 property(非图书馆分馆问题)",
-        "bucket_nodata":     "No data · 无数据",
+        "bucket_open_daily": "Open daily year-round · 全年每日开放",
+        "bucket_partial":    "Open with weekly closed days · 每周有固定休息日",
+        "bucket_seasonal":   "Open only in season · 仅特定月份开放",
+        "bucket_varies":     "Multi-site, hours vary · 多址各自不同时刻表",
+        "bucket_nodata":     "Unknown · 未知",
     }
     # Categories — read straight from data layer (already normalized by build/categories.py)
     cat_canon_counter = Counter()  # canonical 7-class
@@ -1079,23 +1072,19 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
 
 <section class="dist-grid">
   <div class="panel dist-panel">
-    <h3>Price tier 覆盖率 · 核心 5 类</h3>
-    {histogram_table(core_counter, n_attrs, tier_label_map)}
+    <h3>Price tier coverage · 票价层级覆盖率</h3>
+    {histogram_table(core_counter | secondary_counter, n_attrs, tier_label_map)}
   </div>
   <div class="panel dist-panel">
-    <h3>Price tier 覆盖率 · 次级 3 类</h3>
-    {histogram_table(secondary_counter, n_attrs, tier_label_map)}
-  </div>
-  <div class="panel dist-panel">
-    <h3>Hours 分布 · 3 大类</h3>
+    <h3>Hours · 营业模式分布</h3>
     {histogram_table(hours_status_counter, n_attrs, hours_label_map)}
   </div>
   <div class="panel dist-panel">
-    <h3>类别分布 · Categories(7 个粗类)</h3>
+    <h3>Categories · 类别分布</h3>
     {histogram_table(cat_canon_counter, n_attrs)}
   </div>
   <div class="panel dist-panel">
-    <h3>字段覆盖率</h3>
+    <h3>Field coverage · 字段覆盖率</h3>
     {histogram_table(cov_counter, n_attrs)}
   </div>
 </section>
@@ -2249,6 +2238,8 @@ main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
 .kv .v.verified { color: var(--g); font-weight: 600; }
 .kv .v.honest-gap { color: var(--ink-3); }
 .kv-gap .k { color: var(--ink-3); opacity: 0.7; }
+.price-note { font-size: 11.5px; color: var(--ink-3); margin: 6px 0 0; line-height: 1.4; }
+.price-note b { color: var(--ink-2); font-weight: 600; }
 
 .src-line { margin-top: 8px; font-size: 11.5px; color: var(--ink-3); }
 .src-line a { color: var(--g); }
