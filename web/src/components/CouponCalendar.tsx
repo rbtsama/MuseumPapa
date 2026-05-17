@@ -1,8 +1,13 @@
+interface CellInfo {
+  best: string;          // "FREE" / "50%" / "$5" / ""
+  isFree: boolean;       // for color emphasis
+}
+
 interface Props {
-  month: string;                       // 'YYYY-MM'
+  month: string;                              // 'YYYY-MM'
   selectedDate: string | null;
   todayIso: string;
-  availableCounts: Record<string, number>;  // ISO date → # of usable coupons
+  cellInfo: Record<string, CellInfo>;         // ISO date → best-coupon summary
   onSelect: (iso: string) => void;
 }
 
@@ -16,11 +21,11 @@ function pad(n: number): string {
   return n < 10 ? `0${n}` : String(n);
 }
 
-export function CouponCalendar({ month, selectedDate, todayIso, availableCounts, onSelect }: Props) {
+export function CouponCalendar({ month, selectedDate, todayIso, cellInfo, onSelect }: Props) {
   const [yStr, mStr] = month.split('-');
   const year = Number(yStr);
   const monthNum = Number(mStr);
-  const firstDow = new Date(year, monthNum - 1, 1).getDay();  // 0 = Sun
+  const firstDow = new Date(year, monthNum - 1, 1).getDay();
   const lastDay = daysInMonth(year, monthNum);
 
   const cells: Array<{ iso: string; day: number } | null> = [];
@@ -42,19 +47,22 @@ export function CouponCalendar({ month, selectedDate, todayIso, availableCounts,
       <div className="grid" style={{ gridTemplateColumns: 'repeat(7, 1fr)', gap: 2 }}>
         {cells.map((c, i) => {
           if (!c) return <div key={i} />;
-          const count = availableCounts[c.iso] ?? 0;
+          const info = cellInfo[c.iso];
+          const hasAny = info != null && info.best !== '';
           const isPast = c.iso < todayIso;
           const isToday = c.iso === todayIso;
           const isSelected = c.iso === selectedDate;
           const interactive = !isPast;
-          const hasAny = count > 0;
 
           const bg = isSelected
             ? 'var(--g)'
             : hasAny ? 'var(--g-pale)' : 'transparent';
-          const fg = isSelected
+          const dayFg = isSelected
             ? 'var(--white)'
             : isPast ? 'var(--ink-3)' : 'var(--ink-2)';
+          const bestFg = isSelected
+            ? 'var(--white)'
+            : (info && info.isFree) ? 'var(--g)' : 'var(--g-2)';
 
           return (
             <button
@@ -66,24 +74,26 @@ export function CouponCalendar({ month, selectedDate, todayIso, availableCounts,
               style={{
                 background: bg,
                 border: isToday && !isSelected ? '1px solid var(--g)' : '1px solid transparent',
-                color: fg,
+                color: dayFg,
                 cursor: interactive ? 'pointer' : 'default',
                 opacity: isPast ? 0.4 : 1,
-                padding: '6px 0 4px',
-                fontSize: 13,
-                fontWeight: isSelected ? 600 : 500,
+                padding: '4px 0',
                 lineHeight: 1.1,
                 display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1,
+                minHeight: 44,
+                justifyContent: 'center',
               }}
             >
-              <span>{c.day}</span>
+              <span style={{ fontSize: 13, fontWeight: isSelected ? 600 : 500 }}>{c.day}</span>
               <span style={{
-                fontSize: 10,
-                color: isSelected ? 'var(--white)' : (hasAny ? 'var(--g)' : 'transparent'),
+                fontSize: 11,
+                fontWeight: 700,
+                color: bestFg,
                 lineHeight: 1,
-                minHeight: 10,
+                minHeight: 11,
+                letterSpacing: '-0.02em',
               }}>
-                {hasAny ? `${count}` : '·'}
+                {hasAny ? info.best : '·'}
               </span>
             </button>
           );

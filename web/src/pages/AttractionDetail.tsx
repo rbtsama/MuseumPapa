@@ -133,14 +133,35 @@ export function AttractionDetail() {
     [attraction],
   );
 
-  // Available-pass count per date in the visible month (for the calendar grid).
-  const availableCounts = useMemo(() => {
-    const out: Record<string, number> = {};
+  // Best coupon per date in the visible month — what the user actually wants
+  // to see at a glance. "FREE" beats "50%" beats "$5", etc.
+  const cellInfo = useMemo(() => {
+    const out: Record<string, { best: string; isFree: boolean }> = {};
     for (const d of datesOfMonth) {
-      out[d] = rowsForDate(d).filter(r => r.available).length;
+      const rows = rowsForDate(d).filter(r => r.available);
+      if (rows.length === 0) { out[d] = { best: '', isFree: false }; continue; }
+      const sorted = sortRows(rows);
+      const top = sorted[0].pass.coupon.audience_policies[0];
+      let label = '';
+      let isFree = false;
+      if (top) {
+        switch (top.form) {
+          case 'free':
+            label = 'FREE'; isFree = true; break;
+          case 'percent-off':
+            label = top.value != null ? `${top.value}%` : '%'; break;
+          case 'dollar-off':
+            label = top.value != null ? `-$${top.value}` : '$ off'; break;
+          case 'per-person-price':
+            label = top.value != null ? `$${top.value}` : '$'; break;
+          case 'discount':
+            label = 'disc'; break;
+        }
+      }
+      out[d] = { best: label, isFree };
     }
     return out;
-  }, [datesOfMonth, rowsForDate]);
+  }, [datesOfMonth, rowsForDate, sortRows]);
 
   // Selected day's passes, sorted.
   const selectedDayRows = useMemo(
@@ -282,7 +303,7 @@ export function AttractionDetail() {
           month={month}
           selectedDate={selectedDate}
           todayIso={today}
-          availableCounts={availableCounts}
+          cellInfo={cellInfo}
           onSelect={setSelectedDate}
         />
       </div>
