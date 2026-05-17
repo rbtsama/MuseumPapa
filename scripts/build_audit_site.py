@@ -1627,9 +1627,11 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir) -> str
         table(["library_id", "attraction_slug", "pass_type"], p1_rows, 50)
     )
 
-    # ── Panel 2: price disagreement across libraries ────────────────────
-    # Why: if libraries report wildly different adult/child prices for the
-    # same attraction, at least some extractions are wrong.
+    # ── Panel 2: cross-library price variance (informational) ───────────
+    # Each library negotiates its own coupon rate with the attraction, so the
+    # same attraction can carry different "discounted price" values across
+    # libraries — this is real product info, not a data bug. Listed here so a
+    # cardholder can see which of their cards gives the best price.
     def collect_price_disagreements(audience_label: str):
         per_attr: dict[str, list[tuple[str, float]]] = defaultdict(list)
         for p in passes:
@@ -1820,7 +1822,7 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir) -> str
     # ── Summary table ───────────────────────────────────────────────────
     summary = [
         ("1", "HIGH", "Empty coupon where catalog says a pass exists", p1_count),
-        ("2", "MED",  "Price disagreement across libraries (adult+child)", p2_count),
+        ("2", "INFO", "Cross-library price variance (real, not a bug)", p2_count),
         ("3", "LOW",  "form=discount with null value (known, acceptable)", p3_count),
         ("4", "MED",  "age_range contradicts the labelled audience", p4_count),
         ("5", "HIGH", "Orphan raw coupon files (slug drift)", p5_count),
@@ -1828,9 +1830,10 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir) -> str
         ("7", "MED",  "Raw extraction failures (status != ok)", p7_count),
     ]
     sev_class = {
-        "HIGH": "rd",  # red if count > 0
-        "MED":  "or",  # orange if count > 0
-        "LOW":  "ink-3",  # neutral
+        "HIGH": "rd",   # red if count > 0  — actionable defects
+        "MED":  "or",   # orange if count > 0 — review-worthy
+        "LOW":  "ink-3",
+        "INFO": "ink-3",  # informational only — not a defect
     }
     sum_rows = []
     for idx, sev, label, n in summary:
@@ -1864,7 +1867,7 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir) -> str
 </section>
 
 <section class="panel">
-  <h3>2. Price disagreement across libraries <span class="num-pill">{p2_count}</span></h3>
+  <h3>2. Cross-library price variance <span class="num-pill">{p2_count}</span> · informational</h3>
   {p2_html}
 </section>
 
