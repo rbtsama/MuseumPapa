@@ -130,6 +130,139 @@ def badge(text: str, cls: str) -> str:
     return f'<span class="badge {cls}">{esc(text)}</span>'
 
 
+def compute_dq_counts(libs_data, attr_data, passes_data, raw_coupons_dir) -> dict:
+    """Return a dict of {panel_id: count} for each data-quality red-flag panel.
+
+    Mirrors the logic in page_data_quality() so the status banner on index.html
+    and data_quality.html agree perfectly. Severity classification (HIGH/MED/LOW)
+    matches the summary table in page_data_quality.
+    """
+    _src = str(ROOT / "src")
+    if _src not in sys.path:
+        sys.path.insert(0, _src)
+    from malibbene.build.slug_canonical import canonical  # noqa: WPS433
+
+    passes = passes_data["passes"]
+    attrs = attr_data["attractions"]
+
+    # p1: empty coupon
+    p1 = 0
+    for p in passes:
+        coupon = p.get("coupon") or {}
+        cap = coupon.get("capacity") or {}
+        if (coupon.get("audience_policies") or []) == [] and (cap.get("kind") or "unspecified") == "unspecified":
+            p1 += 1
+    # p2: cross-library price variance — informational, not a defect
+    per_attr_adult: dict = defaultdict(set)
+    per_attr_child: dict = defaultdict(set)
+    for p in passes:
+        slug = p.get("attraction_slug", "")
+        for ap in (p.get("coupon") or {}).get("audience_policies") or []:
+            if ap.get("form") == "per-person-price" and ap.get("value") is not None:
+                if ap.get("audience") == "Adult":
+                    per_attr_adult[slug].add(float(ap["value"]))
+                elif ap.get("audience") == "Child":
+                    per_attr_child[slug].add(float(ap["value"]))
+    p2 = sum(1 for s in per_attr_adult if len(per_attr_adult[s]) > 1) + sum(1 for s in per_attr_child if len(per_attr_child[s]) > 1)
+    # p3: form=discount + value=null
+    p3 = 0
+    for p in passes:
+        for ap in (p.get("coupon") or {}).get("audience_policies") or []:
+            if ap.get("form") == "discount" and ap.get("value") is None:
+                p3 += 1
+    # p4: age contradicts audience
+    p4 = 0
+    for p in passes:
+        for ap in (p.get("coupon") or {}).get("audience_policies") or []:
+            aud = ap.get("audience")
+            ar = ap.get("age_range") or {}
+            mn = ar.get("min"); mx = ar.get("max")
+            if (aud == "Adult" and mn is not None and mn < 13) \
+               or (aud == "Senior" and mn is not None and mn < 50) \
+               or (aud == "Child" and mn is not None and mn >= 13) \
+               or (aud == "Youth" and mx is not None and mx < 5):
+                p4 += 1
+    # p5: orphan raw coupon files
+    consumed: set = set()
+    for p in passes:
+        coupon = p.get("coupon") or {}
+        cap = coupon.get("capacity") or {}
+        if coupon.get("audience_policies") or cap.get("n") is not None:
+            consumed.add((p.get("library_id", ""), p.get("attraction_slug", "")))
+    p5 = 0
+    raw_dir = Path(raw_coupons_dir)
+    if raw_dir.exists():
+        for f in raw_dir.glob("*.json"):
+            try:
+                rec = json.loads(f.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            if rec.get("status") != "ok":
+                continue
+            stem_parts = f.stem.split("_", 1)
+            lib_id = rec.get("library_id") or (stem_parts[0] if stem_parts else "")
+            raw_slug = rec.get("attraction_slug") or (stem_parts[1] if len(stem_parts) > 1 else "")
+            if (lib_id, canonical(raw_slug)) not in consumed:
+                p5 += 1
+    # p6: umbrella attractions
+    p6 = 0
+    for A in attrs:
+        hours = A.get("hours") or {}
+        op = A.get("original_price") or {}
+        ap = (op.get("age_pricing") or {}).get("adult")
+        if hours.get("status") == "varies" and (not op or ap is None):
+            p6 += 1
+    # p7: raw extraction failures
+    p7 = 0
+    if raw_dir.exists():
+        for f in raw_dir.glob("*.json"):
+            try:
+                rec = json.loads(f.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            if rec.get("status") != "ok":
+                p7 += 1
+    return {"p1": p1, "p2": p2, "p3": p3, "p4": p4, "p5": p5, "p6": p6, "p7": p7}
+
+
+# severity classification — must match the summary table in page_data_quality
+DQ_SEVERITY = {"p1": "HIGH", "p2": "INFO", "p3": "LOW", "p4": "MED", "p5": "HIGH", "p6": "LOW", "p7": "MED"}
+
+
+def status_banner_html(counts: dict) -> str:
+    """Render the top-of-page green/orange/red status callout."""
+    high = sum(counts[k] for k, sev in DQ_SEVERITY.items() if sev == "HIGH")
+    med  = sum(counts[k] for k, sev in DQ_SEVERITY.items() if sev == "MED")
+    low  = sum(counts[k] for k, sev in DQ_SEVERITY.items() if sev == "LOW")
+    info = sum(counts[k] for k, sev in DQ_SEVERITY.items() if sev == "INFO")
+    if high > 0:
+        cls = "banner-red"; icon = "🔴"; verdict = f"{high} critical issue(s)"
+    elif med > 0:
+        cls = "banner-amber"; icon = "⚠"; verdict = f"{med} medium issue(s)"
+    else:
+        cls = "banner-green"; icon = "✅"; verdict = "all clear"
+    built = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    return (
+        f'<section class="status-banner {cls}">'
+        f'<span class="banner-icon">{icon}</span>'
+        f'<span class="banner-verdict"><b>Data foundation — {verdict}.</b> '
+        f'HIGH {high} · MED {med} · LOW {low} · INFO {info}.</span>'
+        f'<span class="banner-meta">Built {esc(built)} · '
+        f'<a href="data_quality.html">see Data Quality</a></span>'
+        f'</section>'
+    )
+
+
+def bilingual(label: str) -> str:
+    """Split an 'English · 中文' label into an English primary line plus a
+    smaller-font Chinese sub-line. If the label has no ' · ' separator, the
+    text is returned escaped as-is."""
+    if not isinstance(label, str) or " · " not in label:
+        return esc(label)
+    en, _, zh = label.partition(" · ")
+    return f'{esc(en)}<span class="zh-sub">{esc(zh)}</span>'
+
+
 def pass_type_badge(pt: str) -> str:
     return f'<span class="badge badge-pt-{esc(pt)}">{esc(pt)}</span>'
 
@@ -166,7 +299,7 @@ def histogram_table(counter: Counter, total: int, label_map: dict | None = None,
         bar_w = round(40 * n / max_n)
         pct = round(100 * n / total) if total else 0
         rows.append(
-            f'<tr><td>{esc(lab)}</td>'
+            f'<tr><td>{bilingual(lab)}</td>'
             f'<td class="bar-cell"><span class="bar">{"█" * bar_w}</span></td>'
             f'<td class="num">{n}</td><td class="pct">{pct}%</td></tr>'
         )
@@ -204,7 +337,7 @@ def page_shell(title: str, body: str, current: str, extra_head: str = "", data_b
 # PAGE 1 — index.html
 # =========================================================================
 
-def page_index(libs_data, attr_data, passes_data, libcat) -> str:
+def page_index(libs_data, attr_data, passes_data, libcat, status_banner: str = "") -> str:
     libs = libs_data["libraries"]
     attrs = attr_data["attractions"]
     passes = passes_data["passes"]
@@ -230,7 +363,6 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
     }
     pass_cov = {
         "Coupon extracted · 优惠已结构化(plan-9)": sum(1 for p in passes if p.get("coupon")),
-        "Coupon summary present · 摘要文字已生成": sum(1 for p in passes if (p.get("coupon") or {}).get("summary")),
         "Pass type known · 取券方式已分类": sum(1 for p in passes if p.get("pass_type") not in (None, "unknown")),
         "Availability calendar · 库存日历(空位可见)": sum(1 for p in passes if p.get("availability")),
     }
@@ -276,23 +408,29 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
         rows = []
         for k, v in cov.items():
             pct = round(100 * v / total) if total else 0
-            rows.append(f'<li><span class="cov-label">{esc(k)}</span><span class="cov-frac">{v}/{total}</span><span class="cov-pct">{pct}%</span></li>')
+            rows.append(f'<li><span class="cov-label">{bilingual(k)}</span><span class="cov-frac">{v}/{total}</span><span class="cov-pct">{pct}%</span></li>')
         return f'<ul class="coverage">{"".join(rows)}</ul>'
 
     plat_counter = Counter(libcat["libraries"][lid]["platform"] for lid in libcat["libraries"])
 
     anomalies = []
-    # passes with no coupon summary (extraction gap)
-    n_no_summary = sum(1 for p in passes if not (p.get("coupon") or {}).get("summary"))
     n_no_coupon = sum(1 for p in passes if not p.get("coupon"))
     anomalies.append(
         f"<li><b>{n_no_coupon}</b> 条 pass 没有 coupon 字段 — "
         f"含义:plan-9 再抽取未覆盖到这些行,需补跑 subagent — "
         f"<a href='policies.html'>see Policies</a></li>"
     )
+    # form=discount with null value — generic discount language we couldn't quantify
+    n_disc_null_ap = sum(
+        1
+        for p in passes
+        for ap in (p.get("coupon") or {}).get("audience_policies") or []
+        if ap.get("form") == "discount" and ap.get("value") is None
+    )
     anomalies.append(
-        f"<li><b>{n_no_summary}</b> 条 pass 的 coupon.summary 为空(含 coupon 字段缺失的) — "
-        f"含义:AI 抽出了结构但没生成摘要文字,前端 fallback 会显示 '(no extraction)'</li>"
+        f"<li><b>{n_disc_null_ap}</b> 条 audience_policy 是 <code>form=discount</code> 且 <code>value=null</code>(笼统折扣,无具体数值) — "
+        f"含义:原 HTML 用了 '与门票打折' 之类的措辞,subagent 抽不出具体百分比/金额 — "
+        f"<a href='data_quality.html#dq3'>see Data Quality §3</a></li>"
     )
     n_unknown_pt = sum(1 for p in passes if p.get("pass_type") == "unknown")
     anomalies.append(
@@ -340,6 +478,8 @@ def page_index(libs_data, attr_data, passes_data, libcat) -> str:
     body = f"""
 <h1 class="page-title">MuseumPapa <span class="font-serif">数据审计 Data Audit</span></h1>
 <p class="subtitle">Non-technical verification view of the structured dataset behind the MuseumPapa frontend.</p>
+
+{status_banner}
 
 <section class="cards-row">
   <div class="num-card"><div class="num">{n_libs}</div><div class="label">Libraries 图书馆</div></div>
@@ -516,6 +656,41 @@ def _multi_branch_panel(branches_data) -> str:
 # PAGE 3 — attractions.html
 # =========================================================================
 
+def _derive_coupon_summary(coupon: dict) -> str:
+    """Module-level twin of the per-page _derive_summary helper.
+    coupon.summary was removed in 6c61620, so we derive it on display."""
+    if not coupon:
+        return ""
+    cap = coupon.get("capacity") or {}
+    aps = coupon.get("audience_policies") or []
+    parts = []
+    n = cap.get("n")
+    if cap.get("kind") == "people" and n is not None:
+        parts.append(f"Up to {n}")
+    elif cap.get("kind") == "vehicle":
+        parts.append("Per vehicle")
+    elif cap.get("kind") == "ticket" and n is not None:
+        parts.append(f"{n} ticket(s)")
+    for ap in aps:
+        aud = ap.get("audience") or ""
+        form = ap.get("form") or ""
+        v = ap.get("value")
+        if form == "free":
+            seg = f"{aud} FREE" if aud and aud != "Everyone" else "FREE"
+        elif form == "percent-off" and v is not None:
+            seg = f"{aud} {v}% off" if aud and aud != "Everyone" else f"{v}% off"
+        elif form == "dollar-off" and v is not None:
+            seg = f"{aud} ${v} off" if aud and aud != "Everyone" else f"${v} off"
+        elif form == "per-person-price" and v is not None:
+            seg = f"{aud} ${v}/person" if aud and aud != "Everyone" else f"${v}/person"
+        elif form == "discount":
+            seg = f"{aud} discount" if aud and aud != "Everyone" else "discount"
+        else:
+            continue
+        parts.append(seg)
+    return " · ".join(parts)
+
+
 def _build_coupon_compare(slug: str, passes_by_slug: dict, lib_by_id: dict) -> str:
     """Build a <details> coupon comparison table for one attraction (plan-9)."""
     matching = passes_by_slug.get(slug) or []
@@ -532,7 +707,7 @@ def _build_coupon_compare(slug: str, passes_by_slug: dict, lib_by_id: dict) -> s
             method_label = f"Pickup at {branches[0]}" if branches else "Pickup at branch"
         else:
             method_label = pickup or "(unknown)"
-        summary = (mp.get("coupon") or {}).get("summary") or "(no extraction)"
+        summary = _derive_coupon_summary(mp.get("coupon") or {}) or "(no extraction)"
         rows_html.append(
             f'<tr><td>{esc(lib_name)}</td>'
             f'<td>{esc(method_label)}</td>'
@@ -932,11 +1107,45 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
         for pid, en, zh, n in pattern_meta
     )
 
+    def _derive_summary(coupon: dict) -> str:
+        """Build a one-line human summary from the coupon structure.
+        coupon.summary is no longer stored (removed in 6c61620) — derive on display."""
+        if not coupon:
+            return ""
+        cap = coupon.get("capacity") or {}
+        aps = coupon.get("audience_policies") or []
+        parts = []
+        n = cap.get("n")
+        if cap.get("kind") == "people" and n is not None:
+            parts.append(f"Up to {n}")
+        elif cap.get("kind") == "vehicle":
+            parts.append("Per vehicle")
+        elif cap.get("kind") == "ticket" and n is not None:
+            parts.append(f"{n} ticket(s)")
+        for ap in aps:
+            aud = ap.get("audience") or ""
+            form = ap.get("form") or ""
+            v = ap.get("value")
+            if form == "free":
+                seg = f"{aud} FREE" if aud and aud != "Everyone" else "FREE"
+            elif form == "percent-off" and v is not None:
+                seg = f"{aud} {v}% off" if aud and aud != "Everyone" else f"{v}% off"
+            elif form == "dollar-off" and v is not None:
+                seg = f"{aud} ${v} off" if aud and aud != "Everyone" else f"${v} off"
+            elif form == "per-person-price" and v is not None:
+                seg = f"{aud} ${v}/person" if aud and aud != "Everyone" else f"${v}/person"
+            elif form == "discount":
+                seg = f"{aud} discount" if aud and aud != "Everyone" else "discount"
+            else:
+                continue
+            parts.append(seg)
+        return " · ".join(parts)
+
     def render_pass_article(p: dict, idx: int) -> str:
         lib = p["library_id"]
         slug = p["attraction_slug"]
         coupon = p.get("coupon") or {}
-        summary = coupon.get("summary") or ""
+        summary = _derive_summary(coupon)
         aps = coupon.get("audience_policies") or []
         cap = coupon.get("capacity") or {}
         restrictions = p.get("restrictions") or {}
@@ -979,10 +1188,27 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
   <p class="src-link">{src_link}</p>
 </article>"""
 
+    # Collapse helper: render first 10 rows inline, rest inside <details>.
+    # Keeps the page scan-able while preserving every row for drill-down.
+    PREVIEW_N = 10
+    def render_collapsed(plist: list) -> str:
+        if not plist:
+            return ""
+        head_html = "".join(render_pass_article(p, i) for i, p in enumerate(plist[:PREVIEW_N]))
+        if len(plist) <= PREVIEW_N:
+            return head_html
+        rest_html = "".join(render_pass_article(p, i) for i, p in enumerate(plist[PREVIEW_N:], start=PREVIEW_N))
+        return (
+            head_html
+            + f'<details class="more-rows"><summary>+{len(plist) - PREVIEW_N} more rows</summary>'
+            + rest_html
+            + "</details>"
+        )
+
     # Build sections (By Pattern view)
     pattern_sections = []
     for pid, en, zh, n in pattern_meta:
-        rows = "".join(render_pass_article(p, i) for i, p in enumerate(by_pid.get(pid, [])))
+        rows = render_collapsed(by_pid.get(pid, []))
         pct = round(100 * n / len(passes))
         pattern_sections.append(f"""<section class="pattern-section" id="{pid}">
   <h2 class="pattern-header">{pid} — {esc(en)} <span class="pattern-zh">{esc(zh)}</span>
@@ -997,7 +1223,7 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     attr_sections = []
     for slug in sorted(by_attr.keys()):
         plist = by_attr[slug]
-        rows = "".join(render_pass_article(p, i) for i, p in enumerate(plist))
+        rows = render_collapsed(plist)
         attr_sections.append(f'<section class="pattern-section" id="A_{esc(slug)}"><h2 class="pattern-header"><code>{esc(slug)}</code> <span class="pattern-meta">{len(plist)} passes</span></h2><div class="pattern-rows">{rows}</div></section>')
 
     # By Library view
@@ -1007,7 +1233,7 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     lib_sections = []
     for lid in sorted(by_lib.keys()):
         plist = by_lib[lid]
-        rows = "".join(render_pass_article(p, i) for i, p in enumerate(plist))
+        rows = render_collapsed(plist)
         lib_sections.append(f'<section class="pattern-section" id="L_{esc(lid)}"><h2 class="pattern-header"><b>{esc(lid)}</b> <span class="pattern-meta">{len(plist)} passes</span></h2><div class="pattern-rows">{rows}</div></section>')
 
     # ── Distribution stats for policies page (plan-9 coupon model) ───────
@@ -1354,7 +1580,6 @@ def page_schema() -> str:
             <li><b>value</b>: 数值(如 50 = 50% off, 5 = $5 off),或 null(无数值/笼统)</li>
           </ul>
         </li>
-        <li><b>summary</b>:人可读摘要,如 "Up to 4 · 50% off" — 前端展示核心字段</li>
       </ul>
     </li>
     <li><b>restrictions</b>(side-channel):使用限制 — <code>{"blackout_dates": bool, "weekdays_only": bool, "seasonal": str|null, "reservation_required": bool}</code></li>
@@ -1378,7 +1603,7 @@ def page_schema() -> str:
             "passes_row_keys": ["library_id", "attraction_slug", "pass_type", "pass_type_raw",
                                 "pickup_method", "pickup_branches", "coupon", "restrictions",
                                 "source_url", "availability"],
-            "coupon_keys": ["capacity", "audience_policies", "summary"],
+            "coupon_keys": ["capacity", "audience_policies"],
             "audience_policy_keys": ["audience", "age_range", "count", "form", "value"],
             "coupon_forms": ["free", "percent-off", "dollar-off", "per-person-price", "discount"],
             "capacity_kinds": ["people", "vehicle", "ticket", "unspecified"],
@@ -1392,7 +1617,7 @@ def page_schema() -> str:
 # PAGE 9 — data_quality.html
 # =========================================================================
 
-def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir) -> str:
+def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir, status_banner: str = "") -> str:
     """Data-integrity red-flag dashboard.
 
     Why this page exists: spot-checking misses defects. The user explicitly
@@ -1612,13 +1837,25 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir) -> str
         ap = (op.get("age_pricing") or {}).get("adult")
         if hours.get("status") == "varies" and (not op or ap is None):
             notes = hours.get("notes") or ""
-            if len(notes) > 80:
-                notes = notes[:77] + "..."
+            # Long-text cell: no truncation. Short notes inline; long notes
+            # collapsed into a <details> so the table stays scan-able but the
+            # auditor can drill in to see the full text.
+            if not notes:
+                notes_cell = ""
+            elif len(notes) <= 100:
+                notes_cell = f'<span class="notes">{esc(notes)}</span>'
+            else:
+                head = esc(notes[:90].rstrip()) + "…"
+                full = esc(notes)
+                notes_cell = (
+                    f'<details class="notes-details"><summary>{head}</summary>'
+                    f'<div class="notes-full">{full}</div></details>'
+                )
             p6_rows.append([
                 f'<code class="mono">{esc(A.get("slug",""))}</code>',
                 esc(A.get("museum_name", "")),
-                esc(str(len(A.get("sources") or []))),
-                esc(notes),
+                f'<span class="num">{esc(str(len(A.get("sources") or [])))}</span>',
+                notes_cell,
             ])
     p6_count = len(p6_rows)
     p6_html = (
@@ -1680,42 +1917,44 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir) -> str
     body = f"""
 <h1 class="page-title">Data Quality · 数据质量红旗</h1>
 
+{status_banner}
+
 <section class="panel">
   <h3>Summary <span class="num-pill">7 categories</span></h3>
   {summary_html}
 </section>
 
-<section class="panel">
+<section class="panel" id="dq1">
   <h3>1. Empty coupon where catalog says a pass exists <span class="num-pill">{p1_count}</span></h3>
   {p1_html}
 </section>
 
-<section class="panel">
+<section class="panel" id="dq2">
   <h3>2. Cross-library price variance <span class="num-pill">{p2_count}</span> · informational</h3>
   {p2_html}
 </section>
 
-<section class="panel">
+<section class="panel" id="dq3">
   <h3>3. form=discount with null value <span class="num-pill">{p3_count}</span></h3>
   {p3_html}
 </section>
 
-<section class="panel">
+<section class="panel" id="dq4">
   <h3>4. age_range contradicts the labelled audience <span class="num-pill">{p4_count}</span></h3>
   {p4_html}
 </section>
 
-<section class="panel">
+<section class="panel" id="dq5">
   <h3>5. Orphan raw coupon files <span class="num-pill">{p5_count}</span></h3>
   {p5_html}
 </section>
 
-<section class="panel">
+<section class="panel" id="dq6">
   <h3>6. Umbrella attractions (structurally inapplicable) <span class="num-pill">{p6_count}</span></h3>
   {p6_html}
 </section>
 
-<section class="panel">
+<section class="panel" id="dq7">
   <h3>7. Raw extraction failures <span class="num-pill">{p7_count}</span></h3>
   {p7_html}
 </section>
@@ -1776,15 +2015,20 @@ main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
 
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; }
 .coverage { list-style: none; padding: 0; margin: 0; }
-.coverage li { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dotted var(--rule); }
-.cov-pct { color: var(--g); font-weight: 600; }
+.coverage li { display: grid; grid-template-columns: 1fr auto auto; gap: 14px; align-items: center; padding: 8px 0; border-bottom: 1px dotted var(--rule); }
+.coverage .cov-label { line-height: 1.35; }
+.coverage .cov-frac { color: var(--ink-3); font-size: 12px; font-variant-numeric: tabular-nums; }
+.cov-pct { color: var(--g); font-weight: 600; font-variant-numeric: tabular-nums; min-width: 3em; text-align: right; }
 
-.histogram { width: 100%; }
-.histogram td { padding: 4px 8px; border-bottom: 1px dotted var(--rule); }
+.histogram { width: 100%; border-collapse: collapse; }
+.histogram td, .histogram th { padding: 8px 10px; border-bottom: 1px dotted var(--rule); }
+.histogram th { text-align: left; font-size: 11.5px; color: var(--ink-3); font-weight: 600; }
 .histogram .bar-cell { width: 60%; }
 .histogram .bar { color: var(--g); font-family: monospace; letter-spacing: -2px; }
+.histogram .num, .histogram .pct { text-align: right; font-variant-numeric: tabular-nums; }
 .histogram .num { color: var(--ink-2); font-weight: 600; }
 .histogram .pct { color: var(--ink-3); }
+.histogram tbody tr:nth-child(odd) { background: color-mix(in srgb, var(--paper) 35%, transparent); }
 
 .platform-row { list-style: none; padding: 0; margin: 0; display: flex; gap: 32px; }
 .platform-row .num { color: var(--g); font-weight: 700; font-size: 24px; margin: 0 8px; }
@@ -1804,10 +2048,56 @@ main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
 
 .data-table { width: 100%; border-collapse: collapse; background: var(--white); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
 .data-table thead { background: var(--paper); }
-.data-table th, .data-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--rule); font-size: 12.5px; }
+.data-table th, .data-table td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--rule); font-size: 12.5px; vertical-align: top; }
 .data-table tr:last-child td { border-bottom: none; }
-.data-table .truncate { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.data-table tbody tr:nth-child(odd) { background: color-mix(in srgb, var(--paper) 35%, transparent); }
+.data-table .truncate { max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .data-table .own { color: var(--au); font-size: 16px; text-align: center; }
+.data-table td.num, .data-table th.num,
+.data-table td.pct, .data-table th.pct {
+  text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.data-table td .num { font-variant-numeric: tabular-nums; }
+/* Long-text cell: wrap, give it room, never truncate. */
+.data-table td .notes,
+.data-table td.notes,
+.data-table td .notes-details {
+  display: block; max-width: 38rem; overflow-wrap: break-word; word-break: break-word;
+}
+.data-table td .notes-details > summary { cursor: pointer; color: var(--ink-2); }
+.data-table td .notes-details > summary::marker { color: var(--ink-3); }
+.data-table td .notes-details .notes-full {
+  margin-top: 6px; padding: 6px 10px; background: var(--paper); border-left: 3px solid var(--rule-strong);
+  border-radius: 0 4px 4px 0; max-width: 42rem; overflow-wrap: break-word;
+}
+
+/* Bilingual labels — Chinese sub-line below the English primary line. */
+.zh-sub {
+  display: block; font-size: 10.5px; color: var(--ink-3); font-weight: 400;
+  line-height: 1.4; margin-top: 1px;
+}
+
+/* Status banner at the top of index.html / data_quality.html */
+.status-banner {
+  display: flex; align-items: center; gap: 14px;
+  border-radius: 8px; padding: 14px 20px; margin: 0 0 24px;
+  font-size: 13.5px; line-height: 1.5; border: 1px solid var(--rule);
+}
+.status-banner .banner-icon { font-size: 20px; flex: 0 0 auto; }
+.status-banner .banner-verdict { flex: 1 1 auto; }
+.status-banner .banner-meta { color: var(--ink-3); font-size: 12px; flex: 0 0 auto; }
+.banner-green { background: var(--g-pale); border-color: var(--g-light); color: var(--g); }
+.banner-green .banner-verdict b { color: var(--g); }
+.banner-amber { background: var(--or-pale); border-color: var(--or); color: var(--au); }
+.banner-amber .banner-verdict b { color: var(--or); }
+.banner-red { background: var(--rd-pale); border-color: var(--rd); color: var(--rd); }
+.banner-red .banner-verdict b { color: var(--rd); }
+
+/* policies.html — collapse "+N more rows" toggle */
+.more-rows { margin-top: 8px; padding: 8px 12px; background: var(--paper); border-radius: 6px; border: 1px dashed var(--rule-strong); }
+.more-rows > summary { cursor: pointer; color: var(--ink-3); font-size: 12px; font-weight: 600; padding: 2px 0; }
+.more-rows > summary:hover { color: var(--g); }
+.more-rows[open] > summary { color: var(--g); margin-bottom: 8px; border-bottom: 1px dotted var(--rule); padding-bottom: 6px; }
 
 .foot-link { color: var(--ink-3); margin-top: 16px; font-size: 12px; }
 
@@ -2125,8 +2415,14 @@ def main():
         print(f"  wrote {name:18s}  {size_kb:8.1f} KB")
         pages.append((name, p.stat().st_size))
 
+    # Compute red-flag counts once; both index.html and data_quality.html
+    # render the same status banner so the verdict is consistent.
+    raw_coupons_dir = ROOT / "data" / "raw" / "pass_coupons"
+    dq_counts = compute_dq_counts(libs_data, attr_data, passes_data, raw_coupons_dir)
+    banner = status_banner_html(dq_counts)
+
     print("[2/8] index.html")
-    write("index.html", page_index(libs_data, attr_data, passes_data, libcat))
+    write("index.html", page_index(libs_data, attr_data, passes_data, libcat, status_banner=banner))
 
     print("[3/8] libraries.html")
     write("libraries.html", page_libraries(libs_data, libcat=libcat, branches_data=branches_data))
@@ -2154,7 +2450,7 @@ def main():
     print("[9/9] data_quality.html")
     write("data_quality.html", page_shell(
         "Data Quality",
-        page_data_quality(libs_data, attr_data, passes_data, ROOT / "data" / "raw" / "pass_coupons"),
+        page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir, status_banner=banner),
         "data_quality.html",
     ))
 

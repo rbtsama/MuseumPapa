@@ -73,7 +73,6 @@
             <li><b>value</b>: 数值(如 50 = 50% off, 5 = $5 off),或 null(无数值/笼统)</li>
           </ul>
         </li>
-        <li><b>summary</b>:人可读摘要,如 "Up to 4 · 50% off" — 前端展示核心字段</li>
       </ul>
     </li>
     <li><b>restrictions</b>(side-channel):使用限制 — <code>{"blackout_dates": bool, "weekdays_only": bool, "seasonal": str|null, "reservation_required": bool}</code></li>
@@ -94,6 +93,6 @@
 
 </main>
 <div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>
-<script id="data-blob" type="application/json">{"schema": {"passes_row_keys": ["library_id", "attraction_slug", "pass_type", "pass_type_raw", "pickup_method", "pickup_branches", "coupon", "restrictions", "source_url", "availability"], "coupon_keys": ["capacity", "audience_policies", "summary"], "audience_policy_keys": ["audience", "age_range", "count", "form", "value"], "coupon_forms": ["free", "percent-off", "dollar-off", "per-person-price", "discount"], "capacity_kinds": ["people", "vehicle", "ticket", "unspecified"], "pass_types": ["digital", "physical-coupon", "physical-circ", "unknown"]}}</script>
+<script id="data-blob" type="application/json">{"schema": {"passes_row_keys": ["library_id", "attraction_slug", "pass_type", "pass_type_raw", "pickup_method", "pickup_branches", "coupon", "restrictions", "source_url", "availability"], "coupon_keys": ["capacity", "audience_policies"], "audience_policy_keys": ["audience", "age_range", "count", "form", "value"], "coupon_forms": ["free", "percent-off", "dollar-off", "per-person-price", "discount"], "capacity_kinds": ["people", "vehicle", "ticket", "unspecified"], "pass_types": ["digital", "physical-coupon", "physical-circ", "unknown"]}}</script>
 <script src="assets/audit.js"></script>
 </body></html>
