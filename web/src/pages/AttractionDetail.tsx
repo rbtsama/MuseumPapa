@@ -4,7 +4,7 @@ import {
   getAttractionBySlug, getPassesForAttraction, getLibraries,
 } from '../data/load';
 import { PassTypeLabel } from '../components/PassTypeLabel';
-import { DiscountLine } from '../components/DiscountLine';
+import { CouponLine } from '../components/CouponLine';
 import { GuestLockedRow } from '../components/GuestLockedRow';
 import { SignInModal } from '../components/SignInModal';
 import { FavoriteButton } from '../components/FavoriteButton';
@@ -12,7 +12,13 @@ import { useAuth } from '../auth/store';
 import { useCardpack } from '../stores/cardpack';
 import { useFavorites } from '../stores/favorites';
 import { geocodeZip, haversineMiles } from '../lib/distance';
-import { formatPriceLine } from '../lib/price-fallback';
+import { couponRank } from '../lib/tag-algorithm';
+import type { OriginalPrice } from '../data/types';
+
+function formatOriginalAdult(op: OriginalPrice | null): string {
+  const adult = op?.age_pricing?.adult?.price;
+  return adult != null ? `Original Adult $${adult}` : 'Price unavailable';
+}
 import { BookingConfirmModal } from '../components/BookingConfirmModal';
 import { weeklyHoursList } from '../lib/hours';
 import type { Geo, Pass, Library } from '../data/types';
@@ -93,13 +99,10 @@ export function AttractionDetail() {
     return rows;
   };
 
-  const rank: Record<string, number> = {
-    free: 0, half: 1, 'percent-off': 2, 'dollar-off': 3, price: 4, discount: 5, unknown: 99,
-  };
   const sortRows = (rows: Row[]) => {
     return [...rows].sort((a, b) => {
-      const ra = rank[a.pass.discount.class] ?? 99;
-      const rb = rank[b.pass.discount.class] ?? 99;
+      const ra = couponRank(a.pass.coupon);
+      const rb = couponRank(b.pass.coupon);
       if (ra !== rb) return ra - rb;
       if (a.distanceMi == null && b.distanceMi != null) return 1;
       if (a.distanceMi != null && b.distanceMi == null) return -1;
@@ -144,7 +147,7 @@ export function AttractionDetail() {
             </p>
           )}
           <p style={{ marginTop: 12, fontSize: 13 }}>
-            {formatPriceLine(attraction.original_price, null) || 'Price unavailable'}
+            {formatOriginalAdult(attraction.original_price)}
           </p>
           {attraction.phone && (
             <p style={{ marginTop: 8, fontSize: 12, color: 'var(--ink-3)' }}>
@@ -282,11 +285,7 @@ export function AttractionDetail() {
                         )}
                       </span>
                       <span className="ml-auto">
-                        <DiscountLine
-                          discount={r.pass.discount}
-                          policy={r.pass.policy}
-                          adult={attraction.original_price?.age_pricing?.adult?.price ?? null}
-                        />
+                        <CouponLine coupon={r.pass.coupon} />
                       </span>
                     </button>
                   );

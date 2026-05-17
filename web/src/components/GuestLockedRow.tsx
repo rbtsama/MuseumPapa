@@ -30,7 +30,7 @@ export function GuestLockedRow({ pass, library, onSignInRequest }: Props) {
         {library?.name ?? pass.library_id}
       </span>
       <span className="ml-auto flex items-center gap-2">
-        <span style={{ fontSize: 13, color: 'var(--ink-3)' }}>{pass.discount.label || pass.discount.class}</span>
+        <span style={{ fontSize: 13, color: 'var(--ink-3)' }}>{pass.coupon.summary}</span>
         <span aria-hidden style={{ fontSize: 14, color: 'var(--ink-3)' }}>🔒</span>
       </span>
     </button>

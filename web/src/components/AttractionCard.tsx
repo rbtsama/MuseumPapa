@@ -3,7 +3,7 @@ import type { Attraction, Pass } from '../data/types';
 import type { PickedTag } from '../lib/tag-algorithm';
 import { FavoriteButton } from './FavoriteButton';
 import { PassTypeLabel } from './PassTypeLabel';
-import { DiscountLine } from './DiscountLine';
+import { CouponLine } from './CouponLine';
 import { hoursDisplay } from '../lib/hours';
 import { getBranchesForPass } from '../data/load';
 
@@ -56,7 +56,6 @@ export function AttractionCard({
   const childPrice = op?.age_pricing?.child?.price ?? null;
   const seniorPrice = op?.age_pricing?.senior?.price ?? null;
   const studentPrice = op?.identity_pricing?.student?.price ?? null;
-  const adult = adultPrice;
   const total = pickedTags.length;
 
   // Up to 4 known tiers, in display priority order. "adult" is shown without label.
@@ -205,7 +204,7 @@ export function AttractionCard({
                   </div>
                 </div>
 
-                <DiscountLine discount={t.pass.discount} policy={t.pass.policy} adult={adult} />
+                <CouponLine coupon={t.pass.coupon} />
 
                 <button
                   type="button"

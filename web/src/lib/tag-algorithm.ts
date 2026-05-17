@@ -1,45 +1,41 @@
-import type { Pass, Library, Geo } from '../data/types';
+import type { Pass, Library, Geo, Coupon } from '../data/types';
 import { haversineMiles } from './distance';
 
 export type DiscountRank = number; // lower is better
 
-const DISCOUNT_RANK: Record<string, DiscountRank> = {
-  free: 0,
-  half: 1,
-  'percent-off': 2,
-  'dollar-off': 3,
-  price: 4,
-  discount: 5,
-  unknown: 99,
-};
+/** Rank a coupon for sorting (lower is better). Bonus-tier kids-free counts the
+ * whole deal as "free" (rank 0); otherwise the primary audience_policies[0]
+ * determines the tier. */
+export function couponRank(coupon: Coupon): number {
+  const aps = coupon.audience_policies;
+  if (!aps || aps.length === 0) return 99;
+  if (aps.some(a => a.form === 'free')) return 0;
+  const primary = aps[0];
+  switch (primary.form) {
+    case 'percent-off':
+      return (primary.value ?? 0) >= 50 ? 1 : 2;
+    case 'dollar-off':       return 3;
+    case 'per-person-price': return 4;
+    case 'discount':         return 5;
+    default:                 return 99;
+  }
+}
 
 export interface PickedTag {
   pass: Pass;
   library: Library;
-  distanceMi: number | null;  // null if user has no ZIP or no library geo
+  distanceMi: number | null;
 }
 
 export interface PickTagsInput {
-  passes: Pass[];                       // all passes for one attraction
-  libraries: Library[];                 // all libraries (will be filtered)
-  userCardLibIds: Set<string> | null;   // null = no filter (guest), set = filter to these lib IDs
-  date: string;                         // YYYY-MM-DD
-  userGeo: Geo | null;                  // ZIP centroid, null = no distance
-  maxTags?: number;                     // default 4
+  passes: Pass[];
+  libraries: Library[];
+  userCardLibIds: Set<string> | null;
+  date: string;
+  userGeo: Geo | null;
+  maxTags?: number;
 }
 
-/**
- * Pick ≤4 tags for one attraction × one day.
- *
- * Order (spec §5.2):
- *   1. Digital (zero distance) — at most 1, highest discount class
- *   2. Physical (sorted by discount desc, distance asc) — fills remaining slots
- *   3. Loan-card (same sort) — fills remaining slots
- *
- * Filters before sorting:
- *   - Pass's library must be in user_cards (if set)
- *   - calendar[date] must be "available"
- */
 export function pickTags(input: PickTagsInput): PickedTag[] {
   const { passes, libraries, userCardLibIds, date, userGeo } = input;
   const maxTags = input.maxTags ?? 4;
@@ -49,7 +45,6 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
   for (const pass of passes) {
     if (userCardLibIds && !userCardLibIds.has(pass.library_id)) continue;
     if (pass.availability && pass.availability[date] !== 'available') continue;
-    // If pass has a calendar but date isn't in it, skip (no data)
     if (pass.availability && !(date in pass.availability)) continue;
     const library = libById.get(pass.library_id);
     if (!library) continue;
@@ -59,18 +54,16 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
     candidates.push({ pass, library, distanceMi: dist });
   }
 
-  // Split into 3 groups
   const digital = candidates.filter(c => c.pass.pass_type === 'digital');
   const physical = candidates.filter(c => c.pass.pass_type === 'physical-coupon');
   const circ = candidates.filter(c => c.pass.pass_type === 'physical-circ');
 
   const tagsOut: PickedTag[] = [];
 
-  // 1. Digital: only 1 tag, highest discount (lowest rank). Tie-break by library_id alpha.
   if (digital.length > 0) {
     digital.sort((a, b) => {
-      const ra = DISCOUNT_RANK[a.pass.discount.class] ?? 99;
-      const rb = DISCOUNT_RANK[b.pass.discount.class] ?? 99;
+      const ra = couponRank(a.pass.coupon);
+      const rb = couponRank(b.pass.coupon);
       if (ra !== rb) return ra - rb;
       return a.library.id.localeCompare(b.library.id);
     });
@@ -84,22 +77,22 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
     return a.distanceMi - b.distanceMi;
   };
 
-  const sortByDiscThenDist = (group: PickedTag[]) => {
+  const sortByRankThenDist = (group: PickedTag[]) => {
     group.sort((a, b) => {
-      const ra = DISCOUNT_RANK[a.pass.discount.class] ?? 99;
-      const rb = DISCOUNT_RANK[b.pass.discount.class] ?? 99;
+      const ra = couponRank(a.pass.coupon);
+      const rb = couponRank(b.pass.coupon);
       if (ra !== rb) return ra - rb;
       return distCmp(a, b);
     });
   };
 
-  sortByDiscThenDist(physical);
+  sortByRankThenDist(physical);
   for (const t of physical) {
     if (tagsOut.length >= maxTags) break;
     tagsOut.push(t);
   }
 
-  sortByDiscThenDist(circ);
+  sortByRankThenDist(circ);
   for (const t of circ) {
     if (tagsOut.length >= maxTags) break;
     tagsOut.push(t);
