@@ -14,7 +14,7 @@
 <h1 class="page-title">MuseumPapa <span class="font-serif">数据审计 Data Audit</span></h1>
 <p class="subtitle">Non-technical verification view of the structured dataset behind the MuseumPapa frontend.</p>
 
-<section class="status-banner banner-green"><span class="banner-icon">✅</span><span class="banner-verdict"><b>Data foundation — all clear.</b> HIGH 0 · MED 0 · LOW 86 · INFO 5.</span><span class="banner-meta">Built 2026-05-17 15:36 UTC · <a href="data_quality.html">see Data Quality</a></span></section>
+<section class="status-banner banner-green"><span class="banner-icon">✅</span><span class="banner-verdict"><b>Data foundation — all clear.</b> HIGH 0 · MED 0 · LOW 86 · INFO 5.</span><span class="banner-meta">Built 2026-05-17 15:44 UTC · <a href="data_quality.html">see Data Quality</a></span></section>
 
 <section class="cards-row">
   <div class="num-card"><div class="num">59</div><div class="label">Libraries 图书馆</div></div>
@@ -54,11 +54,11 @@
 
 <section class="panel">
   <h3>数据质量信号 · 优先抽查项</h3>
-  <ul class="anomaly-list"><li><b>0</b> 条 pass 没有 coupon 字段 — 含义:plan-9 再抽取未覆盖到这些行,需补跑 subagent — <a href='policies.html'>see Policies</a></li><li><b>80</b> 条 audience_policy 是 <code>form=discount</code> 且 <code>value=null</code>(笼统折扣,无具体数值) — 含义:原 HTML 用了 '与门票打折' 之类的措辞,subagent 抽不出具体百分比/金额 — <a href='data_quality.html#dq3'>see Data Quality §3</a></li><li><b>0</b> 条 pass 的 pass_type 是 unknown(没归类成 digital/physical/loan-card 中的任一个) — 含义:从原始 HTML 抓不到明确的 pass 类型标识符</li><li><b>0</b> 对 attraction slug 重复(同一景点被存了两条记录) — 含义:数据建模历史遗留 bug,前端会显示成两张不同的卡,需合并 — <a href='duplicates.html'>see Duplicates</a></li><li><b>16</b> 个景点没有任何价格层级(adult/child/youth/senior/...)— 含义:景点官网无公开标价,或票价是 per-show / per-vehicle 浮动 — <a href='gaps.html'>see Gaps</a></li><li><b>4</b> 个景点没有简介文字 — 含义:景点官网无 og:description / about 页 抓取失败 / 网站 403 拦截</li></ul>
+  <ul class="anomaly-list"><li><b>0</b> 条 pass 没有 coupon 字段 — 含义:plan-9 再抽取未覆盖到这些行,需补跑 subagent — <a href='policies.html'>see Policies</a></li><li><b>80</b> 条 audience_policy 是 <code>form=discount</code> 且 <code>value=null</code>(笼统折扣,无具体数值) — 含义:原 HTML 用了 '与门票打折' 之类的措辞,subagent 抽不出具体百分比/金额 — <a href='data_quality.html#dq3'>see Data Quality §3</a></li><li><b>0</b> 条 pass 的 pass_type 是 unknown(没归类成 Email / Pickup / Pickup &amp; Return) — 含义:从原始 HTML 抓不到明确的 pass 类型标识符</li><li><b>0</b> 对 attraction slug 重复(同一景点被存了两条记录) — 含义:数据建模历史遗留 bug,前端会显示成两张不同的卡,需合并 — <a href='duplicates.html'>see Duplicates</a></li><li><b>16</b> 个景点没有任何价格层级(adult/child/youth/senior/...)— 含义:景点官网无公开标价,或票价是 per-show / per-vehicle 浮动 — <a href='gaps.html'>see Gaps</a></li><li><b>4</b> 个景点没有简介文字 — 含义:景点官网无 og:description / about 页 抓取失败 / 网站 403 拦截</li></ul>
 </section>
 
 <footer class="page-foot">
-  Built 2026-05-17 15:36 UTC ·
+  Built 2026-05-17 15:44 UTC ·
   <a href="#" class="view-json-link" data-json-key="meta">View JSON of dataset summary</a>
 </footer>
 

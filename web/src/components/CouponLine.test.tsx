@@ -28,7 +28,7 @@ describe('CouponLine', () => {
     ])} />);
     expect(screen.getByText('age<6')).toBeInTheDocument();
     expect(screen.getByText('age 7-17')).toBeInTheDocument();
-    expect(screen.getByText('age>=13')).toBeInTheDocument();
+    expect(screen.getByText('age 13+')).toBeInTheDocument();
   });
 
   it('folds Senior into Adult and drops the redundant age tag', () => {
@@ -56,7 +56,7 @@ describe('CouponLine', () => {
       { audience: 'Youth', age_range: { min: 13,   max: 17   }, count: null, form: 'free', value: null },
     ])} />);
     expect(screen.queryByText(/age</)).toBeNull();
-    expect(screen.queryByText(/age>=/)).toBeNull();
+    expect(screen.queryByText(/age \d+\+/)).toBeNull();
     expect(screen.queryByText(/age \d+-\d+/)).toBeNull();
   });
 
@@ -72,7 +72,7 @@ describe('CouponLine', () => {
     render(<CouponLine coupon={make([
       { audience: 'Vehicle', age_range: null, count: null, form: 'free', value: null },
     ], { kind: 'vehicle', n: 1 })} />);
-    expect(screen.getByText(/Other discount · parking/)).toBeInTheDocument();
+    expect(screen.getByText('Parking Discount')).toBeInTheDocument();
     expect(screen.queryByText('FREE')).toBeNull();
   });
 

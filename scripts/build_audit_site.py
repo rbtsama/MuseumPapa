@@ -500,7 +500,7 @@ def page_index(libs_data, attr_data, passes_data, libcat, status_banner: str = "
     )
     n_unknown_pt = sum(1 for p in passes if p.get("pass_type") == "unknown")
     anomalies.append(
-        f"<li><b>{n_unknown_pt}</b> 条 pass 的 pass_type 是 unknown(没归类成 digital/physical/loan-card 中的任一个) — "
+        f"<li><b>{n_unknown_pt}</b> 条 pass 的 pass_type 是 unknown(没归类成 Email / Pickup / Pickup &amp; Return) — "
         f"含义:从原始 HTML 抓不到明确的 pass 类型标识符</li>"
     )
     # filter pairs whose slugs already merged
@@ -756,7 +756,7 @@ def _build_coupon_compare(slug: str, passes_by_slug: dict, lib_by_id: dict) -> s
         lib_name = (lib_by_id.get(mp["library_id"]) or {}).get("name") or mp["library_id"]
         pickup = mp.get("pickup_method") or ""
         if pickup == "digital":
-            method_label = "E-pass"
+            method_label = "Email"
         elif pickup == "physical_at_branch":
             branches = mp.get("pickup_branches") or []
             method_label = f"Pickup at {branches[0]}" if branches else "Pickup at branch"
@@ -1301,10 +1301,10 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     )
     # Precompute histogram HTML (dicts can't be inlined in f-strings)
     _pt_label = {
-        "digital": "E-pass · 在线即取(无需开车)",
-        "physical-coupon": "Pickup · 去馆里取一次,不用还",
-        "physical-circ": "Pickup &amp; Return · 去馆里取 + 还回去",
-        "unknown": "Pass · 未分类(数据 bug,审计追)",
+        "digital": "Email · 邮件直接收",
+        "physical-coupon": "Pickup · 馆里取一次",
+        "physical-circ": "Pickup & Return · 馆里取 + 还回去",
+        "unknown": "Pass · 未分类",
     }
     _form_label = {
         "free":             "FREE · 完全免费",
@@ -1598,7 +1598,7 @@ def page_schema() -> str:
     <li><b>library_id / attraction_slug</b>:主键,联合唯一。</li>
     <li><b>pass_type</b>:三种 pass 形态 —
       <ul>
-        <li><b>digital</b>:邮件即时发送的电子券,用户可立即下载并使用(553 个)。</li>
+        <li><b>digital</b>(展示为 <b>Email</b>):邮件即时发送的电子券,用户可立即下载并使用。</li>
         <li><b>physical-coupon</b>:门店取纸质券,用完不归还(260 个)。</li>
         <li><b>physical-circ / loan-card</b>:循环借阅卡,用完需归还图书馆(172 个)。</li>
         <li><b>unknown</b>:未能识别(23 个)。</li>

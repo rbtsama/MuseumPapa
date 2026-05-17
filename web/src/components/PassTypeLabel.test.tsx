@@ -4,9 +4,9 @@ import { renderApp } from '../test-utils';
 import { PassTypeLabel } from './PassTypeLabel';
 
 describe('PassTypeLabel', () => {
-  it('renders "E-pass" for digital type', () => {
+  it('renders "Email" for digital type', () => {
     renderApp(<PassTypeLabel type="digital" />);
-    expect(screen.getByText('E-pass')).toBeInTheDocument();
+    expect(screen.getByText('Email')).toBeInTheDocument();
   });
 
   it('renders "Pickup" for physical-coupon type', () => {

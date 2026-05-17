@@ -52,7 +52,7 @@ function fmtAudienceLabel(p: AudiencePolicy): string | null {
   const { min, max } = age;
   if (min != null && max != null) return `age ${min}-${max}`;
   if (max != null) return `age<${max + 1}`;
-  if (min != null) return `age>=${min}`;
+  if (min != null) return `age ${min}+`;
   return b;
 }
 
@@ -98,7 +98,7 @@ export function CouponLine({ coupon }: Props) {
   if (isNonAdmissionCoupon(coupon)) {
     return (
       <span style={{ fontSize: 12, color: dim, lineHeight: 1.2 }}>
-        Other discount · parking
+        Parking Discount
       </span>
     );
   }

@@ -121,7 +121,7 @@ describe('AttractionCard', () => {
         isGuestOrEmpty={false}
       />
     );
-    expect(screen.getByText('E-pass')).toBeInTheDocument();
+    expect(screen.getByText('Email')).toBeInTheDocument();
     expect(screen.getByText('Book')).toBeInTheDocument();
   });
 
