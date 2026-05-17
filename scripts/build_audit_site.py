@@ -286,6 +286,7 @@ NAV_LINKS = [
     ("duplicates.html", "Duplicates"),
     ("lineage.html", "Lineage"),
     ("schema.html", "Schema"),
+    ("data_quality.html", "Data Quality"),
 ]
 
 
@@ -1550,6 +1551,352 @@ def page_schema() -> str:
 
 
 # =========================================================================
+# PAGE 9 — data_quality.html
+# =========================================================================
+
+def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir) -> str:
+    """Data-integrity red-flag dashboard.
+
+    Why this page exists: spot-checking misses defects. The user explicitly
+    distrusts抽检 ("抽检永远漏") — we need every category of integrity issue
+    listed at once so the auditor can sweep through all defects systematically.
+    See feedback_data_audit_over_spotcheck in user memory.
+
+    Each panel surfaces one red-flag category. Severity classification:
+      HIGH: empty coupon (panel 1), orphan slugs (panel 5) — real data loss.
+      MED:  price disagreement (panel 2), audience/age contradiction (panel 4),
+            extraction failures (panel 7) — likely extraction errors.
+      LOW:  generic discount with no value (panel 3) — known and acceptable;
+            umbrella attractions (panel 6) — structural, not a bug.
+
+    No methodology / explanatory paragraphs in HTML output (per
+    feedback_audit_no_transitional_text). Pure data + short labels only.
+    """
+    import sys as _sys
+    from pathlib import Path as _Path
+    _src = str(ROOT / "src")
+    if _src not in _sys.path:
+        _sys.path.insert(0, _src)
+    try:
+        from malibbene.build.slug_canonical import canonical, LEGACY_TO_CANONICAL  # noqa: F401
+    except Exception:
+        # Fall-back: identity canonical if import path issue
+        def canonical(s):  # type: ignore
+            return s
+        LEGACY_TO_CANONICAL = {}  # type: ignore
+
+    passes = passes_data["passes"]
+    attrs = attr_data["attractions"]
+    attr_by_slug = {A["slug"]: A for A in attrs}
+
+    def empty_state(n: int) -> str:
+        return f'<p class="honest-gap">all clear · 0</p>' if n == 0 else ""
+
+    def table(headers: list[str], rows: list[list[str]], max_rows: int) -> str:
+        n_total = len(rows)
+        clipped = rows[:max_rows]
+        head = "".join(f"<th>{esc(h)}</th>" for h in headers)
+        body_rows = "".join(
+            "<tr>" + "".join(f"<td>{cell}</td>" for cell in r) + "</tr>"
+            for r in clipped
+        )
+        more = ""
+        if n_total > max_rows:
+            more = f'<tr><td colspan="{len(headers)}" class="honest-gap">+{n_total - max_rows} more</td></tr>'
+        return (
+            f'<table class="data-table"><thead><tr>{head}</tr></thead>'
+            f'<tbody>{body_rows}{more}</tbody></table>'
+        )
+
+    # ── Panel 1: empty coupon where catalog says a pass exists ──────────
+    # Why: extraction may have failed silently, leaving coupon empty even
+    # though the library catalog page lists this pass.
+    p1_rows = []
+    for p in passes:
+        coupon = p.get("coupon") or {}
+        cap = coupon.get("capacity") or {}
+        if (coupon.get("audience_policies") or []) == [] and (cap.get("kind") or "unspecified") == "unspecified":
+            p1_rows.append([
+                esc(p.get("library_id", "")),
+                esc(p.get("attraction_slug", "")),
+                esc(p.get("pass_type", "")),
+            ])
+    p1_count = len(p1_rows)
+    p1_html = (
+        empty_state(p1_count) or
+        table(["library_id", "attraction_slug", "pass_type"], p1_rows, 50)
+    )
+
+    # ── Panel 2: price disagreement across libraries ────────────────────
+    # Why: if libraries report wildly different adult/child prices for the
+    # same attraction, at least some extractions are wrong.
+    def collect_price_disagreements(audience_label: str):
+        per_attr: dict[str, list[tuple[str, float]]] = defaultdict(list)
+        for p in passes:
+            slug = p.get("attraction_slug", "")
+            for ap in (p.get("coupon") or {}).get("audience_policies") or []:
+                if ap.get("audience") == audience_label and ap.get("form") == "per-person-price":
+                    v = ap.get("value")
+                    if v is not None:
+                        per_attr[slug].append((p.get("library_id", ""), float(v)))
+        out = []
+        for slug, recs in per_attr.items():
+            distinct = sorted({v for _, v in recs})
+            if len(distinct) > 1:
+                rng = distinct[-1] - distinct[0]
+                out.append((slug, distinct, len(recs), rng))
+        out.sort(key=lambda x: x[3], reverse=True)
+        return out
+
+    p2_adult = collect_price_disagreements("Adult")
+    p2_child = collect_price_disagreements("Child")
+    p2_count = len(p2_adult) + len(p2_child)
+
+    def disag_rows(records):
+        rows = []
+        for slug, distinct, n_libs, _rng in records:
+            prices_str = ", ".join(f"${v:g}" for v in distinct)
+            rows.append([
+                f'<code class="mono">{esc(slug)}</code>',
+                esc(prices_str),
+                esc(str(n_libs)),
+            ])
+        return rows
+
+    p2_inner = []
+    if p2_adult:
+        p2_inner.append("<h4>Adult price</h4>")
+        p2_inner.append(table(
+            ["attraction_slug", "distinct adult prices", "n libs reporting"],
+            disag_rows(p2_adult), 30,
+        ))
+    if p2_child:
+        p2_inner.append("<h4>Child price</h4>")
+        p2_inner.append(table(
+            ["attraction_slug", "distinct child prices", "n libs reporting"],
+            disag_rows(p2_child), 30,
+        ))
+    p2_html = "".join(p2_inner) if p2_inner else empty_state(0)
+
+    # ── Panel 3: form=discount with null value ──────────────────────────
+    # Why: a generic "discount" with no numeric value is intentionally kept
+    # (free-text discount language) but worth surfacing for awareness.
+    p3_rows = []
+    for p in passes:
+        for ap in (p.get("coupon") or {}).get("audience_policies") or []:
+            if ap.get("form") == "discount" and ap.get("value") is None:
+                p3_rows.append([
+                    esc(p.get("library_id", "")),
+                    esc(p.get("attraction_slug", "")),
+                ])
+    p3_count = len(p3_rows)
+    p3_html = (
+        empty_state(p3_count) or
+        table(["library_id", "attraction_slug"], p3_rows, 30)
+    )
+
+    # ── Panel 4: age_range contradicts the labelled audience ────────────
+    # Why: an "Adult" tier with min_age=2 or a "Child" tier with min_age=18
+    # is almost certainly an extraction bug.
+    p4_rows = []
+    for p in passes:
+        for ap in (p.get("coupon") or {}).get("audience_policies") or []:
+            aud = ap.get("audience")
+            ar = ap.get("age_range") or {}
+            mn = ar.get("min")
+            mx = ar.get("max")
+            flag = False
+            if aud == "Adult" and mn is not None and mn < 13:
+                flag = True
+            elif aud == "Senior" and mn is not None and mn < 50:
+                flag = True
+            elif aud == "Child" and mn is not None and mn >= 13:
+                flag = True
+            elif aud == "Youth" and mx is not None and mx < 5:
+                flag = True
+            if flag:
+                ar_str = f"[{mn if mn is not None else '·'}–{mx if mx is not None else '·'}]"
+                fv = f"{ap.get('form','')}"
+                if ap.get("value") is not None:
+                    fv += f"={ap['value']}"
+                p4_rows.append([
+                    esc(p.get("library_id", "")),
+                    esc(p.get("attraction_slug", "")),
+                    esc(str(aud)),
+                    esc(ar_str),
+                    esc(fv),
+                ])
+    p4_count = len(p4_rows)
+    p4_html = (
+        empty_state(p4_count) or
+        table(["library_id", "attraction_slug", "audience", "age_range", "form+value"], p4_rows, 50)
+    )
+
+    # ── Panel 5: orphan raw coupon files ────────────────────────────────
+    # Why: if a raw extraction succeeded but the slug doesn't appear in
+    # passes.json, the file is orphaned by a slug-naming drift.
+    # Same logic as tests/test_coupon_orphans.py — list instead of fail.
+    consumed: set[tuple[str, str]] = set()
+    for p in passes:
+        coupon = p.get("coupon") or {}
+        cap = coupon.get("capacity") or {}
+        if coupon.get("audience_policies") or cap.get("n") is not None:
+            consumed.add((p.get("library_id", ""), p.get("attraction_slug", "")))
+
+    raw_dir = _Path(raw_coupons_dir)
+    p5_rows = []
+    if raw_dir.exists():
+        for f in sorted(raw_dir.glob("*.json")):
+            try:
+                rec = json.loads(f.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            if rec.get("status") != "ok":
+                continue
+            stem_parts = f.stem.split("_", 1)
+            lib_id = rec.get("library_id") or (stem_parts[0] if stem_parts else "")
+            raw_slug = rec.get("attraction_slug") or (stem_parts[1] if len(stem_parts) > 1 else "")
+            canon = canonical(raw_slug)
+            if (lib_id, canon) not in consumed:
+                suggested = canon if canon != raw_slug else ""
+                p5_rows.append([
+                    f'<code class="mono">{esc(f.name)}</code>',
+                    f'<code class="mono">{esc(suggested)}</code>' if suggested else esc("—"),
+                ])
+    p5_count = len(p5_rows)
+    p5_html = (
+        empty_state(p5_count) or
+        table(["filename", "suggested canonical"], p5_rows, 30)
+    )
+
+    # ── Panel 6: umbrella attractions ────────────────────────────────────
+    # Why: hours.status='varies' AND no adult original_price means the
+    # entity covers multiple sub-venues — the "1 attraction = 1 price"
+    # model doesn't apply structurally.
+    p6_rows = []
+    for A in attrs:
+        hours = A.get("hours") or {}
+        op = A.get("original_price") or {}
+        ap = (op.get("age_pricing") or {}).get("adult")
+        if hours.get("status") == "varies" and (not op or ap is None):
+            notes = hours.get("notes") or ""
+            if len(notes) > 80:
+                notes = notes[:77] + "..."
+            p6_rows.append([
+                f'<code class="mono">{esc(A.get("slug",""))}</code>',
+                esc(A.get("museum_name", "")),
+                esc(str(len(A.get("sources") or []))),
+                esc(notes),
+            ])
+    p6_count = len(p6_rows)
+    p6_html = (
+        empty_state(p6_count) or
+        table(["slug", "museum_name", "n libs offering", "hours.notes"], p6_rows, 30)
+    )
+
+    # ── Panel 7: raw extraction failures ────────────────────────────────
+    # Why: status != 'ok' means the subagent extractor gave up on this file.
+    p7_rows = []
+    p7_statuses: Counter = Counter()
+    if raw_dir.exists():
+        for f in sorted(raw_dir.glob("*.json")):
+            try:
+                rec = json.loads(f.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            st = rec.get("status")
+            if st != "ok":
+                p7_statuses[st or "(null)"] += 1
+                p7_rows.append([
+                    f'<code class="mono">{esc(f.name)}</code>',
+                    esc(str(st)),
+                ])
+    p7_count = len(p7_rows)
+    p7_html = (
+        empty_state(p7_count) or
+        table(["filename", "status"], p7_rows, 30)
+    )
+
+    # ── Summary table ───────────────────────────────────────────────────
+    summary = [
+        ("1", "HIGH", "Empty coupon where catalog says a pass exists", p1_count),
+        ("2", "MED",  "Price disagreement across libraries (adult+child)", p2_count),
+        ("3", "LOW",  "form=discount with null value (known, acceptable)", p3_count),
+        ("4", "MED",  "age_range contradicts the labelled audience", p4_count),
+        ("5", "HIGH", "Orphan raw coupon files (slug drift)", p5_count),
+        ("6", "LOW",  "Umbrella attractions (structurally inapplicable)", p6_count),
+        ("7", "MED",  "Raw extraction failures (status != ok)", p7_count),
+    ]
+    sev_class = {
+        "HIGH": "rd",  # red if count > 0
+        "MED":  "or",  # orange if count > 0
+        "LOW":  "ink-3",  # neutral
+    }
+    sum_rows = []
+    for idx, sev, label, n in summary:
+        style = ""
+        if n > 0:
+            if sev == "HIGH":
+                style = ' style="background:var(--rd-pale);color:var(--rd);font-weight:600"'
+            elif sev == "MED":
+                style = ' style="background:var(--or-pale);color:var(--or)"'
+        sum_rows.append(
+            f'<tr{style}><td>{idx}</td><td>{sev}</td><td>{esc(label)}</td>'
+            f'<td class="num">{n}</td></tr>'
+        )
+    summary_html = (
+        '<table class="data-table"><thead><tr>'
+        '<th>#</th><th>severity</th><th>category</th><th>count</th>'
+        f'</tr></thead><tbody>{"".join(sum_rows)}</tbody></table>'
+    )
+
+    body = f"""
+<h1 class="page-title">Data Quality · 数据质量红旗</h1>
+
+<section class="panel">
+  <h3>Summary <span class="num-pill">7 categories</span></h3>
+  {summary_html}
+</section>
+
+<section class="panel">
+  <h3>1. Empty coupon where catalog says a pass exists <span class="num-pill">{p1_count}</span></h3>
+  {p1_html}
+</section>
+
+<section class="panel">
+  <h3>2. Price disagreement across libraries <span class="num-pill">{p2_count}</span></h3>
+  {p2_html}
+</section>
+
+<section class="panel">
+  <h3>3. form=discount with null value <span class="num-pill">{p3_count}</span></h3>
+  {p3_html}
+</section>
+
+<section class="panel">
+  <h3>4. age_range contradicts the labelled audience <span class="num-pill">{p4_count}</span></h3>
+  {p4_html}
+</section>
+
+<section class="panel">
+  <h3>5. Orphan raw coupon files <span class="num-pill">{p5_count}</span></h3>
+  {p5_html}
+</section>
+
+<section class="panel">
+  <h3>6. Umbrella attractions (structurally inapplicable) <span class="num-pill">{p6_count}</span></h3>
+  {p6_html}
+</section>
+
+<section class="panel">
+  <h3>7. Raw extraction failures <span class="num-pill">{p7_count}</span></h3>
+  {p7_html}
+</section>
+"""
+    return body
+
+
+# =========================================================================
 # CSS + JS
 # =========================================================================
 
@@ -1976,6 +2323,13 @@ def main():
 
     print("[8/8] schema.html")
     write("schema.html", page_schema())
+
+    print("[9/9] data_quality.html")
+    write("data_quality.html", page_shell(
+        "Data Quality",
+        page_data_quality(libs_data, attr_data, passes_data, ROOT / "data" / "raw" / "pass_coupons"),
+        "data_quality.html",
+    ))
 
     print("[assets] style.css + audit.js")
     (ASSETS / "style.css").write_text(CSS, encoding="utf-8")

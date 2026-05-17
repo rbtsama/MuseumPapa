@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh"><head>
+<meta charset="utf-8">
+<title>Data Quality — MuseumPapa Audit</title>
+<link rel="stylesheet" href="assets/style.css">
+
+</head><body>
+<header class="site-head">
+  <div class="brand"><span class="font-serif">MuseumPapa</span> · Data Audit</div>
+  <nav class="topnav"><a href="index.html" class="">Overview</a> · <a href="libraries.html" class="">Libraries</a> · <a href="attractions.html" class="">Attractions</a> · <a href="policies.html" class="">Policies</a> · <a href="gaps.html" class="">Gaps</a> · <a href="duplicates.html" class="">Duplicates</a> · <a href="lineage.html" class="">Lineage</a> · <a href="schema.html" class="">Schema</a> · <a href="data_quality.html" class="current">Data Quality</a></nav>
+</header>
+<main>
+
+<h1 class="page-title">Data Quality · 数据质量红旗</h1>
+
+<section class="panel">
+  <h3>Summary <span class="num-pill">7 categories</span></h3>
+  <table class="data-table"><thead><tr><th>#</th><th>severity</th><th>category</th><th>count</th></tr></thead><tbody><tr><td>1</td><td>HIGH</td><td>Empty coupon where catalog says a pass exists</td><td class="num">0</td></tr><tr style="background:var(--or-pale);color:var(--or)"><td>2</td><td>MED</td><td>Price disagreement across libraries (adult+child)</td><td class="num">5</td></tr><tr><td>3</td><td>LOW</td><td>form=discount with null value (known, acceptable)</td><td class="num">80</td></tr><tr><td>4</td><td>MED</td><td>age_range contradicts the labelled audience</td><td class="num">0</td></tr><tr><td>5</td><td>HIGH</td><td>Orphan raw coupon files (slug drift)</td><td class="num">0</td></tr><tr><td>6</td><td>LOW</td><td>Umbrella attractions (structurally inapplicable)</td><td class="num">6</td></tr><tr><td>7</td><td>MED</td><td>Raw extraction failures (status != ok)</td><td class="num">0</td></tr></tbody></table>
+</section>
+
+<section class="panel">
+  <h3>1. Empty coupon where catalog says a pass exists <span class="num-pill">0</span></h3>
+  <p class="honest-gap">all clear · 0</p>
+</section>
+
+<section class="panel">
+  <h3>2. Price disagreement across libraries <span class="num-pill">5</span></h3>
+  <h4>Adult price</h4><table class="data-table"><thead><tr><th>attraction_slug</th><th>distinct adult prices</th><th>n libs reporting</th></tr></thead><tbody><tr><td><code class="mono">mfa</code></td><td>$10, $15</td><td>56</td></tr><tr><td><code class="mono">plimoth-patuxet</code></td><td>$16, $18</td><td>15</td></tr><tr><td><code class="mono">salem-witch-museum</code></td><td>$13.25, $13.5, $13.75, $14</td><td>12</td></tr></tbody></table><h4>Child price</h4><table class="data-table"><thead><tr><th>attraction_slug</th><th>distinct child prices</th><th>n libs reporting</th></tr></thead><tbody><tr><td><code class="mono">plimoth-patuxet</code></td><td>$10, $12</td><td>15</td></tr><tr><td><code class="mono">salem-witch-museum</code></td><td>$10.75, $11.25, $11.75</td><td>12</td></tr></tbody></table>
+</section>
+
+<section class="panel">
+  <h3>3. form=discount with null value <span class="num-pill">80</span></h3>
+  <table class="data-table"><thead><tr><th>library_id</th><th>attraction_slug</th></tr></thead><tbody><tr><td>acton</td><td>trustees-of-reservations</td></tr><tr><td>acton</td><td>trustees-of-reservations</td></tr><tr><td>andover</td><td>historic-new-england</td></tr><tr><td>andover</td><td>historic-new-england</td></tr><tr><td>andover</td><td>trustees-of-reservations</td></tr><tr><td>bedford</td><td>trustees-of-reservations</td></tr><tr><td>bedford</td><td>trustees-of-reservations</td></tr><tr><td>belmont</td><td>trustees-of-reservations</td></tr><tr><td>belmont</td><td>trustees-of-reservations</td></tr><tr><td>burlington</td><td>peabody-essex-museum</td></tr><tr><td>burlington</td><td>trustees-of-reservations</td></tr><tr><td>burlington</td><td>trustees-of-reservations</td></tr><tr><td>carlisle</td><td>ica-boston</td></tr><tr><td>carlisle</td><td>salem-witch-museum</td></tr><tr><td>carlisle</td><td>trustees-of-reservations</td></tr><tr><td>carlisle</td><td>trustees-of-reservations</td></tr><tr><td>chelmsford</td><td>trustees-of-reservations</td></tr><tr><td>chelmsford</td><td>trustees-of-reservations</td></tr><tr><td>concord</td><td>trustees-of-reservations</td></tr><tr><td>concord</td><td>trustees-of-reservations</td></tr><tr><td>everett</td><td>trustees-of-reservations</td></tr><tr><td>everett</td><td>trustees-of-reservations</td></tr><tr><td>lexington</td><td>trustees-of-reservations</td></tr><tr><td>lincoln</td><td>trustees-of-reservations</td></tr><tr><td>lynnfield</td><td>isabella-stewart-gardner-museum</td></tr><tr><td>lynnfield</td><td>trustees-of-reservations</td></tr><tr><td>malden</td><td>trustees-of-reservations</td></tr><tr><td>maynard</td><td>trustees-of-reservations</td></tr><tr><td>medford</td><td>trustees-of-reservations</td></tr><tr><td>medford</td><td>trustees-of-reservations</td></tr><tr><td colspan="2" class="honest-gap">+50 more</td></tr></tbody></table>
+</section>
+
+<section class="panel">
+  <h3>4. age_range contradicts the labelled audience <span class="num-pill">0</span></h3>
+  <p class="honest-gap">all clear · 0</p>
+</section>
+
+<section class="panel">
+  <h3>5. Orphan raw coupon files <span class="num-pill">0</span></h3>
+  <p class="honest-gap">all clear · 0</p>
+</section>
+
+<section class="panel">
+  <h3>6. Umbrella attractions (structurally inapplicable) <span class="num-pill">6</span></h3>
+  <table class="data-table"><thead><tr><th>slug</th><th>museum_name</th><th>n libs offering</th><th>hours.notes</th></tr></thead><tbody><tr><td><code class="mono">ma-state-parks</code></td><td>Massachusetts State Parks (Department of Conservation and Recreation)</td><td>51</td><td>Massachusetts DCR operates 450+ parks, beaches, and forests, each with differ...</td></tr><tr><td><code class="mono">trustees-of-reservations</code></td><td>Trustees of Reservations (with deCordova Sculpture Park and Museum)</td><td>44</td><td>The Trustees GO Pass covers 120+ properties across Massachusetts, each with i...</td></tr><tr><td><code class="mono">historic-new-england</code></td><td>Historic New England</td><td>10</td><td>Multiple properties with varying hours; no single schedule applies.</td></tr><tr><td><code class="mono">wheelock-family-theatre</code></td><td>Wheelock Family Theatre</td><td>1</td><td>Performance venue — no fixed visiting hours. Shows and box office hours vary ...</td></tr><tr><td><code class="mono">greater-boston-stage-company</code></td><td>Greater Boston Stage Company</td><td>1</td><td>Performance venue — no fixed visiting hours. Show schedules vary by productio...</td></tr><tr><td><code class="mono">boch-center</code></td><td>Boch Center Tours</td><td>1</td><td>Large performance venue (Wang Theatre, Shubert Theatre) — no fixed visiting h...</td></tr></tbody></table>
+</section>
+
+<section class="panel">
+  <h3>7. Raw extraction failures <span class="num-pill">0</span></h3>
+  <p class="honest-gap">all clear · 0</p>
+</section>
+
+</main>
+<div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>
+
+<script src="assets/audit.js"></script>
+</body></html>
