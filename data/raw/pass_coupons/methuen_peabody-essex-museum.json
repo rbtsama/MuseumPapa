@@ -17,10 +17,9 @@
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": false,
-    "seasonal": null,
-    "reservation_required": true
+    "seasonal": null
   },
   "source_phrases": {
     "capacity.n": "admits 2 people",

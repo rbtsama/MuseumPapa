@@ -13,11 +13,11 @@
       "age_range": null,
       "count": 4,
       "form": "per-person-price",
-      "value": 2.00
+      "value": 2.0
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": false,
     "seasonal": null,
     "reservation_required": false

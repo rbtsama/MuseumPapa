@@ -41,11 +41,15 @@ def restrictions_block(rec: dict | None) -> dict | None:
     if not rec or rec.get("status") != "ok":
         return None
     r = rec.get("restrictions") or {}
-    if not any([r.get("blackout_dates"), r.get("weekdays_only"),
+    blackout_dates = r.get("blackout_dates") or []
+    if not isinstance(blackout_dates, list):
+        # Legacy bool fallback (should not occur after schema upgrade)
+        blackout_dates = [] if not blackout_dates else []
+    if not any([blackout_dates, r.get("weekdays_only"),
                 r.get("seasonal"), r.get("reservation_required")]):
         return None
     return {
-        "blackout_dates": bool(r.get("blackout_dates")),
+        "blackout_dates": blackout_dates,
         "weekdays_only": bool(r.get("weekdays_only")),
         "seasonal": r.get("seasonal"),
         "reservation_required": bool(r.get("reservation_required")),

@@ -17,10 +17,9 @@
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": true,
-    "seasonal": "late May to early October",
-    "reservation_required": true
+    "seasonal": "late May to early October"
   },
   "source_phrases": {
     "capacity.n": "up to 4 tickets",

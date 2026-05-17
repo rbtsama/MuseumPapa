@@ -17,14 +17,17 @@
     },
     {
       "audience": "Child",
-      "age_range": {"min": null, "max": 11},
+      "age_range": {
+        "min": null,
+        "max": 11
+      },
       "count": 2,
       "form": "free",
       "value": null
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": false,
     "seasonal": null,
     "reservation_required": false

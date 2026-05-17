@@ -17,14 +17,17 @@
     },
     {
       "audience": "Child",
-      "age_range": {"min": 4, "max": 12},
+      "age_range": {
+        "min": 4,
+        "max": 12
+      },
       "count": 3,
       "form": "per-person-price",
       "value": 3
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": false,
     "seasonal": null,
     "reservation_required": false

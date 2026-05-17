@@ -15,7 +15,7 @@ def test_build_passes_attaches_coupon():
             {"audience": "Everyone", "age_range": None, "count": None,
              "form": "percent-off", "value": 50}
         ],
-        "restrictions": {"blackout_dates": False, "weekdays_only": False,
+        "restrictions": {"blackout_dates": [], "weekdays_only": False,
                          "seasonal": None, "reservation_required": False},
         "raw": "Pass admits up to 4 for half price.",
     }}
@@ -52,11 +52,11 @@ def test_build_passes_attaches_restrictions_when_any_flag_set():
                            {"audience": "Everyone", "age_range": None,
                             "count": None, "form": "free", "value": None}
                        ],
-                       "restrictions": {"blackout_dates": True,
+                       "restrictions": {"blackout_dates": ["2026-10-01", "2026-10-31"],
                                         "weekdays_only": False,
                                         "seasonal": None,
                                         "reservation_required": False},
                        "raw": ""}}
     out = build_passes(catalog, coupons=coupons)
     p = out["passes"][0]
-    assert p["restrictions"]["blackout_dates"] is True
+    assert p["restrictions"]["blackout_dates"] == ["2026-10-01", "2026-10-31"]

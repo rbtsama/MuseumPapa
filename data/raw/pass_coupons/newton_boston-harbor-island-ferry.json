@@ -17,7 +17,7 @@
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": false,
     "seasonal": "mid-May through early October",
     "reservation_required": false

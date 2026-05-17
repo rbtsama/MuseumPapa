@@ -10,24 +10,29 @@
   "audience_policies": [
     {
       "audience": "Child",
-      "age_range": {"min": null, "max": 6},
+      "age_range": {
+        "min": null,
+        "max": 6
+      },
       "count": 2,
       "form": "per-person-price",
       "value": 12
     },
     {
       "audience": "Child",
-      "age_range": {"min": null, "max": 0},
+      "age_range": {
+        "min": null,
+        "max": 0
+      },
       "count": null,
       "form": "free",
       "value": null
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": false,
-    "seasonal": null,
-    "reservation_required": true
+    "seasonal": null
   },
   "source_phrases": {
     "capacity.n": "up to 2 children",

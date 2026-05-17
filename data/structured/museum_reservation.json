@@ -1,0 +1,114 @@
+{
+  "attractions": {
+    "american-rep-theater": {
+      "required": true,
+      "url": "https://americanrepertorytheater.org/",
+      "evidence_count": 1
+    },
+    "american-repertory-theater": {
+      "required": true,
+      "url": "https://americanrepertorytheater.org/",
+      "evidence_count": 1
+    },
+    "boston-by-foot": {
+      "required": true,
+      "url": "https://www.bostonbyfoot.org/",
+      "evidence_count": 2
+    },
+    "boston-childrens-museum": {
+      "required": true,
+      "url": "https://bostonchildrensmuseum.org/ticketing",
+      "evidence_count": 18
+    },
+    "boston-harbor-island-ferry": {
+      "required": true,
+      "url": "http://www.bostonharborislands.org/",
+      "evidence_count": 3
+    },
+    "childrens-museum-of-new-hampshire": {
+      "required": true,
+      "url": "http://www.childrens-museum.org/",
+      "evidence_count": 1
+    },
+    "greater-boston-stage-company": {
+      "required": true,
+      "url": "https://www.greaterbostonstage.org/",
+      "evidence_count": 1
+    },
+    "griffin-museum-of-photography": {
+      "required": true,
+      "url": "http://www.griffinmuseum.org/",
+      "evidence_count": 1
+    },
+    "historic-new-england": {
+      "required": true,
+      "url": "https://www.historicnewengland.org/",
+      "evidence_count": 1
+    },
+    "isabella-stewart-gardner": {
+      "required": true,
+      "url": "https://tnew.gardnermuseum.org/events",
+      "evidence_count": 2
+    },
+    "isabella-stewart-gardner-museum": {
+      "required": true,
+      "url": "https://tnew.gardnermuseum.org/events",
+      "evidence_count": 21
+    },
+    "john-f-kennedy-library-and-museum": {
+      "required": true,
+      "url": "https://www.jfklibrary.org/visit",
+      "evidence_count": 3
+    },
+    "maah": {
+      "required": true,
+      "url": "https://www.maah.org/",
+      "evidence_count": 1
+    },
+    "museum-of-fine-arts": {
+      "required": true,
+      "url": "https://www.mfa.org/visit",
+      "evidence_count": 1
+    },
+    "museum-of-science": {
+      "required": true,
+      "url": "http://www.mos.org/",
+      "evidence_count": 1
+    },
+    "orchard-house": {
+      "required": true,
+      "url": "http://www.louisamayalcott.org/",
+      "evidence_count": 2
+    },
+    "peabody-essex-museum": {
+      "required": true,
+      "url": "http://www.pem.org/",
+      "evidence_count": 7
+    },
+    "salem-witch-museum": {
+      "required": true,
+      "url": "https://www.salemwitchmuseum.com/",
+      "evidence_count": 3
+    },
+    "seacoast-science-center": {
+      "required": true,
+      "url": "http://www.seacoastsciencecenter.org/",
+      "evidence_count": 1
+    },
+    "the-childrens-piazza": {
+      "required": true,
+      "url": "https://www.thechildrenspiazza.com/",
+      "evidence_count": 4
+    },
+    "the-house-of-seven-gables": {
+      "required": true,
+      "url": "https://www.7gables.org/",
+      "evidence_count": 5
+    },
+    "wheelock-family-theatre": {
+      "required": true,
+      "url": "https://www.wheelockfamilytheatre.org/",
+      "evidence_count": 1
+    }
+  }
+}

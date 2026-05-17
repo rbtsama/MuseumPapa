@@ -10,21 +10,27 @@
   "audience_policies": [
     {
       "audience": "Adult",
-      "age_range": {"min": 18, "max": null},
+      "age_range": {
+        "min": 18,
+        "max": null
+      },
       "count": null,
       "form": "per-person-price",
       "value": 5
     },
     {
       "audience": "Child",
-      "age_range": {"min": null, "max": 17},
+      "age_range": {
+        "min": null,
+        "max": 17
+      },
       "count": null,
       "form": "free",
       "value": null
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": false,
     "seasonal": null,
     "reservation_required": false

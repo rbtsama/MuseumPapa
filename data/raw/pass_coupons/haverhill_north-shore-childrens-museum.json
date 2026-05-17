@@ -10,14 +10,17 @@
   "audience_policies": [
     {
       "audience": "Everyone",
-      "age_range": {"min": 1, "max": null},
+      "age_range": {
+        "min": 1,
+        "max": null
+      },
       "count": null,
       "form": "percent-off",
       "value": 50
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": false,
     "seasonal": null,
     "reservation_required": false

@@ -17,7 +17,7 @@
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": true,
     "seasonal": "Jun-Aug",
     "reservation_required": false

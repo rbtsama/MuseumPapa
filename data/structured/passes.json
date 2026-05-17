@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "built_at": "2026-05-17T14:24:31Z",
+    "built_at": "2026-05-17T16:02:57Z",
     "n_passes": 1026,
     "n_with_availability": 975,
     "n_with_coupon": 1026,
-    "n_with_restrictions": 154,
+    "n_with_restrictions": 69,
     "n_physical_at_branch": 440,
     "n_digital": 586
   },
@@ -471,12 +471,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://actonmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/#museum-john-f-kennedy-library-and-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -1115,7 +1110,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Jun-Oct",
         "reservation_required": false
@@ -1167,12 +1162,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://mhl.assabetinteractive.com/museum-passes/by-museum/#museum-childrens-museum-of-new-hampshire",
       "availability": {
         "2026-05-13": "available",
@@ -1420,12 +1410,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://mhl.assabetinteractive.com/museum-passes/by-museum/#museum-the-house-of-seven-gables",
       "availability": {
         "2026-05-13": "booked",
@@ -2013,10 +1998,42 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
-        "reservation_required": true
+        "reservation_required": false
       },
       "source_url": "https://mhl.assabetinteractive.com/museum-passes/by-museum/#museum-salem-witch-museum",
       "availability": {
@@ -2451,12 +2468,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://robbinslibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -2894,7 +2906,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "mid-May through early October",
         "reservation_required": false
@@ -3018,12 +3030,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "available",
@@ -3573,7 +3580,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May-Oct",
         "reservation_required": false
@@ -3914,12 +3921,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://belmontpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -4320,12 +4322,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://belmontpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-orchard-house",
       "availability": {
         "2026-05-13": "available",
@@ -4598,12 +4595,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://beverlypubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -4649,12 +4641,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://beverlypubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "available",
@@ -4904,12 +4891,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://beverlypubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-peabody-essex-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -5173,12 +5155,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://billericalibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -5225,7 +5202,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May–Oct 2026",
         "reservation_required": false
@@ -5306,7 +5283,13 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-01-19",
+          "2026-02-16",
+          "2026-05-25",
+          "2026-09-07",
+          "2026-10-12"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -5851,7 +5834,39 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -5901,12 +5916,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://billericalibrary.assabetinteractive.com/museum-passes/by-museum/#museum-seacoast-science-center",
       "availability": {
         "2026-05-13": "available",
@@ -6906,12 +6916,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://burlington.assabetinteractive.com/museum-passes/by-museum/#museum-the-house-of-seven-gables",
       "availability": {
         "2026-05-13": "available",
@@ -6957,12 +6962,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://burlington.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -7503,7 +7503,39 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -7715,12 +7747,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": true,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://gleasonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -7769,7 +7796,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Feb-Oct",
         "reservation_required": false
@@ -7870,7 +7897,13 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-01-19",
+          "2026-02-16",
+          "2026-05-25",
+          "2026-09-07",
+          "2026-10-12"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -7978,12 +8011,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": true,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": false
-      },
+      "restrictions": null,
       "source_url": "https://gleasonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-ecotarium",
       "availability": {
         "2026-05-13": "available",
@@ -8123,12 +8151,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://gleasonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "available",
@@ -8531,12 +8554,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://gleasonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-orchard-house",
       "availability": {
         "2026-05-13": "available",
@@ -8631,7 +8649,39 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -8996,7 +9046,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Apr-Oct",
         "reservation_required": false
@@ -9346,7 +9396,34 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-06-06",
+          "2026-06-07",
+          "2026-06-13",
+          "2026-06-14",
+          "2026-06-20",
+          "2026-06-21",
+          "2026-06-27",
+          "2026-06-28",
+          "2026-07-04",
+          "2026-07-05",
+          "2026-07-11",
+          "2026-07-12",
+          "2026-07-18",
+          "2026-07-19",
+          "2026-07-25",
+          "2026-07-26",
+          "2026-08-01",
+          "2026-08-02",
+          "2026-08-08",
+          "2026-08-09",
+          "2026-08-15",
+          "2026-08-16",
+          "2026-08-22",
+          "2026-08-23",
+          "2026-08-29",
+          "2026-08-30"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -9800,7 +9877,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May–Oct",
         "reservation_required": false
@@ -9878,12 +9955,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://chelseama.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "available",
@@ -10083,7 +10155,34 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-06-06",
+          "2026-06-07",
+          "2026-06-13",
+          "2026-06-14",
+          "2026-06-20",
+          "2026-06-21",
+          "2026-06-27",
+          "2026-06-28",
+          "2026-07-04",
+          "2026-07-05",
+          "2026-07-11",
+          "2026-07-12",
+          "2026-07-18",
+          "2026-07-19",
+          "2026-07-25",
+          "2026-07-26",
+          "2026-08-01",
+          "2026-08-02",
+          "2026-08-08",
+          "2026-08-09",
+          "2026-08-15",
+          "2026-08-16",
+          "2026-08-22",
+          "2026-08-23",
+          "2026-08-29",
+          "2026-08-30"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -10143,7 +10242,39 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -11079,12 +11210,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://danverslibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -11133,10 +11259,67 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-01-01",
+          "2026-01-03",
+          "2026-01-10",
+          "2026-01-17",
+          "2026-01-24",
+          "2026-01-31",
+          "2026-02-07",
+          "2026-02-14",
+          "2026-02-21",
+          "2026-02-28",
+          "2026-03-07",
+          "2026-03-14",
+          "2026-03-21",
+          "2026-03-28",
+          "2026-04-04",
+          "2026-04-11",
+          "2026-04-18",
+          "2026-04-25",
+          "2026-05-02",
+          "2026-05-09",
+          "2026-05-16",
+          "2026-05-23",
+          "2026-05-30",
+          "2026-06-06",
+          "2026-06-13",
+          "2026-06-20",
+          "2026-06-27",
+          "2026-07-04",
+          "2026-07-11",
+          "2026-07-18",
+          "2026-07-25",
+          "2026-08-01",
+          "2026-08-08",
+          "2026-08-15",
+          "2026-08-22",
+          "2026-08-29",
+          "2026-09-05",
+          "2026-09-12",
+          "2026-09-19",
+          "2026-09-26",
+          "2026-10-03",
+          "2026-10-10",
+          "2026-10-17",
+          "2026-10-24",
+          "2026-10-31",
+          "2026-11-07",
+          "2026-11-14",
+          "2026-11-21",
+          "2026-11-26",
+          "2026-11-28",
+          "2026-12-05",
+          "2026-12-12",
+          "2026-12-19",
+          "2026-12-25",
+          "2026-12-26",
+          "2026-12-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
-        "reservation_required": true
+        "reservation_required": false
       },
       "source_url": "https://danverslibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-childrens-piazza",
       "availability": {
@@ -11811,7 +11994,39 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -11862,7 +12077,79 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-01-01",
+          "2026-01-05",
+          "2026-01-12",
+          "2026-01-26",
+          "2026-02-02",
+          "2026-02-09",
+          "2026-02-23",
+          "2026-03-02",
+          "2026-03-09",
+          "2026-03-16",
+          "2026-03-23",
+          "2026-03-30",
+          "2026-04-05",
+          "2026-04-06",
+          "2026-04-13",
+          "2026-04-20",
+          "2026-04-27",
+          "2026-05-04",
+          "2026-05-11",
+          "2026-05-17",
+          "2026-05-18",
+          "2026-05-24",
+          "2026-05-25",
+          "2026-05-31",
+          "2026-06-01",
+          "2026-06-07",
+          "2026-06-08",
+          "2026-06-14",
+          "2026-06-15",
+          "2026-06-21",
+          "2026-06-22",
+          "2026-06-28",
+          "2026-06-29",
+          "2026-07-05",
+          "2026-07-06",
+          "2026-07-12",
+          "2026-07-13",
+          "2026-07-19",
+          "2026-07-20",
+          "2026-07-26",
+          "2026-07-27",
+          "2026-08-02",
+          "2026-08-03",
+          "2026-08-09",
+          "2026-08-10",
+          "2026-08-16",
+          "2026-08-17",
+          "2026-08-23",
+          "2026-08-24",
+          "2026-08-30",
+          "2026-08-31",
+          "2026-09-06",
+          "2026-09-07",
+          "2026-09-14",
+          "2026-09-21",
+          "2026-09-28",
+          "2026-10-05",
+          "2026-10-12",
+          "2026-10-19",
+          "2026-10-26",
+          "2026-11-02",
+          "2026-11-09",
+          "2026-11-16",
+          "2026-11-23",
+          "2026-11-26",
+          "2026-11-30",
+          "2026-12-07",
+          "2026-12-14",
+          "2026-12-21",
+          "2026-12-25",
+          "2026-12-28"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -12017,7 +12304,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May-Oct",
         "reservation_required": false
@@ -12115,12 +12402,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://everettpubliclibraries.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "available",
@@ -13368,12 +13650,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://haverhillpl.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -14784,12 +15061,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/#museum-wheelock-family-theatre",
       "availability": {
         "2026-05-13": "booked",
@@ -16008,12 +16280,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://lincolnpl.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -16505,12 +16772,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://lincolnpl.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -17058,12 +17320,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://lynnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -17122,12 +17379,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://lynnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-harbor-island-ferry",
       "availability": null
     },
@@ -17154,10 +17406,10 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": true,
         "seasonal": null,
-        "reservation_required": true
+        "reservation_required": false
       },
       "source_url": "https://lynnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-childrens-piazza",
       "availability": {
@@ -17264,12 +17516,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://lynnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-house-of-seven-gables",
       "availability": {
         "2026-05-13": "available",
@@ -17315,12 +17562,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://lynnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "available",
@@ -17366,12 +17608,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://lynnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-museum-of-fine-arts",
       "availability": {
         "2026-05-13": "available",
@@ -17511,12 +17748,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://lynnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-peabody-essex-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -17585,10 +17817,42 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
-        "reservation_required": true
+        "reservation_required": false
       },
       "source_url": "https://lynnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-salem-witch-museum",
       "availability": {
@@ -17785,7 +18049,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May–Oct",
         "reservation_required": false
@@ -17911,12 +18175,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://lynnfieldlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "available",
@@ -18409,12 +18668,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://maldenpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-american-repertory-theater",
       "availability": {
         "2026-05-13": "booked",
@@ -18507,7 +18761,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May-Oct",
         "reservation_required": false
@@ -19661,10 +19915,10 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": true,
         "seasonal": "late May to early October",
-        "reservation_required": true
+        "reservation_required": false
       },
       "source_url": "https://maynardpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-harbor-island-ferry",
       "availability": null
@@ -20692,7 +20946,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Apr-Oct",
         "reservation_required": false
@@ -21082,12 +21336,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://medfordlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "available",
@@ -21766,7 +22015,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May–Oct 2026",
         "reservation_required": false
@@ -22737,12 +22986,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://nevinslibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -22802,7 +23046,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May–Oct 2026",
         "reservation_required": false
@@ -23106,12 +23350,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://nevinslibrary.assabetinteractive.com/museum-passes/by-museum/#museum-museum-of-science",
       "availability": {
         "2026-05-13": "available",
@@ -23158,7 +23397,118 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-05-22",
+          "2026-05-23",
+          "2026-05-24",
+          "2026-05-25",
+          "2026-05-26",
+          "2026-05-27",
+          "2026-05-28",
+          "2026-05-29",
+          "2026-05-30",
+          "2026-05-31",
+          "2026-06-01",
+          "2026-06-02",
+          "2026-06-03",
+          "2026-06-04",
+          "2026-06-05",
+          "2026-06-06",
+          "2026-06-07",
+          "2026-06-08",
+          "2026-06-09",
+          "2026-06-10",
+          "2026-06-11",
+          "2026-06-12",
+          "2026-06-13",
+          "2026-06-14",
+          "2026-06-15",
+          "2026-06-16",
+          "2026-06-17",
+          "2026-06-18",
+          "2026-06-19",
+          "2026-06-20",
+          "2026-06-21",
+          "2026-06-22",
+          "2026-06-23",
+          "2026-06-24",
+          "2026-06-25",
+          "2026-06-26",
+          "2026-06-27",
+          "2026-06-28",
+          "2026-06-29",
+          "2026-06-30",
+          "2026-07-01",
+          "2026-07-02",
+          "2026-07-03",
+          "2026-07-04",
+          "2026-07-05",
+          "2026-07-06",
+          "2026-07-07",
+          "2026-07-08",
+          "2026-07-09",
+          "2026-07-10",
+          "2026-07-11",
+          "2026-07-12",
+          "2026-07-13",
+          "2026-07-14",
+          "2026-07-15",
+          "2026-07-16",
+          "2026-07-17",
+          "2026-07-18",
+          "2026-07-19",
+          "2026-07-20",
+          "2026-07-21",
+          "2026-07-22",
+          "2026-07-23",
+          "2026-07-24",
+          "2026-07-25",
+          "2026-07-26",
+          "2026-07-27",
+          "2026-07-28",
+          "2026-07-29",
+          "2026-07-30",
+          "2026-07-31",
+          "2026-08-01",
+          "2026-08-02",
+          "2026-08-03",
+          "2026-08-04",
+          "2026-08-05",
+          "2026-08-06",
+          "2026-08-07",
+          "2026-08-08",
+          "2026-08-09",
+          "2026-08-10",
+          "2026-08-11",
+          "2026-08-12",
+          "2026-08-13",
+          "2026-08-14",
+          "2026-08-15",
+          "2026-08-16",
+          "2026-08-17",
+          "2026-08-18",
+          "2026-08-19",
+          "2026-08-20",
+          "2026-08-21",
+          "2026-08-22",
+          "2026-08-23",
+          "2026-08-24",
+          "2026-08-25",
+          "2026-08-26",
+          "2026-08-27",
+          "2026-08-28",
+          "2026-08-29",
+          "2026-08-30",
+          "2026-08-31",
+          "2026-09-01",
+          "2026-09-02",
+          "2026-09-03",
+          "2026-09-04",
+          "2026-09-05",
+          "2026-09-06",
+          "2026-09-07",
+          "2026-09-08"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -23254,12 +23604,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://nevinslibrary.assabetinteractive.com/museum-passes/by-museum/#museum-peabody-essex-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -23744,7 +24089,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Mar-Dec",
         "reservation_required": false
@@ -24298,7 +24643,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May-Oct",
         "reservation_required": false
@@ -24516,12 +24861,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://morseinstitute.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -24568,10 +24908,10 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May–Oct 2026",
-        "reservation_required": true
+        "reservation_required": false
       },
       "source_url": "https://morseinstitute.assabetinteractive.com/museum-passes/by-museum/#museum-boston-harbor-island-ferry",
       "availability": null
@@ -25021,12 +25361,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://morseinstitute.assabetinteractive.com/museum-passes/by-museum/#museum-the-house-of-seven-gables",
       "availability": {
         "2026-05-13": "available",
@@ -25172,12 +25507,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://morseinstitute.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "available",
@@ -25964,12 +26294,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://needhamma.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -26168,7 +26493,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Apr-Nov",
         "reservation_required": false
@@ -26220,12 +26545,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://needhamma.assabetinteractive.com/museum-passes/by-museum/#museum-harvard-museums-of-science-and-culture",
       "availability": {
         "2026-05-13": "available",
@@ -26317,12 +26637,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://needhamma.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "available",
@@ -27072,7 +27387,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "mid-May through early October",
         "reservation_required": false
@@ -28024,12 +28339,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://stevensmemlib.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -28076,7 +28386,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May–Oct 2026",
         "reservation_required": false
@@ -28106,12 +28416,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://stevensmemlib.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -28701,12 +29006,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://flintmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-by-foot",
       "availability": {
         "2026-05-13": "available",
@@ -29508,10 +29808,119 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-01-01",
+          "2026-01-03",
+          "2026-01-04",
+          "2026-01-10",
+          "2026-01-11",
+          "2026-01-17",
+          "2026-01-18",
+          "2026-01-24",
+          "2026-01-25",
+          "2026-01-31",
+          "2026-02-01",
+          "2026-02-07",
+          "2026-02-08",
+          "2026-02-14",
+          "2026-02-15",
+          "2026-02-21",
+          "2026-02-22",
+          "2026-02-28",
+          "2026-03-01",
+          "2026-03-07",
+          "2026-03-08",
+          "2026-03-14",
+          "2026-03-15",
+          "2026-03-21",
+          "2026-03-22",
+          "2026-03-28",
+          "2026-03-29",
+          "2026-04-04",
+          "2026-04-05",
+          "2026-04-11",
+          "2026-04-12",
+          "2026-04-18",
+          "2026-04-19",
+          "2026-04-25",
+          "2026-04-26",
+          "2026-05-02",
+          "2026-05-03",
+          "2026-05-09",
+          "2026-05-10",
+          "2026-05-16",
+          "2026-05-17",
+          "2026-05-23",
+          "2026-05-24",
+          "2026-05-30",
+          "2026-05-31",
+          "2026-06-06",
+          "2026-06-07",
+          "2026-06-13",
+          "2026-06-14",
+          "2026-06-20",
+          "2026-06-21",
+          "2026-06-27",
+          "2026-06-28",
+          "2026-07-04",
+          "2026-07-05",
+          "2026-07-11",
+          "2026-07-12",
+          "2026-07-18",
+          "2026-07-19",
+          "2026-07-25",
+          "2026-07-26",
+          "2026-08-01",
+          "2026-08-02",
+          "2026-08-08",
+          "2026-08-09",
+          "2026-08-15",
+          "2026-08-16",
+          "2026-08-22",
+          "2026-08-23",
+          "2026-08-29",
+          "2026-08-30",
+          "2026-09-05",
+          "2026-09-06",
+          "2026-09-12",
+          "2026-09-13",
+          "2026-09-19",
+          "2026-09-20",
+          "2026-09-26",
+          "2026-09-27",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-31",
+          "2026-11-01",
+          "2026-11-07",
+          "2026-11-08",
+          "2026-11-14",
+          "2026-11-15",
+          "2026-11-21",
+          "2026-11-22",
+          "2026-11-26",
+          "2026-11-28",
+          "2026-11-29",
+          "2026-12-05",
+          "2026-12-06",
+          "2026-12-12",
+          "2026-12-13",
+          "2026-12-19",
+          "2026-12-20",
+          "2026-12-25",
+          "2026-12-26",
+          "2026-12-27",
+          "2026-12-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
-        "reservation_required": true
+        "reservation_required": false
       },
       "source_url": "https://peabodylibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-childrens-piazza",
       "availability": {
@@ -29563,7 +29972,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Apr-Nov",
         "reservation_required": false
@@ -29664,10 +30073,68 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-01-01",
+          "2026-01-06",
+          "2026-01-13",
+          "2026-01-20",
+          "2026-01-27",
+          "2026-02-03",
+          "2026-02-10",
+          "2026-02-17",
+          "2026-02-24",
+          "2026-03-03",
+          "2026-03-10",
+          "2026-03-17",
+          "2026-03-24",
+          "2026-03-31",
+          "2026-04-07",
+          "2026-04-14",
+          "2026-04-20",
+          "2026-04-21",
+          "2026-04-28",
+          "2026-05-05",
+          "2026-05-12",
+          "2026-05-19",
+          "2026-05-26",
+          "2026-06-02",
+          "2026-06-09",
+          "2026-06-16",
+          "2026-06-23",
+          "2026-06-30",
+          "2026-07-04",
+          "2026-07-07",
+          "2026-07-14",
+          "2026-07-21",
+          "2026-07-28",
+          "2026-08-04",
+          "2026-08-11",
+          "2026-08-18",
+          "2026-08-25",
+          "2026-09-01",
+          "2026-09-08",
+          "2026-09-15",
+          "2026-09-22",
+          "2026-09-29",
+          "2026-10-06",
+          "2026-10-13",
+          "2026-10-20",
+          "2026-10-27",
+          "2026-11-03",
+          "2026-11-10",
+          "2026-11-17",
+          "2026-11-24",
+          "2026-11-26",
+          "2026-12-01",
+          "2026-12-08",
+          "2026-12-15",
+          "2026-12-22",
+          "2026-12-25",
+          "2026-12-29"
+        ],
         "weekdays_only": false,
         "seasonal": null,
-        "reservation_required": true
+        "reservation_required": false
       },
       "source_url": "https://peabodylibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
@@ -30224,7 +30691,81 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-01-01",
+          "2026-01-05",
+          "2026-01-12",
+          "2026-01-26",
+          "2026-02-02",
+          "2026-02-09",
+          "2026-02-23",
+          "2026-03-02",
+          "2026-03-09",
+          "2026-03-16",
+          "2026-03-23",
+          "2026-03-30",
+          "2026-04-05",
+          "2026-04-06",
+          "2026-04-13",
+          "2026-04-20",
+          "2026-04-27",
+          "2026-05-04",
+          "2026-05-11",
+          "2026-05-17",
+          "2026-05-18",
+          "2026-05-24",
+          "2026-05-25",
+          "2026-05-31",
+          "2026-06-01",
+          "2026-06-07",
+          "2026-06-08",
+          "2026-06-14",
+          "2026-06-15",
+          "2026-06-21",
+          "2026-06-22",
+          "2026-06-28",
+          "2026-06-29",
+          "2026-07-04",
+          "2026-07-05",
+          "2026-07-06",
+          "2026-07-12",
+          "2026-07-13",
+          "2026-07-19",
+          "2026-07-20",
+          "2026-07-26",
+          "2026-07-27",
+          "2026-08-02",
+          "2026-08-03",
+          "2026-08-09",
+          "2026-08-10",
+          "2026-08-16",
+          "2026-08-17",
+          "2026-08-23",
+          "2026-08-24",
+          "2026-08-30",
+          "2026-08-31",
+          "2026-09-06",
+          "2026-09-07",
+          "2026-09-14",
+          "2026-09-21",
+          "2026-09-28",
+          "2026-10-05",
+          "2026-10-12",
+          "2026-10-19",
+          "2026-10-26",
+          "2026-11-02",
+          "2026-11-09",
+          "2026-11-16",
+          "2026-11-23",
+          "2026-11-26",
+          "2026-11-30",
+          "2026-12-07",
+          "2026-12-14",
+          "2026-12-21",
+          "2026-12-24",
+          "2026-12-25",
+          "2026-12-28"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -30378,7 +30919,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May–Oct 2026",
         "reservation_required": false
@@ -30852,12 +31393,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://thomascranelibrary.assabetinteractive.com/museum-passes/by-museum/#museum-peabody-essex-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -31097,12 +31633,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://readingpl.assabetinteractive.com/museum-passes/by-museum/#museum-boston-by-foot",
       "availability": {
         "2026-05-13": "available",
@@ -31426,7 +31957,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Apr-Oct",
         "reservation_required": false
@@ -31666,12 +32197,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://readingpl.assabetinteractive.com/museum-passes/by-museum/#museum-john-f-kennedy-library-and-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -32102,10 +32628,42 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
-        "reservation_required": true
+        "reservation_required": false
       },
       "source_url": "https://readingpl.assabetinteractive.com/museum-passes/by-museum/#museum-salem-witch-museum",
       "availability": {
@@ -32367,12 +32925,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://sauguspubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-childrens-piazza",
       "availability": {
         "2026-05-13": "booked",
@@ -32814,12 +33367,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://somervillepubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -33010,12 +33558,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://somervillepubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-john-f-kennedy-library-and-museum",
       "availability": {
         "2026-05-13": "available",
@@ -33447,12 +33990,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -33544,12 +34082,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-greater-boston-stage-company",
       "availability": {
         "2026-05-13": "available",
@@ -33597,12 +34130,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-historic-new-england",
       "availability": {
         "2026-05-13": "available",
@@ -33650,12 +34178,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-house-of-seven-gables",
       "availability": {
         "2026-05-13": "booked",
@@ -33999,7 +34522,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May-Oct",
         "reservation_required": false
@@ -34061,12 +34584,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-peabody-essex-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -34125,7 +34643,39 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -34290,12 +34840,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": true,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": false
-      },
+      "restrictions": null,
       "source_url": "https://goodnowlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-american-heritage-museum",
       "availability": {
         "2026-05-13": "available",
@@ -35291,12 +35836,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://tewksburypl.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -35832,7 +36372,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Apr-Oct",
         "reservation_required": false
@@ -36077,12 +36617,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://topsfieldlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "available",
@@ -36416,12 +36951,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://topsfieldlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-peabody-essex-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -36470,7 +37000,39 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -36954,12 +37516,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "available",
@@ -37164,7 +37721,13 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-01-01",
+          "2026-04-20",
+          "2026-07-04",
+          "2026-11-26",
+          "2026-12-25"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -37261,7 +37824,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": true,
         "seasonal": "Jun-Aug",
         "reservation_required": false
@@ -37469,7 +38032,39 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -38173,7 +38768,13 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-01-01",
+          "2026-04-20",
+          "2026-07-04",
+          "2026-11-26",
+          "2026-12-25"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -38469,12 +39070,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://watertownlib.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -38776,12 +39372,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://watertownlib.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -39069,12 +39660,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://watertownlib.assabetinteractive.com/museum-passes/by-museum/#museum-peabody-essex-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -39318,7 +39904,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May–Oct",
         "reservation_required": false
@@ -39361,7 +39947,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Apr-Oct",
         "reservation_required": false
@@ -39736,12 +40322,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://waylandlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "available",
@@ -40249,7 +40830,12 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-01-01",
+          "2026-11-26",
+          "2026-12-24",
+          "2026-12-25"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -40902,7 +41488,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Sep-May",
         "reservation_required": false
@@ -42162,7 +42748,39 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -42359,12 +42977,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": true,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": false
-      },
+      "restrictions": null,
       "source_url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-worcester-art-museum",
       "availability": {
         "2026-05-13": "available",
@@ -42514,12 +43127,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": true,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": false
-      },
+      "restrictions": null,
       "source_url": "https://wilmlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -42566,7 +43174,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": true,
         "seasonal": "May-Oct",
         "reservation_required": false
@@ -42619,7 +43227,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Feb-Oct",
         "reservation_required": false
@@ -42672,7 +43280,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Apr-Nov",
         "reservation_required": false
@@ -42777,12 +43385,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": true,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": false
-      },
+      "restrictions": null,
       "source_url": "https://wilmlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-einsteins-workshop",
       "availability": {
         "2026-05-13": "booked",
@@ -42877,7 +43480,13 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-01-01",
+          "2026-04-20",
+          "2026-07-04",
+          "2026-11-26",
+          "2026-12-25"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -43511,7 +44120,39 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -43871,7 +44512,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May-Oct",
         "reservation_required": false
@@ -44027,12 +44668,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://winpublib.assabetinteractive.com/museum-passes/by-museum/#museum-griffin-museum-of-photography",
       "availability": {
         "2026-05-13": "available",
@@ -45024,12 +45660,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://woburnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-isabella-stewart-gardner-museum",
       "availability": {
         "2026-05-13": "booked",
@@ -45429,7 +46060,39 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-10-01",
+          "2026-10-02",
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-05",
+          "2026-10-06",
+          "2026-10-07",
+          "2026-10-08",
+          "2026-10-09",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-10-12",
+          "2026-10-13",
+          "2026-10-14",
+          "2026-10-15",
+          "2026-10-16",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-21",
+          "2026-10-22",
+          "2026-10-23",
+          "2026-10-24",
+          "2026-10-25",
+          "2026-10-26",
+          "2026-10-27",
+          "2026-10-28",
+          "2026-10-29",
+          "2026-10-30",
+          "2026-10-31"
+        ],
         "weekdays_only": false,
         "seasonal": null,
         "reservation_required": false
@@ -47601,12 +48264,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://thayerpubliclibrary.libcal.com/passes/17d847eefff3",
       "availability": {
         "2026-05-13": "available",
@@ -47683,7 +48341,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May-Oct",
         "reservation_required": false
@@ -47930,7 +48588,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Apr-Oct",
         "reservation_required": false
@@ -48400,7 +49058,100 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": true,
+        "blackout_dates": [
+          "2026-06-01",
+          "2026-06-02",
+          "2026-06-03",
+          "2026-06-04",
+          "2026-06-05",
+          "2026-06-06",
+          "2026-06-07",
+          "2026-06-08",
+          "2026-06-09",
+          "2026-06-10",
+          "2026-06-11",
+          "2026-06-12",
+          "2026-06-13",
+          "2026-06-14",
+          "2026-06-15",
+          "2026-06-16",
+          "2026-06-17",
+          "2026-06-18",
+          "2026-06-19",
+          "2026-06-20",
+          "2026-06-21",
+          "2026-06-22",
+          "2026-06-23",
+          "2026-06-24",
+          "2026-06-25",
+          "2026-06-26",
+          "2026-06-27",
+          "2026-06-28",
+          "2026-06-29",
+          "2026-06-30",
+          "2026-07-01",
+          "2026-07-02",
+          "2026-07-03",
+          "2026-07-04",
+          "2026-07-05",
+          "2026-07-06",
+          "2026-07-07",
+          "2026-07-08",
+          "2026-07-09",
+          "2026-07-10",
+          "2026-07-11",
+          "2026-07-12",
+          "2026-07-13",
+          "2026-07-14",
+          "2026-07-15",
+          "2026-07-16",
+          "2026-07-17",
+          "2026-07-18",
+          "2026-07-19",
+          "2026-07-20",
+          "2026-07-21",
+          "2026-07-22",
+          "2026-07-23",
+          "2026-07-24",
+          "2026-07-25",
+          "2026-07-26",
+          "2026-07-27",
+          "2026-07-28",
+          "2026-07-29",
+          "2026-07-30",
+          "2026-07-31",
+          "2026-08-01",
+          "2026-08-02",
+          "2026-08-03",
+          "2026-08-04",
+          "2026-08-05",
+          "2026-08-06",
+          "2026-08-07",
+          "2026-08-08",
+          "2026-08-09",
+          "2026-08-10",
+          "2026-08-11",
+          "2026-08-12",
+          "2026-08-13",
+          "2026-08-14",
+          "2026-08-15",
+          "2026-08-16",
+          "2026-08-17",
+          "2026-08-18",
+          "2026-08-19",
+          "2026-08-20",
+          "2026-08-21",
+          "2026-08-22",
+          "2026-08-23",
+          "2026-08-24",
+          "2026-08-25",
+          "2026-08-26",
+          "2026-08-27",
+          "2026-08-28",
+          "2026-08-29",
+          "2026-08-30",
+          "2026-08-31"
+        ],
         "weekdays_only": false,
         "seasonal": "Sep-May",
         "reservation_required": false
@@ -48741,7 +49492,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Jun-Oct",
         "reservation_required": false
@@ -48823,12 +49574,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://brooklinelibrary.libcal.com/passes/dcr",
       "availability": {
         "2026-05-13": "booked",
@@ -48906,12 +49652,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://brooklinelibrary.libcal.com/passes/hale",
       "availability": {
         "2026-05-13": "booked",
@@ -49307,12 +50048,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://brooklinelibrary.libcal.com/passes/larz",
       "availability": {
         "2026-05-13": "booked",
@@ -50061,12 +50797,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://cambridgepl.libcal.com/passes/american-repertory-theater-harvard",
       "availability": {
         "2026-05-13": "booked",
@@ -50218,12 +50949,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": true,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": false
-      },
+      "restrictions": null,
       "source_url": "https://cambridgepl.libcal.com/passes/boston-childrens-museum",
       "availability": {
         "2026-05-13": "available",
@@ -50378,7 +51104,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May-Oct",
         "reservation_required": false
@@ -50783,12 +51509,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://cambridgepl.libcal.com/passes/museum-of-african-american-history",
       "availability": {
         "2026-05-13": "available",
@@ -51439,12 +52160,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://miltonlibrary.libcal.com/passes/4707cb1bf482",
       "availability": {
         "2026-05-13": "available",
@@ -51672,12 +52388,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://miltonlibrary.libcal.com/passes/63e9141b1726",
       "availability": {
         "2026-05-13": "booked",
@@ -51766,12 +52477,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://miltonlibrary.libcal.com/passes/8e90f9026d0e",
       "availability": {
         "2026-05-13": "available",
@@ -52170,12 +52876,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://www2.museumkey.com/ui/byMuseum/?code=paulma02025&branchID=231#detail4894",
       "availability": null
     },
@@ -52204,7 +52905,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "May-Oct",
         "reservation_required": false
@@ -52290,12 +52991,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": false,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": true
-      },
+      "restrictions": null,
       "source_url": "https://www2.museumkey.com/ui/byMuseum/?code=paulma02025&branchID=231#detail4895",
       "availability": null
     },
@@ -52475,7 +53171,7 @@
         ]
       },
       "restrictions": {
-        "blackout_dates": false,
+        "blackout_dates": [],
         "weekdays_only": false,
         "seasonal": "Mar-Nov",
         "reservation_required": false
@@ -52613,12 +53309,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": true,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": false
-      },
+      "restrictions": null,
       "source_url": "https://www2.museumkey.com/ui/byMuseum/?code=hingma02043&branchID=505#detail14274",
       "availability": null
     },
@@ -52670,12 +53361,7 @@
           }
         ]
       },
-      "restrictions": {
-        "blackout_dates": true,
-        "weekdays_only": false,
-        "seasonal": null,
-        "reservation_required": false
-      },
+      "restrictions": null,
       "source_url": "https://www2.museumkey.com/ui/byMuseum/?code=hingma02043&branchID=505#detail14275",
       "availability": null
     },

@@ -24,7 +24,7 @@
     }
   ],
   "restrictions": {
-    "blackout_dates": true,
+    "blackout_dates": [],
     "weekdays_only": false,
     "seasonal": null,
     "reservation_required": false

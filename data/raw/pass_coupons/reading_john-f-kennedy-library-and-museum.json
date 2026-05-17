@@ -17,10 +17,9 @@
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": false,
-    "seasonal": null,
-    "reservation_required": true
+    "seasonal": null
   },
   "source_phrases": {
     "audience_policies[0].form": "50% off of one admission ticket",

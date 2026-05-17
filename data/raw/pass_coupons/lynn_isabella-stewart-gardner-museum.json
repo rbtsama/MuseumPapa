@@ -17,17 +17,19 @@
     },
     {
       "audience": "Child",
-      "age_range": {"min": null, "max": 17},
+      "age_range": {
+        "min": null,
+        "max": 17
+      },
       "count": null,
       "form": "free",
       "value": null
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": false,
-    "seasonal": null,
-    "reservation_required": true
+    "seasonal": null
   },
   "source_phrases": {
     "capacity.n": "up to 4 adults",

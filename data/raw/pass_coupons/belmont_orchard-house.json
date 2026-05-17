@@ -24,10 +24,9 @@
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": false,
-    "seasonal": null,
-    "reservation_required": true
+    "seasonal": null
   },
   "source_phrases": {
     "audience_policies[0].count": "up to 2 Adults/Seniors/College Students",

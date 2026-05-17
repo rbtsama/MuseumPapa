@@ -17,10 +17,9 @@
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": false,
-    "seasonal": "May–Oct 2026",
-    "reservation_required": true
+    "seasonal": "May–Oct 2026"
   },
   "source_phrases": {
     "capacity.n": "up to 4 people",

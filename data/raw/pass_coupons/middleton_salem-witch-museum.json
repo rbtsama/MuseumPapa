@@ -13,18 +13,21 @@
       "age_range": null,
       "count": null,
       "form": "per-person-price",
-      "value": 13.50
+      "value": 13.5
     },
     {
       "audience": "Child",
-      "age_range": {"min": 6, "max": 18},
+      "age_range": {
+        "min": 6,
+        "max": 18
+      },
       "count": null,
       "form": "per-person-price",
       "value": 11.25
     }
   ],
   "restrictions": {
-    "blackout_dates": false,
+    "blackout_dates": [],
     "weekdays_only": false,
     "seasonal": null,
     "reservation_required": false
