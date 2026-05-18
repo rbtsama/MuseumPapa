@@ -6,8 +6,15 @@ import { useFavorites } from '../stores/favorites';
 import type { Attraction, Pass, Library } from '../data/types';
 import type { PickedTag } from '../lib/tag-algorithm';
 
+const navigateMock = vi.fn();
+vi.mock('react-router', async () => {
+  const actual = await vi.importActual<typeof import('react-router')>('react-router');
+  return { ...actual, useNavigate: () => navigateMock };
+});
+
 beforeEach(() => {
   useFavorites.setState({ slugs: new Set() });
+  navigateMock.mockClear();
 });
 
 function makeAttraction(overrides: Partial<Attraction> = {}): Attraction {
@@ -124,7 +131,11 @@ describe('AttractionCard', () => {
     // The CTA is now a native <button> (not a nested <a>) to avoid invalid HTML.
     // The nearest interactive ancestor must be a button element (the outer card
     // <Link> is an <a> but the CTA itself must not be another <a>).
-    expect(btn.closest('button')).not.toBeNull();
+    const buttonEl = btn.closest('button');
+    expect(buttonEl).not.toBeNull();
+    // Clicking must navigate to /settings/passes — not just render a button.
+    fireEvent.click(buttonEl!);
+    expect(navigateMock).toHaveBeenCalledWith('/settings/passes');
   });
 
   it('renders no-matching-coupon hint when user has cards but no passes match', () => {
