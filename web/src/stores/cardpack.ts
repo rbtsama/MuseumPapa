@@ -2,8 +2,11 @@ import { create } from 'zustand';
 import { lsGetUser, lsSetUser } from '../lib/localStorage';
 
 export interface LibraryCard {
+  // The library-card barcode the user enters at /settings/passes. Only field
+  // we collect — PIN was deliberately removed (we don't ask for PII beyond
+  // what's needed, and the library's pickup page can only autofill one
+  // thing from clipboard anyway).
   barcode: string;
-  pin: string;
 }
 
 export interface CardPack {
@@ -17,17 +20,17 @@ const SEEDS: Record<string, CardPack> = {
   alex: {
     zip: '01880',
     cards: {
-      wakefield: { barcode: '21000000000001', pin: '' },
-      reading:   { barcode: '21000000000002', pin: '' },
-      bpl:       { barcode: '21000000000003', pin: '' },
-      wilmington:{ barcode: '21000000000004', pin: '' },
-      somerville:{ barcode: '21000000000005', pin: '' },
+      wakefield: { barcode: '21000000000001'},
+      reading:   { barcode: '21000000000002'},
+      bpl:       { barcode: '21000000000003'},
+      wilmington:{ barcode: '21000000000004'},
+      somerville:{ barcode: '21000000000005'},
     },
   },
   rbt: {
     zip: '01880',
     cards: {
-      wakefield: { barcode: '21000000009999', pin: '' },
+      wakefield: { barcode: '21000000009999'},
     },
   },
   admin: { zip: '', cards: {} },

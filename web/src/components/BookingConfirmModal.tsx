@@ -94,10 +94,9 @@ export function BookingConfirmModal({ pass, library, cardpack, onClose }: Props)
           {hasCard ? (
             <>
               <p style={{ fontSize: 13, color: 'var(--ink-3)', marginBottom: 12 }}>
-                Use these credentials when the library's pickup page asks for them.
+                Copy this card number, then enter your name on the pickup page.
               </p>
               <CredentialBox label="Card number" value={card.barcode} />
-              {card.pin && <CredentialBox label="PIN" value={card.pin} />}
             </>
           ) : (
             <div style={{

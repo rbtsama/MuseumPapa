@@ -38,7 +38,7 @@ const mockLibrary: Library = {
 const cardpackWithCard: CardPack = {
   zip: '01880',
   cards: {
-    wakefield: { barcode: '21000012345678', pin: '1234' },
+    wakefield: { barcode: '21000012345678' },
   },
 };
 
@@ -70,14 +70,6 @@ describe('BookingConfirmModal', () => {
       <BookingConfirmModal pass={mockPass} library={mockLibrary} cardpack={cardpackWithCard} onClose={onClose} />
     );
     expect(await screen.findByText('21000012345678')).toBeInTheDocument();
-  });
-
-  it('shows PIN credential when card has pin', async () => {
-    const onClose = vi.fn();
-    renderApp(
-      <BookingConfirmModal pass={mockPass} library={mockLibrary} cardpack={cardpackWithCard} onClose={onClose} />
-    );
-    expect(await screen.findByText('1234')).toBeInTheDocument();
   });
 
   it('shows no-card warning when user has no card for this library', async () => {

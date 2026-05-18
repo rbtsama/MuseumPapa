@@ -118,7 +118,7 @@ export function MyPasses() {
               town={l.town}
               card={card}
               hasCard={has}
-              onAdd={() => saveCard(l.id, { barcode: '', pin: '' })}
+              onAdd={() => saveCard(l.id, { barcode: '' })}
               onSave={(updates) => saveCard(l.id, updates)}
               onRemove={() => removeCard(l.id)}
             />
@@ -142,7 +142,7 @@ interface RowProps {
 
 function LibraryRow({ libraryName, town, card, hasCard, onAdd, onSave, onRemove }: RowProps) {
   const [open, setOpen] = useState(false);
-  const [draft, setDraft] = useState<LibraryCard>(card ?? { barcode: '', pin: '' });
+  const [draft, setDraft] = useState<LibraryCard>(card ?? { barcode: '' });
 
   useEffect(() => {
     if (card) setDraft(card);
@@ -210,9 +210,9 @@ function LibraryRow({ libraryName, town, card, hasCard, onAdd, onSave, onRemove 
 
       {hasCard && open && (
         <div style={{ padding: '4px 4px 14px 30px' }}>
-          {/* Card-number + PIN + Save all on one row, even on mobile.
-              Card-number is the flex-grow input; PIN is fixed-narrow; Save
-              is fixed-narrow. ~320px viewports fit. */}
+          {/* Card number + Save on one row. PIN was dropped — only the
+              barcode is ever pasted into the library's pickup form, and
+              we don't need to collect the user's PIN. */}
           <div className="flex items-center gap-2">
             <Input
               size="sm"
@@ -221,15 +221,6 @@ function LibraryRow({ libraryName, town, card, hasCard, onAdd, onSave, onRemove 
               placeholder="Card number"
               aria-label="Card number"
               className="flex-grow"
-            />
-            <Input
-              size="sm"
-              value={draft.pin}
-              onValueChange={(v) => setDraft({ ...draft, pin: v })}
-              placeholder="PIN"
-              aria-label="PIN"
-              style={{ width: 72 }}
-              className="flex-shrink-0"
             />
             <Button
               size="sm"
