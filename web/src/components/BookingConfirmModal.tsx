@@ -3,11 +3,17 @@ import {
 } from '@heroui/react';
 import type { Pass, Library } from '../data/types';
 import type { CardPack } from '../stores/cardpack';
+import { passUrlForDate } from '../lib/reserveUrl';
+import { todayIso } from '../lib/dates';
 
 interface Props {
   pass: Pass | null;
   library: Library | null;
   cardpack: CardPack;
+  /** ISO date the user picked. For Assabet passes the modal deep-links straight
+   *  to the per-date reservation form so the user lands on the right calendar
+   *  slot, not the per-museum page's top. Falls back to today when unset. */
+  selectedDate?: string;
   onClose: () => void;
 }
 
@@ -52,7 +58,7 @@ function CredentialBox({ label, value }: { label: string; value: string }) {
   );
 }
 
-export function BookingConfirmModal({ pass, library, cardpack, onClose }: Props) {
+export function BookingConfirmModal({ pass, library, cardpack, selectedDate, onClose }: Props) {
   if (!pass) return null;
   const card = cardpack.cards[pass.library_id];
   const hasCard = !!card?.barcode;
@@ -63,7 +69,10 @@ export function BookingConfirmModal({ pass, library, cardpack, onClose }: Props)
       await copyToClipboard(card.barcode);
     }
     if (pass.source_url) {
-      window.open(pass.source_url, '_blank', 'noopener,noreferrer');
+      // Deep-link to the per-date Assabet reservation form when possible
+      // so the user lands on the right calendar slot, not the museum page top.
+      const target = passUrlForDate(pass.source_url, selectedDate || todayIso());
+      window.open(target, '_blank', 'noopener,noreferrer');
     }
     onClose();
   };

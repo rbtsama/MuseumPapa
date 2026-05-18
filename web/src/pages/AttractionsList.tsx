@@ -278,6 +278,7 @@ export function AttractionsList() {
         pass={bookingPass}
         library={bookingPass ? (libraries.find(l => l.id === bookingPass.library_id) ?? null) : null}
         cardpack={cardpack}
+        selectedDate={date}
         onClose={() => setBookingPass(null)}
       />
     </>

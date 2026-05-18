@@ -297,6 +297,7 @@ export function AttractionDetail() {
         pass={bookingPass}
         library={bookingPass ? (libById.get(bookingPass.library_id) ?? null) : null}
         cardpack={cardpack}
+        selectedDate={selectedDate}
         onClose={() => setBookingPass(null)}
       />
       <SignInModal isOpen={signInOpen} onClose={() => setSignInOpen(false)} />
