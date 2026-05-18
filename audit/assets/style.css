@@ -23,7 +23,7 @@ code, .mono { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size
 .topnav a { color: var(--ink-3); margin-right: 4px; }
 .topnav a.current { color: var(--g); font-weight: 600; }
 
-main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
+main { max-width: 1024px; margin: 0 auto; padding: 28px 24px 80px; }
 
 .page-title { font-family: 'Libre Baskerville', Georgia, serif; font-size: 28px; margin: 0 0 6px; color: var(--ink); font-weight: 700; }
 .subtitle { color: var(--ink-3); margin: 0 0 28px; }
@@ -171,30 +171,35 @@ main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
 
 /* Attractions */
 /* Attractions — header + (image | meta) two-col top + full-width sections below */
-.attr-list { display: flex; flex-direction: column; gap: 28px; }
+/* Two-column card grid: each card sits roughly the same width as a panel
+   in the 2-up dist-grid above, so the page reads as aligned vertically
+   instead of "narrow tiles on top, wide cards below". */
+.attr-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .attr-card {
   background: var(--white); border: 1px solid var(--rule); border-radius: 10px;
-  padding: 24px; font-size: 13px;
+  padding: 18px; font-size: 13px;
 }
 
 .attr-card .top-row {
-  display: flex; gap: 24px; margin: 14px 0 18px;
-  padding-bottom: 18px; border-bottom: 1px solid var(--rule);
+  display: flex; gap: 16px; margin: 10px 0 14px;
+  padding-bottom: 14px; border-bottom: 1px solid var(--rule);
 }
-.attr-card .hero-side { flex: 0 0 250px; }
+.attr-card .hero-side { flex: 0 0 140px; }
 .attr-card .meta-side { flex: 1 1 auto; min-width: 0; }
 
 .hero-big {
-  width: 250px; max-width: 100%; height: auto; max-height: 200px;
+  width: 140px; max-width: 100%; height: auto; max-height: 140px;
   object-fit: cover; border-radius: 8px; cursor: zoom-in; display: block;
   border: 1px solid var(--rule);
 }
 .hero-big.noimg {
-  width: 250px; max-width: 100%; height: 160px;
+  width: 140px; max-width: 100%; height: 110px;
   background: var(--paper); border: 1px dashed var(--rule-strong); border-radius: 8px;
   display: flex; align-items: center; justify-content: center; color: var(--ink-3);
-  font-size: 12px;
+  font-size: 11px; text-align: center; padding: 0 6px;
 }
+
+.attr-card .attr-name { font-size: 18px !important; }
 
 .v.closed { color: var(--rd); font-weight: 600; }
 .v.dash { color: var(--rule-strong); }
