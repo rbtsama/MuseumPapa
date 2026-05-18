@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-17T16:59:23Z",
+    "built_at": "2026-05-18T11:48:14Z",
     "n_passes": 1026,
     "n_with_availability": 975,
     "n_with_coupon": 1026,
@@ -211,7 +211,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -558,7 +558,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -1540,7 +1540,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -2504,7 +2504,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -3115,7 +3115,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -4059,7 +4059,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -5521,7 +5521,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -6147,7 +6147,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -6690,7 +6690,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -7098,7 +7098,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -7989,7 +7989,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -8287,7 +8287,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -9229,7 +9229,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -9991,7 +9991,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -10741,7 +10741,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -12438,7 +12438,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -13150,7 +13150,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -14075,7 +14075,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -14807,7 +14807,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -15685,7 +15685,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -16166,7 +16166,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "unspecified",
+          "kind": "people",
           "n": null
         },
         "audience_policies": [
@@ -16174,6 +16174,16 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
             "form": "discount",
             "value": null
           }
@@ -16667,7 +16677,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "unspecified",
+          "kind": "people",
           "n": null
         },
         "audience_policies": [
@@ -16675,6 +16685,16 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
+            "form": "free",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
             "form": "free",
             "value": null
           }
@@ -16915,7 +16935,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -17204,7 +17224,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "unspecified",
+          "kind": "people",
           "n": null
         },
         "audience_policies": [
@@ -17212,6 +17232,16 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
             "form": "discount",
             "value": null
           }
@@ -18172,6 +18202,16 @@
             "count": 4,
             "form": "discount",
             "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "free",
+            "value": null
           }
         ]
       },
@@ -18211,7 +18251,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -18989,7 +19029,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -19273,7 +19313,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "unspecified",
+          "kind": "people",
           "n": null
         },
         "audience_policies": [
@@ -19281,6 +19321,16 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
             "form": "discount",
             "value": null
           }
@@ -20141,7 +20191,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "unspecified",
+          "kind": "people",
           "n": null
         },
         "audience_policies": [
@@ -20149,6 +20199,16 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
+            "form": "free",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
             "form": "free",
             "value": null
           }
@@ -20449,7 +20509,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -20728,7 +20788,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "unspecified",
+          "kind": "people",
           "n": null
         },
         "audience_policies": [
@@ -20736,6 +20796,16 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
             "form": "discount",
             "value": null
           }
@@ -21469,7 +21539,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -22126,7 +22196,7 @@
       "pickup_branches": [],
       "coupon": {
         "capacity": {
-          "kind": "unspecified",
+          "kind": "people",
           "n": null
         },
         "audience_policies": [
@@ -22134,6 +22204,16 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
+            "form": "free",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
             "form": "free",
             "value": null
           }
@@ -22727,7 +22807,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "unspecified",
+          "kind": "people",
           "n": null
         },
         "audience_policies": [
@@ -22736,6 +22816,16 @@
             "age_range": null,
             "count": 2,
             "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "free",
             "value": null
           }
         ]
@@ -23188,7 +23278,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -24076,7 +24166,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -26091,7 +26181,14 @@
         },
         "audience_policies": [
           {
-            "audience": "Everyone",
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
             "age_range": null,
             "count": null,
             "form": "discount",
@@ -26489,6 +26586,16 @@
             "count": 1,
             "form": "discount",
             "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 4
+            },
+            "count": null,
+            "form": "free",
+            "value": null
           }
         ]
       },
@@ -26732,7 +26839,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -27137,8 +27244,18 @@
         },
         "audience_policies": [
           {
-            "audience": "Everyone",
+            "audience": "Adult",
             "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
             "count": null,
             "form": "discount",
             "value": null
@@ -27453,7 +27570,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -27792,7 +27909,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -28134,8 +28251,18 @@
         },
         "audience_policies": [
           {
-            "audience": "Everyone",
+            "audience": "Adult",
             "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
             "count": null,
             "form": "discount",
             "value": null
@@ -28501,7 +28628,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -29276,7 +29403,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -30236,7 +30363,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -31136,7 +31263,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -32233,7 +32360,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -33009,7 +33136,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -34311,7 +34438,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -35062,7 +35189,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -35374,7 +35501,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -36021,7 +36148,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -36416,8 +36543,18 @@
         },
         "audience_policies": [
           {
-            "audience": "Everyone",
+            "audience": "Adult",
             "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
             "count": null,
             "form": "discount",
             "value": null
@@ -36702,7 +36839,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -37652,7 +37789,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -38108,8 +38245,18 @@
         },
         "audience_policies": [
           {
-            "audience": "Everyone",
+            "audience": "Adult",
             "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
             "count": null,
             "form": "discount",
             "value": null
@@ -38702,7 +38849,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -39454,7 +39601,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -39700,8 +39847,18 @@
         },
         "audience_policies": [
           {
-            "audience": "Everyone",
+            "audience": "Adult",
             "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
             "count": null,
             "form": "discount",
             "value": null
@@ -40033,7 +40190,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -40456,7 +40613,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -41025,7 +41182,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -41324,7 +41481,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -42379,7 +42536,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -43623,7 +43780,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -44906,7 +45063,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -45747,7 +45904,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -46618,7 +46775,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -46703,7 +46860,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -48810,7 +48967,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -49562,7 +49719,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -53034,7 +53191,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {
@@ -53494,7 +53651,7 @@
       "coupon": {
         "capacity": {
           "kind": "vehicle",
-          "n": null
+          "n": 1
         },
         "audience_policies": [
           {

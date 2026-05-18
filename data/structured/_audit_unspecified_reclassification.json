@@ -1,0 +1,1129 @@
+{
+  "reviewed_at": "2026-05-18",
+  "method": "Sonnet subagent re-review of raw coupon files, 3 parallel batches",
+  "summary": {
+    "total_reviewed": 105,
+    "corrected_extraction": 16,
+    "by_audience": 35,
+    "family_membership": 9,
+    "genuinely_vague": 45
+  },
+  "items": [
+    {
+      "lib_id": "acton",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "'GO Pass admits two adults and children under 18 at the family membership admission price' — per-audience counts present (Adult=2, Child unlimited); family membership rate is variable so no single discount value applies.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "andover",
+      "attraction_slug": "bedrock-gardens",
+      "classification": "family_membership",
+      "rationale": "'Pass is for free admission for a family to Bedrock Gardens' — 'family' is a variable-size unit with no fixed headcount.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "andover",
+      "attraction_slug": "historic-new-england",
+      "classification": "by_audience",
+      "rationale": "'Pass will admit 2 adults and children under 18' — per-audience counts are present (Adult=2, Child unlimited); no single numeric discount value is stated.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "andover",
+      "attraction_slug": "new-hampshire-philharmonic-orchestra",
+      "classification": "genuinely_vague",
+      "rationale": "'20% discount for online tickets' gives percent-off value (already captured correctly) but states no headcount limit, so capacity=unspecified is correct as-is.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "andover",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "'Pass admits 2 adults (children under 18 are free)' — Adult count=2 is explicit per-audience; no specific percent/dollar value for adult admission is stated.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "arlington",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "genuinely_vague",
+      "rationale": "'Free admission to Trustees properties… apply the coupon discount on any date' — no headcount and no specific discount value is given in the text.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "bedford",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "'Reduced admission for 2 adults and 2 children (under 17 yrs of age)' — both audience counts are explicit (Adult=2, Child=2); the exact reduced rate varies by property.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "belmont",
+      "attraction_slug": "historic-new-england",
+      "classification": "by_audience",
+      "rationale": "'Free admission for 2 adults and children under the age of 18' — Adult=2 explicit, children count unbounded; per-audience breakdown captures this correctly.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "belmont",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "'GO pass admits 2 adults and any children under the age of 18' — Adult count=2 is explicit; discount rates vary by property so no fixed value applies.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "billerica",
+      "attraction_slug": "seacoast-science-center",
+      "classification": "genuinely_vague",
+      "rationale": "'Half-price Seacoast Science Center admission' — 50% is already captured; no headcount limit stated so capacity=unspecified is correct.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "billerica",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "'Admits two adults and children under 18 for free' — Adult=2 count explicit; children count is unbounded; per-audience structure is correct.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "bpl",
+      "attraction_slug": "american-repertory-theater",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text is a venue description only; no discount amount, percentage, or headcount is mentioned.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "bpl",
+      "attraction_slug": "boch-center",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text is entirely a venue/tour description with no discount value or headcount stated.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "bpl",
+      "attraction_slug": "ica-boston",
+      "classification": "genuinely_vague",
+      "rationale": "'Up to two tickets at the discounted Library Pass rate' — capacity=ticket/2 is already correct; no specific dollar or percent value is given for the 'Library Pass rate'.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "bpl",
+      "attraction_slug": "paddle-boston",
+      "classification": "genuinely_vague",
+      "rationale": "'Coupon code good for one boat rental per order' — a rental count is implied but no dollar value or percent off is stated, and no passes are currently available.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "bpl",
+      "attraction_slug": "sandwich-glass",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text is purely a venue description with no discount value, percentage, or headcount mentioned.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "bpl",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "'Two adults and children under 18 entry at Family membership rates' — Adult=2 explicit, children unbounded; family membership rate is variable per property.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "braintree",
+      "attraction_slug": "boston-by-foot",
+      "classification": "genuinely_vague",
+      "rationale": "'Use the code on your confirmation email to redeem your Community Pass ticket(s)' — no headcount limit and no discount value specified; form=free but count is unbounded.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "braintree",
+      "attraction_slug": "boston-harbor-islands",
+      "classification": "genuinely_vague",
+      "rationale": "'50% off all Boston Harbor Islands Ferry tickets' — percent-off/50 already correctly captured; no headcount limit is stated so capacity=unspecified is correct.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "brookline",
+      "attraction_slug": "hale-education",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text is a venue description only with 'No passes are available at this time'; no discount value or headcount is mentioned.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "brookline",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "'Admits up to 2 adults and children (under 18) at free or reduced admission' — Adult=2 explicit, children unbounded; per-audience structure is correct.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "burlington",
+      "attraction_slug": "garden-in-the-woods-native-plant-trust",
+      "classification": "by_audience",
+      "rationale": "'One adult 50% discounted admission / Children (ages 5-17) $1.00 admission' — both audience rows already correctly extracted (Adult count=1 percent-off/50, Child 5-17 per-person-price/$1); capacity is fully expressed per-audience.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "burlington",
+      "attraction_slug": "peabody-essex-museum",
+      "classification": "genuinely_vague",
+      "rationale": "'Admits two people at a discounted price' — capacity=people/2 is already correct; no specific percent or dollar value for the discount is given.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "burlington",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "'Two adults and children under 18' at 'Trustees Family Level Membership' rate — Adult=2 explicit, children unbounded; family membership value varies by property.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "cambridge",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "'Each pass admits 2 adults & children under 18 at the Family Level admission rate' — Adult=2 explicit, children unbounded; family-level rate varies by property.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "carlisle",
+      "attraction_slug": "ica-boston",
+      "classification": "genuinely_vague",
+      "rationale": "'Up to 2 people at the discounted library price per person' — capacity=people/2 already correct; no specific dollar or percent value for the library price is given.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "carlisle",
+      "attraction_slug": "jfk-library",
+      "classification": "genuinely_vague",
+      "rationale": "'50% discount on admission for each visitor… aged 13 and over' — percent-off/50 already captured; no per-pass headcount limit, capacity=unspecified is correct.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "carlisle",
+      "attraction_slug": "salem-witch-museum",
+      "classification": "genuinely_vague",
+      "rationale": "'Up to 6 people for a discounted price' — capacity=people/6 already correct; no specific percent or dollar discount value is stated.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "carlisle",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "'GO Pass coupon admits 2 adults and children under 18 to Trustees properties' — Adult=2 explicit, children unbounded; admission equivalent to family membership varies per property.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "chelmsford",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "'Two adults & children 17 and under' at family-level rate — Adult=2 explicit, children unbounded; family membership price varies per property.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "chelsea",
+      "attraction_slug": "boston-harbor-island-ferry",
+      "classification": "genuinely_vague",
+      "rationale": "'50% discount for the 202 Boston Harbor Ferry season' — percent-off/50 already captured; no per-pass headcount limit stated so capacity=unspecified is correct.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "cohasset",
+      "attraction_slug": "cohasset-historical-society",
+      "classification": "genuinely_vague",
+      "rationale": "'Free Lecture Series Pass… present it upon entrance' — form=free is correct but no headcount is stated so capacity=unspecified is correct.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "cohasset",
+      "attraction_slug": "jfk-library",
+      "classification": "genuinely_vague",
+      "rationale": "'50% discount on the cardholder's admission ticket… aged 13 and over' — percent-off/50 already captured; no per-pass headcount limit so capacity=unspecified is correct.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "cohasset",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "'GoPass is good for admission of two adults and all children under the age of 18' — Adult=2 explicit, children unbounded; family membership rate varies per property.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "concord",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "'Trustees GOPASS admits 2 adults & children under 18 at the Family Level admission rate' — Adult=2 explicit, children unbounded; family-level rate varies by location.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "danvers",
+      "attraction_slug": "jfk-library",
+      "classification": "by_audience",
+      "rationale": "Raw text distinguishes 'visitors aged 13 and over' (50% off) from 'visitors aged 12 and under' (free admission) — per-audience counts are genuinely split, no single global n applies.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "danvers",
+      "attraction_slug": "the-childrens-piazza",
+      "classification": "family_membership",
+      "rationale": "Raw text says 'one family/same household per day' — household size is variable by definition, no bounded person count.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "everett",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text specifies 'two adults and children under 18' — adult count=2 is fixed but child count is unbounded; form=discount/value=null is correct because Trustees charge 'Family Membership admission price' which varies by property.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "haverhill",
+      "attraction_slug": "jfk-library",
+      "classification": "by_audience",
+      "rationale": "Raw text distinguishes '50% discount' for visitors aged 13+ from implied free for aged 12 and under — two distinct audience tiers with no unified group cap.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "haverhill",
+      "attraction_slug": "museum-of-printing",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'present your Haverhill Public Library card at the museum to receive free admission' with no person count or group cap stated.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "haverhill",
+      "attraction_slug": "new-hampshire-philharmonic-orchestra",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says '20% off your ticket purchase' (value already captured) with no group size or per-person ticket cap mentioned.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "hingham",
+      "attraction_slug": "boston-by-foot",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'free admission for your group' with no count or cap on group size.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "hingham",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text specifies '2 Adults and children under 18' — adult count=2 is fixed but child count is unbounded; value is 'free or reduced' which varies by Trustees property.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "lawrence",
+      "attraction_slug": "wheelock-family-theatre",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'buy one get one free' — BOGO is already captured as 50% off but there is no group count or cap (applies per pair purchased, unbounded).",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "lexington",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'up to 2 adults and children under 18' — child audience policy is missing from current extraction.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "discount",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "lincoln",
+      "attraction_slug": "historic-new-england",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'good for two adults and anyone under the age of 18 living in the same household' — child (under 18) audience policy is missing from current extraction.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "free",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "free",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "lincoln",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'two adults and children under 18' — child audience policy is missing from current extraction.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "discount",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "lynn",
+      "attraction_slug": "the-childrens-piazza",
+      "classification": "family_membership",
+      "rationale": "Raw text says '50% off regular admission to one household/immediate family only' — household size is variable, no bounded person count.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "lynnfield",
+      "attraction_slug": "isabella-stewart-gardner-museum",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'Children under 18 are always free and should be reserved as child tickets' — child (free) audience policy is missing from current extraction.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": 4
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 4,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "free",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "lynnfield",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text specifies '2 Adults and children under 18' for the general Trustees benefit (family membership rate) — adult count=2 is fixed, child count is unbounded; the 20% Crane Beach discount is a site-specific carve-out, not the primary coupon form.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "malden",
+      "attraction_slug": "paddle-boston",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'valid for one boat rental per day' with boat capacity varying from 1 to 5 people depending on boat type chosen — no single person count applies.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "malden",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'two adults and all children under the age of 18 reduced or free admission' — child audience policy is missing from current extraction.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "discount",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "maynard",
+      "attraction_slug": "garden-in-the-woods-native-plant-trust",
+      "classification": "by_audience",
+      "rationale": "Raw text specifies 'one adult at 50% discounted admission' and 'children (ages 5-17) with $1 admission' — both audience policies with distinct values are already correctly captured.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "maynard",
+      "attraction_slug": "historic-new-england",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'good for two adults and anyone under the age of 18 living in the same household' — child (under 18) audience policy is missing from current extraction.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "free",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "free",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "maynard",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'two adults and children under 18 at the family membership admission price' — child audience policy is missing from current extraction.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "discount",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "medford",
+      "attraction_slug": "boston-by-foot",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'Free admission to most of Boston By Foot's Walking Tours' with no person count or group size cap.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "medford",
+      "attraction_slug": "paddle-boston",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'valid for one boat rental' with capacity ranging from 1 to 5 people depending on boat type — no fixed person count.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "medford",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text says 'two adults and two children' — both adult count=2 and child count=2 are already captured in audience_policies; form=discount/value=null is correct as Trustees charge 'Family Level membership price' which varies by property.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "melrose",
+      "attraction_slug": "harvard-art-museums",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'Admission is free to all visitors every day' with no person cap — the benefit is universal free admission with no library-pass-specific group limit.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "melrose",
+      "attraction_slug": "historic-new-england",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'free admission for two adults (free admission for children under 18)' — child (under 18, free) audience policy is missing from current extraction.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "free",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "free",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "melrose",
+      "attraction_slug": "paddle-boston",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says '1 boat rental free of charge' with variable capacity depending on boat type — no fixed person count.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "melrose",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'Children under 18 have free admission' alongside '2 free or reduced admissions (member rate)' for adults — child (free) audience policy is missing from current extraction.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "free",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "methuen",
+      "attraction_slug": "museum-of-printing",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'present your Nevins Memorial Library card at the museum to receive free admission' with no person count or group cap.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "methuen",
+      "attraction_slug": "new-hampshire-philharmonic-orchestra",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says '20% discount on tickets purchased per show' (value already captured) with no per-person ticket cap or group size limit.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "middleton",
+      "attraction_slug": "strawbery-banke-museum",
+      "classification": "by_audience",
+      "rationale": "Raw text specifies '1 family (2 Adults and children 17 & under)' — adult count=2 and child age_range are already captured; the multi-season benefit has distinct audience tiers that are correctly split.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "natick",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'up to 2 adults and children at family membership admission pricing' — current extraction collapses this to Everyone/null but adult count=2 and a separate child policy are clearly stated.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": null,
+            "count": null,
+            "form": "discount",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "needham",
+      "attraction_slug": "garden-in-the-woods-native-plant-trust",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'Pass admits 1 adult' (already captured) and 'Children under 5 are free' — child (under 5, free) audience policy is missing from current extraction.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": 1
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 1,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 4
+            },
+            "count": null,
+            "form": "free",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "needham",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'Two adults and children under 18 included in admission' — current extraction collapses this to Everyone/null but adult count=2 and a separate child policy are clearly stated.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "discount",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "newton",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'Admits 2 adults and children under 18' — current extraction collapses this to Everyone/null but adult count=2 and a separate child policy are clearly stated.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "discount",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "newton",
+      "attraction_slug": "west-suburban-ymca",
+      "classification": "family_membership",
+      "rationale": "Raw text says 'admits one household' for a 1-week YMCA access voucher — household size is variable by definition, no bounded person count.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "north-andover",
+      "attraction_slug": "boston-harbor-island-ferry",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text only says 'a code that can be used to purchase tickets at a 50% discount' with no person-count boundary — capacity is genuinely unspecified.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "north-andover",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "family_membership",
+      "rationale": "Raw text says 'free or reduced admission at the Family Level Membership price' — value varies by property and family composition, not a fixed number.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "north-reading",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text says 'covers two adults plus all children (or grandchildren) up to 18 years old' — per-audience counts are the correct representation; global n is ambiguous.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "peabody",
+      "attraction_slug": "the-childrens-piazza",
+      "classification": "family_membership",
+      "rationale": "Raw text says '50% off regular admission for one family (immediate family/household only)' — the 50% is captured correctly; capacity is family-unit, not a fixed person count.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "peabody",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text says 'Each pass admits 2 adults at free or reduced admission' — Adult count=2 with variable discount is the correct per-audience representation.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "reading",
+      "attraction_slug": "boston-by-foot",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'free admission for public walking tours' with no person-count limit stated — capacity is genuinely unspecified.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "reading",
+      "attraction_slug": "paddle-boston",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'valid for one boat rental' with capacity varying by boat type (1–5 people) — no single fixed person count applies.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "reading",
+      "attraction_slug": "the-childrens-piazza",
+      "classification": "family_membership",
+      "rationale": "Raw text says '50% off admission for the immediate family/household' — family unit with no fixed headcount.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "reading",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text says '2 Adults and children under 18' — per-audience split (Adult count=2, Child unbounded) is the correct representation; 20% Crane Beach note is property-specific.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "saugus",
+      "attraction_slug": "harvard-museums-of-science-and-culture",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says '50% off admission price' with no person-count limit — capacity is genuinely unspecified.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "saugus",
+      "attraction_slug": "the-childrens-piazza",
+      "classification": "family_membership",
+      "rationale": "Raw text says '50% off admission for one family (immediate family/household only)' — family unit with no fixed headcount.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "somerville",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text only says 'free or reduced admission to Trustees properties that collect a fee' with no person count or specific discount value.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "stoneham",
+      "attraction_slug": "paddle-boston",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says pass admits passholder 'and guests in the boat they are renting' with capacity depending on boat type — no single fixed person count.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "stoneham",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text says 'admits up to 2 adults and 2 children under 18' — per-audience counts (Adult=2, Child=2) are already correctly captured; discount value is Family Membership price (variable).",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "sudbury",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text says 'two adults and children under 18 at the Family Membership admission price' — Adult count=2, Child unbounded is the correct per-audience representation.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "tewksbury",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'for 2 adults and children under 18' but current extraction collapses to a single Everyone row — should be split into Adult count=2 and Child rows.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "discount",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "topsfield",
+      "attraction_slug": "salem-witch-museum",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'discounted admission rate for six visitors' — capacity n=6 is already captured, but discount value/percent is not stated anywhere in the text.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "topsfield",
+      "attraction_slug": "the-childrens-piazza",
+      "classification": "family_membership",
+      "rationale": "Raw text says '50% off admission for one family/same household per day' — family unit with no fixed headcount.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "topsfield",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'free or reduced admission at 128 properties' with no person count or specific discount value stated.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "wakefield",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says 'Pass admits 2 adults and children under 18' but current extraction has a single Everyone row — should be split into Adult count=2 and Child rows.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "discount",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "waltham",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'Benefits vary by location' and the 2-person free note is limited to deCordova only — no single authoritative count or value applies across properties.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "watertown",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "corrected_extraction",
+      "rationale": "Raw text says '2 adults and children under 18' but current extraction has a single Everyone row — should be split into Adult count=2 and Child rows.",
+      "fixed_coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Adult",
+            "age_range": null,
+            "count": 2,
+            "form": "discount",
+            "value": null
+          },
+          {
+            "audience": "Child",
+            "age_range": {
+              "min": null,
+              "max": 17
+            },
+            "count": null,
+            "form": "discount",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "lib_id": "wayland",
+      "attraction_slug": "boston-harbor-island-ferry",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'purchase tickets at 50% off the regular price' with no person-count boundary — capacity is genuinely unspecified.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "wayland",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text says '2 adults and any number of children (under the age of 18)' — Adult count=2, Child unbounded is the correct per-audience representation.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "wellesley",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text says 'up to two adults and any children under 18' — Adult count=2, Child unbounded is already correctly captured.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "weston",
+      "attraction_slug": "salem-witch-museum",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text gives per-person prices ($14 adult, $11.75 child) already captured correctly — no person-count limit is stated, capacity is genuinely unspecified.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "weston",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text only says 'free or reduced admission to Trustees properties' with no person count or specific discount value.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "wilmington",
+      "attraction_slug": "boston-harbor-island-ferry",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says '2-for-1 ferry fees on weekdays' — the 50% equivalent is already captured in form/value; no fixed person-count boundary is stated.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "wilmington",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text says 'up to 2 adults and children under 18' — Adult count=2, Child unbounded is already correctly captured.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "winchester",
+      "attraction_slug": "battleship-cove",
+      "classification": "by_audience",
+      "rationale": "Raw text says 'up to 2 adults and up to 3 children (4-12 years old) at $3 each' — Adult count=2 and Child count=3/$3 per-audience split is already correctly captured; adult discount value is unstated.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "winchester",
+      "attraction_slug": "boston-harbor-island-ferry",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'purchase tickets at a 50% discount' with no person-count boundary — capacity is genuinely unspecified.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "winchester",
+      "attraction_slug": "plimoth-patuxent",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text gives per-person prices ($18 adult, $12 child) already captured — no group-size limit is stated, capacity is genuinely unspecified.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "winchester",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text says '2 adults and 2 children at Trustees Membership price' — Adult count=2, Child count=2 is already correctly captured.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "woburn",
+      "attraction_slug": "new-england-aquarium",
+      "classification": "genuinely_vague",
+      "rationale": "Raw text says 'discounted admission for up to 4 people' with no specific percent or dollar value — capacity n=4 is already captured but discount quantum is genuinely unknown.",
+      "fixed_coupon": null
+    },
+    {
+      "lib_id": "woburn",
+      "attraction_slug": "trustees-of-reservations",
+      "classification": "by_audience",
+      "rationale": "Raw text says '2 adults & children under 18 at the Family Level admission rate' — Adult count=2, Child unbounded is already correctly captured.",
+      "fixed_coupon": null
+    }
+  ]
+}

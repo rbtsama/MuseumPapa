@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "built_at": "2026-05-17T16:59:23Z",
+    "built_at": "2026-05-18T11:47:13Z",
     "n_attractions": 97,
-    "n_with_price": 81,
-    "n_with_image": 94,
+    "n_with_price": 74,
+    "n_with_image": 97,
     "n_with_geo": 96,
     "n_with_hours": 97
   },
@@ -7101,7 +7101,10 @@
         "notes": "$12 per person (adults and children 1 year and up). EBT cardholders: $5/person (up to two family members). Blue Star Museum (active/retired military): free for up to 6 family members (Memorial Day-Labor Day). MTA cardholders: free. Wonder Fund (foster care families): 50% off up to six family members. Members: unlimited free visits.",
         "source_url": "https://www.cmeaston.org/visit/hours-admission/"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://www.cmeaston.org/wp-content/uploads/bb-plugin/cache/boy-in-hardhat-circle.png",
+        "local_path": "static/images/childrens-museum-easton.png"
+      },
       "geo": {
         "lat": 42.0668822,
         "lon": -71.1024549
@@ -7312,7 +7315,10 @@
         "notes": "Adults: $15; Seniors: $10; Students: $10; Children 12 or younger: free; EBT or WIC Cardholders: free; Blue Star Families (active duty military): free; MTA Members (Massachusetts Teachers Association): free. Admission to Slave Quarters (includes archaeological exhibit, gift shop, restrooms) is always free.",
         "source_url": "https://royallhouse.org/visit/hours-and-admission/"
       },
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://royallhouse.org/wp-content/uploads/2013/05/exterior_SQ_from_house_porch.jpg",
+        "local_path": "static/images/royall-house.jpg"
+      },
       "geo": {
         "lat": 42.4121662,
         "lon": -71.1117338
@@ -7347,7 +7353,10 @@
         "milton"
       ],
       "original_price": null,
-      "hero_image": null,
+      "hero_image": {
+        "og_image_url": "https://cdn.prod.website-files.com/673ebf0eedfc15a41bedc0c3/67bc7ff63736a0023fe8f4bb_sc-home.webp",
+        "local_path": "static/images/maplewood-day-camp.webp"
+      },
       "geo": {
         "lat": 42.0074162,
         "lon": -71.073125

@@ -7,6 +7,26 @@ from malibbene.build.categories import canonicalize as canonicalize_categories
 from malibbene.build.slug_canonical import canonical as canonical_slug
 
 
+def _has_numeric_price(attr: dict) -> bool:
+    """Same predicate as the audit-side helper: a price block only counts when
+    at least one adult/child/youth/senior/identity/family tier carries a number.
+    Free-under-age-only blocks do not qualify."""
+    op = attr.get("original_price") or {}
+    age = op.get("age_pricing") or {}
+    for k in ("adult", "child", "youth", "senior"):
+        t = age.get(k)
+        if t and t.get("price") is not None:
+            return True
+    ident = op.get("identity_pricing") or {}
+    for t in ident.values():
+        if t and t.get("price") is not None:
+            return True
+    fam = op.get("family")
+    if fam and fam.get("price") is not None:
+        return True
+    return False
+
+
 def _price_block(rec: dict | None, free_under_age_override: int | None = None) -> dict | None:
     # When no real price record exists, a detected free-under-N can still be
     # surfaced — but only as a stub price block (everything else null) so the
@@ -192,7 +212,7 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
         "_meta": {
             "built_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "n_attractions": len(out),
-            "n_with_price": sum(1 for x in out if x["original_price"]),
+            "n_with_price": sum(1 for x in out if _has_numeric_price(x)),
             "n_with_image": sum(1 for x in out if x["hero_image"]),
             "n_with_geo": sum(1 for x in out if x["geo"]),
             "n_with_hours": sum(1 for x in out if x["hours"]),

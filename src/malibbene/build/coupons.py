@@ -26,6 +26,11 @@ def coupon_block(rec: dict | None, *, museum_free_under_age: int | None = None) 
         "kind": cap.get("kind", "unspecified"),
         "n": cap.get("n"),
     }
+    # Per-vehicle capacity is "one carload" unless the source says otherwise.
+    # Extraction leaves n=None on all 59 vehicle rows; default it so the UI
+    # can render "Per vehicle (1 car)" instead of an ambiguous bare label.
+    if cap_block["kind"] == "vehicle" and cap_block["n"] is None:
+        cap_block["n"] = 1
     aps = list(rec.get("audience_policies") or [])
     if museum_free_under_age is not None and aps:
         kept = [p for p in aps if not is_museum_default_policy(p, museum_free_under_age)]

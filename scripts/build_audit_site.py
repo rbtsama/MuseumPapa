@@ -48,6 +48,30 @@ def load_json(p: Path):
         return json.load(f)
 
 
+def has_numeric_price(A: dict) -> bool:
+    """True when the attraction carries at least one numeric ticket tier.
+
+    The mere presence of an ``original_price`` object is not enough — early
+    extraction stamped {"age_pricing": {"adult": null, ..., "free_under_age": 5}}
+    on rows that only document an under-N free policy, leaving every numeric
+    field null. Those should count as missing price on the audit side.
+    """
+    op = A.get("original_price") or {}
+    age = op.get("age_pricing") or {}
+    for k in ("adult", "child", "youth", "senior"):
+        tier = age.get(k)
+        if tier and tier.get("price") is not None:
+            return True
+    ident = op.get("identity_pricing") or {}
+    for tier in ident.values():
+        if tier and tier.get("price") is not None:
+            return True
+    fam = op.get("family")
+    if fam and fam.get("price") is not None:
+        return True
+    return False
+
+
 def find_local_image(slug: str) -> str | None:
     """Return relative path to image under audit/ (../web/public/images/..) or None."""
     if not WEB_IMG.exists():
@@ -293,6 +317,7 @@ NAV_LINKS = [
     ("lineage.html", "Lineage"),
     ("schema.html", "Schema"),
     ("data_quality.html", "Data Quality"),
+    ("audit_review.html", "Audit Review"),
 ]
 
 
@@ -431,7 +456,7 @@ def page_index(libs_data, attr_data, passes_data, libcat, status_banner: str = "
     }
     attr_cov = {
         "Hero image · 封面图": sum(1 for A in attrs if (A.get("hero_image") or {}).get("local_path")),
-        "Ticket price (any tier) · 票价(任一层级)": sum(1 for A in attrs if A.get("original_price")),
+        "Ticket price (any tier) · 票价(任一层级)": sum(1 for A in attrs if has_numeric_price(A)),
         "Opening hours · 营业时间": sum(1 for A in attrs if A.get("hours")),
         "Description · 简介": sum(1 for A in attrs if A.get("description")),
         "Phone · 电话": sum(1 for A in attrs if A.get("phone")),
@@ -1059,7 +1084,7 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
     cov_counter = Counter()
     for A in attrs:
         if (A.get("hero_image") or {}).get("local_path"): cov_counter["hero image"] += 1
-        if A.get("original_price"): cov_counter["price (any tier)"] += 1
+        if has_numeric_price(A): cov_counter["price (any tier)"] += 1
         if A.get("hours"): cov_counter["hours"] += 1
         if A.get("description"): cov_counter["description"] += 1
         if A.get("phone"): cov_counter["phone"] += 1
@@ -1482,7 +1507,7 @@ def page_gaps(attr_data, libs_data, passes_data=None) -> str:
     for A in attrs:
         slug = A["slug"]
         name = A.get("museum_name") or ""
-        if not A.get("original_price"):
+        if not has_numeric_price(A):
             sections["Missing price data"].append((slug, name))
         if not A.get("description"):
             sections["Missing description"].append((slug, name))

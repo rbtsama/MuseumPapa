@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-17T16:59:22Z",
+    "built_at": "2026-05-18T11:39:20Z",
     "n_libraries": 59,
     "n_passes_total": 1026,
     "n_unmapped_passes_per_platform": {
@@ -67,7 +67,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "This pass admits up to 4 at $5-off each. Pickup the pass the day before or the day of the reservation date. This pass MUST be returned to Acton Memorial Library before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue passes are subject to a fine of $10 per day.",
-          "benefit_label": "",
+          "benefit_label": "$5 off",
           "benefit_class": "unknown",
           "source_url": "https://actonmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/#museum-concord-museum",
           "calendar": {
@@ -462,7 +462,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "This pass offers free general parking at many Massachusetts State Parks. Pickup the pass the day before or the day of the reservation date. This pass is not valid for camping or parking at the following locations – Quabbin Reservoir Boat Launch Areas, Squantum Point, North Point, any metered facilities, or Draw Seven Commuter lots. This pass MUST be returned to Acton Memorial Library before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue passes are subject to a fine of $10 per day.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://actonmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/#museum-massachusetts-state-parks-department-of-conservation-and-recreation",
           "calendar": {
@@ -706,7 +706,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "The DeCordova and Fruitlands Museums are included in the list of Trustees of the Reservations Properties. For a full list of all Trustees of the Reservations properties, please go to thetrustees.org . The GO Pass admits two adults and children under 18 at the family membership admission price (at Trustees properties that charge an admission fee). GO Passes are valid for admission only. Not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, equipment rentals, or in place of any permits or passes. This pass is provided by the Friends of the Acton Libraries.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://actonmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-trustees-of-the-reservations",
           "calendar": {
@@ -790,7 +790,7 @@
           "pass_type": "digital",
           "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
           "benefits_text": "Print from home pass Pass allow 4 people free.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://mhl.assabetinteractive.com/museum-passes/by-museum/#museum-the-aviation-museum-of-new-hampshire",
           "calendar": {
@@ -1067,7 +1067,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "Pick up coupon pass at library. Admits 4 people at 50%. Admission good for Harvard Museum of Natural History and Peabody Museum of Archaeology & Ethnology (hours daily 9 AM-5 PM), The Harvard Museum of Ancient Near East and Collection of Historic Scientific Instruments ( hours Sunday -Friday 11AM- 4PM)",
-          "benefit_label": "",
+          "benefit_label": "50% off",
           "benefit_class": "unknown",
           "source_url": "https://mhl.assabetinteractive.com/museum-passes/by-museum/#museum-harvard-museums-of-science-and-culture",
           "calendar": {
@@ -1108,7 +1108,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "Pick up coupon at library. Pass will admit 2 adults and children under 18 years old. Go to HistoricNewEngland.org for list of properties. Each property has their own days and hours they are open. Reservations can be made at several locations for the day you have the pass reserved.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://mhl.assabetinteractive.com/museum-passes/by-museum/#museum-historic-new-england",
           "calendar": {
@@ -1266,7 +1266,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "Pick up and return pass to library. Pass may be picked up the day before use. Pass must be returned no later than the day after use. Pass allows 1 car and passengers into the state park or beach. Pass is for day use only and CANNOT be used for camping. Only Andover residents may reserve and use this pass.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://mhl.assabetinteractive.com/museum-passes/by-museum/#museum-massachusetts-state-parks-department-of-conservation-and-recreation",
           "calendar": {
@@ -1707,7 +1707,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "Pick up coupon pass at the library Pass admits 2 adults (children under 18 are free) Check the location you plan to visit for hours of operation",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://mhl.assabetinteractive.com/museum-passes/by-museum/#museum-the-trustees-of-the-reservations",
           "calendar": {
@@ -4928,7 +4928,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "This pass must be picked up and dropped off at the Boxford Town Library. The pass must be displayed in your vehicle on rear view mirror or dashboard when visiting a Mass. State Park facility where daily parking fees are charged. Pass is not valid for camping.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://boxfordlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-massachusetts-state-parks-department-of-conservation-and-recreation",
           "calendar": {
@@ -6046,7 +6046,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "Pass admission is equivalent to the admission benefit of a Trustees Family Level Membership for two adults and children under 18. Pass is valid at any Trustees property that charges admission, including (but not limited to): deCordova Sculpture Park , Fruitlands , the Old Manse , and Castle Hill on the Crane Estate . Please check the Trustees' website for information on properties, admission rates, parking, and other regulations: https://thetrustees.org/ The Trustees passes are valid for admission only ; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, equipment rental, or in place of any other permits or passes. This pass can be picked up one week in advance.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://burlington.assabetinteractive.com/museum-passes/by-museum/#museum-trustees-of-the-reservations",
           "calendar": {
@@ -6928,7 +6928,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "GO Pass coupon admits 2 adults and children under 18 to Trustees properties. Some Trustees locations require that visitors go online to reserve a timed-entry. Visit the Trustees website for up-to-date information: www.thetrustees.org/ GO Passes are valid for admission only. They are not valid for discounts at parking kiosks, stores, cafes, Inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. GO Pass admission is equivalent to a Trustees Family membership admission price at Trustees properties that charge an admission fee. Locations include: DeCordova, Fruitlands Museum; Crane Estate; the Old Manse; and many more. Admission rates vary. ***Patrons need to check the operating hours for each specific property when reserving the pass. The GO Pass covers many properties with different operating hours throughout the year*** Please note only 1 GO Pass may be reserved per person.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://gleasonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-trustees-of-the-reservations",
           "calendar": {
@@ -7649,7 +7649,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "This pass is valid for one-time use at any of our 100+ properties that collect an admission fee. Pass holder will pay an admission fee equivalent to that of a Trustees Family Level membership (two adults & children 17 and under.)",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://chelmsfordlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-trustees-of-the-reservations",
           "calendar": {
@@ -8175,7 +8175,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "This is a Day Membership pass which allows two people to visit the Boston Athenaeum during operating hours at no cost. Pass holders are welcome to experience the Athenaeum as a member for a day, enjoy access to 12 floors of inviting spaces, with WiFi, well-lit work tables, cozy nooks, and beautiful city views.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://concordlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-athenaeum",
           "calendar": {
@@ -8734,7 +8734,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "Trustees GOPASS admits 2 adults & children under 18 at the Family Level admission rate which varies by the location you visit. Valid at more than 100 Trustees properties that collect an admission fee (including Fruitlands, deCordova, and The Old Manse).",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://concordlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-trustees-of-the-reservations",
           "calendar": {
@@ -9655,7 +9655,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "Patrons may check out up to one pass for the Massachusetts Department of Conservation and Recreation per month. This is a physical pass that must be picked up from the library at which you made the reservation. The pass must be returned to the library you borrowed it from within 3 days of it's use.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://everettpubliclibraries.assabetinteractive.com/museum-passes/by-museum/#museum-massachusetts-state-parks-department-of-conservation-and-recreation",
           "calendar": {
@@ -9858,7 +9858,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "GO Passes allow for one-time use as admission for two adults and children under 18 to any of the 100+ Trustees properties. GO Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. GO Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, Inns, Campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. To use GO Passes with a Trustees site that requires timed entry, you will need to enter the promo code listed on the physical pass. Passes are available at www.thetrustees.org/passes",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://everettpubliclibraries.assabetinteractive.com/museum-passes/by-museum/#museum-trustees-of-the-reservations",
           "calendar": {
@@ -10217,7 +10217,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "Pass allows free daytime parking for one carload to most Massachusetts State Parks, State Forests, or State Reservations that charge a parking fee.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://framinghamlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-massachusetts-state-parks-department-of-conservation-and-recreation",
           "calendar": {
@@ -11769,7 +11769,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "Wheelock Family Theatre Teatro Familia Wheelock Friday night performances : buy one get one free. No pass required: call to reserve. Presentaciones de los viernes en la noche: compra uno, lleva uno gratis. No se requiere un boleto: llame para reservar.",
-          "benefit_label": "",
+          "benefit_label": "50% off",
           "benefit_class": "unknown",
           "source_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/#museum-wheelock-family-theatre",
           "calendar": {
@@ -12769,7 +12769,7 @@
           "pass_type": "digital",
           "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
           "benefits_text": "This pass is an e-voucher. Admits up to 4 at $5-off each (Not to be combined with other discounts; not valid for member pricing). Expires 11/30/26 For general information about the museum, please call 978-369-9763 or visit https://concordmuseum.org/. The museum is open Tuesday - Sunday as well as some Monday holidays. Please confirm museum hours via phone or website before planning your visit.",
-          "benefit_label": "",
+          "benefit_label": "$5 off",
           "benefit_class": "unknown",
           "source_url": "https://lincolnpl.assabetinteractive.com/museum-passes/by-museum/#museum-concord-museum",
           "calendar": {
@@ -13007,7 +13007,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "One free coupon pass available per day. Each pass is good for two adults and anyone under the age of 18 living in the same household. Please check Historic New England website at www.historicnewengland.org for open days and hours. The Gropius House is free to Lincoln residents. Please note that Historic New England encourages pre-booking for all tours and requires that the physical coupon pass be shown when you arrive for your tour.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://lincolnpl.assabetinteractive.com/museum-passes/by-museum/#museum-historic-new-england",
           "calendar": {
@@ -15008,7 +15008,7 @@
           "pass_type": "digital",
           "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
           "benefits_text": "1. This is valid for online reservations and walk-up rentals at Spot Pond, in Stoneham. 2. Online reservations can be made here ( Reserve a boat )– Only for the day that the pass is reserved from the library. 3. This card is valid for one boat rental per day. a. This includes: i. Any type of single kayak (fits up to one person) ii. Double kayaks (fits two adults) iii. Standard Canoes (fits up to three adults or two adults and two children) iv. XL Canoes (fits up to five adults) 4. Save time and fill out your waiver ahead of time: Paddleboston.com/Waiver",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://maldenpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-paddle-boston",
           "calendar": {
@@ -15617,7 +15617,7 @@
           "pass_type": "digital",
           "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
           "benefits_text": "PLEASE NOTE: This is an electronic code that you will receive via email. You must purchase your tickets through the institution before your visit. This library pass discounts tickets at a 2-for-1 rate. You can buy up to 4 tickets for the price of just 2. Weekdays in late May to early October. Ferry from Boston to Spectacle Island runs Thursday through Sunday in the fall. Summer Schedule: June 20 – September 2 Boston to Spectacle Island: Monday through Friday Boston to Georges Island: Monday through Friday Hingham to Peddocks Island: Monday through Friday Fall Schedule: September 5 – September 22 Boston to Georges Island: Thursday through Sunday End of Season Schedule: September 27 – October 11 Boston to Georges Island: Friday through Sunday",
-          "benefit_label": "",
+          "benefit_label": "50% off",
           "benefit_class": "unknown",
           "source_url": "https://maynardpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-harbor-island-ferry"
         },
@@ -15792,7 +15792,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "One free coupon pass available per day. Each pass is good for two adults and anyone under the age of 18 living in the same household. Please check Historic New England website at www.historicnewengland.org for open days and hours. Please note that Historic New England encourages pre-booking for all tours and requires that the physical coupon pass be shown when you arrive for your tour.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://maynardpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-historic-new-england",
           "calendar": {
@@ -16272,7 +16272,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "The DeCordova and Fruitlands Museums are included in the list of Trustees of the Reservations Properties. For a full list of all Trustees of the Reservations properties, please go to thetrustees.org . The GO Pass admits two adults and children under 18 at the family membership admission price (at Trustees properties that charge an admission fee). GO Passes are valid for admission only. Not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, equipment rentals, or in place of any permits or passes.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://maynardpubliclibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-trustees-of-the-reservations",
           "calendar": {
@@ -17031,7 +17031,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "The pass is valid for one boat rental. Passholder must present pass and photo ID at rental desk. This includes: Any type of single kayak or paddleboard (1 person), double kayaks (2 adults), standard canoes (up to 3 adults, or 2 adults and 2 children), and tripper canoes (up to 5 adults). Save time by filling out your waiver ahead of time: paddleboston.com/waiver. Valid at all seven locations: Stoneham, Medford, Somerville, Boston, Cambridge, Newton, Waltham. The Medford (Condon Shell) Location is not yet open for the season. Opening weekend is based on water temperatures and weather conditions-- see paddleboston.com to check!",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://medfordlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-paddle-boston",
           "calendar": {
@@ -17150,7 +17150,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "Each pass admits two adults and two children to any Trustees property in Massachusetts at Family Level membership price. Prices and hours vary by site. Pass cannot be used for parking, stores, cafes, inns, campgrounds, or special events.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://medfordlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-trustees-of-the-reservations",
           "calendar": {
@@ -20773,7 +20773,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "(RETURNABLE) Pass admits 1 adult. Children under 5 are free. Garden is open mid-April to mid-November. Pass is for NEEDHAM RESIDENTS ONLY.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://needhamma.assabetinteractive.com/museum-passes/by-museum/#museum-garden-in-the-woods-native-plant-trust",
           "calendar": {
@@ -20854,7 +20854,7 @@
           "pass_type": "digital",
           "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
           "benefits_text": "(PRINTABLE) Pass admits two people with a $10.00 fee per person. The ICA is always free to children 18 and under. The ICA is free to the public on Thursday nights from 5:00 - 9:00, courtesy of Target. FOR NEEDHAM RESIDENTS ONLY REDEEM THIS PASS ONLINE 1. Visit https://www.icaboston.org/ 2. Click Reserve now in the Buy Tickets box 3. For your chosen date, select ICA Museum Admission Tickets 4. Select up to two (2) at the price Library Pass Coupon. Anyone 18 and under is always free and should be reserved as Youth (0-12) or Youth (13-18) 5. Follow steps to complete your ticket purchase. Your museum admission tickets will be emailed to you. 6. When you arrive at the museum, proceed with your tickets and Library Pass to the desk for check-in. REDEEM THIS PASS IN-PERSON 1. When you arrive at the museum, proceed to the desk and show the Library Pass to complete your ticket purchase. REDEEM THIS PASS BY PHONE 1. Call 617-478-3100 during museum hours to complete your ticket purchase. Your museum admission tickets will be emailed to you. 2. When you arrive at the museum, proceed with your tickets and Library Pass to the desk for check-in. For ticketing or general inquiries, please contact our Visitor Services team at visitorservices@icaboston.org. Library Passes are not valid for performances, events, or films.",
-          "benefit_label": "",
+          "benefit_label": "$10/person",
           "benefit_class": "unknown",
           "source_url": "https://needhamma.assabetinteractive.com/museum-passes/by-museum/#museum-institute-of-contemporary-art-boston",
           "calendar": {
@@ -20973,7 +20973,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "(RETURNABLE) General admission pass to the State Parks System. ParksPass is valid for the passenger vehicle displaying this pass on rearview mirror. FOR NEEDHAM RESIDENTS ONLY",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://needhamma.assabetinteractive.com/museum-passes/by-museum/#museum-massachusetts-state-parks-department-of-conservation-and-recreation",
           "calendar": {
@@ -21175,7 +21175,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "(RETURNABLE) Pass admits 2. Tuesday - Saturday, 10:00 - 4:00. Closed Sundays and Mondays. FOR NEEDHAM RESIDENTS ONLY",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://needhamma.assabetinteractive.com/museum-passes/by-museum/#museum-new-england-quilt-museum",
           "calendar": {
@@ -21296,7 +21296,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "(COUPON) Pass is valid for one-time use at any of the 118 Trustees properties that collect an admission fee, including the deCordova Sculpture Park and Museum. Pass holder will pay an admission fee equivalent to that of a Trustees Family level membership. Two adults and children under 18 included in admission. Pass is not valid for use at Trustees parking kiosks, stores, cafes Inns, Campgrounds, at special events and programs, or in place of any permits or passes. To use GO Passes with a site that requires timed passes, enter the promo code \" GOPASS \" when securing a timed ticket. For a complete list of properties go to http://thetrustees.org/ FOR NEEDHAM RESIDENTS ONLY",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://needhamma.assabetinteractive.com/museum-passes/by-museum/#museum-the-trustees-of-the-reservations",
           "calendar": {
@@ -25454,7 +25454,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "Please check hours for each location on PaddleBoston's website - boat launches are weather permitting. The pass is valid for one boat rental. Passholder must present pass and photo ID at rental desk. This includes: Any type of single kayak or paddleboard (1 person), double kayaks (2 adults), standard canoes (up to 3 adults, or 2 adults and 2 children), and XL canoes (up to 5 adults). Save time by filling out your waiver ahead of time: paddleboston.com/waiver. Valid at all seven locations: Stoneham, Medford, Somerville, Boston, Cambridge, Newton, Waltham.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://readingpl.assabetinteractive.com/museum-passes/by-museum/#museum-paddle-boston",
           "calendar": {
@@ -26729,7 +26729,7 @@
           "pass_type": "digital",
           "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
           "benefits_text": "The coupon code covers the cost of up to 12 tickets per mainstage show. There is a limit of 2 tickets per person. This pass is NOT a reservation and does not need to be picked up at the library. You must reserve a ticket for a specific day and time prior to the performance you wish to attend. Tickets must be reserved by calling the Greater Boston Stage Company at (781) 279-2200. The GBSC Box Office is open noon to 4 pm Tuesday through Friday. Your tickets are only valid for the date and time you reserve. This season's Main Stage shows: Featherbaby opens on Friday, September 12th and runs through Sunday, December 28th. Murder for Two opens on Friday, October 5th and runs through Sunday, November 9th. An Irish Carol opens on Friday, December 5th and runs through Sunday, December 21st. Wait Until Dark opens on Friday, March 6th and runs through Sunday, March 22nd. What the Constitution Means to Me opens on Friday, April 10th and runs through Sunday, April 26th. Annie opens on Friday, May 29th and runs through Sunday, June 28th.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-greater-boston-stage-company",
           "calendar": {
@@ -27208,7 +27208,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "This pass admits up to 2 adults and 2 children under 18 at an equivalent to a Trustees Family Membership admission price at Trustees properties that charge and admission fee. This pass is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. This is a physical pass that must be picked up at the library and can be discarded after use . This pass is not limited by date or time . This pass is valid at any of 100+ Trustees properties . Hours vary by location. To see a list of Trustees properties, click here.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-trustees-of-the-reservations",
           "calendar": {
@@ -27971,7 +27971,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "PLEASE NOTE: This is a coupon pass that must be picked up at the library. Patrons must first reserve a coupon from the library, then reserve timed tickets ONLY for museums and parks that require a timed entry by using the promo code on the back of the library coupon. This code will also be available on the reservation confirmation screen, and in your confirmation email. You will need to show the physical pass at the property of your choice. Each pass admits two adults and children under 18 at the Family Membership admission price at the properties that change admission. This varies from property to property; please check The Trustees' website before booking a pass.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://goodnowlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-the-trustees-of-the-reservations",
           "calendar": {
@@ -29898,7 +29898,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "Pass admits 2 adults and children under 18. Prices vary by location.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-trustees-of-the-reservations",
           "calendar": {
@@ -31189,7 +31189,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "Admission is equivalent to a Trustees Family Membership price (2 adults and children under 18) at Trustees properties that charge an admission fee. GO Passes are valid for admission fees only. Passes are not valid for discounts at parking kiosks, stores, cafes, Inns, campgrounds, special events, or equipment rentals. This coupon pass must be picked up in person at the Library's Circulation desk. Advanced ticket reservations made in advance of visit are strongly encouraged on the museum's website. Directions and information regarding the coupon pass use will be provided in your confirmation email.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://watertownlib.assabetinteractive.com/museum-passes/by-museum/#museum-the-trustees-of-the-reservations",
           "calendar": {
@@ -31767,7 +31767,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "This is a laminated pass that must be picked up and returned to Wayland. Patrons may pick up their pass during the Library's open hours on the day before or the day of their visit. The pass must be returned by the day after its use. Pass allows free daytime parking for one carload of visitors to all Massachusetts State Parks that charge a parking fee. (Except Nahant and Nantasket). See the Massachusetts Department of Conservation & Recreation website for the list of parks that charge a fee and the most up-to-date information on park programs and hours.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://waylandlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-massachusetts-state-parks-department-of-conservation-and-recreation",
           "calendar": {
@@ -32818,7 +32818,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning), Printable/Digital Coupon Pass (link delivered by email)",
           "benefits_text": "Apply the promo code for up to four \"50%-off\" tickets for Spectacle, Peddocks or Georges Island.",
-          "benefit_label": "",
+          "benefit_label": "50% off",
           "benefit_class": "unknown",
           "source_url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-harbor-island-ferry"
         },
@@ -32836,7 +32836,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "Each pass admits up to four people for general admission (Adult, Youth 6-17, Students, and Seniors). Admission for children 5 and younger is free. Not valid for special events or for public programming.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-christian-science-plaza",
           "calendar": {
@@ -32874,7 +32874,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "Each pass admits up to 4 visitors at $5-off each; valid year-round including during the Family Trees program.",
-          "benefit_label": "",
+          "benefit_label": "$5 off",
           "benefit_class": "unknown",
           "source_url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-concord-museum",
           "calendar": {
@@ -33551,7 +33551,7 @@
           "pass_type": "physical-circ",
           "pass_type_raw": "Circulating Pass (must be picked up and returned to the branch)",
           "benefits_text": "Library member rates 2026 : Adult/Senior - $14.00 Child (3-14) - $11.75 Library Passes are not accepted in the month of OCTOBER.",
-          "benefit_label": "",
+          "benefit_label": "$14/person",
           "benefit_class": "unknown",
           "source_url": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-salem-witch-museum",
           "calendar": {
@@ -33874,7 +33874,7 @@
           "pass_type": "digital",
           "pass_type_raw": "Printable/Digital Coupon Pass (link delivered by email)",
           "benefits_text": "Allows for 2-for-1 ferry fees on weekdays to either Spectacle or Georges Islands. ALL TICKETS MUST BE PURCHASED ONLINE The code can be used throughout the entire 2026 season, which is listed below: Georges Island • May 15 - June 14: Thursdays through Sundays • June 16 - September 1: every day Spectacle Island • July 15 - September 1: every day • September 4 - 21: Thursdays through Sundays • September 26 - October 13: Fridays through Sundays Peddocks Island from Hingham • June 15 - September 7: every day BUT Tuesdays • September 10 - October 12: Thursdays through Sundays",
-          "benefit_label": "",
+          "benefit_label": "50% off",
           "benefit_class": "unknown",
           "source_url": "https://wilmlibrary.assabetinteractive.com/museum-passes/by-museum/#museum-boston-harbor-island-ferry",
           "calendar": {
@@ -35506,7 +35506,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "Coupon Pass (must be picked up from the branch, but does not require returning)",
           "benefits_text": "Pass admits 2 adults and 2 children at Trustees Membership price. Search http://www.thetrustees.org/places-to-visit/ to view all the locations you are able to visit with this pass. Please note the DeCordova Museum is closed on Mondays. Pass can be picked up at the Information Services desk at the library. For Decordova : Online registration is available; select GOPASS as the ticket type. Bring registration confirmation AND the pass from the library. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://winpublib.assabetinteractive.com/museum-passes/by-museum/#museum-the-trustees-of-the-reservations",
           "calendar": {
@@ -36307,7 +36307,7 @@
           "pass_type": "digital",
           "pass_type_raw": "(body: digital)",
           "benefits_text": "617-547-8300 The American Repertory Theater (A.R.T.) at Harvard University is a leading force in the American theater, producing groundbreaking work that is driven by risk-taking and passionate inquiry. A.R.T. was founded in 1980 by Robert Brustein, who served as Artistic Director until 2002, when he was succeeded by Robert Woodruff. Diane Paulus began her tenure as Terrie and Bradley Bloom Artistic Director in 2008. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://bpl.libcal.com/passes/5bf37dc2bee6",
           "calendar": {
@@ -36372,7 +36372,7 @@
           "pass_type": "digital",
           "pass_type_raw": "(body: digital)",
           "benefits_text": "Located just steps away from downtown Boston, a visit to the Boch Center Wang Theatre will make you feel like you've been magically transported to a European Palace. Tours of the theatre are offered several days per week and share the rich history of the Wang Theatre over the past 100 years. Beyond the basic theatre history, a tour includes the opportunity to experience the Folk Americana Roots Hall of Fame (FARHOF). FARHOF showcases the history of American music through multiple exhibits that change quarterly. Visits are available at set times each day and full tours may not be available on all days. Please visit www.bochcenter.org/tours to learn more about the schedule and availability. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://bpl.libcal.com/passes/572fd99e65a3",
           "calendar": {
@@ -37412,7 +37412,7 @@
           "pass_type": "digital",
           "pass_type_raw": "(digital coupon pass)",
           "benefits_text": "The Sandwich Glass Museum is dedicated to the history of the town in which it is located, with a special emphasis on the glass that made it famous in the 19th century. Thirteen galleries display their collection of old and modern examples of glass objects, including roughly 6,000 pieces produced at the Boston & Sandwich Glass Company in the 1800s on the site where the museum sits today. In addition, the museum hosts live demonstrations of glass-blowing. There is a gift store on the premises, which includes work by local glass-blowers. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://bpl.libcal.com/passes/c3c3953a4d27",
           "calendar": {
@@ -37477,7 +37477,7 @@
           "pass_type": "digital",
           "pass_type_raw": "(coupon code)",
           "benefits_text": "Coupon code good for one boat rental per order. The American City Coalition (TACC) is a 501(c)(3) organization based in Roxbury’s Nubian Square. We tackle community-identified barriers through economic and workforce development, research, and policy strategies that expand pathways to meaningful opportunities in communities of color. Boston is a coastal city with 47 miles of shoreline; Boston Harbor is the city's largest public open space. Through our Waterways: Connecting Residents of Roxbury and Dorchester to Boston's Waterfront program, TACC is implementing strategies that reduce community-identified barriers to accessing the waterfront and increase the number of Roxbury and Dorchester residents benefitting from living in a coastal city. Reach out to us at waterways@tamcc.org or 857.308.3012 to learn more and get involved. No passes are available at this time.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://bpl.libcal.com/passes/7dfc5eb56d0b",
           "calendar": {
@@ -37607,7 +37607,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "(physical)",
           "benefits_text": "Coupon allows two adults and children under 18 entry at Family membership rates. Pass is valid for one-time use at any of 116 properties that collect an admission fee. Pass holder will pay an admission fee equivalent to that of a Trustees Family level membership. Pass is not valid for use at Trustees parking kiosks, stores, cafes, Inns, campgrounds, at special events and programs or in place of any permits or passes. To use GO passes at Fruitlands, deCordova, or Castle Hill, please enter the promo code \"GOPASS\" when securing a time ticket. For all other properties, please book a Trustees GO Pass. THIS IS A DISPOSABLE PASS This pass may be picked up at any time after you make your reservation. It must be picked up at the location you made the reservation. It does not need to be returned. Consult branch operating hours before you pick up the pass. The email reservation confirmation is NOT a valid coupon. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://bpl.libcal.com/passes/eb6d133c0fb7",
           "calendar": {
@@ -37808,7 +37808,7 @@
           "pass_type": "digital",
           "pass_type_raw": "(body: digital)",
           "benefits_text": "617-367-2345 Community Passes are valid for all public walking tours. They are not valid for booking on the private tour calendar, water-based tours, or our two annual celebration tours (Beacon Hill with a BOO! & Footloose on the Freedom Trail). Use the code on your confirmation email to redeem your Community Pass ticket(s) from www.bostonbyfoot.org as admission. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://thayerpubliclibrary.libcal.com/passes/dcdf3bc1bfa3",
           "calendar": {
@@ -38919,7 +38919,7 @@
           "pass_type": "unknown",
           "pass_type_raw": "",
           "benefits_text": "(781) 326-1770 Hale Reservation's ponds, trails, plants, animals, birds, fish, and insects spark curiosity. Lifelong learners enjoy limitless opportunities for growth and discovery here, whether they’re overcoming a fear of heights on the challenge course or spying a family of deer along a trail. This pass must be reserved through the library's online catalog . The pass must be picked up and returned to the library's Brookline Village location. No passes are available at this time.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://brooklinelibrary.libcal.com/passes/hale",
           "calendar": {
@@ -40745,7 +40745,7 @@
           "pass_type": "unknown",
           "pass_type_raw": "",
           "benefits_text": "978-921-1944 SEASONAL PASS - Each pass admits 2 adults & children under 18 at the Family Level admission rate. Passes are not date specific and can be used once until the expiration date printed on the pass. Valid at more than 100 Trustees properties that collect an admission fee (including Fruitlands, deCordova and The Old Manse). Please note that some properties require pre-registration. Information about properties and advance registration available here: https://thetrustees.org/content/passes/ Physical passes must be picked up from one of the library locations listed in the dropdown menu below. Select your location preference and then pick the dates from the availability calendar.",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://cambridgepl.libcal.com/passes/trustees-go-pass",
           "calendar": {
@@ -41579,7 +41579,7 @@
           "pass_type": "physical-coupon",
           "pass_type_raw": "(body: coupon/disposable)",
           "benefits_text": "106 South Main Street Cohasset, MA 02025 (781) 383-1434 Get Directions Free Lecture Series Pass. Check this pass out from the library and present it upon entrance to the Historical Society's Event. Pass does not need to be returned. Visit museum website for more information. Isabella Stewart Gardner Museum Learn More",
-          "benefit_label": "",
+          "benefit_label": "FREE",
           "benefit_class": "unknown",
           "source_url": "https://www2.museumkey.com/ui/byMuseum/?code=paulma02025&branchID=231#detail4904"
         },
@@ -41691,7 +41691,7 @@
           "pass_type": "digital",
           "pass_type_raw": "(body: digital/email)",
           "benefits_text": "200 High Street Boston, MA 02110 617-542-7696 Get Directions Go Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. Go Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. To use Go Passes with a site that requires timed passes, please enter the promo code \"GOPASS\" when securing a timed ticket. GoPass is good for admission of two adults and all children under the age of 18. Visit museum website for more information. USS Constitution Museum Learn More",
-          "benefit_label": "",
+          "benefit_label": "discount",
           "benefit_class": "unknown",
           "source_url": "https://www2.museumkey.com/ui/byMuseum/?code=paulma02025&branchID=231#detail4902"
         },
@@ -41767,7 +41767,7 @@
           "pass_type": "digital",
           "pass_type_raw": "(body: digital/email)",
           "benefits_text": "66 Long Wharf Boston, MA 02110 617-227-4321 Get Directions Visit museum website for more information. This is a digital pass that will be emailed to you once you complete your registration. This is a two for one pass to the Boston Harbor Islands and is good for up to four people. It is not good for Sunset Cruises. Reservations Recommended by calling Boston Harbor Cruises at 617-227-4321. Specify which island you plan to visit, your date of travel, and your departure and return times based on the ferry schedule. On the day of your trip, go to the Boston Harbor Cruises Ferry Center at Long Wharf in Boston or at Pemberton Point in Hull, MA. Pick up your tickets at the Will-Call window at least 15 minutes prior to your scheduled ferry departure. Present the Boston Harbor Islands Library Pass to receive your free ticket with purchase of one Harbor Islands ferry ticket. Check Dates Harvard Museum of Natural History Learn More",
-          "benefit_label": "",
+          "benefit_label": "50% off",
           "benefit_class": "unknown",
           "source_url": "https://www2.museumkey.com/ui/byMuseum/?code=hingma02043&branchID=505#detail14275"
         },
