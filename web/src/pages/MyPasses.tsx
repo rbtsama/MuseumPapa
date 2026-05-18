@@ -168,18 +168,22 @@ function LibraryRow({ libraryName, town, card, hasCard, onAdd, onSave, onRemove 
           cursor: 'pointer', font: 'inherit',
         }}
       >
+        {/* Status pill: green check whenever the user has marked this card as
+            held — regardless of whether they've entered the barcode yet.
+            Some users just want to flag the cards they own without typing
+            digits, and the check confirms the selection registered. */}
         <span
           aria-hidden
           style={{
             width: 18, height: 18, borderRadius: '50%',
-            background: filled ? 'var(--g)' : hasCard ? 'var(--g-pale)' : 'transparent',
+            background: hasCard ? 'var(--g)' : 'transparent',
             border: `1.5px solid ${hasCard ? 'var(--g)' : 'var(--rule-strong)'}`,
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
             flexShrink: 0,
-            color: filled ? 'var(--white)' : 'var(--g)',
+            color: hasCard ? 'var(--white)' : 'var(--ink-3)',
           }}
         >
-          {filled && (
+          {hasCard && (
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth={3}
               strokeLinecap="round" strokeLinejoin="round">
@@ -219,8 +223,14 @@ function LibraryRow({ libraryName, town, card, hasCard, onAdd, onSave, onRemove 
               value={draft.barcode}
               onValueChange={(v) => setDraft({ ...draft, barcode: v })}
               placeholder="Card number"
-              aria-label="Card number"
+              aria-label="Card number (optional)"
               className="flex-grow"
+              endContent={
+                <span style={{
+                  fontSize: 11, color: 'var(--ink-3)',
+                  fontStyle: 'italic', whiteSpace: 'nowrap',
+                }}>optional</span>
+              }
             />
             <Button
               size="sm"
