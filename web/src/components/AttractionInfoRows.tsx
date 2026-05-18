@@ -1,6 +1,7 @@
 import type { Attraction } from '../data/types';
 import { MuseumReservationBanner } from './MuseumReservationBanner';
 import { hoursDisplay } from '../lib/hours';
+import { townFromAddress } from '../lib/address';
 
 /* Inline SVG icon set — single style (stroke-only line icons), 12px, all use
  * currentColor so the parent line's text color drives the icon color. Keeps
@@ -41,12 +42,6 @@ function fmtMoney(v: number | null | undefined): string {
   return `$${v.toFixed(2)}`;
 }
 
-function townFromAddress(addr: string): string {
-  const m = addr.match(/,\s*([^,]+?),\s*[A-Z]{2}\s+\d{5}/);
-  if (m) return `${m[1].trim()}, MA`;
-  const m2 = addr.match(/,\s*([^,]+?),\s*[A-Z]{2}\b/);
-  return m2 ? `${m2[1].trim()}, MA` : '';
-}
 
 interface AttractionInfoRowsProps {
   attraction: Attraction;

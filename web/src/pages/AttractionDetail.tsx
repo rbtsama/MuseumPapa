@@ -21,6 +21,7 @@ import { geocodeZip, haversineMiles } from '../lib/distance';
 import { couponRank } from '../lib/tag-algorithm';
 import { heroSrc } from '../lib/hero';
 import { todayIso } from '../lib/dates';
+import { townFromAddress } from '../lib/address';
 import type { Geo, Pass, Library } from '../data/types';
 
 interface Row {
@@ -31,12 +32,6 @@ interface Row {
   userHasCard: boolean;
 }
 
-function townFromAddress(addr: string): string {
-  const m = addr.match(/,\s*([^,]+?),\s*[A-Z]{2}\s+\d{5}/);
-  if (m) return m[1].trim();
-  const m2 = addr.match(/,\s*([^,]+?),\s*[A-Z]{2}\b/);
-  return m2 ? m2[1].trim() : '';
-}
 
 export function AttractionDetail() {
   const { slug } = useParams<{ slug: string }>();
