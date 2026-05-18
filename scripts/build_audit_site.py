@@ -1349,30 +1349,48 @@ def page_passes(passes_data, libs_data, attr_data) -> str:
     )
 
     # === Section 6: audience-split ===
-    aud_split = Counter(len(p["coupon"]["audience_policies"]) for p in passes)
-    s6_what = (
-        "一张 pass 可以把人群拆成 1-5 类,每类各享不同折扣。"
-        "<code>audience_policies</code> 列表的长度就是这里的'类数'。"
-    )
-    s6_bars = ""
-    for k in [1, 2, 3, 5]:
-        n_k = aud_split.get(k, 0)
-        if k == 1:
-            note = "所有人一刀切享同折扣"
-        elif k == 2:
-            note = "典型: Adult $X/人 + Child <16 free"
-        elif k == 3:
-            note = "罕见 · Adult / Child / Senior 各自不同价"
+    # Three product-relevant buckets (the boss only cares about adult-vs-kid):
+    #   1. All same        — single audience_policy, everyone gets identical terms
+    #   2. Adult / Child differ — two policies that effectively split adult vs.
+    #      child. Captures (Adult, Child), (Adult, Youth), (Child, Everyone),
+    #      (Everyone, Youth) — Youth is functionally a teen-kid label.
+    #   3. Other            — everything else (Senior tiers, Student/Military
+    #      specials, 3+ audience policies). Low signal for the kids-out product.
+    ADULT_CHILD_PAIRS = {
+        frozenset(("Adult", "Child")),
+        frozenset(("Adult", "Youth")),
+        frozenset(("Child", "Everyone")),
+        frozenset(("Everyone", "Youth")),
+    }
+    n_same = n_ac = n_other = 0
+    for p in passes:
+        aps = p["coupon"]["audience_policies"]
+        if len(aps) <= 1:
+            n_same += 1
+        elif len(aps) == 2 and frozenset(ap.get("audience") for ap in aps) in ADULT_CHILD_PAIRS:
+            n_ac += 1
         else:
-            note = "极个别 outlier · 值得人工 review"
-        s6_bars += _bar_row(f"{k} audience(s)", f"{k} 类受众 · {note}", n_k, n_passes)
+            n_other += 1
+    s6_what = (
+        "我们关心的不是 audience_policies 列表有多长,而是这张 pass <b>对大人和小孩的折扣是否一样</b>。"
+        "据此把所有 pass 分三类。"
+    )
+    s6_bars = (
+        _bar_row("Everyone same", "所有人享同折扣 · 不区分大小",
+                 n_same, n_passes)
+        + _bar_row("Adult / Child differ", "成人 / 小孩待遇不同 · 典型 Adult $X + Child <18 free",
+                   n_ac, n_passes)
+        + _bar_row("Other", "其他 · Senior / Student / Military 等专门档,或 3+ 档拆分",
+                   n_other, n_passes)
+    )
     s6_meaning = (
         "<ul>"
-        "<li><b>74% 是单类(一刀切)</b>,折扣不区分大人小孩。这部分 pass 信息简单,UI 一句话就能说完。</li>"
-        "<li><b>26% 是双类</b>——这是产品最有信号的形态:能告诉用户'大人 $X、孩子免费',"
-        "对带娃出行决策的价值远大于'大家都 50%'。前端值得突出渲染双类 pass。</li>"
-        "<li><b>3+ 类极罕见</b>(<1%),这种 pass 通常是 Adult / Child / Senior 三档,"
-        "或者带上 Student / Educator / Military 的特殊优惠。</li>"
+        f"<li><b>{n_same/n_passes*100:.0f}% Everyone same</b>——一刀切,UI 一句话说清。</li>"
+        f"<li><b>{n_ac/n_passes*100:.0f}% Adult/Child differ</b>——产品最有信号的形态。"
+        "能告诉用户\"大人 $X、孩子免费\",带娃出行的决策价值远大于\"大家都 50%\"。"
+        "前端值得在卡片上把这层差异显式渲染。</li>"
+        f"<li><b>{n_other/n_passes*100:.0f}% Other</b>——Senior / Student / Military 等专门档,"
+        "或 3+ 档复合拆分。在当前 NorthShore 带娃用户场景下信号偏弱,UI 上折叠展示即可。</li>"
         "</ul>"
     )
 
