@@ -4,7 +4,7 @@ import { TopBar } from './components/TopBar';
 import { ScrollToTop } from './components/ScrollToTop';
 import { AttractionsList } from './pages/AttractionsList';
 import { AttractionDetail } from './pages/AttractionDetail';
-import { MyPasses } from './pages/MyPasses';
+import { MyLibraryCards } from './pages/MyLibraryCards';
 import { NotFound } from './pages/NotFound';
 import { useAuth } from './auth/store';
 
@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<AttractionsList />} />
         <Route path="/attractions/:slug" element={<AttractionDetail />} />
-        <Route path="/settings/passes" element={<MyPasses />} />
+        <Route path="/settings/passes" element={<MyLibraryCards />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

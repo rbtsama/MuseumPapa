@@ -5,7 +5,7 @@ import { useAuth } from '../auth/store';
 import { useCardpack, type LibraryCard } from '../stores/cardpack';
 import { getLibraries } from '../data/load';
 
-export function MyPasses() {
+export function MyLibraryCards() {
   const user = useAuth(s => s.currentUser);
   const pack = useCardpack(s => s.pack);
   const load = useCardpack(s => s.load);
