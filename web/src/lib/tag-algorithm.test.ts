@@ -50,9 +50,40 @@ describe('pickTags', () => {
   // unless a test specifically wants that.
   const everyCard = new Set(['wakefield', 'reading', 'bpl', 'wilmington']);
 
-  it('returns at most 3 entries total, with per-type caps (1 digital, 3 each physical)', () => {
-    // 2 digital → only 1 should survive the per-type cap; 5 pickup → 3 survive;
-    // 4 borrow → 3 survive. Overall final cap of 3 then trims by distance.
+  it('delivery-cost order: Email first, then Pickup, then Borrow', () => {
+    // Closest pass is a Borrow at the user's ZIP; furthest is a Pickup. Old
+    // distance-only sort would put Borrow first. New rule puts Email first,
+    // then any Pickup (no matter how far), then Borrow last.
+    const passes = [
+      pass('bpl', 'digital', 'half'),                  // far Email
+      pass('reading', 'physical-coupon', 'percent-low'), // far Pickup
+      pass('wakefield', 'physical-circ', 'free'),      // closest Borrow
+    ];
+    const out = pickTags({
+      passes, libraries: [wak, rea, bpl], userCardLibIds: everyCard,
+      date: '2026-05-16', userGeo: userZip,
+    });
+    expect(out.length).toBe(3);
+    expect(out[0].pass.pass_type).toBe('digital');         // Email
+    expect(out[1].pass.pass_type).toBe('physical-coupon'); // Pickup
+    expect(out[2].pass.pass_type).toBe('physical-circ');   // Borrow
+  });
+
+  it('within a pass_type, distance asc, then coupon strength as tiebreaker', () => {
+    // Two Pickups at the same distance (same library). The stronger discount
+    // (FREE) should win the tiebreaker over the weaker one (per-person).
+    const passes = [
+      pass('wakefield', 'physical-coupon', 'per-person'),
+      pass('wakefield', 'physical-coupon', 'free'),
+    ];
+    const out = pickTags({
+      passes, libraries: [wak], userCardLibIds: everyCard,
+      date: '2026-05-16', userGeo: userZip,
+    });
+    expect(out[0].pass.coupon.audience_policies[0].form).toBe('free');
+  });
+
+  it('per-type cap holds: 1 Email + 3 Pickup + 3 Borrow candidate pool, sliced to 3 total', () => {
     const passes = [
       pass('bpl', 'digital', 'free'),
       pass('wilmington', 'digital', 'free'),
@@ -69,25 +100,13 @@ describe('pickTags', () => {
       date: '2026-05-16', userGeo: userZip,
     });
     expect(out.length).toBe(3);
-    // All three should be closer than wil/bpl (wakefield + reading distance is small).
-    // Distances ascend.
-    for (let i = 1; i < out.length; i++) {
-      expect(out[i].distanceMi).toBeGreaterThanOrEqual(out[i - 1].distanceMi ?? Infinity);
-    }
-  });
-
-  it('within each pass_type, sort is by distance — no coupon-rank preference', () => {
-    // wakefield (close) has a weaker discount; reading (further) has FREE.
-    // New rule: distance wins. Wakefield must come first.
-    const passes = [
-      pass('reading', 'physical-coupon', 'free'),
-      pass('wakefield', 'physical-coupon', 'percent-low'),
-    ];
-    const out = pickTags({
-      passes, libraries: [wak, rea], userCardLibIds: everyCard,
-      date: '2026-05-16', userGeo: userZip,
-    });
-    expect(out[0].pass.library_id).toBe('wakefield');
+    // Delivery-cost order: Email block first, then Pickup block. Borrow never
+    // surfaces here since Pickup already filled the remaining 2 slots.
+    expect(out[0].pass.pass_type).toBe('digital');
+    expect(out[1].pass.pass_type).toBe('physical-coupon');
+    expect(out[2].pass.pass_type).toBe('physical-coupon');
+    // Pickups within the block are ordered by distance asc.
+    expect(out[1].distanceMi).toBeLessThanOrEqual(out[2].distanceMi ?? Infinity);
   });
 
   it('drops no-card passes entirely', () => {

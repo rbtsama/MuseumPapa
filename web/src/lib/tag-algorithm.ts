@@ -49,17 +49,17 @@ export interface PickTagsInput {
  *      null, e.g. an internal preview, every pass is treated as held.)
  *   2. Drop passes that the calendar / restrictions say can't be used on the
  *      requested date.
- *   3. Within each pass_type bucket sort strictly by distance (nearest first)
- *      and take a per-type candidate cap:
+ *   3. Per-type candidate cap (the most each type can contribute):
  *        - digital            (Email)  : 1
  *        - physical-coupon    (Pickup) : 3
  *        - physical-circ      (Borrow) : 3
- *   4. Merge the per-type pools, sort by distance again, and return at most
- *      `maxTags` (default 3) overall.
- *
- * Coupon-rank / userHasCard sub-orders that earlier versions used are gone:
- * the user wants the closest options regardless of discount tier, and
- * no-card rows are filtered above the sort.
+ *      Within each type, candidates are kept in (distance asc, couponRank asc)
+ *      order so the strongest "delivery-cost-tied" options bubble up.
+ *   4. Concatenate the per-type pools in DELIVERY-COST ORDER:
+ *           Email  →  Pickup (near→far)  →  Borrow (near→far)
+ *      An Email always outranks any Pickup; any Pickup outranks any Borrow,
+ *      regardless of mileage. Within type, distance asc, couponRank asc.
+ *   5. Cap at `maxTags` (default 3) overall.
  */
 const PER_TYPE_CAP: Record<Pass['pass_type'], number> = {
   digital: 1,
@@ -92,25 +92,27 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
     candidates.push({ pass, library, distanceMi: dist, userHasCard });
   }
 
-  const distCmp = (a: PickedTag, b: PickedTag) => {
-    if (a.distanceMi == null && b.distanceMi == null) return 0;
-    if (a.distanceMi == null) return 1;
-    if (b.distanceMi == null) return -1;
-    return a.distanceMi - b.distanceMi;
+  // Within-type sort: distance asc, then couponRank asc as the tiebreaker for
+  // same-library / same-distance rows.
+  const inTypeCmp = (a: PickedTag, b: PickedTag) => {
+    const da = a.distanceMi == null ? Infinity : a.distanceMi;
+    const db = b.distanceMi == null ? Infinity : b.distanceMi;
+    if (da !== db) return da - db;
+    return couponRank(a.pass.coupon) - couponRank(b.pass.coupon);
   };
 
-  // Per-type pools: nearest-N within each pass type.
+  // Build the pool in delivery-cost order: Email block, then Pickup block,
+  // then Borrow block. Each block is internally sorted by inTypeCmp and
+  // truncated to its per-type cap.
   const pool: PickedTag[] = [];
   for (const type of ['digital', 'physical-coupon', 'physical-circ'] as const) {
     const cap = PER_TYPE_CAP[type];
     const slice = candidates
       .filter(c => c.pass.pass_type === type)
-      .sort(distCmp)
+      .sort(inTypeCmp)
       .slice(0, cap);
     pool.push(...slice);
   }
 
-  // Final overall cap by distance.
-  pool.sort(distCmp);
   return pool.slice(0, maxTags);
 }
