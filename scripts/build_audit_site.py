@@ -277,7 +277,7 @@ def status_banner_html(counts: dict) -> str:
         f'<span class="banner-verdict"><b>Data foundation — {verdict}.</b> '
         f'HIGH {high} · MED {med} · LOW {low} · INFO {info}.</span>'
         f'<span class="banner-meta">Built {esc(built)} · '
-        f'<a href="data_quality.html">see Data Quality</a></span>'
+        f'<a href="#data-quality">see Data Quality</a></span>'
         f'</section>'
     )
 
@@ -313,6 +313,15 @@ NAV_LINKS = [
     ("lineage.html", "Lineage"),
     ("schema.html", "Schema"),
     ("data_quality.html", "Data Quality"),
+]
+
+# Anchor-based nav used by the single audit.html page.
+NAV_ANCHORS = [
+    ("#attractions", "Attractions"),
+    ("#passes", "Passes"),
+    ("#lineage", "Lineage"),
+    ("#schema", "Schema"),
+    ("#data-quality", "Data Quality"),
 ]
 
 
@@ -414,6 +423,33 @@ def page_shell(title: str, body: str, current: str, extra_head: str = "", data_b
 <title>{esc(title)} — MuseumPapa Audit</title>
 <link rel="stylesheet" href="assets/style.css">
 {extra_head}
+</head><body>
+<header class="site-head">
+  <div class="brand"><span class="font-serif">MuseumPapa</span> · Data Audit</div>
+  <nav class="topnav">{nav}</nav>
+</header>
+<main>
+{body}
+</main>
+<div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>
+{blob}
+<script src="assets/audit.js"></script>
+</body></html>
+"""
+
+
+def audit_shell(body: str, data_blob: str = "") -> str:
+    """Single-page wrapper with anchor-based nav (used by audit.html)."""
+    nav = " · ".join(
+        f'<a href="{href}">{label}</a>'
+        for href, label in NAV_ANCHORS
+    )
+    blob = f'<script id="data-blob" type="application/json">{data_blob}</script>' if data_blob else ""
+    return f"""<!doctype html>
+<html lang="zh"><head>
+<meta charset="utf-8">
+<title>MuseumPapa Audit</title>
+<link rel="stylesheet" href="assets/style.css">
 </head><body>
 <header class="site-head">
   <div class="brand"><span class="font-serif">MuseumPapa</span> · Data Audit</div>
@@ -1470,7 +1506,7 @@ def page_passes(passes_data, libs_data, attr_data) -> str:
 
     body = f"""
 <h1 class="page-title">Passes<span class="zh-sub">优惠券 · 7 个角度看 {n_passes} 条 pass</span></h1>
-<p class="subtitle">每张 pass = 1 家图书馆 × 1 家景点 × 1 份优惠条件。本页从 7 个维度告诉你这 {n_passes} 条 pass 是什么、分布怎样、对产品意味着什么。下方每节按 <b>What it is · 分布 · What it means</b> 三段写,跳过 ID 字段——明细查 <a href="schema.html">Schema</a>,边界案例查 <a href="data_quality.html">Data Quality</a>。"博物馆是否需要时段预约"是景点属性、不是 pass 属性(无论持券与否都得预约),所以它放在 <a href="index.html">Attractions</a> 页。</p>
+<p class="subtitle">每张 pass = 1 家图书馆 × 1 家景点 × 1 份优惠条件。本页从 7 个维度告诉你这 {n_passes} 条 pass 是什么、分布怎样、对产品意味着什么。下方每节按 <b>What it is · 分布 · What it means</b> 三段写,跳过 ID 字段——明细查 <a href="#schema">Schema</a>,边界案例查 <a href="#data-quality">Data Quality</a>。"博物馆是否需要时段预约"是景点属性、不是 pass 属性(无论持券与否都得预约),所以它放在 <a href="#attractions">Attractions</a> 页。</p>
 
 {_passes_section("p1", "1 · What is a Pass", "什么是一张 Pass", s1_what, s1_bars, s1_meaning)}
 {_passes_section("p2", "2 · Acquisition path (Platform)", "取卡途径 · 数据来自哪 3 个系统", s2_what, s2_bars, s2_meaning)}
@@ -2163,7 +2199,7 @@ def page_lineage(libs_data, attr_data, passes_data) -> str:
 {''.join(stage_html_parts)}
 </div>
 
-<p class="lineage-foot">数据结构字段定义请见 <a href="schema.html">schema</a>;质量检查项请见 <a href="data_quality.html">data quality</a>。</p>
+<p class="lineage-foot">数据结构字段定义请见 <a href="#schema">schema</a>;质量检查项请见 <a href="#data-quality">data quality</a>。</p>
 """
     return page_shell("Lineage", body, "lineage.html")
 
@@ -2351,7 +2387,7 @@ def page_schema() -> str:
             "pass_types": ["digital", "physical-coupon", "physical-circ", "unknown"],
         }
     }, ensure_ascii=False)
-    return page_shell("Schema", body, "schema.html", data_blob=blob)
+    return page_shell("Schema", body, "schema.html", data_blob=blob), blob
 
 
 # =========================================================================
@@ -2781,7 +2817,7 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir, status
   <h3>What this page audits<span class="zh-sub">这页在审什么 · 一句话讲清</span></h3>
   <p style="font-size:13.5px;line-height:1.75;margin:6px 0 4px;">
     The 1026 passes in this dataset went through a 5-stage pipeline
-    (<a href="lineage.html">see Lineage</a>). At each stage, something can go wrong — a library
+    (<a href="#lineage">see Lineage</a>). At each stage, something can go wrong — a library
     page changes shape, the AI extractor misreads a sentence, a slug gets renamed without re-wiring.
     This page lists every category where that has actually happened, with a count and the affected rows.
   </p>
@@ -3322,6 +3358,66 @@ JS = r"""
 
 
 # =========================================================================
+# Single-page audit — audit.html (anchor nav, all 5 sections in one file)
+# =========================================================================
+
+def _extract_main_body(full_html: str) -> str:
+    """Extract content between <main> and </main> from a page_shell result."""
+    start = full_html.find("<main>")
+    end = full_html.find("</main>")
+    if start == -1 or end == -1:
+        return full_html  # fallback: return as-is
+    return full_html[start + len("<main>"):end]
+
+
+def page_audit_single(libs_data, attr_data, passes_data, raw_coupons_dir, status_banner: str = "") -> tuple[str, list]:
+    """Build a single audit.html containing all 5 audit sections with anchor nav.
+
+    Returns (html, missing_image) so caller can report missing hero images.
+    """
+    # Section 1 — Attractions
+    attr_full, missing_image = page_attractions(attr_data, passes_data=passes_data, libs_data=libs_data)
+    attractions_body = _extract_main_body(attr_full)
+
+    # Section 2 — Passes
+    passes_full = page_passes(passes_data, libs_data, attr_data)
+    passes_body = _extract_main_body(passes_full)
+
+    # Section 3 — Lineage
+    lineage_full = page_lineage(libs_data, attr_data, passes_data)
+    lineage_body = _extract_main_body(lineage_full)
+
+    # Section 4 — Schema (also returns blob for the JSON-view modal)
+    schema_full, schema_blob = page_schema()
+    schema_body = _extract_main_body(schema_full)
+
+    # Section 5 — Data Quality (already returns body, not full page)
+    dq_body = page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir, status_banner=status_banner)
+
+    body = f"""<section id="attractions">
+{attractions_body}
+</section>
+
+<section id="passes">
+{passes_body}
+</section>
+
+<section id="lineage">
+{lineage_body}
+</section>
+
+<section id="schema">
+{schema_body}
+</section>
+
+<section id="data-quality">
+{dq_body}
+</section>
+"""
+    return audit_shell(body, data_blob=schema_blob), missing_image
+
+
+# =========================================================================
 # Main
 # =========================================================================
 
@@ -3356,6 +3452,8 @@ def main():
         "libraries.html", "duplicates.html", "gaps.html",
         "policies.html", "audit_review.html",
         "attractions.html",  # content now lives at index.html (landing tab)
+        # C3 consolidation: 5 standalone pages replaced by audit.html
+        "index.html", "passes.html", "lineage.html", "schema.html", "data_quality.html",
     ):
         try:
             (OUT / stale).unlink()
@@ -3363,27 +3461,12 @@ def main():
         except FileNotFoundError:
             pass
 
-    print("[1/5] index.html (= Attractions landing)")
-    attr_html, missing_image = page_attractions(attr_data, passes_data=passes_data, libs_data=libs_data)
-    # index.html and attractions.html serve the same content; nav highlights via 'current'
-    write("index.html", attr_html)
-
-    print("[2/5] passes.html")
-    write("passes.html", page_passes(passes_data, libs_data, attr_data))
+    print("[1/1] audit.html (single-page, 5 anchor sections)")
     n_patterns = 0  # legacy page_policies retired; no pattern matrix to count
-
-    print("[3/5] lineage.html")
-    write("lineage.html", page_lineage(libs_data, attr_data, passes_data))
-
-    print("[4/5] schema.html")
-    write("schema.html", page_schema())
-
-    print("[5/5] data_quality.html")
-    write("data_quality.html", page_shell(
-        "Data Quality",
-        page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir, status_banner=banner),
-        "data_quality.html",
-    ))
+    audit_html, missing_image = page_audit_single(
+        libs_data, attr_data, passes_data, raw_coupons_dir, status_banner=banner
+    )
+    write("audit.html", audit_html)
 
     print("[assets] style.css + audit.js")
     (ASSETS / "style.css").write_text(CSS, encoding="utf-8")
