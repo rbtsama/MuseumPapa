@@ -4,17 +4,20 @@ interface Props {
   isOpen: boolean;
   onClose: () => void;
   onGetStarted: () => void;
+  /** Optional secondary CTA at the bottom for returning users. When omitted
+   *  the "Already a member? Sign in" link is hidden. */
+  onSignIn?: () => void;
 }
 
 /**
- * Marketing landing modal shown to first-time guests. Single CTA "Get started"
- * → SignInModal; close button dismisses for a week (caller persists the flag).
+ * Marketing landing modal shown to first-time guests. Primary CTA "Get
+ * started" → SignUpModal (new account). Secondary link "Already a member?
+ * Sign in" → SignInModal. Close button dismisses for a week.
  *
  * Designed brand-first: forest-green hero band carrying the headline, a
- * subtitle on the off-white body, and a single high-contrast CTA. No form,
- * no fine print — the goal is "click Get started", nothing else.
+ * subtitle on the off-white body, and a single high-contrast CTA.
  */
-export function LandingPromoModal({ isOpen, onClose, onGetStarted }: Props) {
+export function LandingPromoModal({ isOpen, onClose, onGetStarted, onSignIn }: Props) {
   return (
     <Modal
       isOpen={isOpen}
@@ -131,13 +134,13 @@ export function LandingPromoModal({ isOpen, onClose, onGetStarted }: Props) {
             }}>
               Already a member? <button
                 type="button"
-                onClick={onGetStarted}
+                onClick={onSignIn ?? onGetStarted}
                 style={{
                   background: 'transparent', border: 0, padding: 0, cursor: 'pointer',
-                  color: 'var(--g)', fontWeight: 500, textDecoration: 'underline',
+                  color: 'var(--g)', fontWeight: 600, textDecoration: 'none',
                   fontSize: 11,
                 }}
-              >Sign in</button>
+              >Sign in →</button>
             </p>
           </div>
         </ModalBody>

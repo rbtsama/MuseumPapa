@@ -13,6 +13,7 @@ import { useCardpack } from '../stores/cardpack';
 import { useFavorites } from '../stores/favorites';
 import { geocodeZip } from '../lib/distance';
 import { SignInModal } from '../components/SignInModal';
+import { SignUpModal } from '../components/SignUpModal';
 import { LandingPromoModal } from '../components/LandingPromoModal';
 import { BookingConfirmModal } from '../components/BookingConfirmModal';
 import { isClosedOn } from '../lib/hours';
@@ -31,6 +32,7 @@ export function AttractionsList() {
   const loadFavorites = useFavorites(s => s.load);
 
   const [signInOpen, setSignInOpen] = useState(false);
+  const [signUpOpen, setSignUpOpen] = useState(false);
   // Landing promo: show to first-time guests until they dismiss; respect a
   // 7-day cooldown so we don't badger them every visit.
   const [landingOpen, setLandingOpen] = useState(false);
@@ -90,7 +92,7 @@ export function AttractionsList() {
   };
   const handleLandingGetStarted = () => {
     setLandingOpen(false);
-    setSignInOpen(true);
+    setSignUpOpen(true);   // new users land in sign-up; existing users tap "Already a member? Sign in"
   };
 
   const attractions = useMemo(() => getAttractions(), []);
@@ -219,11 +221,21 @@ export function AttractionsList() {
   return (
     <>
       <Banner onSignInClick={() => setSignInOpen(true)} />
-      <SignInModal isOpen={signInOpen} onClose={() => setSignInOpen(false)} />
+      <SignInModal
+        isOpen={signInOpen}
+        onClose={() => setSignInOpen(false)}
+        onSwitchToSignUp={() => setSignUpOpen(true)}
+      />
+      <SignUpModal
+        isOpen={signUpOpen}
+        onClose={() => setSignUpOpen(false)}
+        onSwitchToSignIn={() => setSignInOpen(true)}
+      />
       <LandingPromoModal
         isOpen={landingOpen}
         onClose={handleLandingClose}
         onGetStarted={handleLandingGetStarted}
+        onSignIn={() => { setLandingOpen(false); setSignInOpen(true); }}
       />
 
       {/* Sticky filter strip — pinned to viewport just under the TopBar.
