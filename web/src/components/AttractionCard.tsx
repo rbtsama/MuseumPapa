@@ -53,7 +53,7 @@ interface Props {
   onBookPass?: (pass: Pass) => void;
 }
 
-const MAX_ROWS_VISIBLE = 4;
+const MAX_ROWS_VISIBLE = 3;
 
 function PersonIcon() {
   return (

@@ -38,74 +38,87 @@ const pass = (
 });
 
 describe('pickTags', () => {
+  // Three libraries at known distances from `userZip` so tests can rely on
+  // a deterministic distance ordering (wak ≈ 0, rea ≈ 2.3 mi, bpl ≈ 9.7 mi).
   const wak = lib('wakefield', { lat: 42.5, lon: -71.07 });
   const rea = lib('reading', { lat: 42.52, lon: -71.10 });
   const bpl = lib('bpl', { lat: 42.36, lon: -71.07 });
   const wil = lib('wilmington', { lat: 42.55, lon: -71.17 });
 
   const userZip = { lat: 42.5, lon: -71.07 };
+  // userCardLibIds containing every library so nothing gets filtered out
+  // unless a test specifically wants that.
+  const everyCard = new Set(['wakefield', 'reading', 'bpl', 'wilmington']);
 
-  it('digital free wins slot 1; other groups fill rest', () => {
+  it('returns at most 3 entries total, with per-type caps (1 digital, 3 each physical)', () => {
+    // 2 digital → only 1 should survive the per-type cap; 5 pickup → 3 survive;
+    // 4 borrow → 3 survive. Overall final cap of 3 then trims by distance.
     const passes = [
       pass('bpl', 'digital', 'free'),
+      pass('wilmington', 'digital', 'free'),
       pass('wakefield', 'physical-coupon', 'half'),
-      pass('reading', 'physical-coupon', 'dollar-off'),
-      pass('wilmington', 'physical-circ', 'free'),
+      pass('reading', 'physical-coupon', 'half'),
+      pass('bpl', 'physical-coupon', 'half'),
+      pass('wilmington', 'physical-coupon', 'half'),
+      pass('wakefield', 'physical-circ', 'free'),
+      pass('reading', 'physical-circ', 'free'),
+      pass('bpl', 'physical-circ', 'free'),
     ];
     const out = pickTags({
-      passes, libraries: [wak, rea, bpl, wil], userCardLibIds: null,
+      passes, libraries: [wak, rea, bpl, wil], userCardLibIds: everyCard,
       date: '2026-05-16', userGeo: userZip,
     });
-    expect(out.length).toBe(4);
-    expect(out[0].pass.library_id).toBe('bpl');
-    expect(out[0].pass.pass_type).toBe('digital');
-    expect(out[1].pass.pass_type).toBe('physical-coupon');
-    expect(out[1].pass.coupon.audience_policies[0].form).toBe('percent-off');
-    expect(out[2].pass.pass_type).toBe('physical-coupon');
-    expect(out[3].pass.pass_type).toBe('physical-circ');
+    expect(out.length).toBe(3);
+    // All three should be closer than wil/bpl (wakefield + reading distance is small).
+    // Distances ascend.
+    for (let i = 1; i < out.length; i++) {
+      expect(out[i].distanceMi).toBeGreaterThanOrEqual(out[i - 1].distanceMi ?? Infinity);
+    }
   });
 
-  it('only one digital tag even when multiple digital passes exist', () => {
+  it('within each pass_type, sort is by distance — no coupon-rank preference', () => {
+    // wakefield (close) has a weaker discount; reading (further) has FREE.
+    // New rule: distance wins. Wakefield must come first.
     const passes = [
-      pass('bpl', 'digital', 'free'),
-      pass('somerville', 'digital', 'half'),
-      pass('cambridge', 'digital', 'half'),
+      pass('reading', 'physical-coupon', 'free'),
+      pass('wakefield', 'physical-coupon', 'percent-low'),
     ];
     const out = pickTags({
-      passes, libraries: [bpl, lib('somerville'), lib('cambridge')], userCardLibIds: null,
-      date: '2026-05-16', userGeo: null,
-    });
-    expect(out.length).toBe(1);
-    expect(out[0].pass.coupon.audience_policies[0].form).toBe('free');
-  });
-
-  it('physical group: discount tier first, then distance', () => {
-    const passes = [
-      pass('reading', 'physical-coupon', 'half'),
-      pass('wakefield', 'physical-coupon', 'half'),
-    ];
-    const out = pickTags({
-      passes, libraries: [wak, rea], userCardLibIds: null,
+      passes, libraries: [wak, rea], userCardLibIds: everyCard,
       date: '2026-05-16', userGeo: userZip,
     });
     expect(out[0].pass.library_id).toBe('wakefield');
   });
 
-  it('tags userHasCard but does not filter', () => {
+  it('drops no-card passes entirely', () => {
     const passes = [
       pass('bpl', 'digital', 'free'),
       pass('wakefield', 'physical-coupon', 'half'),
     ];
+    // User only has the BPL card — wakefield should be filtered out.
     const out = pickTags({
-      passes, libraries: [wak, bpl], userCardLibIds: new Set(['wakefield']),
+      passes, libraries: [wak, bpl], userCardLibIds: new Set(['bpl']),
       date: '2026-05-16', userGeo: null,
     });
-    // Both passes show up — uncovered ones are deprioritized, not filtered.
-    expect(out.length).toBe(2);
-    const wakRow = out.find(t => t.pass.library_id === 'wakefield');
-    const bplRow = out.find(t => t.pass.library_id === 'bpl');
-    expect(wakRow?.userHasCard).toBe(true);
-    expect(bplRow?.userHasCard).toBe(false);
+    expect(out.length).toBe(1);
+    expect(out[0].pass.library_id).toBe('bpl');
+    expect(out[0].userHasCard).toBe(true);
+  });
+
+  it('only one digital tag even when multiple digital passes exist', () => {
+    const passes = [
+      pass('bpl', 'digital', 'free'),
+      pass('wakefield', 'digital', 'half'),
+      pass('reading', 'digital', 'half'),
+    ];
+    const out = pickTags({
+      passes, libraries: [bpl, wak, rea], userCardLibIds: everyCard,
+      date: '2026-05-16', userGeo: userZip,
+    });
+    const digital = out.filter(o => o.pass.pass_type === 'digital');
+    expect(digital.length).toBe(1);
+    // Closest digital should win — wakefield is at the userZip itself.
+    expect(digital[0].pass.library_id).toBe('wakefield');
   });
 
   it('filters out passes whose calendar marks date booked', () => {
@@ -114,22 +127,24 @@ describe('pickTags', () => {
       pass('wakefield', 'physical-coupon', 'half', { '2026-05-16': 'available' }),
     ];
     const out = pickTags({
-      passes, libraries: [wak, bpl], userCardLibIds: null,
+      passes, libraries: [wak, bpl], userCardLibIds: everyCard,
       date: '2026-05-16', userGeo: null,
     });
     expect(out.length).toBe(1);
     expect(out[0].pass.library_id).toBe('wakefield');
   });
 
-  it('caps at maxTags', () => {
+  it('caps at maxTags (default 3, overridable)', () => {
     const passes = Array.from({ length: 10 }, (_, i) =>
       pass(`lib${i}`, 'physical-coupon', 'half'));
     const libs = Array.from({ length: 10 }, (_, i) => lib(`lib${i}`));
+    const userCards = new Set(libs.map(l => l.id));
     const out = pickTags({
-      passes, libraries: libs, userCardLibIds: null,
+      passes, libraries: libs, userCardLibIds: userCards,
       date: '2026-05-16', userGeo: null,
     });
-    expect(out.length).toBe(4);
+    // Per-type cap is 3 for physical-coupon, and overall cap defaults to 3
+    expect(out.length).toBe(3);
   });
 
   it('no candidates returns []', () => {

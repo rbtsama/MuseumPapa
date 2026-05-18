@@ -216,8 +216,8 @@ describe('AttractionCard', () => {
     expect(screen.queryByText(/age </)).not.toBeInTheDocument();
   });
 
-  it('shows "+ N more" when more than 4 tags', () => {
-    const tags = Array.from({ length: 6 }, (_, i) =>
+  it('shows "+ N more" when more than 3 tags (cap matches pickTags maxTags=3)', () => {
+    const tags = Array.from({ length: 5 }, (_, i) =>
       makePickedTag({ library_id: `lib-${i}`, pass_type: 'physical-coupon' }, { id: `lib-${i}`, town: `Town${i}` })
     );
     renderApp(
