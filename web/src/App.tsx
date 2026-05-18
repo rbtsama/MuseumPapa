@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 import { useEffect } from 'react';
 import { TopBar } from './components/TopBar';
+import { ScrollToTop } from './components/ScrollToTop';
 import { AttractionsList } from './pages/AttractionsList';
 import { AttractionDetail } from './pages/AttractionDetail';
 import { MyPasses } from './pages/MyPasses';
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <TopBar />
       <Routes>
         <Route path="/" element={<AttractionsList />} />
