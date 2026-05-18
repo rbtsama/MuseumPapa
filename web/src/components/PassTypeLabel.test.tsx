@@ -14,9 +14,9 @@ describe('PassTypeLabel', () => {
     expect(screen.getByText('Pickup')).toBeInTheDocument();
   });
 
-  it('renders "Pickup & Return" for physical-circ type (the value the data layer actually emits)', () => {
+  it('renders "Borrow" for physical-circ type (the value the data layer actually emits)', () => {
     renderApp(<PassTypeLabel type="physical-circ" />);
-    expect(screen.getByText('Pickup & Return')).toBeInTheDocument();
+    expect(screen.getByText('Borrow')).toBeInTheDocument();
   });
 
   it('renders "Pass" for unknown type', () => {

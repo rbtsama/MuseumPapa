@@ -12,7 +12,7 @@
 <main>
 
 <h1 class="page-title">Attractions<span class="zh-sub">景点 · 97 家可去地点</span></h1>
-<p class="subtitle">本页从景点视角看数据:每条记录 = 一家真实世界的可去地点(博物馆、公园、剧院等),已经把不同图书馆对同一家景点的不同写法合并成一条。下方先给 4 张分布,再讲 3 个跨数据的现象(网络覆盖广度 / 跨馆价差 / 伞型景点),最后是 97 家完整卡片明细。</p>
+<p class="subtitle">本页从景点视角看数据:每条记录 = 一家真实世界的可去地点(博物馆、公园、剧院等),已经把不同图书馆对同一家景点的不同写法合并成一条。下方先给 4 张分布,再列出 97 家完整卡片明细。</p>
 
 <section class="dist-grid">
   <div class="panel dist-panel">
@@ -21,7 +21,7 @@
   </div>
   <div class="panel dist-panel">
     <h3>Hours · 营业模式分布</h3>
-    <table class="histogram"><tr><td>Open with weekly closed days<span class="zh-sub">每周有固定休息日</span></td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">45</td><td class="pct">46%</td></tr><tr><td>Open daily year-round<span class="zh-sub">全年每日开放</span></td><td class="bar-cell"><span class="bar">████████████████████████████████████</span></td><td class="num">41</td><td class="pct">42%</td></tr><tr><td>Multi-site, hours vary<span class="zh-sub">多址各自不同时刻表</span></td><td class="bar-cell"><span class="bar">███████</span></td><td class="num">8</td><td class="pct">8%</td></tr><tr><td>Open only in season<span class="zh-sub">仅特定月份开放</span></td><td class="bar-cell"><span class="bar">███</span></td><td class="num">3</td><td class="pct">3%</td></tr></table>
+    <table class="histogram"><tr><td>Closed days<span class="zh-sub">每周有休息日</span></td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">45</td><td class="pct">46%</td></tr><tr><td>Open daily<span class="zh-sub">每日开放</span></td><td class="bar-cell"><span class="bar">████████████████████████████████████</span></td><td class="num">41</td><td class="pct">42%</td></tr><tr><td>Hours vary<span class="zh-sub">时间不一</span></td><td class="bar-cell"><span class="bar">███████</span></td><td class="num">8</td><td class="pct">8%</td></tr><tr><td>Seasonal<span class="zh-sub">季节性</span></td><td class="bar-cell"><span class="bar">███</span></td><td class="num">3</td><td class="pct">3%</td></tr></table>
   </div>
   <div class="panel dist-panel">
     <h3>Categories · 类别分布</h3>
@@ -31,36 +31,6 @@
     <h3>Field coverage · 字段覆盖率</h3>
     <table class="histogram"><tr><td>hero image</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">97</td><td class="pct">100%</td></tr><tr><td>hours</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">97</td><td class="pct">100%</td></tr><tr><td>geo</td><td class="bar-cell"><span class="bar">████████████████████████████████████████</span></td><td class="num">96</td><td class="pct">99%</td></tr><tr><td>description</td><td class="bar-cell"><span class="bar">██████████████████████████████████████</span></td><td class="num">93</td><td class="pct">96%</td></tr><tr><td>address</td><td class="bar-cell"><span class="bar">█████████████████████████████████████</span></td><td class="num">90</td><td class="pct">93%</td></tr><tr><td>phone</td><td class="bar-cell"><span class="bar">█████████████████████████████████████</span></td><td class="num">89</td><td class="pct">92%</td></tr><tr><td>price (any tier)</td><td class="bar-cell"><span class="bar">███████████████████████████████</span></td><td class="num">74</td><td class="pct">76%</td></tr></table>
   </div>
-</section>
-
-<section class="panel passes-section" id="a-top">
-  <h3>Network coverage · top 10<span class="zh-sub">网络覆盖广度 · 哪些景点被最多馆覆盖</span></h3>
-  <p class="section-what"><b>What it is · 这是什么:</b> 每条景点记录里有 <code>sources</code> 字段,列出哪些图书馆把它放进了卡套。这一栏的数字就是该景点出现在几个馆的 pass 程序里。</p>
-  <table class="data-table">
-    <thead><tr><th>slug</th><th>name</th><th></th><th class="num">libraries</th></tr></thead>
-    <tbody><tr><td class="mono">mfa</td><td>Museum of Fine Arts</td><td class="bar-cell"><span class="bar">██████████████████████████████</span></td><td class="num">59</td></tr><tr><td class="mono">new-england-aquarium</td><td>New England Aquarium</td><td class="bar-cell"><span class="bar">██████████████████████████████</span></td><td class="num">59</td></tr><tr><td class="mono">museum-of-science</td><td>Museum of Science</td><td class="bar-cell"><span class="bar">█████████████████████████████</span></td><td class="num">58</td></tr><tr><td class="mono">zoo-new-england</td><td>Zoo New England</td><td class="bar-cell"><span class="bar">█████████████████████████████</span></td><td class="num">58</td></tr><tr><td class="mono">boston-childrens-museum</td><td>Boston Children&#x27;s Museum</td><td class="bar-cell"><span class="bar">█████████████████████████████</span></td><td class="num">57</td></tr><tr><td class="mono">ma-state-parks</td><td>Massachusetts State Parks (Department </td><td class="bar-cell"><span class="bar">██████████████████████████</span></td><td class="num">51</td></tr><tr><td class="mono">peabody-essex-museum</td><td>Peabody Essex Museum</td><td class="bar-cell"><span class="bar">████████████████████████</span></td><td class="num">48</td></tr><tr><td class="mono">isabella-stewart-gardner-museum</td><td>Isabella Stewart Gardner Museum</td><td class="bar-cell"><span class="bar">████████████████████████</span></td><td class="num">47</td></tr><tr><td class="mono">trustees-of-reservations</td><td>Trustees of Reservations (with deCordo</td><td class="bar-cell"><span class="bar">██████████████████████</span></td><td class="num">44</td></tr><tr><td class="mono">ica-boston</td><td>Institute of Contemporary Art/Boston</td><td class="bar-cell"><span class="bar">█████████████████</span></td><td class="num">34</td></tr></tbody>
-  </table>
-  <div class="section-meaning"><b>What it means · 含义:</b> 排前面的景点是产品里"必抓"的——任何一个 NorthShore 用户、不论持哪张卡,大概率都能用上 MFA / Boston Children's Museum / Salem Witch Museum 等。这些值得在 UI 上突出展示,而长尾景点(只 1-3 个馆覆盖)对持单卡用户的可达性低,适合按"你卡上有的景点"过滤。</div>
-</section>
-
-<section class="panel passes-section" id="a-variance">
-  <h3>Cross-library price variance<span class="zh-sub">同景点跨馆价差 · 真实数据,不是 bug</span></h3>
-  <p class="section-what"><b>What it is · 这是什么:</b> 同一家景点在不同图书馆的折后价不一样。每家馆和景点单独谈协议价,所以会出现 Salem Witch Museum 在 12 个馆中折后价分 4 档($13.25 / $13.5 / $13.75 / $14)的情况。</p>
-  <table class="data-table">
-    <thead><tr><th>attraction</th><th>distinct adult prices across libraries</th><th class="num">libs reporting</th></tr></thead>
-    <tbody><tr><td class="mono">mfa</td><td>$10 × 15, $15 × 42</td><td class="num">57</td></tr><tr><td class="mono">plimoth-patuxet</td><td>$16 × 1, $18 × 15</td><td class="num">16</td></tr><tr><td class="mono">salem-witch-museum</td><td>$13.25 × 2, $13.5 × 3, $13.75 × 1, $14 × 6</td><td class="num">12</td></tr></tbody>
-  </table>
-  <div class="section-meaning"><b>What it means · 含义:</b> 这不是抽取错误,是产品本身的特征——前端不应把同景点的多个价格平均掉,而应展示"你这张卡的协议价是 $X,旁边那张卡是 $Y"。对持多卡用户这是关键决策信息;对持单卡用户隐藏即可。</div>
-</section>
-
-<section class="panel passes-section" id="a-umbrella">
-  <h3>Umbrella attractions<span class="zh-sub">伞型景点 · 一个 slug 涵盖几十个分馆</span></h3>
-  <p class="section-what"><b>What it is · 这是什么:</b> 像 <code>ma-state-parks</code>(50+ 馆覆盖,实际背后 450+ 处州立公园)或 <code>trustees-of-reservations</code>(44 馆覆盖,实际 120+ 处自然保护地)这种,一个 slug 后面挂着许多分馆/分园,每个分馆开放时间和票价都不同。</p>
-  <table class="data-table">
-    <thead><tr><th>slug</th><th>name</th><th class="num">libs</th><th>hours.notes</th></tr></thead>
-    <tbody><tr><td class="mono">ma-state-parks</td><td>Massachusetts State Parks (Department of Conse</td><td class="num">51</td><td class="notes-cell">Massachusetts DCR operates 450+ parks, beaches, and forests, each with different hours. No single schedule applies. Most</td></tr><tr><td class="mono">trustees-of-reservations</td><td>Trustees of Reservations (with deCordova Sculp</td><td class="num">44</td><td class="notes-cell">The Trustees GO Pass covers 120+ properties across Massachusetts, each with its own hours. No single schedule applies. S</td></tr><tr><td class="mono">mass-audubon</td><td>Mass Audubon</td><td class="num">14</td><td class="notes-cell">Mass Audubon pass provides access to 60+ wildlife sanctuaries across Massachusetts, each with different hours. No single</td></tr><tr><td class="mono">historic-new-england</td><td>Historic New England</td><td class="num">10</td><td class="notes-cell">Multiple properties with varying hours; no single schedule applies.</td></tr><tr><td class="mono">new-hampshire-philharmonic-orchestra</td><td>New Hampshire Philharmonic Orchestra</td><td class="num">3</td><td class="notes-cell">Concert series venue — no fixed visiting hours. Concerts typically begin at 2:00 PM on scheduled performance dates. Held</td></tr><tr><td class="mono">american-repertory-theater</td><td>American Repertory Theater</td><td class="num">3</td><td class="notes-cell">Box office hours Tue–Sat Noon–5 PM. Performance schedule varies; show times are separate from box office hours.</td></tr><tr><td class="mono">wheelock-family-theatre</td><td>Wheelock Family Theatre</td><td class="num">1</td><td class="notes-cell">Performance venue — no fixed visiting hours. Shows and box office hours vary by production schedule.</td></tr><tr><td class="mono">greater-boston-stage-company</td><td>Greater Boston Stage Company</td><td class="num">1</td><td class="notes-cell">Performance venue — no fixed visiting hours. Show schedules vary by production. Box office hours vary seasonally.</td></tr></tbody>
-  </table>
-  <div class="section-meaning"><b>What it means · 含义:</b> 我们的"一个 slug = 一个价 + 一份时间"模型表达不了这种结构。前端遇到这类景点要显式提示"包含多处分馆,请到 [景点官网] 查具体地点的开放时间",而不是把单一时间塞到所有分馆。<b>不是数据 bug,是上游产品结构问题。</b></div>
 </section>
 
 <h2 class="section-title">明细 · Full cards</h2>

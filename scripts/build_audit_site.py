@@ -295,7 +295,7 @@ def bilingual(label: str) -> str:
 _PT_DISPLAY_LABEL = {
     "digital": "Email",
     "physical-coupon": "Pickup",
-    "physical-circ": "Pickup & Return",
+    "physical-circ": "Borrow",
     "unknown": "Pass",
 }
 
@@ -1061,10 +1061,10 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
         else:
             hours_status_counter["bucket_nodata"] += 1
     hours_label_map = {
-        "bucket_open_daily": "Open daily year-round · 全年每日开放",
-        "bucket_partial":    "Open with weekly closed days · 每周有固定休息日",
-        "bucket_seasonal":   "Open only in season · 仅特定月份开放",
-        "bucket_varies":     "Multi-site, hours vary · 多址各自不同时刻表",
+        "bucket_open_daily": "Open daily · 每日开放",
+        "bucket_partial":    "Closed days · 每周有休息日",
+        "bucket_seasonal":   "Seasonal · 季节性",
+        "bucket_varies":     "Hours vary · 时间不一",
         "bucket_nodata":     "Unknown · 未知",
     }
     # Categories — read straight from data layer (already normalized by build/categories.py)
@@ -1085,62 +1085,10 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
         if A.get("phone"): cov_counter["phone"] += 1
         if A.get("geo"): cov_counter["geo"] += 1
         if A.get("address"): cov_counter["address"] += 1
-    # Top 10 attractions by # libraries offering
-    top_attrs = sorted(attrs, key=lambda a: -len(a.get("sources") or []))[:10]
-    top_max = max(1, len(top_attrs[0].get("sources") or []))
-    top_attrs_html = "".join(
-        f'<tr><td class="mono">{esc(a["slug"])}</td>'
-        f'<td>{esc((a.get("museum_name") or "")[:38])}</td>'
-        f'<td class="bar-cell"><span class="bar">{"█" * round(30 * len(a.get("sources") or []) / top_max)}</span></td>'
-        f'<td class="num">{len(a.get("sources") or [])}</td></tr>'
-        for a in top_attrs
-    )
-
-    # Umbrella attractions — slugs whose hours.notes say "multiple properties /
-    # no single schedule applies / hours vary". These cover many real-world venues.
-    UMBRELLA_PHRASES = ("multiple", "varies", "no single", "no fixed",
-                        "each property", "each home", "production",
-                        "120+", "116", "450+")
-    umbrella_rows = []
-    for a in attrs:
-        h = a.get("hours") or {}
-        notes = (h.get("notes") or "").lower()
-        if any(ph in notes for ph in UMBRELLA_PHRASES):
-            umbrella_rows.append(a)
-    umbrella_rows.sort(key=lambda a: -len(a.get("sources") or []))
-    umbrella_html = "".join(
-        f'<tr><td class="mono">{esc(a["slug"])}</td>'
-        f'<td>{esc((a.get("museum_name") or "")[:46])}</td>'
-        f'<td class="num">{len(a.get("sources") or [])}</td>'
-        f'<td class="notes-cell">{esc((a.get("hours") or {}).get("notes") or "")[:120]}</td></tr>'
-        for a in umbrella_rows[:8]
-    )
-
-    # Cross-library adult-price variance — same attraction, different per-person
-    # rates across libraries. Real product info (each library negotiates its own
-    # rate), not extraction noise.
-    adult_price_by_slug = defaultdict(Counter)
-    for _p in passes_list:
-        for ap in (_p.get("coupon") or {}).get("audience_policies") or []:
-            if ap.get("form") == "per-person-price" and ap.get("audience") in ("Everyone", "Adult"):
-                v = ap.get("value")
-                if v is not None:
-                    adult_price_by_slug[_p["attraction_slug"]][v] += 1
-    variance_rows = []
-    for slug, ctr in adult_price_by_slug.items():
-        if len(ctr) >= 2:
-            variance_rows.append((slug, ctr))
-    variance_rows.sort(key=lambda x: -sum(x[1].values()))
-    variance_html = "".join(
-        f'<tr><td class="mono">{esc(slug)}</td>'
-        f'<td>{", ".join(f"${k} × {v}" for k, v in sorted(ctr.items()))}</td>'
-        f'<td class="num">{sum(ctr.values())}</td></tr>'
-        for slug, ctr in variance_rows
-    )
 
     body = f"""
 <h1 class="page-title">Attractions<span class="zh-sub">景点 · {n_attrs} 家可去地点</span></h1>
-<p class="subtitle">本页从景点视角看数据:每条记录 = 一家真实世界的可去地点(博物馆、公园、剧院等),已经把不同图书馆对同一家景点的不同写法合并成一条。下方先给 4 张分布,再讲 3 个跨数据的现象(网络覆盖广度 / 跨馆价差 / 伞型景点),最后是 97 家完整卡片明细。</p>
+<p class="subtitle">本页从景点视角看数据:每条记录 = 一家真实世界的可去地点(博物馆、公园、剧院等),已经把不同图书馆对同一家景点的不同写法合并成一条。下方先给 4 张分布,再列出 {n_attrs} 家完整卡片明细。</p>
 
 <section class="dist-grid">
   <div class="panel dist-panel">
@@ -1159,36 +1107,6 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
     <h3>Field coverage · 字段覆盖率</h3>
     {histogram_table(cov_counter, n_attrs)}
   </div>
-</section>
-
-<section class="panel passes-section" id="a-top">
-  <h3>Network coverage · top 10<span class="zh-sub">网络覆盖广度 · 哪些景点被最多馆覆盖</span></h3>
-  <p class="section-what"><b>What it is · 这是什么:</b> 每条景点记录里有 <code>sources</code> 字段,列出哪些图书馆把它放进了卡套。这一栏的数字就是该景点出现在几个馆的 pass 程序里。</p>
-  <table class="data-table">
-    <thead><tr><th>slug</th><th>name</th><th></th><th class="num">libraries</th></tr></thead>
-    <tbody>{top_attrs_html}</tbody>
-  </table>
-  <div class="section-meaning"><b>What it means · 含义:</b> 排前面的景点是产品里"必抓"的——任何一个 NorthShore 用户、不论持哪张卡,大概率都能用上 MFA / Boston Children's Museum / Salem Witch Museum 等。这些值得在 UI 上突出展示,而长尾景点(只 1-3 个馆覆盖)对持单卡用户的可达性低,适合按"你卡上有的景点"过滤。</div>
-</section>
-
-<section class="panel passes-section" id="a-variance">
-  <h3>Cross-library price variance<span class="zh-sub">同景点跨馆价差 · 真实数据,不是 bug</span></h3>
-  <p class="section-what"><b>What it is · 这是什么:</b> 同一家景点在不同图书馆的折后价不一样。每家馆和景点单独谈协议价,所以会出现 Salem Witch Museum 在 12 个馆中折后价分 4 档($13.25 / $13.5 / $13.75 / $14)的情况。</p>
-  <table class="data-table">
-    <thead><tr><th>attraction</th><th>distinct adult prices across libraries</th><th class="num">libs reporting</th></tr></thead>
-    <tbody>{variance_html if variance_html else '<tr><td colspan="3" class="honest-gap">no cross-library variance detected</td></tr>'}</tbody>
-  </table>
-  <div class="section-meaning"><b>What it means · 含义:</b> 这不是抽取错误,是产品本身的特征——前端不应把同景点的多个价格平均掉,而应展示"你这张卡的协议价是 $X,旁边那张卡是 $Y"。对持多卡用户这是关键决策信息;对持单卡用户隐藏即可。</div>
-</section>
-
-<section class="panel passes-section" id="a-umbrella">
-  <h3>Umbrella attractions<span class="zh-sub">伞型景点 · 一个 slug 涵盖几十个分馆</span></h3>
-  <p class="section-what"><b>What it is · 这是什么:</b> 像 <code>ma-state-parks</code>(50+ 馆覆盖,实际背后 450+ 处州立公园)或 <code>trustees-of-reservations</code>(44 馆覆盖,实际 120+ 处自然保护地)这种,一个 slug 后面挂着许多分馆/分园,每个分馆开放时间和票价都不同。</p>
-  <table class="data-table">
-    <thead><tr><th>slug</th><th>name</th><th class="num">libs</th><th>hours.notes</th></tr></thead>
-    <tbody>{umbrella_html}</tbody>
-  </table>
-  <div class="section-meaning"><b>What it means · 含义:</b> 我们的"一个 slug = 一个价 + 一份时间"模型表达不了这种结构。前端遇到这类景点要显式提示"包含多处分馆,请到 [景点官网] 查具体地点的开放时间",而不是把单一时间塞到所有分馆。<b>不是数据 bug,是上游产品结构问题。</b></div>
 </section>
 
 <h2 class="section-title">明细 · Full cards</h2>
@@ -1264,6 +1182,7 @@ def page_passes(passes_data, libs_data, attr_data) -> str:
         "每条 pass = 一家图书馆 × 一家景点 × 一份优惠条件。同一家景点可能在多个图书馆出现,"
         "但每条 pass 的取卡方式、折扣力度、能用几人都可能不同——所以不会被去重成一条。"
     )
+    n_attrs_total = len(attr_data["attractions"])
     s1_bars = (
         f'<tr><td><b>Total passes</b><span class="zh-sub">优惠券总数</span></td>'
         f'<td></td><td class="num">{n_passes}</td><td class="pct">—</td></tr>'
@@ -1271,11 +1190,8 @@ def page_passes(passes_data, libs_data, attr_data) -> str:
         f'<td></td><td class="num">{n_libs_with_passes} / {len(libs)}</td>'
         f'<td class="pct">{n_libs_with_passes/len(libs)*100:.0f}%</td></tr>'
         f'<tr><td><b>Attractions covered</b><span class="zh-sub">覆盖景点</span></td>'
-        f'<td></td><td class="num">{n_attrs_with_passes}</td><td class="pct">—</td></tr>'
-        f'<tr><td><b>Passes per library (mean)</b><span class="zh-sub">每馆平均 pass 数</span></td>'
-        f'<td></td><td class="num">{passes_per_lib:.1f}</td><td class="pct">—</td></tr>'
-        f'<tr><td><b>Libraries per attraction (mean)</b><span class="zh-sub">每景点平均覆盖馆数</span></td>'
-        f'<td></td><td class="num">{libs_per_attr_mean:.1f}</td><td class="pct">—</td></tr>'
+        f'<td></td><td class="num">{n_attrs_with_passes} / {n_attrs_total}</td>'
+        f'<td class="pct">{n_attrs_with_passes/n_attrs_total*100:.0f}%</td></tr>'
     )
     s1_meaning = (
         "<ul>"
@@ -1730,7 +1646,7 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     _pt_label = {
         "digital": "Email · 邮件直接收",
         "physical-coupon": "Pickup · 馆里取一次",
-        "physical-circ": "Pickup & Return · 馆里取 + 还回去",
+        "physical-circ": "Borrow · 馆里借,看完还回去",
         "unknown": "Pass · 未分类",
     }
     _form_label = {
@@ -2269,7 +2185,7 @@ def page_schema() -> str:
         ("attraction_slug", "string", "Foreign key to attractions.slug.",
          "外键指向 attractions.slug。",
          "Identifies which venue the pass admits the user to."),
-        ("pass_type", "enum", "digital (Email) / physical-coupon (Pickup) / physical-circ (Pickup & Return) / unknown.",
+        ("pass_type", "enum", "digital (Email) / physical-coupon (Pickup) / physical-circ (Borrow) / unknown.",
          "通行证形态:digital 邮件 / physical-coupon 门店取一次性纸券 / physical-circ 循环借阅卡 / unknown 未分类。",
          "Determines pickup workflow shown to the user."),
         ("source_url", "url", "Library page where this pass is described.",
