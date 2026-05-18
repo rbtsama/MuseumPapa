@@ -13,15 +13,7 @@ interface CouponRowProps {
   onBook: (pass: Pass) => void;
 }
 
-/**
- * Single coupon row. Visual format matches `AttractionCard`'s per-pass row so
- * the detail page and list page read identically. Kept as a focused component
- * so it can also slot back into the list card in the future.
- *
- * No-card sub-label is preserved for future list-page reuse. On the detail
- * page no-card rows are filtered out upstream, so `userHasCard` is always true
- * there.
- */
+/** Shared coupon row used by the detail page and the list card. */
 export function CouponRow({
   pass, library, distanceMi, userHasCard, showTopBorder = true, onBook,
 }: CouponRowProps) {

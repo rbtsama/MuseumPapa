@@ -194,9 +194,6 @@ function LibraryRow({ libraryName, town, card, hasCard, onAdd, onSave, onRemove 
 
       {hasCard && open && (
         <div style={{ padding: '4px 4px 14px 30px' }}>
-          {/* Card number + Save on one row. PIN was dropped — only the
-              barcode is ever pasted into the library's pickup form, and
-              we don't need to collect the user's PIN. */}
           <div className="flex items-center gap-2">
             <Input
               size="sm"

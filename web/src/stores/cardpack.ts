@@ -2,10 +2,6 @@ import { create } from 'zustand';
 import { lsGetUser, lsSetUser } from '../lib/localStorage';
 
 export interface LibraryCard {
-  // The library-card barcode the user enters at /settings/passes. Only field
-  // we collect — PIN was deliberately removed (we don't ask for PII beyond
-  // what's needed, and the library's pickup page can only autofill one
-  // thing from clipboard anyway).
   barcode: string;
 }
 

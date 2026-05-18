@@ -61,9 +61,6 @@ export function AttractionCard({
         <FavoriteButton slug={attraction.slug} variant="overlay" />
       </div>
 
-      {/* Header: square 70×70 hero with rounded corners; standard p-3 padding
-          around the whole header so the image and meta both sit inside the
-          card's content gutters. */}
       <div className="flex gap-3 p-3" style={dim}>
         <img
           src={heroSrc(attraction)}
@@ -149,9 +146,6 @@ export function AttractionCard({
                 style={{ borderTop: i === 0 ? 'none' : '1px solid var(--rule)' }}
               >
                 <div className="flex-grow min-w-0 flex flex-col gap-0.5">
-                  {/* Row 1: location + distance only — the type label moved
-                      down to the coupon row where it sits naturally with the
-                      pricing details. */}
                   <div className="flex items-center gap-1.5 min-w-0" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
                     <span style={{ color: 'var(--ink-2)', fontWeight: 500, fontSize: 13,
                       overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
@@ -163,15 +157,7 @@ export function AttractionCard({
                       </span>
                     )}
                   </div>
-                  {/* Row 2: [Type label] price1 · price2 · ... (up to N).
-                      Capacity now lives in a small trailing parenthetical
-                      instead of a leading person-icon group, so the eye
-                      scans prices first. */}
-                  {/* Center alignment, not baseline: the type pill has a
-                      border/padding that makes it taller than the plain price
-                      text, and the row mixes 11/12/13px tokens. items-center
-                      gives all three (pill, prices, "(up to N)") a single
-                      shared vertical midline. */}
+                  {/* items-center (not baseline): the type pill is taller than plain text, so all three elements share one midline. */}
                   <div className="flex items-center flex-wrap gap-x-1.5 gap-y-0.5 min-w-0">
                     <PassTypeLabel type={t.pass.pass_type} />
                     <CouponLine coupon={t.pass.coupon} align="left" />
