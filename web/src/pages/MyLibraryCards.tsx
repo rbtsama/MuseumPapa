@@ -144,8 +144,6 @@ function LibraryRow({ libraryName, town, card, hasCard, onAdd, onSave, onRemove 
     setOpen(o => !o);
   };
 
-  const filled = !!card?.barcode;
-
   return (
     <div style={{ borderBottom: '1px solid var(--rule)' }}>
       {/* Row header — single tap target. Left indicator pill shows status,

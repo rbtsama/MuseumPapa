@@ -53,7 +53,7 @@ export function AttractionsList() {
   // changes sort/date/category (or first mount). This prevents the list from
   // jumping when the user taps a heart — they don't want the card they just
   // favorited to suddenly vanish to the top.
-  const [favSnapshot, setFavSnapshot] = useState<Set<string>>(() => new Set());
+  const [_favSnapshot, setFavSnapshot] = useState<Set<string>>(() => new Set());
 
   useEffect(() => {
     loadCardpack(user?.username ?? null);

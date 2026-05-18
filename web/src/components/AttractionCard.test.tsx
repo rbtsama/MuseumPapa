@@ -92,6 +92,7 @@ function makePickedTag(passOverrides: Partial<Pass> = {}, libOverrides: Partial<
     pass: makePass(passOverrides),
     library: makeLibrary(libOverrides),
     distanceMi: null,
+    userHasCard: true,
   };
 }
 
@@ -165,7 +166,7 @@ describe('AttractionCard', () => {
   it('clicking Book button fires onBookPass with the pass', () => {
     const onBookPass = vi.fn();
     const pass = makePass();
-    const tags: PickedTag[] = [{ pass, library: makeLibrary(), distanceMi: null }];
+    const tags: PickedTag[] = [{ pass, library: makeLibrary(), distanceMi: null, userHasCard: true }];
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
