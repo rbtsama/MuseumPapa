@@ -45,11 +45,13 @@ export function pickTags(input: PickTagsInput): PickedTag[] {
 
   const candidates: PickedTag[] = [];
   for (const pass of passes) {
-    // Align with AttractionDetail: missing date = available (scrape failure or
-    // future-window date should not silently hide a pass).
+    // Honest availability: when the pass has a calendar dict, the date must
+    // carry an explicit 'available'. `undefined` means we never scraped that
+    // date (out-of-window or blank) — don't fake green. When availability is
+    // null the pass has no calendar (e.g. MuseumKey, login-only); show it
+    // best-effort instead of hiding.
     if (pass.availability) {
-      const status = pass.availability[date];
-      if (status !== undefined && status !== 'available') continue;
+      if (pass.availability[date] !== 'available') continue;
     }
     if (passBlockedByRestrictions(pass.restrictions, date)) continue;
     const library = libById.get(pass.library_id);

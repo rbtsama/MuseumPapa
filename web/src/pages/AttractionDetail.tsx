@@ -78,18 +78,39 @@ export function AttractionDetail() {
     [user, cardpack.cards],
   );
 
-  // Six-month pill row starting from today's month
+  // Data horizon: latest date for which we have any real scraped availability
+  // across all passes for this attraction. Used to cap the month-pill row so
+  // we never advertise months we never scraped.
+  const dataHorizon = useMemo(() => {
+    let max = '';
+    for (const p of allPasses) {
+      if (!p.availability) continue;
+      for (const d in p.availability) {
+        if (d > max) max = d;
+      }
+    }
+    return max; // 'YYYY-MM-DD' or '' when no pass has a calendar (e.g. MuseumKey-only attractions)
+  }, [allPasses]);
+
+  // Six-month pill row starting from today's month, capped at the data horizon.
+  // No fake months — if scrape only covers June, the user only sees a June pill.
+  // When dataHorizon is empty (no calendar anywhere), fall back to the current
+  // month so the page still renders something useful.
   const monthPills = useMemo(() => {
     const out: string[] = [];
     const base = new Date(`${today}T00:00:00`);
     base.setDate(1);
+    const horizonMonth = dataHorizon.slice(0, 7);
     for (let i = 0; i < 6; i++) {
       const d = new Date(base);
       d.setMonth(base.getMonth() + i);
-      out.push(`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`);
+      const m = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+      if (horizonMonth && m > horizonMonth) break;
+      out.push(m);
+      if (!horizonMonth) break; // no scraped data anywhere → only show current month
     }
     return out;
-  }, [today]);
+  }, [today, dataHorizon]);
 
   // Dates in the currently-selected month (1..lastDay).
   const datesOfMonth = useMemo(() => {
@@ -107,8 +128,14 @@ export function AttractionDetail() {
       const library = libById.get(pass.library_id);
       if (!library) continue;
       if (passBlockedByRestrictions(pass.restrictions, date)) continue;
-      const availStatus = pass.availability?.[date];
-      const available = availStatus === 'available' || availStatus === undefined;
+      // Honest availability: require explicit 'available' from the scraper.
+      // - pass.availability === null  → no calendar known (e.g. MuseumKey, login-only)
+      //   show the pass best-effort, no calendar to filter against.
+      // - pass.availability is a dict → date must carry an explicit 'available'.
+      //   `undefined` means we never scraped that date; don't fake green.
+      const available = pass.availability === null
+        ? true
+        : pass.availability[date] === 'available';
       const dist = userGeo && library.geo ? haversineMiles(userGeo, library.geo) : null;
       const userHasCard = userCardLibIds ? userCardLibIds.has(pass.library_id) : true;
       rows.push({ pass, library, distanceMi: dist, available, userHasCard });
