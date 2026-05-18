@@ -1402,49 +1402,77 @@ def page_passes(passes_data, libs_data, attr_data) -> str:
         "</ul>"
     )
 
-    # === Section 7: restrictions ===
+    # === Section 7+8: restrictions, split into two dimensions ===
+    # Date-when (which days can the pass be used)  vs.  How-to-book (does the
+    # user need to reserve a time-slot first). These are independent — a pass
+    # can be seasonal AND require reservation, or neither, or either.
     restr_counter = Counter()
-    n_with_r = 0
+    n_date_restricted = 0
+    n_booking_restricted = 0
     for p in passes:
         r = p.get("restrictions") or {}
-        if r: n_with_r += 1
         if r.get("blackout_dates"): restr_counter["blackout"] += 1
         if r.get("weekdays_only"): restr_counter["weekdays_only"] += 1
         if r.get("seasonal"): restr_counter["seasonal"] += 1
         if r.get("reservation_required"): restr_counter["reservation_required"] += 1
+        if r.get("blackout_dates") or r.get("weekdays_only") or r.get("seasonal"):
+            n_date_restricted += 1
+        if r.get("reservation_required"):
+            n_booking_restricted += 1
     s7_what = (
-        "<code>restrictions</code> 字段记录这张 pass 哪天不能用 / 要不要预约。"
-        f"全部 {n_passes} 张中有 <b>{n_with_r}</b> 张带某种限制(其余无限制,任意可用日都成立)。"
-        "前端把这些限制渲染成 ⚠ 角标,但不会因此把 pass 排除——只是提醒。"
+        "这一维度回答<b>哪些日期能用这张 pass</b>。三种形态:整段季节才开放、特定黑名单日不让用、仅工作日。"
+        f"全部 {n_passes} 张中 <b>{n_date_restricted}</b> 张带日期约束;其余任何一天都可用。"
+        "前端会把这些日子在日历上标 ⚠ 但不会把 pass 整张藏掉。"
     )
+    denom_7 = n_date_restricted if n_date_restricted else 1
     s7_bars = (
         _bar_row("Seasonal · 季节性",
                  "夏/秋限定开放 · 户外岛屿、季节公园",
-                 restr_counter["seasonal"], n_with_r if n_with_r else 1)
+                 restr_counter["seasonal"], denom_7)
         + _bar_row("Blackout dates · 黑名单日",
                    "特定日期禁用 · 节假日 / 特展日",
-                   restr_counter["blackout"], n_with_r if n_with_r else 1)
+                   restr_counter["blackout"], denom_7)
         + _bar_row("Weekdays only · 仅工作日",
                    "周末不可用 · 多见于剧院 / 教育型场所",
-                   restr_counter["weekdays_only"], n_with_r if n_with_r else 1)
-        + _bar_row("Reservation required · 必须预约",
-                   "不能 walk-in · 提前订时段",
-                   restr_counter["reservation_required"], n_with_r if n_with_r else 1)
+                   restr_counter["weekdays_only"], denom_7)
     )
     s7_meaning = (
         "<ul>"
-        "<li><b>69 / 1026 张(6.7%)</b>带某种限制——比例不高,但都是日历层面的硬约束,前端不能不展示。</li>"
-        "<li><b>季节性 40 张</b>占多数,典型场景:Boston Harbor Islands、Crane Beach 这种夏/秋限定的户外目的地。"
-        "winter 时用户能看到 pass 但日历全灰。</li>"
-        "<li><b>blackout 29 张</b>——通常是图书馆和景点谈下'特定日子不让用'的协议(节假日、特展开幕)。"
-        "前端把这些日期日历格变 ⚠,点开告诉用户原因。</li>"
-        "<li><b>reservation_required</b> 在这版数据里是 0,但 schema 留着——多见于热门博物馆,后续抓到再填。</li>"
+        f"<li><b>{n_date_restricted} / {n_passes} 张({n_date_restricted/n_passes*100:.1f}%)</b>带日期约束——比例不高,但每条都是日历层面的硬约束,前端不能不展示。</li>"
+        f"<li><b>Seasonal {restr_counter['seasonal']} 张</b>占多数,典型场景:Boston Harbor Islands、Crane Beach 这种夏/秋限定的户外目的地。winter 时用户能看到 pass 但日历全灰。</li>"
+        f"<li><b>Blackout {restr_counter['blackout']} 张</b>——通常是图书馆和景点谈下\"特定日子不让用\"的协议(节假日、特展开幕)。前端把这些日期日历格变 ⚠,点开告诉用户原因。</li>"
+        f"<li><b>Weekdays only {restr_counter['weekdays_only']} 张</b>——周末不可用,常见于剧院或教育型场所。</li>"
+        "</ul>"
+    )
+
+    s8_what = (
+        "这一维度回答<b>用户能不能 walk-in</b>。两种形态:① 拿到 pass 就直接进、当天到馆出示;② 必须先在景点官网预订时段,迟到不退。"
+        f"全部 {n_passes} 张中 <b>{n_booking_restricted}</b> 张要求预约,其余 walk-in 友好。"
+        "这跟日期约束<b>正交</b>——一张 pass 可以同时季节性且需预约。"
+    )
+    s8_bars = (
+        _bar_row("Walk-in friendly · 直接到馆",
+                 "拿券就进,无须预订时段",
+                 n_passes - n_booking_restricted, n_passes)
+        + _bar_row("Reservation required · 必须预约",
+                   "得先在景点官网订时段,迟到不退",
+                   n_booking_restricted, n_passes)
+    )
+    s8_meaning = (
+        "<ul>"
+        f"<li><b>{n_booking_restricted} / {n_passes}</b>"
+        + ("</b>——本期数据里这个字段全是 false,schema 留着是给后续抓热门博物馆用的(MFA / ICA 这种通常要预约)。前端逻辑已经 ready,有数据就能立刻生效。"
+           if n_booking_restricted == 0
+           else f" 张</b>需要预约。前端给这部分 pass 标 \"⚠ 必须提前预约\",并直接跳转到景点官网订时段。")
+        + "</li>"
+        "<li>为什么单独拆一节:日期约束告诉你<b>能不能用</b>,预约约束告诉你<b>怎么用</b>——产品上两件事。"
+        "一张 pass 可能两个都带(比如 seasonal + reservation_required),也可能两个都不带(最自由)。</li>"
         "</ul>"
     )
 
     body = f"""
-<h1 class="page-title">Passes<span class="zh-sub">优惠券 · 7 个角度看 {n_passes} 条 pass</span></h1>
-<p class="subtitle">每张 pass = 1 家图书馆 × 1 家景点 × 1 份优惠条件。本页从 7 个维度告诉你这 {n_passes} 条 pass 是什么、分布怎样、对产品意味着什么。下方每节按 <b>What it is · 分布 · What it means</b> 三段写,跳过 ID 字段——明细查 <a href="schema.html">Schema</a>,边界案例查 <a href="data_quality.html">Data Quality</a>。</p>
+<h1 class="page-title">Passes<span class="zh-sub">优惠券 · 8 个角度看 {n_passes} 条 pass</span></h1>
+<p class="subtitle">每张 pass = 1 家图书馆 × 1 家景点 × 1 份优惠条件。本页从 8 个维度告诉你这 {n_passes} 条 pass 是什么、分布怎样、对产品意味着什么。下方每节按 <b>What it is · 分布 · What it means</b> 三段写,跳过 ID 字段——明细查 <a href="schema.html">Schema</a>,边界案例查 <a href="data_quality.html">Data Quality</a>。</p>
 
 {_passes_section("p1", "1 · What is a Pass", "什么是一张 Pass", s1_what, s1_bars, s1_meaning)}
 {_passes_section("p2", "2 · Acquisition path (Platform)", "取卡途径 · 数据来自哪 3 个系统", s2_what, s2_bars, s2_meaning)}
@@ -1452,7 +1480,8 @@ def page_passes(passes_data, libs_data, attr_data) -> str:
 {_passes_section("p4", "4 · What discount form", "给什么折扣 · 5 类 form 分布", s4_what, s4_bars, s4_meaning)}
 {_passes_section("p5", "5 · How many people fit", "能用几人 · capacity", s5_what, s5_bars, s5_meaning)}
 {_passes_section("p6", "6 · Audience split", "人群拆分 · 1 / 2 / 3 类各享不同待遇", s6_what, s6_bars, s6_meaning)}
-{_passes_section("p7", "7 · Usage restrictions", "使用限制 · blackout / weekday / seasonal / reservation", s7_what, s7_bars, s7_meaning)}
+{_passes_section("p7", "7 · Date restrictions", "日期约束 · 哪些日子能用这张 pass", s7_what, s7_bars, s7_meaning)}
+{_passes_section("p8", "8 · Booking requirement", "预约约束 · 能不能 walk-in", s8_what, s8_bars, s8_meaning)}
 """
     return page_shell("Passes", body, "passes.html")
 
