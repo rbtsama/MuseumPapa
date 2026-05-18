@@ -1,15 +1,16 @@
 <!doctype html>
 <html lang="zh"><head>
 <meta charset="utf-8">
-<title>Attractions — MuseumPapa Audit</title>
+<title>MuseumPapa Audit</title>
 <link rel="stylesheet" href="assets/style.css">
-
 </head><body>
 <header class="site-head">
   <div class="brand"><span class="font-serif">MuseumPapa</span> · Data Audit</div>
-  <nav class="topnav"><a href="index.html" class="current">Attractions</a> · <a href="passes.html" class="">Passes</a> · <a href="lineage.html" class="">Lineage</a> · <a href="schema.html" class="">Schema</a> · <a href="data_quality.html" class="">Data Quality</a></nav>
+  <nav class="topnav"><a href="#attractions">Attractions</a> · <a href="#passes">Passes</a> · <a href="#lineage">Lineage</a> · <a href="#schema">Schema</a> · <a href="#data-quality">Data Quality</a></nav>
 </header>
 <main>
+<section id="attractions">
+
 
 <h1 class="page-title">Attractions<span class="zh-sub">景点 · 97 家可去地点</span></h1>
 <p class="subtitle">本页从景点视角看数据:每条记录 = 一家真实世界的可去地点(博物馆、公园、剧院等),已经把不同图书馆对同一家景点的不同写法合并成一条。下方先给 4 张分布,再列出 97 家完整卡片明细。</p>
@@ -4321,8 +4322,635 @@
   </section>
 </article></div>
 
+
+</section>
+
+<section id="passes">
+
+
+<h1 class="page-title">Passes<span class="zh-sub">优惠券 · 7 个角度看 1026 条 pass</span></h1>
+<p class="subtitle">每张 pass = 1 家图书馆 × 1 家景点 × 1 份优惠条件。本页从 7 个维度告诉你这 1026 条 pass 是什么、分布怎样、对产品意味着什么。下方每节按 <b>What it is · 分布 · What it means</b> 三段写,跳过 ID 字段——明细查 <a href="#schema">Schema</a>,边界案例查 <a href="#data-quality">Data Quality</a>。"博物馆是否需要时段预约"是景点属性、不是 pass 属性(无论持券与否都得预约),所以它放在 <a href="#attractions">Attractions</a> 页。</p>
+
+
+<section class="panel passes-section" id="p1">
+  <h3>1 · What is a Pass<span class="zh-sub">什么是一张 Pass</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> 每条 pass = 一家图书馆 × 一家景点 × 一份优惠条件。同一家景点可能在多个图书馆出现,但每条 pass 的取卡方式、折扣力度、能用几人都可能不同——所以不会被去重成一条。</p>
+  <table class="histogram passes-dist"><tr><td><b>Total passes</b><span class="zh-sub">优惠券总数</span></td><td></td><td class="num">1026</td><td class="pct">—</td></tr><tr><td><b>Libraries covered</b><span class="zh-sub">覆盖图书馆</span></td><td></td><td class="num">59 / 59</td><td class="pct">100%</td></tr><tr><td><b>Attractions covered</b><span class="zh-sub">覆盖景点</span></td><td></td><td class="num">97 / 97</td><td class="pct">100%</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>分布是稠密的</b>——59 个馆里 100% 都至少有 pass,97 个景点平均每个被 10.6 个馆覆盖。对持单卡用户来说,你能用的 pass 平均有 17 张;对持多卡(运营方 5 张)用户,数量乘到 ~85 张。</li><li><b>同景点跨馆条件不同是常态</b>——比如 Salem Witch Museum 在 12 个馆,实际折后价有 4 档($13.25 / $13.5 / $13.75 / $14)。Pass 不去重正是为了让多卡用户能横向对比。</li></ul></div>
+</section>
+
+
+<section class="panel passes-section" id="p2">
+  <h3>2 · Acquisition path (Platform)<span class="zh-sub">取卡途径 · 数据来自哪 3 个系统</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> 数据从 3 个图书馆系统抓回来。哪个馆走哪个平台不是我们选的——是图书馆自己买的产品。这一点决定了 <b>能不能拿到实时库存</b>。</p>
+  <table class="histogram passes-dist"><tr><td><b>Assabet  (52 libraries)</b><span class="zh-sub">Assabet  ·  52 家馆</span></td><td class="bar-cell"><span class="bar">████████████████████████████████████</span></td><td class="num">915</td><td class="pct">89%</td></tr><tr><td><b>LibCal  (5 libraries)</b><span class="zh-sub">LibCal · Springshare  ·  5 家馆</span></td><td class="bar-cell"><span class="bar">███</span></td><td class="num">80</td><td class="pct">8%</td></tr><tr><td><b>MuseumKey  (2 libraries)</b><span class="zh-sub">MuseumKey  ·  2 家馆</span></td><td class="bar-cell"><span class="bar">█</span></td><td class="num">31</td><td class="pct">3%</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>Assabet Interactive</b> · 全 MA 公共图书馆通用的 pass 预订平台,覆盖 52 家小型馆。HTML 暴露日历,我们能解析出 <code>available / limited / booked</code> 三态。<b>有实时库存。</b></li><li><b>LibCal (Springshare)</b> · 中大型馆产品。BPL、Cambridge、Brookline、Braintree、Milton 用。日历通过 institution 端点取,3 种状态合并为 available/booked。<b>有实时库存。</b></li><li><b>MuseumKey</b> · 商业 SaaS,要图书馆卡登录才能看 pass。Cohasset 和 Hingham 用。我们只能拿到 catalog(景点列表、benefit 文本),<b>没有实时库存</b>——用户看到这两个馆的 pass 时,日历位置是空白,要打电话或上馆里现场查。</li></ul></div>
+</section>
+
+
+<section class="panel passes-section" id="p3">
+  <h3>3 · How the user picks it up<span class="zh-sub">怎么取 · digital / physical-coupon / physical-circ</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> <code>pass_type</code> 描述用户怎么把券拿到手——纯线上、还是要去馆里。这个差异直接影响产品体验:digital 是抢菜模式,physical 是有提前量但更稳。</p>
+  <table class="histogram passes-dist"><tr><td><b>digital · Email-delivered</b><span class="zh-sub">邮件即时收券码 / PDF</span></td><td class="bar-cell"><span class="bar">███████████████████████</span></td><td class="num">586</td><td class="pct">57%</td></tr><tr><td><b>physical-coupon · Pick up paper coupon</b><span class="zh-sub">去馆领纸券</span></td><td class="bar-cell"><span class="bar">██████████</span></td><td class="num">267</td><td class="pct">26%</td></tr><tr><td><b>physical-circ · Borrow physical pass</b><span class="zh-sub">借实体卡,看完归还</span></td><td class="bar-cell"><span class="bar">███████</span></td><td class="num">173</td><td class="pct">17%</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>57% 是 digital</b>——填表后邮件秒到,可以当天预约当天用。前端配实时日历后,这部分是体验最好的 pass。</li><li><b>26% 是 physical-coupon</b>(纸券)——一般要 24-48h 才能拿到,适合提前 1-2 天规划。<li><b>17% 是 physical-circ</b>(实体卡)——占用图书馆的循环库存,看完要还,适合提前 3-7 天约。在我们的库存逻辑里,这种 pass 看完没还回来之前,日历就是 'booked'。</li></ul></div>
+</section>
+
+
+<section class="panel passes-section" id="p4">
+  <h3>4 · What discount form<span class="zh-sub">给什么折扣 · 5 类 form 分布</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> 每条 pass 的 <code>audience_policies</code> 列表里有 1-3 条折扣描述(共 <b>1317</b> 条),每条用 <code>form</code> 字段标明折扣类型。前端就是根据这 5 类决定怎么把优惠串成一句话给用户。</p>
+  <table class="histogram passes-dist"><tr><td><b>Per-person price</b><span class="zh-sub">固定金额 · 如 $10/人</span></td><td class="bar-cell"><span class="bar">███████████████</span></td><td class="num">487</td><td class="pct">37%</td></tr><tr><td><b>Percent off</b><span class="zh-sub">百分比折扣 · 如 50% off</span></td><td class="bar-cell"><span class="bar">█████████████</span></td><td class="num">438</td><td class="pct">33%</td></tr><tr><td><b>FREE</b><span class="zh-sub">完全免费</span></td><td class="bar-cell"><span class="bar">████████</span></td><td class="num">272</td><td class="pct">21%</td></tr><tr><td><b>Vague discount</b><span class="zh-sub">笼统折扣 · 原文无具体数值</span></td><td class="bar-cell"><span class="bar">███</span></td><td class="num">90</td><td class="pct">7%</td></tr><tr><td><b>Dollar off</b><span class="zh-sub">减额 · 如 $5 off</span></td><td class="bar-cell"><span class="bar">█</span></td><td class="num">30</td><td class="pct">2%</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>前两类合计 71%(per-person 37% + percent-off 34%)</b>——这部分我们能直接给出'每人多少钱'或'省百分之几',用户心算对比原价,决策成本最低。</li><li><b>FREE 20%</b>——pass 类型里最强的优惠形态,值得在 UI 上突出。</li><li><b>vague discount 6%(90 条)</b>——图书馆原文只说 'discounted admission' 或 'family rate',上游本来就没数字。属表达问题不是抽取 bug;前端只能显示'有折扣',无法说省多少。</li><li><b>$N off 仅 2%</b>——固定减额罕见,通常出现在低价景点(Concord Museum $5 off 这种)。</li></ul></div>
+</section>
+
+
+<section class="panel passes-section" id="p5">
+  <h3>5 · How many people fit<span class="zh-sub">能用几人 · capacity</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> <code>capacity</code> 描述一次能带几个人。两个字段:<code>kind</code>(算人 / 算车 / 算票 / 未明示)和 <code>n</code>(数量)。用户看到 'Up to 4' 那个数字就是从这来的。<b>单张票 (ticket n=1) 等同于 1 人,并入 Headcount 桶。</b></p>
+  <table class="histogram passes-dist"><tr><td><b>Headcount</b><span class="zh-sub">按人数 · 集中在 2/4/6 三档(各 135 / 379 / 147 条)</span></td><td class="bar-cell"><span class="bar">██████████████████████████████████</span></td><td class="num">884</td><td class="pct">86%</td></tr><tr><td><b>Per vehicle</b><span class="zh-sub">按车 · MA State Parks 等户外公园场景</span></td><td class="bar-cell"><span class="bar">██</span></td><td class="num">59</td><td class="pct">6%</td></tr><tr><td><b>Tickets (≥ 2)</b><span class="zh-sub">按张 · 剧院/演出常见(2-4 张戏票)</span></td><td class="bar-cell"><span class="bar">█</span></td><td class="num">23</td><td class="pct">2%</td></tr><tr><td><b>Unspecified</b><span class="zh-sub">未明示 · 上游原文没说人数</span></td><td class="bar-cell"><span class="bar">██</span></td><td class="num">60</td><td class="pct">6%</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>884/1026 是按人数</b>(已并入单张票 n=1 的 27 条),其中 'Up to 4' 是众数(379 条,占 Headcount 桶 43%)——对应典型的两大一小家庭出行规模。'Up to 6' 排第二。</li><li><b>Per vehicle 59 张</b>全部默认 1 辆车(原文从不写数字)。用于 MA State Parks 这种户外公园场景。</li><li><b>Tickets 23 张</b>限张数 ≥ 2 · 多见于剧院/演出(2-4 张戏票)。</li><li><b>Unspecified 60 张</b>——经子代理逐条复核(见 Data Quality §unspec),35 条是 by-audience(各受众自己带 count,全局 n 无意义),9 条是 family-tier 整张通票,16 条是上游原文真模糊。这部分不是抽取 bug,是 schema 设计选择 / 上游限制。</li></ul></div>
+</section>
+
+
+<section class="panel passes-section" id="p6">
+  <h3>6 · Audience split<span class="zh-sub">人群拆分 · 1 / 2 / 3 类各享不同待遇</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> 我们关心的不是 audience_policies 列表有多长,而是这张 pass <b>对大人和小孩的折扣是否一样</b>。据此把所有 pass 分三类。</p>
+  <table class="histogram passes-dist"><tr><td><b>Everyone same</b><span class="zh-sub">所有人享同折扣 · 不区分大小</span></td><td class="bar-cell"><span class="bar">█████████████████████████████</span></td><td class="num">748</td><td class="pct">73%</td></tr><tr><td><b>Adult / Child differ</b><span class="zh-sub">成人 / 小孩待遇不同 · 典型 Adult $X + Child &lt;18 free</span></td><td class="bar-cell"><span class="bar">██████████</span></td><td class="num">266</td><td class="pct">26%</td></tr><tr><td><b>Other</b><span class="zh-sub">其他 · Senior / Student / Military 等专门档,或 3+ 档拆分</span></td><td class="bar-cell"><span class="bar">█</span></td><td class="num">12</td><td class="pct">1%</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>73% Everyone same</b>——一刀切,UI 一句话说清。</li><li><b>26% Adult/Child differ</b>——产品最有信号的形态。能告诉用户"大人 $X、孩子免费",带娃出行的决策价值远大于"大家都 50%"。前端值得在卡片上把这层差异显式渲染。</li><li><b>1% Other</b>——Senior / Student / Military 等专门档,或 3+ 档复合拆分。在当前 NorthShore 带娃用户场景下信号偏弱,UI 上折叠展示即可。</li></ul></div>
+</section>
+
+
+<section class="panel passes-section" id="p7">
+  <h3>7 · Date restrictions<span class="zh-sub">日期约束 · 哪些日子能用这张 pass</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> 这一维度回答<b>哪些日期能用这张 pass</b>。三种形态:整段季节才开放、特定黑名单日不让用、仅工作日。全部 1026 张中 <b>69</b> 张带日期约束;其余任何一天都可用。前端会把这些日子在日历上标 ⚠ 但不会把 pass 整张藏掉。</p>
+  <table class="histogram passes-dist"><tr><td><b>Seasonal · 季节性</b><span class="zh-sub">夏/秋限定开放 · 户外岛屿、季节公园</span></td><td class="bar-cell"><span class="bar">███████████████████████</span></td><td class="num">40</td><td class="pct">58%</td></tr><tr><td><b>Blackout dates · 黑名单日</b><span class="zh-sub">特定日期禁用 · 节假日 / 特展日</span></td><td class="bar-cell"><span class="bar">█████████████████</span></td><td class="num">29</td><td class="pct">42%</td></tr><tr><td><b>Weekdays only · 仅工作日</b><span class="zh-sub">周末不可用 · 多见于剧院 / 教育型场所</span></td><td class="bar-cell"><span class="bar">██</span></td><td class="num">4</td><td class="pct">6%</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>69 / 1026 张(6.7%)</b>带日期约束——比例不高,但每条都是日历层面的硬约束,前端不能不展示。</li><li><b>Seasonal 40 张</b>占多数,典型场景:Boston Harbor Islands、Crane Beach 这种夏/秋限定的户外目的地。winter 时用户能看到 pass 但日历全灰。</li><li><b>Blackout 29 张</b>——通常是图书馆和景点谈下"特定日子不让用"的协议(节假日、特展开幕)。前端把这些日期日历格变 ⚠,点开告诉用户原因。</li><li><b>Weekdays only 4 张</b>——周末不可用,常见于剧院或教育型场所。</li></ul></div>
+</section>
+
+
+
+</section>
+
+<section id="lineage">
+
+
+<h1 class="page-title">Data lineage<span class="zh-sub">数据血缘 · 从图书馆官网到用户屏幕</span></h1>
+<p class="subtitle">How a single fact — for example "Acton library offers half-price admission for 4 people at the children's museum" — travels from a library website to the cardholder's screen. 一条优惠从图书馆官网走到用户眼前要经过 5 个阶段,下面逐步说明每个阶段做了什么、产出了多少。</p>
+
+
+<section class="lineage-volumes panel">
+  <h2>By the numbers<span class="zh-sub">关键产出量</span></h2>
+  <ol class="lineage-flow-line">
+    <li><b>59</b> library websites scraped<span class="zh-sub">家图书馆官网</span></li>
+    <li><b>97</b> unique attractions catalogued<span class="zh-sub">条独立景点记录</span></li>
+    <li><b>1026</b> attraction × library pass rows<span class="zh-sub">条 景点×图书馆 组合</span></li>
+    <li><b>975</b> with live booking calendar<span class="zh-sub">条带实时预订日历</span></li>
+  </ol>
+</section>
+
+
+<div class="lineage-flow">
+
+<section class="lineage-stage">
+  <div class="lineage-num">1</div>
+  <div class="lineage-body">
+    <h3 class="lineage-stage-title">Collect from library websites<span class="zh-sub">从图书馆网站采集</span></h3>
+    <p class="lineage-zh">我们按计划访问每家图书馆的 museum-pass 页面,把原始 HTML 和列表数据原样存档,作为后续抽取的唯一真相来源。</p>
+    <dl class="lineage-io">
+      <dt>In</dt><dd>Library pass-program pages — public URLs we visit on a schedule</dd>
+      <dt>We do</dt><dd>Scrape every page, save the raw HTML and the listing JSON</dd>
+      <dt>Out</dt><dd>Raw page snapshots, one folder per library</dd>
+    </dl>
+    <div class="lineage-metric">59 library websites scraped</div>
+    
+    <details class="lineage-tech">
+      <summary>Technical lineage<span class="zh-sub">技术血缘 · 给审计 / 工程团队</span></summary>
+      <dl class="lineage-tech-dl">
+        <dt>Entry</dt><dd class="mono">python scripts/scrape_static.py</dd>
+        <dt>Modules</dt><dd><table class="lineage-tech-modules"><tr><td class="mono">src/malibbene/sources/assabet/index_page.py</td><td>Assabet platform — 52 libraries</td></tr><tr><td class="mono">src/malibbene/sources/libcal/index_page.py</td><td>LibCal platform — 5 libraries (BPL, Cambridge, Brookline, Braintree, Milton)</td></tr><tr><td class="mono">src/malibbene/sources/museumkey/index_page.py</td><td>MuseumKey platform — 2 libraries (Cohasset, Hingham)</td></tr><tr><td class="mono">src/malibbene/common/http.py</td><td>HTTP fetcher with retry, UA, and 24h disk cache</td></tr></table></dd>
+        <dt>How combined</dt><dd>Each platform module reads its library list from <code>config/library_seeds.json</code>, walks every pass URL, and writes one file per library. Cache hits within 24h short-circuit the network call.</dd>
+        <dt>Output path</dt><dd class="mono">data/raw/{assabet,libcal,museumkey}/index/{lib_id}.json</dd>
+        <dt>Audit hooks</dt><dd>Re-run safely — output is idempotent. Inspect <code>meta.status_summary</code> in any output file to see <code>ok</code> / <code>empty</code> / <code>failed</code> counts; failed cells carry a reason string instead of being silently dropped.</dd>
+      </dl>
+    </details>
+  </div>
+</section>
+<section class="lineage-stage">
+  <div class="lineage-num">2</div>
+  <div class="lineage-body">
+    <h3 class="lineage-stage-title">Catalog the attractions<span class="zh-sub">建立景点目录</span></h3>
+    <p class="lineage-zh">把不同图书馆对同一家博物馆的不同写法合并成一条规范记录,再从景点官网补齐电话、地址、营业时间、票价、封面图,形成统一目录。</p>
+    <dl class="lineage-io">
+      <dt>In</dt><dd>Raw library listings naming hundreds of museums, parks, theaters</dd>
+      <dt>We do</dt><dd>Deduplicate name variants into one canonical attraction record per real-world venue, enrich with phone / address / hours / hero image / price from each attraction&#x27;s official site</dd>
+      <dt>Out</dt><dd>One row per unique attraction</dd>
+    </dl>
+    <div class="lineage-metric">97 unique attractions catalogued</div>
+    
+    <details class="lineage-tech">
+      <summary>Technical lineage<span class="zh-sub">技术血缘 · 给审计 / 工程团队</span></summary>
+      <dl class="lineage-tech-dl">
+        <dt>Entry</dt><dd class="mono">python scripts/build.py  (catalog + attractions phases)</dd>
+        <dt>Modules</dt><dd><table class="lineage-tech-modules"><tr><td class="mono">src/malibbene/build/catalog.py</td><td>Merge 3 platform raw indexes into one nested library_catalog.json</td></tr><tr><td class="mono">src/malibbene/build/slug_canonical.py</td><td>Legacy-slug → canonical-slug mapping (e.g. <code>museum-of-fine-arts</code> → <code>mfa</code>)</td></tr><tr><td class="mono">src/malibbene/build/attractions.py</td><td>Group catalog passes by canonical slug, attach price/image/geo/hours enrichments</td></tr><tr><td class="mono">src/malibbene/build/categories.py</td><td>Normalize 21 raw category labels into a 9-bucket scheme</td></tr><tr><td class="mono">src/malibbene/common/normalize.py</td><td>Lex-table that turns free-text benefit strings into short labels (FREE / 50% off / $5 off / discount / unknown)</td></tr></table></dd>
+        <dt>How combined</dt><dd><code>library_catalog.json</code> is keyed by lib_id; <code>attractions.py</code> inverts it — for each canonical slug it collects every library that lists that slug, then merges in side-files <code>data/raw/attractions/{prices,images,geo,hours}/&lt;slug&gt;.json</code> produced by the attraction-side scrapers and subagent extractors.</dd>
+        <dt>Output path</dt><dd class="mono">data/structured/library_catalog.json · data/structured/attractions.json</dd>
+        <dt>Audit hooks</dt><dd>Slug-collision check: see <code>n_unmapped_passes_per_platform</code> in catalog meta. If any platform reports unmapped passes, the slug map missed a legacy alias. Attractions <code>_meta.n_with_price</code> uses <code>_has_numeric_price()</code> — a non-empty original_price object alone does NOT count.</dd>
+      </dl>
+    </details>
+  </div>
+</section>
+<section class="lineage-stage">
+  <div class="lineage-num">3</div>
+  <div class="lineage-body">
+    <h3 class="lineage-stage-title">Structure each pass into a clean record<span class="zh-sub">把每张 pass 整理成结构化记录</span></h3>
+    <p class="lineage-zh">每家图书馆描述福利的文字风格都不一样,我们把它们翻译成统一的字段:覆盖人群、折扣形式、取卡方式、使用限制,让前端可以横向对比。</p>
+    <dl class="lineage-io">
+      <dt>In</dt><dd>Free-text benefit descriptions written by each library in their own style</dd>
+      <dt>We do</dt><dd>Read the natural language and extract who the pass covers, what discount it gives, how it is delivered, and any usage restrictions</dd>
+      <dt>Out</dt><dd>One row per (library × attraction) combination, with a uniform discount summary</dd>
+    </dl>
+    <div class="lineage-metric">1026 attraction/library pass combinations</div>
+    
+    <details class="lineage-tech">
+      <summary>Technical lineage<span class="zh-sub">技术血缘 · 给审计 / 工程团队</span></summary>
+      <dl class="lineage-tech-dl">
+        <dt>Entry</dt><dd class="mono">python scripts/build.py  (passes phase)</dd>
+        <dt>Modules</dt><dd><table class="lineage-tech-modules"><tr><td class="mono">src/malibbene/build/passes.py</td><td>Flatten library_catalog into one row per (lib_id, canonical_slug); resolve pickup method and pass_type</td></tr><tr><td class="mono">src/malibbene/build/coupons.py</td><td>Attach <code>capacity</code> + <code>audience_policies</code> blocks from per-pass coupon files</td></tr><tr><td class="mono">src/malibbene/build/museum_policy.py</td><td>Drop audience_policies that merely restate the museum's own free-under-N policy (avoids double-counting)</td></tr><tr><td class="mono">data/raw/pass_coupons/{lib}_{slug}.json</td><td>1008 per-pass coupon extractions produced by plan-9 Sonnet subagents reading the raw HTML — carries <code>source_phrases</code> for provenance</td></tr></table></dd>
+        <dt>How combined</dt><dd><code>passes.py</code> iterates every (lib_id × raw_slug) in the catalog, maps raw_slug → canonical via <code>slug_canonical.py</code>, looks up the coupon file with the raw key first (then canonical fallback), and emits one passes.json row. Vehicle capacity defaults <code>n=1</code> in <code>coupons.py</code> when the extractor returned null.</dd>
+        <dt>Output path</dt><dd class="mono">data/structured/passes.json</dd>
+        <dt>Audit hooks</dt><dd><code>coupon.summary</code> is intentionally NOT stored — it's derived on display via <code>_derive_coupon_summary()</code> (build_audit_site.py line ~723). Re-extraction status of edge cases lives in <code>data/structured/_audit_unspecified_reclassification.json</code> (16 corrected, 35 by-audience, 9 family, 45 vague).</dd>
+      </dl>
+    </details>
+  </div>
+</section>
+<section class="lineage-stage">
+  <div class="lineage-num">4</div>
+  <div class="lineage-body">
+    <h3 class="lineage-stage-title">Attach live booking availability<span class="zh-sub">接入实时预订日历</span></h3>
+    <p class="lineage-zh">每天自动刷新近期预订位,用户打开页面看到的是接近实时的可借状态,不是静态截图。</p>
+    <dl class="lineage-io">
+      <dt>In</dt><dd>Each library&#x27;s reservation system (Assabet, LibCal, MuseumKey)</dd>
+      <dt>We do</dt><dd>Refresh near-term slots daily so users see what is bookable right now</dd>
+      <dt>Out</dt><dd>Per-pass availability calendar refreshed on a schedule</dd>
+    </dl>
+    <div class="lineage-metric">975 with live booking calendar</div>
+    
+    <details class="lineage-tech">
+      <summary>Technical lineage<span class="zh-sub">技术血缘 · 给审计 / 工程团队</span></summary>
+      <dl class="lineage-tech-dl">
+        <dt>Entry</dt><dd class="mono">python scripts/scrape_dynamic.py</dd>
+        <dt>Modules</dt><dd><table class="lineage-tech-modules"><tr><td class="mono">src/malibbene/sources/assabet/availability.py</td><td>Walks 3 month-pages per pass (<code>base/ · next/ · next/next/</code>), parses <code>day-has-openings</code> / <code>day-no-openings</code> / <code>time-partially-available</code> CSS classes</td></tr><tr><td class="mono">src/malibbene/sources/libcal/availability.py</td><td>Calls LibCal's institution endpoint with the current and next month's first-day-of-month parameter; collapses 3 LibCal states to <code>available</code> / <code>booked</code></td></tr><tr><td class="mono">(MuseumKey not scraped)</td><td>Cohasset + Hingham require library-card login; documented as catalog-only in BRD §A.3</td></tr></table></dd>
+        <dt>How combined</dt><dd>Per-pass calendar dicts (<code>YYYY-MM-DD → available|limited|booked</code>) are written to <code>data/raw/{assabet,libcal}/availability/{lib_id}.json</code>, then merged into <code>passes.json</code>'s <code>availability</code> field at next build. ~2900 HTTP requests per full refresh; 24h cache TTL short-circuits within-day re-runs.</dd>
+        <dt>Output path</dt><dd class="mono">data/raw/{assabet,libcal}/availability/{lib_id}.json → passes.json:availability</dd>
+        <dt>Audit hooks</dt><dd>Front-end's <code>AttractionDetail.tsx</code> uses an explicit-only predicate (<code>availability[date] === 'available'</code>) — <code>undefined</code> does NOT default to available, so unscraped months stay blank instead of faking green. Month-pill row is capped at <code>dataHorizon</code> (max date across all this attraction's passes).</dd>
+      </dl>
+    </details>
+  </div>
+</section>
+<section class="lineage-stage">
+  <div class="lineage-num">5</div>
+  <div class="lineage-body">
+    <h3 class="lineage-stage-title">Ship to the live site<span class="zh-sub">推送到线上站点</span></h3>
+    <p class="lineage-zh">把整理好的数据打包推送到面向用户的网站,持卡人打开页面就能查到自己手里的卡能用在哪、当天能不能预订。</p>
+    <dl class="lineage-io">
+      <dt>In</dt><dd>Structured library / attraction / pass records + live calendar</dd>
+      <dt>We do</dt><dd>Bundle the four data files and publish them to the consumer-facing web app</dd>
+      <dt>Out</dt><dd>What the cardholder sees in the browser</dd>
+    </dl>
+    <div class="lineage-metric">Live product</div>
+    
+    <details class="lineage-tech">
+      <summary>Technical lineage<span class="zh-sub">技术血缘 · 给审计 / 工程团队</span></summary>
+      <dl class="lineage-tech-dl">
+        <dt>Entry</dt><dd class="mono">cd web &amp;&amp; pnpm run build  (Vite + React + TypeScript)</dd>
+        <dt>Modules</dt><dd><table class="lineage-tech-modules"><tr><td class="mono">web/src/data/load.ts</td><td>Bundles the 4 structured JSONs at build time (no runtime fetch)</td></tr><tr><td class="mono">web/src/pages/AttractionDetail.tsx</td><td>Detail page — month pills, calendar, per-date coupon ranking</td></tr><tr><td class="mono">web/src/pages/AttractionsList.tsx</td><td>List page — tag picker via <code>lib/tag-algorithm.ts</code></td></tr><tr><td class="mono">web/src/lib/dates.ts · lib/restrictions.ts · lib/tag-algorithm.ts</td><td>Date math, seasonal-window matching, coupon-ranking logic</td></tr></table></dd>
+        <dt>How combined</dt><dd>Build pipeline writes <code>data/structured/{libraries,attractions,passes,branches}.json</code>; <code>load.ts</code> imports them, the components render. <code>data/static/images/</code> is gitignored; production images are mirrored into <code>web/public/images/</code> for Vite bundling.</dd>
+        <dt>Output path</dt><dd class="mono">web/dist/ → static hosting</dd>
+        <dt>Audit hooks</dt><dd>Test surface: <code>pnpm test</code> runs 102 vitest specs covering coupon ranking, restrictions, distance/geo, and the tag algorithm. Type safety: <code>pnpm tsc --noEmit</code> must be clean before release.</dd>
+      </dl>
+    </details>
+  </div>
+</section>
+</div>
+
+<p class="lineage-foot">数据结构字段定义请见 <a href="#schema">schema</a>;质量检查项请见 <a href="#data-quality">data quality</a>。</p>
+
+
+</section>
+
+<section id="schema">
+
+
+<h1 class="page-title">Schema<span class="zh-sub">数据结构 · 字段对照</span></h1>
+<p class="subtitle schema-banner">本文档解释 backend → frontend 的字段定义,运营 / 审计可对照确认数据是否覆盖业务需求。字段名(field names)是 API 契约,保留英文不翻译;描述和"为什么需要这个字段"提供中英双语。</p>
+
+<section class="panel schema-entity">
+  <h2>Library<span class="zh-sub">图书馆 · 10 个字段</span></h2>
+  <div class="schema-fields">
+<div class="schema-row">
+  <div class="schema-fname"><code>id</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Short library code used in cross-references.<span class="zh-sub">图书馆短代码,所有外键都用它,如 wakefield。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Stable join key between libraries and passes.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>name</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Formal library name as it appears on signage.<span class="zh-sub">图书馆正式名称,如 Lucius Beebe Memorial Library。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Shown to the cardholder on the library card chip.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>town</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Town the library serves.<span class="zh-sub">图书馆所在市镇。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Used for distance grouping and town-level filters.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>network</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Library consortium membership (NOBLE / MLN / Minuteman ...).<span class="zh-sub">图书馆所属网络/联盟,如 NOBLE、MLN、Minuteman。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Determines reciprocal borrowing rights for the cardholder.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>platform</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">enum</div>
+    <div class="schema-fdesc">Pass-booking backend: assabet / libcal / museumkey.<span class="zh-sub">通行证后台平台:Assabet(52 馆)/ LibCal(5 馆)/ MuseumKey(2 馆)。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Selects the scraper and decides whether live availability is available.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>card_page</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">url</div>
+    <div class="schema-fdesc">Public page describing how to get a library card.<span class="zh-sub">本馆的办卡说明页 URL。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Drives the &#x27;how to get a card&#x27; deep-link on the frontend.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>eligibility</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">enum</div>
+    <div class="schema-fdesc">Who may obtain a card: open_ma_resident or residents_only.<span class="zh-sub">办卡资格:open_ma_resident 麻州居民均可 / residents_only 仅本镇居民。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Tells the user whether they can sign up for this card at all.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>supports_availability</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">bool</div>
+    <div class="schema-fdesc">Whether the platform exposes next-30-day slot data.<span class="zh-sub">本馆所属平台是否能查未来 30 天的预订情况(MuseumKey 不支持)。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Controls whether the live calendar UI shows for this library.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>address</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Street / city / state / zip / formatted.<span class="zh-sub">街道地址,拆成 5 个字段。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Powers the map pin and walking-distance card.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>geo</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object {lat,lon}</div>
+    <div class="schema-fdesc">Geocoded coordinates from OSM Nominatim.<span class="zh-sub">经纬度,由 OSM Nominatim 解析得到,缓存在 data/.cache/geocode.json。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Enables distance-based sort against the user&#x27;s home.</div>
+  </div>
+</div></div>
+</section>
+
+<section class="panel schema-entity">
+  <h2>Attraction<span class="zh-sub">景点 · 12 个字段</span></h2>
+  <div class="schema-fields">
+<div class="schema-row">
+  <div class="schema-fname"><code>slug</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">URL-safe stable ID for the attraction.<span class="zh-sub">景点的 URL 友好稳定 ID,如 boston-childrens-museum。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Foreign key used by every pass row.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>museum_name</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Formal venue name.<span class="zh-sub">景点正式名称。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Headline shown on the attraction card.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>address / website / phone</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Contact and locator info, mostly from the official site.<span class="zh-sub">联系地址、官网、电话,主要来自景点官网。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Lets the user verify or call ahead before visiting.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>description</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">One-paragraph plain-text intro to the venue.<span class="zh-sub">景点简介,纯文本一段。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Drives whether a user clicks into detail; missing = cold card.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>categories</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">array of string</div>
+    <div class="schema-fdesc">Tag list (Children / Family / Science / Art / Nature / History ...).<span class="zh-sub">分类标签数组(儿童 / 家庭 / 科学 / 艺术 / 自然 / 历史 等)。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Powers category filter and placeholder-image fallback.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>sources</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">array of library_id</div>
+    <div class="schema-fdesc">Libraries currently offering a pass to this attraction.<span class="zh-sub">数组,列出所有提供本景点 pass 的图书馆 id。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Lets the UI surface &#x27;X of your libraries offer this&#x27;.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>original_price</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Two-layer pricing model: age_pricing + identity_pricing + family.<span class="zh-sub">景点门市原价,两层:age_pricing 按年龄、identity_pricing 按身份、family 家庭票。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — The number the user mentally compares the coupon against.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>original_price.age_pricing</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">adult / youth / child / senior tiers, each {price, min_age, max_age}, plus free_under_age (age threshold, not a price).<span class="zh-sub">按年龄定价:adult/youth/child/senior 各一档,以及 free_under_age(低于该岁数免费,是年龄阈值数字而非价格)。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Anyone meeting the age band qualifies — no proof needed.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>original_price.identity_pricing</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">student / educator / military tiers, each {price, requires}.<span class="zh-sub">按身份定价:student/educator/military,需出示证件。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Some coupons stack with identity tiers; we keep the base price for comparison.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>hero_image</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Cover image scraped from the attraction&#x27;s og:image, cached locally.<span class="zh-sub">景点封面图,来自官网 og:image,本地缓存(gitignored)。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Drives card visual impact; falls back to category placeholder SVG.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>hours</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Mon–Sun opening hours plus a status field (ok / varies / seasonal / missing).<span class="zh-sub">周一至周日营业时间,加 status 标识(ok / varies / seasonal / missing)。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Tells the UI whether to show hard hours or a &#x27;check with venue&#x27; warning.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>geo</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object {lat,lon}</div>
+    <div class="schema-fdesc">Geocoded attraction coordinates.<span class="zh-sub">景点经纬度,用于距离排序。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Sorts attractions by distance from the user.</div>
+  </div>
+</div></div>
+</section>
+
+<section class="panel schema-entity">
+  <h2>Pass<span class="zh-sub">通行证 · 每行 = 一个 library × attraction 组合 · 11 个字段</span></h2>
+  <div class="schema-fields">
+<div class="schema-row">
+  <div class="schema-fname"><code>library_id</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Foreign key to libraries.id.<span class="zh-sub">外键指向 libraries.id。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Identifies which library issues this pass.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>attraction_slug</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Foreign key to attractions.slug.<span class="zh-sub">外键指向 attractions.slug。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Identifies which venue the pass admits the user to.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>pass_type</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">enum</div>
+    <div class="schema-fdesc">digital (Email) / physical-coupon (Pickup) / physical-circ (Borrow) / unknown.<span class="zh-sub">通行证形态:digital 邮件 / physical-coupon 门店取一次性纸券 / physical-circ 循环借阅卡 / unknown 未分类。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Determines pickup workflow shown to the user.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>source_url</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">url</div>
+    <div class="schema-fdesc">Library page where this pass is described.<span class="zh-sub">本 pass 在图书馆官网上的来源页面 URL。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Lets the auditor and the curious user verify against the original.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>coupon</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Unified discount model — what the user actually gets.<span class="zh-sub">统一优惠模型 — 这张 pass 实际能给用户什么。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Single source of truth for the discount summary on every card.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>coupon.capacity</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object {kind,n}</div>
+    <div class="schema-fdesc">Coverage cap: kind in people / vehicle / ticket / unspecified, plus headcount.<span class="zh-sub">整张 coupon 的容量上限,kind: people / vehicle / ticket / unspecified,n 为人数或车数。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Tells the user how many people / vehicles fit under one coupon.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>coupon.audience_policies</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">array of object</div>
+    <div class="schema-fdesc">Per-audience policy rows: {audience, age_range, count, form, value}.<span class="zh-sub">数组,每项是一个人群规则:{audience 人群, age_range 年龄区间, count 人数, form 优惠形式, value 数值}。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Drives the per-audience discount lines on the card.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>coupon.audience_policies[].form</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">enum</div>
+    <div class="schema-fdesc">free / percent-off / dollar-off / per-person-price / discount.<span class="zh-sub">优惠形式:free 免费 / percent-off 百分比 / dollar-off 固定减免 / per-person-price 人头价 / discount 笼统折扣。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Controls the badge color and short label shown to the user.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>coupon.summary</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">string</div>
+    <div class="schema-fdesc">Mobile-ecommerce-style short string (FREE / 50% off / $5 off / $9 / person).<span class="zh-sub">电商风短字符串,如 FREE / 50% off / $5 off / $9/人。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — The single line the cardholder reads — they mentally compare it against original_price.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>restrictions</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Pass-side date rules: {blackout_dates, weekdays_only, seasonal}. Museum-side timed-entry lives on attraction.museum_reservation.<span class="zh-sub">Pass 自身的日期约束:节假日 blackout、仅工作日、季节性。博物馆要不要时段预约属于景点属性,见 attraction.museum_reservation。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Surfaces ⚠ warning icons on dates the pass cannot be used.</div>
+  </div>
+</div>
+<div class="schema-row">
+  <div class="schema-fname"><code>availability</code></div>
+  <div class="schema-fbody">
+    <div class="schema-ftype">object</div>
+    <div class="schema-fdesc">Next 30 days bookable-status map per slot (MuseumKey libraries: empty).<span class="zh-sub">未来 30 天的可预订状态字典,MuseumKey 平台为空。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Powers the live calendar; tells the user if today is bookable.</div>
+  </div>
+</div></div>
+</section>
+
+<section class="panel schema-entity">
+  <h2>Coupon form values<span class="zh-sub">优惠形式枚举</span></h2>
+  <table class="data-table">
+    <thead><tr><th>form</th><th>meaning</th></tr></thead>
+    <tbody><tr><td class="mono">free</td><td>Free admission for the audience tier.<span class="zh-sub">该人群完全免费入场。</span></td></tr><tr><td class="mono">percent-off</td><td>Percentage off the gate price, e.g. 50.<span class="zh-sub">门市价百分比折扣,如 50 表示 50% off。</span></td></tr><tr><td class="mono">dollar-off</td><td>Fixed dollar amount off, e.g. 5 = $5 off.<span class="zh-sub">固定金额减免,如 5 表示 $5 off。</span></td></tr><tr><td class="mono">per-person-price</td><td>Flat per-head price negotiated with the library, e.g. $5 / person.<span class="zh-sub">与图书馆协商的固定人头价,如每人 $5。</span></td></tr><tr><td class="mono">discount</td><td>Free-text discount language the extractor could not quantify.<span class="zh-sub">原文是笼统折扣描述,抽取器无法提取具体数值。</span></td></tr></tbody>
+  </table>
+</section>
+
+<p class="foot-link"><a href="#" class="view-json-link" data-json-key="schema">查看完整 JSON 字段清单</a></p>
+
+
+</section>
+
+<section id="data-quality">
+
+<h1 class="page-title">Data quality<span class="zh-sub">数据质量 · 我们到底审了什么</span></h1>
+
+<section class="panel">
+  <h3>What this page audits<span class="zh-sub">这页在审什么 · 一句话讲清</span></h3>
+  <p style="font-size:13.5px;line-height:1.75;margin:6px 0 4px;">
+    The 1026 passes in this dataset went through a 5-stage pipeline
+    (<a href="#lineage">see Lineage</a>). At each stage, something can go wrong — a library
+    page changes shape, the AI extractor misreads a sentence, a slug gets renamed without re-wiring.
+    This page lists every category where that has actually happened, with a count and the affected rows.
+  </p>
+  <p style="font-size:13px;line-height:1.75;margin:6px 0 0;color:var(--ink-3);">
+    简而言之,这页在审三件事:
+    <b>① 每条记录是否完整</b>(coupon 空不空、source_url 在不在)、
+    <b>② 字段值是否前后一致</b>(标着 Adult 却写 12 岁以下、价格出现负数)、
+    <b>③ 我们抽出来的数字原文是否真的支持</b>(原文写 "discounted admission" 不能被抽成具体百分比)。
+    数据 gaps(哪些字段还没抓到)放在本页最后一节。
+  </p>
+</section>
+
+<section class="status-banner banner-amber"><span class="banner-icon">⚠</span><span class="banner-verdict"><b>Data foundation — 96 low · 5 info finding(s).</b> HIGH 0 · MED 0 · LOW 96 · INFO 5.</span><span class="banner-meta">Built 2026-05-18 18:50 UTC · <a href="#data-quality">see Data Quality</a></span></section>
+
+<section class="panel">
+  <h3>Red-flag summary<span class="zh-sub">红旗汇总 · 按严重程度排序</span></h3>
+  <table class="data-table"><thead><tr><th>severity</th><th>category</th><th>count</th></tr></thead><tbody><tr><td><span class="sev-badge sev-high">HIGH</span></td><td><a href="#dq1">Passes whose coupon block came out empty</a><span class="zh-sub">空 coupon · 图书馆说有 pass,我们抽出来是空的</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-high">HIGH</span></td><td><a href="#dq5">Orphan raw coupon files (slug renamed but not re-wired)</a><span class="zh-sub">孤立的原始 coupon 文件 · slug 改名后没接回</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-med">MED</span></td><td><a href="#dq4">Audience label contradicts its age range</a><span class="zh-sub">受众标签和年龄区间矛盾 · 几乎都是抽取出错</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-med">MED</span></td><td><a href="#dq7">Raw extractions where the AI extractor gave up</a><span class="zh-sub">AI 抽取失败的原始文件 · status != ok</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-low">LOW</span></td><td><a href="#dq3">Discount marked but no number — upstream is vague</a><span class="zh-sub">标着有折扣但抽不到数值 · 上游原文本来就模糊</span></td><td class="num">90</td></tr></tbody></table>
+  
+<p class="sev-caption">
+  <span class="sev-badge sev-high">HIGH</span> 立即修复,影响用户决策<br>
+  <span class="sev-badge sev-med">MED</span> 关注,可能影响用户信任<br>
+  <span class="sev-badge sev-low">LOW</span> 已知可接受,标识为参考<br>
+  <span class="sev-badge sev-info">INFO</span> 数据信号,非缺陷
+</p>
+</section>
+
+
+<section class="panel dq-panel" id="dq1">
+  <h3><span class="sev-badge sev-high">HIGH</span> Passes whose coupon block came out empty <span class="num-pill num-pill-zero">0</span>
+      <span class="zh-sub">空 coupon · 图书馆说有 pass,我们抽出来是空的</span></h3>
+  <p class="dq-why">If this number is non-zero, that many passes show up in the product with no discount info at all — a row in the UI that says nothing. Should stay at 0.<br><span class="dq-why-zh">图书馆目录说有 pass,但我们抽取出来的折扣字段是空的。每多一条就有一条 pass 在产品里显示为空白,用户看不到任何优惠信息。必须为 0。</span></p>
+  <p class="honest-gap">all clear · 0</p>
+</section>
+<section class="panel dq-panel" id="dq5">
+  <h3><span class="sev-badge sev-high">HIGH</span> Orphan raw coupon files (slug renamed but not re-wired) <span class="num-pill num-pill-zero">0</span>
+      <span class="zh-sub">孤立的原始 coupon 文件 · slug 改名后没接回</span></h3>
+  <p class="dq-why">When an attraction&#x27;s canonical slug changes, old extraction files can be left dangling. Each orphan = one real library discount that exists upstream but isn&#x27;t visible on the live site. Should stay at 0.<br><span class="dq-why-zh">景点 slug 改名后,旧的抽取文件没被接回主表,等于这条真实存在的优惠在产品里消失了。必须为 0。</span></p>
+  <p class="honest-gap">all clear · 0</p>
+</section>
+<section class="panel dq-panel" id="dq4">
+  <h3><span class="sev-badge sev-med">MED</span> Audience label contradicts its age range <span class="num-pill num-pill-zero">0</span>
+      <span class="zh-sub">受众标签和年龄区间矛盾 · 几乎都是抽取出错</span></h3>
+  <p class="dq-why">An &#x27;Adult&#x27; tier marked for under-13s, or a &#x27;Child&#x27; tier for 18+, almost certainly means the extractor put the wrong row in the wrong bucket. UI ends up showing nonsensical age bands.<br><span class="dq-why-zh">标着 Adult 却写 13 岁以下,或者 Child 却写 18 岁以上,几乎肯定是抽取放错位置。前端会显示前后矛盾的年龄区间,直接打击用户信任。</span></p>
+  <p class="honest-gap">all clear · 0</p>
+</section>
+<section class="panel dq-panel" id="dq7">
+  <h3><span class="sev-badge sev-med">MED</span> Raw extractions where the AI extractor gave up <span class="num-pill num-pill-zero">0</span>
+      <span class="zh-sub">AI 抽取失败的原始文件 · status != ok</span></h3>
+  <p class="dq-why">These never make it into the live data. Each one = one discount the user never sees. Either re-run the extractor on these, or add a manual override.<br><span class="dq-why-zh">AI 抽取器在这些文件上放弃了,对应的优惠从来没进过产品。每多一条就少一条用户能看到的折扣。要么重跑,要么人工补录。</span></p>
+  <p class="honest-gap">all clear · 0</p>
+</section>
+<section class="panel dq-panel" id="dq3">
+  <h3><span class="sev-badge sev-low">LOW</span> Discount marked but no number — upstream is vague <span class="num-pill">90</span>
+      <span class="zh-sub">标着有折扣但抽不到数值 · 上游原文本来就模糊</span></h3>
+  <p class="dq-why">The library wrote things like &#x27;discounted admission&#x27; or &#x27;family rate&#x27; with no number. The discount is real but we can&#x27;t show &#x27;$X off&#x27; or &#x27;50% off&#x27; to the user. Not a bug — an upstream limitation.<br><span class="dq-why-zh">图书馆原文写的是 &#x27;discounted admission&#x27; / &#x27;family rate&#x27; 这种模糊语,折扣是真的存在,但拿不到具体数字。属上游限制不是抽取 bug,前端只能显示&quot;有折扣&quot;。</span></p>
+  <table class="data-table"><thead><tr><th>library_id</th><th>attraction_slug</th></tr></thead><tbody><tr><td>acton</td><td>trustees-of-reservations</td></tr><tr><td>acton</td><td>trustees-of-reservations</td></tr><tr><td>andover</td><td>historic-new-england</td></tr><tr><td>andover</td><td>historic-new-england</td></tr><tr><td>andover</td><td>trustees-of-reservations</td></tr><tr><td>bedford</td><td>trustees-of-reservations</td></tr><tr><td>bedford</td><td>trustees-of-reservations</td></tr><tr><td>belmont</td><td>trustees-of-reservations</td></tr><tr><td>belmont</td><td>trustees-of-reservations</td></tr><tr><td>burlington</td><td>peabody-essex-museum</td></tr><tr><td>burlington</td><td>trustees-of-reservations</td></tr><tr><td>burlington</td><td>trustees-of-reservations</td></tr><tr><td>carlisle</td><td>ica-boston</td></tr><tr><td>carlisle</td><td>salem-witch-museum</td></tr><tr><td>carlisle</td><td>trustees-of-reservations</td></tr><tr><td>carlisle</td><td>trustees-of-reservations</td></tr><tr><td>chelmsford</td><td>trustees-of-reservations</td></tr><tr><td>chelmsford</td><td>trustees-of-reservations</td></tr><tr><td>concord</td><td>trustees-of-reservations</td></tr><tr><td>concord</td><td>trustees-of-reservations</td></tr><tr><td>everett</td><td>trustees-of-reservations</td></tr><tr><td>everett</td><td>trustees-of-reservations</td></tr><tr><td>lexington</td><td>trustees-of-reservations</td></tr><tr><td>lexington</td><td>trustees-of-reservations</td></tr><tr><td>lincoln</td><td>trustees-of-reservations</td></tr><tr><td>lincoln</td><td>trustees-of-reservations</td></tr><tr><td>lynnfield</td><td>isabella-stewart-gardner-museum</td></tr><tr><td>lynnfield</td><td>trustees-of-reservations</td></tr><tr><td>malden</td><td>trustees-of-reservations</td></tr><tr><td>malden</td><td>trustees-of-reservations</td></tr><tr><td colspan="2" class="honest-gap">+60 more</td></tr></tbody></table>
+</section>
+
+<h2 class="section-title" style="margin-top:32px">Data gaps<span class="zh-sub">数据缺口 · 哪些字段还没拿到</span></h2>
+<p class="subtitle">下面每一节列出某个字段未能采集到的景点或 pass。百分比基于该字段的全集(景点 97 条 / pass 1026 条)。处理方式只有两种:用 <code>config/manual_overrides.json</code> 人工补录,或者接受当前缺口。</p>
+
+<section class="panel gap-section">
+  <h3>Attractions missing original_price <span class="num-pill">23 / 97 · 24%</span><span class="zh-sub">缺失票价的景点</span></h3>
+  <p class="gap-impact">用户看不到原价对比 · coupon 的价值难以判断 · 降低成交信心。</p>
+  <table class="data-table">
+    <thead><tr><th>slug / lib → slug</th><th>name</th></tr></thead>
+    <tbody><tr><td class="mono">concord-museum</td><td>Concord Museum</td></tr><tr><td class="mono">jfk-library</td><td>John F. Kennedy Library &amp; Museum</td></tr><tr><td class="mono">ma-state-parks</td><td>Massachusetts State Parks (Department of Conservation and Recreation)</td></tr><tr><td class="mono">new-england-botanic-garden-at-tower-hill</td><td>New England Botanic Garden at Tower Hill</td></tr><tr><td class="mono">trustees-of-reservations</td><td>Trustees of Reservations (with deCordova Sculpture Park and Museum)</td></tr><tr><td class="mono">zoo-new-england</td><td>Zoo New England</td></tr><tr><td class="mono">historic-new-england</td><td>Historic New England</td></tr><tr><td class="mono">boston-by-foot</td><td>Boston by Foot </td></tr><tr><td class="mono">butterfly-place</td><td>The Butterfly Place</td></tr><tr><td class="mono">griffin-museum-of-photography</td><td>Griffin Museum of Photography</td></tr><tr><td class="mono">wheelock-family-theatre</td><td>Wheelock Family Theatre</td></tr><tr><td class="mono">american-repertory-theater</td><td>American Repertory Theater</td></tr><tr><td class="mono">paddle-boston</td><td>Paddle Boston</td></tr><tr><td class="mono">real-pirates-salem</td><td>Real Pirates Salem</td></tr><tr><td class="mono">historic-newton</td><td>Historic Newton</td></tr><tr><td class="mono">greater-boston-stage-company</td><td>Greater Boston Stage Company</td></tr><tr><td class="mono">boch-center</td><td>Boch Center Tours</td></tr><tr><td class="mono">sandwich-glass</td><td>Sandwich Glass Museum</td></tr><tr><td class="mono">greenway-carousel</td><td>The Greenway Carousel</td></tr><tr><td class="mono">maah</td><td>Museum of African American History</td></tr><tr><td class="mono">charles-riverboat-tour</td><td>Charles River Boat Tour</td></tr><tr><td class="mono">maplewood-day-camp</td><td>Maplewood Country Day Camp &amp; Enrichment Center</td></tr><tr><td class="mono">cohasset-historical-society</td><td>Cohasset Historical Society</td></tr></tbody>
+  </table>
+</section>
+<section class="panel gap-section">
+  <h3>Attractions missing description <span class="num-pill">4 / 97 · 4%</span><span class="zh-sub">缺失简介的景点</span></h3>
+  <p class="gap-impact">卡片上没有一句话介绍 · 用户难判断是否值得点进去 · 影响点击率。</p>
+  <table class="data-table">
+    <thead><tr><th>slug / lib → slug</th><th>name</th></tr></thead>
+    <tbody><tr><td class="mono">boch-center</td><td>Boch Center Tours</td></tr><tr><td class="mono">sandwich-glass</td><td>Sandwich Glass Museum</td></tr><tr><td class="mono">greenway-carousel</td><td>The Greenway Carousel</td></tr><tr><td class="mono">cohasset-historical-society</td><td>Cohasset Historical Society</td></tr></tbody>
+  </table>
+</section>
+<section class="panel gap-section">
+  <h3>Attractions missing phone <span class="num-pill">8 / 97 · 8%</span><span class="zh-sub">缺失联系电话的景点</span></h3>
+  <p class="gap-impact">用户想电话确认是否需预约或当天是否开放时无法直接联系景点。</p>
+  <table class="data-table">
+    <thead><tr><th>slug / lib → slug</th><th>name</th></tr></thead>
+    <tbody><tr><td class="mono">historic-new-england</td><td>Historic New England</td></tr><tr><td class="mono">christian-science-plaza</td><td>Christian Science Plaza</td></tr><tr><td class="mono">boch-center</td><td>Boch Center Tours</td></tr><tr><td class="mono">mapparium</td><td>How Do You See the World + Mapparium™ Globe</td></tr><tr><td class="mono">sandwich-glass</td><td>Sandwich Glass Museum</td></tr><tr><td class="mono">greenway-carousel</td><td>The Greenway Carousel</td></tr><tr><td class="mono">royall-house</td><td>Royall House &amp; Slave Quarters</td></tr><tr><td class="mono">cohasset-historical-society</td><td>Cohasset Historical Society</td></tr></tbody>
+  </table>
+</section>
+<section class="panel gap-section">
+  <h3>Attractions missing geo coordinates <span class="num-pill">1 / 97 · 1%</span><span class="zh-sub">缺失经纬度的景点</span></h3>
+  <p class="gap-impact">无法按距离排序 · 持卡用户在远郊看到的优先级次序失真。</p>
+  <table class="data-table">
+    <thead><tr><th>slug / lib → slug</th><th>name</th></tr></thead>
+    <tbody><tr><td class="mono">mass-audubon</td><td>Mass Audubon</td></tr></tbody>
+  </table>
+</section>
+<section class="panel gap-section">
+  <h3>Attractions with non-fixed hours <span class="num-pill">11 / 97 · 11%</span><span class="zh-sub">营业时间随场地/季节变动的景点</span></h3>
+  <p class="gap-impact">页面无法给出固定开放时间 · 需额外提示用户出门前自查。</p>
+  <table class="data-table">
+    <thead><tr><th>slug / lib → slug</th><th>name</th></tr></thead>
+    <tbody><tr><td class="mono">ma-state-parks</td><td>Massachusetts State Parks (Department of Conservation and Recreation)</td></tr><tr><td class="mono">trustees-of-reservations</td><td>Trustees of Reservations (with deCordova Sculpture Park and Museum)</td></tr><tr><td class="mono">historic-new-england</td><td>Historic New England</td></tr><tr><td class="mono">new-hampshire-philharmonic-orchestra</td><td>New Hampshire Philharmonic Orchestra</td></tr><tr><td class="mono">mass-audubon</td><td>Mass Audubon</td></tr><tr><td class="mono">wheelock-family-theatre</td><td>Wheelock Family Theatre</td></tr><tr><td class="mono">greater-boston-stage-company</td><td>Greater Boston Stage Company</td></tr><tr><td class="mono">boch-center</td><td>Boch Center Tours</td></tr><tr><td class="mono">royall-house</td><td>Royall House &amp; Slave Quarters</td></tr><tr><td class="mono">maplewood-day-camp</td><td>Maplewood Country Day Camp &amp; Enrichment Center</td></tr><tr><td class="mono">cohasset-historical-society</td><td>Cohasset Historical Society</td></tr></tbody>
+  </table>
+</section>
+
+</section>
+
 </main>
 <div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>
-
+<script id="data-blob" type="application/json">{"schema": {"passes_row_keys": ["library_id", "attraction_slug", "pass_type", "pass_type_raw", "pickup_method", "pickup_branches", "coupon", "restrictions", "source_url", "availability"], "coupon_keys": ["capacity", "audience_policies"], "audience_policy_keys": ["audience", "age_range", "count", "form", "value"], "coupon_forms": ["free", "percent-off", "dollar-off", "per-person-price", "discount"], "capacity_kinds": ["people", "vehicle", "ticket", "unspecified"], "pass_types": ["digital", "physical-coupon", "physical-circ", "unknown"]}}</script>
 <script src="assets/audit.js"></script>
 </body></html>
