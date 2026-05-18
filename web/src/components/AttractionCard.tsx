@@ -163,14 +163,19 @@ export function AttractionCard({
 
           {town && (
             <p className="info-line" style={{ color: 'var(--ink-3)' }}>
-              <span className="info-icon"><PinIcon /></span>{town}
+              <span className="info-icon"><PinIcon /></span>
+              <span>{town}</span>
             </p>
           )}
 
           {hoursInfo && !closedToday && (
             <p className="info-line" style={{ color: 'var(--ink-3)' }}>
               <span className="info-icon"><ClockIcon /></span>
-              {hoursInfo.varies ? <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span> : <>Open · <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span></>}
+              <span>
+                {hoursInfo.varies
+                  ? <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span>
+                  : <>Open <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span></>}
+              </span>
             </p>
           )}
 
