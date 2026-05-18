@@ -16,16 +16,7 @@ import { useCardpack } from '../stores/cardpack';
 import { useFavorites } from '../stores/favorites';
 import { geocodeZip, haversineMiles } from '../lib/distance';
 import { couponRank } from '../lib/tag-algorithm';
-import type { OriginalPrice } from '../data/types';
-
-function formatOriginalAdult(op: OriginalPrice | null): string {
-  const adult = op?.age_pricing?.adult?.price;
-  const free = op?.age_pricing?.free_under_age;
-  const suffix = free != null ? ` · FREE age<${free}` : '';
-  if (adult != null) return `Adult $${adult}${suffix}`;
-  if (free != null) return `FREE age<${free}`;
-  return 'Price unavailable';
-}
+import { formatOriginalAdult } from '../lib/originalPrice';
 import { BookingConfirmModal } from '../components/BookingConfirmModal';
 import { weeklyHoursList } from '../lib/hours';
 import { heroSrc } from '../lib/hero';
