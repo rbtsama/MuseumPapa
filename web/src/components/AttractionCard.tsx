@@ -181,6 +181,13 @@ export function AttractionCard({
               Closed
             </span>
           )}
+
+          {/* Last row of attraction info — museum-side timed-entry hint */}
+          <MuseumReservationBanner
+            reservation={attraction.museum_reservation}
+            attractionName={attraction.museum_name}
+            variant="card"
+          />
         </div>
       </div>
 
@@ -197,13 +204,6 @@ export function AttractionCard({
             </div>
           ) : (
             <>
-              {attraction.museum_reservation && (
-                <MuseumReservationBanner
-                  reservation={attraction.museum_reservation}
-                  attractionName={attraction.museum_name}
-                  variant="card"
-                />
-              )}
           {pickedTags.slice(0, MAX_ROWS_VISIBLE).map((t, i) => {
             const isDigital = t.pass.pickup_method === 'digital';
             // For physical, prefer the actual pickup branch(es). Single-branch

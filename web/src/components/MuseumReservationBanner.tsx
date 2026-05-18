@@ -3,73 +3,29 @@ import type { MuseumReservation } from '../data/types';
 interface Props {
   reservation: MuseumReservation | null;
   attractionName: string;
-  variant: 'card' | 'detail';
+  /** Reserved for future per-context styling; the line itself is identical. */
+  variant?: 'card' | 'detail';
 }
 
-export function MuseumReservationBanner({ reservation, attractionName, variant }: Props) {
+/**
+ * One-line amber notice rendered at the end of the attraction info block.
+ *
+ * Says exactly: "Require Time Entry Reservation". No CTA, no link — this is
+ * a museum-side policy that applies to every visitor (with or without a pass),
+ * so it's an informational hint, not a pass-related action prompt.
+ */
+export function MuseumReservationBanner({ reservation }: Props) {
   if (!reservation) return null;
-  const url = reservation.url;
-  const handleClick = () => {
-    if (url) window.open(url, '_blank', 'noopener,noreferrer');
-  };
-  const handleKey = (e: React.KeyboardEvent) => {
-    if ((e.key === 'Enter' || e.key === ' ') && url) {
-      e.preventDefault();
-      window.open(url, '_blank', 'noopener,noreferrer');
-    }
-  };
-
-  const interactive = url != null;
-  // Light tinted background gives it an "interactive strip" feel without the
-  // heavy borders / left rule that made it look like a hard alert; sits as
-  // its own row between the attraction info and the pass list.
-  const baseStyle: React.CSSProperties = {
-    color: 'var(--or)',
-    background: 'var(--or-pale)',
-    cursor: interactive ? 'pointer' : 'default',
-    userSelect: 'none',
-  };
-
-  const cta = (
-    <span className="flex items-center flex-shrink-0">
-      Reserve <span aria-hidden style={{ marginLeft: 4 }}>›</span>
-    </span>
-  );
-
-  // Copy is attraction-centric: this is the museum's general timed-entry
-  // policy for ALL visitors, not a pass-specific rule. Whether the visitor
-  // brings a library pass or pays full price, the museum requires booking.
-  if (variant === 'card') {
-    return (
-      <div
-        role={interactive ? 'button' : undefined}
-        tabIndex={interactive ? 0 : -1}
-        onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleClick(); }}
-        onKeyDown={(e) => { e.stopPropagation(); handleKey(e); }}
-        aria-label={`${attractionName} requires a timed-entry reservation`}
-        className="flex items-center justify-between gap-3"
-        style={{ ...baseStyle, fontSize: 12, padding: '8px 12px', lineHeight: 1.3 }}
-      >
-        <span>Museum requires timed-entry reservation</span>
-        {cta}
-      </div>
-    );
-  }
-
   return (
-    <div
-      role={interactive ? 'button' : undefined}
-      tabIndex={interactive ? 0 : -1}
-      onClick={handleClick}
-      onKeyDown={handleKey}
-      aria-label={`${attractionName} requires a timed-entry reservation`}
-      className="flex items-center justify-between gap-3"
-      style={{ ...baseStyle, fontSize: 13, padding: '10px 14px', lineHeight: 1.4, borderRadius: 4 }}
+    <p
+      style={{
+        marginTop: 6,
+        fontSize: 12,
+        color: 'var(--au)',
+        lineHeight: 1.35,
+      }}
     >
-      <span>
-        {attractionName} requires a timed-entry reservation. Book a slot before visiting — the pass only sets the price you pay at the door.
-      </span>
-      {cta}
-    </div>
+      Require Time Entry Reservation
+    </p>
   );
 }

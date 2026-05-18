@@ -292,14 +292,12 @@ export function AttractionDetail() {
         </div>
       )}
 
-      <div style={{ marginBottom: 14 }}>
-        <MuseumReservationBanner
-          reservation={attraction.museum_reservation}
-          attractionName={attraction.museum_name}
-          variant="detail"
-        />
-      </div>
-      <h2 className="font-serif" style={{ fontSize: 16, marginBottom: 8, color: 'var(--ink-2)' }}>
+      <MuseumReservationBanner
+        reservation={attraction.museum_reservation}
+        attractionName={attraction.museum_name}
+        variant="detail"
+      />
+      <h2 className="font-serif" style={{ fontSize: 16, marginTop: 14, marginBottom: 8, color: 'var(--ink-2)' }}>
         Available coupons
       </h2>
 
