@@ -1037,9 +1037,17 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
         for k, _ in SECONDARY_TIERS:
             if _has_tier(p, k): secondary_counter[k] += 1
     tier_label_map = {**dict(CORE_TIERS), **dict(SECONDARY_TIERS)}
-    # Hours buckets — 3 user-facing categories + 2 footnote categories.
-    # Rule: a status="ok" record with ALL 7 days closed is treated as seasonal
-    # (data bug fix — e.g. cohasset whose notes say "summer only" but status was 'ok').
+    # Hours buckets — every attraction lands in exactly one of four buckets,
+    # decided by whether we have a usable schedule we can show the user.
+    #
+    # Rule: status="varies" means we DID scrape the page but it says "no
+    # single schedule applies, varies by sub-location" (umbrella attractions
+    # like Trustees / MA State Parks, plus performance venues). For the
+    # product user that's identical to "no time data" — we can't show them
+    # when it's open. So those collapse into the Unknown bucket.
+    #
+    # A status="ok" record with ALL 7 days closed also lands here as
+    # seasonal (some libraries' source data tags summer-only spots as ok).
     hours_status_counter = Counter()
     for A in attrs:
         h = A.get("hours")
@@ -1051,7 +1059,8 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
         days = ['mon','tue','wed','thu','fri','sat','sun']
         n_closed = sum(1 for d in days if (rh.get(d) or '').lower() in ('closed', '', 'none'))
         if st == "varies":
-            hours_status_counter["bucket_varies"] += 1
+            # No single schedule we can render — same UX as missing data.
+            hours_status_counter["bucket_nodata"] += 1
         elif st == "seasonal" or (st == "ok" and n_closed == 7):
             hours_status_counter["bucket_seasonal"] += 1
         elif st == "ok" and n_closed == 0:
@@ -1064,8 +1073,7 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
         "bucket_open_daily": "Open daily · 每日开放",
         "bucket_partial":    "Closed days · 每周有休息日",
         "bucket_seasonal":   "Seasonal · 季节性",
-        "bucket_varies":     "Hours vary · 时间不一",
-        "bucket_nodata":     "Unknown · 未知",
+        "bucket_nodata":     "Unknown · 无固定时间表",
     }
     # Categories — read straight from data layer (already normalized by build/categories.py)
     cat_canon_counter = Counter()  # canonical 7-class
