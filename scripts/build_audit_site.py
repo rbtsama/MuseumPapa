@@ -1445,28 +1445,44 @@ def page_passes(passes_data, libs_data, attr_data) -> str:
         "</ul>"
     )
 
+    # Booking dimension: does the MUSEUM require a timed-entry reservation
+    # for the user to actually visit? Sourced from attraction.museum_reservation
+    # — NOT from pass.restrictions.reservation_required (that schema slot exists
+    # but is unpopulated in v0.1; it was meant to capture per-pass overrides).
+    mr_required_slugs = {
+        a["slug"] for a in attr_data["attractions"]
+        if isinstance(a.get("museum_reservation"), dict)
+        and a["museum_reservation"].get("required")
+    }
+    n_mr = sum(1 for p in passes if p["attraction_slug"] in mr_required_slugs)
     s8_what = (
-        "这一维度回答<b>用户能不能 walk-in</b>。两种形态:① 拿到 pass 就直接进、当天到馆出示;② 必须先在景点官网预订时段,迟到不退。"
-        f"全部 {n_passes} 张中 <b>{n_booking_restricted}</b> 张要求预约,其余 walk-in 友好。"
-        "这跟日期约束<b>正交</b>——一张 pass 可以同时季节性且需预约。"
+        "这一维度回答<b>到博物馆现场能不能 walk-in</b>。和"
+        "<i>领券</i>过程无关——领券是 §3 (digital / pickup / borrow);"
+        "这里只看 <b>用券去博物馆参观时,博物馆要不要事先在它自己官网订时段</b>。"
+        f"数据源是 <code>attraction.museum_reservation</code>;"
+        f"全部 {n_passes} 张中 <b>{n_mr}</b> 张("
+        f"{n_mr/n_passes*100:.0f}%)指向了一家要时段预约的景点。"
     )
     s8_bars = (
-        _bar_row("Walk-in friendly · 直接到馆",
-                 "拿券就进,无须预订时段",
-                 n_passes - n_booking_restricted, n_passes)
-        + _bar_row("Reservation required · 必须预约",
-                   "得先在景点官网订时段,迟到不退",
-                   n_booking_restricted, n_passes)
+        _bar_row("Walk-in friendly · 现场直接进",
+                 "拿券到馆出示即可,无须先在景点官网订时段",
+                 n_passes - n_mr, n_passes)
+        + _bar_row("Museum reservation required · 必须先订时段",
+                   "MFA / ICA / MOS / Children's Museum 等 21 家热门馆,得先到景点官网订时段",
+                   n_mr, n_passes)
     )
+    n_mr_attrs = len(mr_required_slugs)
     s8_meaning = (
         "<ul>"
-        f"<li><b>{n_booking_restricted} / {n_passes}</b>"
-        + ("</b>——本期数据里这个字段全是 false,schema 留着是给后续抓热门博物馆用的(MFA / ICA 这种通常要预约)。前端逻辑已经 ready,有数据就能立刻生效。"
-           if n_booking_restricted == 0
-           else f" 张</b>需要预约。前端给这部分 pass 标 \"⚠ 必须提前预约\",并直接跳转到景点官网订时段。")
-        + "</li>"
-        "<li>为什么单独拆一节:日期约束告诉你<b>能不能用</b>,预约约束告诉你<b>怎么用</b>——产品上两件事。"
-        "一张 pass 可能两个都带(比如 seasonal + reservation_required),也可能两个都不带(最自由)。</li>"
+        f"<li><b>{n_mr} / {n_passes}(占 {n_mr/n_passes*100:.0f}%)</b> 的 pass 指向需要时段预约的博物馆——"
+        f"涉及 <b>{n_mr_attrs} 家景点</b>,包括 MFA、ICA Boston、ISGM、Museum of Science、Boston Children's Museum、JFK Library、PEM、Salem Witch Museum 等绝大多数热门馆。"
+        "前端要给这部分 pass 标 \"⚠ 必须先到景点官网订时段\",并把预约链接亮出来(<code>museum_reservation.url</code> 已经存好了)。</li>"
+        "<li><b>为什么和日期约束(§7)分两节:</b>日期约束告诉你<b>哪天能用</b>,预约约束告诉你<b>怎么用</b>。"
+        "一张 pass 可以两个都带(比如 PEM 的 pass 既有 blackout,又要时段预约)。混在一起会让 UI 上的 ⚠ 角标含义不清。</li>"
+        "<li><b>另一个相关字段</b>:<code>pass.restrictions.reservation_required</code> 在本期数据里全空——"
+        "它本来设计用于"
+        "\"个别 pass 的预约规则跟所属博物馆的整体规则不一样\"(目前没有这种边缘案例)。"
+        "Library-side 借券要 hold(借实体卡)已经在 §3 通过 <code>pass_type=physical-circ</code> 单独跟踪了,跟这里不是一回事。</li>"
         "</ul>"
     )
 
