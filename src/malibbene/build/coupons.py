@@ -43,6 +43,14 @@ def coupon_block(rec: dict | None, *, museum_free_under_age: int | None = None) 
 
 
 def restrictions_block(rec: dict | None) -> dict | None:
+    """Return pass-level date restrictions, or None when the pass has none.
+
+    Only date-when restrictions live here (blackout / weekdays-only / seasonal).
+    These are negotiated between the library and the attraction and apply
+    specifically to pass-holders. "Does the museum require a timed-entry
+    reservation" is NOT here — that's a museum-side policy applying to all
+    visitors regardless of pass, and lives on attraction.museum_reservation.
+    """
     if not rec or rec.get("status") != "ok":
         return None
     r = rec.get("restrictions") or {}
@@ -50,12 +58,10 @@ def restrictions_block(rec: dict | None) -> dict | None:
     if not isinstance(blackout_dates, list):
         # Legacy bool fallback (should not occur after schema upgrade)
         blackout_dates = [] if not blackout_dates else []
-    if not any([blackout_dates, r.get("weekdays_only"),
-                r.get("seasonal"), r.get("reservation_required")]):
+    if not any([blackout_dates, r.get("weekdays_only"), r.get("seasonal")]):
         return None
     return {
         "blackout_dates": blackout_dates,
         "weekdays_only": bool(r.get("weekdays_only")),
         "seasonal": r.get("seasonal"),
-        "reservation_required": bool(r.get("reservation_required")),
     }

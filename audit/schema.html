@@ -279,8 +279,8 @@
   <div class="schema-fname"><code>restrictions</code></div>
   <div class="schema-fbody">
     <div class="schema-ftype">object</div>
-    <div class="schema-fdesc">Usage limits: {blackout_dates, weekdays_only, seasonal, reservation_required}.<span class="zh-sub">使用限制:节假日 blackout、仅工作日、季节性、需要预约。</span></div>
-    <div class="schema-fwhy"><b>Why</b> — Surfaces ⚠ warning icons before a user commits to a date.</div>
+    <div class="schema-fdesc">Pass-side date rules: {blackout_dates, weekdays_only, seasonal}. Museum-side timed-entry lives on attraction.museum_reservation.<span class="zh-sub">Pass 自身的日期约束:节假日 blackout、仅工作日、季节性。博物馆要不要时段预约属于景点属性,见 attraction.museum_reservation。</span></div>
+    <div class="schema-fwhy"><b>Why</b> — Surfaces ⚠ warning icons on dates the pass cannot be used.</div>
   </div>
 </div>
 <div class="schema-row">

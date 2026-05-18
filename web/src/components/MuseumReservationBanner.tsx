@@ -36,6 +36,9 @@ export function MuseumReservationBanner({ reservation, attractionName, variant }
     </span>
   );
 
+  // Copy is attraction-centric: this is the museum's general timed-entry
+  // policy for ALL visitors, not a pass-specific rule. Whether the visitor
+  // brings a library pass or pays full price, the museum requires booking.
   if (variant === 'card') {
     return (
       <div
@@ -43,11 +46,11 @@ export function MuseumReservationBanner({ reservation, attractionName, variant }
         tabIndex={interactive ? 0 : -1}
         onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleClick(); }}
         onKeyDown={(e) => { e.stopPropagation(); handleKey(e); }}
-        aria-label={`This pass requires a museum reservation at ${attractionName}`}
+        aria-label={`${attractionName} requires a timed-entry reservation`}
         className="flex items-center justify-between gap-3"
         style={{ ...baseStyle, fontSize: 12, padding: '8px 12px', lineHeight: 1.3 }}
       >
-        <span>Pass requires a museum reservation</span>
+        <span>Museum requires timed-entry reservation</span>
         {cta}
       </div>
     );
@@ -59,12 +62,12 @@ export function MuseumReservationBanner({ reservation, attractionName, variant }
       tabIndex={interactive ? 0 : -1}
       onClick={handleClick}
       onKeyDown={handleKey}
-      aria-label={`This pass requires a museum reservation at ${attractionName}`}
+      aria-label={`${attractionName} requires a timed-entry reservation`}
       className="flex items-center justify-between gap-3"
       style={{ ...baseStyle, fontSize: 13, padding: '10px 14px', lineHeight: 1.4, borderRadius: 4 }}
     >
       <span>
-        This pass requires a museum reservation at {attractionName} before use.
+        {attractionName} requires a timed-entry reservation. Book a slot before visiting — the pass only sets the price you pay at the door.
       </span>
       {cta}
     </div>

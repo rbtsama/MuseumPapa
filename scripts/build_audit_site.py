@@ -1427,23 +1427,20 @@ def page_passes(passes_data, libs_data, attr_data) -> str:
         "</ul>"
     )
 
-    # === Section 7+8: restrictions, split into two dimensions ===
-    # Date-when (which days can the pass be used)  vs.  How-to-book (does the
-    # user need to reserve a time-slot first). These are independent — a pass
-    # can be seasonal AND require reservation, or neither, or either.
+    # === Section 7: date restrictions (pass-side rules) ===
+    # blackout / weekdays-only / seasonal are pass-side rules negotiated
+    # between the library and the attraction. Museum-side timed-entry
+    # (museum requires reservation regardless of pass) is an attraction
+    # property, surfaced on the Attractions page, not here.
     restr_counter = Counter()
     n_date_restricted = 0
-    n_booking_restricted = 0
     for p in passes:
         r = p.get("restrictions") or {}
         if r.get("blackout_dates"): restr_counter["blackout"] += 1
         if r.get("weekdays_only"): restr_counter["weekdays_only"] += 1
         if r.get("seasonal"): restr_counter["seasonal"] += 1
-        if r.get("reservation_required"): restr_counter["reservation_required"] += 1
         if r.get("blackout_dates") or r.get("weekdays_only") or r.get("seasonal"):
             n_date_restricted += 1
-        if r.get("reservation_required"):
-            n_booking_restricted += 1
     s7_what = (
         "这一维度回答<b>哪些日期能用这张 pass</b>。三种形态:整段季节才开放、特定黑名单日不让用、仅工作日。"
         f"全部 {n_passes} 张中 <b>{n_date_restricted}</b> 张带日期约束;其余任何一天都可用。"
@@ -2278,9 +2275,9 @@ def page_schema() -> str:
         ("coupon.summary", "string", "Mobile-ecommerce-style short string (FREE / 50% off / $5 off / $9 / person).",
          "电商风短字符串,如 FREE / 50% off / $5 off / $9/人。",
          "The single line the cardholder reads — they mentally compare it against original_price."),
-        ("restrictions", "object", "Usage limits: {blackout_dates, weekdays_only, seasonal, reservation_required}.",
-         "使用限制:节假日 blackout、仅工作日、季节性、需要预约。",
-         "Surfaces ⚠ warning icons before a user commits to a date."),
+        ("restrictions", "object", "Pass-side date rules: {blackout_dates, weekdays_only, seasonal}. Museum-side timed-entry lives on attraction.museum_reservation.",
+         "Pass 自身的日期约束:节假日 blackout、仅工作日、季节性。博物馆要不要时段预约属于景点属性,见 attraction.museum_reservation。",
+         "Surfaces ⚠ warning icons on dates the pass cannot be used."),
         ("availability", "object", "Next 30 days bookable-status map per slot (MuseumKey libraries: empty).",
          "未来 30 天的可预订状态字典,MuseumKey 平台为空。",
          "Powers the live calendar; tells the user if today is bookable."),
