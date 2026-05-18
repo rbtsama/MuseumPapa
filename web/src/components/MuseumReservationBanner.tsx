@@ -18,13 +18,14 @@ export function MuseumReservationBanner({ reservation }: Props) {
   if (!reservation) return null;
   return (
     <p
+      className="mt-0.5"
       style={{
-        marginTop: 6,
         fontSize: 12,
         color: 'var(--au)',
         lineHeight: 1.35,
       }}
     >
+      <span className="info-icon" aria-hidden>⚠</span>
       Require Time Entry Reservation
     </p>
   );

@@ -130,28 +130,21 @@ export function AttractionCard({
           </h3>
 
           {town && (
-            <p className="mt-1" style={{ fontSize: 12, color: 'var(--ink-3)' }}>📍 {town}</p>
+            <p className="mt-1" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
+              <span className="info-icon">📍</span>{town}
+            </p>
           )}
 
           {hoursInfo && !closedToday && (
             <p className="mt-0.5" style={{ fontSize: 11, color: 'var(--ink-3)' }}>
-              🕘 {hoursInfo.varies ? <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span> : <>Open · <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span></>}
+              <span className="info-icon">🕘</span>
+              {hoursInfo.varies ? <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span> : <>Open · <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span></>}
             </p>
           )}
 
-          {attraction.categories.length > 0 && (
-            <div className="mt-1.5 flex flex-wrap gap-1">
-              {attraction.categories.slice(0, 3).map(c => (
-                <span key={c} className="px-1.5 py-0.5 rounded"
-                  style={{ fontSize: 11, background: 'var(--paper)', color: 'var(--ink-3)' }}>
-                  {c}
-                </span>
-              ))}
-            </div>
-          )}
-
           {(tiers.length > 0 || freeUnder != null) && (
-            <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5" style={{ fontSize: 12 }}>
+            <p className="mt-0.5 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5" style={{ fontSize: 12 }}>
+              <span className="info-icon">🎫</span>
               {tiers.map((t, i) => (
                 <span key={`${t.label}-${i}`} className="inline-flex items-baseline gap-1">
                   {i > 0 && <span style={{ color: 'var(--ink-3)' }}>·</span>}

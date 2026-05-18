@@ -48,3 +48,15 @@ body {
 .font-serif {
   font-family: 'Libre Baskerville', Georgia, serif;
 }
+
+/* Inline info icon — fixed width so location / hours / price / reservation
+   icons all align flush-left in the attraction info block. */
+.info-icon {
+  display: inline-block;
+  width: 16px;
+  margin-right: 4px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1;
+  flex-shrink: 0;
+}
