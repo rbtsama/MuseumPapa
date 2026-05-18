@@ -153,19 +153,19 @@ export function AttractionCard({
         <FavoriteButton slug={attraction.slug} variant="overlay" />
       </div>
 
-      {/* Header: image flush to top/left/bottom edge, no surrounding padding.
-          Image is 60px wide with auto height (keeps natural aspect ratio).
-          Meta side has its own padding so text stays clear of the image. */}
-      <div className="flex" style={dim}>
+      {/* Header: square 70×70 hero with rounded corners; standard p-3 padding
+          around the whole header so the image and meta both sit inside the
+          card's content gutters. */}
+      <div className="flex gap-3 p-3" style={dim}>
         <img
           src={heroSrc(attraction)}
           alt=""
           loading="lazy"
-          className="object-cover bg-[color:var(--paper)] flex-shrink-0"
-          style={{ width: 60, height: 'auto', alignSelf: 'flex-start' }}
+          className="rounded-md object-cover bg-[color:var(--paper)] flex-shrink-0"
+          style={{ width: 70, height: 70 }}
         />
 
-        <div className="flex-grow min-w-0 py-3 pl-3 pr-9">
+        <div className="flex-grow min-w-0 pr-9">
           <h3 className="font-serif" style={{
             fontSize: 16, lineHeight: 1.25, color: 'var(--ink-2)', fontWeight: 700,
           }}>

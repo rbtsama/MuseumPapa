@@ -13,10 +13,15 @@ import { useCardpack } from '../stores/cardpack';
 import { useFavorites } from '../stores/favorites';
 import { geocodeZip } from '../lib/distance';
 import { SignInModal } from '../components/SignInModal';
+import { LandingPromoModal } from '../components/LandingPromoModal';
 import { BookingConfirmModal } from '../components/BookingConfirmModal';
 import { isClosedOn } from '../lib/hours';
 import { todayIso, formatFriendlyDate } from '../lib/dates';
+import { lsGet, lsSet } from '../lib/localStorage';
 import type { Geo, Pass } from '../data/types';
+
+const LANDING_PROMO_DISMISS_KEY = 'landing_promo_dismissed_at';
+const LANDING_PROMO_REPEAT_MS = 7 * 24 * 3600 * 1000;  // 7-day cooldown
 
 export function AttractionsList() {
   const user = useAuth(s => s.currentUser);
@@ -26,6 +31,9 @@ export function AttractionsList() {
   const loadFavorites = useFavorites(s => s.load);
 
   const [signInOpen, setSignInOpen] = useState(false);
+  // Landing promo: show to first-time guests until they dismiss; respect a
+  // 7-day cooldown so we don't badger them every visit.
+  const [landingOpen, setLandingOpen] = useState(false);
   const [date, setDate] = useState(() => todayIso());
   // Default sort is always "Recommended" — it already folds distance in as a
   // secondary signal when a ZIP is available, and adds favorites-first + push
@@ -64,6 +72,26 @@ export function AttractionsList() {
     geocodeZip(zip).then(g => { if (!cancelled) setUserGeo(g); });
     return () => { cancelled = true; };
   }, [cardpack.zip]);
+
+  // Decide whether to surface the landing promo on this visit. Show for
+  // guests (not signed in) unless they dismissed it within the last 7 days.
+  // We do this in an effect (not initial state) so the localStorage check
+  // happens after hydration and we can react to sign-in/out events too.
+  useEffect(() => {
+    if (user) { setLandingOpen(false); return; }
+    const dismissedAt = lsGet<number>(LANDING_PROMO_DISMISS_KEY, 0);
+    const cooledDown = Date.now() - dismissedAt > LANDING_PROMO_REPEAT_MS;
+    if (cooledDown) setLandingOpen(true);
+  }, [user]);
+
+  const handleLandingClose = () => {
+    lsSet(LANDING_PROMO_DISMISS_KEY, Date.now());
+    setLandingOpen(false);
+  };
+  const handleLandingGetStarted = () => {
+    setLandingOpen(false);
+    setSignInOpen(true);
+  };
 
   const attractions = useMemo(() => getAttractions(), []);
   const allPasses = useMemo(() => getPasses(), []);
@@ -187,6 +215,11 @@ export function AttractionsList() {
     <>
       <Banner onSignInClick={() => setSignInOpen(true)} />
       <SignInModal isOpen={signInOpen} onClose={() => setSignInOpen(false)} />
+      <LandingPromoModal
+        isOpen={landingOpen}
+        onClose={handleLandingClose}
+        onGetStarted={handleLandingGetStarted}
+      />
 
       {/* Sticky filter strip — pinned to viewport just under the TopBar.
           Background opaque so card content scrolling underneath doesn't show through.
