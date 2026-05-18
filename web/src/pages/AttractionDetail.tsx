@@ -3,11 +3,11 @@ import { useParams } from 'react-router';
 import {
   getAttractionBySlug, getPassesForAttraction, getLibraries,
 } from '../data/load';
-import { PassRow } from '../components/PassRow';
+import { CouponRow } from '../components/CouponRow';
+import { CouponCalendar } from '../components/CouponCalendar';
 import { HeroBanner } from '../components/detail/HeroBanner';
 import { TodayFactsCard } from '../components/detail/TodayFactsCard';
 import { DescriptionBlock } from '../components/detail/DescriptionBlock';
-import { DayPillRow } from '../components/detail/DayPillRow';
 import { VisitInfoSection } from '../components/detail/VisitInfoSection';
 import { GuestLockedRow } from '../components/GuestLockedRow';
 import { SignInModal } from '../components/SignInModal';
@@ -95,13 +95,13 @@ export function AttractionDetail() {
     const base = new Date(`${today}T00:00:00`);
     base.setDate(1);
     const horizonMonth = dataHorizon.slice(0, 7);
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 2; i++) {
       const d = new Date(base);
       d.setMonth(base.getMonth() + i);
-      const m = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+      const m = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
       if (horizonMonth && m > horizonMonth) break;
       out.push(m);
-      if (!horizonMonth) break;
+      if (!horizonMonth) break; // no scraped data anywhere → only show current month
     }
     return out;
   }, [today, dataHorizon]);
@@ -183,13 +183,13 @@ export function AttractionDetail() {
     [selectedDate, rowsForDate, sortRows, userCardLibIds],
   );
 
-  if (!slug) return <div className="max-w-md mx-auto p-4">Missing slug.</div>;
-  if (!attraction) return <div className="max-w-md mx-auto p-4">Attraction "{slug}" not found.</div>;
+  if (!slug) return <div className="max-w-3xl mx-auto p-4">Missing slug.</div>;
+  if (!attraction) return <div className="max-w-3xl mx-auto p-4">Attraction "{slug}" not found.</div>;
 
   const town = townFromAddress(attraction.address);
 
   return (
-    <div className="max-w-md mx-auto" style={{ background: 'var(--white)', minHeight: '100vh' }}>
+    <div className="max-w-3xl mx-auto" style={{ background: 'var(--white)', minHeight: '100vh' }}>
       <HeroBanner
         imageSrc={heroImg}
         museumName={attraction.museum_name}
@@ -220,15 +220,38 @@ export function AttractionDetail() {
           color: 'var(--g)', textTransform: 'uppercase', letterSpacing: '0.05em',
         }}>Your perks · what it'll cost you</h3>
 
-        <DayPillRow
-          todayIso={today}
-          selectedDate={selectedDate}
-          onSelect={setSelectedDate}
-          month={month}
-          setMonth={setMonth}
-          cellInfo={cellInfo}
-          monthPills={monthPills}
-        />
+        <div className="flex gap-1.5 mb-3">
+          {monthPills.map(m => {
+            const active = m === month;
+            const d = new Date(`${m}-01T00:00:00`);
+            const lbl = d.toLocaleString('en-US', { month: 'short', year: 'numeric' });
+            return (
+              <button
+                key={m}
+                type="button"
+                onClick={() => setMonth(m)}
+                className="rounded-md whitespace-nowrap"
+                style={{
+                  padding: '4px 10px', fontSize: 12, fontWeight: 500,
+                  background: active ? 'var(--g)' : 'transparent',
+                  color: active ? 'var(--white)' : 'var(--ink-2)',
+                  border: `1px solid ${active ? 'var(--g)' : 'var(--rule)'}`,
+                  cursor: 'pointer',
+                }}
+              >{lbl}</button>
+            );
+          })}
+        </div>
+
+        <div className="mb-4">
+          <CouponCalendar
+            month={month}
+            selectedDate={selectedDate}
+            todayIso={today}
+            cellInfo={cellInfo}
+            onSelect={setSelectedDate}
+          />
+        </div>
 
         <div style={{ marginTop: 12 }}>
           {selectedDayRows.length === 0 ? (
@@ -248,11 +271,13 @@ export function AttractionDetail() {
                 );
               }
               return (
-                <PassRow
+                <CouponRow
                   key={`${r.pass.library_id}-${i}`}
                   pass={r.pass}
                   library={r.library}
                   distanceMi={r.distanceMi}
+                  userHasCard={r.userHasCard}
+                  showTopBorder={i > 0}
                   onBook={setBookingPass}
                 />
               );
