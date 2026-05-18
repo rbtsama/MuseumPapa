@@ -7,7 +7,7 @@
 </head><body>
 <header class="site-head">
   <div class="brand"><span class="font-serif">MuseumPapa</span> · Data Audit</div>
-  <nav class="topnav"><a href="index.html" class="">Overview</a> · <a href="libraries.html" class="">Libraries</a> · <a href="attractions.html" class="">Attractions</a> · <a href="policies.html" class="">Policies</a> · <a href="gaps.html" class="">Gaps</a> · <a href="duplicates.html" class="">Duplicates</a> · <a href="lineage.html" class="current">Lineage</a> · <a href="schema.html" class="">Schema</a> · <a href="data_quality.html" class="">Data Quality</a> · <a href="audit_review.html" class="">Audit Review</a></nav>
+  <nav class="topnav"><a href="index.html" class="">Attractions</a> · <a href="passes.html" class="">Passes</a> · <a href="lineage.html" class="current">Lineage</a> · <a href="schema.html" class="">Schema</a> · <a href="data_quality.html" class="">Data Quality</a></nav>
 </header>
 <main>
 
@@ -39,6 +39,17 @@
       <dt>Out</dt><dd>Raw page snapshots, one folder per library</dd>
     </dl>
     <div class="lineage-metric">59 library websites scraped</div>
+    
+    <details class="lineage-tech">
+      <summary>Technical lineage<span class="zh-sub">技术血缘 · 给审计 / 工程团队</span></summary>
+      <dl class="lineage-tech-dl">
+        <dt>Entry</dt><dd class="mono">python scripts/scrape_static.py</dd>
+        <dt>Modules</dt><dd><table class="lineage-tech-modules"><tr><td class="mono">src/malibbene/sources/assabet/index_page.py</td><td>Assabet platform — 52 libraries</td></tr><tr><td class="mono">src/malibbene/sources/libcal/index_page.py</td><td>LibCal platform — 5 libraries (BPL, Cambridge, Brookline, Braintree, Milton)</td></tr><tr><td class="mono">src/malibbene/sources/museumkey/index_page.py</td><td>MuseumKey platform — 2 libraries (Cohasset, Hingham)</td></tr><tr><td class="mono">src/malibbene/common/http.py</td><td>HTTP fetcher with retry, UA, and 24h disk cache</td></tr></table></dd>
+        <dt>How combined</dt><dd>Each platform module reads its library list from <code>config/library_seeds.json</code>, walks every pass URL, and writes one file per library. Cache hits within 24h short-circuit the network call.</dd>
+        <dt>Output path</dt><dd class="mono">data/raw/{assabet,libcal,museumkey}/index/{lib_id}.json</dd>
+        <dt>Audit hooks</dt><dd>Re-run safely — output is idempotent. Inspect <code>meta.status_summary</code> in any output file to see <code>ok</code> / <code>empty</code> / <code>failed</code> counts; failed cells carry a reason string instead of being silently dropped.</dd>
+      </dl>
+    </details>
   </div>
 </section>
 <section class="lineage-stage">
@@ -52,6 +63,17 @@
       <dt>Out</dt><dd>One row per unique attraction</dd>
     </dl>
     <div class="lineage-metric">97 unique attractions catalogued</div>
+    
+    <details class="lineage-tech">
+      <summary>Technical lineage<span class="zh-sub">技术血缘 · 给审计 / 工程团队</span></summary>
+      <dl class="lineage-tech-dl">
+        <dt>Entry</dt><dd class="mono">python scripts/build.py  (catalog + attractions phases)</dd>
+        <dt>Modules</dt><dd><table class="lineage-tech-modules"><tr><td class="mono">src/malibbene/build/catalog.py</td><td>Merge 3 platform raw indexes into one nested library_catalog.json</td></tr><tr><td class="mono">src/malibbene/build/slug_canonical.py</td><td>Legacy-slug → canonical-slug mapping (e.g. <code>museum-of-fine-arts</code> → <code>mfa</code>)</td></tr><tr><td class="mono">src/malibbene/build/attractions.py</td><td>Group catalog passes by canonical slug, attach price/image/geo/hours enrichments</td></tr><tr><td class="mono">src/malibbene/build/categories.py</td><td>Normalize 21 raw category labels into a 9-bucket scheme</td></tr><tr><td class="mono">src/malibbene/common/normalize.py</td><td>Lex-table that turns free-text benefit strings into short labels (FREE / 50% off / $5 off / discount / unknown)</td></tr></table></dd>
+        <dt>How combined</dt><dd><code>library_catalog.json</code> is keyed by lib_id; <code>attractions.py</code> inverts it — for each canonical slug it collects every library that lists that slug, then merges in side-files <code>data/raw/attractions/{prices,images,geo,hours}/&lt;slug&gt;.json</code> produced by the attraction-side scrapers and subagent extractors.</dd>
+        <dt>Output path</dt><dd class="mono">data/structured/library_catalog.json · data/structured/attractions.json</dd>
+        <dt>Audit hooks</dt><dd>Slug-collision check: see <code>n_unmapped_passes_per_platform</code> in catalog meta. If any platform reports unmapped passes, the slug map missed a legacy alias. Attractions <code>_meta.n_with_price</code> uses <code>_has_numeric_price()</code> — a non-empty original_price object alone does NOT count.</dd>
+      </dl>
+    </details>
   </div>
 </section>
 <section class="lineage-stage">
@@ -65,19 +87,41 @@
       <dt>Out</dt><dd>One row per (library × attraction) combination, with a uniform discount summary</dd>
     </dl>
     <div class="lineage-metric">1026 attraction/library pass combinations</div>
+    
+    <details class="lineage-tech">
+      <summary>Technical lineage<span class="zh-sub">技术血缘 · 给审计 / 工程团队</span></summary>
+      <dl class="lineage-tech-dl">
+        <dt>Entry</dt><dd class="mono">python scripts/build.py  (passes phase)</dd>
+        <dt>Modules</dt><dd><table class="lineage-tech-modules"><tr><td class="mono">src/malibbene/build/passes.py</td><td>Flatten library_catalog into one row per (lib_id, canonical_slug); resolve pickup method and pass_type</td></tr><tr><td class="mono">src/malibbene/build/coupons.py</td><td>Attach <code>capacity</code> + <code>audience_policies</code> blocks from per-pass coupon files</td></tr><tr><td class="mono">src/malibbene/build/museum_policy.py</td><td>Drop audience_policies that merely restate the museum's own free-under-N policy (avoids double-counting)</td></tr><tr><td class="mono">data/raw/pass_coupons/{lib}_{slug}.json</td><td>1008 per-pass coupon extractions produced by plan-9 Sonnet subagents reading the raw HTML — carries <code>source_phrases</code> for provenance</td></tr></table></dd>
+        <dt>How combined</dt><dd><code>passes.py</code> iterates every (lib_id × raw_slug) in the catalog, maps raw_slug → canonical via <code>slug_canonical.py</code>, looks up the coupon file with the raw key first (then canonical fallback), and emits one passes.json row. Vehicle capacity defaults <code>n=1</code> in <code>coupons.py</code> when the extractor returned null.</dd>
+        <dt>Output path</dt><dd class="mono">data/structured/passes.json</dd>
+        <dt>Audit hooks</dt><dd><code>coupon.summary</code> is intentionally NOT stored — it's derived on display via <code>_derive_coupon_summary()</code> (build_audit_site.py line ~723). Re-extraction status of edge cases lives in <code>data/structured/_audit_unspecified_reclassification.json</code> (16 corrected, 35 by-audience, 9 family, 45 vague).</dd>
+      </dl>
+    </details>
   </div>
 </section>
 <section class="lineage-stage">
   <div class="lineage-num">4</div>
   <div class="lineage-body">
     <h3 class="lineage-stage-title">Attach live booking availability<span class="zh-sub">接入实时预订日历</span></h3>
-    <p class="lineage-zh">每天自动刷新未来 30 天的预订位,用户打开页面看到的是接近实时的可借状态,不是静态截图。</p>
+    <p class="lineage-zh">每天自动刷新近期预订位,用户打开页面看到的是接近实时的可借状态,不是静态截图。</p>
     <dl class="lineage-io">
       <dt>In</dt><dd>Each library&#x27;s reservation system (Assabet, LibCal, MuseumKey)</dd>
-      <dt>We do</dt><dd>Refresh the next 30 days of slots daily so users see what is bookable right now</dd>
+      <dt>We do</dt><dd>Refresh near-term slots daily so users see what is bookable right now</dd>
       <dt>Out</dt><dd>Per-pass availability calendar refreshed on a schedule</dd>
     </dl>
     <div class="lineage-metric">975 with live booking calendar</div>
+    
+    <details class="lineage-tech">
+      <summary>Technical lineage<span class="zh-sub">技术血缘 · 给审计 / 工程团队</span></summary>
+      <dl class="lineage-tech-dl">
+        <dt>Entry</dt><dd class="mono">python scripts/scrape_dynamic.py</dd>
+        <dt>Modules</dt><dd><table class="lineage-tech-modules"><tr><td class="mono">src/malibbene/sources/assabet/availability.py</td><td>Walks 3 month-pages per pass (<code>base/ · next/ · next/next/</code>), parses <code>day-has-openings</code> / <code>day-no-openings</code> / <code>time-partially-available</code> CSS classes</td></tr><tr><td class="mono">src/malibbene/sources/libcal/availability.py</td><td>Calls LibCal's institution endpoint with the current and next month's first-day-of-month parameter; collapses 3 LibCal states to <code>available</code> / <code>booked</code></td></tr><tr><td class="mono">(MuseumKey not scraped)</td><td>Cohasset + Hingham require library-card login; documented as catalog-only in BRD §A.3</td></tr></table></dd>
+        <dt>How combined</dt><dd>Per-pass calendar dicts (<code>YYYY-MM-DD → available|limited|booked</code>) are written to <code>data/raw/{assabet,libcal}/availability/{lib_id}.json</code>, then merged into <code>passes.json</code>'s <code>availability</code> field at next build. ~2900 HTTP requests per full refresh; 24h cache TTL short-circuits within-day re-runs.</dd>
+        <dt>Output path</dt><dd class="mono">data/raw/{assabet,libcal}/availability/{lib_id}.json → passes.json:availability</dd>
+        <dt>Audit hooks</dt><dd>Front-end's <code>AttractionDetail.tsx</code> uses an explicit-only predicate (<code>availability[date] === 'available'</code>) — <code>undefined</code> does NOT default to available, so unscraped months stay blank instead of faking green. Month-pill row is capped at <code>dataHorizon</code> (max date across all this attraction's passes).</dd>
+      </dl>
+    </details>
   </div>
 </section>
 <section class="lineage-stage">
@@ -91,6 +135,17 @@
       <dt>Out</dt><dd>What the cardholder sees in the browser</dd>
     </dl>
     <div class="lineage-metric">Live product</div>
+    
+    <details class="lineage-tech">
+      <summary>Technical lineage<span class="zh-sub">技术血缘 · 给审计 / 工程团队</span></summary>
+      <dl class="lineage-tech-dl">
+        <dt>Entry</dt><dd class="mono">cd web &amp;&amp; pnpm run build  (Vite + React + TypeScript)</dd>
+        <dt>Modules</dt><dd><table class="lineage-tech-modules"><tr><td class="mono">web/src/data/load.ts</td><td>Bundles the 4 structured JSONs at build time (no runtime fetch)</td></tr><tr><td class="mono">web/src/pages/AttractionDetail.tsx</td><td>Detail page — month pills, calendar, per-date coupon ranking</td></tr><tr><td class="mono">web/src/pages/AttractionsList.tsx</td><td>List page — tag picker via <code>lib/tag-algorithm.ts</code></td></tr><tr><td class="mono">web/src/lib/dates.ts · lib/restrictions.ts · lib/tag-algorithm.ts</td><td>Date math, seasonal-window matching, coupon-ranking logic</td></tr></table></dd>
+        <dt>How combined</dt><dd>Build pipeline writes <code>data/structured/{libraries,attractions,passes,branches}.json</code>; <code>load.ts</code> imports them, the components render. <code>data/static/images/</code> is gitignored; production images are mirrored into <code>web/public/images/</code> for Vite bundling.</dd>
+        <dt>Output path</dt><dd class="mono">web/dist/ → static hosting</dd>
+        <dt>Audit hooks</dt><dd>Test surface: <code>pnpm test</code> runs 102 vitest specs covering coupon ranking, restrictions, distance/geo, and the tag algorithm. Type safety: <code>pnpm tsc --noEmit</code> must be clean before release.</dd>
+      </dl>
+    </details>
   </div>
 </section>
 </div>

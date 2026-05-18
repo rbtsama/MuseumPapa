@@ -308,16 +308,11 @@ def pass_type_badge(pt: str) -> str:
 # ---------- Page chrome ----------
 
 NAV_LINKS = [
-    ("index.html", "Overview"),
-    ("libraries.html", "Libraries"),
-    ("attractions.html", "Attractions"),
-    ("policies.html", "Policies"),
-    ("gaps.html", "Gaps"),
-    ("duplicates.html", "Duplicates"),
+    ("index.html", "Attractions"),
+    ("passes.html", "Passes"),
     ("lineage.html", "Lineage"),
     ("schema.html", "Schema"),
     ("data_quality.html", "Data Quality"),
-    ("audit_review.html", "Audit Review"),
 ]
 
 
@@ -846,7 +841,7 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
 
         dup_warn = ""
         if slug_counts[slug] > 1:
-            dup_warn = '<div class="warn-row">⚠ 此 slug 与同一景点的另一条记录重复(<a href="duplicates.html">见 Duplicates</a>)</div>'
+            dup_warn = '<div class="warn-row">⚠ 此 slug 与同一景点的另一条记录重复</div>'
 
         cats_html = " · ".join(esc(c) for c in (A.get("categories") or [])) or '<span class="honest-gap">未分类</span>'
 
@@ -1092,16 +1087,60 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
         if A.get("address"): cov_counter["address"] += 1
     # Top 10 attractions by # libraries offering
     top_attrs = sorted(attrs, key=lambda a: -len(a.get("sources") or []))[:10]
+    top_max = max(1, len(top_attrs[0].get("sources") or []))
     top_attrs_html = "".join(
         f'<tr><td class="mono">{esc(a["slug"])}</td>'
-        f'<td>{esc((a.get("museum_name") or "")[:34])}</td>'
-        f'<td class="bar-cell"><span class="bar">{"█" * round(40 * len(a.get("sources") or []) / max(1, len(top_attrs[0].get("sources") or [])))}</span></td>'
+        f'<td>{esc((a.get("museum_name") or "")[:38])}</td>'
+        f'<td class="bar-cell"><span class="bar">{"█" * round(30 * len(a.get("sources") or []) / top_max)}</span></td>'
         f'<td class="num">{len(a.get("sources") or [])}</td></tr>'
         for a in top_attrs
     )
 
+    # Umbrella attractions — slugs whose hours.notes say "multiple properties /
+    # no single schedule applies / hours vary". These cover many real-world venues.
+    UMBRELLA_PHRASES = ("multiple", "varies", "no single", "no fixed",
+                        "each property", "each home", "production",
+                        "120+", "116", "450+")
+    umbrella_rows = []
+    for a in attrs:
+        h = a.get("hours") or {}
+        notes = (h.get("notes") or "").lower()
+        if any(ph in notes for ph in UMBRELLA_PHRASES):
+            umbrella_rows.append(a)
+    umbrella_rows.sort(key=lambda a: -len(a.get("sources") or []))
+    umbrella_html = "".join(
+        f'<tr><td class="mono">{esc(a["slug"])}</td>'
+        f'<td>{esc((a.get("museum_name") or "")[:46])}</td>'
+        f'<td class="num">{len(a.get("sources") or [])}</td>'
+        f'<td class="notes-cell">{esc((a.get("hours") or {}).get("notes") or "")[:120]}</td></tr>'
+        for a in umbrella_rows[:8]
+    )
+
+    # Cross-library adult-price variance — same attraction, different per-person
+    # rates across libraries. Real product info (each library negotiates its own
+    # rate), not extraction noise.
+    adult_price_by_slug = defaultdict(Counter)
+    for _p in passes_list:
+        for ap in (_p.get("coupon") or {}).get("audience_policies") or []:
+            if ap.get("form") == "per-person-price" and ap.get("audience") in ("Everyone", "Adult"):
+                v = ap.get("value")
+                if v is not None:
+                    adult_price_by_slug[_p["attraction_slug"]][v] += 1
+    variance_rows = []
+    for slug, ctr in adult_price_by_slug.items():
+        if len(ctr) >= 2:
+            variance_rows.append((slug, ctr))
+    variance_rows.sort(key=lambda x: -sum(x[1].values()))
+    variance_html = "".join(
+        f'<tr><td class="mono">{esc(slug)}</td>'
+        f'<td>{", ".join(f"${k} × {v}" for k, v in sorted(ctr.items()))}</td>'
+        f'<td class="num">{sum(ctr.values())}</td></tr>'
+        for slug, ctr in variance_rows
+    )
+
     body = f"""
-<h1 class="page-title">Attractions · {n_attrs}</h1>
+<h1 class="page-title">Attractions<span class="zh-sub">景点 · {n_attrs} 家可去地点</span></h1>
+<p class="subtitle">本页从景点视角看数据:每条记录 = 一家真实世界的可去地点(博物馆、公园、剧院等),已经把不同图书馆对同一家景点的不同写法合并成一条。下方先给 4 张分布,再讲 3 个跨数据的现象(网络覆盖广度 / 跨馆价差 / 伞型景点),最后是 97 家完整卡片明细。</p>
 
 <section class="dist-grid">
   <div class="panel dist-panel">
@@ -1122,6 +1161,36 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
   </div>
 </section>
 
+<section class="panel passes-section" id="a-top">
+  <h3>Network coverage · top 10<span class="zh-sub">网络覆盖广度 · 哪些景点被最多馆覆盖</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> 每条景点记录里有 <code>sources</code> 字段,列出哪些图书馆把它放进了卡套。这一栏的数字就是该景点出现在几个馆的 pass 程序里。</p>
+  <table class="data-table">
+    <thead><tr><th>slug</th><th>name</th><th></th><th class="num">libraries</th></tr></thead>
+    <tbody>{top_attrs_html}</tbody>
+  </table>
+  <div class="section-meaning"><b>What it means · 含义:</b> 排前面的景点是产品里"必抓"的——任何一个 NorthShore 用户、不论持哪张卡,大概率都能用上 MFA / Boston Children's Museum / Salem Witch Museum 等。这些值得在 UI 上突出展示,而长尾景点(只 1-3 个馆覆盖)对持单卡用户的可达性低,适合按"你卡上有的景点"过滤。</div>
+</section>
+
+<section class="panel passes-section" id="a-variance">
+  <h3>Cross-library price variance<span class="zh-sub">同景点跨馆价差 · 真实数据,不是 bug</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> 同一家景点在不同图书馆的折后价不一样。每家馆和景点单独谈协议价,所以会出现 Salem Witch Museum 在 12 个馆中折后价分 4 档($13.25 / $13.5 / $13.75 / $14)的情况。</p>
+  <table class="data-table">
+    <thead><tr><th>attraction</th><th>distinct adult prices across libraries</th><th class="num">libs reporting</th></tr></thead>
+    <tbody>{variance_html if variance_html else '<tr><td colspan="3" class="honest-gap">no cross-library variance detected</td></tr>'}</tbody>
+  </table>
+  <div class="section-meaning"><b>What it means · 含义:</b> 这不是抽取错误,是产品本身的特征——前端不应把同景点的多个价格平均掉,而应展示"你这张卡的协议价是 $X,旁边那张卡是 $Y"。对持多卡用户这是关键决策信息;对持单卡用户隐藏即可。</div>
+</section>
+
+<section class="panel passes-section" id="a-umbrella">
+  <h3>Umbrella attractions<span class="zh-sub">伞型景点 · 一个 slug 涵盖几十个分馆</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> 像 <code>ma-state-parks</code>(50+ 馆覆盖,实际背后 450+ 处州立公园)或 <code>trustees-of-reservations</code>(44 馆覆盖,实际 120+ 处自然保护地)这种,一个 slug 后面挂着许多分馆/分园,每个分馆开放时间和票价都不同。</p>
+  <table class="data-table">
+    <thead><tr><th>slug</th><th>name</th><th class="num">libs</th><th>hours.notes</th></tr></thead>
+    <tbody>{umbrella_html}</tbody>
+  </table>
+  <div class="section-meaning"><b>What it means · 含义:</b> 我们的"一个 slug = 一个价 + 一份时间"模型表达不了这种结构。前端遇到这类景点要显式提示"包含多处分馆,请到 [景点官网] 查具体地点的开放时间",而不是把单一时间塞到所有分馆。<b>不是数据 bug,是上游产品结构问题。</b></div>
+</section>
+
 <h2 class="section-title">明细 · Full cards</h2>
 <div class="toolbar">
   <input type="search" class="search-box" placeholder="filter (slug / name / category)..." data-target="attr-list">
@@ -1132,11 +1201,305 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
 </div>
 <div id="attr-list" class="attr-list">{"".join(rows)}</div>
 """
-    return page_shell("Attractions", body, "attractions.html"), missing_image
+    # The Attractions content is served at both index.html (landing) and used to
+    # be at attractions.html — keep the 'current' marker pointing at index.html
+    # so the nav highlights correctly on the landing URL.
+    return page_shell("Attractions", body, "index.html"), missing_image
 
 
 # =========================================================================
-# PAGE 4 — policies.html
+# PAGE 4 — passes.html  (boss-readable summary, replaces the old policies page)
+# =========================================================================
+
+def _bar_row(label_en: str, label_zh: str, count: int, total: int, note: str = "") -> str:
+    """Single row in a horizontal-bar distribution table."""
+    pct = (count / total * 100) if total else 0
+    bar_len = max(1, int(round(pct / 2.5))) if count else 0
+    bar = "█" * bar_len
+    note_html = f'<div class="meaning-note">{note}</div>' if note else ""
+    return (
+        f'<tr><td><b>{esc(label_en)}</b>'
+        f'<span class="zh-sub">{esc(label_zh)}</span>{note_html}</td>'
+        f'<td class="bar-cell"><span class="bar">{bar}</span></td>'
+        f'<td class="num">{count}</td><td class="pct">{pct:.0f}%</td></tr>'
+    )
+
+
+def _passes_section(anchor: str, title_en: str, title_zh: str, what: str,
+                    bars_html: str, meaning_html: str) -> str:
+    """One section on the Passes page — what / distribution / meaning."""
+    return f"""
+<section class="panel passes-section" id="{anchor}">
+  <h3>{esc(title_en)}<span class="zh-sub">{esc(title_zh)}</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> {what}</p>
+  <table class="histogram passes-dist">{bars_html}</table>
+  <div class="section-meaning"><b>What it means · 含义:</b>{meaning_html}</div>
+</section>
+"""
+
+
+def page_passes(passes_data, libs_data, attr_data) -> str:
+    """Boss-readable summary of the 1026 pass rows.
+
+    Each section answers three questions, in this order:
+      1. What is this dimension?
+      2. How is it distributed across the 1026 passes?
+      3. What does that distribution mean for the product?
+
+    No per-row tables — those belong on Data Quality for actionable items.
+    """
+    passes = passes_data["passes"]
+    libs = libs_data["libraries"]
+    n_passes = len(passes)
+    lib_platform = {L["id"]: L.get("platform") for L in libs}
+
+    n_libs_with_passes = len({p["library_id"] for p in passes})
+    n_attrs_with_passes = len({p["attraction_slug"] for p in passes})
+    passes_per_lib = n_passes / n_libs_with_passes if n_libs_with_passes else 0
+    attrs_per_lib_mean = n_passes / n_libs_with_passes if n_libs_with_passes else 0
+    libs_per_attr_mean = n_passes / n_attrs_with_passes if n_attrs_with_passes else 0
+
+    # === Section 1: 什么是一张 Pass ===
+    s1_what = (
+        "每条 pass = 一家图书馆 × 一家景点 × 一份优惠条件。同一家景点可能在多个图书馆出现,"
+        "但每条 pass 的取卡方式、折扣力度、能用几人都可能不同——所以不会被去重成一条。"
+    )
+    s1_bars = (
+        f'<tr><td><b>Total passes</b><span class="zh-sub">优惠券总数</span></td>'
+        f'<td></td><td class="num">{n_passes}</td><td class="pct">—</td></tr>'
+        f'<tr><td><b>Libraries covered</b><span class="zh-sub">覆盖图书馆</span></td>'
+        f'<td></td><td class="num">{n_libs_with_passes} / {len(libs)}</td>'
+        f'<td class="pct">{n_libs_with_passes/len(libs)*100:.0f}%</td></tr>'
+        f'<tr><td><b>Attractions covered</b><span class="zh-sub">覆盖景点</span></td>'
+        f'<td></td><td class="num">{n_attrs_with_passes}</td><td class="pct">—</td></tr>'
+        f'<tr><td><b>Passes per library (mean)</b><span class="zh-sub">每馆平均 pass 数</span></td>'
+        f'<td></td><td class="num">{passes_per_lib:.1f}</td><td class="pct">—</td></tr>'
+        f'<tr><td><b>Libraries per attraction (mean)</b><span class="zh-sub">每景点平均覆盖馆数</span></td>'
+        f'<td></td><td class="num">{libs_per_attr_mean:.1f}</td><td class="pct">—</td></tr>'
+    )
+    s1_meaning = (
+        "<ul>"
+        "<li><b>分布是稠密的</b>——59 个馆里 100% 都至少有 pass,97 个景点平均每个被 10.6 个馆覆盖。"
+        "对持单卡用户来说,你能用的 pass 平均有 17 张;对持多卡(运营方 5 张)用户,数量乘到 ~85 张。</li>"
+        "<li><b>同景点跨馆条件不同是常态</b>——比如 Salem Witch Museum 在 12 个馆,实际折后价有 4 档($13.25 / $13.5 / $13.75 / $14)。"
+        "Pass 不去重正是为了让多卡用户能横向对比。</li>"
+        "</ul>"
+    )
+
+    # === Section 2: 取卡途径 · Platform ===
+    plat_passes = Counter(lib_platform.get(p["library_id"], "unknown") for p in passes)
+    plat_libs = Counter(L.get("platform") for L in libs)
+    s2_what = (
+        "数据从 3 个图书馆系统抓回来。哪个馆走哪个平台不是我们选的——"
+        "是图书馆自己买的产品。这一点决定了 <b>能不能拿到实时库存</b>。"
+    )
+    s2_bars = ""
+    for plat_id, plat_en, plat_zh in [
+        ("assabet", "Assabet", "Assabet"),
+        ("libcal", "LibCal", "LibCal · Springshare"),
+        ("museumkey", "MuseumKey", "MuseumKey"),
+    ]:
+        n_p = plat_passes.get(plat_id, 0)
+        n_l = plat_libs.get(plat_id, 0)
+        s2_bars += _bar_row(
+            f"{plat_en}  ({n_l} libraries)",
+            f"{plat_zh}  ·  {n_l} 家馆",
+            n_p, n_passes,
+        )
+    s2_meaning = (
+        "<ul>"
+        "<li><b>Assabet Interactive</b> · 全 MA 公共图书馆通用的 pass 预订平台,覆盖 52 家小型馆。"
+        "HTML 暴露日历,我们能解析出 <code>available / limited / booked</code> 三态。<b>有实时库存。</b></li>"
+        "<li><b>LibCal (Springshare)</b> · 中大型馆产品。BPL、Cambridge、Brookline、Braintree、Milton 用。"
+        "日历通过 institution 端点取,3 种状态合并为 available/booked。<b>有实时库存。</b></li>"
+        "<li><b>MuseumKey</b> · 商业 SaaS,要图书馆卡登录才能看 pass。Cohasset 和 Hingham 用。"
+        "我们只能拿到 catalog(景点列表、benefit 文本),<b>没有实时库存</b>——用户看到这两个馆的 pass 时,"
+        "日历位置是空白,要打电话或上馆里现场查。</li>"
+        "</ul>"
+    )
+
+    # === Section 3: 怎么取 (pass_type) ===
+    pt = Counter(p["pass_type"] for p in passes)
+    s3_what = (
+        "<code>pass_type</code> 描述用户怎么把券拿到手——纯线上、还是要去馆里。"
+        "这个差异直接影响产品体验:digital 是抢菜模式,physical 是有提前量但更稳。"
+    )
+    s3_bars = (
+        _bar_row("digital · Email-delivered", "邮件即时收券码 / PDF",
+                 pt.get("digital", 0), n_passes)
+        + _bar_row("physical-coupon · Pick up paper coupon", "去馆领纸券",
+                   pt.get("physical-coupon", 0), n_passes)
+        + _bar_row("physical-circ · Borrow physical pass", "借实体卡,看完归还",
+                   pt.get("physical-circ", 0), n_passes)
+    )
+    s3_meaning = (
+        "<ul>"
+        "<li><b>57% 是 digital</b>——填表后邮件秒到,可以当天预约当天用。"
+        "前端配实时日历后,这部分是体验最好的 pass。</li>"
+        "<li><b>26% 是 physical-coupon</b>(纸券)——一般要 24-48h 才能拿到,适合提前 1-2 天规划。"
+        "<li><b>17% 是 physical-circ</b>(实体卡)——占用图书馆的循环库存,看完要还,适合提前 3-7 天约。"
+        "在我们的库存逻辑里,这种 pass 看完没还回来之前,日历就是 'booked'。</li>"
+        "</ul>"
+    )
+
+    # === Section 4: 给什么折扣 (form) ===
+    forms = Counter()
+    n_ap = 0
+    for p in passes:
+        for ap in p["coupon"]["audience_policies"]:
+            forms[ap["form"]] += 1
+            n_ap += 1
+    s4_what = (
+        "每条 pass 的 <code>audience_policies</code> 列表里有 1-3 条折扣描述(共 "
+        f"<b>{n_ap}</b> 条),每条用 <code>form</code> 字段标明折扣类型。"
+        "前端就是根据这 5 类决定怎么把优惠串成一句话给用户。"
+    )
+    s4_bars = (
+        _bar_row("Per-person negotiated price", "馆员协议价(如 $10/人)",
+                 forms.get("per-person-price", 0), n_ap)
+        + _bar_row("Percent off", "百分比折扣(如 50% off)",
+                   forms.get("percent-off", 0), n_ap)
+        + _bar_row("FREE", "完全免费",
+                   forms.get("free", 0), n_ap)
+        + _bar_row("Vague discount (no number)", "笼统折扣 · 原文无具体数值",
+                   forms.get("discount", 0), n_ap)
+        + _bar_row("Dollar off", "固定金额减免(如 $5 off)",
+                   forms.get("dollar-off", 0), n_ap)
+    )
+    s4_meaning = (
+        "<ul>"
+        "<li><b>前两类合计 71%(per-person 37% + percent-off 34%)</b>——这部分我们能直接给出"
+        "'每人多少钱'或'省百分之几',用户心算对比原价,决策成本最低。</li>"
+        "<li><b>FREE 20%</b>——pass 类型里最强的优惠形态,值得在 UI 上突出。</li>"
+        "<li><b>vague discount 6%(90 条)</b>——图书馆原文只说 'discounted admission' 或 'family rate',"
+        "上游本来就没数字。属表达问题不是抽取 bug;前端只能显示'有折扣',无法说省多少。</li>"
+        "<li><b>$N off 仅 2%</b>——固定减额罕见,通常出现在低价景点(Concord Museum $5 off 这种)。</li>"
+        "</ul>"
+    )
+
+    # === Section 5: capacity ===
+    cap_kind = Counter(p["coupon"]["capacity"]["kind"] for p in passes)
+    cap_n_top = Counter()
+    for p in passes:
+        c = p["coupon"]["capacity"]
+        if c["kind"] == "people" and c["n"] is not None:
+            cap_n_top[c["n"]] += 1
+    s5_what = (
+        "<code>capacity</code> 描述一次能带几个人。两个字段:"
+        "<code>kind</code>(算人 / 算车 / 算票 / 未明示)和 <code>n</code>(数量)。"
+        "用户看到 'Up to 4' 那个数字就是从这来的。"
+    )
+    s5_bars = (
+        _bar_row(f"Headcount · n ∈ {{1..12}}",
+                 f"按人数 · 集中在 2/4/6 三档(各 {cap_n_top.get(2,0)} / {cap_n_top.get(4,0)} / {cap_n_top.get(6,0)} 条)",
+                 cap_kind.get("people", 0), n_passes)
+        + _bar_row("Per vehicle (n=1)",
+                   "按车 · 全部默认 1 辆(MA State Parks 等户外公园场景)",
+                   cap_kind.get("vehicle", 0), n_passes)
+        + _bar_row("Tickets",
+                   "按张 · 剧院/演出常见(2-4 张戏票)",
+                   cap_kind.get("ticket", 0), n_passes)
+        + _bar_row("Unspecified",
+                   "未明示 · 上游原文没说人数",
+                   cap_kind.get("unspecified", 0), n_passes)
+    )
+    s5_meaning = (
+        "<ul>"
+        "<li><b>84% 是限人数(857 张)</b>,其中 'Up to 4' 是远超过半的众数(379 条,44%)——"
+        "对应典型的两大一小家庭出行规模。'Up to 6' 排第二(147 条)。</li>"
+        "<li><b>vehicle 59 张</b>全部是 1 辆车,这是个产品默认值(原文从不写'1');"
+        "建议 UI 上显式渲染成 'Per vehicle (1 car)' 避免用户误以为'按车每辆都行'。</li>"
+        "<li><b>unspecified 60 张</b>——经子代理逐条复核(见 Data Quality §unspec),"
+        "35 条是 by-audience(各受众自己带 count,全局 n 无意义),9 条是 family-tier 整张通票,"
+        "16 条是上游原文真模糊。这 60 条不是抽取 bug,是 schema 设计选择 / 上游限制。</li>"
+        "</ul>"
+    )
+
+    # === Section 6: audience-split ===
+    aud_split = Counter(len(p["coupon"]["audience_policies"]) for p in passes)
+    s6_what = (
+        "一张 pass 可以把人群拆成 1-5 类,每类各享不同折扣。"
+        "<code>audience_policies</code> 列表的长度就是这里的'类数'。"
+    )
+    s6_bars = ""
+    for k in [1, 2, 3, 5]:
+        n_k = aud_split.get(k, 0)
+        if k == 1:
+            note = "所有人一刀切享同折扣"
+        elif k == 2:
+            note = "典型: Adult $X/人 + Child <16 free"
+        elif k == 3:
+            note = "罕见 · Adult / Child / Senior 各自不同价"
+        else:
+            note = "极个别 outlier · 值得人工 review"
+        s6_bars += _bar_row(f"{k} audience(s)", f"{k} 类受众 · {note}", n_k, n_passes)
+    s6_meaning = (
+        "<ul>"
+        "<li><b>74% 是单类(一刀切)</b>,折扣不区分大人小孩。这部分 pass 信息简单,UI 一句话就能说完。</li>"
+        "<li><b>26% 是双类</b>——这是产品最有信号的形态:能告诉用户'大人 $X、孩子免费',"
+        "对带娃出行决策的价值远大于'大家都 50%'。前端值得突出渲染双类 pass。</li>"
+        "<li><b>3+ 类极罕见</b>(<1%),这种 pass 通常是 Adult / Child / Senior 三档,"
+        "或者带上 Student / Educator / Military 的特殊优惠。</li>"
+        "</ul>"
+    )
+
+    # === Section 7: restrictions ===
+    restr_counter = Counter()
+    n_with_r = 0
+    for p in passes:
+        r = p.get("restrictions") or {}
+        if r: n_with_r += 1
+        if r.get("blackout_dates"): restr_counter["blackout"] += 1
+        if r.get("weekdays_only"): restr_counter["weekdays_only"] += 1
+        if r.get("seasonal"): restr_counter["seasonal"] += 1
+        if r.get("reservation_required"): restr_counter["reservation_required"] += 1
+    s7_what = (
+        "<code>restrictions</code> 字段记录这张 pass 哪天不能用 / 要不要预约。"
+        f"全部 {n_passes} 张中有 <b>{n_with_r}</b> 张带某种限制(其余无限制,任意可用日都成立)。"
+        "前端把这些限制渲染成 ⚠ 角标,但不会因此把 pass 排除——只是提醒。"
+    )
+    s7_bars = (
+        _bar_row("Seasonal · 季节性",
+                 "夏/秋限定开放 · 户外岛屿、季节公园",
+                 restr_counter["seasonal"], n_with_r if n_with_r else 1)
+        + _bar_row("Blackout dates · 黑名单日",
+                   "特定日期禁用 · 节假日 / 特展日",
+                   restr_counter["blackout"], n_with_r if n_with_r else 1)
+        + _bar_row("Weekdays only · 仅工作日",
+                   "周末不可用 · 多见于剧院 / 教育型场所",
+                   restr_counter["weekdays_only"], n_with_r if n_with_r else 1)
+        + _bar_row("Reservation required · 必须预约",
+                   "不能 walk-in · 提前订时段",
+                   restr_counter["reservation_required"], n_with_r if n_with_r else 1)
+    )
+    s7_meaning = (
+        "<ul>"
+        "<li><b>69 / 1026 张(6.7%)</b>带某种限制——比例不高,但都是日历层面的硬约束,前端不能不展示。</li>"
+        "<li><b>季节性 40 张</b>占多数,典型场景:Boston Harbor Islands、Crane Beach 这种夏/秋限定的户外目的地。"
+        "winter 时用户能看到 pass 但日历全灰。</li>"
+        "<li><b>blackout 29 张</b>——通常是图书馆和景点谈下'特定日子不让用'的协议(节假日、特展开幕)。"
+        "前端把这些日期日历格变 ⚠,点开告诉用户原因。</li>"
+        "<li><b>reservation_required</b> 在这版数据里是 0,但 schema 留着——多见于热门博物馆,后续抓到再填。</li>"
+        "</ul>"
+    )
+
+    body = f"""
+<h1 class="page-title">Passes<span class="zh-sub">优惠券 · 7 个角度看 {n_passes} 条 pass</span></h1>
+<p class="subtitle">每张 pass = 1 家图书馆 × 1 家景点 × 1 份优惠条件。本页从 7 个维度告诉你这 {n_passes} 条 pass 是什么、分布怎样、对产品意味着什么。下方每节按 <b>What it is · 分布 · What it means</b> 三段写,跳过 ID 字段——明细查 <a href="schema.html">Schema</a>,边界案例查 <a href="data_quality.html">Data Quality</a>。</p>
+
+{_passes_section("p1", "1 · What is a Pass", "什么是一张 Pass", s1_what, s1_bars, s1_meaning)}
+{_passes_section("p2", "2 · Acquisition path (Platform)", "取卡途径 · 数据来自哪 3 个系统", s2_what, s2_bars, s2_meaning)}
+{_passes_section("p3", "3 · How the user picks it up", "怎么取 · digital / physical-coupon / physical-circ", s3_what, s3_bars, s3_meaning)}
+{_passes_section("p4", "4 · What discount form", "给什么折扣 · 5 类 form 分布", s4_what, s4_bars, s4_meaning)}
+{_passes_section("p5", "5 · How many people fit", "能用几人 · capacity", s5_what, s5_bars, s5_meaning)}
+{_passes_section("p6", "6 · Audience split", "人群拆分 · 1 / 2 / 3 类各享不同待遇", s6_what, s6_bars, s6_meaning)}
+{_passes_section("p7", "7 · Usage restrictions", "使用限制 · blackout / weekday / seasonal / reservation", s7_what, s7_bars, s7_meaning)}
+"""
+    return page_shell("Passes", body, "passes.html")
+
+
+# =========================================================================
+# PAGE 4 (legacy) — policies.html
 # =========================================================================
 
 def page_policies(passes_data, libs_data, attr_data) -> str:
@@ -1655,6 +2018,18 @@ def page_lineage(libs_data, attr_data, passes_data) -> str:
             "out": "Raw page snapshots, one folder per library",
             "metric": f"{n_libs} library websites scraped",
             "zh": "我们按计划访问每家图书馆的 museum-pass 页面,把原始 HTML 和列表数据原样存档,作为后续抽取的唯一真相来源。",
+            "tech": {
+                "entry": "python scripts/scrape_static.py",
+                "modules": [
+                    ("src/malibbene/sources/assabet/index_page.py", "Assabet platform — 52 libraries"),
+                    ("src/malibbene/sources/libcal/index_page.py", "LibCal platform — 5 libraries (BPL, Cambridge, Brookline, Braintree, Milton)"),
+                    ("src/malibbene/sources/museumkey/index_page.py", "MuseumKey platform — 2 libraries (Cohasset, Hingham)"),
+                    ("src/malibbene/common/http.py", "HTTP fetcher with retry, UA, and 24h disk cache"),
+                ],
+                "combine": "Each platform module reads its library list from <code>config/library_seeds.json</code>, walks every pass URL, and writes one file per library. Cache hits within 24h short-circuit the network call.",
+                "output_path": "data/raw/{assabet,libcal,museumkey}/index/{lib_id}.json",
+                "audit_hooks": "Re-run safely — output is idempotent. Inspect <code>meta.status_summary</code> in any output file to see <code>ok</code> / <code>empty</code> / <code>failed</code> counts; failed cells carry a reason string instead of being silently dropped.",
+            },
         },
         {
             "n": "2",
@@ -1665,6 +2040,19 @@ def page_lineage(libs_data, attr_data, passes_data) -> str:
             "out": "One row per unique attraction",
             "metric": f"{n_attrs} unique attractions catalogued",
             "zh": "把不同图书馆对同一家博物馆的不同写法合并成一条规范记录,再从景点官网补齐电话、地址、营业时间、票价、封面图,形成统一目录。",
+            "tech": {
+                "entry": "python scripts/build.py  (catalog + attractions phases)",
+                "modules": [
+                    ("src/malibbene/build/catalog.py", "Merge 3 platform raw indexes into one nested library_catalog.json"),
+                    ("src/malibbene/build/slug_canonical.py", "Legacy-slug → canonical-slug mapping (e.g. <code>museum-of-fine-arts</code> → <code>mfa</code>)"),
+                    ("src/malibbene/build/attractions.py", "Group catalog passes by canonical slug, attach price/image/geo/hours enrichments"),
+                    ("src/malibbene/build/categories.py", "Normalize 21 raw category labels into a 9-bucket scheme"),
+                    ("src/malibbene/common/normalize.py", "Lex-table that turns free-text benefit strings into short labels (FREE / 50% off / $5 off / discount / unknown)"),
+                ],
+                "combine": "<code>library_catalog.json</code> is keyed by lib_id; <code>attractions.py</code> inverts it — for each canonical slug it collects every library that lists that slug, then merges in side-files <code>data/raw/attractions/{prices,images,geo,hours}/&lt;slug&gt;.json</code> produced by the attraction-side scrapers and subagent extractors.",
+                "output_path": "data/structured/library_catalog.json · data/structured/attractions.json",
+                "audit_hooks": "Slug-collision check: see <code>n_unmapped_passes_per_platform</code> in catalog meta. If any platform reports unmapped passes, the slug map missed a legacy alias. Attractions <code>_meta.n_with_price</code> uses <code>_has_numeric_price()</code> — a non-empty original_price object alone does NOT count.",
+            },
         },
         {
             "n": "3",
@@ -1675,16 +2063,39 @@ def page_lineage(libs_data, attr_data, passes_data) -> str:
             "out": "One row per (library × attraction) combination, with a uniform discount summary",
             "metric": f"{n_passes} attraction/library pass combinations",
             "zh": "每家图书馆描述福利的文字风格都不一样,我们把它们翻译成统一的字段:覆盖人群、折扣形式、取卡方式、使用限制,让前端可以横向对比。",
+            "tech": {
+                "entry": "python scripts/build.py  (passes phase)",
+                "modules": [
+                    ("src/malibbene/build/passes.py", "Flatten library_catalog into one row per (lib_id, canonical_slug); resolve pickup method and pass_type"),
+                    ("src/malibbene/build/coupons.py", "Attach <code>capacity</code> + <code>audience_policies</code> blocks from per-pass coupon files"),
+                    ("src/malibbene/build/museum_policy.py", "Drop audience_policies that merely restate the museum's own free-under-N policy (avoids double-counting)"),
+                    ("data/raw/pass_coupons/{lib}_{slug}.json", "1008 per-pass coupon extractions produced by plan-9 Sonnet subagents reading the raw HTML — carries <code>source_phrases</code> for provenance"),
+                ],
+                "combine": "<code>passes.py</code> iterates every (lib_id × raw_slug) in the catalog, maps raw_slug → canonical via <code>slug_canonical.py</code>, looks up the coupon file with the raw key first (then canonical fallback), and emits one passes.json row. Vehicle capacity defaults <code>n=1</code> in <code>coupons.py</code> when the extractor returned null.",
+                "output_path": "data/structured/passes.json",
+                "audit_hooks": "<code>coupon.summary</code> is intentionally NOT stored — it's derived on display via <code>_derive_coupon_summary()</code> (build_audit_site.py line ~723). Re-extraction status of edge cases lives in <code>data/structured/_audit_unspecified_reclassification.json</code> (16 corrected, 35 by-audience, 9 family, 45 vague).",
+            },
         },
         {
             "n": "4",
             "en_title": "Attach live booking availability",
             "zh_title": "接入实时预订日历",
             "in_": "Each library's reservation system (Assabet, LibCal, MuseumKey)",
-            "do": "Refresh the next 30 days of slots daily so users see what is bookable right now",
+            "do": "Refresh near-term slots daily so users see what is bookable right now",
             "out": "Per-pass availability calendar refreshed on a schedule",
             "metric": f"{n_with_avail} with live booking calendar",
-            "zh": "每天自动刷新未来 30 天的预订位,用户打开页面看到的是接近实时的可借状态,不是静态截图。",
+            "zh": "每天自动刷新近期预订位,用户打开页面看到的是接近实时的可借状态,不是静态截图。",
+            "tech": {
+                "entry": "python scripts/scrape_dynamic.py",
+                "modules": [
+                    ("src/malibbene/sources/assabet/availability.py", "Walks 3 month-pages per pass (<code>base/ · next/ · next/next/</code>), parses <code>day-has-openings</code> / <code>day-no-openings</code> / <code>time-partially-available</code> CSS classes"),
+                    ("src/malibbene/sources/libcal/availability.py", "Calls LibCal's institution endpoint with the current and next month's first-day-of-month parameter; collapses 3 LibCal states to <code>available</code> / <code>booked</code>"),
+                    ("(MuseumKey not scraped)", "Cohasset + Hingham require library-card login; documented as catalog-only in BRD §A.3"),
+                ],
+                "combine": "Per-pass calendar dicts (<code>YYYY-MM-DD → available|limited|booked</code>) are written to <code>data/raw/{assabet,libcal}/availability/{lib_id}.json</code>, then merged into <code>passes.json</code>'s <code>availability</code> field at next build. ~2900 HTTP requests per full refresh; 24h cache TTL short-circuits within-day re-runs.",
+                "output_path": "data/raw/{assabet,libcal}/availability/{lib_id}.json → passes.json:availability",
+                "audit_hooks": "Front-end's <code>AttractionDetail.tsx</code> uses an explicit-only predicate (<code>availability[date] === 'available'</code>) — <code>undefined</code> does NOT default to available, so unscraped months stay blank instead of faking green. Month-pill row is capped at <code>dataHorizon</code> (max date across all this attraction's passes).",
+            },
         },
         {
             "n": "5",
@@ -1695,8 +2106,37 @@ def page_lineage(libs_data, attr_data, passes_data) -> str:
             "out": "What the cardholder sees in the browser",
             "metric": "Live product",
             "zh": "把整理好的数据打包推送到面向用户的网站,持卡人打开页面就能查到自己手里的卡能用在哪、当天能不能预订。",
+            "tech": {
+                "entry": "cd web && pnpm run build  (Vite + React + TypeScript)",
+                "modules": [
+                    ("web/src/data/load.ts", "Bundles the 4 structured JSONs at build time (no runtime fetch)"),
+                    ("web/src/pages/AttractionDetail.tsx", "Detail page — month pills, calendar, per-date coupon ranking"),
+                    ("web/src/pages/AttractionsList.tsx", "List page — tag picker via <code>lib/tag-algorithm.ts</code>"),
+                    ("web/src/lib/dates.ts · lib/restrictions.ts · lib/tag-algorithm.ts", "Date math, seasonal-window matching, coupon-ranking logic"),
+                ],
+                "combine": "Build pipeline writes <code>data/structured/{libraries,attractions,passes,branches}.json</code>; <code>load.ts</code> imports them, the components render. <code>data/static/images/</code> is gitignored; production images are mirrored into <code>web/public/images/</code> for Vite bundling.",
+                "output_path": "web/dist/ → static hosting",
+                "audit_hooks": "Test surface: <code>pnpm test</code> runs 102 vitest specs covering coupon ranking, restrictions, distance/geo, and the tag algorithm. Type safety: <code>pnpm tsc --noEmit</code> must be clean before release.",
+            },
         },
     ]
+
+    def _tech_block(tech: dict) -> str:
+        mod_rows = "".join(
+            f'<tr><td class="mono">{esc(path)}</td><td>{role}</td></tr>'
+            for path, role in tech["modules"]
+        )
+        return f"""
+    <details class="lineage-tech">
+      <summary>Technical lineage<span class="zh-sub">技术血缘 · 给审计 / 工程团队</span></summary>
+      <dl class="lineage-tech-dl">
+        <dt>Entry</dt><dd class="mono">{esc(tech['entry'])}</dd>
+        <dt>Modules</dt><dd><table class="lineage-tech-modules">{mod_rows}</table></dd>
+        <dt>How combined</dt><dd>{tech['combine']}</dd>
+        <dt>Output path</dt><dd class="mono">{esc(tech['output_path'])}</dd>
+        <dt>Audit hooks</dt><dd>{tech['audit_hooks']}</dd>
+      </dl>
+    </details>"""
 
     stage_html_parts = []
     for s in stages:
@@ -1712,6 +2152,7 @@ def page_lineage(libs_data, attr_data, passes_data) -> str:
       <dt>Out</dt><dd>{esc(s['out'])}</dd>
     </dl>
     <div class="lineage-metric">{esc(s['metric'])}</div>
+    {_tech_block(s['tech'])}
   </div>
 </section>""")
 
@@ -1933,22 +2374,12 @@ def page_schema() -> str:
 # =========================================================================
 
 def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir, status_banner: str = "") -> str:
-    """Data-integrity red-flag dashboard.
+    """Boss-readable data-quality page.
 
-    Why this page exists: spot-checking misses defects. The user explicitly
-    distrusts抽检 ("抽检永远漏") — we need every category of integrity issue
-    listed at once so the auditor can sweep through all defects systematically.
-    See feedback_data_audit_over_spotcheck in user memory.
-
-    Each panel surfaces one red-flag category. Severity classification:
-      HIGH: empty coupon (panel 1), orphan slugs (panel 5) — real data loss.
-      MED:  price disagreement (panel 2), audience/age contradiction (panel 4),
-            extraction failures (panel 7) — likely extraction errors.
-      LOW:  generic discount with no value (panel 3) — known and acceptable;
-            umbrella attractions (panel 6) — structural, not a bug.
-
-    No methodology / explanatory paragraphs in HTML output (per
-    feedback_audit_no_transitional_text). Pure data + short labels only.
+    Opens with a plain-language explanation of what we audit, then a
+    severity-sorted red-flag summary, then per-flag detail, and finally
+    the Data gaps section (which fields are still missing). No ID dumps
+    without short context; copy is written for the boss / consultant.
     """
     _src = str(ROOT / "src")
     if _src not in sys.path:
@@ -2205,55 +2636,45 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir, status
     # NOTE: panel order in the rendered page is driven by severity (HIGH→MED→
     # LOW→INFO) then descending count, then by panel id. All-clear (count==0)
     # panels sink to the bottom of their severity bucket.
+    # Per panel: short, boss-readable rationale that says what could go wrong
+    # if this number isn't watched. No academic prose, no "we watch this to
+    # make sure" hedging. Umbrella attractions + cross-library variance moved
+    # to the Attractions page — those are attraction properties, not defects.
     PANELS = [
         {
             "id": "dq1", "sev": "HIGH", "count": p1_count, "html": p1_html,
-            "en": "Empty coupon where catalog says a pass exists",
-            "zh": "空 coupon 行 — 编目说有 pass,但抽取后内容为空",
-            "why": "Each library pass should carry the discount it offers; an empty one means the user sees no value at all on that row. We watch this to make sure every advertised pass shows a real benefit on the live site.",
-            "why_zh": "图书馆目录里说有一张 pass,但我们抽取出来的优惠是空的,用户在前端看到这一行没有任何优惠信息,等于白展示。该列表必须接近 0 才算数据齐全。",
+            "en": "Passes whose coupon block came out empty",
+            "zh": "空 coupon · 图书馆说有 pass,我们抽出来是空的",
+            "why": "If this number is non-zero, that many passes show up in the product with no discount info at all — a row in the UI that says nothing. Should stay at 0.",
+            "why_zh": "图书馆目录说有 pass,但我们抽取出来的折扣字段是空的。每多一条就有一条 pass 在产品里显示为空白,用户看不到任何优惠信息。必须为 0。",
         },
         {
             "id": "dq5", "sev": "HIGH", "count": p5_count, "html": p5_html,
-            "en": "Orphan raw coupon files (slug drift)",
-            "zh": "孤立的原始 coupon 文件 — slug 改名后没接回",
-            "why": "When an attraction's canonical slug changes, old extraction files can be left dangling. Surfacing them prevents silently losing a real discount the library actually offers.",
-            "why_zh": "景点 slug 改名后,旧的抽取文件可能没接回主表,等于这家图书馆这条优惠从产品里消失了。这一项必须为 0,否则有真实优惠在前端不可见。",
+            "en": "Orphan raw coupon files (slug renamed but not re-wired)",
+            "zh": "孤立的原始 coupon 文件 · slug 改名后没接回",
+            "why": "When an attraction's canonical slug changes, old extraction files can be left dangling. Each orphan = one real library discount that exists upstream but isn't visible on the live site. Should stay at 0.",
+            "why_zh": "景点 slug 改名后,旧的抽取文件没被接回主表,等于这条真实存在的优惠在产品里消失了。必须为 0。",
         },
         {
             "id": "dq4", "sev": "MED", "count": p4_count, "html": p4_html,
-            "en": "age_range contradicts the labelled audience",
-            "zh": "年龄区间与人群标签矛盾 — 多半是抽取出错",
-            "why": "An 'Adult' tier flagged for under-13s, or a 'Child' tier flagged for 18+, is almost always an extraction mistake. Cleaning these prevents the UI from showing nonsensical age bands to the user.",
-            "why_zh": "标着 Adult 却写 13 岁以下,或者标着 Child 却写 18 岁以上,基本都是抽取错误。清掉这些避免前端显示前后矛盾的年龄区间,影响用户对数据的信任。",
+            "en": "Audience label contradicts its age range",
+            "zh": "受众标签和年龄区间矛盾 · 几乎都是抽取出错",
+            "why": "An 'Adult' tier marked for under-13s, or a 'Child' tier for 18+, almost certainly means the extractor put the wrong row in the wrong bucket. UI ends up showing nonsensical age bands.",
+            "why_zh": "标着 Adult 却写 13 岁以下,或者 Child 却写 18 岁以上,几乎肯定是抽取放错位置。前端会显示前后矛盾的年龄区间,直接打击用户信任。",
         },
         {
             "id": "dq7", "sev": "MED", "count": p7_count, "html": p7_html,
-            "en": "Raw extraction failures (status != ok)",
-            "zh": "原始抽取失败 — extractor 在这些文件上放弃了",
-            "why": "These are files where the AI extractor returned a non-ok status. They never make it into the live data, so each one is a missing discount on the site. Goal: drive this number toward zero with re-runs or manual override.",
-            "why_zh": "AI 抽取器在这些文件上失败了,对应的优惠完全没进产品。每多一条就少一条用户能看到的折扣,需要重跑或人工补录把它降到 0。",
+            "en": "Raw extractions where the AI extractor gave up",
+            "zh": "AI 抽取失败的原始文件 · status != ok",
+            "why": "These never make it into the live data. Each one = one discount the user never sees. Either re-run the extractor on these, or add a manual override.",
+            "why_zh": "AI 抽取器在这些文件上放弃了,对应的优惠从来没进过产品。每多一条就少一条用户能看到的折扣。要么重跑,要么人工补录。",
         },
         {
             "id": "dq3", "sev": "LOW", "count": p3_count, "html": p3_html,
-            "en": "form=discount with null value",
-            "zh": "笼统折扣 — 原文写得太模糊,抽不到具体数值",
-            "why": "These passes carry a real discount but the library wrote it in free-text that can't be parsed to a number (e.g. 'discounted admission'). Acceptable, but we monitor the trend — too many means our pricing comparison loses precision.",
-            "why_zh": "原页面写的是'优惠门票'这类模糊语,虽然是真实的折扣但拿不到具体数值。可接受,但量太大会让前端无法给出精确的价值对比。",
-        },
-        {
-            "id": "dq6", "sev": "LOW", "count": p6_count, "html": p6_html,
-            "en": "Umbrella attractions",
-            "zh": "伞型景点 — 一个 slug 下包含多个分馆/分园",
-            "why": "An attraction like 'MA State Parks' covers many sub-venues with different hours and prices. The 'one slug = one price' model can't represent them cleanly. Listed here so the auditor can decide whether to split the slug or accept the umbrella.",
-            "why_zh": "比如 MA State Parks 这种,一个 slug 实际上覆盖了几十个分园,每个营业时间和票价都不同。'一个 slug 一个价格'的模型表达不了,需要决定要不要拆分。",
-        },
-        {
-            "id": "dq2", "sev": "INFO", "count": p2_count, "html": p2_html,
-            "en": "Cross-library price variance",
-            "zh": "跨馆同景点价差 — 每馆和景点单独谈价,本就会不同",
-            "why": "Each library negotiates its own per-person rate with an attraction, so the same museum can carry different discounted prices across libraries. This is real product info, not a bug — surfaced so a multi-card user can see which of their cards gives the best deal.",
-            "why_zh": "每家图书馆和景点单独谈价,所以同一家博物馆在不同馆的折后价不一样,这是产品本身的特征,不是数据缺陷。列出来是为了让持多卡的用户能挑出最划算的那张。",
+            "en": "Discount marked but no number — upstream is vague",
+            "zh": "标着有折扣但抽不到数值 · 上游原文本来就模糊",
+            "why": "The library wrote things like 'discounted admission' or 'family rate' with no number. The discount is real but we can't show '$X off' or '50% off' to the user. Not a bug — an upstream limitation.",
+            "why_zh": "图书馆原文写的是 'discounted admission' / 'family rate' 这种模糊语,折扣是真的存在,但拿不到具体数字。属上游限制不是抽取 bug,前端只能显示\"有折扣\"。",
         },
     ]
     SEV_RANK = {"HIGH": 0, "MED": 1, "LOW": 2, "INFO": 3}
@@ -2315,18 +2736,92 @@ def page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir, status
   {p['html']}
 </section>""")
 
+    # ── Data gaps section (folded in from the retired Gaps page) ────────
+    # Same logic as the old page_gaps body: list every field whose attraction
+    # or pass coverage isn't 100%, with a one-line "what the user misses".
+    gap_meta = {
+        "Missing price data":            ("Attractions missing original_price", "缺失票价的景点", len(attrs),
+                                          "用户看不到原价对比 · coupon 的价值难以判断 · 降低成交信心。"),
+        "Missing description":           ("Attractions missing description", "缺失简介的景点", len(attrs),
+                                          "卡片上没有一句话介绍 · 用户难判断是否值得点进去 · 影响点击率。"),
+        "Missing phone":                 ("Attractions missing phone", "缺失联系电话的景点", len(attrs),
+                                          "用户想电话确认是否需预约或当天是否开放时无法直接联系景点。"),
+        "Geo geocode failure":           ("Attractions missing geo coordinates", "缺失经纬度的景点", len(attrs),
+                                          "无法按距离排序 · 持卡用户在远郊看到的优先级次序失真。"),
+        "Hours vary by location / season": ("Attractions with non-fixed hours", "营业时间随场地/季节变动的景点", len(attrs),
+                                            "页面无法给出固定开放时间 · 需额外提示用户出门前自查。"),
+        "Missing hero image":            ("Attractions missing hero image", "缺失封面图的景点", len(attrs),
+                                          "卡片上只能显示分类占位 SVG · 视觉冲击弱 · 用户停留时间下降。"),
+        "Passes missing source_url":     ("Passes missing source_url", "缺失来源 URL 的 pass 行", len(passes),
+                                          "审核时无法一键回链到图书馆原页面 · 影响数据可追溯性。"),
+    }
+    gap_buckets = defaultdict(list)
+    slug_count = Counter(A["slug"] for A in attrs)
+    for A in attrs:
+        slug = A["slug"]
+        name = A.get("museum_name") or ""
+        if not has_numeric_price(A):                                gap_buckets["Missing price data"].append((slug, name))
+        if not A.get("description"):                                gap_buckets["Missing description"].append((slug, name))
+        if not A.get("phone"):                                      gap_buckets["Missing phone"].append((slug, name))
+        if not A.get("geo"):                                        gap_buckets["Geo geocode failure"].append((slug, name))
+        h = A.get("hours") or {}
+        if h.get("status") and h["status"] != "ok":                 gap_buckets["Hours vary by location / season"].append((slug, name))
+        if not (A.get("hero_image") or {}).get("local_path"):       gap_buckets["Missing hero image"].append((slug, name))
+    for p in passes:
+        if not p.get("source_url"):
+            gap_buckets["Passes missing source_url"].append((f'{p.get("library_id","")} → {p.get("attraction_slug","")}', ""))
+
+    gap_sections = []
+    for label, (en_title, zh_title, denom, zh_impact) in gap_meta.items():
+        items = gap_buckets.get(label) or []
+        if not items:
+            continue
+        pct = round(100 * len(items) / max(denom, 1))
+        rows_html = "".join(f'<tr><td class="mono">{esc(s)}</td><td>{esc(n)}</td></tr>' for s, n in items)
+        gap_sections.append(f"""
+<section class="panel gap-section">
+  <h3>{esc(en_title)} <span class="num-pill">{len(items)} / {denom} · {pct}%</span><span class="zh-sub">{esc(zh_title)}</span></h3>
+  <p class="gap-impact">{esc(zh_impact)}</p>
+  <table class="data-table">
+    <thead><tr><th>slug / lib → slug</th><th>name</th></tr></thead>
+    <tbody>{rows_html}</tbody>
+  </table>
+</section>""")
+    gaps_html = "".join(gap_sections) if gap_sections else '<p class="honest-gap">All tracked fields are 100% populated — no gaps to list.</p>'
+
     body = f"""
-<h1 class="page-title">Data quality<span class="zh-sub">数据质量 · 红旗汇总</span></h1>
+<h1 class="page-title">Data quality<span class="zh-sub">数据质量 · 我们到底审了什么</span></h1>
+
+<section class="panel">
+  <h3>What this page audits<span class="zh-sub">这页在审什么 · 一句话讲清</span></h3>
+  <p style="font-size:13.5px;line-height:1.75;margin:6px 0 4px;">
+    The 1026 passes in this dataset went through a 5-stage pipeline
+    (<a href="lineage.html">see Lineage</a>). At each stage, something can go wrong — a library
+    page changes shape, the AI extractor misreads a sentence, a slug gets renamed without re-wiring.
+    This page lists every category where that has actually happened, with a count and the affected rows.
+  </p>
+  <p style="font-size:13px;line-height:1.75;margin:6px 0 0;color:var(--ink-3);">
+    简而言之,这页在审三件事:
+    <b>① 每条记录是否完整</b>(coupon 空不空、source_url 在不在)、
+    <b>② 字段值是否前后一致</b>(标着 Adult 却写 12 岁以下、价格出现负数)、
+    <b>③ 我们抽出来的数字原文是否真的支持</b>(原文写 "discounted admission" 不能被抽成具体百分比)。
+    数据 gaps(哪些字段还没抓到)放在本页最后一节。
+  </p>
+</section>
 
 {status_banner}
 
 <section class="panel">
-  <h3>Summary <span class="num-pill">{len(PANELS)} categories</span><span class="zh-sub">汇总 · 按严重程度排序</span></h3>
+  <h3>Red-flag summary<span class="zh-sub">红旗汇总 · 按严重程度排序</span></h3>
   {summary_html}
   {severity_caption}
 </section>
 
 {"".join(panel_sections)}
+
+<h2 class="section-title" style="margin-top:32px">Data gaps<span class="zh-sub">数据缺口 · 哪些字段还没拿到</span></h2>
+<p class="subtitle">下面每一节列出某个字段未能采集到的景点或 pass。百分比基于该字段的全集(景点 {len(attrs)} 条 / pass {len(passes)} 条)。处理方式只有两种:用 <code>config/manual_overrides.json</code> 人工补录,或者接受当前缺口。</p>
+{gaps_html}
 """
     return body
 
@@ -2654,6 +3149,36 @@ mark sup { font-size: 9px; margin-left: 2px; color: var(--ink-3); }
 .lineage-io dt { color: var(--ink-3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; font-size: 11px; padding-top: 2px; }
 .lineage-io dd { margin: 0; color: var(--ink-2); }
 .lineage-metric { display: inline-block; background: var(--g-pale); color: var(--g); padding: 4px 10px; border-radius: 12px; font-size: 11.5px; font-weight: 600; }
+.lineage-tech { margin-top: 12px; border-top: 1px dashed var(--rule); padding-top: 8px; }
+.lineage-tech > summary { cursor: pointer; color: var(--ink-3); font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; list-style: none; padding: 4px 0; }
+.lineage-tech > summary::-webkit-details-marker { display: none; }
+.lineage-tech > summary::before { content: '▸  '; color: var(--ink-3); font-size: 10px; }
+.lineage-tech[open] > summary::before { content: '▾  '; }
+.lineage-tech-dl { display: grid; grid-template-columns: 100px 1fr; gap: 6px 14px; margin: 8px 0 0; font-size: 11.5px; color: var(--ink-3); }
+.lineage-tech-dl dt { font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; font-size: 10.5px; padding-top: 2px; color: var(--ink-3); }
+.lineage-tech-dl dd { margin: 0; color: var(--ink-2); line-height: 1.55; }
+.lineage-tech-dl dd.mono { font-family: 'SF Mono', Menlo, Consolas, monospace; color: var(--ink-2); background: var(--g-pale); padding: 2px 6px; border-radius: 4px; display: inline-block; }
+.lineage-tech-modules { font-size: 11.5px; border-collapse: collapse; width: 100%; }
+.lineage-tech-modules td { padding: 3px 0; border: 0; vertical-align: top; }
+.lineage-tech-modules td.mono { font-family: 'SF Mono', Menlo, Consolas, monospace; color: var(--ink); padding-right: 14px; white-space: nowrap; }
+.lineage-tech-modules td code { background: transparent; padding: 0; }
+
+/* Passes page — what / distribution / meaning sections */
+.passes-section { padding: 18px 22px; }
+.passes-section h3 { font-family: 'Libre Baskerville', Georgia, serif; font-size: 16px; color: var(--ink); margin: 0 0 12px; }
+.passes-section .section-what { margin: 0 0 12px; font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+.passes-section .section-what b { color: var(--ink); }
+.passes-section .section-meaning { margin-top: 12px; padding: 12px 14px; background: var(--g-pale); border-left: 3px solid var(--g); font-size: 12.5px; color: var(--ink-2); line-height: 1.65; border-radius: 4px; }
+.passes-section .section-meaning b { color: var(--ink); }
+.passes-section .section-meaning ul { margin: 6px 0 0; padding-left: 18px; }
+.passes-section .section-meaning li { margin-bottom: 6px; }
+.passes-section .section-meaning li:last-child { margin-bottom: 0; }
+.passes-dist td { vertical-align: middle; padding: 5px 8px; }
+.passes-dist td:first-child { width: 32%; line-height: 1.4; }
+.passes-dist .meaning-note { font-size: 11px; color: var(--ink-3); margin-top: 1px; }
+.passes-dist .bar { color: var(--g); letter-spacing: -1px; }
+.passes-dist .num { color: var(--ink); font-weight: 600; }
+.passes-dist .pct { color: var(--ink-3); font-size: 11.5px; }
 @media (max-width: 720px) {
   .lineage-flow-line { grid-template-columns: 1fr 1fr; }
 }
@@ -2831,39 +3356,39 @@ def main():
         print(f"  wrote {name:18s}  {size_kb:8.1f} KB")
         pages.append((name, p.stat().st_size))
 
-    # Compute red-flag counts once; both index.html and data_quality.html
-    # render the same status banner so the verdict is consistent.
+    # Compute red-flag counts once; data_quality.html renders the status banner.
     raw_coupons_dir = ROOT / "data" / "raw" / "pass_coupons"
     dq_counts = compute_dq_counts(libs_data, attr_data, passes_data, raw_coupons_dir)
     banner = status_banner_html(dq_counts)
 
-    print("[2/8] index.html")
-    write("index.html", page_index(libs_data, attr_data, passes_data, libcat, status_banner=banner))
+    # Delete obsolete pages from previous nav layouts. Idempotent — missing is fine.
+    for stale in (
+        "libraries.html", "duplicates.html", "gaps.html",
+        "policies.html", "audit_review.html",
+        "attractions.html",  # content now lives at index.html (landing tab)
+    ):
+        try:
+            (OUT / stale).unlink()
+            print(f"  removed {stale}")
+        except FileNotFoundError:
+            pass
 
-    print("[3/8] libraries.html")
-    write("libraries.html", page_libraries(libs_data, libcat=libcat, branches_data=branches_data))
-
-    print("[4/8] attractions.html")
+    print("[1/5] index.html (= Attractions landing)")
     attr_html, missing_image = page_attractions(attr_data, passes_data=passes_data, libs_data=libs_data)
-    write("attractions.html", attr_html)
+    # index.html and attractions.html serve the same content; nav highlights via 'current'
+    write("index.html", attr_html)
 
-    print("[5/8] policies.html")
-    pol_html, n_patterns = page_policies(passes_data, libs_data, attr_data)
-    write("policies.html", pol_html)
+    print("[2/5] passes.html")
+    write("passes.html", page_passes(passes_data, libs_data, attr_data))
+    n_patterns = 0  # legacy page_policies retired; no pattern matrix to count
 
-    print("[6/8] gaps.html")
-    write("gaps.html", page_gaps(attr_data, libs_data, passes_data))
-
-    print("[7/8] duplicates.html")
-    write("duplicates.html", page_duplicates(attr_data))
-
-    print("[7.5/8] lineage.html")
+    print("[3/5] lineage.html")
     write("lineage.html", page_lineage(libs_data, attr_data, passes_data))
 
-    print("[8/8] schema.html")
+    print("[4/5] schema.html")
     write("schema.html", page_schema())
 
-    print("[9/9] data_quality.html")
+    print("[5/5] data_quality.html")
     write("data_quality.html", page_shell(
         "Data Quality",
         page_data_quality(libs_data, attr_data, passes_data, raw_coupons_dir, status_banner=banner),

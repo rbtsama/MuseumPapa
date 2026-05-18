@@ -7,17 +7,34 @@
 </head><body>
 <header class="site-head">
   <div class="brand"><span class="font-serif">MuseumPapa</span> · Data Audit</div>
-  <nav class="topnav"><a href="index.html" class="">Overview</a> · <a href="libraries.html" class="">Libraries</a> · <a href="attractions.html" class="">Attractions</a> · <a href="policies.html" class="">Policies</a> · <a href="gaps.html" class="">Gaps</a> · <a href="duplicates.html" class="">Duplicates</a> · <a href="lineage.html" class="">Lineage</a> · <a href="schema.html" class="">Schema</a> · <a href="data_quality.html" class="current">Data Quality</a> · <a href="audit_review.html" class="">Audit Review</a></nav>
+  <nav class="topnav"><a href="index.html" class="">Attractions</a> · <a href="passes.html" class="">Passes</a> · <a href="lineage.html" class="">Lineage</a> · <a href="schema.html" class="">Schema</a> · <a href="data_quality.html" class="current">Data Quality</a></nav>
 </header>
 <main>
 
-<h1 class="page-title">Data quality<span class="zh-sub">数据质量 · 红旗汇总</span></h1>
-
-<section class="status-banner banner-amber"><span class="banner-icon">⚠</span><span class="banner-verdict"><b>Data foundation — 96 low · 5 info finding(s).</b> HIGH 0 · MED 0 · LOW 96 · INFO 5.</span><span class="banner-meta">Built 2026-05-18 11:49 UTC · <a href="data_quality.html">see Data Quality</a></span></section>
+<h1 class="page-title">Data quality<span class="zh-sub">数据质量 · 我们到底审了什么</span></h1>
 
 <section class="panel">
-  <h3>Summary <span class="num-pill">7 categories</span><span class="zh-sub">汇总 · 按严重程度排序</span></h3>
-  <table class="data-table"><thead><tr><th>severity</th><th>category</th><th>count</th></tr></thead><tbody><tr><td><span class="sev-badge sev-high">HIGH</span></td><td><a href="#dq1">Empty coupon where catalog says a pass exists</a><span class="zh-sub">空 coupon 行 — 编目说有 pass,但抽取后内容为空</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-high">HIGH</span></td><td><a href="#dq5">Orphan raw coupon files (slug drift)</a><span class="zh-sub">孤立的原始 coupon 文件 — slug 改名后没接回</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-med">MED</span></td><td><a href="#dq4">age_range contradicts the labelled audience</a><span class="zh-sub">年龄区间与人群标签矛盾 — 多半是抽取出错</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-med">MED</span></td><td><a href="#dq7">Raw extraction failures (status != ok)</a><span class="zh-sub">原始抽取失败 — extractor 在这些文件上放弃了</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-low">LOW</span></td><td><a href="#dq3">form=discount with null value</a><span class="zh-sub">笼统折扣 — 原文写得太模糊,抽不到具体数值</span></td><td class="num">90</td></tr><tr><td><span class="sev-badge sev-low">LOW</span></td><td><a href="#dq6">Umbrella attractions</a><span class="zh-sub">伞型景点 — 一个 slug 下包含多个分馆/分园</span></td><td class="num">6</td></tr><tr><td><span class="sev-badge sev-info">INFO</span></td><td><a href="#dq2">Cross-library price variance</a><span class="zh-sub">跨馆同景点价差 — 每馆和景点单独谈价,本就会不同</span></td><td class="num">5</td></tr></tbody></table>
+  <h3>What this page audits<span class="zh-sub">这页在审什么 · 一句话讲清</span></h3>
+  <p style="font-size:13.5px;line-height:1.75;margin:6px 0 4px;">
+    The 1026 passes in this dataset went through a 5-stage pipeline
+    (<a href="lineage.html">see Lineage</a>). At each stage, something can go wrong — a library
+    page changes shape, the AI extractor misreads a sentence, a slug gets renamed without re-wiring.
+    This page lists every category where that has actually happened, with a count and the affected rows.
+  </p>
+  <p style="font-size:13px;line-height:1.75;margin:6px 0 0;color:var(--ink-3);">
+    简而言之,这页在审三件事:
+    <b>① 每条记录是否完整</b>(coupon 空不空、source_url 在不在)、
+    <b>② 字段值是否前后一致</b>(标着 Adult 却写 12 岁以下、价格出现负数)、
+    <b>③ 我们抽出来的数字原文是否真的支持</b>(原文写 "discounted admission" 不能被抽成具体百分比)。
+    数据 gaps(哪些字段还没抓到)放在本页最后一节。
+  </p>
+</section>
+
+<section class="status-banner banner-amber"><span class="banner-icon">⚠</span><span class="banner-verdict"><b>Data foundation — 96 low · 5 info finding(s).</b> HIGH 0 · MED 0 · LOW 96 · INFO 5.</span><span class="banner-meta">Built 2026-05-18 12:56 UTC · <a href="data_quality.html">see Data Quality</a></span></section>
+
+<section class="panel">
+  <h3>Red-flag summary<span class="zh-sub">红旗汇总 · 按严重程度排序</span></h3>
+  <table class="data-table"><thead><tr><th>severity</th><th>category</th><th>count</th></tr></thead><tbody><tr><td><span class="sev-badge sev-high">HIGH</span></td><td><a href="#dq1">Passes whose coupon block came out empty</a><span class="zh-sub">空 coupon · 图书馆说有 pass,我们抽出来是空的</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-high">HIGH</span></td><td><a href="#dq5">Orphan raw coupon files (slug renamed but not re-wired)</a><span class="zh-sub">孤立的原始 coupon 文件 · slug 改名后没接回</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-med">MED</span></td><td><a href="#dq4">Audience label contradicts its age range</a><span class="zh-sub">受众标签和年龄区间矛盾 · 几乎都是抽取出错</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-med">MED</span></td><td><a href="#dq7">Raw extractions where the AI extractor gave up</a><span class="zh-sub">AI 抽取失败的原始文件 · status != ok</span></td><td class="num">0</td></tr><tr><td><span class="sev-badge sev-low">LOW</span></td><td><a href="#dq3">Discount marked but no number — upstream is vague</a><span class="zh-sub">标着有折扣但抽不到数值 · 上游原文本来就模糊</span></td><td class="num">90</td></tr></tbody></table>
   
 <p class="sev-caption">
   <span class="sev-badge sev-high">HIGH</span> 立即修复,影响用户决策<br>
@@ -29,46 +46,78 @@
 
 
 <section class="panel dq-panel" id="dq1">
-  <h3><span class="sev-badge sev-high">HIGH</span> Empty coupon where catalog says a pass exists <span class="num-pill num-pill-zero">0</span>
-      <span class="zh-sub">空 coupon 行 — 编目说有 pass,但抽取后内容为空</span></h3>
-  <p class="dq-why">Each library pass should carry the discount it offers; an empty one means the user sees no value at all on that row. We watch this to make sure every advertised pass shows a real benefit on the live site.<br><span class="dq-why-zh">图书馆目录里说有一张 pass,但我们抽取出来的优惠是空的,用户在前端看到这一行没有任何优惠信息,等于白展示。该列表必须接近 0 才算数据齐全。</span></p>
+  <h3><span class="sev-badge sev-high">HIGH</span> Passes whose coupon block came out empty <span class="num-pill num-pill-zero">0</span>
+      <span class="zh-sub">空 coupon · 图书馆说有 pass,我们抽出来是空的</span></h3>
+  <p class="dq-why">If this number is non-zero, that many passes show up in the product with no discount info at all — a row in the UI that says nothing. Should stay at 0.<br><span class="dq-why-zh">图书馆目录说有 pass,但我们抽取出来的折扣字段是空的。每多一条就有一条 pass 在产品里显示为空白,用户看不到任何优惠信息。必须为 0。</span></p>
   <p class="honest-gap">all clear · 0</p>
 </section>
 <section class="panel dq-panel" id="dq5">
-  <h3><span class="sev-badge sev-high">HIGH</span> Orphan raw coupon files (slug drift) <span class="num-pill num-pill-zero">0</span>
-      <span class="zh-sub">孤立的原始 coupon 文件 — slug 改名后没接回</span></h3>
-  <p class="dq-why">When an attraction&#x27;s canonical slug changes, old extraction files can be left dangling. Surfacing them prevents silently losing a real discount the library actually offers.<br><span class="dq-why-zh">景点 slug 改名后,旧的抽取文件可能没接回主表,等于这家图书馆这条优惠从产品里消失了。这一项必须为 0,否则有真实优惠在前端不可见。</span></p>
+  <h3><span class="sev-badge sev-high">HIGH</span> Orphan raw coupon files (slug renamed but not re-wired) <span class="num-pill num-pill-zero">0</span>
+      <span class="zh-sub">孤立的原始 coupon 文件 · slug 改名后没接回</span></h3>
+  <p class="dq-why">When an attraction&#x27;s canonical slug changes, old extraction files can be left dangling. Each orphan = one real library discount that exists upstream but isn&#x27;t visible on the live site. Should stay at 0.<br><span class="dq-why-zh">景点 slug 改名后,旧的抽取文件没被接回主表,等于这条真实存在的优惠在产品里消失了。必须为 0。</span></p>
   <p class="honest-gap">all clear · 0</p>
 </section>
 <section class="panel dq-panel" id="dq4">
-  <h3><span class="sev-badge sev-med">MED</span> age_range contradicts the labelled audience <span class="num-pill num-pill-zero">0</span>
-      <span class="zh-sub">年龄区间与人群标签矛盾 — 多半是抽取出错</span></h3>
-  <p class="dq-why">An &#x27;Adult&#x27; tier flagged for under-13s, or a &#x27;Child&#x27; tier flagged for 18+, is almost always an extraction mistake. Cleaning these prevents the UI from showing nonsensical age bands to the user.<br><span class="dq-why-zh">标着 Adult 却写 13 岁以下,或者标着 Child 却写 18 岁以上,基本都是抽取错误。清掉这些避免前端显示前后矛盾的年龄区间,影响用户对数据的信任。</span></p>
+  <h3><span class="sev-badge sev-med">MED</span> Audience label contradicts its age range <span class="num-pill num-pill-zero">0</span>
+      <span class="zh-sub">受众标签和年龄区间矛盾 · 几乎都是抽取出错</span></h3>
+  <p class="dq-why">An &#x27;Adult&#x27; tier marked for under-13s, or a &#x27;Child&#x27; tier for 18+, almost certainly means the extractor put the wrong row in the wrong bucket. UI ends up showing nonsensical age bands.<br><span class="dq-why-zh">标着 Adult 却写 13 岁以下,或者 Child 却写 18 岁以上,几乎肯定是抽取放错位置。前端会显示前后矛盾的年龄区间,直接打击用户信任。</span></p>
   <p class="honest-gap">all clear · 0</p>
 </section>
 <section class="panel dq-panel" id="dq7">
-  <h3><span class="sev-badge sev-med">MED</span> Raw extraction failures (status != ok) <span class="num-pill num-pill-zero">0</span>
-      <span class="zh-sub">原始抽取失败 — extractor 在这些文件上放弃了</span></h3>
-  <p class="dq-why">These are files where the AI extractor returned a non-ok status. They never make it into the live data, so each one is a missing discount on the site. Goal: drive this number toward zero with re-runs or manual override.<br><span class="dq-why-zh">AI 抽取器在这些文件上失败了,对应的优惠完全没进产品。每多一条就少一条用户能看到的折扣,需要重跑或人工补录把它降到 0。</span></p>
+  <h3><span class="sev-badge sev-med">MED</span> Raw extractions where the AI extractor gave up <span class="num-pill num-pill-zero">0</span>
+      <span class="zh-sub">AI 抽取失败的原始文件 · status != ok</span></h3>
+  <p class="dq-why">These never make it into the live data. Each one = one discount the user never sees. Either re-run the extractor on these, or add a manual override.<br><span class="dq-why-zh">AI 抽取器在这些文件上放弃了,对应的优惠从来没进过产品。每多一条就少一条用户能看到的折扣。要么重跑,要么人工补录。</span></p>
   <p class="honest-gap">all clear · 0</p>
 </section>
 <section class="panel dq-panel" id="dq3">
-  <h3><span class="sev-badge sev-low">LOW</span> form=discount with null value <span class="num-pill">90</span>
-      <span class="zh-sub">笼统折扣 — 原文写得太模糊,抽不到具体数值</span></h3>
-  <p class="dq-why">These passes carry a real discount but the library wrote it in free-text that can&#x27;t be parsed to a number (e.g. &#x27;discounted admission&#x27;). Acceptable, but we monitor the trend — too many means our pricing comparison loses precision.<br><span class="dq-why-zh">原页面写的是&#x27;优惠门票&#x27;这类模糊语,虽然是真实的折扣但拿不到具体数值。可接受,但量太大会让前端无法给出精确的价值对比。</span></p>
+  <h3><span class="sev-badge sev-low">LOW</span> Discount marked but no number — upstream is vague <span class="num-pill">90</span>
+      <span class="zh-sub">标着有折扣但抽不到数值 · 上游原文本来就模糊</span></h3>
+  <p class="dq-why">The library wrote things like &#x27;discounted admission&#x27; or &#x27;family rate&#x27; with no number. The discount is real but we can&#x27;t show &#x27;$X off&#x27; or &#x27;50% off&#x27; to the user. Not a bug — an upstream limitation.<br><span class="dq-why-zh">图书馆原文写的是 &#x27;discounted admission&#x27; / &#x27;family rate&#x27; 这种模糊语,折扣是真的存在,但拿不到具体数字。属上游限制不是抽取 bug,前端只能显示&quot;有折扣&quot;。</span></p>
   <table class="data-table"><thead><tr><th>library_id</th><th>attraction_slug</th></tr></thead><tbody><tr><td>acton</td><td>trustees-of-reservations</td></tr><tr><td>acton</td><td>trustees-of-reservations</td></tr><tr><td>andover</td><td>historic-new-england</td></tr><tr><td>andover</td><td>historic-new-england</td></tr><tr><td>andover</td><td>trustees-of-reservations</td></tr><tr><td>bedford</td><td>trustees-of-reservations</td></tr><tr><td>bedford</td><td>trustees-of-reservations</td></tr><tr><td>belmont</td><td>trustees-of-reservations</td></tr><tr><td>belmont</td><td>trustees-of-reservations</td></tr><tr><td>burlington</td><td>peabody-essex-museum</td></tr><tr><td>burlington</td><td>trustees-of-reservations</td></tr><tr><td>burlington</td><td>trustees-of-reservations</td></tr><tr><td>carlisle</td><td>ica-boston</td></tr><tr><td>carlisle</td><td>salem-witch-museum</td></tr><tr><td>carlisle</td><td>trustees-of-reservations</td></tr><tr><td>carlisle</td><td>trustees-of-reservations</td></tr><tr><td>chelmsford</td><td>trustees-of-reservations</td></tr><tr><td>chelmsford</td><td>trustees-of-reservations</td></tr><tr><td>concord</td><td>trustees-of-reservations</td></tr><tr><td>concord</td><td>trustees-of-reservations</td></tr><tr><td>everett</td><td>trustees-of-reservations</td></tr><tr><td>everett</td><td>trustees-of-reservations</td></tr><tr><td>lexington</td><td>trustees-of-reservations</td></tr><tr><td>lexington</td><td>trustees-of-reservations</td></tr><tr><td>lincoln</td><td>trustees-of-reservations</td></tr><tr><td>lincoln</td><td>trustees-of-reservations</td></tr><tr><td>lynnfield</td><td>isabella-stewart-gardner-museum</td></tr><tr><td>lynnfield</td><td>trustees-of-reservations</td></tr><tr><td>malden</td><td>trustees-of-reservations</td></tr><tr><td>malden</td><td>trustees-of-reservations</td></tr><tr><td colspan="2" class="honest-gap">+60 more</td></tr></tbody></table>
 </section>
-<section class="panel dq-panel" id="dq6">
-  <h3><span class="sev-badge sev-low">LOW</span> Umbrella attractions <span class="num-pill">6</span>
-      <span class="zh-sub">伞型景点 — 一个 slug 下包含多个分馆/分园</span></h3>
-  <p class="dq-why">An attraction like &#x27;MA State Parks&#x27; covers many sub-venues with different hours and prices. The &#x27;one slug = one price&#x27; model can&#x27;t represent them cleanly. Listed here so the auditor can decide whether to split the slug or accept the umbrella.<br><span class="dq-why-zh">比如 MA State Parks 这种,一个 slug 实际上覆盖了几十个分园,每个营业时间和票价都不同。&#x27;一个 slug 一个价格&#x27;的模型表达不了,需要决定要不要拆分。</span></p>
-  <table class="data-table"><thead><tr><th>slug</th><th>museum_name</th><th>n libs offering</th><th>hours.notes</th></tr></thead><tbody><tr><td><code class="mono">ma-state-parks</code></td><td>Massachusetts State Parks (Department of Conservation and Recreation)</td><td><span class="num">51</span></td><td><details class="notes-details"><summary>Massachusetts DCR operates 450+ parks, beaches, and forests, each with different hours. No…</summary><div class="notes-full">Massachusetts DCR operates 450+ parks, beaches, and forests, each with different hours. No single schedule applies. Most outdoor spaces are open dawn to dusk. Same as massachusetts-state-parks-department-of-conservation-and-recreation.</div></details></td></tr><tr><td><code class="mono">trustees-of-reservations</code></td><td>Trustees of Reservations (with deCordova Sculpture Park and Museum)</td><td><span class="num">44</span></td><td><details class="notes-details"><summary>The Trustees GO Pass covers 120+ properties across Massachusetts, each with its own hours.…</summary><div class="notes-full">The Trustees GO Pass covers 120+ properties across Massachusetts, each with its own hours. No single schedule applies. See individual property pages at thetrustees.org.</div></details></td></tr><tr><td><code class="mono">historic-new-england</code></td><td>Historic New England</td><td><span class="num">10</span></td><td><span class="notes">Multiple properties with varying hours; no single schedule applies.</span></td></tr><tr><td><code class="mono">wheelock-family-theatre</code></td><td>Wheelock Family Theatre</td><td><span class="num">1</span></td><td><span class="notes">Performance venue — no fixed visiting hours. Shows and box office hours vary by production schedule.</span></td></tr><tr><td><code class="mono">greater-boston-stage-company</code></td><td>Greater Boston Stage Company</td><td><span class="num">1</span></td><td><details class="notes-details"><summary>Performance venue — no fixed visiting hours. Show schedules vary by production. Box office…</summary><div class="notes-full">Performance venue — no fixed visiting hours. Show schedules vary by production. Box office hours vary seasonally.</div></details></td></tr><tr><td><code class="mono">boch-center</code></td><td>Boch Center Tours</td><td><span class="num">1</span></td><td><details class="notes-details"><summary>Large performance venue (Wang Theatre, Shubert Theatre) — no fixed visiting hours. Open fo…</summary><div class="notes-full">Large performance venue (Wang Theatre, Shubert Theatre) — no fixed visiting hours. Open for ticketed performances only; schedule varies by production.</div></details></td></tr></tbody></table>
+
+<h2 class="section-title" style="margin-top:32px">Data gaps<span class="zh-sub">数据缺口 · 哪些字段还没拿到</span></h2>
+<p class="subtitle">下面每一节列出某个字段未能采集到的景点或 pass。百分比基于该字段的全集(景点 97 条 / pass 1026 条)。处理方式只有两种:用 <code>config/manual_overrides.json</code> 人工补录,或者接受当前缺口。</p>
+
+<section class="panel gap-section">
+  <h3>Attractions missing original_price <span class="num-pill">23 / 97 · 24%</span><span class="zh-sub">缺失票价的景点</span></h3>
+  <p class="gap-impact">用户看不到原价对比 · coupon 的价值难以判断 · 降低成交信心。</p>
+  <table class="data-table">
+    <thead><tr><th>slug / lib → slug</th><th>name</th></tr></thead>
+    <tbody><tr><td class="mono">concord-museum</td><td>Concord Museum</td></tr><tr><td class="mono">jfk-library</td><td>John F. Kennedy Library &amp; Museum</td></tr><tr><td class="mono">ma-state-parks</td><td>Massachusetts State Parks (Department of Conservation and Recreation)</td></tr><tr><td class="mono">new-england-botanic-garden-at-tower-hill</td><td>New England Botanic Garden at Tower Hill</td></tr><tr><td class="mono">trustees-of-reservations</td><td>Trustees of Reservations (with deCordova Sculpture Park and Museum)</td></tr><tr><td class="mono">zoo-new-england</td><td>Zoo New England</td></tr><tr><td class="mono">historic-new-england</td><td>Historic New England</td></tr><tr><td class="mono">boston-by-foot</td><td>Boston by Foot </td></tr><tr><td class="mono">butterfly-place</td><td>The Butterfly Place</td></tr><tr><td class="mono">griffin-museum-of-photography</td><td>Griffin Museum of Photography</td></tr><tr><td class="mono">wheelock-family-theatre</td><td>Wheelock Family Theatre</td></tr><tr><td class="mono">american-repertory-theater</td><td>American Repertory Theater</td></tr><tr><td class="mono">paddle-boston</td><td>Paddle Boston</td></tr><tr><td class="mono">real-pirates-salem</td><td>Real Pirates Salem</td></tr><tr><td class="mono">historic-newton</td><td>Historic Newton</td></tr><tr><td class="mono">greater-boston-stage-company</td><td>Greater Boston Stage Company</td></tr><tr><td class="mono">boch-center</td><td>Boch Center Tours</td></tr><tr><td class="mono">sandwich-glass</td><td>Sandwich Glass Museum</td></tr><tr><td class="mono">greenway-carousel</td><td>The Greenway Carousel</td></tr><tr><td class="mono">maah</td><td>Museum of African American History</td></tr><tr><td class="mono">charles-riverboat-tour</td><td>Charles River Boat Tour</td></tr><tr><td class="mono">maplewood-day-camp</td><td>Maplewood Country Day Camp &amp; Enrichment Center</td></tr><tr><td class="mono">cohasset-historical-society</td><td>Cohasset Historical Society</td></tr></tbody>
+  </table>
 </section>
-<section class="panel dq-panel" id="dq2">
-  <h3><span class="sev-badge sev-info">INFO</span> Cross-library price variance <span class="num-pill">5</span>
-      <span class="zh-sub">跨馆同景点价差 — 每馆和景点单独谈价,本就会不同</span></h3>
-  <p class="dq-why">Each library negotiates its own per-person rate with an attraction, so the same museum can carry different discounted prices across libraries. This is real product info, not a bug — surfaced so a multi-card user can see which of their cards gives the best deal.<br><span class="dq-why-zh">每家图书馆和景点单独谈价,所以同一家博物馆在不同馆的折后价不一样,这是产品本身的特征,不是数据缺陷。列出来是为了让持多卡的用户能挑出最划算的那张。</span></p>
-  <h4>Adult price</h4><table class="data-table"><thead><tr><th>attraction_slug</th><th>distinct adult prices</th><th>n libs reporting</th></tr></thead><tbody><tr><td><code class="mono">mfa</code></td><td>$10, $15</td><td>56</td></tr><tr><td><code class="mono">plimoth-patuxet</code></td><td>$16, $18</td><td>16</td></tr><tr><td><code class="mono">salem-witch-museum</code></td><td>$13.25, $13.5, $13.75, $14</td><td>12</td></tr></tbody></table><h4>Child price</h4><table class="data-table"><thead><tr><th>attraction_slug</th><th>distinct child prices</th><th>n libs reporting</th></tr></thead><tbody><tr><td><code class="mono">plimoth-patuxet</code></td><td>$10, $12</td><td>16</td></tr><tr><td><code class="mono">salem-witch-museum</code></td><td>$10.75, $11.25, $11.75</td><td>12</td></tr></tbody></table>
+<section class="panel gap-section">
+  <h3>Attractions missing description <span class="num-pill">4 / 97 · 4%</span><span class="zh-sub">缺失简介的景点</span></h3>
+  <p class="gap-impact">卡片上没有一句话介绍 · 用户难判断是否值得点进去 · 影响点击率。</p>
+  <table class="data-table">
+    <thead><tr><th>slug / lib → slug</th><th>name</th></tr></thead>
+    <tbody><tr><td class="mono">boch-center</td><td>Boch Center Tours</td></tr><tr><td class="mono">sandwich-glass</td><td>Sandwich Glass Museum</td></tr><tr><td class="mono">greenway-carousel</td><td>The Greenway Carousel</td></tr><tr><td class="mono">cohasset-historical-society</td><td>Cohasset Historical Society</td></tr></tbody>
+  </table>
+</section>
+<section class="panel gap-section">
+  <h3>Attractions missing phone <span class="num-pill">8 / 97 · 8%</span><span class="zh-sub">缺失联系电话的景点</span></h3>
+  <p class="gap-impact">用户想电话确认是否需预约或当天是否开放时无法直接联系景点。</p>
+  <table class="data-table">
+    <thead><tr><th>slug / lib → slug</th><th>name</th></tr></thead>
+    <tbody><tr><td class="mono">historic-new-england</td><td>Historic New England</td></tr><tr><td class="mono">christian-science-plaza</td><td>Christian Science Plaza</td></tr><tr><td class="mono">boch-center</td><td>Boch Center Tours</td></tr><tr><td class="mono">mapparium</td><td>How Do You See the World + Mapparium™ Globe</td></tr><tr><td class="mono">sandwich-glass</td><td>Sandwich Glass Museum</td></tr><tr><td class="mono">greenway-carousel</td><td>The Greenway Carousel</td></tr><tr><td class="mono">royall-house</td><td>Royall House &amp; Slave Quarters</td></tr><tr><td class="mono">cohasset-historical-society</td><td>Cohasset Historical Society</td></tr></tbody>
+  </table>
+</section>
+<section class="panel gap-section">
+  <h3>Attractions missing geo coordinates <span class="num-pill">1 / 97 · 1%</span><span class="zh-sub">缺失经纬度的景点</span></h3>
+  <p class="gap-impact">无法按距离排序 · 持卡用户在远郊看到的优先级次序失真。</p>
+  <table class="data-table">
+    <thead><tr><th>slug / lib → slug</th><th>name</th></tr></thead>
+    <tbody><tr><td class="mono">mass-audubon</td><td>Mass Audubon</td></tr></tbody>
+  </table>
+</section>
+<section class="panel gap-section">
+  <h3>Attractions with non-fixed hours <span class="num-pill">11 / 97 · 11%</span><span class="zh-sub">营业时间随场地/季节变动的景点</span></h3>
+  <p class="gap-impact">页面无法给出固定开放时间 · 需额外提示用户出门前自查。</p>
+  <table class="data-table">
+    <thead><tr><th>slug / lib → slug</th><th>name</th></tr></thead>
+    <tbody><tr><td class="mono">ma-state-parks</td><td>Massachusetts State Parks (Department of Conservation and Recreation)</td></tr><tr><td class="mono">trustees-of-reservations</td><td>Trustees of Reservations (with deCordova Sculpture Park and Museum)</td></tr><tr><td class="mono">historic-new-england</td><td>Historic New England</td></tr><tr><td class="mono">new-hampshire-philharmonic-orchestra</td><td>New Hampshire Philharmonic Orchestra</td></tr><tr><td class="mono">mass-audubon</td><td>Mass Audubon</td></tr><tr><td class="mono">wheelock-family-theatre</td><td>Wheelock Family Theatre</td></tr><tr><td class="mono">greater-boston-stage-company</td><td>Greater Boston Stage Company</td></tr><tr><td class="mono">boch-center</td><td>Boch Center Tours</td></tr><tr><td class="mono">royall-house</td><td>Royall House &amp; Slave Quarters</td></tr><tr><td class="mono">maplewood-day-camp</td><td>Maplewood Country Day Camp &amp; Enrichment Center</td></tr><tr><td class="mono">cohasset-historical-society</td><td>Cohasset Historical Society</td></tr></tbody>
+  </table>
 </section>
 
 </main>

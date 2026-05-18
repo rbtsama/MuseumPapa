@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh"><head>
+<meta charset="utf-8">
+<title>Passes — MuseumPapa Audit</title>
+<link rel="stylesheet" href="assets/style.css">
+
+</head><body>
+<header class="site-head">
+  <div class="brand"><span class="font-serif">MuseumPapa</span> · Data Audit</div>
+  <nav class="topnav"><a href="index.html" class="">Attractions</a> · <a href="passes.html" class="current">Passes</a> · <a href="lineage.html" class="">Lineage</a> · <a href="schema.html" class="">Schema</a> · <a href="data_quality.html" class="">Data Quality</a></nav>
+</header>
+<main>
+
+<h1 class="page-title">Passes<span class="zh-sub">优惠券 · 7 个角度看 1026 条 pass</span></h1>
+<p class="subtitle">每张 pass = 1 家图书馆 × 1 家景点 × 1 份优惠条件。本页从 7 个维度告诉你这 1026 条 pass 是什么、分布怎样、对产品意味着什么。下方每节按 <b>What it is · 分布 · What it means</b> 三段写,跳过 ID 字段——明细查 <a href="schema.html">Schema</a>,边界案例查 <a href="data_quality.html">Data Quality</a>。</p>
+
+
+<section class="panel passes-section" id="p1">
+  <h3>1 · What is a Pass<span class="zh-sub">什么是一张 Pass</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> 每条 pass = 一家图书馆 × 一家景点 × 一份优惠条件。同一家景点可能在多个图书馆出现,但每条 pass 的取卡方式、折扣力度、能用几人都可能不同——所以不会被去重成一条。</p>
+  <table class="histogram passes-dist"><tr><td><b>Total passes</b><span class="zh-sub">优惠券总数</span></td><td></td><td class="num">1026</td><td class="pct">—</td></tr><tr><td><b>Libraries covered</b><span class="zh-sub">覆盖图书馆</span></td><td></td><td class="num">59 / 59</td><td class="pct">100%</td></tr><tr><td><b>Attractions covered</b><span class="zh-sub">覆盖景点</span></td><td></td><td class="num">97</td><td class="pct">—</td></tr><tr><td><b>Passes per library (mean)</b><span class="zh-sub">每馆平均 pass 数</span></td><td></td><td class="num">17.4</td><td class="pct">—</td></tr><tr><td><b>Libraries per attraction (mean)</b><span class="zh-sub">每景点平均覆盖馆数</span></td><td></td><td class="num">10.6</td><td class="pct">—</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>分布是稠密的</b>——59 个馆里 100% 都至少有 pass,97 个景点平均每个被 10.6 个馆覆盖。对持单卡用户来说,你能用的 pass 平均有 17 张;对持多卡(运营方 5 张)用户,数量乘到 ~85 张。</li><li><b>同景点跨馆条件不同是常态</b>——比如 Salem Witch Museum 在 12 个馆,实际折后价有 4 档($13.25 / $13.5 / $13.75 / $14)。Pass 不去重正是为了让多卡用户能横向对比。</li></ul></div>
+</section>
+
+
+<section class="panel passes-section" id="p2">
+  <h3>2 · Acquisition path (Platform)<span class="zh-sub">取卡途径 · 数据来自哪 3 个系统</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> 数据从 3 个图书馆系统抓回来。哪个馆走哪个平台不是我们选的——是图书馆自己买的产品。这一点决定了 <b>能不能拿到实时库存</b>。</p>
+  <table class="histogram passes-dist"><tr><td><b>Assabet  (52 libraries)</b><span class="zh-sub">Assabet  ·  52 家馆</span></td><td class="bar-cell"><span class="bar">████████████████████████████████████</span></td><td class="num">915</td><td class="pct">89%</td></tr><tr><td><b>LibCal  (5 libraries)</b><span class="zh-sub">LibCal · Springshare  ·  5 家馆</span></td><td class="bar-cell"><span class="bar">███</span></td><td class="num">80</td><td class="pct">8%</td></tr><tr><td><b>MuseumKey  (2 libraries)</b><span class="zh-sub">MuseumKey  ·  2 家馆</span></td><td class="bar-cell"><span class="bar">█</span></td><td class="num">31</td><td class="pct">3%</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>Assabet Interactive</b> · 全 MA 公共图书馆通用的 pass 预订平台,覆盖 52 家小型馆。HTML 暴露日历,我们能解析出 <code>available / limited / booked</code> 三态。<b>有实时库存。</b></li><li><b>LibCal (Springshare)</b> · 中大型馆产品。BPL、Cambridge、Brookline、Braintree、Milton 用。日历通过 institution 端点取,3 种状态合并为 available/booked。<b>有实时库存。</b></li><li><b>MuseumKey</b> · 商业 SaaS,要图书馆卡登录才能看 pass。Cohasset 和 Hingham 用。我们只能拿到 catalog(景点列表、benefit 文本),<b>没有实时库存</b>——用户看到这两个馆的 pass 时,日历位置是空白,要打电话或上馆里现场查。</li></ul></div>
+</section>
+
+
+<section class="panel passes-section" id="p3">
+  <h3>3 · How the user picks it up<span class="zh-sub">怎么取 · digital / physical-coupon / physical-circ</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> <code>pass_type</code> 描述用户怎么把券拿到手——纯线上、还是要去馆里。这个差异直接影响产品体验:digital 是抢菜模式,physical 是有提前量但更稳。</p>
+  <table class="histogram passes-dist"><tr><td><b>digital · Email-delivered</b><span class="zh-sub">邮件即时收券码 / PDF</span></td><td class="bar-cell"><span class="bar">███████████████████████</span></td><td class="num">586</td><td class="pct">57%</td></tr><tr><td><b>physical-coupon · Pick up paper coupon</b><span class="zh-sub">去馆领纸券</span></td><td class="bar-cell"><span class="bar">██████████</span></td><td class="num">267</td><td class="pct">26%</td></tr><tr><td><b>physical-circ · Borrow physical pass</b><span class="zh-sub">借实体卡,看完归还</span></td><td class="bar-cell"><span class="bar">███████</span></td><td class="num">173</td><td class="pct">17%</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>57% 是 digital</b>——填表后邮件秒到,可以当天预约当天用。前端配实时日历后,这部分是体验最好的 pass。</li><li><b>26% 是 physical-coupon</b>(纸券)——一般要 24-48h 才能拿到,适合提前 1-2 天规划。<li><b>17% 是 physical-circ</b>(实体卡)——占用图书馆的循环库存,看完要还,适合提前 3-7 天约。在我们的库存逻辑里,这种 pass 看完没还回来之前,日历就是 'booked'。</li></ul></div>
+</section>
+
+
+<section class="panel passes-section" id="p4">
+  <h3>4 · What discount form<span class="zh-sub">给什么折扣 · 5 类 form 分布</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> 每条 pass 的 <code>audience_policies</code> 列表里有 1-3 条折扣描述(共 <b>1317</b> 条),每条用 <code>form</code> 字段标明折扣类型。前端就是根据这 5 类决定怎么把优惠串成一句话给用户。</p>
+  <table class="histogram passes-dist"><tr><td><b>Per-person negotiated price</b><span class="zh-sub">馆员协议价(如 $10/人)</span></td><td class="bar-cell"><span class="bar">███████████████</span></td><td class="num">487</td><td class="pct">37%</td></tr><tr><td><b>Percent off</b><span class="zh-sub">百分比折扣(如 50% off)</span></td><td class="bar-cell"><span class="bar">█████████████</span></td><td class="num">438</td><td class="pct">33%</td></tr><tr><td><b>FREE</b><span class="zh-sub">完全免费</span></td><td class="bar-cell"><span class="bar">████████</span></td><td class="num">272</td><td class="pct">21%</td></tr><tr><td><b>Vague discount (no number)</b><span class="zh-sub">笼统折扣 · 原文无具体数值</span></td><td class="bar-cell"><span class="bar">███</span></td><td class="num">90</td><td class="pct">7%</td></tr><tr><td><b>Dollar off</b><span class="zh-sub">固定金额减免(如 $5 off)</span></td><td class="bar-cell"><span class="bar">█</span></td><td class="num">30</td><td class="pct">2%</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>前两类合计 71%(per-person 37% + percent-off 34%)</b>——这部分我们能直接给出'每人多少钱'或'省百分之几',用户心算对比原价,决策成本最低。</li><li><b>FREE 20%</b>——pass 类型里最强的优惠形态,值得在 UI 上突出。</li><li><b>vague discount 6%(90 条)</b>——图书馆原文只说 'discounted admission' 或 'family rate',上游本来就没数字。属表达问题不是抽取 bug;前端只能显示'有折扣',无法说省多少。</li><li><b>$N off 仅 2%</b>——固定减额罕见,通常出现在低价景点(Concord Museum $5 off 这种)。</li></ul></div>
+</section>
+
+
+<section class="panel passes-section" id="p5">
+  <h3>5 · How many people fit<span class="zh-sub">能用几人 · capacity</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> <code>capacity</code> 描述一次能带几个人。两个字段:<code>kind</code>(算人 / 算车 / 算票 / 未明示)和 <code>n</code>(数量)。用户看到 'Up to 4' 那个数字就是从这来的。</p>
+  <table class="histogram passes-dist"><tr><td><b>Headcount · n ∈ {1..12}</b><span class="zh-sub">按人数 · 集中在 2/4/6 三档(各 135 / 379 / 147 条)</span></td><td class="bar-cell"><span class="bar">█████████████████████████████████</span></td><td class="num">857</td><td class="pct">84%</td></tr><tr><td><b>Per vehicle (n=1)</b><span class="zh-sub">按车 · 全部默认 1 辆(MA State Parks 等户外公园场景)</span></td><td class="bar-cell"><span class="bar">██</span></td><td class="num">59</td><td class="pct">6%</td></tr><tr><td><b>Tickets</b><span class="zh-sub">按张 · 剧院/演出常见(2-4 张戏票)</span></td><td class="bar-cell"><span class="bar">██</span></td><td class="num">50</td><td class="pct">5%</td></tr><tr><td><b>Unspecified</b><span class="zh-sub">未明示 · 上游原文没说人数</span></td><td class="bar-cell"><span class="bar">██</span></td><td class="num">60</td><td class="pct">6%</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>84% 是限人数(857 张)</b>,其中 'Up to 4' 是远超过半的众数(379 条,44%)——对应典型的两大一小家庭出行规模。'Up to 6' 排第二(147 条)。</li><li><b>vehicle 59 张</b>全部是 1 辆车,这是个产品默认值(原文从不写'1');建议 UI 上显式渲染成 'Per vehicle (1 car)' 避免用户误以为'按车每辆都行'。</li><li><b>unspecified 60 张</b>——经子代理逐条复核(见 Data Quality §unspec),35 条是 by-audience(各受众自己带 count,全局 n 无意义),9 条是 family-tier 整张通票,16 条是上游原文真模糊。这 60 条不是抽取 bug,是 schema 设计选择 / 上游限制。</li></ul></div>
+</section>
+
+
+<section class="panel passes-section" id="p6">
+  <h3>6 · Audience split<span class="zh-sub">人群拆分 · 1 / 2 / 3 类各享不同待遇</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> 一张 pass 可以把人群拆成 1-5 类,每类各享不同折扣。<code>audience_policies</code> 列表的长度就是这里的'类数'。</p>
+  <table class="histogram passes-dist"><tr><td><b>1 audience(s)</b><span class="zh-sub">1 类受众 · 所有人一刀切享同折扣</span></td><td class="bar-cell"><span class="bar">█████████████████████████████</span></td><td class="num">748</td><td class="pct">73%</td></tr><tr><td><b>2 audience(s)</b><span class="zh-sub">2 类受众 · 典型: Adult $X/人 + Child &lt;16 free</span></td><td class="bar-cell"><span class="bar">██████████</span></td><td class="num">267</td><td class="pct">26%</td></tr><tr><td><b>3 audience(s)</b><span class="zh-sub">3 类受众 · 罕见 · Adult / Child / Senior 各自不同价</span></td><td class="bar-cell"><span class="bar">█</span></td><td class="num">10</td><td class="pct">1%</td></tr><tr><td><b>5 audience(s)</b><span class="zh-sub">5 类受众 · 极个别 outlier · 值得人工 review</span></td><td class="bar-cell"><span class="bar">█</span></td><td class="num">1</td><td class="pct">0%</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>74% 是单类(一刀切)</b>,折扣不区分大人小孩。这部分 pass 信息简单,UI 一句话就能说完。</li><li><b>26% 是双类</b>——这是产品最有信号的形态:能告诉用户'大人 $X、孩子免费',对带娃出行决策的价值远大于'大家都 50%'。前端值得突出渲染双类 pass。</li><li><b>3+ 类极罕见</b>(<1%),这种 pass 通常是 Adult / Child / Senior 三档,或者带上 Student / Educator / Military 的特殊优惠。</li></ul></div>
+</section>
+
+
+<section class="panel passes-section" id="p7">
+  <h3>7 · Usage restrictions<span class="zh-sub">使用限制 · blackout / weekday / seasonal / reservation</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> <code>restrictions</code> 字段记录这张 pass 哪天不能用 / 要不要预约。全部 1026 张中有 <b>69</b> 张带某种限制(其余无限制,任意可用日都成立)。前端把这些限制渲染成 ⚠ 角标,但不会因此把 pass 排除——只是提醒。</p>
+  <table class="histogram passes-dist"><tr><td><b>Seasonal · 季节性</b><span class="zh-sub">夏/秋限定开放 · 户外岛屿、季节公园</span></td><td class="bar-cell"><span class="bar">███████████████████████</span></td><td class="num">40</td><td class="pct">58%</td></tr><tr><td><b>Blackout dates · 黑名单日</b><span class="zh-sub">特定日期禁用 · 节假日 / 特展日</span></td><td class="bar-cell"><span class="bar">█████████████████</span></td><td class="num">29</td><td class="pct">42%</td></tr><tr><td><b>Weekdays only · 仅工作日</b><span class="zh-sub">周末不可用 · 多见于剧院 / 教育型场所</span></td><td class="bar-cell"><span class="bar">██</span></td><td class="num">4</td><td class="pct">6%</td></tr><tr><td><b>Reservation required · 必须预约</b><span class="zh-sub">不能 walk-in · 提前订时段</span></td><td class="bar-cell"><span class="bar"></span></td><td class="num">0</td><td class="pct">0%</td></tr></table>
+  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>69 / 1026 张(6.7%)</b>带某种限制——比例不高,但都是日历层面的硬约束,前端不能不展示。</li><li><b>季节性 40 张</b>占多数,典型场景:Boston Harbor Islands、Crane Beach 这种夏/秋限定的户外目的地。winter 时用户能看到 pass 但日历全灰。</li><li><b>blackout 29 张</b>——通常是图书馆和景点谈下'特定日子不让用'的协议(节假日、特展开幕)。前端把这些日期日历格变 ⚠,点开告诉用户原因。</li><li><b>reservation_required</b> 在这版数据里是 0,但 schema 留着——多见于热门博物馆,后续抓到再填。</li></ul></div>
+</section>
+
+
+</main>
+<div id="modal-root" class="modal-root hidden"><div class="modal-backdrop"></div><div class="modal-box"><button class="modal-close" type="button">×</button><div class="modal-body"></div></div></div>
+
+<script src="assets/audit.js"></script>
+</body></html>
