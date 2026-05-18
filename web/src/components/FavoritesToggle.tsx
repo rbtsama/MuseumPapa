@@ -1,3 +1,5 @@
+import { HeartIcon } from './HeartIcon';
+
 interface Props {
   active: boolean;
   count: number;
@@ -21,7 +23,7 @@ export function FavoritesToggle({ active, count, onToggle }: Props) {
         fontWeight: 500,
       }}
     >
-      <span aria-hidden style={{ fontSize: 13 }}>{active ? '♥' : '♡'}</span>
+      <HeartIcon filled={active} size={13} />
       <span>Favorites</span>
       <span style={{
         fontSize: 11,

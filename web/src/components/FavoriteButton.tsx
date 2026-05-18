@@ -1,4 +1,5 @@
 import { useFavorites } from '../stores/favorites';
+import { HeartIcon } from './HeartIcon';
 
 interface Props {
   slug: string;
@@ -28,7 +29,6 @@ export function FavoriteButton({ slug, variant = 'inline' }: Props) {
     justifyContent: 'center' as const,
     cursor: 'pointer' as const,
     padding: 0,
-    fontSize: ICON_SIZE,
     lineHeight: 1,
     transition: 'background 0.1s, transform 0.1s',
     color: isFav ? 'var(--rd)' : 'var(--ink-2)',
@@ -50,7 +50,7 @@ export function FavoriteButton({ slug, variant = 'inline' }: Props) {
           boxShadow: '0 1px 3px rgba(0,0,0,0.12)',
         }}
       >
-        {isFav ? '❤' : '♡'}
+        <HeartIcon filled={isFav} size={ICON_SIZE} />
       </button>
     );
   }
@@ -63,7 +63,7 @@ export function FavoriteButton({ slug, variant = 'inline' }: Props) {
       aria-pressed={isFav}
       style={{ ...common, background: 'transparent', border: 'none' }}
     >
-      {isFav ? '❤' : '♡'}
+      <HeartIcon filled={isFav} size={ICON_SIZE} />
     </button>
   );
 }
