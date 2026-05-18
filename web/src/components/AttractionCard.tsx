@@ -298,10 +298,13 @@ export function AttractionCard({
                       Capacity now lives in a small trailing parenthetical
                       instead of a leading person-icon group, so the eye
                       scans prices first. */}
-                  <div className="flex items-baseline flex-wrap gap-x-1.5 gap-y-0.5 min-w-0">
-                    <span className="flex-shrink-0" style={{ alignSelf: 'center' }}>
-                      <PassTypeLabel type={t.pass.pass_type} />
-                    </span>
+                  {/* Center alignment, not baseline: the type pill has a
+                      border/padding that makes it taller than the plain price
+                      text, and the row mixes 11/12/13px tokens. items-center
+                      gives all three (pill, prices, "(up to N)") a single
+                      shared vertical midline. */}
+                  <div className="flex items-center flex-wrap gap-x-1.5 gap-y-0.5 min-w-0">
+                    <PassTypeLabel type={t.pass.pass_type} />
                     <CouponLine coupon={t.pass.coupon} align="left" />
                     {capacityText && (
                       <span style={{ fontSize: 11, color: 'var(--ink-3)' }}>
