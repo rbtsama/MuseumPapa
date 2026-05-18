@@ -14,8 +14,13 @@ interface Props {
  * a museum-side policy that applies to every visitor (with or without a pass),
  * so it's an informational hint, not a pass-related action prompt.
  */
-export function MuseumReservationBanner({ reservation }: Props) {
+export function MuseumReservationBanner({ reservation, variant = 'card' }: Props) {
   if (!reservation) return null;
+  const url = reservation.url;
+  // Reserve link only renders on the detail page. The list card is itself one
+  // big <Link> tile (clickable through to /attractions/<slug>), so a nested
+  // <a> inside would be invalid DOM (and would fight the parent click anyway).
+  const showLink = variant === 'detail' && !!url;
   return (
     <p className="info-line" style={{ color: 'var(--au)' }}>
       <span className="info-icon" aria-hidden>
@@ -29,7 +34,23 @@ export function MuseumReservationBanner({ reservation }: Props) {
           <line x1="12" y1="17" x2="12.01" y2="17"/>
         </svg>
       </span>
-      <span>Timed-entry reservation required</span>
+      <span>
+        Timed-entry reservation required
+        {showLink && (
+          <>
+            {' · '}
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              style={{ color: 'var(--au)', fontWeight: 600, textDecoration: 'none' }}
+            >
+              Reserve →
+            </a>
+          </>
+        )}
+      </span>
     </p>
   );
 }

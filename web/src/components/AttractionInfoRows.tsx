@@ -55,6 +55,11 @@ interface AttractionInfoRowsProps {
   /** True when the attraction is closed on `date`. Hides the hours row entirely
    *  (mirrors AttractionCard which doesn't render hours when closedToday). */
   closedToday?: boolean;
+  /** 'card' (default) renders the reservation row as plain text — the list
+   *  card is itself a clickable <Link> tile, so a nested anchor would be
+   *  invalid DOM. 'detail' adds the inline Reserve → link to the reservation
+   *  row so the user can jump straight to the museum's booking page. */
+  variant?: 'card' | 'detail';
 }
 
 /**
@@ -65,7 +70,7 @@ interface AttractionInfoRowsProps {
  * list and detail page never disagree on what a given attraction costs.
  */
 export function AttractionInfoRows({
-  attraction, date, closedToday = false,
+  attraction, date, closedToday = false, variant = 'card',
 }: AttractionInfoRowsProps) {
   const town = townFromAddress(attraction.address);
   const op = attraction.original_price;
@@ -151,7 +156,7 @@ export function AttractionInfoRows({
       <MuseumReservationBanner
         reservation={attraction.museum_reservation}
         attractionName={attraction.museum_name}
-        variant="card"
+        variant={variant}
       />
     </>
   );

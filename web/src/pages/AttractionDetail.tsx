@@ -215,6 +215,7 @@ export function AttractionDetail() {
           attraction={attraction}
           date={today}
           closedToday={isClosedOn(attraction, today)}
+          variant="detail"
         />
       </section>
 
