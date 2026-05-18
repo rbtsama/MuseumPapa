@@ -54,7 +54,7 @@ export function LandingPromoModal({ isOpen, onClose, onGetStarted, onSignIn }: P
           <div style={{
             background: 'var(--g)',
             color: 'var(--white)',
-            padding: '32px 28px 28px',
+            padding: `32px clamp(18px, 5vw, 28px) 28px`,
             position: 'relative',
           }}>
             {/* Subtle decorative dots — adds the marketing feel without being noisy. */}
@@ -75,7 +75,7 @@ export function LandingPromoModal({ isOpen, onClose, onGetStarted, onSignIn }: P
               MuseumPapa
             </p>
             <h2 style={{
-              fontSize: 26,
+              fontSize: 'clamp(20px, 5.5vw, 26px)',
               lineHeight: 1.18,
               fontWeight: 700,
               margin: 0,
@@ -88,7 +88,7 @@ export function LandingPromoModal({ isOpen, onClose, onGetStarted, onSignIn }: P
           {/* Body — subtitle + CTA. */}
           <div style={{
             background: 'var(--white)',
-            padding: '22px 28px 26px',
+            padding: `22px clamp(18px, 5vw, 28px) 26px`,
           }}>
             <p style={{
               fontSize: 14,

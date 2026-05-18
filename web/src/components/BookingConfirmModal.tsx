@@ -134,7 +134,10 @@ export function BookingConfirmModal({ pass, library, cardpack, selectedDate, onC
           ) : (
             <Button
               size="sm"
-              style={{ background: 'var(--g)', color: 'var(--white)' }}
+              style={{
+                background: 'var(--g)', color: 'var(--white)',
+                whiteSpace: 'normal', lineHeight: 1.25,
+              }}
               onClick={handleApplyForCard}
             >
               Apply for a card at {libraryName} →

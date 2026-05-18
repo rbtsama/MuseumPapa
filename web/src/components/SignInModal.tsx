@@ -32,7 +32,7 @@ export function SignInModal({ isOpen, onClose, onSwitchToSignUp }: Props) {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} size="sm">
       <ModalContent>
         {/* Brand-green title band keeps the modal in the same visual system
             as the TopBar / landing promo / Save buttons. */}

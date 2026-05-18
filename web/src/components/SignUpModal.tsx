@@ -52,7 +52,7 @@ export function SignUpModal({ isOpen, onClose, onSwitchToSignIn }: Props) {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} size="sm">
       <ModalContent>
         <ModalHeader
           style={{
