@@ -27,7 +27,9 @@ Massachusetts eastern MA 区域的图书馆 museum-pass 福利数据建设项目
 
 中间产物 `data/structured/library_catalog.json` 是全平台规范快照,既给 diff_catalog 当锚点,也供 build 阶段拆出上面三份产物。
 
-**本期不做**:HTML 渲染层、真实预订日志、Google Maps 距离 API、MA 全境扩展(中西部 CW MARS 网络)、自动下单、JSON Schema 校验框架、正式 README/PRD/chat.md。详细范围见 `docs/BRD.md` 和计划 `C:\Users\Administrator\.claude\plans\fluffy-whistling-lampson.md`。
+**v0.1 已完成**:前端 (`web/`, React + Vite + HeroUI) 可静态部署到 Vercel(`web/vercel.json` SPA rewrite 已就绪);audit 数据审计页 (`audit/audit.html`) 已合并为单页(锚点切换 5 个 section)。详细发布清单见 `C:\Users\Administrator\.claude\plans\indexed-mapping-dongarra.md`(已执行)。
+
+**仍不做**(留 v0.2 / 后续):真实预订日志、Google Maps 距离 API、MA 全境扩展(中西部 CW MARS 网络)、自动下单、JSON Schema 校验框架、page-level 集成测试、image optimization(srcSet/AVIF)。详细范围见 `docs/BRD.md` 和计划 `C:\Users\Administrator\.claude\plans\fluffy-whistling-lampson.md`。
 
 ## Repository Layout
 
@@ -36,7 +38,6 @@ Massachusetts eastern MA 区域的图书馆 museum-pass 福利数据建设项目
 ├── CLAUDE.md                  # 本文件
 ├── pyproject.toml             # Python 3.11+,依赖 playwright(可选)
 ├── .gitignore                 # 排除 data/.cache/、config/owned_*.json、_tmp_*
-├── backup/                    # 上一代代码,只读参考
 ├── docs/BRD.md                # 业务需求文档(权威)
 ├── src/malibbene/             # 主包(MA Library Benefits)
 │   ├── common/                # http / browser / snapshot / status / normalize
@@ -62,9 +63,13 @@ Massachusetts eastern MA 区域的图书馆 museum-pass 福利数据建设项目
 │   ├── images/<slug>.<ext>          # hero 图本地缓存(gitignored)
 │   └── placeholders/<category>.svg  # category fallback SVG(入 git)
 ├── data/snapshots/<日期>/     # 历史快照,供 diff
-├── web/                       # 前端 (React + Vite + TS + HeroUI),plan-3 scaffold,plan-4 实现 UI
+├── web/                       # 前端 (React + Vite + TS + HeroUI),v0.1 已完成,可部署 Vercel
+│   ├── vercel.json            # SPA rewrite — 让 /attractions/:slug 等子路由直接刷新不 404
 │   ├── src/{pages,components,data,auth,lib,styles}/
 │   └── public/{images,placeholders}/   # 拷贝自 data/static/(gitignored 二进制)
+├── audit/                     # 数据审计单页(给 reviewer / 自查用)
+│   ├── audit.html             # 单页,5 anchor section(attractions / passes / lineage / schema / data-quality)
+│   └── assets/{style.css,audit.js}
 └── config/                    # 配置种子
     ├── library_seeds.json     # 59 馆元数据
     ├── platform_pass_ids/     # 三平台手工 pass-id 映射(bpl/libcal/museumkey)
@@ -109,8 +114,17 @@ playwright install chromium
 ```
 
 ```bash
-# Frontend dev server
-cd web && pnpm install && pnpm run dev
+# Frontend (web/) — 开发
+pnpm -C web install
+pnpm -C web run dev          # 本地 :5173 dev server
+
+# Frontend — v0.1 部署
+pnpm -C web run build        # 产出 web/dist/, gzip ~286 KB
+pnpm -C web run preview      # 本地 :4173 验证 SPA 路由 (含直接访问 /attractions/<slug>)
+# 部署:推到 git 仓库,Vercel 自动跑 build;vercel.json 的 SPA rewrite 让 /attractions/:slug 直接刷新不 404
+
+# Audit site(数据自查单页快照)
+python scripts/build_audit_site.py   # 产出 audit/audit.html(单文件,5 section)
 ```
 
 ## Key Technical Decisions
