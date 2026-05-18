@@ -91,6 +91,18 @@ def build_library_catalog(raw_root: Path, *, config_root: Path | None = None) ->
                     n_unmapped[platform] += 1
                     continue
                 label, label_class = normalize_benefit(raw_pass.get("benefits_text", "") or "")
+                # Assabet's scraped URL is the by-museum INDEX page with a
+                # hash anchor (`/by-museum/#museum-<slug>`). Many Assabet sites
+                # render content client-side, so the browser arrives before
+                # the anchor target exists and the user lands at the top of
+                # the all-museum-passes listing — looks like a homepage to
+                # them. The per-museum dedicated page sits at
+                # `/by-museum/<slug>/` and that's what the availability
+                # scraper already uses, so rewrite to that direct form.
+                raw_url = raw_pass.get("url", "")
+                if platform == "assabet" and "/by-museum/#museum-" in raw_url:
+                    raw_url = raw_url.replace("/by-museum/#museum-", "/by-museum/") + "/"
+
                 pass_entry = {
                     "museum_name": raw_pass.get("museum_name", ""),
                     "address": raw_pass.get("address", ""),
@@ -103,7 +115,7 @@ def build_library_catalog(raw_root: Path, *, config_root: Path | None = None) ->
                     "benefits_text": raw_pass.get("benefits_text", ""),
                     "benefit_label": label,
                     "benefit_class": label_class,
-                    "source_url": raw_pass.get("url", ""),
+                    "source_url": raw_url,
                 }
                 if avail_data:
                     cal_entry = avail_data.get("passes", {}).get(slug) or avail_data.get("passes", {}).get(raw_pass.get("slug", ""))
