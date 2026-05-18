@@ -1,5 +1,5 @@
 import { useFavorites } from '../stores/favorites';
-import { HeartIcon } from './HeartIcon';
+import { HeartIcon } from './icons';
 
 interface Props {
   slug: string;

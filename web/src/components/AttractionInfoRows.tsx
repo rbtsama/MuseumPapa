@@ -2,38 +2,7 @@ import type { Attraction } from '../data/types';
 import { MuseumReservationBanner } from './MuseumReservationBanner';
 import { hoursDisplay } from '../lib/hours';
 import { townFromAddress } from '../lib/address';
-
-/* Inline SVG icon set — single style (stroke-only line icons), 12px, all use
- * currentColor so the parent line's text color drives the icon color. Keeps
- * the four metadata rows (location / hours / price / reservation) visually
- * consistent in weight and alignment.
- */
-const ICON_SVG_PROPS = {
-  width: 12, height: 12, viewBox: '0 0 24 24', fill: 'none',
-  stroke: 'currentColor', strokeWidth: 2,
-  strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const,
-};
-const PinIcon = () => (
-  <svg {...ICON_SVG_PROPS} aria-hidden>
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-    <circle cx="12" cy="10" r="3"/>
-  </svg>
-);
-const ClockIcon = () => (
-  <svg {...ICON_SVG_PROPS} aria-hidden>
-    <circle cx="12" cy="12" r="10"/>
-    <polyline points="12 6 12 12 16 14"/>
-  </svg>
-);
-const TicketIcon = () => (
-  // Classic admission-ticket stub: rounded rectangle with semicircle notches
-  // on left + right at the perforation line, and a short tear line.
-  <svg {...ICON_SVG_PROPS} aria-hidden>
-    <path d="M3 7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v3a2 2 0 0 0 0 4v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3a2 2 0 0 0 0-4z"/>
-    <line x1="13" y1="7" x2="13" y2="10"/>
-    <line x1="13" y1="14" x2="13" y2="17"/>
-  </svg>
-);
+import { PinIcon, ClockIcon, TicketIcon } from './icons';
 
 function fmtMoney(v: number | null | undefined): string {
   if (v == null) return '';

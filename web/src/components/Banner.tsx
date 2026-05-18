@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import { useAuth } from '../auth/store';
 import { useCardpack } from '../stores/cardpack';
+import { InfoIcon } from './icons';
 
 interface Props {
   onSignInClick: () => void;
@@ -29,7 +30,7 @@ export function Banner({ onSignInClick }: Props) {
         background: 'var(--g-pale)',
         color: 'var(--ink-2)',
       }}>
-      <span style={{ color: 'var(--g)' }} aria-hidden>ⓘ</span>
+      <InfoIcon style={{ color: 'var(--g)' }} />
       <span className="flex-grow min-w-0">{text}</span>
       {action}
     </div>

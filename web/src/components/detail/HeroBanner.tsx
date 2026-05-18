@@ -1,4 +1,5 @@
 import { FavoriteButton } from '../FavoriteButton';
+import { PinIcon } from '../icons';
 
 interface Props {
   imageSrc: string;
@@ -61,7 +62,7 @@ export function HeroBanner({ imageSrc, museumName, town, favoriteSlug }: Props) 
           {museumName}
         </h1>
         {town && (
-          <div style={{ fontSize: 12, marginTop: 2, opacity: 0.9 }}>📍 {town}</div>
+          <div style={{ fontSize: 12, marginTop: 2, opacity: 0.9 }} className="inline-flex items-center gap-1"><PinIcon />{town}</div>
         )}
       </div>
     </div>

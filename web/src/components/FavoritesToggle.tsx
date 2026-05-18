@@ -1,4 +1,4 @@
-import { HeartIcon } from './HeartIcon';
+import { HeartIcon } from './icons';
 
 interface Props {
   active: boolean;

@@ -4,6 +4,7 @@ import { Input, Button } from '@heroui/react';
 import { useAuth } from '../auth/store';
 import { useCardpack, type LibraryCard } from '../stores/cardpack';
 import { getLibraries } from '../data/load';
+import { ChevronLeftIcon, ChevronDownIcon, SearchIcon, CheckIcon } from '../components/icons';
 
 export function MyLibraryCards() {
   const user = useAuth(s => s.currentUser);
@@ -64,11 +65,7 @@ export function MyLibraryCards() {
               flexShrink: 0,
             }}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" strokeWidth={2}
-              strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-              <polyline points="15 18 9 12 15 6"/>
-            </svg>
+            <ChevronLeftIcon size={20} />
           </Link>
           <h1 style={{
             fontSize: 18, fontWeight: 700, color: 'var(--ink-2)',
@@ -89,13 +86,7 @@ export function MyLibraryCards() {
           placeholder="Search by library or town"
           aria-label="Search libraries"
           startContent={
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" strokeWidth={2}
-              strokeLinecap="round" strokeLinejoin="round" aria-hidden
-              style={{ color: 'var(--ink-3)' }}>
-              <circle cx="11" cy="11" r="7"/>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
+            <SearchIcon size={14} style={{ color: 'var(--ink-3)' }} />
           }
         />
       </header>
@@ -183,13 +174,7 @@ function LibraryRow({ libraryName, town, card, hasCard, onAdd, onSave, onRemove 
             color: hasCard ? 'var(--white)' : 'var(--ink-3)',
           }}
         >
-          {hasCard && (
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" strokeWidth={3}
-              strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-          )}
+          {hasCard && <CheckIcon />}
         </span>
         <span style={{ flexGrow: 1, minWidth: 0 }}>
           <span style={{
@@ -198,18 +183,13 @@ function LibraryRow({ libraryName, town, card, hasCard, onAdd, onSave, onRemove 
           }}>{libraryName}</span>
           <span style={{ color: 'var(--ink-3)', fontSize: 12 }}>{town}</span>
         </span>
-        <svg
-          width="14" height="14" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" strokeWidth={2}
-          strokeLinecap="round" strokeLinejoin="round" aria-hidden
+        <ChevronDownIcon
           style={{
             color: 'var(--ink-3)', flexShrink: 0,
             transform: open ? 'rotate(180deg)' : 'rotate(0)',
             transition: 'transform 0.15s',
           }}
-        >
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
+        />
       </button>
 
       {hasCard && open && (

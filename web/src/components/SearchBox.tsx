@@ -1,3 +1,5 @@
+import { SearchIcon } from './icons';
+
 interface Props {
   value: string;
   onChange: (v: string) => void;
@@ -24,20 +26,16 @@ export function SearchBox({ value, onChange, placeholder = 'Search attractions' 
         minWidth: 180,
       }}
     >
-      <span
-        aria-hidden
+      <SearchIcon
         style={{
           position: 'absolute',
           left: 9,
           top: '50%',
           transform: 'translateY(-50%)',
-          fontSize: 12,
           color: 'var(--ink-3)',
           pointerEvents: 'none',
         }}
-      >
-        🔍
-      </span>
+      />
       <input
         type="search"
         value={value}

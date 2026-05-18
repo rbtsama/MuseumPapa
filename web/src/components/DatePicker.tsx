@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { formatFriendlyDate } from '../lib/dates';
+import { CalendarIcon } from './icons';
 
 interface Props {
   value: string;
@@ -37,7 +38,7 @@ export function DatePicker({ value, onChange }: Props) {
         color: 'var(--ink-2)',
       }}
     >
-      <span aria-hidden style={{ fontSize: 13, color: 'var(--ink-3)' }}>📅</span>
+      <CalendarIcon style={{ color: 'var(--ink-3)' }} />
       <span style={{ fontWeight: 500 }}>{formatFriendlyDate(value)}</span>
       <input
         ref={inputRef}
