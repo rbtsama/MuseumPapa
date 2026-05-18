@@ -29,7 +29,7 @@ export function MuseumReservationBanner({ reservation }: Props) {
           <line x1="12" y1="17" x2="12.01" y2="17"/>
         </svg>
       </span>
-      <span>Require Time Entry Reservation</span>
+      <span>Timed-entry reservation required</span>
     </p>
   );
 }

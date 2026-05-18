@@ -71,7 +71,7 @@ export function LandingPromoModal({ isOpen, onClose, onGetStarted }: Props) {
             }}>
               MuseumPapa
             </p>
-            <h2 className="font-serif" style={{
+            <h2 style={{
               fontSize: 26,
               lineHeight: 1.18,
               fontWeight: 700,
@@ -92,8 +92,9 @@ export function LandingPromoModal({ isOpen, onClose, onGetStarted }: Props) {
               lineHeight: 1.55,
               color: 'var(--ink-2)',
               margin: '0 0 6px',
+              fontWeight: 500,
             }}>
-              Cover 100+ museums in MA
+              Covers 100+ museums across Massachusetts
             </p>
             <p style={{
               fontSize: 12,
@@ -101,7 +102,7 @@ export function LandingPromoModal({ isOpen, onClose, onGetStarted }: Props) {
               color: 'var(--ink-3)',
               margin: '0 0 20px',
             }}>
-              Link the library cards you already hold, pick a date, and we'll show you which museums are free or discounted today.
+              Link the library cards you already hold, pick a date, and see which museums are free or discounted that day.
             </p>
             <button
               type="button"

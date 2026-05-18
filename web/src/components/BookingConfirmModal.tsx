@@ -86,7 +86,7 @@ export function BookingConfirmModal({ pass, library, cardpack, onClose }: Props)
           }}>
             Get pass from
           </span>
-          <span className="font-serif" style={{ fontSize: 16, color: 'var(--ink-2)' }}>
+          <span style={{ fontSize: 16, color: 'var(--ink-2)', fontWeight: 600 }}>
             {libraryName}
           </span>
         </ModalHeader>

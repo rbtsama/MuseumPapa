@@ -211,7 +211,7 @@ export function AttractionDetail() {
           width: 280, height: 210, objectFit: 'cover', borderRadius: 4, background: 'var(--paper)',
         }} />
         <div style={{ flexGrow: 1, minWidth: 280 }}>
-          <h1 className="font-serif" style={{ fontSize: 22, color: 'var(--ink-2)', marginBottom: 4}}>
+          <h1 style={{ fontSize: 22, color: 'var(--ink-2)', marginBottom: 4, fontWeight: 700 }}>
             {attraction.museum_name}
           </h1>
           <p style={{ color: 'var(--ink-3)', fontSize: 13 }}>
@@ -251,7 +251,7 @@ export function AttractionDetail() {
           style={{ border: '1px solid var(--rule)', background: 'var(--white)' }}>
           <div className="flex items-center gap-2 mb-1">
             <span aria-hidden style={{ fontSize: 13, color: 'var(--ink-3)' }}>🕘</span>
-            <h2 className="font-serif" style={{ fontSize: 16, color: 'var(--ink-2)' }}>Hours vary by location</h2>
+            <h2 style={{ fontSize: 16, color: 'var(--ink-2)', fontWeight: 600 }}>Hours vary by location</h2>
           </div>
           {attraction.hours.notes && (
             <p style={{ fontSize: 12, color: 'var(--ink-3)' }}>{attraction.hours.notes}</p>
@@ -264,7 +264,7 @@ export function AttractionDetail() {
           style={{ border: '1px solid var(--rule)', background: 'var(--white)' }}>
           <div className="flex items-center gap-2 mb-2">
             <span aria-hidden style={{ fontSize: 13, color: 'var(--ink-3)' }}>🕘</span>
-            <h2 className="font-serif" style={{ fontSize: 16, color: 'var(--ink-2)' }}>Hours</h2>
+            <h2 style={{ fontSize: 16, color: 'var(--ink-2)', fontWeight: 600 }}>Hours</h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-7 gap-x-3 gap-y-1">
             {weeklyHoursList(attraction.hours).map(row => {
@@ -297,7 +297,7 @@ export function AttractionDetail() {
         attractionName={attraction.museum_name}
         variant="detail"
       />
-      <h2 className="font-serif" style={{ fontSize: 16, marginTop: 14, marginBottom: 8, color: 'var(--ink-2)' }}>
+      <h2 style={{ fontSize: 16, marginTop: 14, marginBottom: 8, color: 'var(--ink-2)', fontWeight: 600 }}>
         Available coupons
       </h2>
 
@@ -406,7 +406,7 @@ export function AttractionDetail() {
         </div>
       )}
 
-      <h2 className="font-serif" style={{ fontSize: 16, marginTop: 24, marginBottom: 8 }}>
+      <h2 style={{ fontSize: 16, marginTop: 24, marginBottom: 8, fontWeight: 600 }}>
         Participating libraries ({attraction.sources.length})
       </h2>
       <ul style={{ fontSize: 13, color: 'var(--ink-3)' }}>

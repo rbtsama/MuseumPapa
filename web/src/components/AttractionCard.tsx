@@ -157,7 +157,7 @@ export function AttractionCard({
         />
 
         <div className="flex-grow min-w-0 pr-9">
-          <h3 className="font-serif" style={{
+          <h3 style={{
             fontSize: 16, lineHeight: 1.25, color: 'var(--ink-2)', fontWeight: 700,
           }}>
             {attraction.museum_name}
@@ -247,11 +247,11 @@ export function AttractionCard({
               className="block px-3 py-3"
               style={{ fontSize: 12, color: 'var(--g)', textDecoration: 'none' }}
             >
-              录入你的图书馆卡或者 Library Pass →
+              Add a library card or Library Pass to see your discounts →
             </Link>
           ) : total === 0 ? (
             <div className="px-3 py-3 text-center" style={{ fontSize: 11, color: 'var(--ink-3)', fontStyle: 'italic' }}>
-              你没有适用于该景点的门票或卡券
+              None of your library cards cover this attraction
             </div>
           ) : (
             <>

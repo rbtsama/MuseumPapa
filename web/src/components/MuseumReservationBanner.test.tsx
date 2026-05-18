@@ -18,7 +18,7 @@ describe('MuseumReservationBanner', () => {
         variant="detail"
       />
     );
-    expect(screen.getByText('Require Time Entry Reservation')).toBeInTheDocument();
+    expect(screen.getByText('Timed-entry reservation required')).toBeInTheDocument();
   });
 
   it('is the same text in card variant — no CTA, no interaction', () => {
@@ -29,7 +29,7 @@ describe('MuseumReservationBanner', () => {
         variant="card"
       />
     );
-    expect(screen.getByText('Require Time Entry Reservation')).toBeInTheDocument();
+    expect(screen.getByText('Timed-entry reservation required')).toBeInTheDocument();
     expect(screen.queryByRole('button')).toBeNull();
   });
 });

@@ -47,7 +47,7 @@ export function MyPasses() {
       <div style={{ marginBottom: 12 }}>
         <Link to="/" style={{ color: 'var(--ink-3)', fontSize: 13 }}>← Back to attractions</Link>
       </div>
-      <h1 className="font-serif" style={{ fontSize: 22, marginBottom: 4, color: 'var(--ink-2)'}}>
+      <h1 style={{ fontSize: 22, marginBottom: 4, color: 'var(--ink-2)', fontWeight: 700 }}>
         My passes
       </h1>
       <p style={{ color: 'var(--ink-3)', fontSize: 12, marginBottom: 16 }}>

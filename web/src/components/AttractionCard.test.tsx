@@ -111,7 +111,7 @@ describe('AttractionCard', () => {
     expect(screen.getByText(/Sign in to see/)).toBeInTheDocument();
   });
 
-  it('renders no-cards state with "录入" CTA pointing to /settings/passes', () => {
+  it('renders no-cards state with add-card CTA pointing to /settings/passes', () => {
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
@@ -119,7 +119,7 @@ describe('AttractionCard', () => {
         cardpackState="no_cards"
       />
     );
-    const link = screen.getByText(/录入你的图书馆卡或者 Library Pass/);
+    const link = screen.getByText(/Add a library card or Library Pass/);
     expect(link).toBeInTheDocument();
     expect(link.closest('a')).toHaveAttribute('href', '/settings/passes');
   });
@@ -132,7 +132,7 @@ describe('AttractionCard', () => {
         cardpackState="has_cards"
       />
     );
-    expect(screen.getByText(/你没有适用于该景点的门票或卡券/)).toBeInTheDocument();
+    expect(screen.getByText(/None of your library cards cover this attraction/)).toBeInTheDocument();
   });
 
   it('renders pass options for logged-in user', () => {
@@ -174,7 +174,7 @@ describe('AttractionCard', () => {
       />
     );
     // New copy: explicit reason — the user's cards don't yield a coupon here.
-    expect(screen.getByText(/你没有适用于该景点的门票或卡券/)).toBeInTheDocument();
+    expect(screen.getByText(/None of your library cards cover this attraction/)).toBeInTheDocument();
   });
 
   it('renders closed state when closedToday=true', () => {
