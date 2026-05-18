@@ -49,14 +49,30 @@ body {
   font-family: 'Libre Baskerville', Georgia, serif;
 }
 
-/* Inline info icon — fixed width so location / hours / price / reservation
-   icons all align flush-left in the attraction info block. */
+/* Attraction-info metadata rows — one shared rhythm and one shared icon style.
+   Every line (📍 town / 🕘 hours / 🎫 price / ⚠ reservation) uses .info-line
+   for spacing + .info-icon for the inline SVG slot, so the four icons share:
+     - same 14px square hit box
+     - same stroke-only line-icon style (currentColor)
+     - same vertical baseline alignment
+     - same column gap (4px) before the label text
+     - same 12px font + 4px top margin (no row is heavier than another). */
+.info-line {
+  font-size: 12px;
+  line-height: 1.4;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.info-line:first-child { margin-top: 4px; }
 .info-icon {
-  display: inline-block;
-  width: 16px;
-  margin-right: 4px;
-  text-align: center;
-  font-size: 11px;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
   flex-shrink: 0;
 }
+.info-icon svg { display: block; }

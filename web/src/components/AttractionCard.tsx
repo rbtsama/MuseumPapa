@@ -9,6 +9,35 @@ import { hoursDisplay } from '../lib/hours';
 import { heroSrc } from '../lib/hero';
 import { getBranchesForPass } from '../data/load';
 
+/* Inline SVG icon set — single style (stroke-only line icons), 12px, all use
+ * currentColor so the parent line's text color drives the icon color. Keeps
+ * the four metadata rows (location / hours / price / reservation) visually
+ * consistent in weight and alignment.
+ */
+const ICON_SVG_PROPS = {
+  width: 12, height: 12, viewBox: '0 0 24 24', fill: 'none',
+  stroke: 'currentColor', strokeWidth: 2,
+  strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const,
+};
+const PinIcon = () => (
+  <svg {...ICON_SVG_PROPS} aria-hidden>
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg>
+);
+const ClockIcon = () => (
+  <svg {...ICON_SVG_PROPS} aria-hidden>
+    <circle cx="12" cy="12" r="10"/>
+    <polyline points="12 6 12 12 16 14"/>
+  </svg>
+);
+const TagIcon = () => (
+  <svg {...ICON_SVG_PROPS} aria-hidden>
+    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+    <line x1="7" y1="7" x2="7.01" y2="7"/>
+  </svg>
+);
+
 interface Props {
   attraction: Attraction;
   pickedTags: PickedTag[];
@@ -130,37 +159,37 @@ export function AttractionCard({
           </h3>
 
           {town && (
-            <p className="mt-1" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
-              <span className="info-icon">📍</span>{town}
+            <p className="info-line" style={{ color: 'var(--ink-3)' }}>
+              <span className="info-icon"><PinIcon /></span>{town}
             </p>
           )}
 
           {hoursInfo && !closedToday && (
-            <p className="mt-0.5" style={{ fontSize: 11, color: 'var(--ink-3)' }}>
-              <span className="info-icon">🕘</span>
+            <p className="info-line" style={{ color: 'var(--ink-3)' }}>
+              <span className="info-icon"><ClockIcon /></span>
               {hoursInfo.varies ? <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span> : <>Open · <span style={{ color: 'var(--ink-2)' }}>{hoursInfo.value}</span></>}
             </p>
           )}
 
           {(tiers.length > 0 || freeUnder != null) && (
-            <p className="mt-0.5 flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5" style={{ fontSize: 12 }}>
-              <span className="info-icon">🎫</span>
+            <p className="info-line flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5" style={{ color: 'var(--ink-3)' }}>
+              <span className="info-icon"><TagIcon /></span>
               {tiers.map((t, i) => (
                 <span key={`${t.label}-${i}`} className="inline-flex items-baseline gap-1">
-                  {i > 0 && <span style={{ color: 'var(--ink-3)' }}>·</span>}
+                  {i > 0 && <span>·</span>}
                   {tiers.length > 1 && (
-                    <span style={{ color: 'var(--ink-3)' }}>{t.label}</span>
+                    <span>{t.label}</span>
                   )}
-                  <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink-2)' }}>
+                  <span style={{ fontWeight: 700, color: 'var(--ink-2)' }}>
                     {fmtMoney(t.value)}
                   </span>
                 </span>
               ))}
               {freeUnder != null && (
                 <span className="inline-flex items-baseline gap-1">
-                  {tiers.length > 0 && <span style={{ color: 'var(--ink-3)' }}>·</span>}
-                  <span style={{ color: 'var(--ink-3)' }}>age &lt;{freeUnder}</span>
-                  <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--ink-2)' }}>FREE</span>
+                  {tiers.length > 0 && <span>·</span>}
+                  <span>age &lt;{freeUnder}</span>
+                  <span style={{ fontWeight: 700, color: 'var(--ink-2)' }}>FREE</span>
                 </span>
               )}
             </p>
