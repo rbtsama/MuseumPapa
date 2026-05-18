@@ -94,23 +94,45 @@ describe('AttractionCard', () => {
       <AttractionCard
         attraction={makeAttraction()}
         pickedTags={[]}
-        isGuestOrEmpty={false}
+        cardpackState="has_cards"
       />
     );
     expect(screen.getByText('Test Zoo')).toBeInTheDocument();
   });
 
-  it('renders guest state with sign-in message', () => {
+  it('renders guest state with sign-in CTA', () => {
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
         pickedTags={[]}
-        isGuestOrEmpty
-        sourceCountForGuest={3}
+        cardpackState="guest"
       />
     );
-    expect(screen.getByText(/Sign in to view/)).toBeInTheDocument();
-    expect(screen.getByText('3')).toBeInTheDocument();
+    expect(screen.getByText(/Sign in to see/)).toBeInTheDocument();
+  });
+
+  it('renders no-cards state with "录入" CTA pointing to /settings/passes', () => {
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        pickedTags={[]}
+        cardpackState="no_cards"
+      />
+    );
+    const link = screen.getByText(/录入你的图书馆卡或者 Library Pass/);
+    expect(link).toBeInTheDocument();
+    expect(link.closest('a')).toHaveAttribute('href', '/settings/passes');
+  });
+
+  it('renders no-matching-coupon hint when user has cards but no passes match', () => {
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        pickedTags={[]}
+        cardpackState="has_cards"
+      />
+    );
+    expect(screen.getByText(/你没有适用于该景点的门票或卡券/)).toBeInTheDocument();
   });
 
   it('renders pass options for logged-in user', () => {
@@ -119,7 +141,7 @@ describe('AttractionCard', () => {
       <AttractionCard
         attraction={makeAttraction()}
         pickedTags={tags}
-        isGuestOrEmpty={false}
+        cardpackState="has_cards"
       />
     );
     expect(screen.getByText('Email')).toBeInTheDocument();
@@ -134,7 +156,7 @@ describe('AttractionCard', () => {
       <AttractionCard
         attraction={makeAttraction()}
         pickedTags={tags}
-        isGuestOrEmpty={false}
+        cardpackState="has_cards"
         onBookPass={onBookPass}
       />
     );
@@ -143,15 +165,16 @@ describe('AttractionCard', () => {
     expect(onBookPass).toHaveBeenCalledWith(pass);
   });
 
-  it('renders the no-coupons message when no tags and not guest', () => {
+  it('renders the no-coupons message when no tags and user has cards', () => {
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
         pickedTags={[]}
-        isGuestOrEmpty={false}
+        cardpackState="has_cards"
       />
     );
-    expect(screen.getByText(/No coupons available/)).toBeInTheDocument();
+    // New copy: explicit reason — the user's cards don't yield a coupon here.
+    expect(screen.getByText(/你没有适用于该景点的门票或卡券/)).toBeInTheDocument();
   });
 
   it('renders closed state when closedToday=true', () => {
@@ -159,7 +182,7 @@ describe('AttractionCard', () => {
       <AttractionCard
         attraction={makeAttraction()}
         pickedTags={[makePickedTag()]}
-        isGuestOrEmpty={false}
+        cardpackState="has_cards"
         closedToday
       />
     );
@@ -173,7 +196,7 @@ describe('AttractionCard', () => {
       <AttractionCard
         attraction={makeAttraction()}
         pickedTags={[]}
-        isGuestOrEmpty={false}
+        cardpackState="has_cards"
       />
     );
     expect(screen.getByText(/Boston, MA/)).toBeInTheDocument();
@@ -184,7 +207,7 @@ describe('AttractionCard', () => {
       <AttractionCard
         attraction={makeAttraction()}
         pickedTags={[]}
-        isGuestOrEmpty={false}
+        cardpackState="has_cards"
       />
     );
     // $30 adult price shown in admission section
@@ -198,7 +221,7 @@ describe('AttractionCard', () => {
       <AttractionCard
         attraction={a}
         pickedTags={[]}
-        isGuestOrEmpty={false}
+        cardpackState="has_cards"
       />
     );
     expect(screen.getByText('FREE')).toBeInTheDocument();
@@ -210,7 +233,7 @@ describe('AttractionCard', () => {
       <AttractionCard
         attraction={makeAttraction()}
         pickedTags={[]}
-        isGuestOrEmpty={false}
+        cardpackState="has_cards"
       />
     );
     expect(screen.queryByText(/age </)).not.toBeInTheDocument();
@@ -224,7 +247,7 @@ describe('AttractionCard', () => {
       <AttractionCard
         attraction={makeAttraction()}
         pickedTags={tags}
-        isGuestOrEmpty={false}
+        cardpackState="has_cards"
       />
     );
     expect(screen.getByText(/\+ 2 more coupons/)).toBeInTheDocument();

@@ -76,7 +76,11 @@ export function AttractionsList() {
     return ids;
   }, [user, cardpack.cards]);
 
-  const isGuestOrEmpty = !user || Object.keys(cardpack.cards).length === 0;
+  const cardpackState: 'guest' | 'no_cards' | 'has_cards' =
+    !user ? 'guest'
+      : Object.keys(cardpack.cards).length === 0 ? 'no_cards'
+      : 'has_cards';
+  const isGuestOrEmpty = cardpackState !== 'has_cards';
 
   const passesBySlug = useMemo(() => {
     const m = new Map<string, typeof allPasses>();
@@ -155,9 +159,19 @@ export function AttractionsList() {
         copy.sort((a, b) => minDist(a) - minDist(b));
         break;
     }
-    // Attractions with no available passes sink to bottom on Recommended
-    // (but not on A-Z or Distance — those are mechanical sorts users
-    // explicitly opted into).
+    // For Recommended + Distance (where the user expects a "best first" sort),
+    // closed-today attractions sink to the bottom — even if otherwise nearby
+    // or favorited. A-Z is a literal alphabetical order and stays untouched.
+    if (sort !== 'alpha') {
+      copy.sort((a, b) => {
+        const ca = isClosedOn(a.attraction, date);
+        const cb = isClosedOn(b.attraction, date);
+        if (ca !== cb) return ca ? 1 : -1;
+        return 0;
+      });
+    }
+    // For Recommended only, no-pass attractions sink below open ones (but
+    // still above the closed-today rows we just sunk). Stable-sort-friendly.
     if (sort === 'recommended') {
       copy.sort((a, b) => {
         const ea = a.tags.length === 0 && !isFav(a.attraction.slug);
@@ -213,11 +227,11 @@ export function AttractionsList() {
               key={r.attraction.slug}
               attraction={r.attraction}
               pickedTags={r.tags}
-              isGuestOrEmpty={isGuestOrEmpty}
-              sourceCountForGuest={r.sourceCount}
+              cardpackState={cardpackState}
               date={date}
               closedToday={isClosedOn(r.attraction, date)}
               onBookPass={setBookingPass}
+              onSignInClick={() => setSignInOpen(true)}
             />
           ))}
         </div>

@@ -41,16 +41,25 @@ const TicketIcon = () => (
   </svg>
 );
 
+/**
+ * 'guest'     — not signed in. Show CTA to open SignInModal.
+ * 'no_cards'  — signed in but no library cards entered. Show CTA → /settings/passes.
+ * 'has_cards' — signed in with ≥1 card. Show real coupons, or a "no match for
+ *               this attraction" hint when pickedTags is empty.
+ */
+export type CardpackState = 'guest' | 'no_cards' | 'has_cards';
+
 interface Props {
   attraction: Attraction;
   pickedTags: PickedTag[];
-  isGuestOrEmpty?: boolean;
-  sourceCountForGuest?: number;
+  cardpackState?: CardpackState;
   closedToday?: boolean;
   /** Selected date (ISO) — used to look up today's hours. */
   date?: string;
   /** Called when user taps a per-pass "Book" button. List page opens the modal. */
   onBookPass?: (pass: Pass) => void;
+  /** Called when the guest empty-state CTA is clicked. List page opens sign-in. */
+  onSignInClick?: () => void;
 }
 
 const MAX_ROWS_VISIBLE = 3;
@@ -79,8 +88,8 @@ function townFromAddress(addr: string): string {
 }
 
 export function AttractionCard({
-  attraction, pickedTags, isGuestOrEmpty = false, sourceCountForGuest = 0,
-  closedToday = false, date, onBookPass,
+  attraction, pickedTags, cardpackState = 'has_cards',
+  closedToday = false, date, onBookPass, onSignInClick,
 }: Props) {
   const town = townFromAddress(attraction.address);
   const op = attraction.original_price;
@@ -144,17 +153,19 @@ export function AttractionCard({
         <FavoriteButton slug={attraction.slug} variant="overlay" />
       </div>
 
-      {/* Header: image + basic info */}
-      <div className="flex gap-3 p-3" style={dim}>
+      {/* Header: image flush to top/left/bottom edge, no surrounding padding.
+          Image is 60px wide with auto height (keeps natural aspect ratio).
+          Meta side has its own padding so text stays clear of the image. */}
+      <div className="flex" style={dim}>
         <img
           src={heroSrc(attraction)}
           alt=""
           loading="lazy"
-          className="rounded-md object-cover bg-[color:var(--paper)] flex-shrink-0"
-          style={{ width: 78, height: 78 }}
+          className="object-cover bg-[color:var(--paper)] flex-shrink-0"
+          style={{ width: 60, height: 'auto', alignSelf: 'flex-start' }}
         />
 
-        <div className="flex-grow min-w-0 pr-9">
+        <div className="flex-grow min-w-0 py-3 pl-3 pr-9">
           <h3 className="font-serif" style={{
             fontSize: 16, lineHeight: 1.25, color: 'var(--ink-2)', fontWeight: 700,
           }}>
@@ -226,16 +237,30 @@ export function AttractionCard({
         </div>
       </div>
 
-      {/* Body: pass options, or empty / guest state */}
+      {/* Body: pass options, or one of three empty-state CTAs */}
       {closedToday ? null : (
         <div className="border-t" style={{ borderColor: 'var(--rule)' }}>
-          {isGuestOrEmpty ? (
-            <div className="px-3 py-3" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
-              Sign in to view <b>{sourceCountForGuest}</b> coupon{sourceCountForGuest === 1 ? '' : 's'}
-            </div>
+          {cardpackState === 'guest' ? (
+            <button
+              type="button"
+              className="block w-full text-left px-3 py-3"
+              style={{ fontSize: 12, color: 'var(--g)', background: 'transparent', border: 0, cursor: 'pointer' }}
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); onSignInClick?.(); }}
+            >
+              Sign in to see the discounts available to your library cards →
+            </button>
+          ) : cardpackState === 'no_cards' ? (
+            <Link
+              to="/settings/passes"
+              onClick={(e) => e.stopPropagation()}
+              className="block px-3 py-3"
+              style={{ fontSize: 12, color: 'var(--g)', textDecoration: 'none' }}
+            >
+              录入你的图书馆卡或者 Library Pass →
+            </Link>
           ) : total === 0 ? (
             <div className="px-3 py-3 text-center" style={{ fontSize: 11, color: 'var(--ink-3)', fontStyle: 'italic' }}>
-              No coupons available on this date
+              你没有适用于该景点的门票或卡券
             </div>
           ) : (
             <>
