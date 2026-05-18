@@ -156,7 +156,6 @@ export function AttractionsList() {
 
   const sortedRows = useMemo(() => {
     const copy = [...filteredRows];
-    const isFav = (slug: string) => favSnapshot.has(slug);
     const cmpName = (a: typeof copy[0], b: typeof copy[0]) =>
       a.attraction.museum_name.localeCompare(b.attraction.museum_name);
     const minDist = (r: typeof copy[0]) => {
@@ -166,50 +165,46 @@ export function AttractionsList() {
       }
       return best;
     };
+    // Recommended tier (lower = surface first):
+    //   0  has at least one matching coupon for this date
+    //   1  no matching coupon, but not closed today either
+    //   2  closed on this date
+    const recommendedTier = (r: typeof copy[0]) => {
+      if (isClosedOn(r.attraction, date)) return 2;
+      if (r.tags.length === 0) return 1;
+      return 0;
+    };
 
     switch (sort) {
       case 'recommended':
+        // Three-tier sort: has-coupons / no-coupons / closed; distance within tier.
         copy.sort((a, b) => {
-          const fa = isFav(a.attraction.slug);
-          const fb = isFav(b.attraction.slug);
-          if (fa !== fb) return fa ? -1 : 1;
-          if (userGeo) {
-            const d = minDist(a) - minDist(b);
-            if (d !== 0) return d;
-          }
+          const ta = recommendedTier(a);
+          const tb = recommendedTier(b);
+          if (ta !== tb) return ta - tb;
+          const da = minDist(a);
+          const db = minDist(b);
+          if (da !== db) return da - db;
           return cmpName(a, b);
         });
         break;
       case 'alpha':
+        // Literal alphabetical; no tier reordering.
         copy.sort(cmpName);
         break;
       case 'distance':
         copy.sort((a, b) => minDist(a) - minDist(b));
+        // Closed-today sinks to the bottom on Distance (open-first principle).
+        copy.sort((a, b) => {
+          const ca = isClosedOn(a.attraction, date);
+          const cb = isClosedOn(b.attraction, date);
+          if (ca !== cb) return ca ? 1 : -1;
+          return 0;
+        });
         break;
     }
-    // For Recommended + Distance (where the user expects a "best first" sort),
-    // closed-today attractions sink to the bottom — even if otherwise nearby
-    // or favorited. A-Z is a literal alphabetical order and stays untouched.
-    if (sort !== 'alpha') {
-      copy.sort((a, b) => {
-        const ca = isClosedOn(a.attraction, date);
-        const cb = isClosedOn(b.attraction, date);
-        if (ca !== cb) return ca ? 1 : -1;
-        return 0;
-      });
-    }
-    // For Recommended only, no-pass attractions sink below open ones (but
-    // still above the closed-today rows we just sunk). Stable-sort-friendly.
-    if (sort === 'recommended') {
-      copy.sort((a, b) => {
-        const ea = a.tags.length === 0 && !isFav(a.attraction.slug);
-        const eb = b.tags.length === 0 && !isFav(b.attraction.slug);
-        if (ea !== eb) return ea ? 1 : -1;
-        return 0;
-      });
-    }
     return copy;
-  }, [filteredRows, favSnapshot, sort, userGeo]);
+  }, [filteredRows, sort, date]);
 
   return (
     <>
