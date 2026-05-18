@@ -19,10 +19,10 @@ describe('HeroBanner', () => {
     expect(img.src).toContain('/test.jpg');
   });
 
-  it('renders a back link', () => {
+  it('does not render its own back link (TopBar carries the sticky back affordance)', () => {
     renderApp(
       <HeroBanner imageSrc="/x.jpg" museumName="X" favoriteSlug="x" />,
     );
-    expect(screen.getByRole('link', { name: /back/i })).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /back/i })).toBeNull();
   });
 });

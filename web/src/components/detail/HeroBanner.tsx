@@ -1,4 +1,3 @@
-import { Link } from 'react-router';
 import { FavoriteButton } from '../FavoriteButton';
 
 interface Props {
@@ -31,25 +30,9 @@ export function HeroBanner({ imageSrc, museumName, town, favoriteSlug }: Props) 
           pointerEvents: 'none',
         }}
       />
-      <Link
-        to="/"
-        aria-label="Back to attractions"
-        style={{
-          position: 'absolute',
-          top: 10,
-          left: 10,
-          zIndex: 2,
-          background: 'rgba(0,0,0,0.5)',
-          color: 'var(--white)',
-          padding: '5px 9px',
-          borderRadius: 4,
-          fontSize: 12,
-          fontWeight: 600,
-          textDecoration: 'none',
-        }}
-      >
-        ← Back
-      </Link>
+      {/* Back affordance moved to TopBar (sticky, always reachable while
+          scrolling). Heart stays as a hero overlay since it's contextual to
+          this attraction. */}
       <div style={{ position: 'absolute', top: 10, right: 10, zIndex: 2 }}>
         <FavoriteButton slug={favoriteSlug} variant="overlay" />
       </div>

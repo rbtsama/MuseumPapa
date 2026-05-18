@@ -31,7 +31,19 @@ export function SignInModal({ isOpen, onClose }: Props) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalContent>
-        <ModalHeader>Sign in to MuseumPapa</ModalHeader>
+        {/* Brand-green title band keeps the modal in the same visual system
+            as the TopBar / landing promo / Save buttons. */}
+        <ModalHeader
+          style={{
+            background: 'var(--g)',
+            color: 'var(--white)',
+            padding: '14px 18px',
+            fontSize: 15,
+            fontWeight: 600,
+          }}
+        >
+          Sign in to MuseumPapa
+        </ModalHeader>
         <ModalBody>
           {error && <p style={{ color: 'var(--rd)' }}>{error}</p>}
           <Input
@@ -55,7 +67,12 @@ export function SignInModal({ isOpen, onClose }: Props) {
         </ModalBody>
         <ModalFooter>
           <Button variant="light" onClick={onClose}>Cancel</Button>
-          <Button color="primary" onClick={handleSubmit}>Sign in</Button>
+          <Button
+            onClick={handleSubmit}
+            style={{ background: 'var(--g)', color: 'var(--white)', fontWeight: 600 }}
+          >
+            Sign in
+          </Button>
         </ModalFooter>
       </ModalContent>
     </Modal>
