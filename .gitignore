@@ -4,6 +4,18 @@ __pycache__/
 *.egg-info/
 .venv/
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Claude Code 本地状态
+.claude/
+
+# OS 垃圾
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
 
 # 临时探索文件 — v0.1 收尾时全部清掉
 _tmp_*

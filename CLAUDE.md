@@ -9,7 +9,7 @@ This file provides guidance to Claude Code when working in this repository.
 | 工具 | 用途 | 检查命令 | 修复指令 |
 |---|---|---|---|
 | **rtk**(Rust Token Killer) | 压缩工具输出,省 60-90% token | `rtk --version` 输出 `rtk <ver>` | 装:从 https://github.com/rtk-ai/rtk/releases 下 `rtk-x86_64-pc-windows-msvc.zip`,解压后把 `rtk.exe` 放到 `~/.local/bin/`(已在 PATH) |
-| **superpowers**(Claude Code 插件) | 结构化软件开发方法论(design → plan → TDD → review) | `cat ~/.claude/plugins/installed_plugins.json` 里出现 `"projectPath": "F:\\pj\\NorthShore Kids Events"` 且对应 superpowers 条目 | **必须由用户在对话里运行**:`/plugin install superpowers@claude-plugins-official`(marketplace `claude-plugins-official` 已注册) |
+| **superpowers**(Claude Code 插件) | 结构化软件开发方法论(design → plan → TDD → review) | `cat ~/.claude/plugins/installed_plugins.json` 里出现 `"projectPath": "F:\\pj\\MuseumPapa"` 且对应 superpowers 条目 | **必须由用户在对话里运行**:`/plugin install superpowers@claude-plugins-official`(marketplace `claude-plugins-official` 已注册) |
 
 **怎么用 rtk**:每个产生大输出的 shell 命令前缀 `rtk`,例如 `rtk git log`、`rtk pytest`、`rtk pnpm install`。详细命令清单见全局 `~/.claude/CLAUDE.md` 的 "RTK Commands by Workflow" 节。RTK 对没有专门 filter 的命令是直通,所以默认前缀总是安全的。
 
