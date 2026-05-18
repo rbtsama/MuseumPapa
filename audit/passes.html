@@ -11,8 +11,8 @@
 </header>
 <main>
 
-<h1 class="page-title">Passes<span class="zh-sub">优惠券 · 8 个角度看 1026 条 pass</span></h1>
-<p class="subtitle">每张 pass = 1 家图书馆 × 1 家景点 × 1 份优惠条件。本页从 8 个维度告诉你这 1026 条 pass 是什么、分布怎样、对产品意味着什么。下方每节按 <b>What it is · 分布 · What it means</b> 三段写,跳过 ID 字段——明细查 <a href="schema.html">Schema</a>,边界案例查 <a href="data_quality.html">Data Quality</a>。</p>
+<h1 class="page-title">Passes<span class="zh-sub">优惠券 · 7 个角度看 1026 条 pass</span></h1>
+<p class="subtitle">每张 pass = 1 家图书馆 × 1 家景点 × 1 份优惠条件。本页从 7 个维度告诉你这 1026 条 pass 是什么、分布怎样、对产品意味着什么。下方每节按 <b>What it is · 分布 · What it means</b> 三段写,跳过 ID 字段——明细查 <a href="schema.html">Schema</a>,边界案例查 <a href="data_quality.html">Data Quality</a>。"博物馆是否需要时段预约"是景点属性、不是 pass 属性(无论持券与否都得预约),所以它放在 <a href="index.html">Attractions</a> 页。</p>
 
 
 <section class="panel passes-section" id="p1">
@@ -68,14 +68,6 @@
   <p class="section-what"><b>What it is · 这是什么:</b> 这一维度回答<b>哪些日期能用这张 pass</b>。三种形态:整段季节才开放、特定黑名单日不让用、仅工作日。全部 1026 张中 <b>69</b> 张带日期约束;其余任何一天都可用。前端会把这些日子在日历上标 ⚠ 但不会把 pass 整张藏掉。</p>
   <table class="histogram passes-dist"><tr><td><b>Seasonal · 季节性</b><span class="zh-sub">夏/秋限定开放 · 户外岛屿、季节公园</span></td><td class="bar-cell"><span class="bar">███████████████████████</span></td><td class="num">40</td><td class="pct">58%</td></tr><tr><td><b>Blackout dates · 黑名单日</b><span class="zh-sub">特定日期禁用 · 节假日 / 特展日</span></td><td class="bar-cell"><span class="bar">█████████████████</span></td><td class="num">29</td><td class="pct">42%</td></tr><tr><td><b>Weekdays only · 仅工作日</b><span class="zh-sub">周末不可用 · 多见于剧院 / 教育型场所</span></td><td class="bar-cell"><span class="bar">██</span></td><td class="num">4</td><td class="pct">6%</td></tr></table>
   <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>69 / 1026 张(6.7%)</b>带日期约束——比例不高,但每条都是日历层面的硬约束,前端不能不展示。</li><li><b>Seasonal 40 张</b>占多数,典型场景:Boston Harbor Islands、Crane Beach 这种夏/秋限定的户外目的地。winter 时用户能看到 pass 但日历全灰。</li><li><b>Blackout 29 张</b>——通常是图书馆和景点谈下"特定日子不让用"的协议(节假日、特展开幕)。前端把这些日期日历格变 ⚠,点开告诉用户原因。</li><li><b>Weekdays only 4 张</b>——周末不可用,常见于剧院或教育型场所。</li></ul></div>
-</section>
-
-
-<section class="panel passes-section" id="p8">
-  <h3>8 · Booking requirement<span class="zh-sub">预约约束 · 能不能 walk-in</span></h3>
-  <p class="section-what"><b>What it is · 这是什么:</b> 这一维度回答<b>到博物馆现场能不能 walk-in</b>。和<i>领券</i>过程无关——领券是 §3 (digital / pickup / borrow);这里只看 <b>用券去博物馆参观时,博物馆要不要事先在它自己官网订时段</b>。数据源是 <code>attraction.museum_reservation</code>;全部 1026 张中 <b>397</b> 张(39%)指向了一家要时段预约的景点。</p>
-  <table class="histogram passes-dist"><tr><td><b>Walk-in friendly · 现场直接进</b><span class="zh-sub">拿券到馆出示即可,无须先在景点官网订时段</span></td><td class="bar-cell"><span class="bar">█████████████████████████</span></td><td class="num">629</td><td class="pct">61%</td></tr><tr><td><b>Museum reservation required · 必须先订时段</b><span class="zh-sub">MFA / ICA / MOS / Children&#x27;s Museum 等 21 家热门馆,得先到景点官网订时段</span></td><td class="bar-cell"><span class="bar">███████████████</span></td><td class="num">397</td><td class="pct">39%</td></tr></table>
-  <div class="section-meaning"><b>What it means · 含义:</b><ul><li><b>397 / 1026(占 39%)</b> 的 pass 指向需要时段预约的博物馆——涉及 <b>21 家景点</b>,包括 MFA、ICA Boston、ISGM、Museum of Science、Boston Children's Museum、JFK Library、PEM、Salem Witch Museum 等绝大多数热门馆。前端要给这部分 pass 标 "⚠ 必须先到景点官网订时段",并把预约链接亮出来(<code>museum_reservation.url</code> 已经存好了)。</li><li><b>为什么和日期约束(§7)分两节:</b>日期约束告诉你<b>哪天能用</b>,预约约束告诉你<b>怎么用</b>。一张 pass 可以两个都带(比如 PEM 的 pass 既有 blackout,又要时段预约)。混在一起会让 UI 上的 ⚠ 角标含义不清。</li><li><b>另一个相关字段</b>:<code>pass.restrictions.reservation_required</code> 在本期数据里全空——它本来设计用于"个别 pass 的预约规则跟所属博物馆的整体规则不一样"(目前没有这种边缘案例)。Library-side 借券要 hold(借实体卡)已经在 §3 通过 <code>pass_type=physical-circ</code> 单独跟踪了,跟这里不是一回事。</li></ul></div>
 </section>
 
 

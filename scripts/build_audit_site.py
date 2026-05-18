@@ -1094,6 +1094,21 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
         if A.get("geo"): cov_counter["geo"] += 1
         if A.get("address"): cov_counter["address"] += 1
 
+    # Museum-side timed-entry policy — attraction property, NOT pass property.
+    # Whether a visitor brings a library pass or pays full price, these
+    # museums require an online time-slot reservation before showing up.
+    mr_required_attrs = [
+        a for a in attrs
+        if isinstance(a.get("museum_reservation"), dict)
+        and a["museum_reservation"].get("required")
+    ]
+    mr_rows_html = "".join(
+        f'<tr><td class="mono">{esc(a["slug"])}</td>'
+        f'<td>{esc((a.get("museum_name") or "")[:55])}</td>'
+        f'<td><a href="{esc(a["museum_reservation"].get("url", ""))}" target="_blank" rel="noopener">booking page ↗</a></td></tr>'
+        for a in sorted(mr_required_attrs, key=lambda x: x["slug"])
+    )
+
     body = f"""
 <h1 class="page-title">Attractions<span class="zh-sub">景点 · {n_attrs} 家可去地点</span></h1>
 <p class="subtitle">本页从景点视角看数据:每条记录 = 一家真实世界的可去地点(博物馆、公园、剧院等),已经把不同图书馆对同一家景点的不同写法合并成一条。下方先给 4 张分布,再列出 {n_attrs} 家完整卡片明细。</p>
@@ -1115,6 +1130,16 @@ def page_attractions(attr_data, passes_data=None, libs_data=None) -> str:
     <h3>Field coverage · 字段覆盖率</h3>
     {histogram_table(cov_counter, n_attrs)}
   </div>
+</section>
+
+<section class="panel passes-section" id="a-mr">
+  <h3>Timed-entry museums<span class="zh-sub">需要时段预约的景点 · {len(mr_required_attrs)} 家</span></h3>
+  <p class="section-what"><b>What it is · 这是什么:</b> 这 {len(mr_required_attrs)} 家景点要求所有访客<b>事先在博物馆官网订时段</b>才能进——MFA、ICA、MOS、Children's Museum 等热门馆都是如此。这是 <b>景点的政策</b>,跟用户是否持图书馆 pass 没有关系:即使付全价,也一样要预约时段。Pass 只决定刷卡时付多少钱。</p>
+  <table class="data-table">
+    <thead><tr><th>slug</th><th>name</th><th>booking</th></tr></thead>
+    <tbody>{mr_rows_html}</tbody>
+  </table>
+  <div class="section-meaning"><b>What it means · 含义:</b> 前端展示这些景点的卡片时,要在显眼处写一句 "⚠ 此馆需先到 [景点官网] 订时段",避免用户拿了 pass 就直奔过去被拦下。预约 URL 在 <code>attraction.museum_reservation.url</code> 字段里已经存好。<b>注意:</b>这跟 Passes 页 §7 "Date restrictions" 是两件事——§7 是图书馆和景点谈下的 pass 专属日期约束(blackout 等),这里是景点对所有人都生效的进馆流程。</div>
 </section>
 
 <h2 class="section-title">明细 · Full cards</h2>
@@ -1445,50 +1470,10 @@ def page_passes(passes_data, libs_data, attr_data) -> str:
         "</ul>"
     )
 
-    # Booking dimension: does the MUSEUM require a timed-entry reservation
-    # for the user to actually visit? Sourced from attraction.museum_reservation
-    # — NOT from pass.restrictions.reservation_required (that schema slot exists
-    # but is unpopulated in v0.1; it was meant to capture per-pass overrides).
-    mr_required_slugs = {
-        a["slug"] for a in attr_data["attractions"]
-        if isinstance(a.get("museum_reservation"), dict)
-        and a["museum_reservation"].get("required")
-    }
-    n_mr = sum(1 for p in passes if p["attraction_slug"] in mr_required_slugs)
-    s8_what = (
-        "这一维度回答<b>到博物馆现场能不能 walk-in</b>。和"
-        "<i>领券</i>过程无关——领券是 §3 (digital / pickup / borrow);"
-        "这里只看 <b>用券去博物馆参观时,博物馆要不要事先在它自己官网订时段</b>。"
-        f"数据源是 <code>attraction.museum_reservation</code>;"
-        f"全部 {n_passes} 张中 <b>{n_mr}</b> 张("
-        f"{n_mr/n_passes*100:.0f}%)指向了一家要时段预约的景点。"
-    )
-    s8_bars = (
-        _bar_row("Walk-in friendly · 现场直接进",
-                 "拿券到馆出示即可,无须先在景点官网订时段",
-                 n_passes - n_mr, n_passes)
-        + _bar_row("Museum reservation required · 必须先订时段",
-                   "MFA / ICA / MOS / Children's Museum 等 21 家热门馆,得先到景点官网订时段",
-                   n_mr, n_passes)
-    )
-    n_mr_attrs = len(mr_required_slugs)
-    s8_meaning = (
-        "<ul>"
-        f"<li><b>{n_mr} / {n_passes}(占 {n_mr/n_passes*100:.0f}%)</b> 的 pass 指向需要时段预约的博物馆——"
-        f"涉及 <b>{n_mr_attrs} 家景点</b>,包括 MFA、ICA Boston、ISGM、Museum of Science、Boston Children's Museum、JFK Library、PEM、Salem Witch Museum 等绝大多数热门馆。"
-        "前端要给这部分 pass 标 \"⚠ 必须先到景点官网订时段\",并把预约链接亮出来(<code>museum_reservation.url</code> 已经存好了)。</li>"
-        "<li><b>为什么和日期约束(§7)分两节:</b>日期约束告诉你<b>哪天能用</b>,预约约束告诉你<b>怎么用</b>。"
-        "一张 pass 可以两个都带(比如 PEM 的 pass 既有 blackout,又要时段预约)。混在一起会让 UI 上的 ⚠ 角标含义不清。</li>"
-        "<li><b>另一个相关字段</b>:<code>pass.restrictions.reservation_required</code> 在本期数据里全空——"
-        "它本来设计用于"
-        "\"个别 pass 的预约规则跟所属博物馆的整体规则不一样\"(目前没有这种边缘案例)。"
-        "Library-side 借券要 hold(借实体卡)已经在 §3 通过 <code>pass_type=physical-circ</code> 单独跟踪了,跟这里不是一回事。</li>"
-        "</ul>"
-    )
 
     body = f"""
-<h1 class="page-title">Passes<span class="zh-sub">优惠券 · 8 个角度看 {n_passes} 条 pass</span></h1>
-<p class="subtitle">每张 pass = 1 家图书馆 × 1 家景点 × 1 份优惠条件。本页从 8 个维度告诉你这 {n_passes} 条 pass 是什么、分布怎样、对产品意味着什么。下方每节按 <b>What it is · 分布 · What it means</b> 三段写,跳过 ID 字段——明细查 <a href="schema.html">Schema</a>,边界案例查 <a href="data_quality.html">Data Quality</a>。</p>
+<h1 class="page-title">Passes<span class="zh-sub">优惠券 · 7 个角度看 {n_passes} 条 pass</span></h1>
+<p class="subtitle">每张 pass = 1 家图书馆 × 1 家景点 × 1 份优惠条件。本页从 7 个维度告诉你这 {n_passes} 条 pass 是什么、分布怎样、对产品意味着什么。下方每节按 <b>What it is · 分布 · What it means</b> 三段写,跳过 ID 字段——明细查 <a href="schema.html">Schema</a>,边界案例查 <a href="data_quality.html">Data Quality</a>。"博物馆是否需要时段预约"是景点属性、不是 pass 属性(无论持券与否都得预约),所以它放在 <a href="index.html">Attractions</a> 页。</p>
 
 {_passes_section("p1", "1 · What is a Pass", "什么是一张 Pass", s1_what, s1_bars, s1_meaning)}
 {_passes_section("p2", "2 · Acquisition path (Platform)", "取卡途径 · 数据来自哪 3 个系统", s2_what, s2_bars, s2_meaning)}
@@ -1497,7 +1482,6 @@ def page_passes(passes_data, libs_data, attr_data) -> str:
 {_passes_section("p5", "5 · How many people fit", "能用几人 · capacity", s5_what, s5_bars, s5_meaning)}
 {_passes_section("p6", "6 · Audience split", "人群拆分 · 1 / 2 / 3 类各享不同待遇", s6_what, s6_bars, s6_meaning)}
 {_passes_section("p7", "7 · Date restrictions", "日期约束 · 哪些日子能用这张 pass", s7_what, s7_bars, s7_meaning)}
-{_passes_section("p8", "8 · Booking requirement", "预约约束 · 能不能 walk-in", s8_what, s8_bars, s8_meaning)}
 """
     return page_shell("Passes", body, "passes.html")
 
