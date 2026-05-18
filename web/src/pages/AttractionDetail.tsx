@@ -6,8 +6,9 @@ import {
 import { CouponRow } from '../components/CouponRow';
 import { CouponCalendar } from '../components/CouponCalendar';
 import { HeroBanner } from '../components/detail/HeroBanner';
-import { TodayFactsCard } from '../components/detail/TodayFactsCard';
+import { AttractionInfoRows } from '../components/AttractionInfoRows';
 import { DescriptionBlock } from '../components/detail/DescriptionBlock';
+import { isClosedOn } from '../lib/hours';
 import { VisitInfoSection } from '../components/detail/VisitInfoSection';
 import { GuestLockedRow } from '../components/GuestLockedRow';
 import { SignInModal } from '../components/SignInModal';
@@ -209,7 +210,13 @@ export function AttractionDetail() {
         </div>
       )}
 
-      <TodayFactsCard attraction={attraction} todayIso={today} />
+      <section style={{ padding: '12px 14px', borderBottom: '1px solid var(--rule)' }}>
+        <AttractionInfoRows
+          attraction={attraction}
+          date={today}
+          closedToday={isClosedOn(attraction, today)}
+        />
+      </section>
 
       <DescriptionBlock description={attraction.description} />
 

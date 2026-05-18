@@ -18,7 +18,11 @@ describe('MuseumReservationBanner', () => {
         variant="detail"
       />
     );
-    expect(screen.getByText('Timed-entry reservation required')).toBeInTheDocument();
+    expect(screen.getByText(/Timed-entry reservation required/)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Reserve/ })).toHaveAttribute(
+      'href',
+      'https://icaboston.org/visit/tickets',
+    );
   });
 
   it('is the same text in card variant — no CTA, no interaction', () => {
