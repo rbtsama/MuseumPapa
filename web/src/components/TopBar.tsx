@@ -49,7 +49,7 @@ export function TopBar() {
               </button>
             </DropdownTrigger>
             <DropdownMenu aria-label="user menu">
-              <DropdownItem key="passes" as={Link} to="/settings/passes">My passes</DropdownItem>
+              <DropdownItem key="passes" as={Link} to="/settings/passes">My library cards</DropdownItem>
               <DropdownItem key="signout" onClick={signOut} className="text-danger">
                 Sign out
               </DropdownItem>

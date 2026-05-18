@@ -14,7 +14,7 @@ describe('Banner', () => {
   it('guest with no cards: shows Sign in CTA', () => {
     const onSignInClick = vi.fn();
     renderApp(<Banner onSignInClick={onSignInClick} />);
-    expect(screen.getByText(/Add your library pass/i)).toBeInTheDocument();
+    expect(screen.getByText(/Add your library card/i)).toBeInTheDocument();
     expect(screen.getByText(/Sign in/i)).toBeInTheDocument();
   });
 
@@ -30,8 +30,8 @@ describe('Banner', () => {
       currentUser: { username: 'u', displayName: 'U', persona: 'empty' },
     });
     renderApp(<Banner onSignInClick={() => {}} />);
-    expect(screen.getByText(/Add your library passes/i)).toBeInTheDocument();
-    const link = screen.getByText(/Manage passes/i);
+    expect(screen.getByText(/Add your library cards/i)).toBeInTheDocument();
+    const link = screen.getByText(/My library cards/i);
     expect(link.closest('a')).toHaveAttribute('href', '/settings/passes');
   });
 
@@ -43,6 +43,6 @@ describe('Banner', () => {
       pack: { zip: '01880', cards: { wakefield: { barcode: '123' } } },
     });
     renderApp(<Banner onSignInClick={() => {}} />);
-    expect(screen.queryByText(/Add your library passes/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Add your library cards/i)).not.toBeInTheDocument();
   });
 });
