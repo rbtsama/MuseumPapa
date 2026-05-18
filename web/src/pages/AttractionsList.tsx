@@ -238,7 +238,7 @@ export function AttractionsList() {
           borderBottom: '1px solid var(--rule)',
         }}
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <div className="flex gap-2 mb-2 items-center">
             <SearchBox value={search} onChange={setSearch} />
             <DatePicker value={date} onChange={setDate} />
@@ -255,7 +255,7 @@ export function AttractionsList() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-3 sm:px-6 py-3 sm:py-4">
+      <div className="max-w-3xl mx-auto px-3 sm:px-6 py-3 sm:py-4">
         <p className="mb-3" style={{ color: 'var(--ink-3)', fontSize: 11 }}>
           Showing {sortedRows.length} attractions for {formatFriendlyDate(date)}
         </p>
