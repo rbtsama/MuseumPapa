@@ -30,11 +30,19 @@ export function hoursForDate(attraction: Attraction, iso: string): string | null
   return attraction.hours.regular_hours[dayKeyOf(iso)] ?? null;
 }
 
-/** Display info for a date — handles 'varies' (multi-property) attractions. */
+/** Display info for a date — handles 'varies' (multi-property) attractions.
+ *
+ * For status='varies' we deliberately DO NOT surface hours.notes here.
+ * On the list card it would dump an entire description paragraph into the
+ * clock row (e.g. MA State Parks → "Massachusetts DCR operates 450+ parks,
+ * beaches, and forests, each with different hours..."). That belongs on the
+ * detail page (AttractionDetail surfaces it separately). The list card just
+ * gets a short qualifier.
+ */
 export function hoursDisplay(attraction: Attraction, iso: string): { value: string; varies: boolean } | null {
   if (!attraction.hours) return null;
   if (attraction.hours.status === 'varies') {
-    return { value: attraction.hours.notes ?? 'Hours vary by location', varies: true };
+    return { value: 'Hours vary by location', varies: true };
   }
   const v = hoursForDate(attraction, iso);
   return v ? { value: v, varies: false } : null;
