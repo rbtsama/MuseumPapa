@@ -81,7 +81,29 @@ def _geo_block(rec: dict | None) -> dict | None:
     return {"lat": rec["lat"], "lon": rec["lon"]}
 
 
-def _hours_block(rec: dict | None) -> dict | None:
+# Curated short summaries for umbrella attractions (status='varies'). The raw
+# notes field describes the venue in 100-250 chars, which is too long for the
+# list card's clock row. These short strings replace the dump for display.
+# Three buckets:
+#   - outdoor networks (parks / sanctuaries) follow dawn-to-dusk as a common
+#     default across most properties — that's the most useful summary for
+#     a user looking at the card
+#   - multi-property historic groups truly have no shared schedule (one is
+#     a Tue-Sun house, another an all-summer garden) — say so honestly
+#   - performance venues open only at showtime — that's the pattern
+_UMBRELLA_HOURS_SUMMARY: dict[str, str] = {
+    "ma-state-parks":                       "Dawn to dusk (most locations)",
+    "mass-audubon":                         "Dawn to dusk (most sanctuaries)",
+    "trustees-of-reservations":             "Varies by property",
+    "historic-new-england":                 "Varies by property",
+    "boch-center":                          "Open for ticketed performances",
+    "wheelock-family-theatre":              "Open for ticketed performances",
+    "greater-boston-stage-company":         "Open for ticketed performances",
+    "new-hampshire-philharmonic-orchestra": "Concert dates only",
+}
+
+
+def _hours_block(rec: dict | None, *, slug: str | None = None) -> dict | None:
     if not rec:
         return None
     status = rec.get("status")
@@ -89,6 +111,10 @@ def _hours_block(rec: dict | None) -> dict | None:
         return {
             "status": "varies",
             "regular_hours": None,
+            # Short string used by the list card. Falls back to None if we
+            # don't have a curated entry yet — the front-end uses a generic
+            # default in that case rather than dumping `notes`.
+            "summary": _UMBRELLA_HOURS_SUMMARY.get(slug or "") or None,
             "notes": rec.get("notes"),
             "source_url": rec.get("source_url"),
         }
@@ -96,6 +122,7 @@ def _hours_block(rec: dict | None) -> dict | None:
         return {
             "status": "seasonal",
             "regular_hours": rec.get("regular_hours"),
+            "summary": None,
             "notes": rec.get("notes"),
             "source_url": rec.get("source_url"),
         }
@@ -107,6 +134,7 @@ def _hours_block(rec: dict | None) -> dict | None:
     return {
         "status": "ok",
         "regular_hours": rh,
+        "summary": None,
         "notes": rec.get("notes"),
         "source_url": rec.get("source_url"),
     }
@@ -204,7 +232,7 @@ def build_attractions(catalog: dict, prices: dict, images: dict, geo: dict,
             ),
             "hero_image": _image_block(_lookup(images, slug, legacy_aliases)),
             "geo": _geo_block(_lookup(attr_geo, slug, legacy_aliases)),
-            "hours": _hours_block(_lookup(hours, slug, legacy_aliases)),
+            "hours": _hours_block(_lookup(hours, slug, legacy_aliases), slug=slug),
             "museum_reservation": _museum_res_block(slug, legacy_aliases),
         })
 

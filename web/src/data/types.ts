@@ -125,6 +125,10 @@ export type DayKey = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 export interface Hours {
   status?: 'ok' | 'varies' | 'seasonal';
   regular_hours: Record<DayKey, string> | null;  // "Closed" or e.g. "9:00 AM – 5:00 PM"; null when status='varies'
+  // Curated short string for the list card — set for umbrella attractions
+  // (status='varies') so the clock row reads e.g. "Dawn to dusk (most parks)"
+  // instead of dumping the full notes paragraph. Detail page still shows notes.
+  summary?: string | null;
   notes: string | null;
   source_url: string | null;
 }

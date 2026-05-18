@@ -32,17 +32,17 @@ export function hoursForDate(attraction: Attraction, iso: string): string | null
 
 /** Display info for a date — handles 'varies' (multi-property) attractions.
  *
- * For status='varies' we deliberately DO NOT surface hours.notes here.
- * On the list card it would dump an entire description paragraph into the
- * clock row (e.g. MA State Parks → "Massachusetts DCR operates 450+ parks,
- * beaches, and forests, each with different hours..."). That belongs on the
- * detail page (AttractionDetail surfaces it separately). The list card just
- * gets a short qualifier.
+ * For status='varies' we use the CURATED hours.summary (e.g. "Dawn to dusk
+ * (most locations)" for MA State Parks; "Open for ticketed performances" for
+ * Boch Center). hours.notes is the long-form description that lives on the
+ * detail page — never surfaced here, to keep the list card's clock row tight.
+ * If no curated summary exists yet, falls back to a generic "Hours vary by
+ * location" rather than the notes paragraph.
  */
 export function hoursDisplay(attraction: Attraction, iso: string): { value: string; varies: boolean } | null {
   if (!attraction.hours) return null;
   if (attraction.hours.status === 'varies') {
-    return { value: 'Hours vary by location', varies: true };
+    return { value: attraction.hours.summary ?? 'Hours vary by location', varies: true };
   }
   const v = hoursForDate(attraction, iso);
   return v ? { value: v, varies: false } : null;
