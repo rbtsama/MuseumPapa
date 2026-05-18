@@ -157,7 +157,7 @@ export function AttractionCard({
         />
 
         <div className="flex-grow min-w-0 pr-9">
-          <h3 style={{
+          <h3 className="font-serif" style={{
             fontSize: 16, lineHeight: 1.25, color: 'var(--ink-2)', fontWeight: 700,
           }}>
             {attraction.museum_name}

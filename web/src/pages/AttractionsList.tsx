@@ -97,16 +97,26 @@ export function AttractionsList() {
   const allPasses = useMemo(() => getPasses(), []);
   const libraries = useMemo(() => getLibraries(), []);
 
-  const userCardLibIds = useMemo(() => {
+  // A library card only counts as "held" when the user has actually entered
+  // a barcode for it — without the barcode the card is useless on the Book
+  // step. Aligns the list-side filter with BookingConfirmModal's hasCard
+  // check (was a silent contradiction: green Book button on the card, then
+  // "You don't have a card from {X}" in the modal).
+  const usableCardLibIds = useMemo(() => {
     if (!user) return null;
-    const ids = new Set(Object.keys(cardpack.cards));
+    const ids = new Set(
+      Object.entries(cardpack.cards)
+        .filter(([, card]) => !!card?.barcode)
+        .map(([id]) => id)
+    );
     if (ids.size === 0) return null;
     return ids;
   }, [user, cardpack.cards]);
+  const userCardLibIds = usableCardLibIds;
 
   const cardpackState: 'guest' | 'no_cards' | 'has_cards' =
     !user ? 'guest'
-      : Object.keys(cardpack.cards).length === 0 ? 'no_cards'
+      : !usableCardLibIds ? 'no_cards'
       : 'has_cards';
   const isGuestOrEmpty = cardpackState !== 'has_cards';
 

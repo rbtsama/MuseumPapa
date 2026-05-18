@@ -211,7 +211,7 @@ export function AttractionDetail() {
           width: 280, height: 210, objectFit: 'cover', borderRadius: 4, background: 'var(--paper)',
         }} />
         <div style={{ flexGrow: 1, minWidth: 280 }}>
-          <h1 style={{ fontSize: 22, color: 'var(--ink-2)', marginBottom: 4, fontWeight: 700 }}>
+          <h1 className="font-serif" style={{ fontSize: 22, color: 'var(--ink-2)', marginBottom: 4, fontWeight: 700 }}>
             {attraction.museum_name}
           </h1>
           <p style={{ color: 'var(--ink-3)', fontSize: 13 }}>
