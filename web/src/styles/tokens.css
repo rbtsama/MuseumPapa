@@ -76,3 +76,14 @@ body {
   flex-shrink: 0;
 }
 .info-icon svg { display: block; }
+/* Price row carries multiple tokens (Adult $24 · Child $24 · age <5 FREE).
+   Isolate token gap in its own inline-flex so it doesn't fight the line-level
+   layout — this is what keeps "·" centered with uniform space on both sides
+   and stops "age <5" from picking up an extra leading gap. */
+.price-tokens {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 6px;
+  row-gap: 2px;
+}

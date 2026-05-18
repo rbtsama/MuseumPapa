@@ -31,10 +31,13 @@ const ClockIcon = () => (
     <polyline points="12 6 12 12 16 14"/>
   </svg>
 );
-const TagIcon = () => (
+const TicketIcon = () => (
+  // Classic admission-ticket stub: rounded rectangle with semicircle notches
+  // on left + right at the perforation line, and a short tear line.
   <svg {...ICON_SVG_PROPS} aria-hidden>
-    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-    <line x1="7" y1="7" x2="7.01" y2="7"/>
+    <path d="M3 7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v3a2 2 0 0 0 0 4v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3a2 2 0 0 0 0-4z"/>
+    <line x1="13" y1="7" x2="13" y2="10"/>
+    <line x1="13" y1="14" x2="13" y2="17"/>
   </svg>
 );
 
@@ -171,29 +174,34 @@ export function AttractionCard({
             </p>
           )}
 
-          {(tiers.length > 0 || freeUnder != null) && (
-            <p className="info-line flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5" style={{ color: 'var(--ink-3)' }}>
-              <span className="info-icon"><TagIcon /></span>
-              {tiers.map((t, i) => (
-                <span key={`${t.label}-${i}`} className="inline-flex items-baseline gap-1">
-                  {i > 0 && <span>·</span>}
-                  {tiers.length > 1 && (
-                    <span>{t.label}</span>
-                  )}
-                  <span style={{ fontWeight: 700, color: 'var(--ink-2)' }}>
-                    {fmtMoney(t.value)}
-                  </span>
+          {(tiers.length > 0 || freeUnder != null) && (() => {
+            // Flatten everything into a single token stream so one gap rule
+            // controls every space — no nested flex wrappers, no double gaps,
+            // no leading space before "age <N FREE".
+            const tokens: React.ReactNode[] = [];
+            tiers.forEach((t, i) => {
+              if (i > 0) tokens.push(<span key={`sep-${i}`} aria-hidden>·</span>);
+              if (tiers.length > 1) tokens.push(<span key={`lbl-${i}`}>{t.label}</span>);
+              tokens.push(
+                <span key={`val-${i}`} style={{ fontWeight: 700, color: 'var(--ink-2)' }}>
+                  {fmtMoney(t.value)}
                 </span>
-              ))}
-              {freeUnder != null && (
-                <span className="inline-flex items-baseline gap-1">
-                  {tiers.length > 0 && <span>·</span>}
-                  <span>age &lt;{freeUnder}</span>
-                  <span style={{ fontWeight: 700, color: 'var(--ink-2)' }}>FREE</span>
-                </span>
-              )}
-            </p>
-          )}
+              );
+            });
+            if (freeUnder != null) {
+              if (tiers.length > 0) tokens.push(<span key="fu-sep" aria-hidden>·</span>);
+              tokens.push(<span key="fu-lbl">{`age <${freeUnder}`}</span>);
+              tokens.push(
+                <span key="fu-val" style={{ fontWeight: 700, color: 'var(--ink-2)' }}>FREE</span>
+              );
+            }
+            return (
+              <p className="info-line" style={{ color: 'var(--ink-3)' }}>
+                <span className="info-icon"><TicketIcon /></span>
+                <span className="price-tokens">{tokens}</span>
+              </p>
+            );
+          })()}
 
           {closedToday && (
             <span className="inline-block mt-2 px-2 py-0.5 rounded-md" style={{
