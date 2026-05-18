@@ -1,28 +1,26 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import {
   getAttractionBySlug, getPassesForAttraction, getLibraries,
 } from '../data/load';
-import { PassTypeLabel } from '../components/PassTypeLabel';
-import { CouponLine } from '../components/CouponLine';
-import { CouponCalendar } from '../components/CouponCalendar';
-import { MuseumReservationBanner } from '../components/MuseumReservationBanner';
-import { passBlockedByRestrictions } from '../lib/restrictions';
+import { PassRow } from '../components/PassRow';
+import { HeroBanner } from '../components/detail/HeroBanner';
+import { TodayFactsCard } from '../components/detail/TodayFactsCard';
+import { DescriptionBlock } from '../components/detail/DescriptionBlock';
+import { DayPillRow } from '../components/detail/DayPillRow';
+import { VisitInfoSection } from '../components/detail/VisitInfoSection';
 import { GuestLockedRow } from '../components/GuestLockedRow';
 import { SignInModal } from '../components/SignInModal';
-import { FavoriteButton } from '../components/FavoriteButton';
+import { BookingConfirmModal } from '../components/BookingConfirmModal';
+import { passBlockedByRestrictions } from '../lib/restrictions';
 import { useAuth } from '../auth/store';
 import { useCardpack } from '../stores/cardpack';
 import { useFavorites } from '../stores/favorites';
 import { geocodeZip, haversineMiles } from '../lib/distance';
 import { couponRank } from '../lib/tag-algorithm';
-import { formatOriginalAdult } from '../lib/originalPrice';
-import { BookingConfirmModal } from '../components/BookingConfirmModal';
-import { weeklyHoursList } from '../lib/hours';
 import { heroSrc } from '../lib/hero';
 import { todayIso } from '../lib/dates';
 import type { Geo, Pass, Library } from '../data/types';
-
 
 interface Row {
   pass: Pass;
@@ -30,6 +28,13 @@ interface Row {
   distanceMi: number | null;
   available: boolean;
   userHasCard: boolean;
+}
+
+function townFromAddress(addr: string): string {
+  const m = addr.match(/,\s*([^,]+?),\s*[A-Z]{2}\s+\d{5}/);
+  if (m) return m[1].trim();
+  const m2 = addr.match(/,\s*([^,]+?),\s*[A-Z]{2}\b/);
+  return m2 ? m2[1].trim() : '';
 }
 
 export function AttractionDetail() {
@@ -62,31 +67,29 @@ export function AttractionDetail() {
   const libraries = useMemo(() => getLibraries(), []);
   const libById = useMemo(() => new Map(libraries.map(l => [l.id, l])), [libraries]);
 
-  const userCardLibIds = useMemo(
-    () => (user && Object.keys(cardpack.cards).length > 0)
-      ? new Set(Object.keys(cardpack.cards))
-      : null,
-    [user, cardpack.cards],
-  );
+  // Same barcode-filter as AttractionsList — a card without a barcode is not
+  // yet usable, so it shouldn't surface a pass row or affect the best-deal
+  // calculation. Keeps Detail and List consistent.
+  const userCardLibIds = useMemo(() => {
+    if (!user) return null;
+    const ids = new Set(
+      Object.entries(cardpack.cards)
+        .filter(([, card]) => !!card?.barcode)
+        .map(([id]) => id)
+    );
+    if (ids.size === 0) return null;
+    return ids;
+  }, [user, cardpack.cards]);
 
-  // Data horizon: latest date for which we have any real scraped availability
-  // across all passes for this attraction. Used to cap the month-pill row so
-  // we never advertise months we never scraped.
   const dataHorizon = useMemo(() => {
     let max = '';
     for (const p of allPasses) {
       if (!p.availability) continue;
-      for (const d in p.availability) {
-        if (d > max) max = d;
-      }
+      for (const d in p.availability) if (d > max) max = d;
     }
-    return max; // 'YYYY-MM-DD' or '' when no pass has a calendar (e.g. MuseumKey-only attractions)
+    return max;
   }, [allPasses]);
 
-  // Six-month pill row starting from today's month, capped at the data horizon.
-  // No fake months — if scrape only covers June, the user only sees a June pill.
-  // When dataHorizon is empty (no calendar anywhere), fall back to the current
-  // month so the page still renders something useful.
   const monthPills = useMemo(() => {
     const out: string[] = [];
     const base = new Date(`${today}T00:00:00`);
@@ -98,12 +101,11 @@ export function AttractionDetail() {
       const m = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
       if (horizonMonth && m > horizonMonth) break;
       out.push(m);
-      if (!horizonMonth) break; // no scraped data anywhere → only show current month
+      if (!horizonMonth) break;
     }
     return out;
   }, [today, dataHorizon]);
 
-  // Dates in the currently-selected month (1..lastDay).
   const datesOfMonth = useMemo(() => {
     const [yStr, mStr] = month.split('-');
     const year = Number(yStr); const m = Number(mStr);
@@ -119,11 +121,6 @@ export function AttractionDetail() {
       const library = libById.get(pass.library_id);
       if (!library) continue;
       if (passBlockedByRestrictions(pass.restrictions, date)) continue;
-      // Honest availability: require explicit 'available' from the scraper.
-      // - pass.availability === null  → no calendar known (e.g. MuseumKey, login-only)
-      //   show the pass best-effort, no calendar to filter against.
-      // - pass.availability is a dict → date must carry an explicit 'available'.
-      //   `undefined` means we never scraped that date; don't fake green.
       const available = pass.availability === null
         ? true
         : pass.availability[date] === 'available';
@@ -136,7 +133,6 @@ export function AttractionDetail() {
 
   const sortRows = useMemo(() => (rows: Row[]) => {
     return [...rows].sort((a, b) => {
-      if (a.userHasCard !== b.userHasCard) return a.userHasCard ? -1 : 1;
       const ra = couponRank(a.pass.coupon);
       const rb = couponRank(b.pass.coupon);
       if (ra !== rb) return ra - rb;
@@ -152,262 +148,125 @@ export function AttractionDetail() {
     [attraction],
   );
 
-  // Best coupon per date in the visible month — what the user actually wants
-  // to see at a glance. "FREE" beats "50%" beats "$5", etc.
   const cellInfo = useMemo(() => {
     const out: Record<string, { best: string; isFree: boolean }> = {};
     for (const d of datesOfMonth) {
-      const rows = rowsForDate(d).filter(r => r.available);
+      // Best deal among rows the user can actually use.
+      const rows = rowsForDate(d)
+        .filter(r => r.available)
+        .filter(r => userCardLibIds === null || r.userHasCard);
       if (rows.length === 0) { out[d] = { best: '', isFree: false }; continue; }
       const sorted = sortRows(rows);
       const top = sorted[0].pass.coupon.audience_policies[0];
-      let label = '';
-      let isFree = false;
+      let label = ''; let isFree = false;
       if (top) {
         switch (top.form) {
-          case 'free':
-            label = 'FREE'; isFree = true; break;
-          case 'percent-off':
-            label = top.value != null ? `${top.value}%` : '%'; break;
-          case 'dollar-off':
-            label = top.value != null ? `-$${top.value}` : '$ off'; break;
-          case 'per-person-price':
-            label = top.value != null ? `$${top.value}` : '$'; break;
-          case 'discount':
-            label = 'disc'; break;
+          case 'free': label = 'FREE'; isFree = true; break;
+          case 'percent-off': label = top.value != null ? `${top.value}%` : '%'; break;
+          case 'dollar-off': label = top.value != null ? `-$${top.value}` : '$ off'; break;
+          case 'per-person-price': label = top.value != null ? `$${top.value}` : '$'; break;
+          case 'discount': label = 'disc'; break;
         }
       }
       out[d] = { best: label, isFree };
     }
     return out;
-  }, [datesOfMonth, rowsForDate, sortRows]);
+  }, [datesOfMonth, rowsForDate, sortRows, userCardLibIds]);
 
-  // Selected day's passes, sorted.
+  // Selected day's rows — HIDE no-card rows entirely (do not dim).
   const selectedDayRows = useMemo(
-    () => sortRows(rowsForDate(selectedDate).filter(r => r.available)),
-    [selectedDate, rowsForDate, sortRows],
+    () => sortRows(
+      rowsForDate(selectedDate)
+        .filter(r => r.available)
+        .filter(r => userCardLibIds === null || r.userHasCard),
+    ),
+    [selectedDate, rowsForDate, sortRows, userCardLibIds],
   );
 
-  if (!slug) return <div className="max-w-6xl mx-auto px-4 py-6">Missing slug.</div>;
-  if (!attraction) return <div className="max-w-6xl mx-auto px-4 py-6">Attraction "{slug}" not found.</div>;
+  if (!slug) return <div className="max-w-md mx-auto p-4">Missing slug.</div>;
+  if (!attraction) return <div className="max-w-md mx-auto p-4">Attraction "{slug}" not found.</div>;
+
+  const town = townFromAddress(attraction.address);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-        <Link to="/" style={{ color: 'var(--ink-3)', fontSize: 13 }}>← Back to attractions</Link>
-        <FavoriteButton slug={attraction.slug} />
-      </div>
-      <div style={{ display: 'flex', gap: 24, marginBottom: 24, alignItems: 'flex-start', flexWrap: 'wrap' }}>
-        <img src={heroImg} alt="" style={{
-          width: 280, height: 210, objectFit: 'cover', borderRadius: 4, background: 'var(--paper)',
-        }} />
-        <div style={{ flexGrow: 1, minWidth: 280 }}>
-          <h1 className="font-serif" style={{ fontSize: 22, color: 'var(--ink-2)', marginBottom: 4, fontWeight: 700 }}>
-            {attraction.museum_name}
-          </h1>
-          <p style={{ color: 'var(--ink-3)', fontSize: 13 }}>
-            {attraction.address || 'Address unavailable'}
-          </p>
-          <p style={{ color: 'var(--ink-3)', fontSize: 12, marginTop: 4 }}>
-            Categories: {attraction.categories.join(' · ')}
-          </p>
-          {attraction.description && (
-            <p style={{ marginTop: 12, fontSize: 13, color: 'var(--ink-3)', lineHeight: 1.55 }}>
-              {attraction.description}
-            </p>
-          )}
-          <p style={{ marginTop: 12, fontSize: 13 }}>
-            {formatOriginalAdult(attraction.original_price)}
-          </p>
-          {attraction.phone && (
-            <p style={{ marginTop: 8, fontSize: 12, color: 'var(--ink-3)' }}>
-              📞 <a
-                href={`tel:${attraction.phone.replace(/[^\d+]/g, '')}`}
-                style={{ color: 'var(--g)' }}
-              >{attraction.phone}</a>
-            </p>
-          )}
-          {attraction.website && (
-            <p style={{ marginTop: 8, fontSize: 13 }}>
-              <a href={attraction.website} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--g)' }}>
-                Visit museum's website →
-              </a>
-            </p>
-          )}
-        </div>
-      </div>
-
-      {attraction.hours && attraction.hours.status === 'varies' && (
-        <div className="mb-6 rounded-md p-3"
-          style={{ border: '1px solid var(--rule)', background: 'var(--white)' }}>
-          <div className="flex items-center gap-2 mb-1">
-            <span aria-hidden style={{ fontSize: 13, color: 'var(--ink-3)' }}>🕘</span>
-            <h2 style={{ fontSize: 16, color: 'var(--ink-2)', fontWeight: 600 }}>Hours vary by location</h2>
-          </div>
-          {attraction.hours.notes && (
-            <p style={{ fontSize: 12, color: 'var(--ink-3)' }}>{attraction.hours.notes}</p>
-          )}
-        </div>
-      )}
-
-      {attraction.hours && attraction.hours.status !== 'varies' && attraction.hours.regular_hours && (
-        <div className="mb-6 rounded-md p-3"
-          style={{ border: '1px solid var(--rule)', background: 'var(--white)' }}>
-          <div className="flex items-center gap-2 mb-2">
-            <span aria-hidden style={{ fontSize: 13, color: 'var(--ink-3)' }}>🕘</span>
-            <h2 style={{ fontSize: 16, color: 'var(--ink-2)', fontWeight: 600 }}>Hours</h2>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-7 gap-x-3 gap-y-1">
-            {weeklyHoursList(attraction.hours).map(row => {
-              const isClosed = row.value.toLowerCase() === 'closed';
-              return (
-                <div key={row.key} className="flex sm:flex-col items-baseline sm:items-start gap-1 sm:gap-0.5">
-                  <span style={{ fontSize: 11, color: 'var(--ink-3)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                    {row.label}
-                  </span>
-                  <span style={{
-                    fontSize: 12, fontWeight: 500,
-                    color: isClosed ? 'var(--rd)' : 'var(--ink-2)',
-                  }}>
-                    {row.value}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-          {attraction.hours.notes && (
-            <p className="mt-2" style={{ fontSize: 11, color: 'var(--ink-3)', fontStyle: 'italic' }}>
-              {attraction.hours.notes}
-            </p>
-          )}
-        </div>
-      )}
-
-      <MuseumReservationBanner
-        reservation={attraction.museum_reservation}
-        attractionName={attraction.museum_name}
-        variant="detail"
+    <div className="max-w-md mx-auto" style={{ background: 'var(--white)', minHeight: '100vh' }}>
+      <HeroBanner
+        imageSrc={heroImg}
+        museumName={attraction.museum_name}
+        town={town}
+        favoriteSlug={attraction.slug}
       />
-      <h2 style={{ fontSize: 16, marginTop: 14, marginBottom: 8, color: 'var(--ink-2)', fontWeight: 600 }}>
-        Available coupons
-      </h2>
 
-      <div className="flex flex-wrap gap-1.5 mb-3">
-        {monthPills.map(m => {
-          const active = m === month;
-          const d = new Date(`${m}-01T00:00:00`);
-          const lbl = d.toLocaleString('en-US', { month: 'short', year: 'numeric' });
-          return (
-            <button
-              key={m}
-              type="button"
-              onClick={() => setMonth(m)}
-              className="rounded-md whitespace-nowrap"
-              style={{
-                padding: '4px 10px', fontSize: 12, fontWeight: 500,
-                background: active ? 'var(--g)' : 'transparent',
-                color: active ? 'var(--white)' : 'var(--ink-2)',
-                border: `1px solid ${active ? 'var(--g)' : 'var(--rule)'}`,
-                cursor: 'pointer',
-              }}
-            >{lbl}</button>
-          );
-        })}
-      </div>
-
-      <div className="mb-4">
-        <CouponCalendar
-          month={month}
-          selectedDate={selectedDate}
-          todayIso={today}
-          cellInfo={cellInfo}
-          onSelect={setSelectedDate}
-        />
-      </div>
-
-      <div style={{ fontSize: 13, color: 'var(--ink-3)', marginBottom: 8 }}>
-        {new Date(`${selectedDate}T00:00:00`).toLocaleDateString('en-US', {
-          weekday: 'long', month: 'short', day: 'numeric',
-        })}
-        {' · '}
-        {selectedDayRows.length} coupon{selectedDayRows.length === 1 ? '' : 's'} available
-      </div>
-      {selectedDayRows.length === 0 ? (
-        <div style={{ fontSize: 12, color: 'var(--ink-3)', fontStyle: 'italic', marginBottom: 16 }}>
-          No coupons available on this date
+      {attraction.categories.length > 0 && (
+        <div style={{ padding: '14px 14px 0' }}>
+          {attraction.categories.map(c => (
+            <span key={c} style={{
+              display: 'inline-block', padding: '2px 8px', borderRadius: 10,
+              background: 'var(--paper)', color: 'var(--ink-3)',
+              fontSize: 10, fontWeight: 500, marginRight: 4, marginBottom: 4,
+            }}>{c}</span>
+          ))}
         </div>
-      ) : (
-        <div className="flex flex-col gap-1.5 mb-4">
-          {selectedDayRows.slice(0, 10).map((r, i) => {
-            if (!user) {
+      )}
+
+      <TodayFactsCard attraction={attraction} todayIso={today} />
+
+      <DescriptionBlock description={attraction.description} />
+
+      {/* Coupon / perks section — green tint to mark product UVP */}
+      <section style={{ padding: 14, background: 'var(--g-pale)', borderBottom: '1px solid var(--rule)' }}>
+        <h3 style={{
+          margin: '0 0 8px', fontSize: 13, fontWeight: 600,
+          color: 'var(--g)', textTransform: 'uppercase', letterSpacing: '0.05em',
+        }}>Your perks · what it'll cost you</h3>
+
+        <DayPillRow
+          todayIso={today}
+          selectedDate={selectedDate}
+          onSelect={setSelectedDate}
+          month={month}
+          setMonth={setMonth}
+          cellInfo={cellInfo}
+          monthPills={monthPills}
+        />
+
+        <div style={{ marginTop: 12 }}>
+          {selectedDayRows.length === 0 ? (
+            <div style={{ fontSize: 12, color: 'var(--ink-3)', fontStyle: 'italic' }}>
+              No coupons available on this date
+            </div>
+          ) : (
+            selectedDayRows.slice(0, 10).map((r, i) => {
+              if (!user) {
+                return (
+                  <GuestLockedRow
+                    key={`${r.pass.library_id}-${i}`}
+                    pass={r.pass}
+                    library={r.library}
+                    onSignInRequest={() => setSignInOpen(true)}
+                  />
+                );
+              }
               return (
-                <GuestLockedRow
+                <PassRow
                   key={`${r.pass.library_id}-${i}`}
                   pass={r.pass}
                   library={r.library}
-                  onSignInRequest={() => setSignInOpen(true)}
+                  distanceMi={r.distanceMi}
+                  onBook={setBookingPass}
                 />
               );
-            }
-            const isDigital = r.pass.pass_type === 'digital';
-            const dim = !r.userHasCard;
-            return (
-              <button
-                key={`${r.pass.library_id}-${i}`}
-                type="button"
-                onClick={() => setBookingPass(r.pass)}
-                className="flex items-center gap-2 rounded-md text-left"
-                style={{
-                  background: dim ? 'var(--paper)' : 'var(--white)',
-                  border: '1px solid var(--rule)',
-                  padding: '8px 12px',
-                  cursor: 'pointer',
-                  color: dim ? 'var(--ink-3)' : 'inherit',
-                }}
-                title={dim ? "You don't have a card from this library" : undefined}
-              >
-                <PassTypeLabel type={r.pass.pass_type} />
-                <span style={{
-                  fontSize: 13,
-                  color: dim ? 'var(--ink-3)' : 'var(--ink-2)',
-                  fontWeight: 500,
-                }}>
-                  {isDigital ? r.library.name : r.library.town}
-                  {!isDigital && r.distanceMi != null && (
-                    <span style={{ fontSize: 11, color: 'var(--ink-3)', fontWeight: 400 }}>
-                      {' '}· {Math.round(r.distanceMi)} mi
-                    </span>
-                  )}
-                  {dim && (
-                    <span style={{
-                      fontSize: 11, fontStyle: 'italic',
-                      color: 'var(--ink-3)', marginLeft: 6,
-                    }}>· no card</span>
-                  )}
-                </span>
-                <span className="ml-auto">
-                  <CouponLine coupon={r.pass.coupon} />
-                </span>
-              </button>
-            );
-          })}
+            })
+          )}
           {selectedDayRows.length > 10 && (
-            <span style={{ fontSize: 12, color: 'var(--ink-3)' }}>+{selectedDayRows.length - 10} more</span>
+            <div style={{ fontSize: 12, color: 'var(--ink-3)', marginTop: 6 }}>
+              +{selectedDayRows.length - 10} more
+            </div>
           )}
         </div>
-      )}
+      </section>
 
-      <h2 style={{ fontSize: 16, marginTop: 24, marginBottom: 8, fontWeight: 600 }}>
-        Participating libraries ({attraction.sources.length})
-      </h2>
-      <ul style={{ fontSize: 13, color: 'var(--ink-3)' }}>
-        {attraction.sources.slice(0, 30).map(libId => {
-          const l = libById.get(libId);
-          return <li key={libId} style={{ padding: '2px 0' }}>
-            {l ? `${l.name} · ${l.town}` : libId}
-          </li>;
-        })}
-      </ul>
+      <VisitInfoSection attraction={attraction} />
 
       <BookingConfirmModal
         pass={bookingPass}
