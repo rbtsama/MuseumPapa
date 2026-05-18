@@ -46,12 +46,6 @@ export function CouponRow({
     onBook(pass);
   };
 
-  const handleBookKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      handleBook(e);
-    }
-  };
-
   return (
     <div
       className="flex items-center gap-3 px-3 py-2"
@@ -80,11 +74,9 @@ export function CouponRow({
         </div>
       </div>
 
-      <span
-        role="button"
-        tabIndex={0}
+      <button
+        type="button"
         onClick={handleBook}
-        onKeyDown={handleBookKeyDown}
         className="flex-shrink-0 rounded-md inline-flex flex-col items-center"
         style={{
           background: userHasCard ? 'var(--g)' : 'var(--paper)',
@@ -106,7 +98,7 @@ export function CouponRow({
             color: 'var(--ink-3)', marginTop: 1,
           }}>no card</span>
         )}
-      </span>
+      </button>
     </div>
   );
 }

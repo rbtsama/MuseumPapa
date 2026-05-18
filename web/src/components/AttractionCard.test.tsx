@@ -119,9 +119,12 @@ describe('AttractionCard', () => {
         cardpackState="no_cards"
       />
     );
-    const link = screen.getByText(/Add a library card or Library Pass/);
-    expect(link).toBeInTheDocument();
-    expect(link.closest('a')).toHaveAttribute('href', '/settings/passes');
+    const btn = screen.getByText(/Add a library card or Library Pass/);
+    expect(btn).toBeInTheDocument();
+    // The CTA is now a native <button> (not a nested <a>) to avoid invalid HTML.
+    // The nearest interactive ancestor must be a button element (the outer card
+    // <Link> is an <a> but the CTA itself must not be another <a>).
+    expect(btn.closest('button')).not.toBeNull();
   });
 
   it('renders no-matching-coupon hint when user has cards but no passes match', () => {

@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import type { Attraction, Pass } from '../data/types';
 import type { PickedTag } from '../lib/tag-algorithm';
 import { FavoriteButton } from './FavoriteButton';
@@ -35,6 +35,7 @@ export function AttractionCard({
   attraction, pickedTags, cardpackState = 'has_cards',
   closedToday = false, date, onBookPass, onSignInClick,
 }: Props) {
+  const navigate = useNavigate();
   const total = pickedTags.length;
   const dim = closedToday ? { filter: 'grayscale(0.7)', opacity: 0.55 } : {};
 
@@ -42,12 +43,6 @@ export function AttractionCard({
     e.preventDefault();
     e.stopPropagation();
     onBookPass?.(pass);
-  };
-
-  const handleBookKeyDown = (e: React.KeyboardEvent, pass: Pass) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      handleBook(e, pass);
-    }
   };
 
   return (
@@ -72,7 +67,7 @@ export function AttractionCard({
       <div className="flex gap-3 p-3" style={dim}>
         <img
           src={heroSrc(attraction)}
-          alt=""
+          alt={attraction.museum_name}
           loading="lazy"
           className="rounded-md object-cover bg-[color:var(--paper)] flex-shrink-0"
           style={{ width: 70, height: 70 }}
@@ -115,14 +110,14 @@ export function AttractionCard({
               Sign in to see the discounts available to your library cards →
             </button>
           ) : cardpackState === 'no_cards' ? (
-            <Link
-              to="/settings/passes"
-              onClick={(e) => e.stopPropagation()}
-              className="block px-3 py-3"
-              style={{ fontSize: 12, color: 'var(--g)', textDecoration: 'none' }}
+            <button
+              type="button"
+              className="block w-full text-left px-3 py-3"
+              style={{ fontSize: 12, color: 'var(--g)', background: 'transparent', border: 0, cursor: 'pointer' }}
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigate('/settings/passes'); }}
             >
               Add a library card or Library Pass to see your discounts →
-            </Link>
+            </button>
           ) : total === 0 ? (
             <div className="px-3 py-3 text-center" style={{ fontSize: 11, color: 'var(--ink-3)', fontStyle: 'italic' }}>
               None of your library cards cover this attraction
@@ -188,11 +183,9 @@ export function AttractionCard({
                   </div>
                 </div>
 
-                <span
-                  role="button"
-                  tabIndex={0}
+                <button
+                  type="button"
                   onClick={(e) => handleBook(e, t.pass)}
-                  onKeyDown={(e) => handleBookKeyDown(e, t.pass)}
                   className="flex-shrink-0 rounded-md inline-flex flex-col items-center"
                   style={{
                     background: t.userHasCard ? 'var(--g)' : 'var(--paper)',
@@ -214,7 +207,7 @@ export function AttractionCard({
                       color: 'var(--ink-3)', marginTop: 1,
                     }}>no card</span>
                   )}
-                </span>
+                </button>
               </div>
             );
           })}

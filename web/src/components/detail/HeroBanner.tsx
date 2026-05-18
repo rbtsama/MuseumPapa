@@ -12,7 +12,7 @@ export function HeroBanner({ imageSrc, museumName, town, favoriteSlug }: Props) 
     <div style={{ position: 'relative', width: '100%' }}>
       <img
         src={imageSrc}
-        alt=""
+        alt={museumName}
         style={{
           width: '100%',
           height: 180,
