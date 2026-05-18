@@ -64,15 +64,6 @@ interface Props {
 
 const MAX_ROWS_VISIBLE = 3;
 
-function PersonIcon() {
-  return (
-    <svg width="10" height="10" viewBox="4 0 16 24" fill="currentColor" aria-hidden
-      style={{ display: 'inline-block', verticalAlign: '-1px' }}>
-      <path d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0zM3.75 20.1a8.25 8.25 0 0 1 16.5 0 .75.75 0 0 1-.44.69 18.7 18.7 0 0 1-7.81 1.7c-2.79 0-5.43-.6-7.81-1.7a.75.75 0 0 1-.44-.69z" />
-    </svg>
-  );
-}
-
 function fmtMoney(v: number | null | undefined): string {
   if (v == null) return '';
   if (v === 0) return 'FREE';
@@ -289,6 +280,9 @@ export function AttractionCard({
                 style={{ borderTop: i === 0 ? 'none' : '1px solid var(--rule)' }}
               >
                 <div className="flex-grow min-w-0 flex flex-col gap-0.5">
+                  {/* Row 1: location + distance only — the type label moved
+                      down to the coupon row where it sits naturally with the
+                      pricing details. */}
                   <div className="flex items-center gap-1.5 min-w-0" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
                     <span style={{ color: 'var(--ink-2)', fontWeight: 500, fontSize: 13,
                       overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
@@ -299,22 +293,21 @@ export function AttractionCard({
                         · {Math.round(t.distanceMi)} mi
                       </span>
                     )}
-                    <span className="flex-shrink-0" style={{ fontSize: 11 }}>·</span>
-                    <span className="flex-shrink-0">
+                  </div>
+                  {/* Row 2: [Type label] price1 · price2 · ... (up to N).
+                      Capacity now lives in a small trailing parenthetical
+                      instead of a leading person-icon group, so the eye
+                      scans prices first. */}
+                  <div className="flex items-baseline flex-wrap gap-x-1.5 gap-y-0.5 min-w-0">
+                    <span className="flex-shrink-0" style={{ alignSelf: 'center' }}>
                       <PassTypeLabel type={t.pass.pass_type} />
                     </span>
-                  </div>
-                  <div className="flex items-baseline flex-wrap gap-x-1.5 gap-y-0.5 min-w-0">
-                    {capacityText && (
-                      <>
-                        <span className="inline-flex items-center gap-1"
-                          style={{ fontSize: 11, color: 'var(--ink-3)' }}>
-                          <PersonIcon /> {capacityText}
-                        </span>
-                        <span style={{ fontSize: 11, color: 'var(--ink-3)' }}>·</span>
-                      </>
-                    )}
                     <CouponLine coupon={t.pass.coupon} align="left" />
+                    {capacityText && (
+                      <span style={{ fontSize: 11, color: 'var(--ink-3)' }}>
+                        ({capacityText})
+                      </span>
+                    )}
                   </div>
                 </div>
 

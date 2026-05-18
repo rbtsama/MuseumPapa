@@ -29,9 +29,12 @@ export function PassTypeLabel({ type }: Props) {
       style={{
         background: m.bg,
         color: m.fg,
+        // Thin border in the same color as the label text — makes the pill
+        // crisper at small sizes than relying on the pale background alone.
+        border: `1px solid ${m.fg}`,
         fontSize: 11,
         fontWeight: 500,
-        padding: '2px 7px',
+        padding: '1px 6px',     // 1px less than before to offset the border
         borderRadius: 3,
         lineHeight: 1.35,
       }}
