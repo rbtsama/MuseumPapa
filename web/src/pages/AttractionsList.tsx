@@ -27,22 +27,12 @@ export function AttractionsList() {
 
   const [signInOpen, setSignInOpen] = useState(false);
   const [date, setDate] = useState(() => todayIso());
-  // Default sort: distance when the user has set a ZIP, else recommended.
-  const [sort, setSort] = useState<SortOption>(() =>
-    (cardpack.zip && cardpack.zip.length === 5) ? 'distance' : 'recommended',
-  );
-  // If the ZIP becomes available after first render (load from storage), bump
-  // the default to distance — but only while the user hasn't manually chosen.
-  const [sortTouched, setSortTouched] = useState(false);
-  useEffect(() => {
-    if (sortTouched) return;
-    if (cardpack.zip && cardpack.zip.length === 5 && sort === 'recommended') {
-      setSort('distance');
-    } else if ((!cardpack.zip || cardpack.zip.length !== 5) && sort === 'distance') {
-      setSort('recommended');
-    }
-  }, [cardpack.zip, sort, sortTouched]);
-  const handleSortChange = (v: SortOption) => { setSortTouched(true); setSort(v); };
+  // Default sort is always "Recommended" — it already folds distance in as a
+  // secondary signal when a ZIP is available, and adds favorites-first + push
+  // no-pass-attractions-to-bottom on top of that. Auto-switching to "Distance"
+  // when a ZIP shows up would silently throw away those product signals.
+  const [sort, setSort] = useState<SortOption>('recommended');
+  const handleSortChange = (v: SortOption) => setSort(v);
   const [category, setCategory] = useState<string>('all');
   const [favoritesOnly, setFavoritesOnly] = useState(false);
   const [search, setSearch] = useState<string>('');
