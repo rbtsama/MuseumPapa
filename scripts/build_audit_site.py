@@ -1271,15 +1271,15 @@ def page_passes(passes_data, libs_data, attr_data) -> str:
         "前端就是根据这 5 类决定怎么把优惠串成一句话给用户。"
     )
     s4_bars = (
-        _bar_row("Per-person negotiated price", "馆员协议价(如 $10/人)",
+        _bar_row("Per-person price", "固定金额 · 如 $10/人",
                  forms.get("per-person-price", 0), n_ap)
-        + _bar_row("Percent off", "百分比折扣(如 50% off)",
+        + _bar_row("Percent off", "百分比折扣 · 如 50% off",
                    forms.get("percent-off", 0), n_ap)
         + _bar_row("FREE", "完全免费",
                    forms.get("free", 0), n_ap)
-        + _bar_row("Vague discount (no number)", "笼统折扣 · 原文无具体数值",
+        + _bar_row("Vague discount", "笼统折扣 · 原文无具体数值",
                    forms.get("discount", 0), n_ap)
-        + _bar_row("Dollar off", "固定金额减免(如 $5 off)",
+        + _bar_row("Dollar off", "减额 · 如 $5 off",
                    forms.get("dollar-off", 0), n_ap)
     )
     s4_meaning = (
@@ -1294,40 +1294,57 @@ def page_passes(passes_data, libs_data, attr_data) -> str:
     )
 
     # === Section 5: capacity ===
-    cap_kind = Counter(p["coupon"]["capacity"]["kind"] for p in passes)
-    cap_n_top = Counter()
+    # Bucketing rule (display only — does not mutate passes.json):
+    #   "Headcount"   = kind=people, OR kind=ticket with n=1 (a single ticket
+    #                   is functionally the same as admitting 1 person).
+    #   "Per vehicle" = kind=vehicle (all default to n=1).
+    #   "Tickets"     = kind=ticket with n>=2 (theater pairs, $N tickets).
+    #   "Unspecified" = kind=unspecified.
+    head_n_dist = Counter()      # n → count for the Headcount bucket
+    n_head = n_vehicle = n_ticket = n_unspec = 0
     for p in passes:
         c = p["coupon"]["capacity"]
-        if c["kind"] == "people" and c["n"] is not None:
-            cap_n_top[c["n"]] += 1
+        k, n = c["kind"], c["n"]
+        if k == "people" or (k == "ticket" and n == 1):
+            n_head += 1
+            if n is not None:
+                head_n_dist[n] += 1
+        elif k == "vehicle":
+            n_vehicle += 1
+        elif k == "ticket":  # n != 1
+            n_ticket += 1
+        else:
+            n_unspec += 1
     s5_what = (
         "<code>capacity</code> 描述一次能带几个人。两个字段:"
         "<code>kind</code>(算人 / 算车 / 算票 / 未明示)和 <code>n</code>(数量)。"
-        "用户看到 'Up to 4' 那个数字就是从这来的。"
+        "用户看到 'Up to 4' 那个数字就是从这来的。<b>单张票 (ticket n=1) 等同于 1 人,并入 Headcount 桶。</b>"
     )
     s5_bars = (
-        _bar_row(f"Headcount · n ∈ {{1..12}}",
-                 f"按人数 · 集中在 2/4/6 三档(各 {cap_n_top.get(2,0)} / {cap_n_top.get(4,0)} / {cap_n_top.get(6,0)} 条)",
-                 cap_kind.get("people", 0), n_passes)
-        + _bar_row("Per vehicle (n=1)",
-                   "按车 · 全部默认 1 辆(MA State Parks 等户外公园场景)",
-                   cap_kind.get("vehicle", 0), n_passes)
-        + _bar_row("Tickets",
+        _bar_row("Headcount",
+                 f"按人数 · 集中在 2/4/6 三档(各 {head_n_dist.get(2,0)} / {head_n_dist.get(4,0)} / {head_n_dist.get(6,0)} 条)",
+                 n_head, n_passes)
+        + _bar_row("Per vehicle",
+                   "按车 · MA State Parks 等户外公园场景",
+                   n_vehicle, n_passes)
+        + _bar_row("Tickets (≥ 2)",
                    "按张 · 剧院/演出常见(2-4 张戏票)",
-                   cap_kind.get("ticket", 0), n_passes)
+                   n_ticket, n_passes)
         + _bar_row("Unspecified",
                    "未明示 · 上游原文没说人数",
-                   cap_kind.get("unspecified", 0), n_passes)
+                   n_unspec, n_passes)
     )
     s5_meaning = (
         "<ul>"
-        "<li><b>84% 是限人数(857 张)</b>,其中 'Up to 4' 是远超过半的众数(379 条,44%)——"
-        "对应典型的两大一小家庭出行规模。'Up to 6' 排第二(147 条)。</li>"
-        "<li><b>vehicle 59 张</b>全部是 1 辆车,这是个产品默认值(原文从不写'1');"
-        "建议 UI 上显式渲染成 'Per vehicle (1 car)' 避免用户误以为'按车每辆都行'。</li>"
-        "<li><b>unspecified 60 张</b>——经子代理逐条复核(见 Data Quality §unspec),"
+        f"<li><b>{n_head}/{n_passes} 是按人数</b>(已并入单张票 n=1 的 27 条),"
+        f"其中 'Up to 4' 是众数({head_n_dist.get(4,0)} 条,占 Headcount 桶 {head_n_dist.get(4,0)/max(n_head,1)*100:.0f}%)——"
+        "对应典型的两大一小家庭出行规模。'Up to 6' 排第二。</li>"
+        f"<li><b>Per vehicle {n_vehicle} 张</b>全部默认 1 辆车(原文从不写数字)。"
+        "用于 MA State Parks 这种户外公园场景。</li>"
+        f"<li><b>Tickets {n_ticket} 张</b>限张数 ≥ 2 · 多见于剧院/演出(2-4 张戏票)。</li>"
+        f"<li><b>Unspecified {n_unspec} 张</b>——经子代理逐条复核(见 Data Quality §unspec),"
         "35 条是 by-audience(各受众自己带 count,全局 n 无意义),9 条是 family-tier 整张通票,"
-        "16 条是上游原文真模糊。这 60 条不是抽取 bug,是 schema 设计选择 / 上游限制。</li>"
+        "16 条是上游原文真模糊。这部分不是抽取 bug,是 schema 设计选择 / 上游限制。</li>"
         "</ul>"
     )
 
