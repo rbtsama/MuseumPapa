@@ -5,12 +5,24 @@ const DEFAULT_ZIP = "01880";
 
 const STATE = {
   libs: [], attractions: [], branches: {}, passes: [], passesByAttr: {},
-  selectedLibs: new Set(),
+  networks: [],          // ['NOBLE', 'Minuteman', ...]
+  libsByNetwork: {},     // network -> [lib...]
+  selectedNetworks: new Set(),
+  selectedLibs: new Set(),   // derived from selectedNetworks
   homeGeo: null,
   showOnlyCovered: true,
   sortMode: "coverage-desc",
   categoryFilter: "",
 };
+
+// Re-derive STATE.selectedLibs from STATE.selectedNetworks.
+function syncSelectedLibs() {
+  STATE.selectedLibs = new Set(
+    STATE.libs
+      .filter(l => STATE.selectedNetworks.has(l.network || "Unknown"))
+      .map(l => l.id)
+  );
+}
 
 // ---------- DOM helpers ----------
 const $ = (s) => document.querySelector(s);
@@ -72,7 +84,19 @@ async function loadData() {
   STATE.passes = passesD.passes;
   STATE.passesByAttr = {};
   for (const p of STATE.passes) (STATE.passesByAttr[p.attraction_slug] ||= []).push(p);
-  STATE.selectedLibs = new Set(STATE.libs.map(l => l.id));
+
+  // Group libs by network — one "card" per network.
+  STATE.libsByNetwork = {};
+  for (const l of STATE.libs) {
+    const net = l.network || "Unknown";
+    (STATE.libsByNetwork[net] ||= []).push(l);
+  }
+  // Stable order: by member count desc, then name
+  STATE.networks = Object.keys(STATE.libsByNetwork).sort((a, b) =>
+    (STATE.libsByNetwork[b].length - STATE.libsByNetwork[a].length) || a.localeCompare(b));
+  // Default: all networks selected
+  STATE.selectedNetworks = new Set(STATE.networks);
+  syncSelectedLibs();
 }
 
 // ---------- coupon formatting (mirrors web/src/components/CouponLine.tsx) ----------
@@ -145,7 +169,7 @@ function renderCouponLine(coupon) {
 const PASS_TYPE_META = {
   "digital":         { label: "Email",  cls: "pill-email" },
   "physical-coupon": { label: "Pickup", cls: "pill-pickup" },
-  "physical-circ":   { label: "Borrow", cls: "pill-borrow" },
+  "physical-circ":   { label: "Pik&Rtn", cls: "pill-borrow" },
   "unknown":         { label: "Pass",   cls: "pill-unknown" },
 };
 function passTypePill(t) {
@@ -246,30 +270,57 @@ function renderCell(pass, attraction, opts = {}) {
   );
 }
 
-// ---------- sidebar render ----------
-function renderLibList() {
+// ---------- sidebar render — cards (= networks) ----------
+const ELIG_LABEL = {
+  "open_ma_resident": "open MA",
+  "residents_only": "residents only",
+  "network_only": "network only",
+  "unknown": "unknown",
+};
+const ELIG_CLASS = {
+  "open_ma_resident": "elig-open",
+  "residents_only": "elig-residents",
+  "network_only": "elig-network",
+  "unknown": "elig-unknown",
+};
+
+function renderCardList() {
   const wrap = $("#lib-list");
-  const q = ($("#lib-filter").value || "").toLowerCase();
   wrap.innerHTML = "";
-  for (const l of STATE.libs) {
-    if (q && !l.name.toLowerCase().includes(q) && !l.id.includes(q)) continue;
-    const lab = el("label", {},
+  for (const net of STATE.networks) {
+    const libs = STATE.libsByNetwork[net];
+    const cardEl = el("div", { class: "card-group" });
+    const hdr = el("label", { class: "card-header" },
       el("input", {
         type: "checkbox",
-        ...(STATE.selectedLibs.has(l.id) ? { checked: "checked" } : {}),
+        ...(STATE.selectedNetworks.has(net) ? { checked: "checked" } : {}),
         onchange: (e) => {
-          if (e.target.checked) STATE.selectedLibs.add(l.id);
-          else STATE.selectedLibs.delete(l.id);
-          renderMatrix(); updateLibCount();
+          if (e.target.checked) STATE.selectedNetworks.add(net);
+          else STATE.selectedNetworks.delete(net);
+          syncSelectedLibs();
+          renderCardList(); updateLibCount(); renderMatrix();
         },
       }),
-      l.name
+      el("span", { class: "card-name" }, net),
+      el("span", { class: "card-count" }, `${libs.length} libs`),
     );
-    wrap.appendChild(lab);
+    cardEl.appendChild(hdr);
+    // Member library list (read-only, shows eligibility)
+    const members = el("div", { class: "card-members" });
+    for (const l of libs) {
+      const elig = l.eligibility || "unknown";
+      members.appendChild(el("div", { class: "card-member" },
+        el("span", { class: "card-member-name" },
+          l.name.replace(/\sPublic Library$|\sLibrary$/, "")),
+        el("span", { class: `elig-tag ${ELIG_CLASS[elig]}` }, ELIG_LABEL[elig]),
+      ));
+    }
+    cardEl.appendChild(members);
+    wrap.appendChild(cardEl);
   }
 }
 function updateLibCount() {
-  $("#lib-count").textContent = `${STATE.selectedLibs.size} / ${STATE.libs.length}`;
+  $("#lib-count").textContent = `${STATE.selectedNetworks.size} / ${STATE.networks.length}`;
 }
 function renderCategoryFilter() {
   const cats = new Set();
@@ -321,7 +372,14 @@ function renderMatrix() {
   thead.appendChild(el("th", { class: "attr-col" }, "Attraction"));
   for (const l of selLibs) {
     const short = l.name.replace(/\sPublic Library$/, "").replace(/\sLibrary$/, "");
-    thead.appendChild(el("th", {}, short));
+    const elig = l.eligibility || "unknown";
+    thead.appendChild(el("th", {},
+      el("div", {}, short),
+      el("div", { class: "th-meta" },
+        el("span", { class: "th-net" }, l.network || "?"),
+        el("span", { class: `elig-tag ${ELIG_CLASS[elig]}` }, ELIG_LABEL[elig]),
+      ),
+    ));
   }
 
   const attrs = sortedVisible();
@@ -466,19 +524,20 @@ async function geocodeZip(zip) {
 // ---------- wire-up ----------
 async function init() {
   await loadData();
-  renderLibList();
+  renderCardList();
   updateLibCount();
   renderCategoryFilter();
   renderMatrix();
 
-  $("#lib-filter").addEventListener("input", renderLibList);
   $("#btn-all").addEventListener("click", () => {
-    STATE.selectedLibs = new Set(STATE.libs.map(l => l.id));
-    renderLibList(); updateLibCount(); renderMatrix();
+    STATE.selectedNetworks = new Set(STATE.networks);
+    syncSelectedLibs();
+    renderCardList(); updateLibCount(); renderMatrix();
   });
   $("#btn-none").addEventListener("click", () => {
-    STATE.selectedLibs.clear();
-    renderLibList(); updateLibCount(); renderMatrix();
+    STATE.selectedNetworks.clear();
+    syncSelectedLibs();
+    renderCardList(); updateLibCount(); renderMatrix();
   });
   $("#opt-only-covered").addEventListener("change", (e) => { STATE.showOnlyCovered = e.target.checked; renderMatrix(); });
   $("#opt-sort").addEventListener("change", (e) => { STATE.sortMode = e.target.value; renderMatrix(); });

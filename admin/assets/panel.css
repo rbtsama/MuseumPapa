@@ -50,14 +50,32 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .btn-tiny:hover { background: var(--paper); }
 .btn-tiny.primary { background: var(--g); color: var(--white); border-color: var(--g); }
 .btn-tiny.primary:hover { background: var(--g-2); }
-#lib-filter, #home-zip { width: 100%; padding: 5px 8px; font-size: 12px; border: 1px solid var(--rule);
-  border-radius: 4px; margin-bottom: 6px; font-family: inherit; background: var(--white); }
-#home-zip { width: 100px; margin-bottom: 0; }
-.lib-list { max-height: 320px; overflow-y: auto; border: 1px solid var(--rule); border-radius: 4px;
+#home-zip { width: 100px; padding: 5px 8px; font-size: 12px; border: 1px solid var(--rule);
+  border-radius: 4px; font-family: inherit; background: var(--white); }
+.lib-list { max-height: 480px; overflow-y: auto; border: 1px solid var(--rule); border-radius: 4px;
   padding: 4px; background: var(--white); }
-.lib-list label { display: flex; align-items: center; gap: 7px; padding: 3px 5px; cursor: pointer;
-  font-size: 12px; border-radius: 3px; }
-.lib-list label:hover { background: var(--g-pale); }
+.card-group { margin-bottom: 6px; border-radius: 4px; overflow: hidden; }
+.card-group:last-child { margin-bottom: 0; }
+.card-header { display: flex; align-items: center; gap: 7px; padding: 6px 8px; cursor: pointer;
+  font-size: 13px; font-weight: 600; color: var(--ink-2); background: var(--paper);
+  border: 1px solid var(--rule); border-radius: 4px; }
+.card-header:hover { background: var(--g-pale); border-color: var(--g-light); }
+.card-name { flex-grow: 1; }
+.card-count { font-size: 11px; font-weight: 500; color: var(--ink-3); }
+.card-members { padding: 4px 8px 4px 28px; font-size: 11px; color: var(--ink-3); }
+.card-member { display: flex; align-items: center; justify-content: space-between;
+  gap: 6px; padding: 2px 0; }
+.card-member-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.elig-tag { font-size: 9px; font-weight: 600; letter-spacing: 0.3px;
+  padding: 1px 5px; border-radius: 2px; border: 1px solid; flex-shrink: 0; white-space: nowrap; }
+.elig-open { color: var(--g);  background: var(--g-pale);  border-color: var(--g);  }
+.elig-residents { color: var(--rd); background: var(--rd-pale); border-color: var(--rd); }
+.elig-network { color: var(--au); background: var(--au-pale); border-color: var(--au); }
+.elig-unknown { color: var(--ink-3); background: var(--paper); border-color: var(--rule-strong); }
+
+.th-meta { display: flex; gap: 4px; margin-top: 3px; font-weight: 400; }
+.th-net { font-size: 10px; color: var(--ink-3); font-weight: 600; letter-spacing: 0.3px; }
 
 .ctrl-check { display: flex; align-items: center; gap: 7px; font-size: 12px; margin-bottom: 6px;
   cursor: pointer; }
