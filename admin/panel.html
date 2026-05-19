@@ -25,6 +25,12 @@
   </section>
 
   <section class="ctrl-block">
+    <h3>Card numbers</h3>
+    <div class="hint" id="cards-hint">Stored locally in your browser. Used by Book → button to copy on click.</div>
+    <button class="btn-tiny" id="btn-manage-cards" style="margin-top:6px">Manage card numbers…</button>
+  </section>
+
+  <section class="ctrl-block">
     <h3>Home ZIP</h3>
     <div class="ctrl-row">
       <input type="text" id="home-zip" value="01880" maxlength="5" required>
@@ -59,6 +65,28 @@
     <tbody id="matrix-body"></tbody>
   </table>
 </main>
+
+<!-- Booking modal -->
+<div class="modal-backdrop" id="book-backdrop"></div>
+<div class="modal" id="book-modal">
+  <header><span id="book-title">—</span><button class="btn-close" id="book-close">✕</button></header>
+  <div class="modal-body" id="book-body"></div>
+</div>
+
+<!-- Card-manager modal -->
+<div class="modal-backdrop" id="cards-backdrop"></div>
+<div class="modal" id="cards-modal">
+  <header><span>Card numbers</span><button class="btn-close" id="cards-close">✕</button></header>
+  <div class="modal-body">
+    <p class="hint">JSON object: <code>{ "wakefield": "12345…", "bpl": "67890…" }</code> — keys are library IDs (lowercase).</p>
+    <textarea id="cards-json" rows="14" placeholder='{ "wakefield": "...", "reading": "..." }'></textarea>
+    <div class="hint" id="cards-status"></div>
+    <div style="display:flex;gap:8px;margin-top:10px">
+      <button class="btn-tiny primary" id="cards-save">Save</button>
+      <button class="btn-tiny" id="cards-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
 
 <aside class="drawer" id="drawer">
   <header><span id="drawer-title">—</span><button class="btn-close" id="drawer-close">✕</button></header>
