@@ -58,8 +58,6 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .lib-list label { display: flex; align-items: center; gap: 7px; padding: 3px 5px; cursor: pointer;
   font-size: 12px; border-radius: 3px; }
 .lib-list label:hover { background: var(--g-pale); }
-.lib-list label.owned { background: var(--au-pale); }
-.lib-list label.owned:hover { background: var(--g-pale); }
 
 .ctrl-check { display: flex; align-items: center; gap: 7px; font-size: 12px; margin-bottom: 6px;
   cursor: pointer; }

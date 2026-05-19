@@ -1,7 +1,7 @@
 // MuseumPapa Admin Panel — interactive matrix viewer (libraries × attractions)
 // Output format aligned with web/ frontend CouponLine + PassTypeLabel conventions.
 
-const OWNED_LIB_IDS = new Set(["wakefield", "reading", "bpl", "wilmington", "somerville"]);
+const DEFAULT_ZIP = "01880";
 
 const STATE = {
   libs: [], attractions: [], branches: {}, passes: [], passesByAttr: {},
@@ -58,7 +58,7 @@ async function loadData() {
   STATE.passes = passesD.passes;
   STATE.passesByAttr = {};
   for (const p of STATE.passes) (STATE.passesByAttr[p.attraction_slug] ||= []).push(p);
-  STATE.selectedLibs = new Set(STATE.libs.filter(l => OWNED_LIB_IDS.has(l.id)).map(l => l.id));
+  STATE.selectedLibs = new Set(STATE.libs.map(l => l.id));
 }
 
 // ---------- coupon formatting (mirrors web/src/components/CouponLine.tsx) ----------
@@ -230,8 +230,7 @@ function renderLibList() {
   wrap.innerHTML = "";
   for (const l of STATE.libs) {
     if (q && !l.name.toLowerCase().includes(q) && !l.id.includes(q)) continue;
-    const owned = OWNED_LIB_IDS.has(l.id);
-    const lab = el("label", { class: owned ? "owned" : "" },
+    const lab = el("label", {},
       el("input", {
         type: "checkbox",
         ...(STATE.selectedLibs.has(l.id) ? { checked: "checked" } : {}),
@@ -433,10 +432,6 @@ async function init() {
   renderMatrix();
 
   $("#lib-filter").addEventListener("input", renderLibList);
-  $("#btn-owned").addEventListener("click", () => {
-    STATE.selectedLibs = new Set(STATE.libs.filter(l => OWNED_LIB_IDS.has(l.id)).map(l => l.id));
-    renderLibList(); updateLibCount(); renderMatrix();
-  });
   $("#btn-all").addEventListener("click", () => {
     STATE.selectedLibs = new Set(STATE.libs.map(l => l.id));
     renderLibList(); updateLibCount(); renderMatrix();
@@ -449,11 +444,18 @@ async function init() {
   $("#opt-sort").addEventListener("change", (e) => { STATE.sortMode = e.target.value; renderMatrix(); });
   $("#opt-category").addEventListener("change", (e) => { STATE.categoryFilter = e.target.value; renderMatrix(); });
 
-  $("#btn-geocode").addEventListener("click", async () => {
-    const zip = ($("#home-zip").value || "").trim();
+  async function applyZip() {
+    const input = $("#home-zip");
     const hint = $("#zip-hint");
-    if (!/^\d{5}$/.test(zip)) { hint.textContent = "Please enter a 5-digit ZIP."; hint.className = "hint warn"; return; }
-    hint.textContent = "Resolving…"; hint.className = "hint";
+    let zip = (input.value || "").trim();
+    if (!/^\d{5}$/.test(zip)) {
+      zip = DEFAULT_ZIP;
+      input.value = DEFAULT_ZIP;
+      hint.textContent = `ZIP cannot be empty; restored default ${DEFAULT_ZIP}.`;
+      hint.className = "hint warn";
+    } else {
+      hint.textContent = "Resolving…"; hint.className = "hint";
+    }
     try {
       STATE.homeGeo = await geocodeZip(zip);
       hint.textContent = `${STATE.homeGeo.name} (${STATE.homeGeo.lat.toFixed(3)}, ${STATE.homeGeo.lng.toFixed(3)})`;
@@ -462,8 +464,15 @@ async function init() {
     } catch (e) {
       hint.textContent = `Failed: ${e.message}`; hint.className = "hint warn";
     }
+  }
+  $("#btn-geocode").addEventListener("click", applyZip);
+  $("#home-zip").addEventListener("keydown", (e) => { if (e.key === "Enter") applyZip(); });
+  $("#home-zip").addEventListener("blur", () => {
+    if (!($("#home-zip").value || "").trim()) $("#home-zip").value = DEFAULT_ZIP;
   });
-  $("#home-zip").addEventListener("keydown", (e) => { if (e.key === "Enter") $("#btn-geocode").click(); });
+
+  // Auto-apply default ZIP on load
+  applyZip();
 }
 
 init().catch((e) => {
