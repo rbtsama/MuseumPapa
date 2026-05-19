@@ -46,3 +46,7 @@ data/raw/attraction_prices/_pages/
 # Web frontend (Vite + React)
 web/node_modules
 web/dist
+
+# Synced from repo root by web/sync-admin.mjs at prebuild — see web/package.json
+web/public/admin/
+web/public/data/
