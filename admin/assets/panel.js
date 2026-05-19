@@ -42,12 +42,26 @@ function el(tag, attrs = {}, ...kids) {
   return e;
 }
 
+// Project geo objects use either `lng` (from zippopotam) or `lon`
+// (from data/structured/*.json) — normalize both.
+function lng(g) { return g?.lng ?? g?.lon; }
 function haversineMi(a, b) {
   if (!a || !b) return null;
+  const la = lng(a), lb = lng(b);
+  if (a.lat == null || la == null || b.lat == null || lb == null) return null;
   const R = 3958.8, rad = (x) => x * Math.PI / 180;
-  const dLat = rad(b.lat - a.lat), dLng = rad(b.lng - a.lng);
+  const dLat = rad(b.lat - a.lat), dLng = rad(lb - la);
   const s = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLng / 2) ** 2;
   return 2 * R * Math.asin(Math.sqrt(s));
+}
+// Pickup point geo for a pass: branch geo if specified, else library geo.
+// Digital passes don't need pickup — returns null.
+function pickupGeo(pass) {
+  if (pass.pickup_method === "digital") return null;
+  const brs = (pass.pickup_branches || []).map(bid => STATE.branches[bid]).filter(Boolean);
+  if (brs.length && brs[0].geo) return brs[0].geo;
+  const lib = STATE.libs.find(l => l.id === pass.library_id);
+  return lib?.geo || null;
 }
 
 // ---------- data load ----------
@@ -210,15 +224,27 @@ function restrictionLabel(pass) {
 // ---------- cell render ----------
 function renderCell(pass, attraction, opts = {}) {
   if (!pass) return el("div", { class: "cell-empty" }, "—");
-  const cls = "cell" + (opts.best ? " best" : "") + (opts.nearest ? " nearest" : "");
+  const cls = "cell" + (opts.best ? " best" : "");
   const bookBtn = el("button", {
     class: "book-btn", type: "button",
     onclick: (e) => { e.stopPropagation(); openBookModal(attraction, pass); },
   }, "Book →");
+  // For physical passes, append distance from home -> pickup point next to location
+  let locNode;
+  if (pass.pickup_method !== "digital") {
+    const pg = pickupGeo(pass);
+    const pickupDist = STATE.homeGeo && pg ? haversineMi(STATE.homeGeo, pg) : null;
+    locNode = el("div", { class: "cell-loc" },
+      locationLabel(pass),
+      pickupDist != null ? el("span", { class: "dist" }, ` · ${pickupDist.toFixed(1)} mi to pick up`) : null,
+    );
+  } else {
+    locNode = el("div", { class: "cell-loc" }, locationLabel(pass));
+  }
   return el("div", { class: cls, onclick: () => openDrawer(attraction, pass) },
     passTypePill(pass.pass_type),
     renderCouponLine(pass.coupon),
-    el("div", { class: "cell-loc" }, locationLabel(pass)),
+    locNode,
     (() => {
       const cap = formatCapacity(pass.coupon?.capacity);
       return cap ? el("div", { class: "cell-cap" }, cap) : null;
@@ -322,18 +348,6 @@ function renderMatrix() {
     rows.push({ a, cells, bestIdx });
   }
 
-  // nearest 3 attractions by distance (highlight the BEST cell of those rows)
-  let nearestSlugs = new Set();
-  if (STATE.homeGeo) {
-    const ranked = rows
-      .filter(r => r.bestIdx >= 0 && r.a.geo?.lat != null)
-      .map(r => ({ slug: r.a.slug, d: haversineMi(STATE.homeGeo, r.a.geo) }))
-      .filter(x => x.d != null)
-      .sort((x, y) => x.d - y.d)
-      .slice(0, 3);
-    nearestSlugs = new Set(ranked.map(x => x.slug));
-  }
-
   for (const { a, cells, bestIdx } of rows) {
     const tr = el("tr");
     const origPrice = a.original_price?.age_pricing?.adult?.price;
@@ -369,9 +383,7 @@ function renderMatrix() {
     ));
 
     cells.forEach((p, i) => {
-      const isBest = i === bestIdx;
-      const isNear = isBest && nearestSlugs.has(a.slug);
-      tr.appendChild(el("td", {}, renderCell(p, a, { best: isBest, nearest: isNear })));
+      tr.appendChild(el("td", {}, renderCell(p, a, { best: i === bestIdx })));
     });
     tbody.appendChild(tr);
   }
