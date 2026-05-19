@@ -240,24 +240,24 @@ function renderCell(pass, attraction, opts = {}) {
   const cls = "cell" + (opts.best ? " best" : "");
   const bookBtn = el("button", {
     class: "book-btn", type: "button",
-    onclick: (e) => {
-      e.stopPropagation();
+    onclick: () => {
       if (pass.source_url) window.open(pass.source_url, "_blank", "noopener,noreferrer");
     },
   }, "Book →");
-  // For physical passes, append distance from home -> pickup point next to location
+  // For physical passes, append distance from home -> pickup point next to location.
+  // Digital ('Email') passes don't need pickup, so no distance line.
   let locNode;
   if (pass.pickup_method !== "digital") {
     const pg = pickupGeo(pass);
     const pickupDist = STATE.homeGeo && pg ? haversineMi(STATE.homeGeo, pg) : null;
     locNode = el("div", { class: "cell-loc" },
       locationLabel(pass),
-      pickupDist != null ? el("span", { class: "dist" }, ` · ${pickupDist.toFixed(1)} mi to pick up`) : null,
+      pickupDist != null ? el("span", { class: "dist" }, ` · ${Math.round(pickupDist)} mi to pick up`) : null,
     );
   } else {
     locNode = el("div", { class: "cell-loc" }, locationLabel(pass));
   }
-  return el("div", { class: cls, onclick: () => openDrawer(attraction, pass) },
+  return el("div", { class: cls },
     passTypePill(pass.pass_type),
     renderCouponLine(pass.coupon),
     locNode,
@@ -268,6 +268,55 @@ function renderCell(pass, attraction, opts = {}) {
     hasRestrictions(pass) ? el("div", { class: "cell-restr" }, restrictionLabel(pass)) : null,
     bookBtn,
   );
+}
+
+// ---------- attraction price tiers (mirrors web/src/components/AttractionInfoRows.tsx) ----------
+function fmtMoney(v) {
+  if (v == null) return "";
+  if (v === 0) return "FREE";
+  if (Number.isInteger(v)) return `$${v}`;
+  return `$${v.toFixed(2)}`;
+}
+function buildPriceTiers(attraction) {
+  const op = attraction.original_price || {};
+  const ap = op.age_pricing || {};
+  const ip = op.identity_pricing || {};
+  const adult   = ap.adult?.price   ?? null;
+  const youth   = ap.youth?.price   ?? null;
+  const child   = ap.child?.price   ?? null;
+  const senior  = ap.senior?.price  ?? null;
+  const student = ip.student?.price ?? null;
+  const educator= ip.educator?.price?? null;
+  const military= ip.military?.price?? null;
+  const freeUnder = ap.free_under_age ?? null;
+  const tiers = [];
+  if (adult   != null) tiers.push({ label: "adult",  value: adult  });
+  if (senior  != null && senior  !== adult) tiers.push({ label: "senior",  value: senior });
+  if (youth   != null && youth   !== adult) tiers.push({ label: "youth",   value: youth });
+  if (child   != null && child   !== adult) {
+    const lbl = freeUnder != null ? `age ${freeUnder}+` : "child";
+    tiers.push({ label: lbl, value: child });
+  }
+  if (student != null && student !== adult) tiers.push({ label: "student", value: student });
+  if (educator!= null && educator!== adult) tiers.push({ label: "educator", value: educator });
+  if (military!= null && military!== adult) tiers.push({ label: "military", value: military });
+  return { tiers, freeUnder };
+}
+function renderPriceTiers(attraction) {
+  const { tiers, freeUnder } = buildPriceTiers(attraction);
+  if (!tiers.length && freeUnder == null) return null;
+  const out = el("div", { class: "price-tiers" });
+  tiers.forEach((t, i) => {
+    if (i > 0) out.appendChild(el("span", { class: "sep" }, "·"));
+    if (tiers.length > 1) out.appendChild(el("span", { class: "label" }, t.label));
+    out.appendChild(el("span", { class: "val" }, fmtMoney(t.value)));
+  });
+  if (freeUnder != null) {
+    if (tiers.length) out.appendChild(el("span", { class: "sep" }, "·"));
+    out.appendChild(el("span", { class: "label" }, `age <${freeUnder}`));
+    out.appendChild(el("span", { class: "val" }, "FREE"));
+  }
+  return out;
 }
 
 // ---------- sidebar render — cards (= networks) ----------
@@ -418,15 +467,19 @@ function renderMatrix() {
       thumb = el("div", { class: "attr-thumb attr-thumb-fallback" }, "—");
     }
     const cats = (a.categories || []).slice(0, 3).map(c => el("span", { class: "attr-cat" }, c));
+    const town = a.address?.city || null;
+    const resv = a.museum_reservation?.required;
     tr.appendChild(el("td", { class: "attr-col" },
       el("div", { class: "attr-row" },
         thumb,
         el("div", {},
           el("span", { class: "attr-name" }, a.museum_name),
           el("span", { class: "attr-meta" },
-            origPrice ? el("span", { class: "price-tag" }, `Adult $${origPrice}`) : "no price",
-            dist != null ? el("span", { class: "dist-tag" }, ` · ${dist.toFixed(1)} mi`) : null,
+            town || "—",
+            dist != null ? el("span", { class: "dist-tag" }, ` · ${Math.round(dist)} mi`) : null,
           ),
+          renderPriceTiers(a),
+          resv ? el("div", {}, el("span", { class: "resv-flag" }, "Reservation required")) : null,
           cats.length ? el("div", { class: "attr-categories" }, cats) : null,
         ),
       ),
@@ -449,62 +502,6 @@ function renderMatrix() {
     `${STATE.selectedLibs.size} cards · ${covered}/${STATE.attractions.length} attractions covered · ${free} FREE`
     + (STATE.homeGeo ? ` · home ${STATE.homeGeo.zip}` : "");
 }
-
-// ---------- drawer ----------
-function openDrawer(attraction, pass) {
-  const lib = STATE.libs.find(l => l.id === pass.library_id);
-  const branches = (pass.pickup_branches || []).map(bid => STATE.branches[bid]).filter(Boolean);
-  const dist = STATE.homeGeo && attraction.geo ? haversineMi(STATE.homeGeo, attraction.geo) : null;
-
-  const audRows = (pass.coupon?.audience_policies || []).map(p => {
-    const label = fmtAudienceLabel(p) || p.audience || "—";
-    const val = fmtAmount(p);
-    const cnt = p.count ? `, ×${p.count}` : "";
-    return `<tr><td>${label}</td><td>${val}${cnt}</td></tr>`;
-  }).join("") || "<tr><td colspan=2>(no policy)</td></tr>";
-
-  const cap = formatCapacity(pass.coupon?.capacity) || "—";
-
-  const restEntries = Object.entries(pass.restrictions || {}).filter(([_, v]) =>
-    v != null && v !== false && (!Array.isArray(v) || v.length > 0));
-  const restRows = restEntries.length
-    ? restEntries.map(([k, v]) => `<tr><td>${k}</td><td>${Array.isArray(v) ? v.join(", ") : v}</td></tr>`).join("")
-    : "";
-
-  const branchHtml = branches.length
-    ? branches.map(br => `<tr><td>Branch</td><td>${br.name}${br.address?.street ? "<br><span style='font-size:11px;color:var(--ink-3)'>" + br.address.street + "</span>" : ""}</td></tr>`).join("")
-    : "";
-
-  $("#drawer-title").textContent = `${attraction.museum_name} × ${lib?.name || pass.library_id}`;
-  $("#drawer-body").innerHTML = `
-    <h4>Coupon</h4>
-    <table><tbody>${audRows}</tbody></table>
-    <div style="margin-top:6px;font-size:11px;color:var(--ink-3)">Capacity: ${cap}</div>
-
-    <h4>Acquisition</h4>
-    <table><tbody>
-      <tr><td>Pass type</td><td>${PASS_TYPE_META[pass.pass_type]?.label || pass.pass_type} <span style="color:var(--ink-3)">(${pass.pass_type})</span></td></tr>
-      <tr><td>Pickup</td><td>${pass.pickup_method}</td></tr>
-      <tr><td>Raw label</td><td><code>${pass.pass_type_raw || "—"}</code></td></tr>
-      ${branchHtml}
-    </tbody></table>
-
-    ${restRows ? `<h4>Restrictions</h4>
-      <div class="restrictions"><table><tbody>${restRows}</tbody></table></div>` : ""}
-
-    <h4>Attraction</h4>
-    <table><tbody>
-      <tr><td>Adult price</td><td>${attraction.original_price?.age_pricing?.adult?.price ? "$" + attraction.original_price.age_pricing.adult.price : "—"}</td></tr>
-      <tr><td>Address</td><td>${attraction.address || "—"}</td></tr>
-      ${dist != null ? `<tr><td>Distance</td><td>${dist.toFixed(1)} mi from ${STATE.homeGeo.zip}</td></tr>` : ""}
-      <tr><td>Website</td><td><a href="${attraction.website}" target="_blank" rel="noopener" style="color:var(--g)">${attraction.website || "—"}</a></td></tr>
-    </tbody></table>
-
-    <a class="src-link" href="${pass.source_url}" target="_blank" rel="noopener">Source: ${pass.source_url}</a>
-  `;
-  $("#drawer").classList.add("open");
-}
-$("#drawer-close").addEventListener("click", () => $("#drawer").classList.remove("open"));
 
 // ---------- ZIP geocoding via zippopotam.us ----------
 async function geocodeZip(zip) {

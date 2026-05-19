@@ -124,8 +124,8 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
   background: var(--white); color: var(--ink-3); border: 1px solid var(--rule); }
 
 /* ─────────── cell ─────────── */
-.cell { padding: 8px 10px 28px; cursor: pointer; min-height: 56px; position: relative; overflow: hidden; }
-.cell:hover { background: var(--g-pale); outline: 1.5px solid var(--g); outline-offset: -1.5px; }
+.cell { padding: 8px 10px 28px; min-height: 56px; position: relative; overflow: hidden; }
+.cell:hover { background: var(--g-pale); }
 .book-btn { position: absolute; bottom: 5px; right: 8px; font-size: 11px; font-weight: 600;
   color: var(--g); background: transparent; border: none; padding: 2px 4px; cursor: pointer;
   z-index: 2; font-family: inherit; }
@@ -162,30 +162,14 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
   transform-origin: center; box-shadow: 0 1px 2px rgba(0,0,0,0.15); z-index: 1;
 }
 
-/* ─────────── drawer ─────────── */
-.drawer { position: fixed; top: 48px; right: -480px; width: 480px; height: calc(100vh - 48px);
-  background: var(--white); border-left: 1px solid var(--rule-strong);
-  box-shadow: -4px 0 12px rgba(0,0,0,0.06); transition: right 0.2s; overflow-y: auto; z-index: 10; }
-.drawer.open { right: 0; }
-.drawer header { display: flex; justify-content: space-between; align-items: center;
-  padding: 14px 18px; border-bottom: 1px solid var(--rule); position: sticky; top: 0;
-  background: var(--white); z-index: 1; }
-.drawer header > span { font-weight: 600; font-size: 13px; color: var(--ink-2); }
-.btn-close { background: none; border: none; font-size: 18px; cursor: pointer; color: var(--ink-3);
-  padding: 0 4px; line-height: 1; }
-.drawer-body { padding: 18px; }
-.drawer-body h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.7px;
-  color: var(--ink-3); margin: 20px 0 8px; font-weight: 600; }
-.drawer-body h4:first-child { margin-top: 0; }
-.drawer-body table { width: 100%; border-collapse: collapse; font-size: 12px; }
-.drawer-body table td { padding: 5px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; }
-.drawer-body table td:first-child { color: var(--ink-3); width: 110px; }
-.drawer-body table tr:last-child td { border-bottom: none; }
-.drawer-body .restrictions { background: var(--rd-pale); border-left: 3px solid var(--rd);
-  padding: 8px 12px; border-radius: 0 4px 4px 0; font-size: 12px; }
-.drawer-body .restrictions table td { border-color: rgba(140, 42, 30, 0.15); }
-.drawer-body .src-link { display: inline-block; margin-top: 10px; font-size: 11px;
-  color: var(--g); word-break: break-all; text-decoration: none; }
-.drawer-body .src-link:hover { text-decoration: underline; }
-.drawer-body code { background: var(--paper); padding: 1px 4px; border-radius: 2px; font-size: 11px; }
+/* ─────────── attraction-column extras ─────────── */
+.price-tiers { display: flex; flex-wrap: wrap; gap: 4px 6px; margin-top: 4px; font-size: 11px;
+  color: var(--ink-3); line-height: 1.4; }
+.price-tiers .label { color: var(--ink-3); }
+.price-tiers .val { color: var(--ink-2); font-weight: 700; }
+.price-tiers .sep { color: var(--rule-strong); }
+.resv-flag { display: inline-block; margin-top: 4px; font-size: 10px; padding: 1px 5px;
+  border-radius: 2px; background: var(--au-pale); color: var(--au); border: 1px solid var(--au); }
+.hours-line { font-size: 11px; color: var(--ink-3); margin-top: 4px; }
+.hours-line .val { color: var(--ink-2); font-weight: 500; }
 
