@@ -5,14 +5,25 @@ const DEFAULT_ZIP = "01880";
 
 const STATE = {
   libs: [], attractions: [], branches: {}, passes: [], passesByAttr: {},
-  networks: [],          // ['NOBLE', 'Minuteman', ...] — used only for sidebar grouping
+  networks: [],          // ['NOBLE', 'Minuteman', ...] — one card per network
   libsByNetwork: {},
-  selectedLibs: new Set(),
+  selectedNetworks: new Set(),
+  selectedLibs: new Set(),   // derived from selectedNetworks
   homeGeo: null,
   showOnlyCovered: true,
   sortMode: "coverage-desc",
   categoryFilter: "",
 };
+
+// Re-derive STATE.selectedLibs from STATE.selectedNetworks. A network card
+// unlocks pass booking at every member library.
+function syncSelectedLibs() {
+  STATE.selectedLibs = new Set(
+    STATE.libs
+      .filter(l => STATE.selectedNetworks.has(l.network || "Unknown"))
+      .map(l => l.id)
+  );
+}
 
 // ---------- DOM helpers ----------
 const $ = (s) => document.querySelector(s);
@@ -85,8 +96,9 @@ async function loadData() {
   }
   STATE.networks = Object.keys(STATE.libsByNetwork).sort((a, b) =>
     (STATE.libsByNetwork[b].length - STATE.libsByNetwork[a].length) || a.localeCompare(b));
-  // Default: all libraries selected; admin can trim.
-  STATE.selectedLibs = new Set(STATE.libs.map(l => l.id));
+  // Default: all network cards held → all libraries available.
+  STATE.selectedNetworks = new Set(STATE.networks);
+  syncSelectedLibs();
 }
 
 // ---------- coupon formatting (mirrors web/src/components/CouponLine.tsx) ----------
@@ -325,40 +337,30 @@ const ELIG_CLASS = {
 
 function renderCardList() {
   const wrap = $("#lib-list");
-  const q = ($("#lib-filter").value || "").toLowerCase();
   wrap.innerHTML = "";
   for (const net of STATE.networks) {
-    const libs = STATE.libsByNetwork[net].filter(l =>
-      !q || l.name.toLowerCase().includes(q) || l.id.includes(q) || (l.town || "").toLowerCase().includes(q));
-    if (!libs.length) continue;
-    // Network header — pure visual grouping. Includes Select/Clear-all-in-group
-    // helpers for convenience; not itself a filter.
-    const selInGroup = libs.filter(l => STATE.selectedLibs.has(l.id)).length;
+    const libs = STATE.libsByNetwork[net];
     const cardEl = el("div", { class: "card-group" });
-    const hdr = el("div", { class: "card-header" },
+    const hdr = el("label", { class: "card-header" },
+      el("input", {
+        type: "checkbox",
+        ...(STATE.selectedNetworks.has(net) ? { checked: "checked" } : {}),
+        onchange: (e) => {
+          if (e.target.checked) STATE.selectedNetworks.add(net);
+          else STATE.selectedNetworks.delete(net);
+          syncSelectedLibs();
+          renderCardList(); updateLibCount(); renderMatrix();
+        },
+      }),
       el("span", { class: "card-name" }, net),
-      el("span", { class: "card-count" }, `${selInGroup} / ${libs.length}`),
-      el("button", { class: "btn-mini", type: "button",
-        onclick: () => { libs.forEach(l => STATE.selectedLibs.add(l.id));
-          renderCardList(); updateLibCount(); renderMatrix(); } }, "all"),
-      el("button", { class: "btn-mini", type: "button",
-        onclick: () => { libs.forEach(l => STATE.selectedLibs.delete(l.id));
-          renderCardList(); updateLibCount(); renderMatrix(); } }, "none"),
+      el("span", { class: "card-count" }, `${libs.length} libs`),
     );
     cardEl.appendChild(hdr);
+    // Member library list (read-only; eligibility = how strict card *application* is).
     const members = el("div", { class: "card-members" });
     for (const l of libs) {
       const elig = l.eligibility || "unknown";
-      members.appendChild(el("label", { class: "card-member" },
-        el("input", {
-          type: "checkbox",
-          ...(STATE.selectedLibs.has(l.id) ? { checked: "checked" } : {}),
-          onchange: (e) => {
-            if (e.target.checked) STATE.selectedLibs.add(l.id);
-            else STATE.selectedLibs.delete(l.id);
-            renderCardList(); updateLibCount(); renderMatrix();
-          },
-        }),
+      members.appendChild(el("div", { class: "card-member" },
         el("span", { class: "card-member-name" },
           l.name.replace(/\sPublic Library$|\sLibrary$/, "")),
         el("span", { class: `elig-tag ${ELIG_CLASS[elig]}` }, ELIG_LABEL[elig]),
@@ -369,7 +371,7 @@ function renderCardList() {
   }
 }
 function updateLibCount() {
-  $("#lib-count").textContent = `${STATE.selectedLibs.size} / ${STATE.libs.length}`;
+  $("#lib-count").textContent = `${STATE.selectedNetworks.size} / ${STATE.networks.length}`;
 }
 function renderCategoryFilter() {
   const cats = new Set();
@@ -527,14 +529,15 @@ async function init() {
   renderMatrix();
 
   $("#btn-all").addEventListener("click", () => {
-    STATE.selectedLibs = new Set(STATE.libs.map(l => l.id));
+    STATE.selectedNetworks = new Set(STATE.networks);
+    syncSelectedLibs();
     renderCardList(); updateLibCount(); renderMatrix();
   });
   $("#btn-none").addEventListener("click", () => {
-    STATE.selectedLibs.clear();
+    STATE.selectedNetworks.clear();
+    syncSelectedLibs();
     renderCardList(); updateLibCount(); renderMatrix();
   });
-  $("#lib-filter").addEventListener("input", renderCardList);
   $("#opt-only-covered").addEventListener("change", (e) => { STATE.showOnlyCovered = e.target.checked; renderMatrix(); });
   $("#opt-sort").addEventListener("change", (e) => { STATE.sortMode = e.target.value; renderMatrix(); });
   $("#opt-category").addEventListener("change", (e) => { STATE.categoryFilter = e.target.value; renderMatrix(); });
