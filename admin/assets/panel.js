@@ -340,10 +340,19 @@ function renderMatrix() {
     const dist = STATE.homeGeo && a.geo ? haversineMi(STATE.homeGeo, a.geo) : null;
 
     // Attraction column — thumbnail + serif name + price + distance + categories
-    const heroSrc = a.hero_image ? `../web/public/images/${a.hero_image}` : null;
-    const thumb = heroSrc
-      ? el("img", { class: "attr-thumb", src: heroSrc, alt: "", onerror: "this.style.display='none'" })
-      : el("div", { class: "attr-thumb attr-thumb-fallback" }, "—");
+    // hero_image is { og_image_url, local_path } where local_path looks like
+    // "static/images/boston-childrens-museum.png" — strip to filename and serve
+    // from web/public/images (the same dir Vercel deploys).
+    const localPath = a.hero_image?.local_path;
+    const fileName = localPath ? localPath.split("/").pop() : null;
+    const heroSrc = fileName ? `../web/public/images/${fileName}` : null;
+    let thumb;
+    if (heroSrc) {
+      thumb = el("img", { class: "attr-thumb", src: heroSrc, alt: "" });
+      thumb.onerror = () => { thumb.style.display = "none"; };
+    } else {
+      thumb = el("div", { class: "attr-thumb attr-thumb-fallback" }, "—");
+    }
     const cats = (a.categories || []).slice(0, 3).map(c => el("span", { class: "attr-cat" }, c));
     tr.appendChild(el("td", { class: "attr-col" },
       el("div", { class: "attr-row" },
