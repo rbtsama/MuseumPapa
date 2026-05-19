@@ -252,7 +252,7 @@ function renderCell(pass, attraction, opts = {}) {
     const pickupDist = STATE.homeGeo && pg ? haversineMi(STATE.homeGeo, pg) : null;
     locNode = el("div", { class: "cell-loc" },
       locationLabel(pass),
-      pickupDist != null ? el("span", { class: "dist" }, ` · ${Math.round(pickupDist)} mi to pick up`) : null,
+      pickupDist != null ? el("span", { class: "dist" }, ` · ${Math.round(pickupDist)} mi`) : null,
     );
   } else {
     locNode = el("div", { class: "cell-loc" }, locationLabel(pass));
