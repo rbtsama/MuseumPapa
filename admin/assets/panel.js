@@ -2,7 +2,6 @@
 // Output format aligned with web/ frontend CouponLine + PassTypeLabel conventions.
 
 const DEFAULT_ZIP = "01880";
-const CARDS_LSKEY = "admin:cards";
 
 const STATE = {
   libs: [], attractions: [], branches: {}, passes: [], passesByAttr: {},
@@ -11,17 +10,7 @@ const STATE = {
   showOnlyCovered: true,
   sortMode: "coverage-desc",
   categoryFilter: "",
-  cards: {},  // libId -> barcode string
 };
-
-function loadCards() {
-  try { STATE.cards = JSON.parse(localStorage.getItem(CARDS_LSKEY) || "{}"); }
-  catch { STATE.cards = {}; }
-}
-function saveCards(obj) {
-  STATE.cards = obj;
-  localStorage.setItem(CARDS_LSKEY, JSON.stringify(obj));
-}
 
 // ---------- DOM helpers ----------
 const $ = (s) => document.querySelector(s);
@@ -227,7 +216,10 @@ function renderCell(pass, attraction, opts = {}) {
   const cls = "cell" + (opts.best ? " best" : "");
   const bookBtn = el("button", {
     class: "book-btn", type: "button",
-    onclick: (e) => { e.stopPropagation(); openBookModal(attraction, pass); },
+    onclick: (e) => {
+      e.stopPropagation();
+      if (pass.source_url) window.open(pass.source_url, "_blank", "noopener,noreferrer");
+    },
   }, "Book →");
   // For physical passes, append distance from home -> pickup point next to location
   let locNode;
@@ -471,97 +463,9 @@ async function geocodeZip(zip) {
   return geo;
 }
 
-// ---------- booking modal ----------
-function openBookModal(attraction, pass) {
-  const lib = STATE.libs.find(l => l.id === pass.library_id);
-  const libName = lib?.name || pass.library_id;
-  const barcode = STATE.cards[pass.library_id] || "";
-  $("#book-title").textContent = `Book pass — ${attraction.museum_name}`;
-  const credBlock = barcode
-    ? `<div class="cred-label">Card number to use</div>
-       <div class="cred-box">${barcode}</div>
-       <p style="margin-top:8px;font-size:11px;color:var(--ink-3)">Pass type: ${PASS_TYPE_META[pass.pass_type]?.label || pass.pass_type}</p>`
-    : `<div class="cred-missing"><b>No card number stored for ${libName}.</b><br>Open the card-manager (sidebar) and add a barcode for <code>${pass.library_id}</code> to enable copy.</div>`;
-  const primaryLabel = barcode
-    ? "Copy card # and go →"
-    : "Open booking page →";
-  $("#book-body").innerHTML = `
-    <div class="cred-label">Library card required</div>
-    <div class="cred-box">${libName}</div>
-    <div style="margin-top:14px">${credBlock}</div>
-    <p style="margin-top:14px;font-size:11px;color:var(--ink-3);word-break:break-all">
-      Will open: <a href="${pass.source_url}" target="_blank" rel="noopener" style="color:var(--g)">${pass.source_url}</a>
-    </p>
-    <div class="modal-row">
-      <button class="modal-btn" id="book-cancel">Cancel</button>
-      <button class="modal-btn primary" id="book-go">${primaryLabel}<span class="copied-toast" id="copied-toast">copied ✓</span></button>
-    </div>
-  `;
-  $("#book-modal").classList.add("open");
-  $("#book-backdrop").classList.add("open");
-  $("#book-cancel").addEventListener("click", closeBookModal);
-  $("#book-go").addEventListener("click", async () => {
-    if (barcode) {
-      try { await navigator.clipboard.writeText(barcode); $("#copied-toast").classList.add("show"); }
-      catch (e) { console.warn("clipboard:", e); }
-    }
-    setTimeout(() => {
-      window.open(pass.source_url, "_blank", "noopener,noreferrer");
-      closeBookModal();
-    }, barcode ? 280 : 0);
-  });
-}
-function closeBookModal() {
-  $("#book-modal").classList.remove("open");
-  $("#book-backdrop").classList.remove("open");
-}
-$("#book-close").addEventListener("click", closeBookModal);
-$("#book-backdrop").addEventListener("click", closeBookModal);
-
-// ---------- cards manager ----------
-function openCardsModal() {
-  $("#cards-json").value = JSON.stringify(STATE.cards, null, 2);
-  $("#cards-status").textContent = "";
-  $("#cards-status").className = "hint";
-  $("#cards-modal").classList.add("open");
-  $("#cards-backdrop").classList.add("open");
-}
-function closeCardsModal() {
-  $("#cards-modal").classList.remove("open");
-  $("#cards-backdrop").classList.remove("open");
-}
-$("#cards-close").addEventListener("click", closeCardsModal);
-$("#cards-cancel").addEventListener("click", closeCardsModal);
-$("#cards-backdrop").addEventListener("click", closeCardsModal);
-$("#cards-save").addEventListener("click", () => {
-  const txt = $("#cards-json").value.trim();
-  let obj;
-  try { obj = txt ? JSON.parse(txt) : {}; }
-  catch (e) {
-    $("#cards-status").textContent = `Invalid JSON: ${e.message}`;
-    $("#cards-status").className = "hint warn"; return;
-  }
-  if (typeof obj !== "object" || Array.isArray(obj)) {
-    $("#cards-status").textContent = "Must be a JSON object."; $("#cards-status").className = "hint warn"; return;
-  }
-  saveCards(obj);
-  $("#cards-status").textContent = `Saved ${Object.keys(obj).length} card(s).`;
-  $("#cards-status").className = "hint ok";
-  updateCardsHint();
-});
-
-function updateCardsHint() {
-  const n = Object.keys(STATE.cards).length;
-  $("#cards-hint").textContent = n
-    ? `${n} card number(s) stored locally. Used by Book → button.`
-    : "No cards stored. Add some via Manage… to enable copy-on-Book.";
-}
-
 // ---------- wire-up ----------
 async function init() {
-  loadCards();
   await loadData();
-  updateCardsHint();
   renderLibList();
   updateLibCount();
   renderCategoryFilter();
@@ -576,7 +480,6 @@ async function init() {
     STATE.selectedLibs.clear();
     renderLibList(); updateLibCount(); renderMatrix();
   });
-  $("#btn-manage-cards").addEventListener("click", openCardsModal);
   $("#opt-only-covered").addEventListener("change", (e) => { STATE.showOnlyCovered = e.target.checked; renderMatrix(); });
   $("#opt-sort").addEventListener("change", (e) => { STATE.sortMode = e.target.value; renderMatrix(); });
   $("#opt-category").addEventListener("change", (e) => { STATE.categoryFilter = e.target.value; renderMatrix(); });
