@@ -295,7 +295,7 @@ def bilingual(label: str) -> str:
 _PT_DISPLAY_LABEL = {
     "digital": "Email",
     "physical-coupon": "Pickup",
-    "physical-circ": "Borrow",
+    "physical-circ": "Pik&Rtn",
     "unknown": "Pass",
 }
 
@@ -1314,7 +1314,7 @@ def page_passes(passes_data, libs_data, attr_data) -> str:
                  pt.get("digital", 0), n_passes)
         + _bar_row("physical-coupon · Pick up paper coupon", "去馆领纸券",
                    pt.get("physical-coupon", 0), n_passes)
-        + _bar_row("physical-circ · Borrow physical pass", "借实体卡,看完归还",
+        + _bar_row("physical-circ · Pik&Rtn physical pass", "借实体卡,看完归还",
                    pt.get("physical-circ", 0), n_passes)
     )
     s3_meaning = (
@@ -1751,7 +1751,7 @@ def page_policies(passes_data, libs_data, attr_data) -> str:
     _pt_label = {
         "digital": "Email · 邮件直接收",
         "physical-coupon": "Pickup · 馆里取一次",
-        "physical-circ": "Borrow · 馆里借,看完还回去",
+        "physical-circ": "Pik&Rtn · 馆里借,看完还回去",
         "unknown": "Pass · 未分类",
     }
     _form_label = {
@@ -2290,7 +2290,7 @@ def page_schema() -> str:
         ("attraction_slug", "string", "Foreign key to attractions.slug.",
          "外键指向 attractions.slug。",
          "Identifies which venue the pass admits the user to."),
-        ("pass_type", "enum", "digital (Email) / physical-coupon (Pickup) / physical-circ (Borrow) / unknown.",
+        ("pass_type", "enum", "digital (Email) / physical-coupon (Pickup) / physical-circ (Pik&Rtn) / unknown.",
          "通行证形态:digital 邮件 / physical-coupon 门店取一次性纸券 / physical-circ 循环借阅卡 / unknown 未分类。",
          "Determines pickup workflow shown to the user."),
         ("source_url", "url", "Library page where this pass is described.",

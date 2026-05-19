@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-18T16:37:11Z",
+    "built_at": "2026-05-19T15:25:00Z",
     "n_passes": 1026,
     "n_with_availability": 975,
     "n_with_coupon": 1026,
@@ -16146,7 +16146,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "people",
+          "kind": "unspecified",
           "n": null
         },
         "audience_policies": [
@@ -16154,16 +16154,6 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
-            "form": "discount",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
-            "count": null,
             "form": "discount",
             "value": null
           }
@@ -16657,7 +16647,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "people",
+          "kind": "unspecified",
           "n": null
         },
         "audience_policies": [
@@ -16665,16 +16655,6 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
-            "form": "free",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
-            "count": null,
             "form": "free",
             "value": null
           }
@@ -17204,7 +17184,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "people",
+          "kind": "unspecified",
           "n": null
         },
         "audience_policies": [
@@ -17212,16 +17192,6 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
-            "form": "discount",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
-            "count": null,
             "form": "discount",
             "value": null
           }
@@ -18178,16 +18148,6 @@
             "age_range": null,
             "count": 4,
             "form": "discount",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
-            "count": null,
-            "form": "free",
             "value": null
           }
         ]
@@ -19289,7 +19249,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "people",
+          "kind": "unspecified",
           "n": null
         },
         "audience_policies": [
@@ -19297,16 +19257,6 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
-            "form": "discount",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
-            "count": null,
             "form": "discount",
             "value": null
           }
@@ -20166,7 +20116,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "people",
+          "kind": "unspecified",
           "n": null
         },
         "audience_policies": [
@@ -20174,16 +20124,6 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
-            "form": "free",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
-            "count": null,
             "form": "free",
             "value": null
           }
@@ -20763,7 +20703,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "people",
+          "kind": "unspecified",
           "n": null
         },
         "audience_policies": [
@@ -20771,16 +20711,6 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
-            "form": "discount",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
-            "count": null,
             "form": "discount",
             "value": null
           }
@@ -22169,7 +22099,7 @@
       "pickup_branches": [],
       "coupon": {
         "capacity": {
-          "kind": "people",
+          "kind": "unspecified",
           "n": null
         },
         "audience_policies": [
@@ -22177,16 +22107,6 @@
             "audience": "Adult",
             "age_range": null,
             "count": 2,
-            "form": "free",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
-            "count": null,
             "form": "free",
             "value": null
           }
@@ -22780,7 +22700,7 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "people",
+          "kind": "unspecified",
           "n": null
         },
         "audience_policies": [
@@ -22789,16 +22709,6 @@
             "age_range": null,
             "count": 2,
             "form": "discount",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
-            "count": null,
-            "form": "free",
             "value": null
           }
         ]
@@ -26149,14 +26059,7 @@
         },
         "audience_policies": [
           {
-            "audience": "Adult",
-            "age_range": null,
-            "count": 2,
-            "form": "discount",
-            "value": null
-          },
-          {
-            "audience": "Child",
+            "audience": "Everyone",
             "age_range": null,
             "count": null,
             "form": "discount",
@@ -26553,16 +26456,6 @@
             "age_range": null,
             "count": 1,
             "form": "discount",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 4
-            },
-            "count": null,
-            "form": "free",
             "value": null
           }
         ]
@@ -27211,18 +27104,8 @@
         },
         "audience_policies": [
           {
-            "audience": "Adult",
+            "audience": "Everyone",
             "age_range": null,
-            "count": 2,
-            "form": "discount",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
             "count": null,
             "form": "discount",
             "value": null
@@ -28217,18 +28100,8 @@
         },
         "audience_policies": [
           {
-            "audience": "Adult",
+            "audience": "Everyone",
             "age_range": null,
-            "count": 2,
-            "form": "discount",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
             "count": null,
             "form": "discount",
             "value": null
@@ -36498,18 +36371,8 @@
         },
         "audience_policies": [
           {
-            "audience": "Adult",
+            "audience": "Everyone",
             "age_range": null,
-            "count": 2,
-            "form": "discount",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
             "count": null,
             "form": "discount",
             "value": null
@@ -38196,18 +38059,8 @@
         },
         "audience_policies": [
           {
-            "audience": "Adult",
+            "audience": "Everyone",
             "age_range": null,
-            "count": 2,
-            "form": "discount",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
             "count": null,
             "form": "discount",
             "value": null
@@ -39797,18 +39650,8 @@
         },
         "audience_policies": [
           {
-            "audience": "Adult",
+            "audience": "Everyone",
             "age_range": null,
-            "count": 2,
-            "form": "discount",
-            "value": null
-          },
-          {
-            "audience": "Child",
-            "age_range": {
-              "min": null,
-              "max": 17
-            },
             "count": null,
             "form": "discount",
             "value": null

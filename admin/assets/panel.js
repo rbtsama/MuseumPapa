@@ -62,11 +62,13 @@ async function loadData() {
     if (!r.ok) throw new Error(`${p} → ${r.status}`);
     return r.json();
   };
+  // Served via web/'s Vite dev server (pnpm -C web dev) or Vercel — both expose
+  // public/data/structured at the absolute /data/structured/ URL.
   const [libsD, attrsD, branchesD, passesD] = await Promise.all([
-    fetchJson("../data/structured/libraries.json"),
-    fetchJson("../data/structured/attractions.json"),
-    fetchJson("../data/structured/branches.json"),
-    fetchJson("../data/structured/passes.json"),
+    fetchJson("/data/structured/libraries.json"),
+    fetchJson("/data/structured/attractions.json"),
+    fetchJson("/data/structured/branches.json"),
+    fetchJson("/data/structured/passes.json"),
   ]);
   STATE.libs = libsD.libraries.slice().sort((a, b) => a.name.localeCompare(b.name));
   STATE.attractions = attrsD.attractions;
@@ -456,7 +458,7 @@ function renderMatrix() {
     // from web/public/images (the same dir Vercel deploys).
     const localPath = a.hero_image?.local_path;
     const fileName = localPath ? localPath.split("/").pop() : null;
-    const heroSrc = fileName ? `../web/public/images/${fileName}` : null;
+    const heroSrc = fileName ? `/images/${fileName}` : null;
     let thumb;
     if (heroSrc) {
       thumb = el("img", { class: "attr-thumb", src: heroSrc, alt: "" });

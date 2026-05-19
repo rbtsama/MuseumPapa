@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "built_at": "2026-05-18T14:05:59Z",
+    "built_at": "2026-05-19T15:25:00Z",
     "n_attractions": 97,
-    "n_with_price": 74,
-    "n_with_image": 97,
+    "n_with_price": 70,
+    "n_with_image": 94,
     "n_with_geo": 96,
     "n_with_hours": 97
   },
@@ -130,9 +130,9 @@
           "sat": "9:00 AM – 4:00 PM",
           "sun": "9:00 AM – 4:00 PM"
         },
+        "summary": null,
         "notes": "Closed Tuesdays. On the first Saturday of each month, the Museum opens at 10:00 AM.",
-        "source_url": "https://bostonchildrensmuseum.org/visit/",
-        "summary": null
+        "source_url": "https://bostonchildrensmuseum.org/visit/"
       },
       "museum_reservation": {
         "required": true,
@@ -207,9 +207,9 @@
           "sat": "10:00 AM – 4:00 PM",
           "sun": "10:00 AM – 4:00 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://concordmuseum.org/visit/plan-your-visit/",
-        "summary": null
+        "source_url": "https://concordmuseum.org/visit/plan-your-visit/"
       },
       "museum_reservation": null
     },
@@ -289,9 +289,9 @@
           "sat": "9:30 AM – 5:00 PM",
           "sun": "9:30 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Seasonal (mid-April through October). Spring hours: Mon-Fri 9:30-4, Sat-Sun 9:30-5. Last admission one hour before closing.",
-        "source_url": "https://davisfarmland.com/",
-        "summary": null
+        "source_url": "https://davisfarmland.com/"
       },
       "museum_reservation": null
     },
@@ -397,9 +397,9 @@
           "sat": "9:00 AM – 4:30 PM",
           "sun": "9:00 AM – 4:30 PM"
         },
+        "summary": null,
         "notes": "School year schedule (through June 16): closed Mondays. Summer (June 16–Sep 6): open 7 days.",
-        "source_url": "https://www.discoveryacton.org/visit",
-        "summary": null
+        "source_url": "https://www.discoveryacton.org/visit"
       },
       "museum_reservation": null
     },
@@ -474,9 +474,9 @@
           "sat": "10:00 AM – 5:00 PM",
           "sun": "10:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Admission ticket sales close at 4:00 PM daily.",
-        "source_url": "http://www.ecotarium.org/",
-        "summary": null
+        "source_url": "http://www.ecotarium.org/"
       },
       "museum_reservation": null
     },
@@ -566,9 +566,9 @@
           "sat": "10 AM – 5 PM",
           "sun": "10 AM – 5 PM"
         },
+        "summary": null,
         "notes": "Seasonal: open April–October daily 10 AM–5 PM. Fall (Oct–Nov): Wed–Sun 10 AM–4 PM.",
-        "source_url": "https://www.nativeplanttrust.org/visit/garden-woods/",
-        "summary": null
+        "source_url": "https://www.nativeplanttrust.org/visit/garden-woods/"
       },
       "museum_reservation": null
     },
@@ -677,9 +677,9 @@
           "sat": "9:00 AM – 5:00 PM",
           "sun": "9:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Harvard Museum of Natural History open daily 9 AM–5 PM. Other HMSC museums (Peabody, CHSI, HMANE) have varying hours.",
-        "source_url": "https://hmsc.harvard.edu/visit/",
-        "summary": null
+        "source_url": "https://hmsc.harvard.edu/visit/"
       },
       "museum_reservation": null
     },
@@ -787,9 +787,9 @@
           "sat": "10 AM – 5 PM",
           "sun": "10 AM – 5 PM"
         },
+        "summary": null,
         "notes": "Free admission Thursdays 5–9 PM. First Friday of each month closes at 5 PM for 21+ event.",
-        "source_url": "https://www.icaboston.org/visit/",
-        "summary": null
+        "source_url": "https://www.icaboston.org/visit/"
       },
       "museum_reservation": null
     },
@@ -910,9 +910,9 @@
           "sat": "10:00 AM – 5:00 PM",
           "sun": "10:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Closed Thanksgiving, Christmas, and New Year's Day.",
-        "source_url": "https://www.gardnermuseum.org/visit",
-        "summary": null
+        "source_url": "https://www.gardnermuseum.org/visit"
       },
       "museum_reservation": {
         "required": true,
@@ -1001,9 +1001,9 @@
           "sat": "10:00 AM – 5:00 PM",
           "sun": "10:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Open daily 10 AM–5 PM. Last entry at 3:30 PM. Closed Thanksgiving, Christmas, and New Year's Day. Same attraction as john-f-kennedy-library-and-museum.",
-        "source_url": "https://www.jfklibrary.org/visit-us/hours-and-directions",
-        "summary": null
+        "source_url": "https://www.jfklibrary.org/visit-us/hours-and-directions"
       },
       "museum_reservation": {
         "required": true,
@@ -1084,9 +1084,9 @@
           "sat": "9:00 AM – 5:00 PM",
           "sun": "9:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Open Monday holidays. Closed Thanksgiving, Christmas, and New Year's Day.",
-        "source_url": "https://www.massaudubon.org/places-to-explore/wildlife-sanctuaries/drumlin-farm",
-        "summary": null
+        "source_url": "https://www.massaudubon.org/places-to-explore/wildlife-sanctuaries/drumlin-farm"
       },
       "museum_reservation": null
     },
@@ -1175,9 +1175,9 @@
       "hours": {
         "status": "varies",
         "regular_hours": null,
+        "summary": "Dawn to dusk (most locations)",
         "notes": "Massachusetts DCR operates 450+ parks, beaches, and forests, each with different hours. No single schedule applies. Most outdoor spaces are open dawn to dusk. Same as massachusetts-state-parks-department-of-conservation-and-recreation.",
-        "source_url": "https://www.mass.gov/orgs/department-of-conservation-and-recreation",
-        "summary": "Dawn to dusk (most locations)"
+        "source_url": "https://www.mass.gov/orgs/department-of-conservation-and-recreation"
       },
       "museum_reservation": null
     },
@@ -1306,9 +1306,9 @@
           "sat": "10 AM – 5 PM",
           "sun": "10 AM – 5 PM"
         },
+        "summary": null,
         "notes": "Closed New Year's Day, Patriots' Day, Independence Day, Thanksgiving, and Christmas. Same attraction as museum-of-fine-arts.",
-        "source_url": "https://www.mfa.org/visit",
-        "summary": null
+        "source_url": "https://www.mfa.org/visit"
       },
       "museum_reservation": {
         "required": true,
@@ -1446,9 +1446,9 @@
           "sat": "9:00 AM – 5:00 PM",
           "sun": "9:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Planetarium and Mugar Omni Theaters open Fri-Sat until 10:00 PM (last show). Closed Thanksgiving Day and Christmas Day.",
-        "source_url": "http://www.mos.org/",
-        "summary": null
+        "source_url": "http://www.mos.org/"
       },
       "museum_reservation": {
         "required": true,
@@ -1584,9 +1584,9 @@
           "sat": "9:00 AM – 6:00 PM",
           "sun": "9:00 AM – 6:00 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "http://www.neaq.org/",
-        "summary": null
+        "source_url": "http://www.neaq.org/"
       },
       "museum_reservation": null
     },
@@ -1669,9 +1669,9 @@
           "sat": "10 AM – 5 PM",
           "sun": "10 AM – 5 PM"
         },
+        "summary": null,
         "notes": "Last admission 4:30 PM. Closed Thanksgiving, Christmas Eve, Christmas, New Year's Eve, and New Year's Day.",
-        "source_url": "https://nebg.org/plan-your-visit/",
-        "summary": null
+        "source_url": "https://nebg.org/plan-your-visit/"
       },
       "museum_reservation": null
     },
@@ -1792,9 +1792,9 @@
           "sat": "10 AM – 5 PM",
           "sun": "10 AM – 5 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://www.pem.org/visit",
-        "summary": null
+        "source_url": "https://www.pem.org/visit"
       },
       "museum_reservation": {
         "required": true,
@@ -1899,9 +1899,9 @@
       "hours": {
         "status": "varies",
         "regular_hours": null,
+        "summary": "Varies by property",
         "notes": "The Trustees GO Pass covers 120+ properties across Massachusetts, each with its own hours. No single schedule applies. See individual property pages at thetrustees.org.",
-        "source_url": "https://thetrustees.org/places/",
-        "summary": "Varies by property"
+        "source_url": "https://thetrustees.org/places/"
       },
       "museum_reservation": null
     },
@@ -2017,9 +2017,9 @@
           "sat": "9:00 AM – 6:00 PM",
           "sun": "9:00 AM – 6:00 PM"
         },
+        "summary": null,
         "notes": "Hours vary by season. April-July weekdays 9 AM-5 PM, weekends 9 AM-6 PM. Aug-Sep daily 9 AM-5 PM. Oct-Mar daily 9 AM-4 PM. Closed Thanksgiving and Christmas.",
-        "source_url": "https://www.zoonewengland.org/franklin-park-zoo/hours-info-faq/",
-        "summary": null
+        "source_url": "https://www.zoonewengland.org/franklin-park-zoo/hours-info-faq/"
       },
       "museum_reservation": null
     },
@@ -2100,9 +2100,9 @@
           "sat": "10 AM – 4 PM",
           "sun": "1 PM – 4 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://aviationmuseumofnh.org/hours-and-directions/",
-        "summary": null
+        "source_url": "https://aviationmuseumofnh.org/hours-and-directions/"
       },
       "museum_reservation": null
     },
@@ -2165,9 +2165,9 @@
           "sat": "10:00 AM – 4:00 PM",
           "sun": "10:00 AM – 4:00 PM"
         },
+        "summary": null,
         "notes": "Open Tue–Fri and first and third weekends of the month. Seasonal: open mid-May through mid-October. Mondays closed. Located at 19 High Rd, Lee, NH. Confirm specific open weekends at bedrockgardens.org.",
-        "source_url": "https://www.bedrockgardens.org/visiting.html",
-        "summary": null
+        "source_url": "https://www.bedrockgardens.org/visiting.html"
       },
       "museum_reservation": null
     },
@@ -2267,9 +2267,9 @@
           "sat": "Dawn – Dusk",
           "sun": "Dawn – Dusk"
         },
+        "summary": null,
         "notes": "Ferry to Boston Harbor Islands operates seasonally (late May through Columbus Day). Schedule and departure times vary by season. Departs from Long Wharf, Boston. Same destination as boston-harbor-islands.",
-        "source_url": "https://www.bostonharborislands.org/plan-your-visit/",
-        "summary": null
+        "source_url": "https://www.bostonharborislands.org/plan-your-visit/"
       },
       "museum_reservation": {
         "required": true,
@@ -2305,14 +2305,22 @@
       "original_price": {
         "age_pricing": {
           "adult": {
-            "price": 0,
+            "price": 14.5,
             "min_age": null,
             "max_age": null
           },
           "youth": null,
-          "child": null,
-          "senior": null,
-          "free_under_age": null
+          "child": {
+            "price": 14.5,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 12.5,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 1
         },
         "identity_pricing": {
           "student": null,
@@ -2320,8 +2328,8 @@
           "military": null
         },
         "family": null,
-        "notes": "Free admission; pay what you can",
-        "source_url": "http://www.childrens-museum.org/"
+        "notes": "Adult $14.50; child >12mo $14.50; senior 65+ $12.50; museum members and infants <12mo free.",
+        "source_url": "https://whichmuseum.com/museum/children-s-museum-of-new-hampshire-dover-19039/tickets-prices"
       },
       "hero_image": {
         "og_image_url": "https://childrens-museum.org/wp-content/uploads/2024/09/Instagram-logo.jpg",
@@ -2342,9 +2350,9 @@
           "sat": "9:00 AM – 4:00 PM",
           "sun": "9:00 AM – 12:00 PM"
         },
+        "summary": null,
         "notes": "Sessions are timed; closed 12–1 PM for cleaning on Wed–Sat. Online registration required.",
-        "source_url": "http://www.childrens-museum.org/",
-        "summary": null
+        "source_url": "http://www.childrens-museum.org/"
       },
       "museum_reservation": {
         "required": true,
@@ -2411,9 +2419,9 @@
       "hours": {
         "status": "varies",
         "regular_hours": null,
+        "summary": "Varies by property",
         "notes": "Multiple properties with varying hours; no single schedule applies.",
-        "source_url": "https://www.historicnewengland.org/visit/plan-your-visit/",
-        "summary": "Varies by property"
+        "source_url": "https://www.historicnewengland.org/visit/plan-your-visit/"
       },
       "museum_reservation": {
         "required": true,
@@ -2501,9 +2509,9 @@
           "sat": "10 AM – 4 PM",
           "sun": "10 AM – 4 PM"
         },
+        "summary": null,
         "notes": "Closed Thanksgiving and Christmas.",
-        "source_url": "https://7gables.org/",
-        "summary": null
+        "source_url": "https://7gables.org/"
       },
       "museum_reservation": {
         "required": true,
@@ -2578,9 +2586,9 @@
           "sat": "10 AM – 4 PM",
           "sun": "Closed"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://www.neqm.org/visit",
-        "summary": null
+        "source_url": "https://www.neqm.org/visit"
       },
       "museum_reservation": null
     },
@@ -2645,9 +2653,9 @@
       "hours": {
         "status": "varies",
         "regular_hours": null,
+        "summary": "Concert dates only",
         "notes": "Concert series venue — no fixed visiting hours. Concerts typically begin at 2:00 PM on scheduled performance dates. Held at Seifert PAC, Salem NH.",
-        "source_url": "https://www.nhphil.org/",
-        "summary": "Concert dates only"
+        "source_url": "https://www.nhphil.org/"
       },
       "museum_reservation": null
     },
@@ -2732,9 +2740,9 @@
           "sat": "9:00 AM – 4:00 PM",
           "sun": "12:00 PM – 4:00 PM"
         },
+        "summary": null,
         "notes": "Museum is closed between play sessions for cleaning. Each ticket is good for one session. Check monthly calendar for schedule changes.",
-        "source_url": "https://www.nschildrensmuseum.org/buy-tickets",
-        "summary": null
+        "source_url": "https://www.nschildrensmuseum.org/buy-tickets"
       },
       "museum_reservation": null
     },
@@ -2825,9 +2833,9 @@
           "sat": "9 AM – 5 PM",
           "sun": "9 AM – 5 PM"
         },
+        "summary": null,
         "notes": "Open daily 9 AM–5 PM. Hours may vary seasonally. Same attraction as plimoth-patuxet-museums.",
-        "source_url": "https://plimoth.org/plan-your-visit/hours-directions/",
-        "summary": null
+        "source_url": "https://plimoth.org/plan-your-visit/hours-directions/"
       },
       "museum_reservation": null
     },
@@ -2913,9 +2921,9 @@
           "sat": "10:00 AM – 5:00 PM",
           "sun": "10:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Closed first three weeks of January, Thanksgiving Day, Christmas Day, and New Year's Day.",
-        "source_url": "https://salemwitchmuseum.com/hours/",
-        "summary": null
+        "source_url": "https://salemwitchmuseum.com/hours/"
       },
       "museum_reservation": {
         "required": true,
@@ -3000,9 +3008,9 @@
           "sat": "10:00 AM – 4:00 PM",
           "sun": "10:00 AM – 4:00 PM"
         },
+        "summary": null,
         "notes": "Winter hours (Oct 15–Apr 15): closed Mon–Tue. Open Tuesdays during school vacation weeks.",
-        "source_url": "https://www.seacoastsciencecenter.org/visit/admission-hours/",
-        "summary": null
+        "source_url": "https://www.seacoastsciencecenter.org/visit/admission-hours/"
       },
       "museum_reservation": {
         "required": true,
@@ -3081,9 +3089,9 @@
           "sat": "9:00 AM – 4:00 PM",
           "sun": "Closed"
         },
+        "summary": null,
         "notes": "Extended hours the first Wednesday of the month: 9:00 AM – 6:00 PM.",
-        "source_url": "http://www.wenhammuseum.org/",
-        "summary": null
+        "source_url": "http://www.wenhammuseum.org/"
       },
       "museum_reservation": null
     },
@@ -3150,9 +3158,9 @@
       "hours": {
         "status": "varies",
         "regular_hours": null,
+        "summary": "Dawn to dusk (most sanctuaries)",
         "notes": "Mass Audubon pass provides access to 60+ wildlife sanctuaries across Massachusetts, each with different hours. No single schedule applies. See individual sanctuary pages at massaudubon.org/places-to-explore.",
-        "source_url": "https://www.massaudubon.org/places-to-explore/admission-expanding-access",
-        "summary": "Dawn to dusk (most sanctuaries)"
+        "source_url": "https://www.massaudubon.org/places-to-explore/admission-expanding-access"
       },
       "museum_reservation": null
     },
@@ -3226,9 +3234,9 @@
           "sat": "12 PM – 6 PM",
           "sun": "12 PM – 6 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://www.armenianmuseum.org/visit",
-        "summary": null
+        "source_url": "https://www.armenianmuseum.org/visit"
       },
       "museum_reservation": null
     },
@@ -3296,9 +3304,9 @@
           "sat": "Closed",
           "sun": "Closed"
         },
+        "summary": null,
         "notes": "Office hours Mon–Fri 9 AM–5 PM. Tours run daily and weekly April–November; some special tours available year-round. Tour registration closes 1 hour before tour start. Walking tours depart at scheduled times regardless of office hours.",
-        "source_url": "https://bostonbyfoot.org/",
-        "summary": null
+        "source_url": "https://bostonbyfoot.org/"
       },
       "museum_reservation": {
         "required": true,
@@ -3377,9 +3385,9 @@
           "sat": "Dawn – Dusk",
           "sun": "Dawn – Dusk"
         },
+        "summary": null,
         "notes": "Grounds open daily from dawn to dusk unless there is a special event. Mansion tours have separate hours.",
-        "source_url": "https://www.goreplace.org/",
-        "summary": null
+        "source_url": "https://www.goreplace.org/"
       },
       "museum_reservation": null
     },
@@ -3457,9 +3465,9 @@
           "sat": "10:00 AM – 5:00 PM",
           "sun": "1:00 PM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Tours only; times reflect tour availability.",
-        "source_url": "https://louisamayalcott.org/",
-        "summary": null
+        "source_url": "https://louisamayalcott.org/"
       },
       "museum_reservation": {
         "required": true,
@@ -3521,35 +3529,7 @@
         "wilmington",
         "woburn"
       ],
-      "original_price": {
-        "age_pricing": {
-          "adult": {
-            "price": 0,
-            "min_age": null,
-            "max_age": null
-          },
-          "youth": null,
-          "child": {
-            "price": 0,
-            "min_age": null,
-            "max_age": null
-          },
-          "senior": {
-            "price": 0,
-            "min_age": null,
-            "max_age": null
-          },
-          "free_under_age": null
-        },
-        "identity_pricing": {
-          "student": null,
-          "educator": null,
-          "military": null
-        },
-        "family": null,
-        "notes": "Pay what you wish; suggested donations apply",
-        "source_url": "https://ussconstitutionmuseum.org/"
-      },
+      "original_price": null,
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/USS_Constitution_Museum.jpg",
         "local_path": "static/images/the-uss-constitution-museum.jpg"
@@ -3569,9 +3549,9 @@
           "sat": "9:30 AM – 5:00 PM",
           "sun": "9:30 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://ussconstitutionmuseum.org/plan-your-visit/",
-        "summary": null
+        "source_url": "https://ussconstitutionmuseum.org/plan-your-visit/"
       },
       "museum_reservation": null
     },
@@ -3655,9 +3635,9 @@
           "sat": "10:00 AM – 5:00 PM",
           "sun": "10:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Open Mon–Sun during MA school vacation weeks.",
-        "source_url": "https://www.americanheritagemuseum.org/plan-your-visit/hours-admission/",
-        "summary": null
+        "source_url": "https://www.americanheritagemuseum.org/plan-your-visit/hours-admission/"
       },
       "museum_reservation": null
     },
@@ -3713,9 +3693,9 @@
           "sat": "10:00 AM – 4:00 PM",
           "sun": "10:00 AM – 4:00 PM"
         },
+        "summary": null,
         "notes": "Open daily 10 AM–4 PM, weather permitting. Typically open late March through Columbus Day weekend. Same attraction as the-butterfly-place.",
-        "source_url": "https://www.butterflyplace-ma.com/",
-        "summary": null
+        "source_url": "https://www.butterflyplace-ma.com/"
       },
       "museum_reservation": null
     },
@@ -3794,9 +3774,9 @@
           "sat": "9 AM – 5 PM",
           "sun": "Closed"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://www.bostonathenaeum.org/visit",
-        "summary": null
+        "source_url": "https://www.bostonathenaeum.org/visit"
       },
       "museum_reservation": null
     },
@@ -3826,14 +3806,18 @@
       "original_price": {
         "age_pricing": {
           "adult": {
-            "price": 0,
+            "price": 6,
             "min_age": null,
             "max_age": null
           },
           "youth": null,
-          "child": null,
+          "child": {
+            "price": 12,
+            "min_age": null,
+            "max_age": null
+          },
           "senior": null,
-          "free_under_age": null
+          "free_under_age": 1
         },
         "identity_pricing": {
           "student": null,
@@ -3841,8 +3825,8 @@
           "military": null
         },
         "family": null,
-        "notes": "Free admission; community children's space",
-        "source_url": "https://www.thechildrenspiazza.com/"
+        "notes": "Drop-in play: $12 first child, $6 each sibling, $5 infant <12mo if no sibling (infants free with a sibling), additional adult $6 (one adult included per child).",
+        "source_url": "https://www.sauguspubliclibrary.org/new-museum-pass-the-childrens-piazza/"
       },
       "hero_image": {
         "og_image_url": "https://www.thechildrenspiazza.com/uploads/b/7ba6f940-a408-11e9-9a28-67bb30306769/Piazza%20circle%20gray%20no%20lines%20w%20white_NzQwNj.png",
@@ -3863,9 +3847,9 @@
           "sat": "8:30 AM – 12:00 PM",
           "sun": "Closed"
         },
+        "summary": null,
         "notes": "Sunday closed for private parties. Enter the Covenant Christian Academy parking lot and drive all the way around to the back of the building.",
-        "source_url": "https://www.thechildrenspiazza.com/",
-        "summary": null
+        "source_url": "https://www.thechildrenspiazza.com/"
       },
       "museum_reservation": {
         "required": true,
@@ -3913,9 +3897,9 @@
           "sat": "12:00 PM – 4:00 PM",
           "sun": "12:00 PM – 4:00 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://www.griffinmuseum.org/",
-        "summary": null
+        "source_url": "https://www.griffinmuseum.org/"
       },
       "museum_reservation": {
         "required": true,
@@ -3991,9 +3975,9 @@
           "sat": "10 AM – 4 PM",
           "sun": "10 AM – 4 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://www.hoophall.com/visit",
-        "summary": null
+        "source_url": "https://www.hoophall.com/visit"
       },
       "museum_reservation": null
     },
@@ -4067,9 +4051,9 @@
           "sat": "12:00 PM – 5:00 PM",
           "sun": "12:00 PM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Closed Mondays, during exhibition rotations, July 4, Easter Sunday, Thanksgiving and the following Friday, and Dec 24–Jan 1 (reopening Jan 2 unless a Monday). Located at Framingham State University.",
-        "source_url": "https://danforthartmuseum.org/",
-        "summary": null
+        "source_url": "https://danforthartmuseum.org/"
       },
       "museum_reservation": null
     },
@@ -4147,9 +4131,9 @@
           "sat": "10:00 AM – 4:00 PM",
           "sun": "10:00 AM – 4:00 PM"
         },
+        "summary": null,
         "notes": "Every third Thursday open until 8:00 PM.",
-        "source_url": "https://www.worcesterart.org/information/hours-and-admission/",
-        "summary": null
+        "source_url": "https://www.worcesterart.org/information/hours-and-admission/"
       },
       "museum_reservation": null
     },
@@ -4227,9 +4211,9 @@
           "sat": "9:00 AM – 4:00 PM",
           "sun": "9:00 AM – 4:00 PM"
         },
+        "summary": null,
         "notes": "Last admission at 3:00 PM. Closed Thanksgiving and Christmas.",
-        "source_url": "https://www.stonehengeusa.com/about.html",
-        "summary": null
+        "source_url": "https://www.stonehengeusa.com/about.html"
       },
       "museum_reservation": null
     },
@@ -4307,9 +4291,9 @@
           "sat": "10:00 AM – 5:00 PM",
           "sun": "10:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://www.currier.org/visit-currier",
-        "summary": null
+        "source_url": "https://www.currier.org/visit-currier"
       },
       "museum_reservation": null
     },
@@ -4385,9 +4369,9 @@
           "sat": "10:00 AM – 4:00 PM",
           "sun": "Closed"
         },
+        "summary": null,
         "notes": "Open every Saturday year-round. Also open for special events and group visits by request.",
-        "source_url": "https://www.museumofprinting.org/",
-        "summary": null
+        "source_url": "https://www.museumofprinting.org/"
       },
       "museum_reservation": null
     },
@@ -4414,27 +4398,7 @@
         "methuen",
         "tewksbury"
       ],
-      "original_price": {
-        "age_pricing": {
-          "adult": {
-            "price": 0,
-            "min_age": null,
-            "max_age": null
-          },
-          "youth": null,
-          "child": null,
-          "senior": null,
-          "free_under_age": null
-        },
-        "identity_pricing": {
-          "student": null,
-          "educator": null,
-          "military": null
-        },
-        "family": null,
-        "notes": "Free admission; donations welcome",
-        "source_url": "https://www.publichealthmuseum.org/"
-      },
+      "original_price": null,
       "hero_image": {
         "og_image_url": "https://www.publichealthmuseum.org/uploads/1/2/6/9/126956945/phm-photo-front-outside-summer_orig.jpg",
         "local_path": "static/images/public-health-museum.jpg"
@@ -4454,9 +4418,9 @@
           "sat": "10:00 AM – 2:00 PM",
           "sun": "Closed"
         },
+        "summary": null,
         "notes": "Also open the first Sunday of each month, 1:00 PM – 3:00 PM. Walk-ins welcome; docent-guided tours by reservation. Located at 365 East St, Tewksbury, MA.",
-        "source_url": "https://www.publichealthmuseum.org/visit-us.html",
-        "summary": null
+        "source_url": "https://www.publichealthmuseum.org/visit-us.html"
       },
       "museum_reservation": null
     },
@@ -4489,9 +4453,9 @@
       "hours": {
         "status": "varies",
         "regular_hours": null,
+        "summary": "Open for ticketed performances",
         "notes": "Performance venue — no fixed visiting hours. Shows and box office hours vary by production schedule.",
-        "source_url": "https://www.wheelockfamilytheatre.org/",
-        "summary": "Open for ticketed performances"
+        "source_url": "https://www.wheelockfamilytheatre.org/"
       },
       "museum_reservation": {
         "required": true,
@@ -4574,9 +4538,9 @@
           "sat": "10 AM – 4 PM",
           "sun": "10 AM – 3 PM"
         },
+        "summary": null,
         "notes": "Hours may vary seasonally. Closed Mondays.",
-        "source_url": "https://www.blithewold.org/hours/",
-        "summary": null
+        "source_url": "https://www.blithewold.org/hours/"
       },
       "museum_reservation": null
     },
@@ -4657,9 +4621,9 @@
           "sat": "10:00 AM – 2:30 PM",
           "sun": "Closed"
         },
+        "summary": null,
         "notes": "Hours subject to change for special events. Last admission 30 minutes before closing.",
-        "source_url": "https://www.charlesrivermuseum.org/",
-        "summary": null
+        "source_url": "https://www.charlesrivermuseum.org/"
       },
       "museum_reservation": null
     },
@@ -4739,9 +4703,9 @@
           "sat": "9:00 AM – 5:00 PM",
           "sun": "9:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://hmsc.harvard.edu/visit/",
-        "summary": null
+        "source_url": "https://hmsc.harvard.edu/visit/"
       },
       "museum_reservation": null
     },
@@ -4789,9 +4753,9 @@
           "sat": "12:00 PM – 5:00 PM",
           "sun": "Closed"
         },
+        "summary": null,
         "notes": "Box office hours Tue–Sat Noon–5 PM. Performance schedule varies; show times are separate from box office hours.",
-        "source_url": "https://americanrepertorytheater.org/",
-        "summary": null
+        "source_url": "https://americanrepertorytheater.org/"
       },
       "museum_reservation": {
         "required": true,
@@ -4843,9 +4807,9 @@
           "sat": "8:30 AM – 7:30 PM",
           "sun": "8:30 AM – 7:30 PM"
         },
+        "summary": null,
         "notes": "Hours are weather-permitting; last rental goes out 1 hour before closing. Seasonal operation (typically May through October). Hours vary by location and season. One Allston location temporarily closed as of early 2026. Check paddleboston.com for current hours by location.",
-        "source_url": "https://paddleboston.com/rentals/",
-        "summary": null
+        "source_url": "https://paddleboston.com/rentals/"
       },
       "museum_reservation": null
     },
@@ -4918,9 +4882,9 @@
           "sat": "10:00 AM – 4:00 PM",
           "sun": "10:00 AM – 4:00 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://www.iconmuseum.org/",
-        "summary": null
+        "source_url": "https://www.iconmuseum.org/"
       },
       "museum_reservation": null
     },
@@ -4991,9 +4955,9 @@
           "sat": "9 AM – 6 PM",
           "sun": "9 AM – 6 PM"
         },
+        "summary": null,
         "notes": "Play sessions scheduled throughout the day.",
-        "source_url": "https://sandmagination.com/admission",
-        "summary": null
+        "source_url": "https://sandmagination.com/admission"
       },
       "museum_reservation": null
     },
@@ -5058,9 +5022,9 @@
           "sat": "10 AM – 5 PM",
           "sun": "10 AM – 5 PM"
         },
+        "summary": null,
         "notes": "Closed on Mondays and major holidays.",
-        "source_url": "http://www.harvardartmuseums.org/",
-        "summary": null
+        "source_url": "http://www.harvardartmuseums.org/"
       },
       "museum_reservation": null
     },
@@ -5136,9 +5100,9 @@
           "sat": "10:00 AM – 5:15 PM",
           "sun": "10:00 AM – 5:15 PM"
         },
+        "summary": null,
         "notes": "Summer (Apr 15–Oct 31): 10 AM–5:15 PM daily. Winter (Nov 1–Apr 14): 10 AM–4:15 PM. Closed Mon in Jan/Feb/Mar. Closed Thanksgiving, Christmas Eve, Christmas, New Year's Day.",
-        "source_url": "https://www.paulreverehouse.org/hours-prices/",
-        "summary": null
+        "source_url": "https://www.paulreverehouse.org/hours-prices/"
       },
       "museum_reservation": null
     },
@@ -5164,27 +5128,7 @@
         "natick",
         "weston"
       ],
-      "original_price": {
-        "age_pricing": {
-          "adult": {
-            "price": 0,
-            "min_age": null,
-            "max_age": null
-          },
-          "youth": null,
-          "child": null,
-          "senior": null,
-          "free_under_age": null
-        },
-        "identity_pricing": {
-          "student": null,
-          "educator": null,
-          "military": null
-        },
-        "family": null,
-        "notes": "Free admission to plaza; Mapparium has separate paid admission",
-        "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza"
-      },
+      "original_price": null,
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/USA_09562_Boston_Luca_Galuzzi_2007.jpg/960px-USA_09562_Boston_Luca_Galuzzi_2007.jpg",
         "local_path": "static/images/christian-science-plaza.jpg"
@@ -5204,9 +5148,9 @@
           "sat": "10:00 AM – 5:00 PM",
           "sun": "11:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Hours apply to the 'How Do You See the World?' interactive experience. Mary Baker Eddy Library is open Mon–Thu 11:00 AM – 3:00 PM.",
-        "source_url": "https://www.christianscience.com/visit",
-        "summary": null
+        "source_url": "https://www.christianscience.com/visit"
       },
       "museum_reservation": null
     },
@@ -5255,9 +5199,9 @@
           "sat": "10:00 AM – 4:00 PM",
           "sun": "10:00 AM – 4:00 PM"
         },
+        "summary": null,
         "notes": "Open Thu–Sun. In winter (January–March), also open Thu–Sun. Groups of 10+ may book by appointment any day. Located at 285 Derby St, Salem, MA.",
-        "source_url": "https://realpiratessalem.com/",
-        "summary": null
+        "source_url": "https://realpiratessalem.com/"
       },
       "museum_reservation": null
     },
@@ -5329,9 +5273,9 @@
           "sat": "10:00 AM – 4:00 PM",
           "sun": "10:00 AM – 4:00 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://www.rwpzoo.org/",
-        "summary": null
+        "source_url": "https://www.rwpzoo.org/"
       },
       "museum_reservation": null
     },
@@ -5410,9 +5354,9 @@
           "sat": "10 AM – 4 PM",
           "sun": "10 AM – 4 PM"
         },
+        "summary": null,
         "notes": "Seasonal (Apr 24–Nov 1 2026). Apr 24–Jun 16: 7 days 10 AM–4 PM. Jun 17–Nov 1: Wed–Mon 10 AM–4 PM; July–Aug Sat–Sun until 5 PM.",
-        "source_url": "https://www.strawberybanke.org/hours-of-operation",
-        "summary": null
+        "source_url": "https://www.strawberybanke.org/hours-of-operation"
       },
       "museum_reservation": null
     },
@@ -5491,9 +5435,9 @@
           "sat": "9:00 AM – 5:00 PM",
           "sun": "9:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Spring/Summer (Mar 23–Oct 18): open daily 9 AM–5 PM. Winter: Fri–Sun plus holidays 9 AM–4 PM.",
-        "source_url": "https://www.battleshipcove.org/hours-and-admission",
-        "summary": null
+        "source_url": "https://www.battleshipcove.org/hours-and-admission"
       },
       "museum_reservation": null
     },
@@ -5563,9 +5507,9 @@
           "sat": "10 AM – 5 PM",
           "sun": "10 AM – 5 PM"
         },
+        "summary": null,
         "notes": "Closed Mondays except holiday Mondays (MLK Day, Presidents Day, Patriots' Day, Memorial Day, Labor Day) when open 10 AM–4 PM.",
-        "source_url": "http://www.decordova.org/admission",
-        "summary": null
+        "source_url": "http://www.decordova.org/admission"
       },
       "museum_reservation": null
     },
@@ -5636,9 +5580,9 @@
           "sat": "10:00 AM – 5:00 PM",
           "sun": "10:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Garden season April 1 – November 24. Mon–Thu last entry at 5:30 PM; Fri–Sun last entry at 4:15 PM. Special events require timed tickets. Operated by Massachusetts Horticultural Society.",
-        "source_url": "https://www.masshort.org/elm-bank/",
-        "summary": null
+        "source_url": "https://www.masshort.org/elm-bank/"
       },
       "museum_reservation": null
     },
@@ -5714,9 +5658,9 @@
           "sat": "9:30 AM – 5:00 PM",
           "sun": "9:30 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Currently open Wednesday through Sunday.",
-        "source_url": "https://www.osv.org/plan-your-visit",
-        "summary": null
+        "source_url": "https://www.osv.org/plan-your-visit"
       },
       "museum_reservation": null
     },
@@ -5762,9 +5706,9 @@
           "sat": "Closed",
           "sun": "10:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Hours for Jackson Homestead and Museum (527 Washington St, Newton). Free admission on the first full weekend of each month. Operated by the City of Newton.",
-        "source_url": "https://www.newtonma.gov/government/historic-newton/visit-museum",
-        "summary": null
+        "source_url": "https://www.newtonma.gov/government/historic-newton/visit-museum"
       },
       "museum_reservation": null
     },
@@ -5844,9 +5788,9 @@
           "sat": "10 AM – 3 PM",
           "sun": "10 AM – 3 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://www.larzanderson.org/plan-your-visit",
-        "summary": null
+        "source_url": "https://www.larzanderson.org/plan-your-visit"
       },
       "museum_reservation": null
     },
@@ -5923,9 +5867,9 @@
           "sat": "7:00 AM – 7:00 PM",
           "sun": "7:00 AM – 7:00 PM"
         },
+        "summary": null,
         "notes": "Holiday hours may differ. Located at 276 Church St., Newton, MA.",
-        "source_url": "https://www.wsymca.org/",
-        "summary": null
+        "source_url": "https://www.wsymca.org/"
       },
       "museum_reservation": null
     },
@@ -5999,9 +5943,9 @@
           "sat": "10 AM – 5 PM",
           "sun": "10 AM – 5 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://heritagemuseumsandgardens.org/visit",
-        "summary": null
+        "source_url": "https://heritagemuseumsandgardens.org/visit"
       },
       "museum_reservation": null
     },
@@ -6084,9 +6028,9 @@
           "sat": "9 AM – 5 PM",
           "sun": "9 AM – 5 PM"
         },
+        "summary": null,
         "notes": "Closed Thanksgiving Day, Christmas Day, New Year's Day.",
-        "source_url": "https://www.whalingmuseum.org/tickets",
-        "summary": null
+        "source_url": "https://www.whalingmuseum.org/tickets"
       },
       "museum_reservation": null
     },
@@ -6158,9 +6102,9 @@
           "sat": "9:30 AM – 5:00 PM",
           "sun": "9:30 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Regular hours Apr–Dec. Winter (Feb–Mar): Wed–Sun 9:30 AM–4 PM. Closed Thanksgiving and Christmas.",
-        "source_url": "https://sandwichglassmuseum.org/pages/visit",
-        "summary": null
+        "source_url": "https://sandwichglassmuseum.org/pages/visit"
       },
       "museum_reservation": null
     },
@@ -6197,9 +6141,9 @@
       "hours": {
         "status": "varies",
         "regular_hours": null,
+        "summary": "Open for ticketed performances",
         "notes": "Performance venue — no fixed visiting hours. Show schedules vary by production. Box office hours vary seasonally.",
-        "source_url": "https://www.greaterbostonstage.org/",
-        "summary": "Open for ticketed performances"
+        "source_url": "https://www.greaterbostonstage.org/"
       },
       "museum_reservation": {
         "required": true,
@@ -6269,9 +6213,9 @@
           "sat": "11:00 AM – 4:00 PM",
           "sun": "Closed"
         },
+        "summary": null,
         "notes": "Open Tuesdays and Saturdays 11 AM – 4 PM. Located at 1 Memorial Square, Whitinsville, MA 01588.",
-        "source_url": "https://www.mspmlc.org/visit",
-        "summary": null
+        "source_url": "https://www.mspmlc.org/visit"
       },
       "museum_reservation": null
     },
@@ -6298,23 +6242,34 @@
       "original_price": {
         "age_pricing": {
           "adult": {
-            "price": 0,
+            "price": 8,
             "min_age": null,
             "max_age": null
           },
           "youth": null,
-          "child": null,
-          "senior": null,
-          "free_under_age": null
+          "child": {
+            "price": 3,
+            "min_age": null,
+            "max_age": null
+          },
+          "senior": {
+            "price": 5,
+            "min_age": null,
+            "max_age": null
+          },
+          "free_under_age": 5
         },
         "identity_pricing": {
           "student": null,
           "educator": null,
-          "military": null
+          "military": {
+            "price": 6,
+            "requires": null
+          }
         },
         "family": null,
-        "notes": "Free admission; museum admission included in ticket cost for events",
-        "source_url": "https://www.spellmanmuseum.org/"
+        "notes": "Adult $8, senior $5, child 5-16 $3, under 5 free. $2 off adult rate (=$6) for AAA, MTA, APS, active-duty/retired US military. Members and Regis College ID free; EBT/WIC/ConnectorCare free.",
+        "source_url": "https://spellmanmuseum.org/contact-us/"
       },
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Spellman_Museum_of_Stamps_and_Postal_History%2C_Weston_MA.jpg/960px-Spellman_Museum_of_Stamps_and_Postal_History%2C_Weston_MA.jpg",
@@ -6335,9 +6290,9 @@
           "sat": "11 AM – 4 PM",
           "sun": "12 PM – 4 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://www.spellmanmuseum.org/",
-        "summary": null
+        "source_url": "https://www.spellmanmuseum.org/"
       },
       "museum_reservation": null
     },
@@ -6401,9 +6356,9 @@
           "sat": "10:00 AM – 6:00 PM",
           "sun": "10:00 AM – 6:00 PM"
         },
+        "summary": null,
         "notes": "Drop-in hours available on Saturdays and Sundays 10 AM – 6 PM. Located at 25 Adams St, Burlington, MA.",
-        "source_url": "https://www.einsteinsworkshop.com/",
-        "summary": null
+        "source_url": "https://www.einsteinsworkshop.com/"
       },
       "museum_reservation": null
     },
@@ -6483,9 +6438,9 @@
           "sat": "10:00 AM – 5:00 PM",
           "sun": "10:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Closed during home game days and certain Patriot Place events. Located at Patriot Place, Foxborough, MA.",
-        "source_url": "https://www.patriotshalloffame.com/visit-the-hall/admission/",
-        "summary": null
+        "source_url": "https://www.patriotshalloffame.com/visit-the-hall/admission/"
       },
       "museum_reservation": null
     },
@@ -6514,9 +6469,9 @@
       "hours": {
         "status": "varies",
         "regular_hours": null,
+        "summary": "Open for ticketed performances",
         "notes": "Large performance venue (Wang Theatre, Shubert Theatre) — no fixed visiting hours. Open for ticketed performances only; schedule varies by production.",
-        "source_url": "https://www.bochcenter.org/",
-        "summary": "Open for ticketed performances"
+        "source_url": "https://www.bochcenter.org/"
       },
       "museum_reservation": null
     },
@@ -6579,9 +6534,9 @@
           "sat": "Dawn – Dusk",
           "sun": "Dawn – Dusk"
         },
+        "summary": null,
         "notes": "Island access depends on ferry schedules (seasonal, typically late May through Columbus Day). Individual islands have varying access; Georges Island visitor center has limited hours. Ferry departs from Long Wharf, Boston.",
-        "source_url": "https://www.bostonharborislands.org/plan-your-visit/",
-        "summary": null
+        "source_url": "https://www.bostonharborislands.org/plan-your-visit/"
       },
       "museum_reservation": null
     },
@@ -6639,9 +6594,9 @@
           "sat": "8:00 AM – 5:00 PM",
           "sun": "8:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Outdoor education and recreation facility with 1,200+ acres of forests, ponds, and meadows open to the public year-round via Main Entrance at 80 Carby St, Westwood, MA.",
-        "source_url": "https://hale.education/",
-        "summary": null
+        "source_url": "https://hale.education/"
       },
       "museum_reservation": null
     },
@@ -6713,9 +6668,9 @@
           "sat": "9:00 AM – 5:00 PM",
           "sun": "9:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Hours for Harvard Museum of Natural History and Peabody Museum (open daily 9 AM–5 PM). Other Harvard museums in this complex (Collection of Historical Scientific Instruments, Harvard Museum of the Ancient Near East) open Sun–Fri 11 AM–4 PM only. Closed Thanksgiving and Christmas.",
-        "source_url": "https://hmsc.harvard.edu/visit/",
-        "summary": null
+        "source_url": "https://hmsc.harvard.edu/visit/"
       },
       "museum_reservation": null
     },
@@ -6773,9 +6728,9 @@
           "sat": "10 AM – 5 PM",
           "sun": "11 AM – 5 PM"
         },
+        "summary": null,
         "notes": "Last tour starts at 4:40 PM.",
-        "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience/how-do-you-see-the-world-visitor-information",
-        "summary": null
+        "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience/how-do-you-see-the-world-visitor-information"
       },
       "museum_reservation": null
     },
@@ -6845,9 +6800,9 @@
           "sat": "10:00 AM – 5:00 PM",
           "sun": "10:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Closed Thanksgiving, Christmas, and New Year's Day.",
-        "source_url": "https://www.gardnermuseum.org/visit",
-        "summary": null
+        "source_url": "https://www.gardnermuseum.org/visit"
       },
       "museum_reservation": {
         "required": true,
@@ -6922,9 +6877,9 @@
           "sat": "10 AM – 3 PM",
           "sun": "10 AM – 3 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://www.larzanderson.org/plan-your-visit",
-        "summary": null
+        "source_url": "https://www.larzanderson.org/plan-your-visit"
       },
       "museum_reservation": null
     },
@@ -6992,9 +6947,9 @@
           "sat": "10:00 AM – 5:00 PM",
           "sun": "10:00 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Open seven days per week unless otherwise noted.",
-        "source_url": "https://revolutionaryspaces.org/hours-admission",
-        "summary": null
+        "source_url": "https://revolutionaryspaces.org/hours-admission"
       },
       "museum_reservation": null
     },
@@ -7031,9 +6986,9 @@
           "sat": "9:30 AM – 5:00 PM",
           "sun": "9:30 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": "Open daily April 1 – December 30, except Thanksgiving and Christmas; last admission at 4:30 PM. Feb–Mar open Wed–Sun 9:30 AM – 4:00 PM; January by appointment only. Same attraction as sandwich-glass-museum.",
-        "source_url": "https://sandwichglassmuseum.org/pages/visit",
-        "summary": null
+        "source_url": "https://sandwichglassmuseum.org/pages/visit"
       },
       "museum_reservation": null
     },
@@ -7070,9 +7025,9 @@
           "sat": "11:00 AM – 9:00 PM",
           "sun": "11:00 AM – 8:00 PM"
         },
+        "summary": null,
         "notes": "Seasonal operation approx. March–December. Hours vary by season: mid-April through mid-October open Wed–Sun; extended hours in summer. Fri–Sat open until 9 PM, Sun until 8 PM. Located on the Rose Kennedy Greenway, Boston.",
-        "source_url": "https://www.rosekennedygreenway.org/carousel/",
-        "summary": null
+        "source_url": "https://www.rosekennedygreenway.org/carousel/"
       },
       "museum_reservation": null
     },
@@ -7093,35 +7048,7 @@
         "cohasset",
         "hingham"
       ],
-      "original_price": {
-        "age_pricing": {
-          "adult": {
-            "price": 0,
-            "min_age": null,
-            "max_age": null
-          },
-          "youth": null,
-          "child": {
-            "price": 0,
-            "min_age": null,
-            "max_age": null
-          },
-          "senior": {
-            "price": 0,
-            "min_age": null,
-            "max_age": null
-          },
-          "free_under_age": null
-        },
-        "identity_pricing": {
-          "student": null,
-          "educator": null,
-          "military": null
-        },
-        "family": null,
-        "notes": "Pay what you wish; suggested donations apply",
-        "source_url": "https://ussconstitutionmuseum.org/admission"
-      },
+      "original_price": null,
       "hero_image": {
         "og_image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/USS_Constitution_Museum.jpg",
         "local_path": "static/images/uss-constitution-museum.jpg"
@@ -7141,9 +7068,9 @@
           "sat": "9:30 AM – 5:00 PM",
           "sun": "9:30 AM – 5:00 PM"
         },
+        "summary": null,
         "notes": null,
-        "source_url": "https://ussconstitutionmuseum.org/plan-your-visit/",
-        "summary": null
+        "source_url": "https://ussconstitutionmuseum.org/plan-your-visit/"
       },
       "museum_reservation": null
     },
@@ -7191,10 +7118,7 @@
         "notes": "$12 per person (adults and children 1 year and up). EBT cardholders: $5/person (up to two family members). Blue Star Museum (active/retired military): free for up to 6 family members (Memorial Day-Labor Day). MTA cardholders: free. Wonder Fund (foster care families): 50% off up to six family members. Members: unlimited free visits.",
         "source_url": "https://www.cmeaston.org/visit/hours-admission/"
       },
-      "hero_image": {
-        "og_image_url": "https://www.cmeaston.org/wp-content/uploads/bb-plugin/cache/boy-in-hardhat-circle.png",
-        "local_path": "static/images/childrens-museum-easton.png"
-      },
+      "hero_image": null,
       "geo": {
         "lat": 42.0668822,
         "lon": -71.1024549
@@ -7210,9 +7134,9 @@
           "sat": "12:30 PM – 4:00 PM",
           "sun": "12:30 PM – 4:00 PM"
         },
+        "summary": null,
         "notes": "\"Closed Monday\". Tue–Fri: \"9:30am to 3:00 pm\"; Sat–Sun: \"12:30am to 4:00pm\" (source lists 12:30am, likely a typo for 12:30pm). \"The last admission of the day is 45 minutes prior to our closing time as our doors lock at that time.\"",
-        "source_url": "https://www.cmeaston.org/visit/hours-admission/",
-        "summary": null
+        "source_url": "https://www.cmeaston.org/visit/hours-admission/"
       },
       "museum_reservation": null
     },
@@ -7274,9 +7198,9 @@
           "sat": "10 AM – 5 PM",
           "sun": "10 AM – 5 PM"
         },
+        "summary": null,
         "notes": "Open daily during season (late April through late October). Hours may vary for special events. Same attraction as heritage-museums-and-gardens.",
-        "source_url": "https://www.heritagemuseumsandgardens.org/plan-your-visit/",
-        "summary": null
+        "source_url": "https://www.heritagemuseumsandgardens.org/plan-your-visit/"
       },
       "museum_reservation": null
     },
@@ -7314,9 +7238,9 @@
           "sat": "10:00 AM – 4:00 PM",
           "sun": "10:00 AM – 4:00 PM"
         },
+        "summary": null,
         "notes": "Closed Thanksgiving, Christmas, and New Year's Day.",
-        "source_url": "https://www.maah.org/boston-location",
-        "summary": null
+        "source_url": "https://www.maah.org/boston-location"
       },
       "museum_reservation": {
         "required": true,
@@ -7356,9 +7280,9 @@
           "sat": "9:00 AM – 5:30 PM",
           "sun": "9:00 AM – 5:30 PM"
         },
+        "summary": null,
         "notes": "Operating hours vary by season and tour schedule; confirm specific cruise times on the website.",
-        "source_url": "https://www.charlesriverboat.com/",
-        "summary": null
+        "source_url": "https://www.charlesriverboat.com/"
       },
       "museum_reservation": null
     },
@@ -7409,10 +7333,7 @@
         "notes": "Adults: $15; Seniors: $10; Students: $10; Children 12 or younger: free; EBT or WIC Cardholders: free; Blue Star Families (active duty military): free; MTA Members (Massachusetts Teachers Association): free. Admission to Slave Quarters (includes archaeological exhibit, gift shop, restrooms) is always free.",
         "source_url": "https://royallhouse.org/visit/hours-and-admission/"
       },
-      "hero_image": {
-        "og_image_url": "https://royallhouse.org/wp-content/uploads/2013/05/exterior_SQ_from_house_porch.jpg",
-        "local_path": "static/images/royall-house.jpg"
-      },
+      "hero_image": null,
       "geo": {
         "lat": 42.4121662,
         "lon": -71.1117338
@@ -7428,9 +7349,9 @@
           "sat": "1:00 PM – 4:00 PM",
           "sun": "1:00 PM – 4:00 PM"
         },
+        "summary": null,
         "notes": "Open weekends (Sat–Sun) only during the public tour season. 2026 season opens June 6; a prior season ran \"Saturday, June 7, to Sunday, October 12\" suggesting roughly June–October. \"The museum is open from 1:00-4:00 pm Saturday and Sunday.\" Tours are guided and begin at the top of the hour. Group/school tours available mid-March to mid-November by arrangement (email manager@royallhouse.org).",
-        "source_url": "https://royallhouse.org/visit/",
-        "summary": null
+        "source_url": "https://royallhouse.org/visit/"
       },
       "museum_reservation": null
     },
@@ -7448,10 +7369,7 @@
         "milton"
       ],
       "original_price": null,
-      "hero_image": {
-        "og_image_url": "https://cdn.prod.website-files.com/673ebf0eedfc15a41bedc0c3/67bc7ff63736a0023fe8f4bb_sc-home.webp",
-        "local_path": "static/images/maplewood-day-camp.webp"
-      },
+      "hero_image": null,
       "geo": {
         "lat": 42.0074162,
         "lon": -71.073125
@@ -7467,9 +7385,9 @@
           "sat": "Closed",
           "sun": "Closed"
         },
+        "summary": null,
         "notes": "Summer camp season only. \"Summer 2026 will start on Monday, June 22nd, and ends on Friday, August 14th\" plus an optional 9th week August 17–21. Buses arrive 8:55–9:10 AM, first activity at 9:30; \"buses leave at 3:40 pm\". Extended care available: morning 7:30–9:00 AM, afternoon 4:00–6:00 PM (extra enrollment). Also operates a School Year program. No weekend sessions.",
-        "source_url": "https://www.maplewoodyearround.com/summer-camp",
-        "summary": null
+        "source_url": "https://www.maplewoodyearround.com/summer-camp"
       },
       "museum_reservation": null
     },
@@ -7498,9 +7416,9 @@
       "hours": {
         "status": "seasonal",
         "regular_hours": null,
+        "summary": null,
         "notes": "Seasonal summer hours only. Maritime Museum and other properties open in summer (typically July–August); check cohassethistoricalsociety.org for current season schedule. Closed in winter.",
-        "source_url": "https://www.cohassethistoricalsociety.org/maritime-museum",
-        "summary": null
+        "source_url": "https://www.cohassethistoricalsociety.org/maritime-museum"
       },
       "museum_reservation": null
     }

@@ -1,15 +1,15 @@
 {
   "slug": "the-childrens-piazza",
   "status": "ok",
-  "adult": 0,
-  "child": null,
+  "adult": 6,
+  "child": 12,
   "youth": null,
   "senior": null,
   "student": null,
   "military": null,
   "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Free admission; community children's space",
-  "source_url": "https://www.thechildrenspiazza.com/"
+  "free_under_age": 1,
+  "notes": "Drop-in play: $12 first child, $6 each sibling, $5 infant <12mo if no sibling (infants free with a sibling), additional adult $6 (one adult included per child).",
+  "source_url": "https://www.sauguspubliclibrary.org/new-museum-pass-the-childrens-piazza/"
 }

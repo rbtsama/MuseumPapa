@@ -1,15 +1,15 @@
 {
   "slug": "the-spellman-museum-of-stamps-and-postal-history",
   "status": "ok",
-  "adult": 0,
-  "child": null,
+  "adult": 8,
+  "child": 3,
   "youth": null,
-  "senior": null,
+  "senior": 5,
   "student": null,
-  "military": null,
+  "military": 6,
   "educator": null,
   "family": null,
-  "free_under_age": null,
-  "notes": "Free admission; museum admission included in ticket cost for events",
-  "source_url": "https://www.spellmanmuseum.org/"
+  "free_under_age": 5,
+  "notes": "Adult $8, senior $5, child 5-16 $3, under 5 free. $2 off adult rate (=$6) for AAA, MTA, APS, active-duty/retired US military. Members and Regis College ID free; EBT/WIC/ConnectorCare free.",
+  "source_url": "https://spellmanmuseum.org/contact-us/"
 }

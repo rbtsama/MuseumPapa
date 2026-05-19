@@ -1,7 +1,7 @@
 {
   "slug": "christian-science-plaza",
-  "status": "ok",
-  "adult": 0,
+  "status": "needs_review",
+  "adult": null,
   "child": null,
   "youth": null,
   "senior": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Free admission to plaza; Mapparium has separate paid admission",
-  "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza"
+  "notes": "Outdoor Plaza itself is free. Library passes for this entity actually grant access to the Mapparium (paid attraction inside the Mary Baker Eddy Library); confirm pricing context against the Mapparium ticket page before publishing a number.",
+  "source_url": "https://www.marybakereddylibrary.org/"
 }

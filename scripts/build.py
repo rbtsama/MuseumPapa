@@ -62,6 +62,15 @@ def main() -> int:
     config_root = REPO / "config"
     structured.mkdir(parents=True, exist_ok=True)
 
+    # 0. Pre-flight: catch the "free-by-default hallucination" class of bug
+    #    before it propagates into structured/. See scripts/validate_attraction_prices.py.
+    print("Validating attraction_prices/*.json...")
+    import validate_attraction_prices  # sibling script
+    rc = validate_attraction_prices.main()
+    if rc != 0:
+        print("Aborting build: fix the suspect price records above first.", file=sys.stderr)
+        return rc
+
     # 1. library_catalog.json (intermediate)
     print("Building library_catalog.json...")
     catalog = build_library_catalog(raw_root, config_root=config_root)

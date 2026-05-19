@@ -1,7 +1,7 @@
 {
   "slug": "public-health-museum",
-  "status": "ok",
-  "adult": 0,
+  "status": "needs_review",
+  "adult": null,
   "child": null,
   "youth": null,
   "senior": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Free admission; donations welcome",
-  "source_url": "https://www.publichealthmuseum.org/"
+  "notes": "Charges admission (amount not published online). Free for library-pass holders, museum members, veterans, and children's groups. Tours by reservation only. Contact museum for fee.",
+  "source_url": "https://www.publichealthmuseum.org/visit-us.html"
 }

@@ -6,14 +6,14 @@ import type { PassTypeKind } from '../data/types';
  * Color gradient (calm → cautious — what UX feels increasingly inconvenient):
  *   - Email   = forest green (calm, instant, no friction)
  *   - Pickup  = amber (some friction, you drive once)
- *   - Borrow  = orange (most friction, you drive twice — collect and return)
+ *   - Pik&Rtn = orange (most friction, you drive twice — collect and return)
  *
  * Same hue family so the page isn't noisy, but distinguishable.
  */
 const META: Record<PassTypeKind, { label: string; fg: string; bg: string }> = {
   'digital':         { label: 'Email',  fg: 'var(--g)',     bg: 'var(--g-pale)'  },
   'physical-coupon': { label: 'Pickup', fg: 'var(--au)',    bg: 'var(--au-pale)' },
-  'physical-circ':   { label: 'Borrow', fg: 'var(--or)',    bg: 'var(--or-pale)' },
+  'physical-circ':   { label: 'Pik&Rtn', fg: 'var(--or)',    bg: 'var(--or-pale)' },
   'unknown':         { label: 'Pass',   fg: 'var(--ink-3)', bg: 'var(--paper)'   },
 };
 

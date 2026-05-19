@@ -1,7 +1,7 @@
 {
   "slug": "the-trustees-of-the-reservations",
-  "status": "ok",
-  "adult": 0,
+  "status": "needs_review",
+  "adult": null,
   "child": null,
   "youth": null,
   "senior": null,
@@ -10,6 +10,6 @@
   "educator": null,
   "family": null,
   "free_under_age": null,
-  "notes": "Free admission noted on page; Trustees members always free",
-  "source_url": "http://www.thetrustees.org/"
+  "notes": "Umbrella of 100+ properties — some are free (most parks/reservations), others charge (Castle Hill, Crane Estate, Naumkeag, etc.; typically $5-$25). Cannot collapse to a single 'free' price.",
+  "source_url": "https://thetrustees.org/"
 }
