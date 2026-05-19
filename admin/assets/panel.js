@@ -203,23 +203,12 @@ function renderCell(pass, attraction, opts = {}) {
   return el("div", { class: cls, onclick: () => openDrawer(attraction, pass) },
     passTypePill(pass.pass_type),
     renderCouponLine(pass.coupon),
-    (() => {
-      const loc = locationLabel(pass);
-      const dist = STATE.homeGeo && attraction.geo
-        ? haversineMi(STATE.homeGeo, attraction.geo) : null;
-      const distLabel = (opts.best && dist != null)
-        ? el("span", { class: "dist" }, ` · ${dist.toFixed(1)} mi`) : null;
-      return el("div", { class: "cell-loc" }, loc, distLabel);
-    })(),
+    el("div", { class: "cell-loc" }, locationLabel(pass)),
     (() => {
       const cap = formatCapacity(pass.coupon?.capacity);
       return cap ? el("div", { class: "cell-cap" }, cap) : null;
     })(),
     hasRestrictions(pass) ? el("div", { class: "cell-restr" }, restrictionLabel(pass)) : null,
-    opts.best ? (() => {
-      const lib = STATE.libs.find(l => l.id === pass.library_id);
-      return el("div", { class: "cell-srclib" }, `from ${lib?.name || pass.library_id}`);
-    })() : null,
   );
 }
 
@@ -296,7 +285,6 @@ function renderMatrix() {
   const selLibs = STATE.libs.filter(l => STATE.selectedLibs.has(l.id));
 
   thead.appendChild(el("th", { class: "attr-col" }, "Attraction"));
-  thead.appendChild(el("th", { class: "best-col" }, "★ BEST"));
   for (const l of selLibs) {
     const short = l.name.replace(/\sPublic Library$/, "").replace(/\sLibrary$/, "");
     thead.appendChild(el("th", {}, short));
@@ -305,47 +293,70 @@ function renderMatrix() {
   const attrs = sortedVisible();
   const rows = [];
   for (const a of attrs) {
-    const best = bestPassFor(a);
-    if (STATE.showOnlyCovered && !best) continue;
-    rows.push({ a, best });
+    // For each row, compute best pass index among visible selLibs.
+    // Tie-break: first (leftmost) library wins.
+    const cells = selLibs.map(l => (STATE.passesByAttr[a.slug] || []).find(p => p.library_id === l.id) || null);
+    let bestIdx = -1, bestScore = -1;
+    cells.forEach((p, i) => {
+      if (!p) return;
+      const s = couponStrength(p, a);
+      if (s > bestScore) { bestScore = s; bestIdx = i; }
+    });
+    if (STATE.showOnlyCovered && bestIdx < 0) continue;
+    rows.push({ a, cells, bestIdx });
   }
 
-  // nearest 3 from BEST
-  let nearest = new Set();
+  // nearest 3 attractions by distance (highlight the BEST cell of those rows)
+  let nearestSlugs = new Set();
   if (STATE.homeGeo) {
     const ranked = rows
-      .filter(r => r.best && r.a.geo?.lat != null)
+      .filter(r => r.bestIdx >= 0 && r.a.geo?.lat != null)
       .map(r => ({ slug: r.a.slug, d: haversineMi(STATE.homeGeo, r.a.geo) }))
       .filter(x => x.d != null)
       .sort((x, y) => x.d - y.d)
       .slice(0, 3);
-    nearest = new Set(ranked.map(x => x.slug));
+    nearestSlugs = new Set(ranked.map(x => x.slug));
   }
 
-  for (const { a, best } of rows) {
+  for (const { a, cells, bestIdx } of rows) {
     const tr = el("tr");
     const origPrice = a.original_price?.age_pricing?.adult?.price;
     const dist = STATE.homeGeo && a.geo ? haversineMi(STATE.homeGeo, a.geo) : null;
+
+    // Attraction column — thumbnail + serif name + price + distance + categories
+    const heroSrc = a.hero_image ? `../web/public/images/${a.hero_image}` : null;
+    const thumb = heroSrc
+      ? el("img", { class: "attr-thumb", src: heroSrc, alt: "", onerror: "this.style.display='none'" })
+      : el("div", { class: "attr-thumb attr-thumb-fallback" }, "—");
+    const cats = (a.categories || []).slice(0, 3).map(c => el("span", { class: "attr-cat" }, c));
     tr.appendChild(el("td", { class: "attr-col" },
-      el("span", { class: "attr-name" }, a.museum_name),
-      el("span", { class: "attr-meta" },
-        origPrice ? `Adult $${origPrice}` : "no price",
-        dist != null ? el("span", { class: "dist-tag" }, ` · ${dist.toFixed(1)} mi`) : null,
+      el("div", { class: "attr-row" },
+        thumb,
+        el("div", {},
+          el("span", { class: "attr-name" }, a.museum_name),
+          el("span", { class: "attr-meta" },
+            origPrice ? el("span", { class: "price-tag" }, `Adult $${origPrice}`) : "no price",
+            dist != null ? el("span", { class: "dist-tag" }, ` · ${dist.toFixed(1)} mi`) : null,
+          ),
+          cats.length ? el("div", { class: "attr-categories" }, cats) : null,
+        ),
       ),
     ));
-    tr.appendChild(el("td", {}, renderCell(best, a, { best: true, nearest: nearest.has(a.slug) })));
-    for (const l of selLibs) {
-      const p = (STATE.passesByAttr[a.slug] || []).find(p => p.library_id === l.id);
-      tr.appendChild(el("td", {}, renderCell(p, a)));
-    }
+
+    cells.forEach((p, i) => {
+      const isBest = i === bestIdx;
+      const isNear = isBest && nearestSlugs.has(a.slug);
+      tr.appendChild(el("td", {}, renderCell(p, a, { best: isBest, nearest: isNear })));
+    });
     tbody.appendChild(tr);
   }
 
   // stat
-  const covered = rows.filter(r => r.best).length;
+  const covered = rows.filter(r => r.bestIdx >= 0).length;
   const free = rows.filter(r => {
-    if (!r.best) return false;
-    return (r.best.coupon?.audience_policies || []).some(p => p.form === "free");
+    if (r.bestIdx < 0) return false;
+    const p = r.cells[r.bestIdx];
+    return (p.coupon?.audience_policies || []).some(pol => pol.form === "free");
   }).length;
   $("#stat-summary").textContent =
     `${STATE.selectedLibs.size} cards · ${covered}/${STATE.attractions.length} attractions covered · ${free} FREE`

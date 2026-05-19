@@ -78,18 +78,31 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .matrix thead th { position: sticky; top: 0; background: var(--paper); z-index: 2; font-weight: 600;
   color: var(--ink-2); text-align: left; min-width: 180px; max-width: 200px; padding: 8px 10px;
   font-size: 11px; line-height: 1.3; border-bottom: 1px solid var(--rule-strong); }
-.matrix thead th.best-col { background: var(--g-pale); color: var(--g); }
-.matrix thead th.attr-col { left: 0; z-index: 3; min-width: 240px; max-width: 240px; background: var(--paper); }
-.matrix tbody td.attr-col { position: sticky; left: 0; background: var(--white); z-index: 1; padding: 10px 12px;
-  min-width: 240px; max-width: 240px; }
+.matrix thead th.attr-col { left: 0; z-index: 3; min-width: 280px; max-width: 280px;
+  background: var(--ink-2); color: var(--white); border-right: 2px solid var(--g); }
+
+/* Attraction column — visually distinct sidebar with thumbnail + serif name */
+.matrix tbody td.attr-col { position: sticky; left: 0; background: var(--paper); z-index: 1;
+  padding: 12px 14px; min-width: 280px; max-width: 280px; border-right: 2px solid var(--g); }
 .matrix tbody tr:hover td { background: var(--g-pale); }
 .matrix tbody tr:hover td.attr-col { background: var(--g-light); }
-.attr-name { display: block; font-weight: 500; font-size: 13px; color: var(--ink-2); line-height: 1.35; }
-.attr-meta { display: block; color: var(--ink-3); font-size: 11px; margin-top: 3px; }
+
+.attr-row { display: grid; grid-template-columns: 56px 1fr; gap: 10px; align-items: start; }
+.attr-thumb { width: 56px; height: 56px; border-radius: 4px; background: var(--rule); object-fit: cover;
+  border: 1px solid var(--rule-strong); flex-shrink: 0; }
+.attr-thumb-fallback { display: flex; align-items: center; justify-content: center;
+  color: var(--ink-3); font-size: 10px; }
+.attr-name { display: block; font-family: 'Libre Baskerville', Georgia, serif;
+  font-weight: 700; font-size: 14px; color: var(--ink); line-height: 1.25; }
+.attr-meta { display: block; color: var(--ink-3); font-size: 11px; margin-top: 4px; line-height: 1.4; }
+.attr-meta .price-tag { color: var(--ink-2); font-weight: 600; }
 .attr-meta .dist-tag { color: var(--g); font-weight: 600; }
+.attr-categories { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 5px; }
+.attr-cat { font-size: 10px; padding: 1px 5px; border-radius: 2px;
+  background: var(--white); color: var(--ink-3); border: 1px solid var(--rule); }
 
 /* ─────────── cell ─────────── */
-.cell { padding: 8px 10px; cursor: pointer; min-height: 56px; }
+.cell { padding: 8px 10px; cursor: pointer; min-height: 56px; position: relative; overflow: hidden; }
 .cell:hover { background: var(--g-pale); outline: 1.5px solid var(--g); outline-offset: -1.5px; }
 .cell-empty { color: var(--rule-strong); padding: 8px 10px; cursor: default; text-align: center; font-size: 11px; }
 .cell-empty:hover { background: transparent; outline: none; }
@@ -112,12 +125,24 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
   border: 1px solid var(--rd); padding: 1px 5px; border-radius: 3px; }
 .cell-srclib { font-size: 11px; color: var(--g); margin-top: 4px; font-weight: 500; }
 
+/* BEST cell — green tint background + diagonal corner ribbon */
 .cell.best { background: var(--g-pale); }
 .cell.best:hover { background: var(--g-light); }
-.cell.nearest { box-shadow: inset 0 0 0 2px var(--rd); position: relative; }
-.cell.nearest::after { content: "NEAREST"; position: absolute; top: 4px; right: 6px;
+.cell.best::before {
+  content: "BEST"; position: absolute; top: 8px; right: -22px;
+  background: var(--g); color: var(--white); font-size: 9px; font-weight: 700;
+  letter-spacing: 0.6px; padding: 2px 24px; transform: rotate(45deg);
+  transform-origin: center; box-shadow: 0 1px 2px rgba(0,0,0,0.15); z-index: 1;
+}
+/* NEAREST cell — red corner ribbon (can stack with BEST: stays below BEST) */
+.cell.nearest::after {
+  content: "NEAR"; position: absolute; top: 26px; right: -22px;
   background: var(--rd); color: var(--white); font-size: 9px; font-weight: 700;
-  padding: 1px 4px; border-radius: 2px; letter-spacing: 0.5px; }
+  letter-spacing: 0.6px; padding: 2px 24px; transform: rotate(45deg);
+  transform-origin: center; box-shadow: 0 1px 2px rgba(0,0,0,0.15); z-index: 1;
+}
+/* When BEST is not on the cell but NEAREST is, lift the NEAR ribbon to the top */
+.cell:not(.best).nearest::after { top: 8px; }
 
 /* ─────────── drawer ─────────── */
 .drawer { position: fixed; top: 48px; right: -480px; width: 480px; height: calc(100vh - 48px);
