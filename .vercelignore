@@ -1,0 +1,26 @@
+# Stop Vercel from auto-detecting this repo as a Python project.
+# The actual app is in web/ (Vite + React) — see root vercel.json.
+pyproject.toml
+.python-version
+.venv/
+__pycache__/
+
+# Python source + raw scrape outputs — only consumed at build time by
+# web/sync-admin.mjs, which reads from the still-included data/structured/
+# (which IS uploaded because .vercelignore is allowlist-style exclude).
+src/
+scripts/
+tests/
+docs/
+audit/
+
+# Large raw / snapshot data — not needed for the deployed frontend
+data/raw/
+data/snapshots/
+data/dynamic/
+data/changelog/
+data/static/
+
+# Local-only
+.claude/
+.env
