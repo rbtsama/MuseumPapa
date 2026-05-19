@@ -1,144 +1,162 @@
-// MuseumPapa Admin Panel — interactive matrix viewer for libraries × attractions
-// Data source: ../data/structured/{passes,libraries,attractions,branches}.json
+// MuseumPapa Admin Panel — interactive matrix viewer (libraries × attractions)
+// Output format aligned with web/ frontend CouponLine + PassTypeLabel conventions.
 
 const OWNED_LIB_IDS = new Set(["wakefield", "reading", "bpl", "wilmington", "somerville"]);
 
 const STATE = {
-  libs: [],
-  attractions: [],
-  branches: {},      // id -> branch
-  passes: [],
-  passesByAttr: {},  // slug -> [pass...]
+  libs: [], attractions: [], branches: {}, passes: [], passesByAttr: {},
   selectedLibs: new Set(),
-  audience: { adult: 2, child: 2, senior: 0, youth: 0 },
-  homeGeo: null,     // {lat, lng, zip}
+  homeGeo: null,
   showOnlyCovered: true,
-  showRestrictions: true,
   sortMode: "coverage-desc",
   categoryFilter: "",
 };
 
-// ---------- helpers ----------
-function $(sel) { return document.querySelector(sel); }
-function $$(sel) { return [...document.querySelectorAll(sel)]; }
+// ---------- DOM helpers ----------
+const $ = (s) => document.querySelector(s);
 function el(tag, attrs = {}, ...kids) {
   const e = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
+    if (v == null || v === false) continue;
     if (k === "class") e.className = v;
     else if (k === "html") e.innerHTML = v;
     else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
     else e.setAttribute(k, v);
   }
   for (const kid of kids.flat()) {
-    if (kid == null) continue;
-    e.appendChild(typeof kid === "string" ? document.createTextNode(kid) : kid);
+    if (kid == null || kid === false) continue;
+    e.appendChild(typeof kid === "string" || typeof kid === "number"
+      ? document.createTextNode(String(kid)) : kid);
   }
   return e;
 }
 
 function haversineMi(a, b) {
   if (!a || !b) return null;
-  const R = 3958.8, toRad = (x) => x * Math.PI / 180;
-  const dLat = toRad(b.lat - a.lat), dLng = toRad(b.lng - a.lng);
-  const s = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;
+  const R = 3958.8, rad = (x) => x * Math.PI / 180;
+  const dLat = rad(b.lat - a.lat), dLng = rad(b.lng - a.lng);
+  const s = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLng / 2) ** 2;
   return 2 * R * Math.asin(Math.sqrt(s));
 }
 
 // ---------- data load ----------
 async function loadData() {
-  const fetchJson = (p) => fetch(p).then((r) => {
-    if (!r.ok) throw new Error(`${p} ${r.status}`); return r.json();
-  });
+  const fetchJson = async (p) => {
+    const r = await fetch(p);
+    if (!r.ok) throw new Error(`${p} → ${r.status}`);
+    return r.json();
+  };
   const [libsD, attrsD, branchesD, passesD] = await Promise.all([
     fetchJson("../data/structured/libraries.json"),
     fetchJson("../data/structured/attractions.json"),
     fetchJson("../data/structured/branches.json"),
     fetchJson("../data/structured/passes.json"),
   ]);
-  STATE.libs = libsD.libraries.sort((a, b) => a.name.localeCompare(b.name));
+  STATE.libs = libsD.libraries.slice().sort((a, b) => a.name.localeCompare(b.name));
   STATE.attractions = attrsD.attractions;
   for (const br of branchesD.branches) STATE.branches[br.id] = br;
   STATE.passes = passesD.passes;
   STATE.passesByAttr = {};
-  for (const p of STATE.passes) {
-    (STATE.passesByAttr[p.attraction_slug] ||= []).push(p);
-  }
-  // default selection: owned libs that exist
+  for (const p of STATE.passes) (STATE.passesByAttr[p.attraction_slug] ||= []).push(p);
   STATE.selectedLibs = new Set(STATE.libs.filter(l => OWNED_LIB_IDS.has(l.id)).map(l => l.id));
 }
 
-// ---------- coupon strength & label ----------
-// Returns a numeric score (higher = better) for ranking BEST cell
+// ---------- coupon formatting (mirrors web/src/components/CouponLine.tsx) ----------
+function bucket(audience) {
+  switch (audience) {
+    case "Adult": case "Senior": return "Adult";
+    case "Child": return "Child";
+    case "Youth": return "Youth";
+    case "Everyone": return "Everyone";
+    case "Vehicle": case "Single ticket": return null;
+    default: return null;
+  }
+}
+function fmtAmount(p) {
+  switch (p.form) {
+    case "free": return "FREE";
+    case "percent-off": return p.value != null ? `${p.value}% off` : "discount";
+    case "dollar-off": return p.value != null ? `$${p.value} off` : "discount";
+    case "per-person-price": return p.value != null ? `$${p.value}` : "discount";
+    case "discount": return "discount";
+    default: return p.form || "—";
+  }
+}
+function isRedundantAge(b, audience, age) {
+  if (!age) return true;
+  const { min, max } = age;
+  if (b === "Adult" && max == null && min != null && min >= 18 && min <= 19) return true;
+  if (b === "Adult" && audience === "Senior") return true;
+  if ((b === "Youth" || b === "Child") && min == null && max != null && max >= 17 && max <= 18) return true;
+  if (b === "Youth" && min === 13 && max === 17) return true;
+  return false;
+}
+function fmtAudienceLabel(p) {
+  const b = bucket(p.audience);
+  if (b == null) return null;
+  const age = p.age_range;
+  if (!age || isRedundantAge(b, p.audience, age)) return b;
+  const { min, max } = age;
+  if (min != null && max != null) return `age ${min}-${max}`;
+  if (max != null) return `age<${max + 1}`;
+  if (min != null) return `age ${min}+`;
+  return b;
+}
+function formatCapacity(cap) {
+  if (!cap || cap.n == null || cap.n <= 0) return null;
+  if (cap.kind === "people" || cap.kind === "ticket") return `up to ${cap.n}`;
+  return null;
+}
+function isNonAdmission(coupon) {
+  if (coupon?.capacity?.kind === "vehicle") return true;
+  return (coupon?.audience_policies || []).some(p => p.audience === "Vehicle");
+}
+
+function renderCouponLine(coupon) {
+  if (!coupon?.audience_policies?.length) return el("div", { class: "cell-prices" }, "—");
+  if (isNonAdmission(coupon)) {
+    return el("div", { class: "cell-prices" }, el("span", { class: "amount" }, "Parking Discount"));
+  }
+  const wrap = el("div", { class: "cell-prices" });
+  coupon.audience_policies.forEach((p, i) => {
+    if (i > 0) wrap.appendChild(el("span", { class: "sep" }, "·"));
+    const label = fmtAudienceLabel(p);
+    if (label && label !== "Everyone") wrap.appendChild(el("span", { class: "label" }, label + " "));
+    wrap.appendChild(el("span", { class: "amount" }, fmtAmount(p)));
+  });
+  return wrap;
+}
+
+// ---------- pass-type pill ----------
+const PASS_TYPE_META = {
+  "digital":         { label: "Email",  cls: "pill-email" },
+  "physical-coupon": { label: "Pickup", cls: "pill-pickup" },
+  "physical-circ":   { label: "Borrow", cls: "pill-borrow" },
+  "unknown":         { label: "Pass",   cls: "pill-unknown" },
+};
+function passTypePill(t) {
+  const m = PASS_TYPE_META[t] || PASS_TYPE_META.unknown;
+  return el("span", { class: `pill ${m.cls}` }, m.label);
+}
+
+// ---------- BEST ranking ----------
 function couponStrength(pass, attraction) {
   if (!pass) return -1;
-  const c = pass.coupon || {};
-  const pols = c.audience_policies || [];
+  const pols = pass.coupon?.audience_policies || [];
   let s = 0;
-  for (const pol of pols) {
-    if (pol.form === "free") s = Math.max(s, 1000);
-    else if (pol.form === "percent-off") s = Math.max(s, pol.value || 0);
-    else if (pol.form === "dollar-off") s = Math.max(s, (pol.value || 0) * 2);
-    else if (pol.form === "per-person-price") {
-      // lower price = stronger; compare against attraction.original_price.age_pricing.adult
+  for (const p of pols) {
+    if (p.form === "free") s = Math.max(s, 1000);
+    else if (p.form === "percent-off") s = Math.max(s, p.value || 0);
+    else if (p.form === "dollar-off") s = Math.max(s, (p.value || 0) * 2);
+    else if (p.form === "per-person-price") {
       const orig = attraction?.original_price?.age_pricing?.adult?.price;
-      if (orig && pol.value < orig) s = Math.max(s, ((orig - pol.value) / orig) * 100);
-    } else if (pol.form === "discount") s = Math.max(s, pol.value || 0);
+      if (orig && p.value < orig) s = Math.max(s, ((orig - p.value) / orig) * 100);
+    } else if (p.form === "discount") s = Math.max(s, p.value || 0);
   }
   return s;
 }
-
-function classifyCouponClass(pass) {
-  const pols = pass?.coupon?.audience_policies || [];
-  if (pols.some(p => p.form === "free")) return "free";
-  const forms = new Set(pols.map(p => p.form));
-  if (forms.has("percent-off")) return "pct";
-  if (forms.has("dollar-off"))  return "dollar";
-  if (forms.has("per-person-price")) return "perp";
-  if (forms.has("discount")) return "disc";
-  return "";
-}
-
-function summaryLabel(pass) {
-  const pols = pass?.coupon?.audience_policies || [];
-  if (!pols.length) return "—";
-  // most discounted policy wins for label
-  const labels = pols.map(p => {
-    const a = p.audience && p.audience !== "Everyone" ? p.audience[0] : "";
-    if (p.form === "free") return a ? `${a}:FREE` : "FREE";
-    if (p.form === "percent-off") return `${p.value}% off${a ? " " + a : ""}`;
-    if (p.form === "dollar-off") return `$${p.value} off${a ? " " + a : ""}`;
-    if (p.form === "per-person-price") return `$${p.value}${a ? "/" + a.toLowerCase() : "/pp"}`;
-    if (p.form === "discount") return `disc:${p.value}`;
-    return p.form;
-  });
-  return labels.join(" · ");
-}
-
-function methodIcon(pass) {
-  const m = pass?.pickup_method;
-  if (m === "digital") return "📧";
-  if (m === "physical_at_branch") return "🏛";
-  return "·";
-}
-
-function audienceIcons(pass) {
-  const pols = pass?.coupon?.audience_policies || [];
-  const set = new Set();
-  for (const p of pols) {
-    if (p.audience === "Everyone") set.add("👨").add("👧").add("👴");
-    else if (p.audience === "Adult") set.add("👨");
-    else if (p.audience === "Child") set.add("👧");
-    else if (p.audience === "Senior") set.add("👴");
-    else if (p.audience === "Youth") set.add("🧑");
-    else if (p.audience === "Vehicle") set.add("🚗");
-  }
-  return [...set].join("");
-}
-
-// ---------- BEST computation per attraction ----------
 function bestPassFor(attraction) {
-  const slug = attraction.slug;
-  const candidates = (STATE.passesByAttr[slug] || []).filter(p => STATE.selectedLibs.has(p.library_id));
+  const candidates = (STATE.passesByAttr[attraction.slug] || []).filter(p => STATE.selectedLibs.has(p.library_id));
   if (!candidates.length) return null;
   let best = candidates[0], bestScore = couponStrength(best, attraction);
   for (const p of candidates.slice(1)) {
@@ -148,7 +166,64 @@ function bestPassFor(attraction) {
   return best;
 }
 
-// ---------- rendering ----------
+// ---------- pickup location label (mirrors web/ CouponRow logic) ----------
+function locationLabel(pass) {
+  const lib = STATE.libs.find(l => l.id === pass.library_id);
+  if (!lib) return pass.library_id;
+  if (pass.pickup_method === "digital") return lib.name;
+  const brs = (pass.pickup_branches || []).map(bid => STATE.branches[bid]).filter(Boolean);
+  if (brs.length > 1) return `${lib.town} · ${brs.length} branches`;
+  if (brs.length === 1 && brs[0].id !== `${lib.id}--main`) return brs[0].name;
+  return lib.town;
+}
+
+// ---------- restrictions summary ----------
+function hasRestrictions(pass) {
+  const r = pass.restrictions;
+  if (!r) return false;
+  return Object.entries(r).some(([k, v]) =>
+    v != null && v !== false && (!Array.isArray(v) || v.length > 0));
+}
+function restrictionLabel(pass) {
+  const r = pass.restrictions || {};
+  const bits = [];
+  if (r.blackout_dates?.length) bits.push("blackout");
+  if (r.weekdays_only) bits.push("weekdays only");
+  if (r.seasonal) bits.push(`seasonal: ${r.seasonal}`);
+  if (r.reservation_required) bits.push("reservation");
+  if (r.lead_time_days) bits.push(`${r.lead_time_days}d lead`);
+  if (r.hold_period_days) bits.push(`${r.hold_period_days}d hold`);
+  return bits.length ? bits.join(" · ") : "with restrictions";
+}
+
+// ---------- cell render ----------
+function renderCell(pass, attraction, opts = {}) {
+  if (!pass) return el("div", { class: "cell-empty" }, "—");
+  const cls = "cell" + (opts.best ? " best" : "") + (opts.nearest ? " nearest" : "");
+  return el("div", { class: cls, onclick: () => openDrawer(attraction, pass) },
+    passTypePill(pass.pass_type),
+    renderCouponLine(pass.coupon),
+    (() => {
+      const loc = locationLabel(pass);
+      const dist = STATE.homeGeo && attraction.geo
+        ? haversineMi(STATE.homeGeo, attraction.geo) : null;
+      const distLabel = (opts.best && dist != null)
+        ? el("span", { class: "dist" }, ` · ${dist.toFixed(1)} mi`) : null;
+      return el("div", { class: "cell-loc" }, loc, distLabel);
+    })(),
+    (() => {
+      const cap = formatCapacity(pass.coupon?.capacity);
+      return cap ? el("div", { class: "cell-cap" }, cap) : null;
+    })(),
+    hasRestrictions(pass) ? el("div", { class: "cell-restr" }, restrictionLabel(pass)) : null,
+    opts.best ? (() => {
+      const lib = STATE.libs.find(l => l.id === pass.library_id);
+      return el("div", { class: "cell-srclib" }, `from ${lib?.name || pass.library_id}`);
+    })() : null,
+  );
+}
+
+// ---------- sidebar render ----------
 function renderLibList() {
   const wrap = $("#lib-list");
   const q = ($("#lib-filter").value || "").toLowerCase();
@@ -166,7 +241,7 @@ function renderLibList() {
           renderMatrix(); updateLibCount();
         },
       }),
-      `${l.name}`
+      l.name
     );
     wrap.appendChild(lab);
   }
@@ -174,7 +249,6 @@ function renderLibList() {
 function updateLibCount() {
   $("#lib-count").textContent = `${STATE.selectedLibs.size} / ${STATE.libs.length}`;
 }
-
 function renderCategoryFilter() {
   const cats = new Set();
   for (const a of STATE.attractions) (a.categories || []).forEach(c => cats.add(c));
@@ -182,13 +256,11 @@ function renderCategoryFilter() {
   for (const c of [...cats].sort()) sel.appendChild(el("option", { value: c }, c));
 }
 
-function sortedAttractions() {
-  const list = [...STATE.attractions];
-  if (STATE.categoryFilter) {
-    return list.filter(a => (a.categories || []).includes(STATE.categoryFilter)).sort(sortCmp);
-  }
-  return list.sort(sortCmp);
-  function sortCmp(a, b) {
+// ---------- sort + filter ----------
+function sortedVisible() {
+  let list = STATE.attractions.slice();
+  if (STATE.categoryFilter) list = list.filter(a => (a.categories || []).includes(STATE.categoryFilter));
+  list.sort((a, b) => {
     if (STATE.sortMode === "name-asc") return a.museum_name.localeCompare(b.museum_name);
     if (STATE.sortMode === "coverage-desc") {
       const ca = (STATE.passesByAttr[a.slug] || []).filter(p => STATE.selectedLibs.has(p.library_id)).length;
@@ -205,86 +277,80 @@ function sortedAttractions() {
       const pb = b.original_price?.age_pricing?.adult?.price || 0;
       return pb - pa || a.museum_name.localeCompare(b.museum_name);
     }
+    if (STATE.sortMode === "distance-asc") {
+      if (!STATE.homeGeo) return 0;
+      const da = a.geo ? haversineMi(STATE.homeGeo, a.geo) ?? 1e9 : 1e9;
+      const db = b.geo ? haversineMi(STATE.homeGeo, b.geo) ?? 1e9 : 1e9;
+      return da - db;
+    }
     return 0;
-  }
+  });
+  return list;
 }
 
+// ---------- main matrix render ----------
 function renderMatrix() {
-  const tbody = $("#matrix-body");
   const thead = $("#matrix-head");
+  const tbody = $("#matrix-body");
   thead.innerHTML = ""; tbody.innerHTML = "";
 
   const selLibs = STATE.libs.filter(l => STATE.selectedLibs.has(l.id));
 
-  // headers
   thead.appendChild(el("th", { class: "attr-col" }, "Attraction"));
-  thead.appendChild(el("th", { class: "best-col" }, "👑 BEST"));
-  for (const l of selLibs) thead.appendChild(el("th", {}, l.name.replace(" Public Library", "").replace(" Library", "")));
+  thead.appendChild(el("th", { class: "best-col" }, "★ BEST"));
+  for (const l of selLibs) {
+    const short = l.name.replace(/\sPublic Library$/, "").replace(/\sLibrary$/, "");
+    thead.appendChild(el("th", {}, short));
+  }
 
-  // body
-  const attrs = sortedAttractions();
-  const visibleAttrs = [];
+  const attrs = sortedVisible();
+  const rows = [];
   for (const a of attrs) {
     const best = bestPassFor(a);
     if (STATE.showOnlyCovered && !best) continue;
-    visibleAttrs.push({ a, best });
+    rows.push({ a, best });
   }
 
-  // top-3 nearest BEST(by distance from home)
-  let nearestSlugs = new Set();
+  // nearest 3 from BEST
+  let nearest = new Set();
   if (STATE.homeGeo) {
-    const distList = visibleAttrs
-      .filter(v => v.best && v.a.geo?.lat)
-      .map(v => ({ slug: v.a.slug, d: haversineMi(STATE.homeGeo, v.a.geo) }))
+    const ranked = rows
+      .filter(r => r.best && r.a.geo?.lat != null)
+      .map(r => ({ slug: r.a.slug, d: haversineMi(STATE.homeGeo, r.a.geo) }))
       .filter(x => x.d != null)
       .sort((x, y) => x.d - y.d)
       .slice(0, 3);
-    nearestSlugs = new Set(distList.map(x => x.slug));
+    nearest = new Set(ranked.map(x => x.slug));
   }
 
-  for (const { a, best } of visibleAttrs) {
+  for (const { a, best } of rows) {
     const tr = el("tr");
     const origPrice = a.original_price?.age_pricing?.adult?.price;
     const dist = STATE.homeGeo && a.geo ? haversineMi(STATE.homeGeo, a.geo) : null;
     tr.appendChild(el("td", { class: "attr-col" },
       el("span", { class: "attr-name" }, a.museum_name),
       el("span", { class: "attr-meta" },
-        `${origPrice ? "$" + origPrice + " adult" : "no price"}${dist != null ? " · " + dist.toFixed(1) + "mi" : ""}`)
+        origPrice ? `Adult $${origPrice}` : "no price",
+        dist != null ? el("span", { class: "dist-tag" }, ` · ${dist.toFixed(1)} mi`) : null,
+      ),
     ));
-
-    // BEST cell
-    if (best) {
-      const klass = `cell best ${nearestSlugs.has(a.slug) ? "nearest" : ""}`;
-      const lib = STATE.libs.find(l => l.id === best.library_id);
-      const distLabel = dist != null ? `${dist.toFixed(1)}mi` : "";
-      tr.appendChild(el("td", {},
-        el("div", { class: klass, onclick: () => openDrawer(a, best) },
-          el("div", { class: "cell-summary" }, `${nearestSlugs.has(a.slug) ? "🏠 " : ""}${summaryLabel(best)}`),
-          el("div", { class: "cell-icons" }, `${methodIcon(best)} ${audienceIcons(best)} · ${lib?.name.replace(" Public Library", "").replace(" Library", "") || best.library_id}${best.restrictions && STATE.showRestrictions ? " ⚠" : ""}`),
-          distLabel ? el("div", { class: "dist" }, distLabel) : null,
-        )));
-    } else {
-      tr.appendChild(el("td", {}, el("div", { class: "cell cell-empty" }, "—")));
-    }
-
-    // per-lib cells
+    tr.appendChild(el("td", {}, renderCell(best, a, { best: true, nearest: nearest.has(a.slug) })));
     for (const l of selLibs) {
-      const pass = (STATE.passesByAttr[a.slug] || []).find(p => p.library_id === l.id);
-      if (!pass) { tr.appendChild(el("td", {}, el("div", { class: "cell cell-empty" }, "—"))); continue; }
-      const cls = `cell ${classifyCouponClass(pass)}`;
-      tr.appendChild(el("td", {},
-        el("div", { class: cls, onclick: () => openDrawer(a, pass) },
-          el("div", { class: "cell-summary" }, summaryLabel(pass)),
-          el("div", { class: "cell-icons" }, `${methodIcon(pass)} ${audienceIcons(pass)}${pass.restrictions && STATE.showRestrictions ? " ⚠" : ""}`),
-        )));
+      const p = (STATE.passesByAttr[a.slug] || []).find(p => p.library_id === l.id);
+      tr.appendChild(el("td", {}, renderCell(p, a)));
     }
     tbody.appendChild(tr);
   }
 
-  // summary stat
-  const totalCovered = visibleAttrs.filter(v => v.best).length;
-  const freeCount = visibleAttrs.filter(v => v.best && classifyCouponClass(v.best) === "free").length;
-  $("#stat-summary").textContent = `${STATE.selectedLibs.size} libs selected · ${totalCovered}/${STATE.attractions.length} attractions covered · ${freeCount} FREE${STATE.homeGeo ? " · home " + STATE.homeGeo.zip : ""}`;
+  // stat
+  const covered = rows.filter(r => r.best).length;
+  const free = rows.filter(r => {
+    if (!r.best) return false;
+    return (r.best.coupon?.audience_policies || []).some(p => p.form === "free");
+  }).length;
+  $("#stat-summary").textContent =
+    `${STATE.selectedLibs.size} cards · ${covered}/${STATE.attractions.length} attractions covered · ${free} FREE`
+    + (STATE.homeGeo ? ` · home ${STATE.homeGeo.zip}` : "");
 }
 
 // ---------- drawer ----------
@@ -294,43 +360,47 @@ function openDrawer(attraction, pass) {
   const dist = STATE.homeGeo && attraction.geo ? haversineMi(STATE.homeGeo, attraction.geo) : null;
 
   const audRows = (pass.coupon?.audience_policies || []).map(p => {
-    const valLabel = p.form === "free" ? "FREE"
-      : p.form === "percent-off" ? `${p.value}% off`
-      : p.form === "dollar-off" ? `$${p.value} off`
-      : p.form === "per-person-price" ? `$${p.value} per person`
-      : p.form === "discount" ? `discount ${p.value}` : p.form;
-    const ageLabel = p.age_range ? ` (${p.age_range.min ?? ""}-${p.age_range.max ?? ""})` : "";
-    return `<tr><td>${p.audience}${ageLabel}</td><td>${valLabel}${p.count ? " · count " + p.count : ""}</td></tr>`;
-  }).join("");
-  const cap = pass.coupon?.capacity;
-  const capLabel = cap ? `${cap.n} ${cap.kind}` : "—";
+    const label = fmtAudienceLabel(p) || p.audience || "—";
+    const val = fmtAmount(p);
+    const cnt = p.count ? `, ×${p.count}` : "";
+    return `<tr><td>${label}</td><td>${val}${cnt}</td></tr>`;
+  }).join("") || "<tr><td colspan=2>(no policy)</td></tr>";
 
-  const restRows = pass.restrictions ? Object.entries(pass.restrictions)
-    .filter(([k, v]) => v != null && v !== false && (!Array.isArray(v) || v.length))
-    .map(([k, v]) => `<tr><td>${k}</td><td>${Array.isArray(v) ? v.join(", ") : v}</td></tr>`).join("") : "";
+  const cap = formatCapacity(pass.coupon?.capacity) || "—";
+
+  const restEntries = Object.entries(pass.restrictions || {}).filter(([_, v]) =>
+    v != null && v !== false && (!Array.isArray(v) || v.length > 0));
+  const restRows = restEntries.length
+    ? restEntries.map(([k, v]) => `<tr><td>${k}</td><td>${Array.isArray(v) ? v.join(", ") : v}</td></tr>`).join("")
+    : "";
+
+  const branchHtml = branches.length
+    ? branches.map(br => `<tr><td>Branch</td><td>${br.name}${br.address?.street ? "<br><span style='font-size:11px;color:var(--ink-3)'>" + br.address.street + "</span>" : ""}</td></tr>`).join("")
+    : "";
 
   $("#drawer-title").textContent = `${attraction.museum_name} × ${lib?.name || pass.library_id}`;
   $("#drawer-body").innerHTML = `
-    <h4>Coupon · 优惠</h4>
-    <table><tbody>${audRows || "<tr><td colspan=2>(no policy)</td></tr>"}</tbody></table>
-    <div style="margin-top:6px;font-size:11px;color:#6e6e73">Capacity: ${capLabel}</div>
+    <h4>Coupon</h4>
+    <table><tbody>${audRows}</tbody></table>
+    <div style="margin-top:6px;font-size:11px;color:var(--ink-3)">Capacity: ${cap}</div>
 
-    <h4>Acquisition · 获取方式</h4>
+    <h4>Acquisition</h4>
     <table><tbody>
-      <tr><td>Method</td><td>${pass.pass_type_raw || pass.pass_type}</td></tr>
+      <tr><td>Pass type</td><td>${PASS_TYPE_META[pass.pass_type]?.label || pass.pass_type} <span style="color:var(--ink-3)">(${pass.pass_type})</span></td></tr>
       <tr><td>Pickup</td><td>${pass.pickup_method}</td></tr>
-      ${branches.length ? branches.map(br => `<tr><td>Branch</td><td>${br.name}<br><span style="font-size:11px;color:#6e6e73">${br.address || ""}</span></td></tr>`).join("") : ""}
+      <tr><td>Raw label</td><td><code>${pass.pass_type_raw || "—"}</code></td></tr>
+      ${branchHtml}
     </tbody></table>
 
-    ${restRows ? `<h4>Restrictions · 限制</h4>
+    ${restRows ? `<h4>Restrictions</h4>
       <div class="restrictions"><table><tbody>${restRows}</tbody></table></div>` : ""}
 
-    <h4>Attraction · 景点</h4>
+    <h4>Attraction</h4>
     <table><tbody>
       <tr><td>Adult price</td><td>${attraction.original_price?.age_pricing?.adult?.price ? "$" + attraction.original_price.age_pricing.adult.price : "—"}</td></tr>
       <tr><td>Address</td><td>${attraction.address || "—"}</td></tr>
       ${dist != null ? `<tr><td>Distance</td><td>${dist.toFixed(1)} mi from ${STATE.homeGeo.zip}</td></tr>` : ""}
-      <tr><td>Website</td><td><a href="${attraction.website}" target="_blank" rel="noopener">${attraction.website || "—"}</a></td></tr>
+      <tr><td>Website</td><td><a href="${attraction.website}" target="_blank" rel="noopener" style="color:var(--g)">${attraction.website || "—"}</a></td></tr>
     </tbody></table>
 
     <a class="src-link" href="${pass.source_url}" target="_blank" rel="noopener">Source: ${pass.source_url}</a>
@@ -341,20 +411,20 @@ $("#drawer-close").addEventListener("click", () => $("#drawer").classList.remove
 
 // ---------- ZIP geocoding via zippopotam.us ----------
 async function geocodeZip(zip) {
-  const cacheKey = `zipgeo:${zip}`;
-  const cached = localStorage.getItem(cacheKey);
+  const key = `zipgeo:${zip}`;
+  const cached = localStorage.getItem(key);
   if (cached) return JSON.parse(cached);
   const r = await fetch(`https://api.zippopotam.us/us/${zip}`);
   if (!r.ok) throw new Error(`zippopotam ${r.status}`);
-  const data = await r.json();
-  const place = data.places?.[0];
-  if (!place) throw new Error("no place");
-  const geo = { lat: parseFloat(place.latitude), lng: parseFloat(place.longitude), zip, name: place["place name"] };
-  localStorage.setItem(cacheKey, JSON.stringify(geo));
+  const d = await r.json();
+  const p = d.places?.[0];
+  if (!p) throw new Error("no place");
+  const geo = { lat: parseFloat(p.latitude), lng: parseFloat(p.longitude), zip, name: p["place name"] };
+  localStorage.setItem(key, JSON.stringify(geo));
   return geo;
 }
 
-// ---------- wire up controls ----------
+// ---------- wire-up ----------
 async function init() {
   await loadData();
   renderLibList();
@@ -372,38 +442,31 @@ async function init() {
     renderLibList(); updateLibCount(); renderMatrix();
   });
   $("#btn-none").addEventListener("click", () => {
-    STATE.selectedLibs = new Set();
+    STATE.selectedLibs.clear();
     renderLibList(); updateLibCount(); renderMatrix();
   });
-  for (const id of ["aud-adult", "aud-child", "aud-senior", "aud-youth"]) {
-    $("#" + id).addEventListener("change", (e) => {
-      STATE.audience[id.replace("aud-", "")] = parseInt(e.target.value) || 0;
-      renderMatrix();
-    });
-  }
   $("#opt-only-covered").addEventListener("change", (e) => { STATE.showOnlyCovered = e.target.checked; renderMatrix(); });
-  $("#opt-show-restrictions").addEventListener("change", (e) => { STATE.showRestrictions = e.target.checked; renderMatrix(); });
   $("#opt-sort").addEventListener("change", (e) => { STATE.sortMode = e.target.value; renderMatrix(); });
   $("#opt-category").addEventListener("change", (e) => { STATE.categoryFilter = e.target.value; renderMatrix(); });
 
   $("#btn-geocode").addEventListener("click", async () => {
     const zip = ($("#home-zip").value || "").trim();
     const hint = $("#zip-hint");
-    if (!/^\d{5}$/.test(zip)) {
-      hint.textContent = "请输入 5 位 ZIP"; hint.className = "hint warn"; return;
-    }
-    hint.textContent = "解析中…"; hint.className = "hint";
+    if (!/^\d{5}$/.test(zip)) { hint.textContent = "Please enter a 5-digit ZIP."; hint.className = "hint warn"; return; }
+    hint.textContent = "Resolving…"; hint.className = "hint";
     try {
-      const geo = await geocodeZip(zip);
-      STATE.homeGeo = geo;
-      hint.textContent = `📍 ${geo.name}, lat ${geo.lat.toFixed(3)}, lng ${geo.lng.toFixed(3)}`;
+      STATE.homeGeo = await geocodeZip(zip);
+      hint.textContent = `${STATE.homeGeo.name} (${STATE.homeGeo.lat.toFixed(3)}, ${STATE.homeGeo.lng.toFixed(3)})`;
       hint.className = "hint ok";
       renderMatrix();
     } catch (e) {
-      hint.textContent = `解析失败: ${e.message}`; hint.className = "hint warn";
+      hint.textContent = `Failed: ${e.message}`; hint.className = "hint warn";
     }
   });
   $("#home-zip").addEventListener("keydown", (e) => { if (e.key === "Enter") $("#btn-geocode").click(); });
 }
 
-init().catch(e => { console.error(e); $("#stat-summary").textContent = "load error: " + e.message; });
+init().catch((e) => {
+  console.error(e);
+  $("#stat-summary").textContent = "load error: " + e.message;
+});

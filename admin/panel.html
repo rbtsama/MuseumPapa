@@ -2,17 +2,20 @@
 <html lang="zh"><head>
 <meta charset="utf-8">
 <title>MuseumPapa · Admin Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/panel.css">
 </head><body>
 
 <header class="topbar">
-  <div class="brand">MuseumPapa · <span class="muted">Admin Panel</span></div>
+  <div class="brand"><span class="font-serif">MuseumPapa</span> · Admin Panel</div>
   <div class="stat" id="stat-summary">loading…</div>
 </header>
 
 <aside class="controls">
   <section class="ctrl-block">
-    <h3>Libraries · 持卡选择 <span class="badge" id="lib-count">0 / 59</span></h3>
+    <h3>Library cards <span class="badge" id="lib-count">0 / 59</span></h3>
     <div class="ctrl-row">
       <button class="btn-tiny" id="btn-owned">My 5 cards</button>
       <button class="btn-tiny" id="btn-all">All 59</button>
@@ -23,37 +26,27 @@
   </section>
 
   <section class="ctrl-block">
-    <h3>Audience profile · 家庭构成</h3>
-    <div class="aud-grid">
-      <label>👨 Adult <input type="number" id="aud-adult" min="0" value="2"></label>
-      <label>👧 Child <input type="number" id="aud-child" min="0" value="2"></label>
-      <label>👴 Senior <input type="number" id="aud-senior" min="0" value="0"></label>
-      <label>🧑 Youth <input type="number" id="aud-youth" min="0" value="0"></label>
-    </div>
-  </section>
-
-  <section class="ctrl-block">
-    <h3>Home ZIP · 起点邮编</h3>
+    <h3>Home ZIP</h3>
     <div class="ctrl-row">
-      <input type="text" id="home-zip" placeholder="e.g. 01880" maxlength="5" style="width:90px">
-      <button class="btn-tiny" id="btn-geocode">Apply</button>
+      <input type="text" id="home-zip" placeholder="e.g. 01880" maxlength="5">
+      <button class="btn-tiny primary" id="btn-geocode">Apply</button>
     </div>
-    <div class="hint" id="zip-hint">输入 5 位 ZIP 后,BEST 列里程最近的 3 个景点会高亮 🏠</div>
+    <div class="hint" id="zip-hint">Enter ZIP to highlight the 3 nearest BEST offers.</div>
   </section>
 
   <section class="ctrl-block">
-    <h3>View · 视图</h3>
+    <h3>View</h3>
     <label class="ctrl-check"><input type="checkbox" id="opt-only-covered" checked> Hide rows with no coverage</label>
-    <label class="ctrl-check"><input type="checkbox" id="opt-show-restrictions" checked> Show ⚠ restriction badge</label>
-    <label class="ctrl-line">Sort attractions by
+    <label class="ctrl-line">Sort attractions
       <select id="opt-sort">
-        <option value="coverage-desc">Coverage (most libs first)</option>
-        <option value="name-asc">Name A→Z</option>
+        <option value="coverage-desc">Coverage (most cards first)</option>
+        <option value="name-asc">Name A → Z</option>
         <option value="best-strength">Best deal strength</option>
         <option value="price-desc">Original price ↓</option>
+        <option value="distance-asc">Distance from ZIP ↑</option>
       </select>
     </label>
-    <label class="ctrl-line">Category filter
+    <label class="ctrl-line">Category
       <select id="opt-category">
         <option value="">(all)</option>
       </select>
