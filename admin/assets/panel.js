@@ -437,13 +437,24 @@ function renderMatrix() {
   const rows = [];
   for (const a of attrs) {
     // For each row, compute best pass index among visible selLibs.
-    // Tie-break: first (leftmost) library wins.
+    // Primary key: coupon strength (higher wins). Tie-break: cost-to-redeem
+    // (digital = 0 mi, physical = home->pickup mi). Final tie-break: leftmost.
     const cells = selLibs.map(l => (STATE.passesByAttr[a.slug] || []).find(p => p.library_id === l.id) || null);
-    let bestIdx = -1, bestScore = -1;
+    const costToRedeem = (p) => {
+      if (!p) return Infinity;
+      if (p.pickup_method === "digital") return 0;
+      const pg = pickupGeo(p);
+      const d = STATE.homeGeo && pg ? haversineMi(STATE.homeGeo, pg) : null;
+      return d != null ? d : Infinity;
+    };
+    let bestIdx = -1, bestScore = -1, bestCost = Infinity;
     cells.forEach((p, i) => {
       if (!p) return;
       const s = couponStrength(p, a);
-      if (s > bestScore) { bestScore = s; bestIdx = i; }
+      const c = costToRedeem(p);
+      if (s > bestScore || (s === bestScore && c < bestCost)) {
+        bestScore = s; bestCost = c; bestIdx = i;
+      }
     });
     if (STATE.showOnlyCovered && bestIdx < 0) continue;
     rows.push({ a, cells, bestIdx });
