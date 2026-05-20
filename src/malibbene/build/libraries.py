@@ -1,56 +1,37 @@
-"""Build final libraries.json from seeds + address/geo data."""
 from __future__ import annotations
+import json
+from pathlib import Path
+from datetime import datetime, timezone
+from malibbene.common.audit_overrides import load_overrides, apply_overrides
 
-import datetime as dt
-
-
-def _address_block(rec: dict | None) -> dict | None:
-    if not rec or rec.get("status") != "ok":
-        return None
-    return {
-        "street": rec.get("street"),
-        "city": rec.get("city"),
-        "state": rec.get("state"),
-        "zip": rec.get("zip"),
+def build_libraries(seed_path: Path, raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
+    seeds = json.loads(seed_path.read_text())
+    overrides = load_overrides(overrides_root)
+    libs = []
+    for s in seeds:
+        lib = {
+            "id": s["id"], "name": s["name"], "town": s["town"],
+            "network": s["network"], "platform": s["platform"],
+            "card_page": s.get("card_page"), "address": s.get("address"),
+            "geo": s.get("geo"),
+            "card_eligibility": "unknown",
+            "pass_pickup_default": "unknown",
+        }
+        policies_path = raw_root / s["platform"] / "policies" / f"{s['id']}.json"
+        if policies_path.exists():
+            pol = json.loads(policies_path.read_text())
+            if pol.get("card_page"):
+                lib["card_eligibility"] = pol["card_page"].get("card_eligibility","unknown")
+                lib["eligibility_source_phrase"] = pol["card_page"].get("policy_text","")[:500]
+            if pol.get("pass_page"):
+                lib["pass_pickup_default"] = pol["pass_page"].get("pass_pickup","unknown")
+                lib["pickup_source_phrase"] = pol["pass_page"].get("policy_text","")[:500]
+        lib = apply_overrides(f"library:{s['id']}", lib, overrides)
+        libs.append(lib)
+    out = {
+        "_meta": {"built_at": datetime.now(timezone.utc).isoformat(),"n_libraries": len(libs)},
+        "libraries": libs,
     }
-
-
-def _geo_block(rec: dict | None) -> dict | None:
-    if not rec or not rec.get("ok"):
-        return None
-    return {"lat": rec["lat"], "lon": rec["lon"]}
-
-
-def build_libraries(seeds: dict, addresses: dict, geo: dict) -> dict:
-    """Return {libraries: [...], _meta: {...}}.
-
-    Args:
-        seeds: parsed config/library_seeds.json
-        addresses: dict mapping lib_id → parsed data/raw/library_addresses/<lib_id>.json
-        geo: parsed data/structured/geo.json
-    """
-    lib_geo = geo.get("libraries", {})
-    out = []
-    for s in seeds.get("libraries", []):
-        lib_id = s["id"]
-        out.append({
-            "id": lib_id,
-            "name": s.get("name", ""),
-            "town": s.get("town", ""),
-            "network": s.get("network", ""),
-            "platform": s.get("platform", ""),
-            "card_page": s.get("card_page", ""),
-            "eligibility": s.get("non_resident_policy_initial", "unknown"),
-            "supports_availability": s.get("supports_availability", False),
-            "address": _address_block(addresses.get(lib_id)),
-            "geo": _geo_block(lib_geo.get(lib_id)),
-        })
-    return {
-        "_meta": {
-            "built_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "n_libraries": len(out),
-            "n_with_address": sum(1 for x in out if x["address"]),
-            "n_with_geo": sum(1 for x in out if x["geo"]),
-        },
-        "libraries": out,
-    }
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False))
+    return out
