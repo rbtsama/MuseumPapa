@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "extracted": {
+    "hours": {
+      "monday": "unknown",
+      "tuesday": "unknown",
+      "wednesday": "unknown",
+      "thursday": "unknown",
+      "friday": "unknown",
+      "saturday": "unknown",
+      "sunday": "unknown"
+    },
+    "seasonal": null,
+    "source_phrase": "Today’s Hours 9:00am to 4:30pm",
+    "note": "Landing page only shows today's hours; full weekly schedule not published on this page."
+  }
+}

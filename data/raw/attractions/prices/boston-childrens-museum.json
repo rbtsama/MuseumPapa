@@ -1,0 +1,19 @@
+{
+  "status": "ok",
+  "extracted": {
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 24.0,
+        "age_range": null,
+        "source_phrase": "adults: $24"
+      },
+      {
+        "audience": "child",
+        "price": 24.0,
+        "age_range": null,
+        "source_phrase": "children (1 – 15): $24"
+      }
+    ]
+  }
+}

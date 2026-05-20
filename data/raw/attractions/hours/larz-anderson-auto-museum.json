@@ -1,0 +1,16 @@
+{
+  "status": "ok",
+  "extracted": {
+    "hours": {
+      "monday": "closed",
+      "tuesday": "10:00-15:00",
+      "wednesday": "10:00-15:00",
+      "thursday": "10:00-15:00",
+      "friday": "10:00-15:00",
+      "saturday": "10:00-15:00",
+      "sunday": "10:00-15:00"
+    },
+    "seasonal": null,
+    "source_phrase": "The Museum is open 10AM - 3PM | Tuesday - Sunday."
+  }
+}

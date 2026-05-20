@@ -1,0 +1,16 @@
+{
+  "status": "ok",
+  "extracted": {
+    "hours": {
+      "monday": "closed",
+      "tuesday": "10:00-16:00",
+      "wednesday": "10:00-16:00",
+      "thursday": "10:00-16:00",
+      "friday": "10:00-16:00",
+      "saturday": "10:00-16:00",
+      "sunday": "closed"
+    },
+    "seasonal": null,
+    "source_phrase": "TUESDAY to SATURDAY 10 AM - 4 PM"
+  }
+}

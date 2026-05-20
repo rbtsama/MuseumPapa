@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "extracted": {
+    "hours": {
+      "monday": "09:00-17:00",
+      "tuesday": "09:00-17:00",
+      "wednesday": "09:00-17:00",
+      "thursday": "09:00-17:00",
+      "friday": "09:00-17:00",
+      "saturday": "09:00-17:00",
+      "sunday": "09:00-17:00"
+    },
+    "seasonal": null,
+    "source_phrase": "Franklin Park Zoo Today's Hours: 9am - 5pm ... Stone Zoo Today's Hours: 9am - 5pm",
+    "note": "Landing page shows today's hours for both zoo locations; assumed daily."
+  }
+}

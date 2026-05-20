@@ -1,0 +1,16 @@
+{
+  "status": "ok",
+  "extracted": {
+    "hours": {
+      "monday": "closed",
+      "tuesday": "closed",
+      "wednesday": "09:30-17:00",
+      "thursday": "09:30-17:00",
+      "friday": "09:30-17:00",
+      "saturday": "09:30-17:00",
+      "sunday": "09:30-17:00"
+    },
+    "seasonal": null,
+    "source_phrase": "Currently open Wednesday – Sunday 9:30 a.m. – 5:00 p.m."
+  }
+}

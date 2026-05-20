@@ -1,0 +1,20 @@
+{
+  "status": "ok",
+  "extracted": {
+    "hours": {
+      "monday": "10:00-17:00",
+      "tuesday": "10:00-17:00",
+      "wednesday": "10:00-17:00",
+      "thursday": "10:00-17:00",
+      "friday": "10:00-17:00",
+      "saturday": "10:00-17:00",
+      "sunday": "10:00-17:00"
+    },
+    "seasonal": {
+      "start_month": 4,
+      "end_month": 10,
+      "note": "Open daily until October 18, 2026."
+    },
+    "source_phrase": "Heritage is Open daily until October 18, 2026. Visit us during the hours of 10 am-5 pm."
+  }
+}

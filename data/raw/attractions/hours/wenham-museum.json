@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "extracted": {
+    "hours": {
+      "monday": "closed",
+      "tuesday": "closed",
+      "wednesday": "09:00-16:00",
+      "thursday": "09:00-16:00",
+      "friday": "09:00-16:00",
+      "saturday": "09:00-16:00",
+      "sunday": "closed"
+    },
+    "seasonal": null,
+    "source_phrase": "Wednesday – Saturday: 9:00 a.m. – 4:00 p.m. Sunday – Tuesday: CLOSED",
+    "note": "Extended hours the first Wednesday of the month: 9 am – 6 pm."
+  }
+}

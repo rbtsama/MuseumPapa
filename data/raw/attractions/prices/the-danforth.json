@@ -1,0 +1,37 @@
+{
+  "status": "ok",
+  "extracted": {
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 7.0,
+        "age_range": null,
+        "source_phrase": "Adults: $7.00"
+      },
+      {
+        "audience": "senior",
+        "price": 6.0,
+        "age_range": null,
+        "source_phrase": "Seniors (65+)+FSU Alum: $6.00"
+      },
+      {
+        "audience": "child",
+        "price": 0.0,
+        "age_range": null,
+        "source_phrase": "Children (through 13): Free"
+      },
+      {
+        "audience": "student",
+        "price": 5.0,
+        "age_range": null,
+        "source_phrase": "Students High School + College: $5.00"
+      },
+      {
+        "audience": "student",
+        "price": 0.0,
+        "age_range": null,
+        "source_phrase": "Danforth Members, NARM Members, FSU students, faculty and staff: Free"
+      }
+    ]
+  }
+}

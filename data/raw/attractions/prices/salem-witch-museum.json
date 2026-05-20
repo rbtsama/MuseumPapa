@@ -1,0 +1,28 @@
+{
+  "status": "ok",
+  "extracted": {
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 19.0,
+        "age_range": null,
+        "source_phrase": "Adults: $19.00"
+      },
+      {
+        "audience": "senior",
+        "price": 17.5,
+        "age_range": null,
+        "source_phrase": "Seniors (62+): $17.50"
+      },
+      {
+        "audience": "child",
+        "price": 16.0,
+        "age_range": {
+          "min": 6,
+          "max": 14
+        },
+        "source_phrase": "Children (Ages 6-14): $16.00"
+      }
+    ]
+  }
+}
