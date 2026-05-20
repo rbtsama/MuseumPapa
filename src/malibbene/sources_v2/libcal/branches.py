@@ -94,11 +94,111 @@ def parse_bpl_locations(body: str) -> list[dict]:
     return out2
 
 
+_CAMBRIDGE_H3_TITLE = re.compile(
+    r'<h3[^>]*class="[^"]*\btitle\b[^"]*"[^>]*>\s*([^<]+?)\s*</h3>', re.I
+)
+# Cambridge uses an H2 "Main Library" inside the same .libraryLocationList
+# section. We anchor on the section to avoid matching unrelated H2/H3s.
+_CAMBRIDGE_SECTION = re.compile(
+    r'<section[^>]*class="[^"]*libraryLocationList[^"]*"[^>]*>(.*?)</section>',
+    re.I | re.S,
+)
+_CAMBRIDGE_H2_MAIN = re.compile(
+    r'<h2[^>]*>\s*(Main Library)\s*</h2>', re.I
+)
+
+# Brookline /visit/ page: each of the 3 branches is in its own <h1>.
+# The opening "Visiting the Library" H1 is filtered by name allow-list because
+# it's a generic page title, not a branch.
+_BROOKLINE_H1 = re.compile(r'<h1[^>]*>(.*?)</h1>', re.S | re.I)
+# Names known to be the actual Public Library of Brookline branches.
+_BROOKLINE_KNOWN = {"brookline village", "coolidge corner", "putterham"}
+
+
+def _slugify(name: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+
+
+def parse_cambridge_locations(body: str) -> list[dict]:
+    """Parse Cambridge Public Library locations.
+
+    Source: ``https://www.cambridgema.gov/Departments/cambridgepubliclibrary/Locations``
+
+    The page renders Main Library + 6 neighborhood branches inside a
+    ``<section class="libraryLocationList">``. Main Library uses an ``<h2>``,
+    each branch uses ``<h3 class="title">...Branch</h3>``.
+    """
+    section_match = _CAMBRIDGE_SECTION.search(body)
+    scope = section_match.group(1) if section_match else body
+
+    out: list[dict] = []
+    seen: set[str] = set()
+    # Main Library first (h2)
+    if _CAMBRIDGE_H2_MAIN.search(scope):
+        slug = "main"
+        seen.add(slug)
+        out.append(
+            {
+                "id": f"cambridge-{slug}",
+                "library_id": "cambridge",
+                "name": "Main Library",
+            }
+        )
+    # Branches (h3 class="title")
+    for m in _CAMBRIDGE_H3_TITLE.finditer(scope):
+        name = re.sub(r"\s+", " ", m.group(1)).strip()
+        # Only keep entries that look like a branch (avoid stray section titles
+        # such as "Children's Room" / "Cambridge History Room" that share the
+        # same H3 class on the Main Library card).
+        if not name.lower().endswith("branch"):
+            continue
+        slug = _slugify(name.removesuffix(" Branch").removesuffix(" branch"))
+        if not slug or slug in seen:
+            continue
+        seen.add(slug)
+        out.append(
+            {"id": f"cambridge-{slug}", "library_id": "cambridge", "name": name}
+        )
+    return out
+
+
+def parse_brookline_locations(body: str) -> list[dict]:
+    """Parse Public Library of Brookline locations.
+
+    Source: ``https://brooklinelibrary.org/visit/``
+
+    The page is server-rendered HTML; each of the 3 branches is a top-level
+    ``<h1>`` (Brookline Village, Coolidge Corner, Putterham). The page also has
+    an opening ``<h1>Visiting the Library</h1>`` we skip via an allow-list of
+    known branch names.
+    """
+    out: list[dict] = []
+    seen: set[str] = set()
+    for m in _BROOKLINE_H1.finditer(body):
+        # Strip any nested tags (e.g. <span style=...>) from the H1 inner HTML.
+        name = re.sub(r"<[^>]+>", "", m.group(1))
+        name = re.sub(r"\s+", " ", name).strip()
+        if name.lower() not in _BROOKLINE_KNOWN:
+            continue
+        slug = _slugify(name)
+        if slug in seen:
+            continue
+        seen.add(slug)
+        out.append(
+            {"id": f"brookline-{slug}", "library_id": "brookline", "name": name}
+        )
+    return out
+
+
 def scrape_branches(library_id: str, locations_url: str, raw_root: Path):
     from malibbene.common.http import fetch
 
     body = fetch(locations_url)
-    parser = {"bpl": parse_bpl_locations}.get(library_id)
+    parser = {
+        "bpl": parse_bpl_locations,
+        "cambridge": parse_cambridge_locations,
+        "brookline": parse_brookline_locations,
+    }.get(library_id)
     if parser is None:
         raise ValueError(f"no branch parser for {library_id}")
     branches = parser(body)
