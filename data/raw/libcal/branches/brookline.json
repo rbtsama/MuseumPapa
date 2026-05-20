@@ -1,0 +1,20 @@
+{
+  "library_id": "brookline",
+  "branches": [
+    {
+      "id": "brookline-brookline-village",
+      "library_id": "brookline",
+      "name": "Brookline Village"
+    },
+    {
+      "id": "brookline-coolidge-corner",
+      "library_id": "brookline",
+      "name": "Coolidge Corner"
+    },
+    {
+      "id": "brookline-putterham",
+      "library_id": "brookline",
+      "name": "Putterham"
+    }
+  ]
+}

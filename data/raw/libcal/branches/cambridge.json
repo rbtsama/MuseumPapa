@@ -1,0 +1,40 @@
+{
+  "library_id": "cambridge",
+  "branches": [
+    {
+      "id": "cambridge-main",
+      "library_id": "cambridge",
+      "name": "Main Library"
+    },
+    {
+      "id": "cambridge-boudreau",
+      "library_id": "cambridge",
+      "name": "Boudreau Branch"
+    },
+    {
+      "id": "cambridge-central-square",
+      "library_id": "cambridge",
+      "name": "Central Square Branch"
+    },
+    {
+      "id": "cambridge-collins",
+      "library_id": "cambridge",
+      "name": "Collins Branch"
+    },
+    {
+      "id": "cambridge-o-connell",
+      "library_id": "cambridge",
+      "name": "O'Connell Branch"
+    },
+    {
+      "id": "cambridge-o-neill",
+      "library_id": "cambridge",
+      "name": "O'Neill Branch"
+    },
+    {
+      "id": "cambridge-valente",
+      "library_id": "cambridge",
+      "name": "Valente Branch"
+    }
+  ]
+}
