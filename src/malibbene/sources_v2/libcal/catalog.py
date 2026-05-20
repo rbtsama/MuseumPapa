@@ -65,6 +65,14 @@ def scrape_library(library_id: str, base_url: str, raw_root: Path) -> dict:
         if not p["detail_url"]:
             p["detail_url"] = f"{base}/passes/{p['libcal_pass_id']}"
 
+    # The availability endpoint requires a 12-hex internal museum id (the
+    # `museum:` JS variable on the pass detail page) — NOT the URL slug. Some
+    # libraries put the hex code directly in the URL (BPL/Braintree/Milton),
+    # others use a short code (Brookline = "BCM") or kebab slug (Cambridge),
+    # in which case we MUST scrape the detail page to find the real museum id.
+    _MUSEUM_VAR_RE = re.compile(
+        r"museum\s*:\s*['\"]([a-f0-9]{8,})['\"]", re.I
+    )
     detail_dir = raw_root / "libcal" / "_html" / library_id
     for p in passes:
         if p["detail_url"]:
@@ -77,6 +85,9 @@ def scrape_library(library_id: str, base_url: str, raw_root: Path) -> dict:
             clean = [c for c in clean if 10 < len(c) < 2000]
             p["benefit_text"] = "\n".join(clean[:8])
             p["source_phrases"] = clean
+            m = _MUSEUM_VAR_RE.search(txt)
+            if m:
+                p["libcal_museum_id"] = m.group(1)
 
     out = raw_root / "libcal" / "catalog" / f"{library_id}.json"
     out.parent.mkdir(parents=True, exist_ok=True)

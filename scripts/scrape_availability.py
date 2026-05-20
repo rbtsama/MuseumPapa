@@ -127,7 +127,11 @@ def run() -> dict:
             continue
         for p in cat.get("passes", []):
             slug = p.get("attraction_slug")
-            pid = p.get("libcal_pass_id")
+            # Prefer the 12-hex internal id (catalog extracts via JS-var scan).
+            # Some libs (BPL/Braintree/Milton) already use it in the URL; others
+            # (Brookline=short code, Cambridge=kebab slug) need the
+            # libcal_museum_id field that the catalog parser fills in.
+            pid = p.get("libcal_museum_id") or p.get("libcal_pass_id")
             if not slug or not pid:
                 summary["libcal_fail"] += 1
                 summary["failures"].append(
