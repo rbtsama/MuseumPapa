@@ -1,7 +1,0 @@
-{
-  "status": "pending",
-  "target_kind": "prices",
-  "slug": "the-danforth",
-  "html_path": "F:\\pj\\MuseumPapa\\data\\raw\\attractions\\pages\\the-danforth.html",
-  "prompt_template": "Extract general admission prices per audience from this museum's website.\n\nOutput JSON: {\n  \"prices\": [\n    {\"audience\": \"adult\"|\"child\"|\"senior\"|\"youth\"|\"student\"|\"military\"|\"educator\"|\"family\",\n     \"price\": number or null (USD), \"age_range\": {\"min\":int,\"max\":int} or null,\n     \"source_phrase\": verbatim}\n  ]\n}\n\nHTML:\n{html}\n"
-}

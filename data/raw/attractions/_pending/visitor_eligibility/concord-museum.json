@@ -1,7 +1,0 @@
-{
-  "status": "pending",
-  "target_kind": "visitor_eligibility",
-  "slug": "concord-museum",
-  "html_path": "F:\\pj\\MuseumPapa\\data\\raw\\attractions\\pages\\concord-museum.html",
-  "prompt_template": "You read the About / Visit / FAQ section of a museum's website.\nExtract any RESIDENCY requirements for visitors (NOT for library pass holders).\n\nOutput JSON: {\n  \"residency\": \"ma_resident\" | \"town_resident\" | \"none\" | \"unknown\",\n  \"scope\": optional string like \"Salem\" or \"MA\",\n  \"locals_free\": bool,\n  \"note\": optional,\n  \"source_phrase\": verbatim quote that supports your answer\n}\n\nHTML content:\n{html}\n"
-}

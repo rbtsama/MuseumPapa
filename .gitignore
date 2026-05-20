@@ -43,6 +43,14 @@ data/structured/_tmp_*
 data/raw/library_addresses/_pages/
 data/raw/attraction_prices/_pages/
 data/raw/*/_html/
+data/raw/attractions/pages/*.html
+data/raw/attractions/subpages/*.html
+
+# LLM 抽取请求队列(可由 enqueue_coupons.py / scrape_attractions.py 再生成)
+data/raw/*/_pending/
+
+# 抓取日志
+data/raw/_scrape_*.log
 
 # 快照归档(体积大,只入 manifest)
 data/snapshots/

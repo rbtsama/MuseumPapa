@@ -1,7 +1,0 @@
-{
-  "status": "pending",
-  "target_kind": "hours",
-  "slug": "isabella-stewart-gardner-museum",
-  "html_path": "F:\\pj\\MuseumPapa\\data\\raw\\attractions\\pages\\isabella-stewart-gardner-museum.html",
-  "prompt_template": "Extract opening hours from this museum's website.\n\nOutput JSON: {\n  \"hours\": {\n    \"monday\": \"closed\" | \"10:00-17:00\",\n    \"tuesday\": ...,\n    \"wednesday\":..., \"thursday\":..., \"friday\":..., \"saturday\":..., \"sunday\":...,\n  },\n  \"seasonal\": optional {\"start_month\":int,\"end_month\":int,\"note\":string},\n  \"source_phrase\": verbatim\n}\n\nHTML:\n{html}\n"
-}

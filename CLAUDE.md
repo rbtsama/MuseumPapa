@@ -93,11 +93,13 @@ Massachusetts eastern MA 区域的图书馆 museum-pass 福利数据建设项目
 ## How to Run
 
 ```bash
-# 全量重抓(v2 pipeline)
-python scripts/scrape_libraries.py        # 抓 catalog + policies(各平台)
-python scripts/scrape_attractions.py      # 抓景点 HTML + 写 _pending 抽取请求
-python scripts/run_llm_extraction.py      # 列出 _pending,交给 subagent 处理
-# (subagent 抽完写 data/raw/attractions/<kind>/<slug>.json)
+# 全量重抓 v2 pipeline(每一步都可独立重跑、幂等、纯代码可复现)
+python scripts/scrape_libraries.py        # 抓 catalog + policies + branches(各平台)
+python scripts/scrape_availability.py     # 抓每 pass 的日历(assabet + libcal),~25 min
+python scripts/scrape_attractions.py      # 抓景点首页 HTML + enqueue 抽取
+python scripts/extract_attractions.py     # visitor_eligibility/reservation/prices/hours 抽取
+python scripts/enqueue_coupons.py         # 从 catalog.benefit_text 派出 coupon 抽取队列
+python scripts/extract_coupons.py         # 抽 coupon (pass_form/capacity/audience_policies/restrictions)
 python scripts/build_all.py               # raw + overrides → data/structured/*
 python scripts/snapshot_raw.py            # data/raw → data/snapshots/<日期>/
 

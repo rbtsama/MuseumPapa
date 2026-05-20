@@ -1,7 +1,0 @@
-{
-  "status": "pending",
-  "target_kind": "reservation",
-  "slug": "naismith-memorial-basketball-hall-of-fame",
-  "html_path": "F:\\pj\\MuseumPapa\\data\\raw\\attractions\\pages\\naismith-memorial-basketball-hall-of-fame.html",
-  "prompt_template": "Read this museum's visit / ticketing / FAQ section.\n\nExtract reservation policy:\n- required: \"none\" | \"timed_entry\" | \"walk_in_ok\"\n- booking_url: link if any\n- lead_time_hours: minimum advance booking time in hours (int) or null\n- pass_holder_path: \"promo_code_in_general_checkout\" | \"dedicated_pass_sku\" | \"dedicated_pass_holders_url\" | \"library_only\" | \"unknown\"\n- pass_holder_url: link for pass holders if any\n- source_phrase: verbatim quote supporting your answer\n\nOutput JSON only.\n\nHTML:\n{html}\n"
-}
