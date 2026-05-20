@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- iid: 3119 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+    <link href="https://static-assets-us.libcal.com/bootstrap_16/bootstrap3_16.min.css" rel="stylesheet">
+
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://static-assets-us.libcal.com/css_976/LibCal_public.min.css" rel="stylesheet">
+    <link href="https://static-assets-us.libcal.com/css_976/print.min.css" rel="stylesheet" media="print">
+    
+<script src="https://static-assets-us.libcal.com/jquery_16/jquery.min.js"></script>
+
+
+<script src="https://static-assets-us.libcal.com/bootstrap_16/bootstrap3.min.js"></script>
+    <script src="https://static-assets-us.libcal.com/js_976/LibCal_public.min.js"></script>
+        <script>
+    springSpace.dateFormat = "dddd, MMMM D, YYYY";
+    springSpace.dateShortFormat = "dddd, MMMM D, YYYY";
+    springSpace.timeFormat = "h:mma";
+    springSpace.timezone = 'America/New_York';
+    springSpace.currency = "USD";
+
+    springSpace.language = 'en'; // en
+    springSpace.locale = 'en-US'; // en-US
+
+    springSpace.phpTimeFormat = 'g:ia';
+
+    springSpace.bootstrapAsset = 'https://static-assets-us.libcal.com/bootstrap_16/bootstrap3_16.min.css';
+    springSpace.publicCssAsset = 'https://static-assets-us.libcal.com/css_976/LibCal_public.min.css';
+    springSpace.adminCssAsset = 'https://static-assets-us.libcal.com/css_976/LibCal_admin.min.css';
+</script>
+        <title>
+                    Reserve a Museum Pass -
+                LibCal -
+        Boston Public Library
+    </title>
+    <style>
+            #s-lc-public-banner {
+            padding: 0;
+            margin: 0;
+        }
+
+        .s-lc-public-footer {
+            margin: 0;
+        }
+    </style>
+            <link rel="shortcut icon" href="https://bpl.bibliocommons.com/images/MA-BOSTON-BRANCH/favicon.ico" />
+<style type="text/css">
+	body { padding: 0 !important; font-size: 16px }
+	#page { padding: 15px }
+	.btn-primary {
+		background-color: #006072 !important;
+	}
+	.notice {
+		width: 600px;
+	}
+	img {
+		border: none
+	}
+	table, th, td {
+		border-style: none !important;
+	}
+	.datepicker {
+		z-index: 100 !important;
+	}
+	#capacity {
+		display: none;
+	}
+	#s-lc-public-footer {display: none}
+	.btn-info { background-color: #006072}  
+	.btn-info:hover {background-color:#00353f}
+	.navbar-nav>li>a:hover  {background-color:#cf102d}
+        #s-lc-public-cust-footer {margin-bottom: 60px}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+<script>
+(function() {
+
+class BPLTemplatesInjector {
+    url = 'https://apps.bpl.org/bpljson.php'
+    maxDelay = 4000
+
+    async init() {
+        const docStyle = document.documentElement.style
+
+        docStyle.opacity = '0'
+
+        const templates = await Promise.race([
+            this.getTemplates(),
+            new Promise(r => setTimeout(r, this.maxDelay))
+        ])
+
+        if (templates) {
+            // This script is executed before rendering to avoid layout shifts.
+            // We should make sure the DOM has been loaded before injecting templates.
+            if (document.readyState == 'loading') {
+                await new Promise((r) => addEventListener('DOMContentLoaded', r, { once: true }))
+            }
+            
+            await this.injectTemplates(templates)
+        }
+
+        docStyle.opacity = ''
+    }
+
+    async getTemplates() {
+        try {
+            const response = await fetch(this.url)
+            
+            if (response.ok) return await response.json()
+        } catch { }
+    }
+
+    async injectTemplates(templates) {
+        const {
+            screen_reader_navigation,
+            header,
+            footer,
+            css,
+            js
+        } = templates
+    
+        qs('#s-lg-public-skiplink')?.remove()
+    
+        qs('.screen_reader_nav')?.before(strToDOM(screen_reader_navigation))
+        qs('#bcheader')?.before(strToDOM(header))
+        qs('#s-lc-public-cust-footer')?.after(strToDOM(footer))
+    
+        const resources = strToDOM(css)
+    
+        const resourcesLoadPromises = Array.from(resources.children).map((el) => (
+            new Promise((r) => el.addEventListener('load', r, { once: true }))
+        ))
+        
+        const newJs = await this.fixJs(js)
+    
+        document.head.append(resources)
+        document.head.append(strToDOM(newJs))
+    
+        await Promise.race([
+            Promise.all(resourcesLoadPromises),
+            new Promise(r => setTimeout(r, this.maxDelay))
+        ])
+    }
+
+    async fixJs(js) {
+        const src = js.match(/src="(.*?)"/)[1]
+
+        try {
+            js = await (await fetch(src)).text()
+        }
+        catch {
+            return ''
+        }
+        
+        js = js.replace(/\* jQuery UI Datepicker(.*?)\/\*!/s, '')
+        js = js.replace('if(o.target', 'return;if(o.target')
+
+        return `<script>${js}<\/script>`
+    }
+}
+
+const strToDOM = (str) => document.createRange().createContextualFragment(str)
+const qs = (sel, el = document) => el.querySelector(sel)
+
+new BPLTemplatesInjector().init()
+
+})()
+</script>
+
+<style>
+/*Increase the font size for the browse by*/
+.s-lc-public-main > a {
+  font-size: 18px;
+  margin-bottom: 12px;
+  display: inline-block;
+  font-weight: 700;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const pageSlug = window.location.pathname
+  
+  if (!(pageSlug.startsWith("/admission") || pageSlug.startsWith("/passes"))) return
+  
+  const targetLink = document.querySelector(".s-lc-breadcrumb-right.s-lc-pass-browse-mode > a")
+  const publicMain = document.querySelector(".s-lc-public-main")
+  
+  if (!(targetLink && publicMain)) return
+  
+  publicMain.insertAdjacentElement("afterbegin", targetLink)
+})
+
+</script>
+</head>
+<body id="museums" class="s-lc-public s-lc-public-page-5">
+
+
+<a id="s-lc-public-skiplink" class="s-lc-skiplink alert-info" href="#s-lc-public-title-area">Skip to Main Content</a>
+
+<div id="s-lc-public-cust-header" role="banner"><div id="bcheader" class="clear"></div>
+<!-- bc template 'header' inserted here -->
+<section class="biblioweb_container" id="content-start" tabindex="-1">
+<div class="clear"></div>
+<div class="systemMessages">
+</div>
+<div id="page"></div>
+<div class="container">
+    
+    <div id="s-lc-public-bc" class="row">
+        <div class="col-md-12">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="http://www.bpl.org/">Boston Public Library</a></li>
+
+                    <li class="s-lc-desktop-only"><a href="https://bpl.libcal.com" >LibCal</a></li>
+
+                    
+                                            <li class="active s-lc-desktop-only" aria-current="page">Reserve a Museum Pass</li>
+                    
+                        <li class="s-lc-breadcrumb-right s-lc-pass-browse-mode">
+        <a href="/admission">
+            Browse By Date        </a>
+    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <noscript>
+        <div class="alert alert-danger" id="noscript">Your browser has javascript disabled. Without javascript some functions will not work.</div>
+    </noscript>
+
+    <div id="s-lc-public-title-area">
+                                    <div id="s-lc-public-title" class="row">
+                    <div class="col-md-12">
+                        <h1 id="s-lc-public-pt">Reserve a Museum Pass</h1>
+                    </div>
+                </div>
+            
+            <div id="s-lc-public-pd" class="row"><div class="col-md-12"><p><strong>Please be sure you read the new policies and instructions for visiting a museum <a class="c-link--secondary" href="https://www.bpl.org/museum-passes/">on our Museum Passes webpage</a>.</strong></p>
+
+<p>Many locations require not only a pass but <strong>reservation</strong> at the museum.&nbsp; Some locations will require that you call them ahead of time and others will require a visit to their website to make a reservation. The Museums are limiting the number of people who can visit at any given time so a reservation is necessary to gain entrance.</p>
+
+<p><strong>Returnable Passes must be picked up and returned (where required) to the branch where they were reserved. Please note the hours of operation for your chosen <a class="c-link--secondary" href="https://bpl.bibliocommons.com/locations">Boston Public Library pickup location</a>.</strong></p>
+</div></div>            </div>
+
+    <main>
+            <div id="s-lc-public-main" class="s-lc-public-main">
+        <div id="s-lc-public-page-content" class="row">
+            <div id="col1" class="col-md-12 center">
+
+                                    <div class="s-lc-eventcard-outer-container s-lc-passcard-outer-container">
+                        <div class="s-lc-eventcard-inner-container s-lc-passcard-inner-container">
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/5bf37dc2bee6" class="s-lc-no-underline">
+                <img src="https://d68g328n4ug0e.cloudfront.net/misc/3119/pass/museum/2026_03_16_13_35_53.png" alt="American Repertory Theatre" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/5bf37dc2bee6">
+                    American Repertory Theatre
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                The American Repertory Theater (A.R.T.) at Harvard University is a leading force in the American theater, producing groundbreaking work that is driven by risk-taking and passionate inquiry. A.R.T. was founded in 1980 by Robert Brustein, who served as Artistic Director until 2002, when he was succeeded by Robert Woodruff. Diane Paulus began her tenure as Terrie and Bradley Bloom Artistic Director...
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/5bf37dc2bee6" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/572fd99e65a3" class="s-lc-no-underline">
+                <img src="https://d68g328n4ug0e.cloudfront.net/misc/3119/pass/museum/2026_04_21_09_33_02.jpg" alt="Boch Center Tours" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/572fd99e65a3">
+                    Boch Center Tours
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                Located just steps away from downtown Boston, a visit to the Boch Center Wang Theatre will make you feel like you've been magically transported to a European Palace. Tours of the theatre are offered several days per week and share the rich history of the Wang Theatre over the past 100 years. Beyond the basic theatre history, a tour includes the opportunity to experience the Folk Americana Roots...
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/572fd99e65a3" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/247124590599" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/Boston_Children_s_Museum.jpg" alt="Boston Children&#039;s Museum (e-coupon)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/247124590599">
+                    Boston Children&#039;s Museum (e-coupon)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                $12 admission per person (&quot;Half Price Library Ticket&quot;) for up to 4 visitors. Children under 1 year old get in for free. 
+
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/247124590599" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/a6c8020ee3e0" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/Boston_Harbor_Islands.jpg" alt="Boston Harbor Islands (promo code)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/a6c8020ee3e0">
+                    Boston Harbor Islands (promo code)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                The code can be used to purchase up to 4 50% off tickets for the following dates:
+
+Georges Island
+
+
+	May 15 - June 14: Thursdays through Sundays
+	June 16 - September 1: every day
+
+
+Spectacle Island
+
+
+	July 15 - September 1: every day
+	September 4 - 21: Thursdays through Sundays
+	September 26 - October 13: Fridays through Sundays
+
+
+Peddocks Island from Hingham
+
+
+	June 15 -...
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/a6c8020ee3e0" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/96efc267af24" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/DCR_Massachusetts.jpg" alt="DCR ParksPass (physical pass)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/96efc267af24">
+                    DCR ParksPass (physical pass)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                THIS IS A RETURNABLE PASS
+
+The ParksPass entitles the bearer to free parking at over 50 facilities in the Massachusetts State Parks System that charge a day-use parking fee.
+
+Note: This pass is limited to one booking per month per person.
+
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/96efc267af24" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/27fd343838f2" class="s-lc-no-underline">
+                <img src="https://d68g328n4ug0e.cloudfront.net/misc/3119/pass/museum/2025_09_03_14_23_49.jpg" alt="Hale Education (physical pass)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/27fd343838f2">
+                    Hale Education (physical pass)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                THIS IS A RETURNABLE PASS
+
+Coupon allows for free parking for one vehicle for the day at Hale during normal business hours and access to hiking Hale’s many trails. Pass is valid for one-time use at Hale. Pass is not valid for use for other programming (beach time, boating, camping, swimming, lessons, etc.) Those offerings must be purchased separately.
+
+Note: This pass is limited to one...
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/27fd343838f2" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/92c222667367" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/Harvard_Museums_of_Science_and_Culture.jpg" alt="Harvard Museums of Science and Culture (physical pass)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/92c222667367">
+                    Harvard Museums of Science and Culture (physical pass)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                Free Admission: Admits up to 4 visitors.
+
+The email confirmation CAN NOT be used in lieu of the physical pass.
+
+This pass may be picked up at the branch at any time after you make your reservation.
+
+This pass must be picked up at the branch you made the reservation.
+
+Consult branch operating hours before you pick up the pass.
+
+This pass does not need to be returned.
+
+Please review the...
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/92c222667367" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/ee42fe43a508" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/95775/images/How_do_you_see_the_world_experience_logo.png" alt="How Do You See the World + Mapparium™ Globe" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/ee42fe43a508">
+                    How Do You See the World + Mapparium™ Globe
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                With this pass, we welcome up to four adults free of charge to the Mapparium™ globe in the How Do You See the World? experience (value $6 per Adult). Youth 17 and younger are always free. All other exhibits in the How Do You See the World? experience are always free, as are weekend church tours, and neither require a ticket.
+
+You may redeem this pass for tickets onsite in the Welcome Hall;...
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/ee42fe43a508" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/ca412b08c3fc" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/Institute_of_Contemporary_Art.jpg" alt="Institute of Contemporary Art (e-coupon)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/ca412b08c3fc">
+                    Institute of Contemporary Art (e-coupon)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                This library membership pass entitles you to
+up to two tickets for Gallery Admission at the discounted Library Pass rate.
+
+
+Pass is valid through 12/31/2026
+
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/ca412b08c3fc" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/3f1a0abfb37f" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/Isabella_Stewart_Gardner_Museum.jpg" alt="Isabella Stewart Gardner Museum (promo code)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/3f1a0abfb37f">
+                    Isabella Stewart Gardner Museum (promo code)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                This pass allows for booking up to four Adult tickets at $5 each. Children under 18 always get in free and should be booked as child tickets.
+
+This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum&#39;s Box Office at 617-278-5156.
+
+ 
+
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/3f1a0abfb37f" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/c4d127379588" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/Larz_Anderson_Museum.jpg" alt="Larz Anderson Museum (physical pass)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/c4d127379588">
+                    Larz Anderson Museum (physical pass)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                Pass allows free admission for up to 4 people. This includes access to the Museum and Summer Lawn Events. Please consult website for events and hours.
+
+THIS IS A RETURNABLE PASS:
+
+ 
+
+
+	Please either pick up the this pass on the day of your reservation OR if, the library is closed day of your reservation, the day before. If you pick up the pass the day before please call the library to be...
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/c4d127379588" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/76269f5073ed" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/Mass_Audobon_Wildlife_Sanctuary.jpg" alt="Mass Audubon Wildlife Sanctuary" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/76269f5073ed">
+                    Mass Audubon Wildlife Sanctuary
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                This pass allows up to four patrons per visit. Each visitor will be charged $2.00. Children under two are admitted free.
+
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/76269f5073ed" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/ced5467b5fe7" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/Museum_of_Fine_Arts.jpg" alt="Museum of Fine Arts (promo code)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/ced5467b5fe7">
+                    Museum of Fine Arts (promo code)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                Each library pass admits 2 adults at $15 per person (general admission and special exhibition) and up to 4 youth (ages 7-17) at $15 each for special exhibition only; there is no discount for youth 7-17 for general admission. Children 6 and under are admitted free.
+
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/ced5467b5fe7" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/25815fed11ec" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/Museum_of_Science.jpg" alt="Museum of Science (e-ticket)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/25815fed11ec">
+                    Museum of Science (e-ticket)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                This pass will give up to FOUR people FREE Exhibit Halls admission. These passes are provided free to the Boston Public Library and provide free admission to the Museum of Science thanks to the generosity of the Lowell Institute.
+
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/25815fed11ec" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/5478304b3d42" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/New_England_Aquarium.jpg" alt="New England Aquarium (e-coupon)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/5478304b3d42">
+                    New England Aquarium (e-coupon)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                This coupon allows free admission to the New England Aquarium for up to 4 people. Library coupons may not be used in conjunction with school or group visits, nor be applied toward Aquarium programs, Simons Theatre tickets, or combination tickets.
+
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/5478304b3d42" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/cb71fd360f1d" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/Peabody_Essex_Museum.jpg" alt="Peabody Essex Museum (promo code)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/cb71fd360f1d">
+                    Peabody Essex Museum (promo code)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                Each pass entitles up to two adults general admission at a reduced of $12 per person.
+
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/cb71fd360f1d" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/a86b0e178ad8" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/Revolutionary_Spaces__1_.png" alt="Revolutionary Spaces (physical pass)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/a86b0e178ad8">
+                    Revolutionary Spaces (physical pass)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                Pass will admit up to 2 adults & 2 children at no charge.
+
+This is a disposable pass.
+
+Please note that your email reservation confirmation is NOT a substitute for the physical pass. You must have a physical pass to gain entry. Printed email confirmation vouchers will not be honored at any museum location. This pass is available to book at the Central and Jamaica Plain library branches. Please...
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/a86b0e178ad8" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/c3c3953a4d27" class="s-lc-no-underline">
+                <img src="https://d68g328n4ug0e.cloudfront.net/misc/3119/pass/museum/2025_07_16_11_02_03.png" alt="Sandwich Glass Museum (digital coupon pass)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/c3c3953a4d27">
+                    Sandwich Glass Museum (digital coupon pass)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                The Sandwich Glass Museum is dedicated to the history of the town in which it is located, with a special emphasis on the glass that made it famous in the 19th century. Thirteen galleries display their collection of old and modern examples of glass objects, including roughly 6,000 pieces produced at the Boston & Sandwich Glass Company in the 1800s on the site where the museum sits today. In...
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/c3c3953a4d27" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/7dfc5eb56d0b" class="s-lc-no-underline">
+                <img src="https://d68g328n4ug0e.cloudfront.net/misc/3119/pass/museum/2025_07_24_09_17_35.jpg" alt="TACC x Paddle Boston (coupon code)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/7dfc5eb56d0b">
+                    TACC x Paddle Boston (coupon code)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                Coupon code good for one boat rental per order.
+
+ 
+
+The American City Coalition (TACC) is a 501(c)(3) organization based in Roxbury’s Nubian Square. We tackle community-identified barriers through economic and workforce development, research, and policy strategies that expand pathways to meaningful opportunities in communities of color. Boston is a coastal city with 47 miles of shoreline;...
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/7dfc5eb56d0b" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/85ce3124733e" class="s-lc-no-underline">
+                <img src="https://d68g328n4ug0e.cloudfront.net/misc/3119/pass/museum/2025_07_16_10_08_45.png" alt="The Greenway Carousel (e-coupon)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/85ce3124733e">
+                    The Greenway Carousel (e-coupon)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                Free Greenway Carousel family admission (up to 4 individuals) for one ride (e-coupon).
+
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/85ce3124733e" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/eb6d133c0fb7" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/Trustees_GO.jpg" alt="Trustees GO Pass (physical pass)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/eb6d133c0fb7">
+                    Trustees GO Pass (physical pass)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                Coupon allows two adults and children under 18 entry at Family membership rates. Pass is valid for one-time use at any of 116 properties that collect an admission fee. Pass holder will pay an admission fee equivalent to that of a Trustees Family level membership. Pass is not valid for use at Trustees parking kiosks, stores, cafes, Inns, campgrounds, at special events and programs or in place of...
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/eb6d133c0fb7" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/f3fe5e025455" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/USS_Constitution_Museum.jpg" alt="USS Constitution Museum (e-coupon)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/f3fe5e025455">
+                    USS Constitution Museum (e-coupon)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                One pass allows free admission for up to five guests.
+
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/f3fe5e025455" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                            
+<div class="s-lc-eventcard s-lc-passcard">
+    <div class="s-lc-eventcard-content s-lc-eventcard-image-vertical">
+        <div class="s-lc-eventcard-heading-image">
+            <a href="/passes/b91f556dbfb2" class="s-lc-no-underline">
+                <img src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/329609/images/Zoo_New_England.jpg" alt="Zoo New England (physical pass)" />
+            </a>
+        </div>
+
+        
+        <div class="s-lc-eventcard-event-color-bar" style="background-color: #B3C8EF">
+        </div>
+
+        <div class="s-lc-eventcard-body">
+            <h2 class="s-lc-eventcard-title">
+                <a href="/passes/b91f556dbfb2">
+                    Zoo New England (physical pass)
+                </a>
+            </h2>
+
+            <div class="s-lc-eventcard-description">
+                Coupon admits 6 people at $9 per adult and $6 per child.
+
+Note: This pass is limited to one booking per month per person.
+
+            </div>
+        </div>
+
+        <div class="s-lc-passcard-book">
+            <a href="/passes/b91f556dbfb2" class="btn btn-primary s-lc-passcard-book-btn">
+                Book Now
+            </a>
+        </div>
+    </div>
+</div>
+                                                    </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+    </main>
+
+    <footer id="s-lc-public-footer" class="row s-lc-public-footer">
+        <div id="s-lc-public-footer-brand">
+    <span title="libcal-us-1">Powered by</span> <a href="https://www.springshare.com" class="s-lc-link-in-text">Springshare</a>.
+</div>
+
+<div id="s-lc-public-footer-rights">
+    All rights reserved.
+</div>
+
+    <div id="s-lc-footer-support-link">
+        <a href="mailto:ggifford@bpl.org">Report a tech support issue.</a>
+    </div>
+
+                
+        <div id="s-lc-public-footer-admin-links" role="navigation" aria-label="Admin Footer">
+                            <a id="s-lc-sign-in" href="https://bpl.libapps.com/libapps/login.php?site_id=5371&amp;target=">Login to LibApps</a>
+                    </div>
+
+        <div class="s-lc-public-footer-actions">
+    
+<div id="s-lc-language">
+    <select id="s-lc-language-selector" aria-label="Select Language">
+                <option value="ca" >català</option>
+                <option value="cy" >Cymraeg</option>
+                <option value="en" selected>English</option>
+                <option value="es" >español</option>
+                <option value="fr" >français</option>
+                <option value="ga" >Irish</option>
+                <option value="ja" >日本語 Nihongo</option>
+                <option value="nl" >Nederlands</option>
+                <option value="sl" >slovenski jezik</option>
+                <option value="vi" >Tiếng Việt</option>
+                <option value="zh" >中文 Zhōngwén</option>
+            </select>
+</div>
+</div>
+    </footer>
+
+    
+</div>
+
+<div id="s-lc-public-cust-footer"><div id="bcjs" class="clear"></div>
+</div>
+<!-- #page -->
+</section>
+<!-- end biblioweb_container --></div>
+
+
+
+<div id="s-lc-privacy-statement" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                <h2 class="modal-title">
+                    Privacy Statement
+                </h2>
+            </div>
+
+            <div class="modal-body">
+                <p>To use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    springSpace.cookieConsent.alert({
+        okay: "OK",
+        placement: "bottom",
+        consent_message: "This site uses cookies and stores your IP address for usage statistics. <a href='#' id='s-ui-cc-read-more-link'>Read\u0020More</a>",
+        read_more_callback: function () {
+            jQuery("#s-lc-privacy-statement").springshareModal("show");
+        }
+    });
+</script>
+
+
+</body>
+</html>
