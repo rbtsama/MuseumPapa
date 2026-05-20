@@ -8,7 +8,7 @@
       "network": "NOBLE",
       "platform": "assabet",
       "domain": "wakefieldlibrary.assabetinteractive.com",
-      "card_page": "https://www.wakefieldlibrary.org/get-a-card/",
+      "card_page": "https://wakefieldlibrary.org/get-a-library-card/",
       "non_resident_policy_initial": "open_ma_resident",
       "supports_availability": true,
       "pass_page": "https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/"
@@ -56,7 +56,7 @@
       "network": "NOBLE",
       "platform": "assabet",
       "domain": "lynnfieldlibrary.assabetinteractive.com",
-      "card_page": "https://www.lynnfieldlibrary.org/get-a-card/",
+      "card_page": "https://lynnfieldlibrary.org/about/get-a-library-card/",
       "non_resident_policy_initial": "open_ma_resident",
       "supports_availability": true,
       "pass_page": "https://lynnfieldlibrary.assabetinteractive.com/museum-passes/by-museum/"
@@ -68,7 +68,7 @@
       "network": "NOBLE",
       "platform": "assabet",
       "domain": "peabodylibrary.assabetinteractive.com",
-      "card_page": "https://peabodylibrary.org/services/get-a-library-card/",
+      "card_page": "https://peabodylibrary.org/librarycard/",
       "non_resident_policy_initial": "open_ma_resident",
       "supports_availability": true,
       "pass_page": "https://peabodylibrary.assabetinteractive.com/museum-passes/by-museum/"
@@ -116,7 +116,7 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "medfordlibrary.assabetinteractive.com",
-      "card_page": "https://medfordlibrary.org/services/borrow/library-cards/",
+      "card_page": "https://medfordlibrary.org/about-us/policies/borrowing-policies/",
       "non_resident_policy_initial": "residents_only",
       "supports_availability": true,
       "pass_page": "https://medfordlibrary.assabetinteractive.com/museum-passes/by-museum/"
@@ -430,7 +430,7 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "actonmemoriallibrary.assabetinteractive.com",
-      "card_page": "https://actonmemoriallibrary.org/",
+      "card_page": "https://www.actonmemoriallibrary.org/services/library-cards/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "pass_page": "https://actonmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/"
