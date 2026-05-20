@@ -97,3 +97,12 @@ def fetch(
 
     assert last_err is not None
     raise last_err
+
+
+def fetch_and_save_html(url: str, out_path: Path, **fetch_kwargs) -> Path:
+    """fetch URL, write HTML to disk prefixed with source_url marker. Overwrites on re-fetch."""
+    html = fetch(url, **fetch_kwargs)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    marker = f"<!-- source_url: {url} -->\n"
+    out_path.write_text(marker + html, encoding="utf-8")
+    return out_path
