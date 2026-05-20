@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 15
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 15,
+          "count": 15,
+          "age_range": null,
+          "source_phrase": "This is a digital pass that will be emailed to you once you complete your registration. $15 Admission fee per person for up to 2 adults. $10 Admission fee per person for up to 4 youths 7-17."
+        }
+      ],
+      "summary": "$15/person",
+      "source_phrase_block": "This is a digital pass that will be emailed to you once you complete your registration. $15 Admission fee per person for up to 2 adults. $10 Admission fee per person for up to 4 youths 7-17."
+    },
+    "restrictions": null
+  }
+}

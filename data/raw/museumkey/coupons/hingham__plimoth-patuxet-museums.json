@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 18,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This is a digital pass that will be emailed to you once you complete your registration. Each pass allows admission for up to 6 people at $18 for adults and $12 for children ages 5-17."
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 12,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This is a digital pass that will be emailed to you once you complete your registration. Each pass allows admission for up to 6 people at $18 for adults and $12 for children ages 5-17."
+        }
+      ],
+      "summary": "$18/person",
+      "source_phrase_block": "This is a digital pass that will be emailed to you once you complete your registration. Each pass allows admission for up to 6 people at $18 for adults and $12 for children ages 5-17."
+    },
+    "restrictions": null
+  }
+}

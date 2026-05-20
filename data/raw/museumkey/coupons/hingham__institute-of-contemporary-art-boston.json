@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "This is a digital pass that will be emailed to you once you complete your registration. Each pass allows up to two people a discounted rate of $10.00 each. The ICA is always free to children 17 and under. The ICA is free to the public on Thursday nights from 5:00-9:00pm."
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "This is a digital pass that will be emailed to you once you complete your registration. Each pass allows up to two people a discounted rate of $10.00 each. The ICA is always free to children 17 and under. The ICA is free to the public on Thursday nights from 5:00-9:00pm."
+    },
+    "restrictions": null
+  }
+}

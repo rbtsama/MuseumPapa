@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Pass admits 1 person for free. Patrons must bring the physical coupon. Visit museum website for more information. Cohasset Historical Society"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass admits 1 person for free. Patrons must bring the physical coupon. Visit museum website for more information. Cohasset Historical Society"
+    },
+    "restrictions": null
+  }
+}

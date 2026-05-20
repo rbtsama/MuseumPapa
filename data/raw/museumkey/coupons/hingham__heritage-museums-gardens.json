@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This is a digital pass that will be emailed to you once you complete your registration. Pass allows 50% off regular general admission to museum & gardens for up to 6 adults or youths (3-17 years old). Children 2 and under are admitted free."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This is a digital pass that will be emailed to you once you complete your registration. Pass allows 50% off regular general admission to museum & gardens for up to 6 adults or youths (3-17 years old). Children 2 and under are admitted free."
+    },
+    "restrictions": null
+  }
+}

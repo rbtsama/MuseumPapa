@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "ticket",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Paul Pratt Memorial Library THIS PASS IS VALID ONCE BETWEEN 11/1/2025 AND 10/31/2026 The online promo code is MPP82401YK When reserving Isabella Stewart Gardner Museum timed entry tickets online, you will: 1. Go to https:/tnew.gardnermuseum.org/ events 2. Submit the promo code in"
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "Paul Pratt Memorial Library THIS PASS IS VALID ONCE BETWEEN 11/1/2025 AND 10/31/2026 The online promo code is MPP82401YK When reserving Isabella Stewart Gardner Museum timed entry tickets online, you will: 1. Go to https:/tnew.gardnermuseum.org/ events 2. Submit the promo code in the box at the top of the screen 3. Select the visit date and a time to enter 4. Add desired number of tickets to the basket. The library pass allows you to get up to four tickets at $5 each (choose the Library Pass ticket type). Any additional ticket will be normally priced (Children under 18 are always free and should be reserved as child tickets) 5. Login or create an account 6. Finish checking out (discount is applied only at checkout) More information on how to use the promo code online can be found in these instructions: How to Book Museum Tickets Using a Library Pass Online . This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617 278 5156. PATRONS MUST PRESENT BOTH THIS LIBRARY PASS AND THEIR RESERVED TIMED MUSEUM ADMISSION TICKETS FOR ENTRY INTO THE MUSEUM . MUSEUM HOURS : WEEKDAYS 11 AM â€“ 5 PM | WEEKENDS 10 AM â€“ 5 PM | THURSDAYS 11 AM â€“ 9 PM | CLOSED TUESDAYS 25 EVANS WAY, BOSTON, MA 02115 Visit museum website for more information. John F. Kennedy Presidential Library and Museum"
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Updated 03/16/2026 Pass is good for 50% off per person, up to 4 people. Passbook Code is PS143901 and library ID is 324077. The New England Aquarium will be closed to the public on Wednesday, April 8. Passes for April 8 will be honored up to a week after the original date. In add"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Updated 03/16/2026 Pass is good for 50% off per person, up to 4 people. Passbook Code is PS143901 and library ID is 324077. The New England Aquarium will be closed to the public on Wednesday, April 8. Passes for April 8 will be honored up to a week after the original date. In addition, in the event of an Aquarium closure due to inclement weather, we will honor passes up to a week after the original date as well. Visit museum website for more information. Plimoth Patuxet"
+    },
+    "restrictions": {
+      "blackout": [
+        {
+          "month": 4,
+          "day": null
+        }
+      ],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null
+    }
+  }
+}

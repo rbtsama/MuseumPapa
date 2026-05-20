@@ -1,0 +1,37 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 15,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Updated 03/26/2026 Use promo code IP-1636144 to receive a discount on MFA tickets. Visit mfa.org/tickets . Use promo code IP-1636144 to receive a discount and select Library Pass Ticket. The ticket will be emailed to the patron. For visit dates beginning January 20, 2026, each pr"
+        }
+      ],
+      "summary": "$15/person",
+      "source_phrase_block": "Updated 03/26/2026 Use promo code IP-1636144 to receive a discount on MFA tickets. Visit mfa.org/tickets . Use promo code IP-1636144 to receive a discount and select Library Pass Ticket. The ticket will be emailed to the patron. For visit dates beginning January 20, 2026, each promo code may be redeemed for up to two adult tickets ($15 each) and four youth tickets ($10 each). Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Yearâ€™s Day, Patriotsâ€™ Day, Fourth of July, Thanksgiving, and Christmas. Visit museum website for more information. Museum of Science"
+    },
+    "restrictions": {
+      "blackout": [
+        {
+          "month": 7,
+          "day": null
+        }
+      ],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "Print out this pass or display on phone and bring to the USS Constitution Museum box office. Pass holders will receive free admission to the museum. One pass allows free admission for up to 5 people per day. One pass per party, please. Please Note: Museum Hours - Open Daily; Wint"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Print out this pass or display on phone and bring to the USS Constitution Museum box office. Pass holders will receive free admission to the museum. One pass allows free admission for up to 5 people per day. One pass per party, please. Please Note: Museum Hours - Open Daily; Winter Hours 10:00am - 5:00pm. Museum is closed Thanksgiving Day, Christmas Day, and New Year's Day. Update 01/12/2026 Visit museum website for more information. Zoo New England"
+    },
+    "restrictions": null
+  }
+}

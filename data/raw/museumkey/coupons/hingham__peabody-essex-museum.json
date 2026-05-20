@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 12
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 12,
+          "age_range": null,
+          "source_phrase": "This is a digital pass that will be emailed to you once you complete your registration. $12 admission to general museum for up to 2 adults, children under 16 are free. Admission to the Yin Yu Tang, the Chinese house, is included in general admission, but advanced reservations are"
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "This is a digital pass that will be emailed to you once you complete your registration. $12 admission to general museum for up to 2 adults, children under 16 are free. Admission to the Yin Yu Tang, the Chinese house, is included in general admission, but advanced reservations are required. Access to Phillips Research library and special ticketed exhibitions also require a separate fee. Visitors using a library pass are not entitled to any other member benefits."
+    },
+    "restrictions": null
+  }
+}

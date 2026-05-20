@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This is a digital pass that will be emailed to you once you complete your registration. Each pass offers a 50% discount on 4 full priced tickets. Passes do not apply to Aquarium boat programs, IMAX shows or school group visits. This pass has been provided by a generous contributi"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This is a digital pass that will be emailed to you once you complete your registration. Each pass offers a 50% discount on 4 full priced tickets. Passes do not apply to Aquarium boat programs, IMAX shows or school group visits. This pass has been provided by a generous contribution from the Hingham Newcomers Club."
+    },
+    "restrictions": null
+  }
+}

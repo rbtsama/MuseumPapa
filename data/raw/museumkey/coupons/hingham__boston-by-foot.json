@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This is a digital pass that will be emailed to you once you complete your registration. Offers free admission for your group on most Boston by Foot walking tours (does not include: Footloose on the Freedom Trail, Beacon with a Boo, any water-based tours, or any private tours)."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This is a digital pass that will be emailed to you once you complete your registration. Offers free admission for your group on most Boston by Foot walking tours (does not include: Footloose on the Freedom Trail, Beacon with a Boo, any water-based tours, or any private tours)."
+    },
+    "restrictions": null
+  }
+}

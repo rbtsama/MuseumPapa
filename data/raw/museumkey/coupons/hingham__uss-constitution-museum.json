@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 9
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 9,
+          "age_range": null,
+          "source_phrase": "This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. Free admission for up to 9 visitors."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. Free admission for up to 9 visitors."
+    },
+    "restrictions": null
+  }
+}

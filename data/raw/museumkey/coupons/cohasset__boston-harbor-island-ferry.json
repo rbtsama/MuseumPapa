@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "This is a 50% discount to the Boston Harbor Islands for up to 4 people. Passes are good between May and October. Please see the island-specific schedule for the 2026 season below. Visit www.bostonharborislands.org/ferry-tickets to purchase advance tickets. Select the date, time, "
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This is a 50% discount to the Boston Harbor Islands for up to 4 people. Passes are good between May and October. Please see the island-specific schedule for the 2026 season below. Visit www.bostonharborislands.org/ferry-tickets to purchase advance tickets. Select the date, time, destination, and number of tickets. Enter the library's code in the \"Coupon/Voucher Code\" field and click apply to receive the 50% discounted rate. Complete your transaction and bring your phone or printed copy of your barcode to board the ferry! Paul Pratt Memorial Library - Cohasset Code: HARBOR16 Georges Island May 15 - June 14: Thursdays through Sundays June 16 - September 1: every day Spectacle Island July 15 - September 1: every day September 4 - 21: Thursdays through Sundays September 26 - October 13: Fridays through Sundays Peddocks Island from Hingham June 15 - September 7: every day BUT Tuesdays September 10 - October 12: Thursdays through Sundays Visit museum website for more information. The Butterfly Place"
+    },
+    "restrictions": null
+  }
+}

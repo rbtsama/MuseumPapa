@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 18,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Updated 3/13/2025 Open for the 2025 season March 15 through the Sunday following Thanksgiving Day Reserve the date on the library website, then print or download the pass. Take to museum and present at the box office. Pass is good for a rate of $18/adult and $12/child, ages 5-17,"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 12,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Updated 3/13/2025 Open for the 2025 season March 15 through the Sunday following Thanksgiving Day Reserve the date on the library website, then print or download the pass. Take to museum and present at the box office. Pass is good for a rate of $18/adult and $12/child, ages 5-17,"
+        }
+      ],
+      "summary": "$18/person",
+      "source_phrase_block": "Updated 3/13/2025 Open for the 2025 season March 15 through the Sunday following Thanksgiving Day Reserve the date on the library website, then print or download the pass. Take to museum and present at the box office. Pass is good for a rate of $18/adult and $12/child, ages 5-17, for up to 6 people and is valid for all of the living history sites offered. Patrons may either show a picture of their library pass on their phone or provide a paper version of the library pass. Visit museum website for more information. The Trustees of Reservations GO Pass"
+    },
+    "restrictions": null
+  }
+}

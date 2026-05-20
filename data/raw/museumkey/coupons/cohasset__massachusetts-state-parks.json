@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Free parking for most State parks including Nantasket Beach. Visit museum website for more information. Museum of Fine Arts Boston"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Free parking for most State parks including Nantasket Beach. Visit museum website for more information. Museum of Fine Arts Boston"
+    },
+    "restrictions": null
+  }
+}
