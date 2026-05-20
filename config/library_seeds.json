@@ -10,7 +10,8 @@
       "domain": "wakefieldlibrary.assabetinteractive.com",
       "card_page": "https://www.wakefieldlibrary.org/get-a-card/",
       "non_resident_policy_initial": "open_ma_resident",
-      "supports_availability": true
+      "supports_availability": true,
+      "pass_page": "https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/"
     },
     {
       "id": "stoneham",
@@ -21,7 +22,8 @@
       "domain": "stonehamlibrary.assabetinteractive.com",
       "card_page": "https://stonehamlibrary.org/get-a-library-card/",
       "non_resident_policy_initial": "open_ma_resident",
-      "supports_availability": true
+      "supports_availability": true,
+      "pass_page": "https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/"
     },
     {
       "id": "reading",
@@ -32,7 +34,8 @@
       "domain": "readingpl.assabetinteractive.com",
       "card_page": "https://www.readingpl.org/services/get-a-library-card/",
       "non_resident_policy_initial": "open_ma_resident",
-      "supports_availability": true
+      "supports_availability": true,
+      "pass_page": "https://readingpl.assabetinteractive.com/museum-passes/by-museum/"
     },
     {
       "id": "woburn",
@@ -43,7 +46,8 @@
       "domain": "woburnpubliclibrary.assabetinteractive.com",
       "card_page": "https://www.woburnpubliclibrary.org/borrow/get-a-library-card/",
       "non_resident_policy_initial": "residents_only",
-      "supports_availability": true
+      "supports_availability": true,
+      "pass_page": "https://woburnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
     },
     {
       "id": "lynnfield",
@@ -54,7 +58,8 @@
       "domain": "lynnfieldlibrary.assabetinteractive.com",
       "card_page": "https://www.lynnfieldlibrary.org/get-a-card/",
       "non_resident_policy_initial": "open_ma_resident",
-      "supports_availability": true
+      "supports_availability": true,
+      "pass_page": "https://lynnfieldlibrary.assabetinteractive.com/museum-passes/by-museum/"
     },
     {
       "id": "peabody",
@@ -65,7 +70,8 @@
       "domain": "peabodylibrary.assabetinteractive.com",
       "card_page": "https://peabodylibrary.org/services/get-a-library-card/",
       "non_resident_policy_initial": "open_ma_resident",
-      "supports_availability": true
+      "supports_availability": true,
+      "pass_page": "https://peabodylibrary.assabetinteractive.com/museum-passes/by-museum/"
     },
     {
       "id": "melrose",
@@ -76,7 +82,8 @@
       "domain": "melrosepubliclibrary.assabetinteractive.com",
       "card_page": "https://melrosepubliclibrary.org/services/borrow/library-cards/",
       "non_resident_policy_initial": "residents_only",
-      "supports_availability": true
+      "supports_availability": true,
+      "pass_page": "https://melrosepubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
     },
     {
       "id": "saugus",
@@ -87,7 +94,8 @@
       "domain": "sauguspubliclibrary.assabetinteractive.com",
       "card_page": "https://sauguspubliclibrary.org/borrowing/library-cards/",
       "non_resident_policy_initial": "open_ma_resident",
-      "supports_availability": true
+      "supports_availability": true,
+      "pass_page": "https://sauguspubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
     },
     {
       "id": "malden",
@@ -98,7 +106,8 @@
       "domain": "maldenpubliclibrary.assabetinteractive.com",
       "card_page": "https://maldenpubliclibrary.org/services/library-card/",
       "non_resident_policy_initial": "residents_only",
-      "supports_availability": true
+      "supports_availability": true,
+      "pass_page": "https://maldenpubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
     },
     {
       "id": "medford",
@@ -109,7 +118,8 @@
       "domain": "medfordlibrary.assabetinteractive.com",
       "card_page": "https://medfordlibrary.org/services/borrow/library-cards/",
       "non_resident_policy_initial": "residents_only",
-      "supports_availability": true
+      "supports_availability": true,
+      "pass_page": "https://medfordlibrary.assabetinteractive.com/museum-passes/by-museum/"
     },
     {
       "id": "burlington",
@@ -120,7 +130,8 @@
       "domain": "burlington.assabetinteractive.com",
       "card_page": "https://www.burlington.org/170/Library-Card",
       "non_resident_policy_initial": "network_only",
-      "supports_availability": true
+      "supports_availability": true,
+      "pass_page": "https://burlington.assabetinteractive.com/museum-passes/by-museum/"
     },
     {
       "id": "north-reading",
@@ -131,7 +142,8 @@
       "domain": "flintmemoriallibrary.assabetinteractive.com",
       "card_page": "https://www.flintmemoriallibrary.org/services/get-a-card/",
       "non_resident_policy_initial": "open_ma_resident",
-      "supports_availability": true
+      "supports_availability": true,
+      "pass_page": "https://flintmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/"
     },
     {
       "id": "wilmington",
@@ -142,7 +154,8 @@
       "domain": "wilmlibrary.assabetinteractive.com",
       "card_page": "https://wilmlibrary.org/get-a-library-card/",
       "non_resident_policy_initial": "network_only",
-      "supports_availability": true
+      "supports_availability": true,
+      "pass_page": "https://wilmlibrary.assabetinteractive.com/museum-passes/by-museum/"
     },
     {
       "id": "winchester",
@@ -166,54 +179,545 @@
       "pass_page": "https://bpl.libcal.com/passes",
       "card_page": "https://www.bpl.org/borrowing/",
       "non_resident_policy_initial": "open_ma_resident",
-      "supports_availability": true
+      "supports_availability": true,
+      "libcal_base": "https://bpl.libcal.com",
+      "locations_url": "https://gateway.bibliocommons.com/v2/libraries/bpl/branches"
     },
-
-    { "id": "beverly",       "name": "Beverly Public Library",            "town": "Beverly",       "network": "NOBLE",   "platform": "assabet", "domain": "beverlypubliclibrary.assabetinteractive.com",      "card_page": "https://beverlypubliclibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "danvers",        "name": "Peabody Institute Library of Danvers","town": "Danvers",   "network": "NOBLE",   "platform": "assabet", "domain": "danverslibrary.assabetinteractive.com",            "card_page": "https://danverslibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "lynn",           "name": "Lynn Public Library",               "town": "Lynn",          "network": "NOBLE",   "platform": "assabet", "domain": "lynnpubliclibrary.assabetinteractive.com",          "card_page": "https://lynnpubliclibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "marblehead",     "name": "Abbot Public Library",              "town": "Marblehead",    "network": "NOBLE",   "platform": "assabet", "domain": "abbotlibrary.assabetinteractive.com",               "card_page": "https://www.abbotlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "everett",        "name": "Everett Public Libraries",          "town": "Everett",       "network": "NOBLE",   "platform": "assabet", "domain": "everettpubliclibraries.assabetinteractive.com",     "card_page": "https://www.everettpubliclibraries.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "chelsea",        "name": "Chelsea Public Library",            "town": "Chelsea",       "network": "NOBLE",   "platform": "assabet", "domain": "chelseama.assabetinteractive.com",                  "card_page": "https://www.chelseama.gov/departments/library/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "billerica",      "name": "Billerica Public Library",          "town": "Billerica",     "network": "MVLC",    "platform": "assabet", "domain": "billericalibrary.assabetinteractive.com",           "card_page": "https://billericalibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "topsfield",      "name": "Topsfield Town Library",            "town": "Topsfield",     "network": "MVLC",    "platform": "assabet", "domain": "topsfieldlibrary.assabetinteractive.com",           "card_page": "https://www.topsfieldlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "boxford",        "name": "Boxford Town Library",              "town": "Boxford",       "network": "MVLC",    "platform": "assabet", "domain": "boxfordlibrary.assabetinteractive.com",             "card_page": "https://boxfordlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "tewksbury",      "name": "Tewksbury Public Library",          "town": "Tewksbury",     "network": "MVLC",    "platform": "assabet", "domain": "tewksburypl.assabetinteractive.com",                "card_page": "https://www.tewksburypl.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "chelmsford",     "name": "Chelmsford Public Library",         "town": "Chelmsford",    "network": "MVLC",    "platform": "assabet", "domain": "chelmsfordlibrary.assabetinteractive.com",          "card_page": "https://chelmsfordlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "haverhill",      "name": "Haverhill Public Library",          "town": "Haverhill",     "network": "MVLC",    "platform": "assabet", "domain": "haverhillpl.assabetinteractive.com",                "card_page": "https://www.haverhillpl.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "lawrence",       "name": "Lawrence Public Library",           "town": "Lawrence",      "network": "MVLC",    "platform": "assabet", "domain": "lawrencepl.assabetinteractive.com",                 "card_page": "https://www.lawrencefreelibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "methuen",        "name": "Nevins Memorial Library",           "town": "Methuen",       "network": "MVLC",    "platform": "assabet", "domain": "nevinslibrary.assabetinteractive.com",              "card_page": "https://www.nevinslibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "andover",        "name": "Memorial Hall Library",             "town": "Andover",       "network": "MVLC",    "platform": "assabet", "domain": "mhl.assabetinteractive.com",                        "card_page": "https://mhl.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "north-andover",  "name": "Stevens Memorial Library",          "town": "North Andover", "network": "MVLC",    "platform": "assabet", "domain": "stevensmemlib.assabetinteractive.com",              "card_page": "https://www.stevensmemlib.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "middleton",      "name": "Flint Public Library",              "town": "Middleton",     "network": "MVLC",    "platform": "assabet", "domain": "flintlibrary.assabetinteractive.com",               "card_page": "https://flintlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "arlington",      "name": "Robbins Library",                   "town": "Arlington",     "network": "Minuteman","platform": "assabet", "domain": "robbinslibrary.assabetinteractive.com",             "card_page": "https://www.robbinslibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "newton",         "name": "Newton Free Library",               "town": "Newton",        "network": "Minuteman","platform": "assabet", "domain": "newtonfreelibrary.assabetinteractive.com",          "card_page": "https://www.newtonfreelibrary.net/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "lincoln",        "name": "Lincoln Public Library",            "town": "Lincoln",       "network": "Minuteman","platform": "assabet", "domain": "lincolnpl.assabetinteractive.com",                  "card_page": "https://lincolnpl.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "acton",          "name": "Acton Memorial Library",            "town": "Acton",         "network": "Minuteman","platform": "assabet", "domain": "actonmemoriallibrary.assabetinteractive.com",       "card_page": "https://actonmemoriallibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "framingham",     "name": "Framingham Public Library",         "town": "Framingham",    "network": "Minuteman","platform": "assabet", "domain": "framinghamlibrary.assabetinteractive.com",          "card_page": "https://framinghamlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "maynard",        "name": "Maynard Public Library",            "town": "Maynard",       "network": "Minuteman","platform": "assabet", "domain": "maynardpubliclibrary.assabetinteractive.com",       "card_page": "https://www.maynardpubliclibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "carlisle",       "name": "Gleason Public Library",            "town": "Carlisle",      "network": "Minuteman","platform": "assabet", "domain": "gleasonlibrary.assabetinteractive.com",             "card_page": "https://gleasonlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "wayland",        "name": "Wayland Free Public Library",       "town": "Wayland",       "network": "Minuteman","platform": "assabet", "domain": "waylandlibrary.assabetinteractive.com",             "card_page": "https://www.waylandlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "weston",         "name": "Weston Public Library",             "town": "Weston",        "network": "Minuteman","platform": "assabet", "domain": "westonlibrary.assabetinteractive.com",              "card_page": "https://www.westonlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "sudbury",        "name": "Goodnow Library",                   "town": "Sudbury",       "network": "Minuteman","platform": "assabet", "domain": "goodnowlibrary.assabetinteractive.com",             "card_page": "https://goodnowlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "belmont",        "name": "Belmont Public Library",            "town": "Belmont",       "network": "Minuteman","platform": "assabet", "domain": "belmontpubliclibrary.assabetinteractive.com",       "card_page": "https://www.belmontpubliclibrary.net/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "lexington",      "name": "Cary Memorial Library",             "town": "Lexington",     "network": "Minuteman","platform": "assabet", "domain": "carylibrary.assabetinteractive.com",                "card_page": "https://www.carylibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "wellesley",      "name": "Wellesley Free Library",            "town": "Wellesley",     "network": "Minuteman","platform": "assabet", "domain": "wellesleyfreelibrary.assabetinteractive.com",       "card_page": "https://www.wellesleyfreelibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "waltham",        "name": "Waltham Public Library",            "town": "Waltham",       "network": "Minuteman","platform": "assabet", "domain": "waltham.assabetinteractive.com",                    "card_page": "https://walthampubliclibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "watertown",      "name": "Watertown Free Public Library",     "town": "Watertown",     "network": "Minuteman","platform": "assabet", "domain": "watertownlib.assabetinteractive.com",               "card_page": "https://www.watertownlib.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "concord",        "name": "Concord Free Public Library",       "town": "Concord",       "network": "Minuteman","platform": "assabet", "domain": "concordlibrary.assabetinteractive.com",             "card_page": "https://concordlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "bedford",        "name": "Bedford Free Public Library",       "town": "Bedford",       "network": "Minuteman","platform": "assabet", "domain": "bedfordlibrary.assabetinteractive.com",             "card_page": "https://bedfordlibrary.net/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "needham",        "name": "Needham Free Public Library",       "town": "Needham",       "network": "Minuteman","platform": "assabet", "domain": "needhamma.assabetinteractive.com",                  "card_page": "https://needhamlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "natick",         "name": "Morse Institute Library",           "town": "Natick",        "network": "Minuteman","platform": "assabet", "domain": "morseinstitute.assabetinteractive.com",             "card_page": "https://www.morseinstitute.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "somerville",     "name": "Somerville Public Library",         "town": "Somerville",    "network": "Minuteman","platform": "assabet", "domain": "somervillepubliclibrary.assabetinteractive.com",    "card_page": "https://www.somervillepubliclibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "quincy",         "name": "Thomas Crane Public Library",       "town": "Quincy",        "network": "OCLN",    "platform": "assabet", "domain": "thomascranelibrary.assabetinteractive.com",         "card_page": "https://thomascranelibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-
-    { "id": "cambridge",      "name": "Cambridge Public Library",          "town": "Cambridge",     "network": "Minuteman","platform": "libcal", "domain": "cambridgepl.libcal.com",   "pass_page": "https://cambridgepl.libcal.com/passes",   "card_page": "https://www.cambridgema.gov/cpl", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "brookline",      "name": "Brookline Public Library",          "town": "Brookline",     "network": "Minuteman","platform": "libcal", "domain": "brooklinelibrary.libcal.com","pass_page": "https://brooklinelibrary.libcal.com/passes","card_page": "https://brooklinelibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "braintree",      "name": "Thayer Public Library",             "town": "Braintree",     "network": "OCLN",    "platform": "libcal", "domain": "thayerpubliclibrary.libcal.com","pass_page": "https://thayerpubliclibrary.libcal.com/passes","card_page": "https://www.thayerpubliclibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-    { "id": "milton",         "name": "Milton Public Library",             "town": "Milton",        "network": "OCLN",    "platform": "libcal", "domain": "miltonlibrary.libcal.com", "pass_page": "https://miltonlibrary.libcal.com/passes", "card_page": "https://www.miltonlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": true },
-
-    { "id": "cohasset",       "name": "Paul Pratt Memorial Library",       "town": "Cohasset",      "network": "OCLN",    "platform": "museumkey","domain": "www2.museumkey.com","pass_page": "https://www2.museumkey.com/ui/byMuseum/?code=paulma02025&branchID=231","card_page": "https://www.cohassetlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": false },
-    { "id": "hingham",        "name": "Hingham Public Library",            "town": "Hingham",       "network": "OCLN",    "platform": "museumkey","domain": "www2.museumkey.com","pass_page": "https://www2.museumkey.com/ui/byMuseum/?code=hingma02043&branchID=505","card_page": "https://hinghamlibrary.org/", "non_resident_policy_initial": "unknown", "supports_availability": false }
+    {
+      "id": "beverly",
+      "name": "Beverly Public Library",
+      "town": "Beverly",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "beverlypubliclibrary.assabetinteractive.com",
+      "card_page": "https://beverlypubliclibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://beverlypubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "danvers",
+      "name": "Peabody Institute Library of Danvers",
+      "town": "Danvers",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "danverslibrary.assabetinteractive.com",
+      "card_page": "https://danverslibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://danverslibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "lynn",
+      "name": "Lynn Public Library",
+      "town": "Lynn",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "lynnpubliclibrary.assabetinteractive.com",
+      "card_page": "https://lynnpubliclibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://lynnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "marblehead",
+      "name": "Abbot Public Library",
+      "town": "Marblehead",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "abbotlibrary.assabetinteractive.com",
+      "card_page": "https://www.abbotlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://abbotlibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "everett",
+      "name": "Everett Public Libraries",
+      "town": "Everett",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "everettpubliclibraries.assabetinteractive.com",
+      "card_page": "https://www.everettpubliclibraries.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://everettpubliclibraries.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "chelsea",
+      "name": "Chelsea Public Library",
+      "town": "Chelsea",
+      "network": "NOBLE",
+      "platform": "assabet",
+      "domain": "chelseama.assabetinteractive.com",
+      "card_page": "https://www.chelseama.gov/departments/library/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://chelseama.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "billerica",
+      "name": "Billerica Public Library",
+      "town": "Billerica",
+      "network": "MVLC",
+      "platform": "assabet",
+      "domain": "billericalibrary.assabetinteractive.com",
+      "card_page": "https://billericalibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://billericalibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "topsfield",
+      "name": "Topsfield Town Library",
+      "town": "Topsfield",
+      "network": "MVLC",
+      "platform": "assabet",
+      "domain": "topsfieldlibrary.assabetinteractive.com",
+      "card_page": "https://www.topsfieldlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://topsfieldlibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "boxford",
+      "name": "Boxford Town Library",
+      "town": "Boxford",
+      "network": "MVLC",
+      "platform": "assabet",
+      "domain": "boxfordlibrary.assabetinteractive.com",
+      "card_page": "https://boxfordlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://boxfordlibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "tewksbury",
+      "name": "Tewksbury Public Library",
+      "town": "Tewksbury",
+      "network": "MVLC",
+      "platform": "assabet",
+      "domain": "tewksburypl.assabetinteractive.com",
+      "card_page": "https://www.tewksburypl.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://tewksburypl.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "chelmsford",
+      "name": "Chelmsford Public Library",
+      "town": "Chelmsford",
+      "network": "MVLC",
+      "platform": "assabet",
+      "domain": "chelmsfordlibrary.assabetinteractive.com",
+      "card_page": "https://chelmsfordlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://chelmsfordlibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "haverhill",
+      "name": "Haverhill Public Library",
+      "town": "Haverhill",
+      "network": "MVLC",
+      "platform": "assabet",
+      "domain": "haverhillpl.assabetinteractive.com",
+      "card_page": "https://www.haverhillpl.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://haverhillpl.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "lawrence",
+      "name": "Lawrence Public Library",
+      "town": "Lawrence",
+      "network": "MVLC",
+      "platform": "assabet",
+      "domain": "lawrencepl.assabetinteractive.com",
+      "card_page": "https://www.lawrencefreelibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "methuen",
+      "name": "Nevins Memorial Library",
+      "town": "Methuen",
+      "network": "MVLC",
+      "platform": "assabet",
+      "domain": "nevinslibrary.assabetinteractive.com",
+      "card_page": "https://www.nevinslibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://nevinslibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "andover",
+      "name": "Memorial Hall Library",
+      "town": "Andover",
+      "network": "MVLC",
+      "platform": "assabet",
+      "domain": "mhl.assabetinteractive.com",
+      "card_page": "https://mhl.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://mhl.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "north-andover",
+      "name": "Stevens Memorial Library",
+      "town": "North Andover",
+      "network": "MVLC",
+      "platform": "assabet",
+      "domain": "stevensmemlib.assabetinteractive.com",
+      "card_page": "https://www.stevensmemlib.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://stevensmemlib.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "middleton",
+      "name": "Flint Public Library",
+      "town": "Middleton",
+      "network": "MVLC",
+      "platform": "assabet",
+      "domain": "flintlibrary.assabetinteractive.com",
+      "card_page": "https://flintlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "arlington",
+      "name": "Robbins Library",
+      "town": "Arlington",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "robbinslibrary.assabetinteractive.com",
+      "card_page": "https://www.robbinslibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://robbinslibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "newton",
+      "name": "Newton Free Library",
+      "town": "Newton",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "newtonfreelibrary.assabetinteractive.com",
+      "card_page": "https://www.newtonfreelibrary.net/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://newtonfreelibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "lincoln",
+      "name": "Lincoln Public Library",
+      "town": "Lincoln",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "lincolnpl.assabetinteractive.com",
+      "card_page": "https://lincolnpl.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://lincolnpl.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "acton",
+      "name": "Acton Memorial Library",
+      "town": "Acton",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "actonmemoriallibrary.assabetinteractive.com",
+      "card_page": "https://actonmemoriallibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://actonmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "framingham",
+      "name": "Framingham Public Library",
+      "town": "Framingham",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "framinghamlibrary.assabetinteractive.com",
+      "card_page": "https://framinghamlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://framinghamlibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "maynard",
+      "name": "Maynard Public Library",
+      "town": "Maynard",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "maynardpubliclibrary.assabetinteractive.com",
+      "card_page": "https://www.maynardpubliclibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://maynardpubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "carlisle",
+      "name": "Gleason Public Library",
+      "town": "Carlisle",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "gleasonlibrary.assabetinteractive.com",
+      "card_page": "https://gleasonlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://gleasonlibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "wayland",
+      "name": "Wayland Free Public Library",
+      "town": "Wayland",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "waylandlibrary.assabetinteractive.com",
+      "card_page": "https://www.waylandlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://waylandlibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "weston",
+      "name": "Weston Public Library",
+      "town": "Weston",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "westonlibrary.assabetinteractive.com",
+      "card_page": "https://www.westonlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "sudbury",
+      "name": "Goodnow Library",
+      "town": "Sudbury",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "goodnowlibrary.assabetinteractive.com",
+      "card_page": "https://goodnowlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://goodnowlibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "belmont",
+      "name": "Belmont Public Library",
+      "town": "Belmont",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "belmontpubliclibrary.assabetinteractive.com",
+      "card_page": "https://www.belmontpubliclibrary.net/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://belmontpubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "lexington",
+      "name": "Cary Memorial Library",
+      "town": "Lexington",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "carylibrary.assabetinteractive.com",
+      "card_page": "https://www.carylibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://carylibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "wellesley",
+      "name": "Wellesley Free Library",
+      "town": "Wellesley",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "wellesleyfreelibrary.assabetinteractive.com",
+      "card_page": "https://www.wellesleyfreelibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://wellesleyfreelibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "waltham",
+      "name": "Waltham Public Library",
+      "town": "Waltham",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "waltham.assabetinteractive.com",
+      "card_page": "https://walthampubliclibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://waltham.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "watertown",
+      "name": "Watertown Free Public Library",
+      "town": "Watertown",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "watertownlib.assabetinteractive.com",
+      "card_page": "https://www.watertownlib.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://watertownlib.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "concord",
+      "name": "Concord Free Public Library",
+      "town": "Concord",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "concordlibrary.assabetinteractive.com",
+      "card_page": "https://concordlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://concordlibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "bedford",
+      "name": "Bedford Free Public Library",
+      "town": "Bedford",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "bedfordlibrary.assabetinteractive.com",
+      "card_page": "https://bedfordlibrary.net/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "needham",
+      "name": "Needham Free Public Library",
+      "town": "Needham",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "needhamma.assabetinteractive.com",
+      "card_page": "https://needhamlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://needhamma.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "natick",
+      "name": "Morse Institute Library",
+      "town": "Natick",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "morseinstitute.assabetinteractive.com",
+      "card_page": "https://www.morseinstitute.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://morseinstitute.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "somerville",
+      "name": "Somerville Public Library",
+      "town": "Somerville",
+      "network": "Minuteman",
+      "platform": "assabet",
+      "domain": "somervillepubliclibrary.assabetinteractive.com",
+      "card_page": "https://www.somervillepubliclibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://somervillepubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "quincy",
+      "name": "Thomas Crane Public Library",
+      "town": "Quincy",
+      "network": "OCLN",
+      "platform": "assabet",
+      "domain": "thomascranelibrary.assabetinteractive.com",
+      "card_page": "https://thomascranelibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "pass_page": "https://thomascranelibrary.assabetinteractive.com/museum-passes/by-museum/"
+    },
+    {
+      "id": "cambridge",
+      "name": "Cambridge Public Library",
+      "town": "Cambridge",
+      "network": "Minuteman",
+      "platform": "libcal",
+      "domain": "cambridgepl.libcal.com",
+      "pass_page": "https://cambridgepl.libcal.com/passes",
+      "card_page": "https://www.cambridgema.gov/cpl",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "libcal_base": "https://cambridgepl.libcal.com",
+      "locations_url": null
+    },
+    {
+      "id": "brookline",
+      "name": "Brookline Public Library",
+      "town": "Brookline",
+      "network": "Minuteman",
+      "platform": "libcal",
+      "domain": "brooklinelibrary.libcal.com",
+      "pass_page": "https://brooklinelibrary.libcal.com/passes",
+      "card_page": "https://brooklinelibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "libcal_base": "https://brooklinelibrary.libcal.com",
+      "locations_url": null
+    },
+    {
+      "id": "braintree",
+      "name": "Thayer Public Library",
+      "town": "Braintree",
+      "network": "OCLN",
+      "platform": "libcal",
+      "domain": "thayerpubliclibrary.libcal.com",
+      "pass_page": "https://thayerpubliclibrary.libcal.com/passes",
+      "card_page": "https://www.thayerpubliclibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "libcal_base": "https://thayerpubliclibrary.libcal.com"
+    },
+    {
+      "id": "milton",
+      "name": "Milton Public Library",
+      "town": "Milton",
+      "network": "OCLN",
+      "platform": "libcal",
+      "domain": "miltonlibrary.libcal.com",
+      "pass_page": "https://miltonlibrary.libcal.com/passes",
+      "card_page": "https://www.miltonlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": true,
+      "libcal_base": "https://miltonlibrary.libcal.com"
+    },
+    {
+      "id": "cohasset",
+      "name": "Paul Pratt Memorial Library",
+      "town": "Cohasset",
+      "network": "OCLN",
+      "platform": "museumkey",
+      "domain": "www2.museumkey.com",
+      "pass_page": "https://www2.museumkey.com/ui/byMuseum/?code=paulma02025&branchID=231",
+      "card_page": "https://www.cohassetlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": false,
+      "base_url": "https://www2.museumkey.com/ui/byMuseum/?code=paulma02025&branchID=231"
+    },
+    {
+      "id": "hingham",
+      "name": "Hingham Public Library",
+      "town": "Hingham",
+      "network": "OCLN",
+      "platform": "museumkey",
+      "domain": "www2.museumkey.com",
+      "pass_page": "https://www2.museumkey.com/ui/byMuseum/?code=hingma02043&branchID=505",
+      "card_page": "https://hinghamlibrary.org/",
+      "non_resident_policy_initial": "unknown",
+      "supports_availability": false,
+      "base_url": "https://www2.museumkey.com/ui/byMuseum/?code=hingma02043&branchID=505"
+    }
   ]
 }
