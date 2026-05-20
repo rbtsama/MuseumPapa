@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Admission: A pass in no longer required. Admission is free to all visitors every day. Please check in at the Visitor Services desk upon arrival to allow us to share information about special exhibitions, gallery tours, programs, and other amenities available to ensure that you ha"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Admission: A pass in no longer required. Admission is free to all visitors every day. Please check in at the Visitor Services desk upon arrival to allow us to share information about special exhibitions, gallery tours, programs, and other amenities available to ensure that you have a great visit! Free admission is made possible by a generous contribution from the Estate of David Rockefeller and support from the Office of the President at Harvard University."
+    },
+    "restrictions": null
+  }
+}

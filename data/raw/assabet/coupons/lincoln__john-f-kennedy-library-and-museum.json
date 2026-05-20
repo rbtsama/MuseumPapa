@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 2,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "This one-day Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary including (but not limited to) Drumlin Farm. With this pass, admission is discounted to $2 per visitor over the age of 2. This pass is an e-voucher - there is nothing to pick up"
+        }
+      ],
+      "summary": "$2/person",
+      "source_phrase_block": "This one-day Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary including (but not limited to) Drumlin Farm. With this pass, admission is discounted to $2 per visitor over the age of 2. This pass is an e-voucher - there is nothing to pick up at the library. Please visit https://www.massaudubon.org/get-outdoors/wildlife-sanctuaries/trails for the latest information, including safety guidelines. Open hours and dates vary by sanctuary and some sites are open during some Monday holidays, so please contact Mass Audubon to confirm they are open before reserving the pass with the Library. Please note that Drumlin Farm is currently open Tuesday–Sunday, as well as many Monday holidays. Please check the website of the attraction you are interested in to confirm hours/schedule before planning your visit."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "(PRINTABLE) FOR NEEDHAM RESIDENTS ONLY This pass will admit up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. Your Library pass can only be used on the date printed on t"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "(PRINTABLE) FOR NEEDHAM RESIDENTS ONLY This pass will admit up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are not included in the count of 4 and are always admitted for free. Your Library pass can only be used on the date printed on the pass. Please bring your library pass confirmation (printed or displayed on a phone) when you visit. When you arrive at the Museum, stop at the Box Office to exchange your library pass and purchase your Exhibit Halls tickets at the discounted rate. If you have any questions or would like to reserve your Exhibit Halls passes in advance to avoid waiting in line the day of your visit, please call 617-723-2500 (9:00 a.m. – 5:00 p.m. daily). If you are unable to show your Library confirmation on a phone, you may print out a copy using the link in the confirmation email or request a paper copy from the library."
+    },
+    "restrictions": null
+  }
+}

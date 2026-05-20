@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "This pass admits 4 visitors at $5 per person. Under 18 years admitted free. See website for latest hours, holidays and closings. Tickets are purchased online, but you must bring the library discounted pass with you."
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "This pass admits 4 visitors at $5 per person. Under 18 years admitted free. See website for latest hours, holidays and closings. Tickets are purchased online, but you must bring the library discounted pass with you."
+    },
+    "restrictions": null
+  }
+}

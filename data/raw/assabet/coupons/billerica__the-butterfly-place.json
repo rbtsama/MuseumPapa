@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "dollar-off",
+          "value": 10,
+          "count": 6,
+          "age_range": null,
+          "source_phrase": "This is a coupon pass that must be picked up at the library. The pass admits up to 6 guests to Davis Farmland or Davis Mega Maze at the gate with a savings of $10 off per ticket. Library patrons should use the coupon to purchase discounted tickets at Davis Farmland admissions on "
+        }
+      ],
+      "summary": "$10 off",
+      "source_phrase_block": "This is a coupon pass that must be picked up at the library. The pass admits up to 6 guests to Davis Farmland or Davis Mega Maze at the gate with a savings of $10 off per ticket. Library patrons should use the coupon to purchase discounted tickets at Davis Farmland admissions on the day of their visit. Tickets purchased online are not eligible for the discount. Adults must be accompanied by at least one child 12 or younger when visiting Davis Farmland. Pass is not valid on Monday holidays, with packages, special events, night events, or other discounts. Both Davis Farmland and Mega Maze are open weather permitting. Weather decisions are made daily by 8am and posted on the Davis Farmland website and the phone message system (978-422-6666). This pass is generously sponsored by the Family Friends of the Billerica Public Library."
+    },
+    "restrictions": null
+  }
+}

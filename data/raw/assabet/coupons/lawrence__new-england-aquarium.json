@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "USS Constitution Museum[e-voucher] Museo del USS Constitution [electrónico] Admits 5 people for free. Admisión para 5 personas gratis. The Museum is open daily. Please visit the website for more information on hours of operation. El Museo abre todos los días. Visite el sitio web "
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "USS Constitution Museum[e-voucher] Museo del USS Constitution [electrónico] Admits 5 people for free. Admisión para 5 personas gratis. The Museum is open daily. Please visit the website for more information on hours of operation. El Museo abre todos los días. Visite el sitio web para obtener más información sobre los horarios."
+    },
+    "restrictions": null
+  }
+}

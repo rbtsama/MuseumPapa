@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 6,
+          "age_range": null,
+          "source_phrase": "Each pass provides free admission for up to 6 on Boston By Foot's public walking tours. Please consult www.bostonbyfoot.org for tour details; pre-registration is required for all tours. Reserve this pass to receive discount code. Not valid on private tours, water-based tours, or "
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Each pass provides free admission for up to 6 on Boston By Foot's public walking tours. Please consult www.bostonbyfoot.org for tour details; pre-registration is required for all tours. Reserve this pass to receive discount code. Not valid on private tours, water-based tours, or the two annual celebration tours (Beacon Hill with a BOO! &amp; Footloose on the Freedom Trail.) Currently there is no coupon to pick up for Boston by Foot."
+    },
+    "restrictions": null
+  }
+}

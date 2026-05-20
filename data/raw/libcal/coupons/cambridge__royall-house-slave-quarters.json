@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "admits 2 people for free for a 50 minute guided tour. Tours are at 1:00PM, 2:00PM, and 3:00PM. Visitors are invited to walk the grounds and view the exhibits before and after the tour. Children 12 and younger are admitted free"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "15 George St., Medford, MA, 02155\n                                                            \n    Map\n781-396-9032\nSEASONAL PASS - Each pass admits 2 people for free for a 50 minute guided tour.\nTours are at 1:00PM, 2:00PM, and 3:00PM. Visitors are invited to walk the grounds and view the exhibits before and after the tour. Children 12 and younger are admitted free.\nAfter reserving a library pass, you will receive an email confirmation with a promo code.\nPlease arrive at least 15 minutes before the start of the tour and present your email confirmation with library promo code to the admissions desk staff. All tours are first come first served.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

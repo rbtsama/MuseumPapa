@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "One pass admits up to 5 people for one visit at no charge. One pass per party, please. Passes can be printed or shown digitally upon entering. This is a virtual pass that does not need to be picked up at the library."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "One pass admits up to 5 people for one visit at no charge. One pass per party, please. Passes can be printed or shown digitally upon entering. This is a virtual pass that does not need to be picked up at the library."
+    },
+    "restrictions": null
+  }
+}

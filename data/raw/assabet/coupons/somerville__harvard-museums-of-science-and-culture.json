@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Library Membership Digital Pass Somerville Public Library This library membership pass entitles you to up to two (2) tickets for Gallery Admission at the discounted Library Pass rate. Pass is valid on any day the ICA is open through November 30, 2026 _____________________________"
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "Library Membership Digital Pass Somerville Public Library This library membership pass entitles you to up to two (2) tickets for Gallery Admission at the discounted Library Pass rate. Pass is valid on any day the ICA is open through November 30, 2026 ____________________________________ Library Pass tickets are $10 per ticket."
+    },
+    "restrictions": null
+  }
+}

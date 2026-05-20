@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Pass admits 6 people with a $9 charge per adult, and a $6 charge per child. Children under age 2 are admitted for free. Coupons can be used at both the Stone Zoo and the Franklin Park Zoo. (Stone Zoo Zoolights and Franklin Park Boston Lights not included). Pick up passes at the I"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Pass admits 6 people with a $9 charge per adult, and a $6 charge per child. Children under age 2 are admitted for free. Coupons can be used at both the Stone Zoo and the Franklin Park Zoo. (Stone Zoo Zoolights and Franklin Park Boston Lights not included). Pick up passes at the I"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Pass admits 6 people with a $9 charge per adult, and a $6 charge per child. Children under age 2 are admitted for free. Coupons can be used at both the Stone Zoo and the Franklin Park Zoo. (Stone Zoo Zoolights and Franklin Park Boston Lights not included). Pick up passes at the Information Services Desk at the library. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance."
+    },
+    "restrictions": null
+  }
+}

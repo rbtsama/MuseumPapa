@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10.0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "$10 per person"
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "25 Harbor Shore Drive, Boston, MA, 02210\n                                                            \n    Map\n617-478-3100\nEach pass admits 2 people at $10 per person. People age 18&nbsp;and under are admitted free.\nThis pass&nbsp;is not date specific and may be used&nbsp;any time before the expiration date printed on the pass.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

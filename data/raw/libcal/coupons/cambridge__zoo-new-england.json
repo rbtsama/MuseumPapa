@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9.0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "$9 per adult"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6.0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "$6 per child"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "One Franklin Park Road, Boston, MA, 02121\n                                                            \n    Map\n617-541-5466\nEach pass admits up to 6 people to either the Franklin Park Zoo&nbsp;(Boston) or the Stone Zoo (Stoneham) at a discounted rate of $9 per adult and $6 per child.\nPhysical passes must be picked up from one of the library locations listed in the dropdown menu below. Select your location preference and then pick the dates from the availability calendar."
+    },
+    "restrictions": null
+  }
+}

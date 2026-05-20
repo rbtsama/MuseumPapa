@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "MELROSE PUBLIC LIBRARY - PADDLE BOSTON SPOT POND PASS: This pass is valid for online reservations and walk-up rentals at Spot Pond , in Stoneham, MA ( valid only for date printed on the pass ) . This pass allows 1 boat rental free of charge at Spot Pond (there are options for boa"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "MELROSE PUBLIC LIBRARY - PADDLE BOSTON SPOT POND PASS: This pass is valid for online reservations and walk-up rentals at Spot Pond , in Stoneham, MA ( valid only for date printed on the pass ) . This pass allows 1 boat rental free of charge at Spot Pond (there are options for boats that will seat more than 1 person). If you are reserving more than 1 boat on your visit, you may need to make a second reservation for the boat(s) not covered by the discount pass. The pass does not include use of sailboats or provide guaranteed parking. You will need to fill out a Float Plan Agreement ONE time per season. Patrons may reserve the pass up to 2 times per month. Reserve your Melrose Public Library pass for desired date. You will receive a confirmation email with an \"Access Pass\" link (if you do not have an email account, a printed confirmation may be picked up at the Main Desk of the library)."
+    },
+    "restrictions": null
+  }
+}

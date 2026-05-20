@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "half price"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "191W Atlantic Ave, Boston, MA, 02110\n                                                            \n    Map\n(866) 307-2469\nMade up of 34 unique islands and peninsulas, the Boston Harbor Islands have something for everyone.\nExplore a historic fort, enjoy a picnic with sweeping harbor views, or sleep in a rustic campsite beneath the stars. Choose an island and plan your adventure!\nBoston Harbor Islands National and State Park is the largest recreational space in Eastern Massachusetts, attracting over half a million visitors annually. A top destination for locals and tourists alike, the park also functions as an important ecological habitat for local wildlife.\nThose who journey to the Boston Harbor Islands will find themselves immersed in the stories of a harbor that played an influential role in the development of Boston and the nation through political, social, and environmental revolutions. With historic military forts, abandoned hospital sites, and important Native American stories to be told, the Boston Harbor Islands strive to preserve the history that resides on each island, while protecting habitats and increasing public access and education.\nPass benefits: Admits up to 4 at half price to Georges Island Ferry (round trip).&nbsp; Children ages 3 and under receive free admission.&nbsp; Season runs from late June &ndash; early October.&nbsp;Visit the Boston Harbor Islands&#39;s website.\nNo passes are available at this time."
+    },
+    "restrictions": null
+  }
+}

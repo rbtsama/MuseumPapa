@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 6,
+          "age_range": null,
+          "source_phrase": "This is a paper coupon . Patrons must pick up their pass at the Library up to one week before their visit. It does not need to be returned to the library. Each pass admits up to 6 people to either farm park with a savings of $10 per person off the purchased-at-the-gate general ad"
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "This is a paper coupon . Patrons must pick up their pass at the Library up to one week before their visit. It does not need to be returned to the library. Each pass admits up to 6 people to either farm park with a savings of $10 per person off the purchased-at-the-gate general admission rate. Children under 2 are always free. Davis Farmland Discovery Farm is open mid-April - October. Davis Mega Maze is open mid-September - October. Pass is not valid with other discounts, groups or special events."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Admits up to 2 people at no cost. Children under 12 always have free admission."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Admits up to 2 people at no cost. Children under 12 always have free admission."
+    },
+    "restrictions": null
+  }
+}

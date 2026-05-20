@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Printable/Digital Coupon Pass. Each pass admits up to 2 patrons at $12 per person. You must use the promo code provided in the loan instructions to reserve your pass."
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "Printable/Digital Coupon Pass. Each pass admits up to 2 patrons at $12 per person. You must use the promo code provided in the loan instructions to reserve your pass."
+    },
+    "restrictions": null
+  }
+}

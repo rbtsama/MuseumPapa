@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Type of pass: Paper, must be picked up from the Bacon Free Library the week of your reservation date. Pricing: Free admission for ONE person. Additional instructions: -This is a single-use pass and does not need to be returned to the library."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Type of pass: Paper, must be picked up from the Bacon Free Library the week of your reservation date. Pricing: Free admission for ONE person. Additional instructions: -This is a single-use pass and does not need to be returned to the library."
+    },
+    "restrictions": null
+  }
+}

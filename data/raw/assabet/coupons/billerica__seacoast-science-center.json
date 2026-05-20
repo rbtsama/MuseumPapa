@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Admits two adults and children under 18 for free at 116 Trustees locations. The discount pass cannot be applied to special events. Advance reservations are suggested for Appleton Farms, Castle Hill on the Crane Estate, Crane Beach (weekdays), deCordova Museum, Fruitlands Museum, "
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Admits two adults and children under 18 for free at 116 Trustees locations. The discount pass cannot be applied to special events. Advance reservations are suggested for Appleton Farms, Castle Hill on the Crane Estate, Crane Beach (weekdays), deCordova Museum, Fruitlands Museum, Mytoi, Naumkeag, Wasque, and World's End (weekdays). Advance reservations are required for Longpoint Wildlife Refuge, Crane Beach (weekends) and World's End (weekends). Reservations can be made at https://thetrustees.org/content/passes/ . When reserving tickets submit the promo code GOPASS to access the discounted admission fee. You must bring the paper coupon pass from the Billerica Public Library to the Trustees location to receive the discount. This pass is generously sponsored by the Family Friends of the Billerica Public Library."
+    },
+    "restrictions": null
+  }
+}

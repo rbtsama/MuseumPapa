@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 2,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Pass admits up to 4 persons with a co-payment of $2.00 per person (adults, seniors, or children age two or older). Children under two are always admitted free. This pass is valid at all Mass Audubon Society Sanctuaries, including Drumlin Farm in Lincoln. Each location has its own"
+        }
+      ],
+      "summary": "$2/person",
+      "source_phrase_block": "Pass admits up to 4 persons with a co-payment of $2.00 per person (adults, seniors, or children age two or older). Children under two are always admitted free. This pass is valid at all Mass Audubon Society Sanctuaries, including Drumlin Farm in Lincoln. Each location has its own operating schedule. Please check the Mass Audubon website before planning your visit. For nature centers that use timed ticketing, the library pass is NOT your ticket. This pass can be printed from home. You must bring the pass to the reservation to receive the discount."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass provides 50% off admission for the immediate family/household. Please visit The Children's Piazza website to make a reservation prior to your visit. Reservations always encouraged - walk in play subject to availability This is a printable pass."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This pass provides 50% off admission for the immediate family/household. Please visit The Children's Piazza website to make a reservation prior to your visit. Reservations always encouraged - walk in play subject to availability This is a printable pass."
+    },
+    "restrictions": null
+  }
+}

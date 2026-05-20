@@ -1,6 +1,61 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 44.95,
+        "age_range": null,
+        "source_phrase": "on weekends. Standard Pricing Aquarium Admission + Movie Bundle and save! Adult $44.95 Child (3–11) $35.95 Children 2 and under Free Senior (60+) $42.95 AQUARIUM + Mo"
+      },
+      {
+        "audience": "adult",
+        "price": 35.95,
+        "age_range": null,
+        "source_phrase": "d Pricing Aquarium Admission + Movie Bundle and save! Adult $44.95 Child (3–11) $35.95 Children 2 and under Free Senior (60+) $42.95 AQUARIUM + Movie Aquarium Admissi"
+      },
+      {
+        "audience": "adult",
+        "price": 42.95,
+        "age_range": null,
+        "source_phrase": "d save! Adult $44.95 Child (3–11) $35.95 Children 2 and under Free Senior (60+) $42.95 AQUARIUM + Movie Aquarium Admission Book online to ensure entry. Adult $39.95 C"
+      },
+      {
+        "audience": "adult",
+        "price": 39.95,
+        "age_range": null,
+        "source_phrase": ") $42.95 AQUARIUM + Movie Aquarium Admission Book online to ensure entry. Adult $39.95 Child (3–11) $30.95 Children 2 and under Free Senior (60+) $37.95 Aquarium Tick"
+      },
+      {
+        "audience": "adult",
+        "price": 30.95,
+        "age_range": null,
+        "source_phrase": "Movie Aquarium Admission Book online to ensure entry. Adult $39.95 Child (3–11) $30.95 Children 2 and under Free Senior (60+) $37.95 Aquarium Tickets New England Resi"
+      },
+      {
+        "audience": "adult",
+        "price": 37.95,
+        "age_range": null,
+        "source_phrase": "entry. Adult $39.95 Child (3–11) $30.95 Children 2 and under Free Senior (60+) $37.95 Aquarium Tickets New England Resident Discount: Aquarium Admission + Movie Bund"
+      },
+      {
+        "audience": "adult",
+        "price": 34.95,
+        "age_range": null,
+        "source_phrase": ") $37.95 AQUARIUM + Movie Aquarium Admission Book online to ensure entry. Adult $34.95 Child (3–11) $25.95 Child 2 and under Free Senior (60+) $32.95 Aquarium Tickets"
+      },
+      {
+        "audience": "adult",
+        "price": 25.95,
+        "age_range": null,
+        "source_phrase": "Movie Aquarium Admission Book online to ensure entry. Adult $34.95 Child (3–11) $25.95 Child 2 and under Free Senior (60+) $32.95 Aquarium Tickets *Residents of CT, M"
+      },
+      {
+        "audience": "adult",
+        "price": 32.95,
+        "age_range": null,
+        "source_phrase": "ure entry. Adult $34.95 Child (3–11) $25.95 Child 2 and under Free Senior (60+) $32.95 Aquarium Tickets *Residents of CT, MA, ME, NH, RI, and VT receive discounted Aq"
+      }
+    ]
   }
 }

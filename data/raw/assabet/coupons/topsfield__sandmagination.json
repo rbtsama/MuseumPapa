@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "The pass is valid for one-time use at any of 128 properties that collect an admission fee. Pass holder will pay an admission fee equivalent to that of a Trustees Family level membership (under most circumstances, this is free). Pass is not valid for use at Trustees parking kiosks"
+        }
+      ],
+      "summary": "Discount",
+      "source_phrase_block": "The pass is valid for one-time use at any of 128 properties that collect an admission fee. Pass holder will pay an admission fee equivalent to that of a Trustees Family level membership (under most circumstances, this is free). Pass is not valid for use at Trustees parking kiosks, stores, cafes, Inns, campgrounds, at special events and programs, or in place of any permits or passes. View all Trustees properties here . After the pass is reserved, it must be picked up at the Topsfield Town Library Circulation Desk during our hours of operation. The pass does not need to be returned to the library. Due to high demand, advance admission passes to the most popular properties are either required or strongly encouraged . When reserving your pass, you will receive a promo code that you can use to receive the discounted rate."
+    },
+    "restrictions": null
+  }
+}

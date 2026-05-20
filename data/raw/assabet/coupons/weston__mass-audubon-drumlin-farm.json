@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "This ParksPass affords free parking at DCR facilities that charge a parking fee. (The ParksPass is not valid for parking at Quabbin Reservoir; the Squantum Point, NorthPoint, or Draw Seven Commuter Lots; or for camping.) This ParksPass must be displayed on the rearview mirror in "
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This ParksPass affords free parking at DCR facilities that charge a parking fee. (The ParksPass is not valid for parking at Quabbin Reservoir; the Squantum Point, NorthPoint, or Draw Seven Commuter Lots; or for camping.) This ParksPass must be displayed on the rearview mirror in your vehicle at all times while visiting a DCR facility where daily parking fees are charged. Please check www.massparks.org for a list of applicable parks."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10.0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "$10 per person"
+        },
+        {
+          "audience": "children",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": {
+            "min": 0,
+            "max": 18
+          },
+          "source_phrase": "Youth ages 18 and under receive free"
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "25 Harbor Shore Drive, Boston, MA, 02210\n                                                            \n    Map\n(617) 478-3100\nSince its founding in 1936, the ICA has shared the pleasures of reflection, inspiration, imagination, and provocation that contemporary art offers with its audiences. A museum at the intersection of contemporary art and civic life, the ICA has advanced a bold vision for amplifying the artist&rsquo;s voice and expanding the museum&rsquo;s role as educator, incubator, and convener. Its exhibitions, performances, and educational programs provide access to the breadth and diversity of contemporary art, artists, and the creative process, inviting audiences of all ages and backgrounds to participate in the excitement of new art and ideas.\nPass benefits: Admits up to 2 at $10 per person.&nbsp; Youth ages 18 and under receive free admission.&nbsp;Visit the Institute of Contemporary Art&#39;s website.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

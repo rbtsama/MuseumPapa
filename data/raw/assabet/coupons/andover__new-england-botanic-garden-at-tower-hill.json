@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Print from home pass. Pass admits 2 people for free."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Print from home pass. Pass admits 2 people for free."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "This pass admits up to 4 people for free . Children under 6 are always admitted for free . This is a physical pass that must be picked up at and returned to the library . This pass is not limited by date or time . This pass can be used for special programs , provided the program "
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass admits up to 4 people for free . Children under 6 are always admitted for free . This is a physical pass that must be picked up at and returned to the library . This pass is not limited by date or time . This pass can be used for special programs , provided the program is being held on-site during the Museum's regular operating hours ."
+    },
+    "restrictions": null
+  }
+}

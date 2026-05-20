@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "You may purchase up to six tickets at $9.00 adult tickets, and $6.00 child (2-12) tickets."
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "You may purchase up to six tickets at $9.00 adult tickets, and $6.00 child (2-12) tickets."
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "You may purchase up to six tickets at $9.00 adult tickets, and $6.00 child (2-12) tickets."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "Library passes for North Shore Children's Museum admit up to 5 people (adults and children over 12 months) at 50% off admission price. This is an ePass that can either be presented on a mobile device or as a print-out to receive the discounted admission rate in-person."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Library passes for North Shore Children's Museum admit up to 5 people (adults and children over 12 months) at 50% off admission price. This is an ePass that can either be presented on a mobile device or as a print-out to receive the discounted admission rate in-person."
+    },
+    "restrictions": null
+  }
+}

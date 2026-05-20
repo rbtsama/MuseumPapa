@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Pick up coupon pass at the library. Patrons receive 50% off admission for up to 4 people. Patrons must purchase tickets online in advance at 7gables.org using LIBRARYPATRON promo code. Pass must accompany tickets."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Pick up coupon pass at the library. Patrons receive 50% off admission for up to 4 people. Patrons must purchase tickets online in advance at 7gables.org using LIBRARYPATRON promo code. Pass must accompany tickets."
+    },
+    "restrictions": null
+  }
+}

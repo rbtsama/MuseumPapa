@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 9
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 9,
+          "age_range": null,
+          "source_phrase": "Pass holders will receive free admission to the museum. One pass allows free admission for up to 9 people per day. Visit the USS Constitution Museum website to review museum visitor requirements and any updates to operating hours. The library pass reservation calendar may not ref"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass holders will receive free admission to the museum. One pass allows free admission for up to 9 people per day. Visit the USS Constitution Museum website to review museum visitor requirements and any updates to operating hours. The library pass reservation calendar may not reflect changes to museum open dates and hours of operation. Reserve your Melrose Public Library pass for desired date. You will receive a confirmation email with an \"Access Pass\" link (if you do not have an email account, a printed confirmation may be picked up at the Main Desk of the library)."
+    },
+    "restrictions": null
+  }
+}

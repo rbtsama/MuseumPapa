@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Each coupon reduces admission to $5 per person for up to four visitors for general admission only. Children under the age of 18 are always admitted free."
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "Each coupon reduces admission to $5 per person for up to four visitors for general admission only. Children under the age of 18 are always admitted free."
+    },
+    "restrictions": null
+  }
+}

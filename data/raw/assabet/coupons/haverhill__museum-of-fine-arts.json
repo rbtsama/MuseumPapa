@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "NO RESERVATION NEEDED. Present your Haverhill Public Library card at the museum to receive free admission! The Museum of Printing is open every Saturday 10am - 4pm"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "NO RESERVATION NEEDED. Present your Haverhill Public Library card at the museum to receive free admission! The Museum of Printing is open every Saturday 10am - 4pm"
+    },
+    "restrictions": null
+  }
+}

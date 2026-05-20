@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "THIS PASS DOES NOT NEED TO BE RESERVED! Simply present your physical or digital Massachusetts library card at the JFK Library Admissions Desk to receive a 50% discount on the cardholder's admission ticket. No pass is needed. This offer is valid for visitors aged 13 and over and t"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "THIS PASS DOES NOT NEED TO BE RESERVED! Simply present your physical or digital Massachusetts library card at the JFK Library Admissions Desk to receive a 50% discount on the cardholder's admission ticket. No pass is needed. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card to receive the discount. Visitors aged 12 and under receive free admission. Please reach out to the JFK Library Visitor Services Department with questions at kennedy.groupvisits@nara.gov or 617-514-1600."
+    },
+    "restrictions": null
+  }
+}

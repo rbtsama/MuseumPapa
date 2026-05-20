@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 16,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This is an e-voucher . Coupon is emailed to the patron. Only Valid for the Reserved Date of Visit. This coupon is good for: - Daytime Mansion Tour admission for two adults at $5 per person, and two children free (regularly $16 per adult and $11 for children ages 6-16). Mansion to"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 11,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This is an e-voucher . Coupon is emailed to the patron. Only Valid for the Reserved Date of Visit. This coupon is good for: - Daytime Mansion Tour admission for two adults at $5 per person, and two children free (regularly $16 per adult and $11 for children ages 6-16). Mansion to"
+        }
+      ],
+      "summary": "$16/person",
+      "source_phrase_block": "This is an e-voucher . Coupon is emailed to the patron. Only Valid for the Reserved Date of Visit. This coupon is good for: - Daytime Mansion Tour admission for two adults at $5 per person, and two children free (regularly $16 per adult and $11 for children ages 6-16). Mansion tours are offered Monday, Wednesday, Friday, and Saturdays. -One Take-a-Walk bag rental at $2/hr (regularly $5). Take-a-Walk bags for youth ages 4 and up contain outdoor seasonal activities for up to two children and are available Monday-Saturday. -Story Time for two children at $5 per child, and an accompanying adult free. Please note:"
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "The Peabody Essex Museum pass offers discounted tickets of $12 each for up to two (2) people."
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "The Peabody Essex Museum pass offers discounted tickets of $12 each for up to two (2) people."
+    },
+    "restrictions": null
+  }
+}

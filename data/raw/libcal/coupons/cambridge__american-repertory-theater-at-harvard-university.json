@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "admits 2 people for free"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "64 Brattle Street, Cambridge, Massachusetts, 02138\n                                                            \n    Map\n617-547-8300\nSELECT SHOWS - The A.R.T. makes passes available to select performances of select shows. Availability will be determined 30 days before the start of each performance&#39;s run.\nNext show:&nbsp;Black Swan,&nbsp;May 29 - June 28, 2026\nEach pass admits 2 people for free for either a Friday 7:30 pm performance or a Sunday 2:00 pm performance.\nAfter booking, you will receive an email confirmation with instructions on how to contact A.R.T. Ticket Services for your electronic tickets. Please note that you must contact them&nbsp;no later than 5:00 pm two days before your selected performance.\nNOTE: Black Swan&nbsp;is recommended for at least ages 14 and older and has content warnings for self-injury/harm, sex, haze, flashing lights/strobe, and loud sudden noises. For more information, please visit: https://americanrepertorytheater.org/shows-events/black-swan/\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

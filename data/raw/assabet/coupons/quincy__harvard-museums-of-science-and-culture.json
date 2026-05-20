@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 6,
+          "age_range": null,
+          "source_phrase": "Half-price admission for up to 6 individuals. Cannot be combined with a group tour plan. Not valid for special events. This is a coupon code that will be emailed to you to use ordering tickets online. Follow the instructions in the email to recieve your discount."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Half-price admission for up to 6 individuals. Cannot be combined with a group tour plan. Not valid for special events. This is a coupon code that will be emailed to you to use ordering tickets online. Follow the instructions in the email to recieve your discount."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 9
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 9,
+          "age_range": null,
+          "source_phrase": "This pass allows free admission to the museum for up to 9 people per day. As of Feb 1, 2026, this pass will admit up to 5 people per day. This is a printable pass. You must be able to print this pass at home or present it on a mobile device at the museum."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass allows free admission to the museum for up to 9 people per day. As of Feb 1, 2026, this pass will admit up to 5 people per day. This is a printable pass. You must be able to print this pass at home or present it on a mobile device at the museum."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "Pass holders will receive free admission to the USS Constitution museum. One pass allows free admission for up to 5 people per day. One pass per party, please."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass holders will receive free admission to the USS Constitution museum. One pass allows free admission for up to 5 people per day. One pass per party, please."
+    },
+    "restrictions": null
+  }
+}

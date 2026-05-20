@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 15,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Each pass allows admission for 2 adults at $15 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10. K-12 educators are always admitted for"
+        }
+      ],
+      "summary": "$15/person",
+      "source_phrase_block": "Each pass allows admission for 2 adults at $15 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10. K-12 educators are always admitted for free with school ID. Children 6 and under are admitted free. Pass provides discount code to be used for booking tickets online. Discount code provided in reservation email, or you can reach a librarian at 781-259-8465 (press 3) lincoln@minlib.net to receive code by phone. Timed tickets must be booked online at https://www.mfa.org/tickets. ***When you reach the page for the date you have already chosen and \"General Admission\" at the top, you will find a PROMO CODE box at the top on the right. Type in the Promo Code, and Submit, to see the Library Pass options appear. Proof of COVID-19 vaccination to enter the Museum is no longer required in accordance with the City of Boston’s mandate. Please visit the page her"
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Each pass admits up to 6 people. Charge is $9 per adult and $6 per child with pass. Admission for children under 2 is free. Passes can only be used for daytime admission and cannot be used for Stone Zoo Zoolights or Franklin Park Zoo Boston Lights . This pass does not need to be "
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Each pass admits up to 6 people. Charge is $9 per adult and $6 per child with pass. Admission for children under 2 is free. Passes can only be used for daytime admission and cannot be used for Stone Zoo Zoolights or Franklin Park Zoo Boston Lights . This pass does not need to be "
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Each pass admits up to 6 people. Charge is $9 per adult and $6 per child with pass. Admission for children under 2 is free. Passes can only be used for daytime admission and cannot be used for Stone Zoo Zoolights or Franklin Park Zoo Boston Lights . This pass does not need to be returned to the library. Timed ticket reservations are no longer required, but please check https://www.zoonewengland.org/ for any policy and schedule updates before planning your visit. Proof of vaccination is no longer required to visit the zoo. Learn more on Franklin Park Zoo's Health &amp; Safety page."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

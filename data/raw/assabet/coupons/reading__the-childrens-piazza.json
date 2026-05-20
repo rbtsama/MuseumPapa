@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "dollar-off",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "This pass offers $5 off admission to the Concord Museum for up to 4 people."
+        }
+      ],
+      "summary": "$5 off",
+      "source_phrase_block": "This pass offers $5 off admission to the Concord Museum for up to 4 people."
+    },
+    "restrictions": null
+  }
+}

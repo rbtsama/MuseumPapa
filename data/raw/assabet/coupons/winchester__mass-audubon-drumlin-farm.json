@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Pass gives one car unlimited day-use parking access to state park facilities that charge a parking fee. We encourage you to visit the DCR website before making travel plans to ensure that the location you are interested in is open and you are up-to-date on current health and safe"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass gives one car unlimited day-use parking access to state park facilities that charge a parking fee. We encourage you to visit the DCR website before making travel plans to ensure that the location you are interested in is open and you are up-to-date on current health and safety requirements. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance."
+    },
+    "restrictions": null
+  }
+}

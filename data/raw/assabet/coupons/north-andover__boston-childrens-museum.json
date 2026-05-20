@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Reserving this pass will provide you with a code that can be used to purchase tickets at a 50% discount. The code can be used throughout the entire 2026 season, which is listed below: Georges Island May 15 - June 14: Thursdays through Sundays June 16 - September 1: every day Spec"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Reserving this pass will provide you with a code that can be used to purchase tickets at a 50% discount. The code can be used throughout the entire 2026 season, which is listed below: Georges Island May 15 - June 14: Thursdays through Sundays June 16 - September 1: every day Spectacle Island"
+    },
+    "restrictions": null
+  }
+}

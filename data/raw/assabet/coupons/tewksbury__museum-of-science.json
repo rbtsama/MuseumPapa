@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 20,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Each coupon admits up to four people (adult, senior, child, or college) at a cost of $20 each. Children under age 3 are not included in the admission count and are always admitted free. This is not a ticket. Redeem this coupon in the General Admission line at the Aquarium’s ticke"
+        }
+      ],
+      "summary": "$20/person",
+      "source_phrase_block": "Each coupon admits up to four people (adult, senior, child, or college) at a cost of $20 each. Children under age 3 are not included in the admission count and are always admitted free. This is not a ticket. Redeem this coupon in the General Admission line at the Aquarium’s ticket booth for discounted admission for up to 4 people. Once tickets are issued, library patrons will be admitted to the Aquarium even if we are sold out to the general public at that time. Please visit neaq.org/coupons for details. Review the Aquarium’s website at www.neaq.org/safety ahead of your visit to ensure a safe and accessible experience. Valid only for Aquarium admission."
+    },
+    "restrictions": null
+  }
+}

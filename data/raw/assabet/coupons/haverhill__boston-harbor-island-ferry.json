@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass allows 2 free admissions to The Butterfly Place. The passes will need to be picked up from the library and shown at time of visit."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass allows 2 free admissions to The Butterfly Place. The passes will need to be picked up from the library and shown at time of visit."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 15,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Each promo code may be redeemed for up to two adult tickets ($15 each) and four youth tickets ($10 each). Children 6 and under are admitted for free. Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shoppi"
+        }
+      ],
+      "summary": "$15/person",
+      "source_phrase_block": "Each promo code may be redeemed for up to two adult tickets ($15 each) and four youth tickets ($10 each). Children 6 and under are admitted for free. Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Year’s Day, Patriots’ Day, Fourth of July, Thanksgiving, and Christmas."
+    },
+    "restrictions": null
+  }
+}

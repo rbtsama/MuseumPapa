@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Pass admits 2 people at $12 per person. Museum is free for Salem residents and youth 16 and under. Purchase tickets at PEM events using the promo code to receive the discount. The promo code is in the confirmation email generated when you reserve the pass from the library. Click "
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "Pass admits 2 people at $12 per person. Museum is free for Salem residents and youth 16 and under. Purchase tickets at PEM events using the promo code to receive the discount. The promo code is in the confirmation email generated when you reserve the pass from the library. Click on \"Access Pass\" in the confirmation email to see the code. Passes are available to Winchester residents only. Call the desk at 781-721-7171 for assistance."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Pass is valid for a Mass plate passenger vehicle and entitles the bearer to free parking for one vehicle (excluding buses or vans) at Mass State Parks facilities that charge a day-use parking fee. Pass must be returned in the bag provided the morning after scheduled use. THIS IS "
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass is valid for a Mass plate passenger vehicle and entitles the bearer to free parking for one vehicle (excluding buses or vans) at Mass State Parks facilities that charge a day-use parking fee. Pass must be returned in the bag provided the morning after scheduled use. THIS IS A RETURNABLE PASS PASS MUST BE RETURNED TO CARY LIBRARY NO LATER THAN OPENING HOURS THE DAY AFTER USE."
+    },
+    "restrictions": null
+  }
+}

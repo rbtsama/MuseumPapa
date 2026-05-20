@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Each pass admits up to 6 people with a $9.00 admission fee per adult and a $6.00 admission fee per child. Children under the age of two are admitted free. This pass can be used for daytime admission to Stone Zoo or Franklin Park Zoo. Please check the Zoo's website for hours and o"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Each pass admits up to 6 people with a $9.00 admission fee per adult and a $6.00 admission fee per child. Children under the age of two are admitted free. This pass can be used for daytime admission to Stone Zoo or Franklin Park Zoo. Please check the Zoo's website for hours and o"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Each pass admits up to 6 people with a $9.00 admission fee per adult and a $6.00 admission fee per child. Children under the age of two are admitted free. This pass can be used for daytime admission to Stone Zoo or Franklin Park Zoo. Please check the Zoo's website for hours and other questions, or call: 617-541-LION (5466)."
+    },
+    "restrictions": null
+  }
+}

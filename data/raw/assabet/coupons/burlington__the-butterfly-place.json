@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "dollar-off",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Pass admits up to four people at $5.00 off each. Children under five and active military are free. For museum hours, exhibits, and directions please visit the Concord Museum's website: https://concordmuseum.org/ This pass can be picked up the day before (if available) or day of r"
+        }
+      ],
+      "summary": "$5 off",
+      "source_phrase_block": "Pass admits up to four people at $5.00 off each. Children under five and active military are free. For museum hours, exhibits, and directions please visit the Concord Museum's website: https://concordmuseum.org/ This pass can be picked up the day before (if available) or day of reservation. This pass must be returned to the library by opening on the day after use."
+    },
+    "restrictions": null
+  }
+}

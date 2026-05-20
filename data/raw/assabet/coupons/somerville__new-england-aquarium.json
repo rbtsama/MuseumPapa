@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "This pass will admit 2 adults per transaction to the museum at a reduced rate of $12 per person. (Children under age 16 are always free.) This is a virtual pass that does not need to be picked up at the Library."
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "This pass will admit 2 adults per transaction to the museum at a reduced rate of $12 per person. (Children under age 16 are always free.) This is a virtual pass that does not need to be picked up at the Library."
+    },
+    "restrictions": null
+  }
+}

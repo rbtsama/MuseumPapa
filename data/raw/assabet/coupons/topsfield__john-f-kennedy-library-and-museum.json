@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "The Topsfield Town Library encourages you to explore the 150+ state parks in the Commonwealth of Massachusetts! This hangtag pass allows free parking for one vehicle at any state park where daily parking fees are charged. This pass can be borrowed for seven days, enough time to v"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "The Topsfield Town Library encourages you to explore the 150+ state parks in the Commonwealth of Massachusetts! This hangtag pass allows free parking for one vehicle at any state park where daily parking fees are charged. This pass can be borrowed for seven days, enough time to visit a couple of our wonderful state parks (or wait for a beautiful weather day to visit your favorite)! At the end of the seven days, the pass must be returned to the Topsfield Town Library Circulation Desk, or returned in the library's bookdrop."
+    },
+    "restrictions": null
+  }
+}

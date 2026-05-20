@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Using this discount through the library, you receive 50% off tickets to the Boston Harbor Islands ferry, taking you to Georges Island (from Long Wharf, Boston), Spectacle Island (from Long Wharf, Boston), and Peddocks Island (from Hingham) in Boston Harbor."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Using this discount through the library, you receive 50% off tickets to the Boston Harbor Islands ferry, taking you to Georges Island (from Long Wharf, Boston), Spectacle Island (from Long Wharf, Boston), and Peddocks Island (from Hingham) in Boston Harbor."
+    },
+    "restrictions": null
+  }
+}

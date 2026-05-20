@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Please check Isabella Stewart Gardner Museum website at gardnermuseum.org/visit/know-before-you-go for updates before visiting. Library passes must be redeemed online ( https://www.gardnermuseum.org/visit ) to reserve a timed ticket. Advance tickets for timed entry are required ."
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "Please check Isabella Stewart Gardner Museum website at gardnermuseum.org/visit/know-before-you-go for updates before visiting. Library passes must be redeemed online ( https://www.gardnermuseum.org/visit ) to reserve a timed ticket. Advance tickets for timed entry are required . Pass admits up to 4 people at $5.00 per person. Children 17 and under admitted free. Museum is closed on Tuesdays. Holiday closings: New Year's Day, Patriot's Day (April), Independence Day, Thanksgiving, and Christmas. Passes are valid only for general admission and do not entitle participants to Gardner museum member benefits. They are not applicable toward discounts on special events, shopping, dining, concerts, lectures, or any other public and member programs. This is an electronic pass that will be sent to your email."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

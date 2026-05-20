@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "GO Pass coupon admits 2 adults and children under 18 to Trustees properties. Some Trustees locations require that visitors go online to reserve a timed-entry. Visit the Trustees website for up-to-date information: www.thetrustees.org/ GO Passes are valid for admission only. They "
+        }
+      ],
+      "summary": "Discount",
+      "source_phrase_block": "GO Pass coupon admits 2 adults and children under 18 to Trustees properties. Some Trustees locations require that visitors go online to reserve a timed-entry. Visit the Trustees website for up-to-date information: www.thetrustees.org/ GO Passes are valid for admission only. They are not valid for discounts at parking kiosks, stores, cafes, Inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. GO Pass admission is equivalent to a Trustees Family membership admission price at Trustees properties that charge an admission fee. Locations include: DeCordova, Fruitlands Museum; Crane Estate; the Old Manse; and many more. Admission rates vary. ***Patrons need to check the operating hours for each specific property when reserving the pass. The GO Pass covers many properties with different operating hours throughout the year*** Please note only 1 GO Pass may be reserved per person."
+    },
+    "restrictions": null
+  }
+}

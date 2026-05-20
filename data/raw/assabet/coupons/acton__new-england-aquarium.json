@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "This pass offers a 50% discount on general admission for up to two (2) people. Pickup the pass the day before or the day of the reservation date."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This pass offers a 50% discount on general admission for up to two (2) people. Pickup the pass the day before or the day of the reservation date."
+    },
+    "restrictions": null
+  }
+}

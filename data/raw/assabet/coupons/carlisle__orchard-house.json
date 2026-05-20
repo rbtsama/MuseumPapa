@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Each pass admits a maximum of two adult visitors at a reduced admission fee of $12 per person any day the museum is open. Children under age 16 are admitted free. Admission to special ticketed exhibitions may require a separate fee."
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "Each pass admits a maximum of two adult visitors at a reduced admission fee of $12 per person any day the museum is open. Children under age 16 are admitted free. Admission to special ticketed exhibitions may require a separate fee."
+    },
+    "restrictions": null
+  }
+}

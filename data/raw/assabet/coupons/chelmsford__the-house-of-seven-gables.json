@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Pass admits up to four adults at $5 admission per person. Children under 18 are always free (when reserved as a child ticket)."
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "Pass admits up to four adults at $5 admission per person. Children under 18 are always free (when reserved as a child ticket)."
+    },
+    "restrictions": null
+  }
+}

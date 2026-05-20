@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Pass admits 2 people. Admission is $10 per person. NOTE: This is a virtual pass with a promo code that does not need to be picked up from the library."
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "Pass admits 2 people. Admission is $10 per person. NOTE: This is a virtual pass with a promo code that does not need to be picked up from the library."
+    },
+    "restrictions": null
+  }
+}

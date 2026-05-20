@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "This pass allows free admission for two adults and their children and grandchildren under 18 years of age to tour one of Historic New England's 38 sites."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass allows free admission for two adults and their children and grandchildren under 18 years of age to tour one of Historic New England's 38 sites."
+    },
+    "restrictions": null
+  }
+}

@@ -1,6 +1,31 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "senior",
+        "price": 28.95,
+        "age_range": null,
+        "source_phrase": "8211; Friday Open 9:30-4 PM last admission at 3 PM General Admission (age 2-59) $28.95 Seniors (60+) $25.95 Saturday, Sunday & Memorial Day Mon. May 25 Open 9:30-5 PM"
+      },
+      {
+        "audience": "senior",
+        "price": 25.95,
+        "age_range": null,
+        "source_phrase": "0-4 PM last admission at 3 PM General Admission (age 2-59) $28.95 Seniors (60+) $25.95 Saturday, Sunday & Memorial Day Mon. May 25 Open 9:30-5 PM last admission at 4"
+      },
+      {
+        "audience": "senior",
+        "price": 31.95,
+        "age_range": null,
+        "source_phrase": "Mon. May 25 Open 9:30-5 PM last admission at 4 PM General Admission (age 2-59) $31.95 Seniors (60+) $28.95 SAVE $4 PER TICKET &#8211; BUY ONLINE DISCOUNT TICKETS! Th"
+      },
+      {
+        "audience": "senior",
+        "price": 4.0,
+        "age_range": null,
+        "source_phrase": "admission at 4 PM General Admission (age 2-59) $31.95 Seniors (60+) $28.95 SAVE $4 PER TICKET &#8211; BUY ONLINE DISCOUNT TICKETS! There&#8217;s a limited number"
+      }
+    ]
   }
 }

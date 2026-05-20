@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "This pass admits one car for free parking at any Massachusetts State Park. See a list of Massachusetts State Parks here . This is a physical pass which must be picked up at and returned to the library . This pass is valid for use on any day/time until the date printed on the pass"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass admits one car for free parking at any Massachusetts State Park. See a list of Massachusetts State Parks here . This is a physical pass which must be picked up at and returned to the library . This pass is valid for use on any day/time until the date printed on the pass ."
+    },
+    "restrictions": null
+  }
+}

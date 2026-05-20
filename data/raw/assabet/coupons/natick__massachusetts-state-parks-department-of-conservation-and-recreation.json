@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 15,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Type of pass: E-code, emailed upon reservation. Pricing: Reduced admission for up to 2 adults at $15 per person and 4 youths aged 7-17 at $10 per person (general admission and special exhibition). Children under 7 are admitted free. Additional instructions: - Pre-registration is "
+        }
+      ],
+      "summary": "$15/person",
+      "source_phrase_block": "Type of pass: E-code, emailed upon reservation. Pricing: Reduced admission for up to 2 adults at $15 per person and 4 youths aged 7-17 at $10 per person (general admission and special exhibition). Children under 7 are admitted free. Additional instructions: - Pre-registration is recommended. Visit the Museum of Fine Arts website and use the e-code discount to reserve. -To access your e-code, click \"Access Pass\" in your confirmation email. The e-code is found under the barcode."
+    },
+    "restrictions": null
+  }
+}

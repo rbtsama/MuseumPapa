@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Children 6 and under are admitted free. Each pass allows admission for 2 adults at $10 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Children 6 and under are admitted free. Each pass allows admission for 2 adults at $10 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10. Please note the MFA is increasing prices for Institutional Pass discounted admission tickets for visit dates beginning January 20, 2026. Going forward, each pass will allow admission for 2 adults at $15 each and up to 4 children ages 7–17 at $10 each."
+    },
+    "restrictions": null
+  }
+}

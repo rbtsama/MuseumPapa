@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Present your physical or digital Massachusetts library card (no museum pass needed) at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. Children 12 and under receive free admission to the Museum."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Present your physical or digital Massachusetts library card (no museum pass needed) at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. Children 12 and under receive free admission to the Museum."
+    },
+    "restrictions": null
+  }
+}

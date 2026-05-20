@@ -1,6 +1,19 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 22.0,
+        "age_range": null,
+        "source_phrase": "y, Easter Sunday, Independence Day, Thanksgiving, and Christmas. Tickets Adults $22 Students $17 Seniors $17 Youth 17 and under FREE Members FREE College Partners"
+      },
+      {
+        "audience": "adult",
+        "price": 17.0,
+        "age_range": null,
+        "source_phrase": "day, Independence Day, Thanksgiving, and Christmas. Tickets Adults $22 Students $17 Seniors $17 Youth 17 and under FREE Members FREE College Partners FREE Discount"
+      }
+    ]
   }
 }

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "Pass admits up to 5 people to the museum for free. This pass is valid for the museum only and not for the ship."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass admits up to 5 people to the museum for free. This pass is valid for the museum only and not for the ship."
+    },
+    "restrictions": null
+  }
+}

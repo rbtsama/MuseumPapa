@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 5,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass is good for: Daytime Mansion Tour admission for two adults at $5 per person, and two children free One Take-a-Walk bag rental at $2/hr Story Time for two children at $5 per child, and an accompanying adult free For available dates and times, please visit goreplace.org/w"
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "This pass is good for: Daytime Mansion Tour admission for two adults at $5 per person, and two children free One Take-a-Walk bag rental at $2/hr Story Time for two children at $5 per child, and an accompanying adult free For available dates and times, please visit goreplace.org/whats-on"
+    },
+    "restrictions": null
+  }
+}

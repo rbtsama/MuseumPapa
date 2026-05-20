@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This pass admits 6 people at $9.00 per Adult and $6.00 per Child to the Franklin Park or Stone Zoo. Children under 2 are free . Visit https://www.zoonewengland.org/ for hours and ticket status for Zoo New England. You must bring the library pass for discounted admission. Pass doe"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass admits 6 people at $9.00 per Adult and $6.00 per Child to the Franklin Park or Stone Zoo. Children under 2 are free . Visit https://www.zoonewengland.org/ for hours and ticket status for Zoo New England. You must bring the library pass for discounted admission. Pass doe"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "This pass admits 6 people at $9.00 per Adult and $6.00 per Child to the Franklin Park or Stone Zoo. Children under 2 are free . Visit https://www.zoonewengland.org/ for hours and ticket status for Zoo New England. You must bring the library pass for discounted admission. Pass does not cover admission to the Zoo's Holiday Lights. This pass can be picked up one week in advance."
+    },
+    "restrictions": null
+  }
+}

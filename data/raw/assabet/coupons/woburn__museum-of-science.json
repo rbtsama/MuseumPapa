@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "The New England Aquarium pass will be delivered via email as a viewable or printable pass, at which time the following instructions will apply. • Woburn Public Library ID: 75104 • This discount can be applied to up to (4) four people. • Only applies to adult and child pricing. • "
+        }
+      ],
+      "summary": "Discount",
+      "source_phrase_block": "The New England Aquarium pass will be delivered via email as a viewable or printable pass, at which time the following instructions will apply. • Woburn Public Library ID: 75104 • This discount can be applied to up to (4) four people. • Only applies to adult and child pricing. • This is not a ticket. • Redeem this coupon in the General Admission line at the Aquarium’s ticket booth for discounted admission for up to 4 people. • Please visit neaq.org/coupons for details. • Review the Aquarium’s website at www.neaq.org/safety ahead of your visit to ensure a safe and accessible experience. • Valid only for Aquarium admission. • This coupon does not provide any other discounts and cannot be applied to combo tickets. • Library coupons or tickets obtained with library coupons may not be sold. • Void if altered or copied. No cash value."
+    },
+    "restrictions": null
+  }
+}

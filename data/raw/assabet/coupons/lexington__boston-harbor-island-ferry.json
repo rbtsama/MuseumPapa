@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "dollar-off",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Pass allows up to 4 people at $5.00 off full admission. Children under 5 are admitted for free. Please check their website for hours of operation. THIS IS A PRINTABLE PASS"
+        }
+      ],
+      "summary": "$5 off",
+      "source_phrase_block": "Pass allows up to 4 people at $5.00 off full admission. Children under 5 are admitted for free. Please check their website for hours of operation. THIS IS A PRINTABLE PASS"
+    },
+    "restrictions": null
+  }
+}

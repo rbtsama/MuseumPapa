@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Pass admits one adult at 50% discounted admission. Pass admits children (ages 5-17) with $1 admission. Please check website for exact dates and hours before visiting."
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 1,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Pass admits one adult at 50% discounted admission. Pass admits children (ages 5-17) with $1 admission. Please check website for exact dates and hours before visiting."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Pass admits one adult at 50% discounted admission. Pass admits children (ages 5-17) with $1 admission. Please check website for exact dates and hours before visiting."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Each unique discount code provides up to four (4) people with $5 admission per person—children under the age of 18 are always admitted free. Patron's must utilize the discount code online to make a reservation for the museum. This library pass does not guarantee a reservation to "
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "Each unique discount code provides up to four (4) people with $5 admission per person—children under the age of 18 are always admitted free. Patron's must utilize the discount code online to make a reservation for the museum. This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617 278 5156."
+    },
+    "restrictions": null
+  }
+}

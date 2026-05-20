@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50.0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "50% off"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "67 Grove Street, Sandwich, MA, 02563\n                                                            \n    Map\n508-888-3300\nPass admits up to six (6) people, adults&nbsp;or youth (children 2 and under are free) for 50% off entry admissions.\nOnce you make your library reservation your will receive a discount code. You will then need to purchase your tickets through the Heritage website and use the code for your discount.\n\n\n\nClosed November, December, January, February and March.\nAnnual membership of $300.00 provided by the Friends of Thayer Public Library.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

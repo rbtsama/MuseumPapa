@@ -1,0 +1,45 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5.0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "$5 per person"
+        },
+        {
+          "audience": "children",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": {
+            "min": 0,
+            "max": 18
+          },
+          "source_phrase": "Youth ages 18 and under receive free"
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "25 Evans Way, Boston, MA, 02115\n                                                            \n    Map\n(617) 566-1401\nThe&nbsp;Isabella Stewart Gardner Museum&nbsp;is an&nbsp;art museum&nbsp;in&nbsp;Boston, Massachusetts, which houses significant examples of&nbsp;European,&nbsp;Asian, and&nbsp;American art. Its collection includes paintings, sculpture, tapestries, and decorative arts. It was founded by&nbsp;Isabella Stewart Gardner, whose will called for her art collection to be permanently exhibited &quot;for the education and enjoyment of the public forever.&quot;\nPass benefits: Admits up to 4 at $5 per person. Youth ages 18 and under receive free admission.&nbsp;Visit the Isabella Stewart Gardner Museum&#39;s website.\nThe Isabella Stewart Gardener Museum is not open Tuesdays.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [
+        "tuesdays"
+      ],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null
+    }
+  }
+}

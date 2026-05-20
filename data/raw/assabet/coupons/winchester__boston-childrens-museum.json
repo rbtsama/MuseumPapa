@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass is provided in partnership with the Massachusetts Department of Conservation and Recreation and the National Park Service, with the generous support of Boston Harbor City Cruises. This program offers library cardholders the opportunity to purchase tickets at a 50% disco"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This pass is provided in partnership with the Massachusetts Department of Conservation and Recreation and the National Park Service, with the generous support of Boston Harbor City Cruises. This program offers library cardholders the opportunity to purchase tickets at a 50% discount using a unique promo code. Ferries are boarded at Long Wharf North in Downtown Boston. 2026 Season Georges Island May 15 - June 14: Thursdays through Sundays June 16 - September 1: every day"
+    },
+    "restrictions": null
+  }
+}

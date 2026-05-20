@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "ticket",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "The pass allows you to purchase up to 5 tickets at 50% off. Tickets can be purchased in person or online. When purchasing tickets online, choose the Library Museum Pass price level. You will need to show the digital pass at the front desk when you arrive."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "The pass allows you to purchase up to 5 tickets at 50% off. Tickets can be purchased in person or online. When purchasing tickets online, choose the Library Museum Pass price level. You will need to show the digital pass at the front desk when you arrive."
+    },
+    "restrictions": null
+  }
+}

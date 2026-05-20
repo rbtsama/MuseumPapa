@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "admits up to four people for half off the regular admission charge. Your Library pass can only be used on the date you reserved. Click on Pass Info on your confirmation email from the library for the discount code. You must also call the museum to reserve a timed ticket. Children under 3 are not included in the count of 4 and are always admitted for free"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Science Park, Boston, MA, 02114\n                                                            \n    Map\n617-723-2500\nE-ticket. Pass admits up to four people for half off the regular admission charge. Your Library pass can only be used on the date you reserved. Click on Pass Info on your confirmation email from the library for the discount code. You must also call the museum to reserve a timed ticket. Children under 3 are not included in the count of 4 and are always admitted for free but must have a timed ticket.\nTwo annual memberships of $700.00 each are provided by the Friends of Thayer Public Library.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

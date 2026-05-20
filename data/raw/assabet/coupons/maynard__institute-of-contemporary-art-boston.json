@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "This pass allows admission for up to four (4) people at $5 per person. Children under the age of 18 are always free."
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "This pass allows admission for up to four (4) people at $5 per person. Children under the age of 18 are always free."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "The pass to the Children's Piazza provides 50% off admission for one family/same household per day. The pass does not cover members of the group who are not immediate family/household. The email confirmation sent to you serves as your discount pass. Please present this pass (eith"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "The pass to the Children's Piazza provides 50% off admission for one family/same household per day. The pass does not cover members of the group who are not immediate family/household. The email confirmation sent to you serves as your discount pass. Please present this pass (either printed or on your mobile device) upon entry to the Children's Piazza. Pass is only valid on date reserved. Reservations always recommended ! Pass donated by the the Friends of the Topsfield Library; funded in part by a generous grant from the Institution for Savings. The email confirmation sent to you serves as your discount pass. Please present this pass (either printed or on your mobile device) upon entry to the Children's Piazza. Pass is only valid on date reserved ."
+    },
+    "restrictions": null
+  }
+}

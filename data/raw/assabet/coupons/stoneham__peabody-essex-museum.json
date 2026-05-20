@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 14,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This pass admits up to 6 people at a discounted rate of $14.00 for adults or seniors , $11.75 for children 3-14 . This is a physical pass that must be picked up at and returned to the library . Present the pass at the ticket booth for discounted admission. Passes are not accepted"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 11.75,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass admits up to 6 people at a discounted rate of $14.00 for adults or seniors , $11.75 for children 3-14 . This is a physical pass that must be picked up at and returned to the library . Present the pass at the ticket booth for discounted admission. Passes are not accepted"
+        }
+      ],
+      "summary": "$14/person",
+      "source_phrase_block": "This pass admits up to 6 people at a discounted rate of $14.00 for adults or seniors , $11.75 for children 3-14 . This is a physical pass that must be picked up at and returned to the library . Present the pass at the ticket booth for discounted admission. Passes are not accepted in the month of October."
+    },
+    "restrictions": null
+  }
+}

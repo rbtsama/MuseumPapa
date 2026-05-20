@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10.0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "$10 per person"
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "25 Harbor Shore Drive, Boston, MA 02210., Boston, MA, 02210\n                                                            \n    Map\n617-478-3100\nLibrary passes admit 2 people at $10 per person.\n1.&nbsp; &nbsp;Patrons must first acquire a valid&nbsp; digital library pass at their participating library to receive this discount.&nbsp;\n2.&nbsp; &nbsp;Purchase tickets online: https://www.icaboston.org/&nbsp;\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

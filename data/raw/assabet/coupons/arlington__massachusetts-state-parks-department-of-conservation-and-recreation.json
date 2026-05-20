@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 15,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "This pass admits up to two (2) adults and four (4) youths (ages 7–17) at $15 per person. Tickets to the MFA are always free for visitors under seven (7) years old. You will receive a promo code, which you can redeem online when you are buying your tickets. You can also redeem the"
+        }
+      ],
+      "summary": "$15/person",
+      "source_phrase_block": "This pass admits up to two (2) adults and four (4) youths (ages 7–17) at $15 per person. Tickets to the MFA are always free for visitors under seven (7) years old. You will receive a promo code, which you can redeem online when you are buying your tickets. You can also redeem the promo code in person, but the Museum strongly recommends buying your tickets in advance."
+    },
+    "restrictions": null
+  }
+}

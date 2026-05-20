@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Pass admits 6 people to Franklin Park Zoo (Boston) or Stone Zoo (Stoneham). Discounted rate is $9 per adult; $6 per child. Free admission for children under 2. ZOOLIGHTS is not discounted with pass."
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Pass admits 6 people to Franklin Park Zoo (Boston) or Stone Zoo (Stoneham). Discounted rate is $9 per adult; $6 per child. Free admission for children under 2. ZOOLIGHTS is not discounted with pass."
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Pass admits 6 people to Franklin Park Zoo (Boston) or Stone Zoo (Stoneham). Discounted rate is $9 per adult; $6 per child. Free admission for children under 2. ZOOLIGHTS is not discounted with pass."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "half price"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Columbia Point, Boston, MA, 02125\n                                                            \n    Map\n(617) 514-1600\nThe John F. Kennedy Presidential Library and Museum is dedicated to the memory of our nation&#39;s thirty-fifth president and to all those who through the art of politics seek a new and better world.&nbsp;\nLocated on a ten-acre park, overlooking the sea that he loved and the city that launched him to greatness, the Library stands as a vibrant tribute to the life and times of John F. Kennedy.&nbsp;\nCome tour our Museum which portrays the life, leadership, and legacy of President Kennedy, conveys his enthusiasm for politics and public service, and illustrates the nature of the office of the President.&nbsp;\nStudents and scholars can also arrange to conduct research using our collection of historical materials chronicling mid-20th century politics and the life and administration of John F. Kennedy.\nPass benefits: Admits all Massachusetts library card holders at half price. There is no pass or reservation required. You simply need to bring your Massachusetts library card with you when purchasing tickets.\nNo passes are available at this time."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

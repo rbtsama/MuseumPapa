@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 15,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Each promo code can be redeemed for 2 adult tickets at $15 each and 4 youth tickets (ages 7-17) at $10 each. Advanced timed ticket reservations on the MFA website are recommended but not required. Directions and information regarding e-voucher use will be provided in your confirm"
+        }
+      ],
+      "summary": "$15/person",
+      "source_phrase_block": "Each promo code can be redeemed for 2 adult tickets at $15 each and 4 youth tickets (ages 7-17) at $10 each. Advanced timed ticket reservations on the MFA website are recommended but not required. Directions and information regarding e-voucher use will be provided in your confirmation email."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "This pass allows free admission to the museum for up to 5 people per day. One pass per party, please."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass allows free admission to the museum for up to 5 people per day. One pass per party, please."
+    },
+    "restrictions": null
+  }
+}

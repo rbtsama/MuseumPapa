@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Each library discount coupon admits up to 2 visitors at the discounted admission price of $10 per admission when redeemed at the Holly and David Bruce Visitor Center."
+        }
+      ],
+      "summary": "Discount",
+      "source_phrase_block": "Each library discount coupon admits up to 2 visitors at the discounted admission price of $10 per admission when redeemed at the Holly and David Bruce Visitor Center."
+    },
+    "restrictions": null
+  }
+}

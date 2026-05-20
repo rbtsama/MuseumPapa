@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Pass allows free admission for two adults and their children and or grandchildren under age 18 to tour one of historic New England's thirty-eight sites. Pre booking tours in encouraged using the promo code on the back of the pass. Pass does not have to be returned to the Library."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass allows free admission for two adults and their children and or grandchildren under age 18 to tour one of historic New England's thirty-eight sites. Pre booking tours in encouraged using the promo code on the back of the pass. Pass does not have to be returned to the Library."
+    },
+    "restrictions": null
+  }
+}

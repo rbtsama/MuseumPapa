@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 3
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 3,
+          "age_range": null,
+          "source_phrase": "This library sponsored pass admits up to three people at half price discount. Additional people in your party pay full price. Pass must be picked up at the library and returned by 10 AM the following morning."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This library sponsored pass admits up to three people at half price discount. Additional people in your party pay full price. Pass must be picked up at the library and returned by 10 AM the following morning."
+    },
+    "restrictions": null
+  }
+}

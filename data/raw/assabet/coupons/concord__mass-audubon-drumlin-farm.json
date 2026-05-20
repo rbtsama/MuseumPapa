@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "-Pass valid for free parking for one passenger vehicle at over 50 MA State Parks that charge a parking fee."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "-Pass valid for free parking for one passenger vehicle at over 50 MA State Parks that charge a parking fee."
+    },
+    "restrictions": null
+  }
+}

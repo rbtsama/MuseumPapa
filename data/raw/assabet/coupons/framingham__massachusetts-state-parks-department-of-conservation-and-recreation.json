@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 15,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Admits up to two adults at $15 per person and four youths (7-17) at $10 per person. Visitors under 7 are always admitted for free."
+        }
+      ],
+      "summary": "$15/person",
+      "source_phrase_block": "Admits up to two adults at $15 per person and four youths (7-17) at $10 per person. Visitors under 7 are always admitted for free."
+    },
+    "restrictions": null
+  }
+}

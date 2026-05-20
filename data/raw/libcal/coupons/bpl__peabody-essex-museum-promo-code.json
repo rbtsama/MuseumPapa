@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12.0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "$12 per person"
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "161 Essex Street, Salem, MA, 01970\n                                                            \n    Map\nEach pass entitles up to two adults general admission at a reduced of $12 per person.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below.\nTo use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+    },
+    "restrictions": null
+  }
+}

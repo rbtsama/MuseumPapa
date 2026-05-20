@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "This pass allows unlimited parking access at most Massachusetts State Parks for one vehicle. You will need to pick up a physical pass from the Robbins Library on the same day you reserve it. This pass MUST be returned the day after your visit."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass allows unlimited parking access at most Massachusetts State Parks for one vehicle. You will need to pick up a physical pass from the Robbins Library on the same day you reserve it. This pass MUST be returned the day after your visit."
+    },
+    "restrictions": null
+  }
+}

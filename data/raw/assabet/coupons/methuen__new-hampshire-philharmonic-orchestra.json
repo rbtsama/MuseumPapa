@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "This pass admits 2 people at $12 each. Once you have your pass, you will need to reserve your date and time to visit the Peabody Essex Museum through the museum's website (my.pem.org/events). Your library pass will have a promo code to use with your museum reservation to receive "
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "This pass admits 2 people at $12 each. Once you have your pass, you will need to reserve your date and time to visit the Peabody Essex Museum through the museum's website (my.pem.org/events). Your library pass will have a promo code to use with your museum reservation to receive the discounted admission rate."
+    },
+    "restrictions": null
+  }
+}

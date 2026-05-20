@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Free parking at most Department of Conservation and Recreation facilities/parks. Visit https://www.mass.gov/visit-massachusetts-state-parks for a list of facilities/parks. Visit: https://search.mass.gov/?q=recreation%2Bmap/ for a copy of the Massachusetts Outdoor Recreation Map ("
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Free parking at most Department of Conservation and Recreation facilities/parks. Visit https://www.mass.gov/visit-massachusetts-state-parks for a list of facilities/parks. Visit: https://search.mass.gov/?q=recreation%2Bmap/ for a copy of the Massachusetts Outdoor Recreation Map (select Outdoor Recreation Map on the landing page)."
+    },
+    "restrictions": null
+  }
+}

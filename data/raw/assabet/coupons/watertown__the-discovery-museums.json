@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass discount provides half priced admission for 1 adult and $1 admission for children (5-17). This returnable pass must be picked up in person at the Library's Circulation desk and presented upon entry. Returnable passes must be returned to the library. Directions and infor"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This pass discount provides half priced admission for 1 adult and $1 admission for children (5-17). This returnable pass must be picked up in person at the Library's Circulation desk and presented upon entry. Returnable passes must be returned to the library. Directions and information regarding the returnable pass use will be provided in your confirmation email."
+    },
+    "restrictions": null
+  }
+}

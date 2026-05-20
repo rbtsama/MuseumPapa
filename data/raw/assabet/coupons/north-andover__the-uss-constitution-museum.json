@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Each pass admits maximum of 6 people at $9 per adult and $6 per child. Children under 2 are admitted free. Valid for general daytime admission to Franklin Park Zoo or Stone Zoo only. Tickets are non-refundable, have no cash value, cannot be combined with other offers or discounts"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Each pass admits maximum of 6 people at $9 per adult and $6 per child. Children under 2 are admitted free. Valid for general daytime admission to Franklin Park Zoo or Stone Zoo only. Tickets are non-refundable, have no cash value, cannot be combined with other offers or discounts"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Each pass admits maximum of 6 people at $9 per adult and $6 per child. Children under 2 are admitted free. Valid for general daytime admission to Franklin Park Zoo or Stone Zoo only. Tickets are non-refundable, have no cash value, cannot be combined with other offers or discounts and cannot be replaced if lost or stolen. Not valid for ZooLights or Boston Lights."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Digital discount code allows admission for 2 adults at $10 each (general admission and special exhibition) and up to four children ages 7-17 at $10 dollars each (special exhibition only). There is no discount for children 7-17 years old for general admission, which is $10. Childr"
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "Digital discount code allows admission for 2 adults at $10 each (general admission and special exhibition) and up to four children ages 7-17 at $10 dollars each (special exhibition only). There is no discount for children 7-17 years old for general admission, which is $10. Children 6 and under are admitted free. Pass does not allow for discounts on shopping, parking, dining, films, concerts, lectures, courses, or events. This pass is generously sponsored by the Family Friends of the Billerica Public Library."
+    },
+    "restrictions": null
+  }
+}

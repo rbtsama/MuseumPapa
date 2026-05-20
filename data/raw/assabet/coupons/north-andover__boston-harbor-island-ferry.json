@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are not included in the admission count and are always admitted free. Passes are valid only for general admission. They are not applicable toward discounts on special events, shopp"
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are not included in the admission count and are always admitted free. Passes are valid only for general admission. They are not applicable toward discounts on special events, shopping, dining, concerts, lectures, or any other public programs. PATRONS MUST PRESENT BOTH THIS LIBRARY PASS AND THEIR RESERVED TIMED MUSEUM ADMISSION TICKETS FOR ENTRY INTO THE MUSEUM."
+    },
+    "restrictions": null
+  }
+}

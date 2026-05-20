@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Passes are no longer required—the presentation of a valid library card grants the cardholder 50% off of one admission ticket—but please place a reservation for the desired date of your visit."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Passes are no longer required—the presentation of a valid library card grants the cardholder 50% off of one admission ticket—but please place a reservation for the desired date of your visit."
+    },
+    "restrictions": null
+  }
+}

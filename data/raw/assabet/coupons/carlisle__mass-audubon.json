@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Pass entitles bearer to free parking for one passenger vehicle. The Annual Parking Pass is not valid for parking at Quabbin Reservoir Boat Launch Areas, the North Point hourly rate lot in Cambridge, or any on-street Department of Conservation and Recreation location that charges "
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass entitles bearer to free parking for one passenger vehicle. The Annual Parking Pass is not valid for parking at Quabbin Reservoir Boat Launch Areas, the North Point hourly rate lot in Cambridge, or any on-street Department of Conservation and Recreation location that charges an hourly rate. For questions, visit their website at https://www.mass.gov/guides/parking-at-massachusetts-state-parks or call 617-626-1420."
+    },
+    "restrictions": null
+  }
+}

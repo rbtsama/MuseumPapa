@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Discount ticket admits 2 adults at a reduced admission rate of $12.00 per person any day the museum is open. Patrons may reserve up to 2 passes at a time. Children under 16 are always admitted free. Admission to Yin Yu Tang, the Chinese House, and special ticketed exhibitions may"
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "Discount ticket admits 2 adults at a reduced admission rate of $12.00 per person any day the museum is open. Patrons may reserve up to 2 passes at a time. Children under 16 are always admitted free. Admission to Yin Yu Tang, the Chinese House, and special ticketed exhibitions may require a separate fee. This pass is an e-voucher. The promo code to use to reserve discounted tickets is in the confirmation email generated when you reserve the pass from the library. Click on \"print this pass\" in the confirmation email to see the code."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "dollar-off",
+          "value": 4,
+          "count": 6,
+          "age_range": null,
+          "source_phrase": "The pass admits up to 6 people for $4 off per ticket. Tickets must be purchased the day of your visit. Full prices are: Adult $19, Senior (62+) $17.50, Child (3-14) $16 Open daily from 10 am to 5 pm (July &amp; August from 10 am to 7 pm) Pass not valid in October Reserve the pass"
+        }
+      ],
+      "summary": "$4 off",
+      "source_phrase_block": "The pass admits up to 6 people for $4 off per ticket. Tickets must be purchased the day of your visit. Full prices are: Adult $19, Senior (62+) $17.50, Child (3-14) $16 Open daily from 10 am to 5 pm (July &amp; August from 10 am to 7 pm) Pass not valid in October Reserve the pass here, then purchase tickets on the day of your reservation by doing the following. 1.) Pickup the pass at the library"
+    },
+    "restrictions": null
+  }
+}

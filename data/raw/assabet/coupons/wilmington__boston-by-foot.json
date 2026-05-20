@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Pass admits up to 4 people at half price. Things to know before you reserve: Funded by We're One Wilmington (WOW)"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Pass admits up to 4 people at half price. Things to know before you reserve: Funded by We're One Wilmington (WOW)"
+    },
+    "restrictions": null
+  }
+}

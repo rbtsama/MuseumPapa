@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "This pass admits two people for free. Open Tuesday through Saturday, 10 a.m. to 4 p.m. Exhibits include: Stitch Punk Humachine Sculpture Kaleidoscope Quilts"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass admits two people for free. Open Tuesday through Saturday, 10 a.m. to 4 p.m. Exhibits include: Stitch Punk Humachine Sculpture Kaleidoscope Quilts"
+    },
+    "restrictions": null
+  }
+}

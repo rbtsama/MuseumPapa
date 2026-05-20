@@ -1,6 +1,19 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "senior",
+        "price": 5.0,
+        "age_range": null,
+        "source_phrase": "g. See the full list of participants in Card to Culture discounts. Wonderfund - $5 per person. Must show a valid Wonderfund card. Senior Discount - $6 off admissi"
+      },
+      {
+        "audience": "senior",
+        "price": 6.0,
+        "age_range": null,
+        "source_phrase": "onderfund - $5 per person. Must show a valid Wonderfund card. Senior Discount - $6 off admission for each senior (age 65+). Student Discount - $6 off admission wi"
+      }
+    ]
   }
 }

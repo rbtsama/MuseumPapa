@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "The reserved pass allows for 50% off admission for a family of five (adults/children); it can either be presented on a mobile device or as a print-out to receive the discounted admission rate in-person. Passes will be emailed to reserving patrons, without the need to come to the "
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "The reserved pass allows for 50% off admission for a family of five (adults/children); it can either be presented on a mobile device or as a print-out to receive the discounted admission rate in-person. Passes will be emailed to reserving patrons, without the need to come to the library to pick up the pass! Please contact the library to reserve this pass if you do not have an email address. Advanced ticket purchase is strongly recommended but not required. To purchase tickets online, visit https://www.nschildrensmuseum.org/visit/buy-tickets/, click on \"Buy Tickets\" and select your preferred admission. Your library pass will only be honored on the date you reserved. If the museum reaches capacity, visitors will be let in on a one in, one out basis."
+    },
+    "restrictions": null
+  }
+}

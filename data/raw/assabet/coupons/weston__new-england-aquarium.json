@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "A pass is valid for 4 half-price standard daytime admissions. Cannot be combined with other offers. Special events or performances may not be eligible. This discount cannot be combined with other offers."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "A pass is valid for 4 half-price standard daytime admissions. Cannot be combined with other offers. Special events or performances may not be eligible. This discount cannot be combined with other offers."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "ticket",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Use this code for 50% off of up to 4 tickets to Spectacle or Georges Island."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Use this code for 50% off of up to 4 tickets to Spectacle or Georges Island."
+    },
+    "restrictions": null
+  }
+}

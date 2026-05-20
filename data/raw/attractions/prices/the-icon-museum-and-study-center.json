@@ -1,6 +1,19 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 15.0,
+        "age_range": null,
+        "source_phrase": "month, courtesy of the Nypro Foundation. ADMISSION Members: FREE Adults: (18+) $15 Seniors: (65+) $12 Students: (with ID) FREE Children and youth: (0-17) FREE pur"
+      },
+      {
+        "audience": "adult",
+        "price": 12.0,
+        "age_range": null,
+        "source_phrase": "the Nypro Foundation. ADMISSION Members: FREE Adults: (18+) $15 Seniors: (65+) $12 Students: (with ID) FREE Children and youth: (0-17) FREE purchase tickets Excep"
+      }
+    ]
   }
 }

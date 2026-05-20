@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 6,
+          "age_range": null,
+          "source_phrase": "Each pass admits up to 6 people for a discounted price. Visitors must present the bright orange pass from the library to receive the discount. Paper passes or electronic passes are not accepted. Library passes are not accepted at Salem Witch Museum in the month of October. For Mu"
+        }
+      ],
+      "summary": "Discount",
+      "source_phrase_block": "Each pass admits up to 6 people for a discounted price. Visitors must present the bright orange pass from the library to receive the discount. Paper passes or electronic passes are not accepted. Library passes are not accepted at Salem Witch Museum in the month of October. For Museum questions, call: 978-744-1692 or visit their website www.salemwitchmuseum.com"
+    },
+    "restrictions": null
+  }
+}

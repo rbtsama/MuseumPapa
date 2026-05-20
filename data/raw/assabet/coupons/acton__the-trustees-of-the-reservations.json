@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Provides discounted admission for a group of up to 6 individuals per pass to the Franklin Park and Stone Zoos. Admission costs with the pass are $9 per adult and $6 per child. Under 2 is free. Pass can only be used for daytime admission. They can't be used for Stone Zoo Zoolights"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Provides discounted admission for a group of up to 6 individuals per pass to the Franklin Park and Stone Zoos. Admission costs with the pass are $9 per adult and $6 per child. Under 2 is free. Pass can only be used for daytime admission. They can't be used for Stone Zoo Zoolights"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Provides discounted admission for a group of up to 6 individuals per pass to the Franklin Park and Stone Zoos. Admission costs with the pass are $9 per adult and $6 per child. Under 2 is free. Pass can only be used for daytime admission. They can't be used for Stone Zoo Zoolights or Franklin Park Zoo Boston Lights."
+    },
+    "restrictions": null
+  }
+}

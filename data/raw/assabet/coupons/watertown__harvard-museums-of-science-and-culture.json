@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "This pass discount provides $10 admission for up to 2 individuals. Advanced ticket reservations made in advance of visit are strongly encouraged on the museum's website. Directions and information regarding the digital pass use will be provided in your confirmation email."
+        }
+      ],
+      "summary": "Discount",
+      "source_phrase_block": "This pass discount provides $10 admission for up to 2 individuals. Advanced ticket reservations made in advance of visit are strongly encouraged on the museum's website. Directions and information regarding the digital pass use will be provided in your confirmation email."
+    },
+    "restrictions": null
+  }
+}

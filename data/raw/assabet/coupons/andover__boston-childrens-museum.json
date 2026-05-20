@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Print from home pass. 50 % discount for up to 4 tickets. For Tickets: www.bostonharborislands.org/ferry-tickets/ Select a date to visit Spectacle Island or Georges Island Select up to 4 tickets then continue to Booking Details Enter the library's unique code found printed on the "
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Print from home pass. 50 % discount for up to 4 tickets. For Tickets: www.bostonharborislands.org/ferry-tickets/ Select a date to visit Spectacle Island or Georges Island Select up to 4 tickets then continue to Booking Details Enter the library's unique code found printed on the pass in the \"Coupon/Voucher Code\" field and click apply"
+    },
+    "restrictions": null
+  }
+}

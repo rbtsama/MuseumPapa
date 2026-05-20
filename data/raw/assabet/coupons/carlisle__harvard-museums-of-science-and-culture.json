@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Each pass admits up to 2 people at the discounted library price per person. Library passes are not valid for performances, events, or films. Advanced tickets are highly recommended since the museum cannot guarantee day-of reservations. Visit the museum website at https://www.icab"
+        }
+      ],
+      "summary": "Discount",
+      "source_phrase_block": "Each pass admits up to 2 people at the discounted library price per person. Library passes are not valid for performances, events, or films. Advanced tickets are highly recommended since the museum cannot guarantee day-of reservations. Visit the museum website at https://www.icaboston.org/ or call 617-478-3100"
+    },
+    "restrictions": null
+  }
+}

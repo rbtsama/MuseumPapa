@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 13.5,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Pass allows a discounted admission rate for up to six visitors. Discounted rates are $13.50 per adult/senior and $11.25 per child. (Regular rates are $17.50 for adults, $16.00 for seniors, and $14.50 for children). Library passes are not accepted in the month of October. Tickets "
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 11.25,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Pass allows a discounted admission rate for up to six visitors. Discounted rates are $13.50 per adult/senior and $11.25 per child. (Regular rates are $17.50 for adults, $16.00 for seniors, and $14.50 for children). Library passes are not accepted in the month of October. Tickets "
+        }
+      ],
+      "summary": "$13.5/person",
+      "source_phrase_block": "Pass allows a discounted admission rate for up to six visitors. Discounted rates are $13.50 per adult/senior and $11.25 per child. (Regular rates are $17.50 for adults, $16.00 for seniors, and $14.50 for children). Library passes are not accepted in the month of October. Tickets for the Museum are available online ONLY and are sold ONLY for same day. Please check the museum site at https://salemwitchmuseum.com/ for current hours and ticket availability. To receive the discounted rate, enter the coupon code from the pass (also included in the pass use instructions when you reserve the pass). This pass can be picked up the day before (if available) or day of reservation. This pass must be returned to the library by opening on the day after use. The physical pass MUST be shown at the museum or visitors will be charged full price at the door."
+    },
+    "restrictions": null
+  }
+}

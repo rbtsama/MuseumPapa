@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "dollar-off",
+          "value": 10,
+          "count": 6,
+          "age_range": null,
+          "source_phrase": "THIS IS A COUPON PASS Library pass admits up to 6 guests to Davis Farmland or Davis Mega Maze at the gate with a savings of $10 off per ticket Children under 2 are free of charge. NOTICE: Adults must be accompanied by at least one child 12 years or younger when visiting Davis Far"
+        }
+      ],
+      "summary": "$10 off",
+      "source_phrase_block": "THIS IS A COUPON PASS Library pass admits up to 6 guests to Davis Farmland or Davis Mega Maze at the gate with a savings of $10 off per ticket Children under 2 are free of charge. NOTICE: Adults must be accompanied by at least one child 12 years or younger when visiting Davis Farmland or Davis Mega Maze https://davisfarmland.com/tickets/"
+    },
+    "restrictions": null
+  }
+}

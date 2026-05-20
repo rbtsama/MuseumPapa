@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 6,
+          "age_range": null,
+          "source_phrase": "This program allows up to 6 guests at 50% off admission."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This program allows up to 6 guests at 50% off admission."
+    },
+    "restrictions": null
+  }
+}

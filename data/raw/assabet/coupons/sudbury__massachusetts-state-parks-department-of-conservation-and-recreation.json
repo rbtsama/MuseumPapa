@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 15,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "PLEASE NOTE: This is an electronic pass that you will receive in your email. You may then use the code on the pass to purchase advance tickets online or same-day tickets at the museum. Children 6 and under are free. Each pass allows 2 adults for $15 each (special exhibition + gen"
+        }
+      ],
+      "summary": "$15/person",
+      "source_phrase_block": "PLEASE NOTE: This is an electronic pass that you will receive in your email. You may then use the code on the pass to purchase advance tickets online or same-day tickets at the museum. Children 6 and under are free. Each pass allows 2 adults for $15 each (special exhibition + general admission) and up to 4 children 7 – 17 $10 each (special exhibition + general admission) children ages 0-6 are free."
+    },
+    "restrictions": null
+  }
+}

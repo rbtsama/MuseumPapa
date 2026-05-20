@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "50% off regular museum admission rates for up to four people. This pass also includes admission to the Harvard Museum of Natural History, the Peabody Museum of Archaeology and Ethnology, the Harvard Museum of the Ancient Near East, and the Collection of Historical Scientific Inst"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "50% off regular museum admission rates for up to four people. This pass also includes admission to the Harvard Museum of Natural History, the Peabody Museum of Archaeology and Ethnology, the Harvard Museum of the Ancient Near East, and the Collection of Historical Scientific Instruments. Please be prepared to show the physical library pass and proof of Massachusetts residency when visiting the museum. Only one member of the party must be a MA resident. *This is a coupon pass that must be picked up at the library"
+    },
+    "restrictions": null
+  }
+}

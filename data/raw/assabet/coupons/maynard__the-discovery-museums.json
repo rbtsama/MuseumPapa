@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Pass admits up to 2 adults &amp; 2 children for a 50% discount. Children under 2 get in free. Museum is closed on Mondays. Pass is not valid for admission to the Alden Digital Planetarium, the Explorer Express Train or events with a special fee."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Pass admits up to 2 adults &amp; 2 children for a 50% discount. Children under 2 get in free. Museum is closed on Mondays. Pass is not valid for admission to the Alden Digital Planetarium, the Explorer Express Train or events with a special fee."
+    },
+    "restrictions": null
+  }
+}

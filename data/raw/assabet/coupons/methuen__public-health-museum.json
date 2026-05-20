@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Each pass allows two adults and up to four children into the Seacoast Science Center at a 50% discount. Pass will need to be presented to the Odiorne Point State Park tollbooth attendant and the Center's greeter even if you already have reservations."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Each pass allows two adults and up to four children into the Seacoast Science Center at a 50% discount. Pass will need to be presented to the Odiorne Point State Park tollbooth attendant and the Center's greeter even if you already have reservations."
+    },
+    "restrictions": null
+  }
+}

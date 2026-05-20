@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Discount : $9 per adult, $6 per child, up to 6 people. Children under the age of 2 are always free. Patrons can use this pass to visit either the Franklin Park Zoo in Boston or the Stone Zoo in Stoneham. Visit the main desk at the library to pick up your discount coupon. Discount"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Discount : $9 per adult, $6 per child, up to 6 people. Children under the age of 2 are always free. Patrons can use this pass to visit either the Franklin Park Zoo in Boston or the Stone Zoo in Stoneham. Visit the main desk at the library to pick up your discount coupon. Discount"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Discount : $9 per adult, $6 per child, up to 6 people. Children under the age of 2 are always free. Patrons can use this pass to visit either the Franklin Park Zoo in Boston or the Stone Zoo in Stoneham. Visit the main desk at the library to pick up your discount coupon. Discount coupons can be picked up from the library up to 1 week in advance. The discount pass is not accepted for Zoo Lights. To use: Present the pass at admissions booth at either the Franklin Park Zoo or Stone Zoo to receive your discount. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out your discount pass, you must contact the library in advance. If booking a pass with an e-card , patrons must also provide proof of address when they arrive at the library to pick-up their pas"
+    },
+    "restrictions": null
+  }
+}

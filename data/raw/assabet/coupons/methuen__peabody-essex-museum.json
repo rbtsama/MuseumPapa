@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "this pass provides free admission to the Public Health Museum indoor exhibits and outdoor campus tour for up to two people."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "this pass provides free admission to the Public Health Museum indoor exhibits and outdoor campus tour for up to two people."
+    },
+    "restrictions": null
+  }
+}

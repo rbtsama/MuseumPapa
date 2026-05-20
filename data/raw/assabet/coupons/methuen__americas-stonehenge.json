@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Coupon pass admits four visitors to the Aviation Museum of New Hampshire free of charge. Regular admission rates are $15 for people 13 and older, $7.50 for seniors, veterans, and children 6-12. Children 5 years old and younger are always free. Pass is only valid on the day of the"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Coupon pass admits four visitors to the Aviation Museum of New Hampshire free of charge. Regular admission rates are $15 for people 13 and older, $7.50 for seniors, veterans, and children 6-12. Children 5 years old and younger are always free. Pass is only valid on the day of the reservation."
+    },
+    "restrictions": null
+  }
+}

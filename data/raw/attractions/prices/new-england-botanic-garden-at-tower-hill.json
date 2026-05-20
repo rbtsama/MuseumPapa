@@ -1,6 +1,49 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 24.0,
+        "age_range": null,
+        "source_phrase": "ssion Prices TICKET TYPE ADVANCE PRICES WALK-UP PRICES Members FREE FREE Adults $24 $26 Seniors (65+) $19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Fr"
+      },
+      {
+        "audience": "adult",
+        "price": 26.0,
+        "age_range": null,
+        "source_phrase": "n Prices TICKET TYPE ADVANCE PRICES WALK-UP PRICES Members FREE FREE Adults $24 $26 Seniors (65+) $19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Free F"
+      },
+      {
+        "audience": "adult",
+        "price": 19.0,
+        "age_range": null,
+        "source_phrase": "PE ADVANCE PRICES WALK-UP PRICES Members FREE FREE Adults $24 $26 Seniors (65+) $19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Free Free Free Dogs : $8"
+      },
+      {
+        "audience": "adult",
+        "price": 20.0,
+        "age_range": null,
+        "source_phrase": "DVANCE PRICES WALK-UP PRICES Members FREE FREE Adults $24 $26 Seniors (65+) $19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Free Free Free Dogs : $8 ( L"
+      },
+      {
+        "audience": "adult",
+        "price": 12.0,
+        "age_range": null,
+        "source_phrase": "PRICES Members FREE FREE Adults $24 $26 Seniors (65+) $19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Free Free Free Dogs : $8 ( Learn more about dog w"
+      },
+      {
+        "audience": "adult",
+        "price": 14.0,
+        "age_range": null,
+        "source_phrase": "CES Members FREE FREE Adults $24 $26 Seniors (65+) $19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Free Free Free Dogs : $8 ( Learn more about dog walki"
+      },
+      {
+        "audience": "child",
+        "price": 8.0,
+        "age_range": null,
+        "source_phrase": "19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Free Free Free Dogs : $8 ( Learn more about dog walking guidelines ) $8 $8 Learn about discounted genera"
+      }
+    ]
   }
 }

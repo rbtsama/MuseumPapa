@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "ticket",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "bogo",
+          "value": null,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "PLEASE NOTE: This is an electronic code that you will receive via email. You must purchase your tickets through the institution before your visit. This library pass discounts tickets at a 2-for-1 rate. You can buy up to 4 tickets for the price of just 2. Weekdays in late May to e"
+        }
+      ],
+      "summary": "BOGO",
+      "source_phrase_block": "PLEASE NOTE: This is an electronic code that you will receive via email. You must purchase your tickets through the institution before your visit. This library pass discounts tickets at a 2-for-1 rate. You can buy up to 4 tickets for the price of just 2. Weekdays in late May to early October. Ferry from Boston to Spectacle Island runs Thursday through Sunday in the fall. Summer Schedule: June 20 – September 2 Boston to Spectacle Island: Monday through Friday Boston to Georges Island: Monday through Friday"
+    },
+    "restrictions": null
+  }
+}

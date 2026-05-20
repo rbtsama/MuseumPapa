@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "The pass admits up to 4 people at $5 per person . Children under 18 are admitted for free . This is an e-voucher that does not need to be picked up at the library . You will receive the pass in an email once you have placed your reservation. This pass is only valid for use on the"
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "The pass admits up to 4 people at $5 per person . Children under 18 are admitted for free . This is an e-voucher that does not need to be picked up at the library . You will receive the pass in an email once you have placed your reservation. This pass is only valid for use on the date that is printed on the pass . The museum is closed on Tuesdays. This pass is funded by the Friends of the Stoneham Library."
+    },
+    "restrictions": null
+  }
+}

@@ -1,6 +1,13 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "child",
+        "price": 10.0,
+        "age_range": null,
+        "source_phrase": "aturday : 10 AM - 4 PM Closed Sundays and Mondays Admission Regular Admission - $10 Children 12 and under - FREE Museum Members - FREE EBT cardholders and 1 guest"
+      }
+    ]
   }
 }

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Discount code allows purchase of 50% off ferry tickets for up to four people. Code: HARBOR16 FOR NEEDHAM RESIDENTS ONLY Visit: www.bostonharborislands.org/ferry-tickets/ Select date, departure, destination, and time. Select up to 4 tickets then continue to Booking Details. Enter "
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Discount code allows purchase of 50% off ferry tickets for up to four people. Code: HARBOR16 FOR NEEDHAM RESIDENTS ONLY Visit: www.bostonharborislands.org/ferry-tickets/ Select date, departure, destination, and time. Select up to 4 tickets then continue to Booking Details. Enter library's code in the Coupon field and click apply. For more information, see this folder of resources: https://drive.google.com/drive/folders/1D_JeZy1VwWfKJOH48jvKlslF806UEraY"
+    },
+    "restrictions": null
+  }
+}

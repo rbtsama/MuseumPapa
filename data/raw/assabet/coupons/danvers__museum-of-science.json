@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 6,
+          "age_range": null,
+          "source_phrase": "Discounted admission for up to 6 visitors. Library Adult $20, Library Senior/Student $17, Library Youth $15"
+        }
+      ],
+      "summary": "Discount",
+      "source_phrase_block": "Discounted admission for up to 6 visitors. Library Adult $20, Library Senior/Student $17, Library Youth $15"
+    },
+    "restrictions": null
+  }
+}

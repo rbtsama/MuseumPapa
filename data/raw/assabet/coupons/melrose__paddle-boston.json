@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "The library’s pass admits 2 adults and 2 children for free. Paul Revere House museum visitor requirements and operating hours. A visit usually takes about 30 minutes. Lifetime membership donated by John Curtis."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "The library’s pass admits 2 adults and 2 children for free. Paul Revere House museum visitor requirements and operating hours. A visit usually takes about 30 minutes. Lifetime membership donated by John Curtis."
+    },
+    "restrictions": null
+  }
+}

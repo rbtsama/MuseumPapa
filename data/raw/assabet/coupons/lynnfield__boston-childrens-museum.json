@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass offers 50% off up to four ferry tickets to select Boston Harbor Islands. Ferries to Georges and Spectacle Islands are boarded at Long Wharf North Gate 5 in Downtown Boston. Ferries to Peddocks Island are boarded from Hingham. The Pass can be used for: Georges Island May"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This pass offers 50% off up to four ferry tickets to select Boston Harbor Islands. Ferries to Georges and Spectacle Islands are boarded at Long Wharf North Gate 5 in Downtown Boston. Ferries to Peddocks Island are boarded from Hingham. The Pass can be used for: Georges Island May 1 - June 14: Thursdays through Sundays June 16 - September 1: every day Spectacle Island July 15 - September 1: every day September 4 - 21: Thursdays through Sundays September 26 - October 13: Fridays through Sundays Peddocks Island from Hingham June 15 - September 7: every day BUT Tuesdays September 10 - October 12: Fridays through Sundays"
+    },
+    "restrictions": null
+  }
+}

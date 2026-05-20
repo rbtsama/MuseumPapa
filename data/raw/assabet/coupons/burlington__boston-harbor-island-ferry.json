@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Pass admits 1 visitor free of charge. Only 1 coupon per group allowed. For ticket pricing and hours, please refer to The Butterfly Place website. https://butterflyplace-ma.com/schedule/ This coupon pass can be picked up one week in advance. The physical coupon must be brought to "
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass admits 1 visitor free of charge. Only 1 coupon per group allowed. For ticket pricing and hours, please refer to The Butterfly Place website. https://butterflyplace-ma.com/schedule/ This coupon pass can be picked up one week in advance. The physical coupon must be brought to the Butterfly Place to receive the discount admission; the confirmation email is NOT the coupon/pass. You must visit the library with your library card or ID to pick up the reserved pass before visiting the Butterfly Place."
+    },
+    "restrictions": null
+  }
+}

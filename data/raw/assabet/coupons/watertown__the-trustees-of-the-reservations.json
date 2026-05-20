@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "This pass discount provides free admission for up to 5 individuals. This pass is only valid for the museum and does not provide entry to the ship. This returnable pass must be picked up in person at the Library's Circulation desk and presented upon entry. Returnable passes must b"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass discount provides free admission for up to 5 individuals. This pass is only valid for the museum and does not provide entry to the ship. This returnable pass must be picked up in person at the Library's Circulation desk and presented upon entry. Returnable passes must be returned to the library. Directions and information regarding the returnable pass use will be provided in your confirmation email."
+    },
+    "restrictions": null
+  }
+}

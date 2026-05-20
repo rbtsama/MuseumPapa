@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "admits up to 4 people for free. Children 4 years and younger are admitted for free"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "46 Joy Street, Boston, MA, 02114\n                                                            \n    Map\n617-725-0022\nEach pass admits up to 4 people for free. Children 4&nbsp;years and younger are admitted for free.\nPass instructions: Visit the museum&rsquo;s website and use the library coupon code emailed to you to reserve a timed entry\nPresently, online reservations are required for all visitors.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

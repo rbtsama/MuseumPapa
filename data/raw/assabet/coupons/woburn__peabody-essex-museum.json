@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 14,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This pass allows the bearer a discounted admission rate for up to six visitors. After checking the pass out from the library, log onto www.salemwitchmuseum.com and use the coupon code found on the pass to purchase up to 6 tickets at a discounted rate ($14.00 adults/seniors, $11.7"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 11.75,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass allows the bearer a discounted admission rate for up to six visitors. After checking the pass out from the library, log onto www.salemwitchmuseum.com and use the coupon code found on the pass to purchase up to 6 tickets at a discounted rate ($14.00 adults/seniors, $11.7"
+        }
+      ],
+      "summary": "$14/person",
+      "source_phrase_block": "This pass allows the bearer a discounted admission rate for up to six visitors. After checking the pass out from the library, log onto www.salemwitchmuseum.com and use the coupon code found on the pass to purchase up to 6 tickets at a discounted rate ($14.00 adults/seniors, $11.75 children ages 3-14). Tickets must be purchased online in advance before arrival at the museum and the pass must be shown when picking up tickets. If you cannot provide the library pass, you will be charged the full admission fee. This is a physical pass that you must pick up from and return to the library. Please return before 9 am the day after the Museum Pass is used. The pass may be returned via the book drop. ~ The Salem Witch Museum does not accept library passes for the month of October ~"
+    },
+    "restrictions": null
+  }
+}

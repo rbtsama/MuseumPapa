@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "dollar-off",
+          "value": 10,
+          "count": 6,
+          "age_range": null,
+          "source_phrase": "This pass admits up to 6 guests to the Davis Farmland or Davis Mega Maze at the gate with a savings of $10 off per ticket."
+        }
+      ],
+      "summary": "$10 off",
+      "source_phrase_block": "This pass admits up to 6 guests to the Davis Farmland or Davis Mega Maze at the gate with a savings of $10 off per ticket."
+    },
+    "restrictions": null
+  }
+}

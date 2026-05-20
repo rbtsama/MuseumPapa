@@ -1,6 +1,61 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "senior",
+        "price": 26.0,
+        "age_range": null,
+        "source_phrase": "lem &#038; Beyond Museum Store Tickets ADMISSION RATES & DISCOUNTS Mansion Tour $26 Mansion Tour - Age 65+ $21 Mansion Tour - Ages 5-12 $18 Grounds Pass (May 1-Sep"
+      },
+      {
+        "audience": "child",
+        "price": 21.0,
+        "age_range": null,
+        "source_phrase": "ore Tickets ADMISSION RATES & DISCOUNTS Mansion Tour $26 Mansion Tour - Age 65+ $21 Mansion Tour - Ages 5-12 $18 Grounds Pass (May 1-Sept 30)* $13 Children Under 5"
+      },
+      {
+        "audience": "child",
+        "price": 18.0,
+        "age_range": null,
+        "source_phrase": "DISCOUNTS Mansion Tour $26 Mansion Tour - Age 65+ $21 Mansion Tour - Ages 5-12 $18 Grounds Pass (May 1-Sept 30)* $13 Children Under 5 FREE - accompanied by an adu"
+      },
+      {
+        "audience": "adult",
+        "price": 13.0,
+        "age_range": null,
+        "source_phrase": "n Tour - Age 65+ $21 Mansion Tour - Ages 5-12 $18 Grounds Pass (May 1-Sept 30)* $13 Children Under 5 FREE - accompanied by an adult Gables Members FREE Salem Resid"
+      },
+      {
+        "audience": "adult",
+        "price": 26.0,
+        "age_range": null,
+        "source_phrase": ", click here . DETAILED PRICING - MANSION TOUR PACKAGE (NOV-SEPT) Adult &#8211; $26.00 Child (Age 5-12) &#8211; $18.00 Child Under 5 &#8211; FREE Senior (65+) &#8211;"
+      },
+      {
+        "audience": "adult",
+        "price": 18.0,
+        "age_range": null,
+        "source_phrase": "- MANSION TOUR PACKAGE (NOV-SEPT) Adult &#8211; $26.00 Child (Age 5-12) &#8211; $18.00 Child Under 5 &#8211; FREE Senior (65+) &#8211; $21.00 First Responder/Teacher"
+      },
+      {
+        "audience": "senior",
+        "price": 21.0,
+        "age_range": null,
+        "source_phrase": "nder 5 &#8211; FREE Senior (65+) &#8211; $21.00 First Responder/Teacher &#8211; $21.00 College Student &#8211; $21.00 MA Public College Student &#8211; Free Military"
+      },
+      {
+        "audience": "adult",
+        "price": 21.0,
+        "age_range": null,
+        "source_phrase": ") &#8211; $21.00 First Responder/Teacher &#8211; $21.00 College Student &#8211; $21.00 MA Public College Student &#8211; Free Military &#8211; Adult &#8211; $21.00 Mi"
+      },
+      {
+        "audience": "adult",
+        "price": 16.0,
+        "age_range": null,
+        "source_phrase": "ree Military &#8211; Adult &#8211; $21.00 Military &#8211; Child (5-12) &#8211; $16.00 Salem Resident &#8211; FREE, proof of residency required NARM/Museum Profession"
+      }
+    ]
   }
 }

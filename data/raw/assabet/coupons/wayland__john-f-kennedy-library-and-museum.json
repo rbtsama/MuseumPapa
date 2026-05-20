@@ -1,0 +1,34 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 2,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "This is an e-voucher . Pass is emailed to the Patron; Print out the pass or display it on your phone at the Museum entrance. Each pass admits up to 4 people at $2 per person to any Massachusetts Audubon Wildlife Sanctuary, including Drumlin Farm in Lincoln, MA. (Children under ag"
+        }
+      ],
+      "summary": "$2/person",
+      "source_phrase_block": "This is an e-voucher . Pass is emailed to the Patron; Print out the pass or display it on your phone at the Museum entrance. Each pass admits up to 4 people at $2 per person to any Massachusetts Audubon Wildlife Sanctuary, including Drumlin Farm in Lincoln, MA. (Children under age 2 are always free.) Holiday calendar, days open and hours of operation vary by property - please check the Mass Audubon website, massaudubon.org , for more details. Drumlin Farm Hours: Tuesday–Sunday, 9am-5pm • Closed Mondays (except holidays) • Closed on Thanksgiving, Christmas, and New Year's Day. For the most up-to-date information on the Drumlin Farm programs and hours, please visit their website ."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [
+        "mondays"
+      ],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null
+    }
+  }
+}

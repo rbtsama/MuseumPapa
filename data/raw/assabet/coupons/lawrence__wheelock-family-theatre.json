@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Stone or Franklin Park Zoo [coupon] Zoológicos Stone o Franklin Park Zoo [cupón] Admits 6 people at $9 per adult and $6 per child. Admisión para 6 personas a $9 por adulto y $6 por niño. The Museum is open daily. Please visit the website for more information on hours of operation"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Stone or Franklin Park Zoo [coupon] Zoológicos Stone o Franklin Park Zoo [cupón] Admits 6 people at $9 per adult and $6 per child. Admisión para 6 personas a $9 por adulto y $6 por niño. The Museum is open daily. Please visit the website for more information on hours of operation"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Stone or Franklin Park Zoo [coupon] Zoológicos Stone o Franklin Park Zoo [cupón] Admits 6 people at $9 per adult and $6 per child. Admisión para 6 personas a $9 por adulto y $6 por niño. The Museum is open daily. Please visit the website for more information on hours of operation. El Museo abre todos los días. Visite el sitio web para obtener más información sobre los horarios."
+    },
+    "restrictions": null
+  }
+}

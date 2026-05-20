@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "BENEFITS Library Passes are $10 per ticket (discounted from the regular fee of $20 per ticket). One library pass will be valid for up to two admission tickets at the discounted price. Current pricing and visitor information: https://www.icaboston.org/visit Patrons under the age o"
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "BENEFITS Library Passes are $10 per ticket (discounted from the regular fee of $20 per ticket). One library pass will be valid for up to two admission tickets at the discounted price. Current pricing and visitor information: https://www.icaboston.org/visit Patrons under the age of 18 are free without the pass."
+    },
+    "restrictions": null
+  }
+}

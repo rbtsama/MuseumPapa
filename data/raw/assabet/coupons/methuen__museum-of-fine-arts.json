@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "NO RESERVATION NEEDED. Present your Nevins Memorial Library card at the museum to receive free admission! The Museum of Printing is open every Saturday 10am - 4 pm **You do not need to reserve this pass for the discount just show your Nevins Library Card**"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "NO RESERVATION NEEDED. Present your Nevins Memorial Library card at the museum to receive free admission! The Museum of Printing is open every Saturday 10am - 4 pm **You do not need to reserve this pass for the discount just show your Nevins Library Card**"
+    },
+    "restrictions": null
+  }
+}

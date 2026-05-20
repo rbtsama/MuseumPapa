@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Pass admits up to 6 people at $9/adult and $6/child. Pass may be used at either Stoneham Zoo or Franklin Park Zoo. Passes are not date-specific so plan for any day that works for you, up to the expiration date on the pass itself. You might consider going with another family on th"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Pass admits up to 6 people at $9/adult and $6/child. Pass may be used at either Stoneham Zoo or Franklin Park Zoo. Passes are not date-specific so plan for any day that works for you, up to the expiration date on the pass itself. You might consider going with another family on th"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Pass admits up to 6 people at $9/adult and $6/child. Pass may be used at either Stoneham Zoo or Franklin Park Zoo. Passes are not date-specific so plan for any day that works for you, up to the expiration date on the pass itself. You might consider going with another family on the same day and each family can get their own pass."
+    },
+    "restrictions": null
+  }
+}

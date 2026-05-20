@@ -1,6 +1,25 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 15.0,
+        "age_range": null,
+        "source_phrase": "ersons) can reserve Timed-Entry Admission online Current Admission Rates Adults $15 Older Adults / College Students $12 62+ years / 18+ years with ID Youths $8 Age"
+      },
+      {
+        "audience": "adult",
+        "price": 12.0,
+        "age_range": null,
+        "source_phrase": "ssion online Current Admission Rates Adults $15 Older Adults / College Students $12 62+ years / 18+ years with ID Youths $8 Ages 6 - 17 Please note: Youths must be"
+      },
+      {
+        "audience": "adult",
+        "price": 8.0,
+        "age_range": null,
+        "source_phrase": "ts $15 Older Adults / College Students $12 62+ years / 18+ years with ID Youths $8 Ages 6 - 17 Please note: Youths must be accompanied by an Adult, Senior, or Col"
+      }
+    ]
   }
 }

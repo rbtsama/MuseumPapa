@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Pass allows free daytime parking for one carload to most Massachusetts State Parks, State Forests, or State Reservations that charge a parking fee."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass allows free daytime parking for one carload to most Massachusetts State Parks, State Forests, or State Reservations that charge a parking fee."
+    },
+    "restrictions": null
+  }
+}

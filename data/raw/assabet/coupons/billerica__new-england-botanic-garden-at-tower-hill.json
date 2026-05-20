@@ -1,0 +1,28 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 25,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Admits two (2) adults at $12.00 per person for general admission. Regular admission rates are $25 for adults, $23 for seniors (age 65+), and $15 for students; children under 16 and all residents of Salem, MA are admitted free. Reserve the pass and you will automatically receive a"
+        }
+      ],
+      "summary": "$25/person",
+      "source_phrase_block": "Admits two (2) adults at $12.00 per person for general admission. Regular admission rates are $25 for adults, $23 for seniors (age 65+), and $15 for students; children under 16 and all residents of Salem, MA are admitted free. Reserve the pass and you will automatically receive an email containing a unique promo code. Enter the code while purchasing tickets on the Peabody Essex Museum website. This pass is generously sponsored by the Family Friends of the Billerica Public Library."
+    },
+    "restrictions": null
+  }
+}

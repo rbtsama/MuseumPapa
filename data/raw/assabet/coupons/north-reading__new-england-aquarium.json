@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "Pass Type: Printable/Digital Coupon Pass (link delivered by email) Admits up to 5 people at 50% off regular admission. Ages 12 months and under are free. To obtain discounted admission in person at the museum please present either a printed pass or on a handheld device. Visit htt"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Pass Type: Printable/Digital Coupon Pass (link delivered by email) Admits up to 5 people at 50% off regular admission. Ages 12 months and under are free. To obtain discounted admission in person at the museum please present either a printed pass or on a handheld device. Visit https://www.nschildrensmuseum.org/visit/buy-tickets/ for more information. PASSES CANNOT BE USED ON SATURDAYS"
+    },
+    "restrictions": null
+  }
+}

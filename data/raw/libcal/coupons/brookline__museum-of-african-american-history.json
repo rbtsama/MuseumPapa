@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Admits up to 4 for free. Children ages 12 and under receive free"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "46 Joy St., Boston, MA, 02114\n                                                            \n    Map\n(617) 725-0022\nWe understand the importance of filling in the missing pages of American history. Here, you will be connected to amazing and authentic representations of life in the 18th and 19th centuries, in the place where a free Black community changed the course of American history.\nAs New England&rsquo;s largest museum dedicated to preserving, conserving and interpreting the contributions of African Americans, we invite you to explore the historic sites in our Boston and Nantucket locations, along with The Museum&rsquo;s Black Heritage Trails&reg;.\nExhibits, programs, and education activities at the Museum showcase the powerful stories of black families who worshipped, educated their children, debated the issues of the day, organized politically and advanced the cause of freedom.\nPass benefits: Admits up to 4 for free. Children ages 12 and under receive free admission.&nbsp;Visit the Museum of African American History&#39;s website.\nNo passes are available at this time."
+    },
+    "restrictions": null
+  }
+}

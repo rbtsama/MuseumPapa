@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "The Boston Harbor Islands Discounted Passes offer 50% off up to 4 ferry tickets to visit Spectacle or Georges Islands. The code can be used throughout the entire 2025 season, which is listed below: Georges Island May 15 - June 14: Thursdays through Sundays June 16 - September 1: "
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "The Boston Harbor Islands Discounted Passes offer 50% off up to 4 ferry tickets to visit Spectacle or Georges Islands. The code can be used throughout the entire 2025 season, which is listed below: Georges Island May 15 - June 14: Thursdays through Sundays June 16 - September 1: every day Spectacle Island"
+    },
+    "restrictions": null
+  }
+}

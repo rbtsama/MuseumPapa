@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "This is a paper coupon that must be picked up at the Wayland Library during the library's open hours no more than 1 week before its use date. It does not need to be returned. Each coupon admits up to 2 adults and 2 children in one vehicle at 50% off admission. Children under 2 ar"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This is a paper coupon that must be picked up at the Wayland Library during the library's open hours no more than 1 week before its use date. It does not need to be returned. Each coupon admits up to 2 adults and 2 children in one vehicle at 50% off admission. Children under 2 are always free. When using the Library Pass discount, tickets cannot be reserved online - tickets must be purchased in person. These coupons do not cover the cost for tickets to the Alden Planetarium, the Explorer Express Train, or other special ticketed events. For the most up-to-date information on museum programs and hours, please visit their website."
+    },
+    "restrictions": null
+  }
+}

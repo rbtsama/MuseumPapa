@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "One digital pass allows free admission for up to 5 people per day. No advance tickets or reservations are required for entry, and admission will be on a first come, first served basis."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "One digital pass allows free admission for up to 5 people per day. No advance tickets or reservations are required for entry, and admission will be on a first come, first served basis."
+    },
+    "restrictions": null
+  }
+}

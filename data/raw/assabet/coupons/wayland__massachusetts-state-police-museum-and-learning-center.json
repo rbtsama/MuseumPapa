@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 15,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This is an e-voucher . Promo Code is e-mailed to the patron. Each Promo Code use allows 2 people at $15 per adult, $10 per child age 7-17. Children 6 and under are admitted for free. Note: The date of your museum visit must match the date on the library pass. For the most up-to-d"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 10,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This is an e-voucher . Promo Code is e-mailed to the patron. Each Promo Code use allows 2 people at $15 per adult, $10 per child age 7-17. Children 6 and under are admitted for free. Note: The date of your museum visit must match the date on the library pass. For the most up-to-d"
+        }
+      ],
+      "summary": "$15/person",
+      "source_phrase_block": "This is an e-voucher . Promo Code is e-mailed to the patron. Each Promo Code use allows 2 people at $15 per adult, $10 per child age 7-17. Children 6 and under are admitted for free. Note: The date of your museum visit must match the date on the library pass. For the most up-to-date information on museum programs and hours, please visit their website ."
+    },
+    "restrictions": null
+  }
+}

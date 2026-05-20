@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Admits up to 2 people at $12 per person. Ages 16 and under are free. Reservations are required."
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "Admits up to 2 people at $12 per person. Ages 16 and under are free. Reservations are required."
+    },
+    "restrictions": null
+  }
+}

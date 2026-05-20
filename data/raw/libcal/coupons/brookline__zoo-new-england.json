@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9.0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "$9 per adult"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6.0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "$6 per child"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "1 Franklin Park Rd., Boston, MA, 02121\n                                                            \n    Map\n(617) 541-5466\nCommonwealth Zoological Corporation D/B/A Zoo New England (&quot;Zoo New England&quot;) manages and operates Franklin Park Zoo in Boston and Stone Zoo in Stoneham, Massachusetts. Zoo New England programming is made possible through earned revenues and state, private, and corporate funding.\nFranklin Park Zoo is a 72-acre site nestled in Boston&rsquo;s historic Franklin Park, long considered the &quot;crown jewel&quot; of Frederick Law Olmsted&rsquo;s Emerald Necklace Park System. The Zoo was founded in 1912 and was managed by the City of Boston until 1958, when the Metropolitan District Commission (MDC), a state agency, assumed management. The MDC managed the Zoos until 1991, when Governor William Weld signed legislation to create the private Commonwealth Zoological Corporation (CZC). In July of 1997 the CZC changed its name to Zoo New England to reflect the regional appeal of the Zoo.\n\nVisiting Franklin Park Zoo\nStone Zoo, formerly known as the Middlesex Fells Zoo, is located on a 26-acre site near the sparkling Spot Pond reservoir in Stoneham, MA. Charles Price, Superintendent of the Metropolitan District Commission&rsquo;s Middlesex Fells Reservation, founded the Zoo in 1905, and in 1969, the site was renamed in honor of Walter D. Stone, a former Zoo Director. In 1991, the Commonwealth Zoological Corporation (CZC) was created to maintain care, custody, and control of both Stone Zoo and Franklin Park Zoo.\n\nVisiting Stone Zoo\nPass benefits: Admits up to 6 people at $9 per adult and $6 per child.&nbsp; Children ages 2 and under receive free admission. Accepted at both the Franklin Park and Stone Zoo locations.&nbsp;Visit the Zoo New England&#39;s website.\nPhysical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar."
+    },
+    "restrictions": null
+  }
+}

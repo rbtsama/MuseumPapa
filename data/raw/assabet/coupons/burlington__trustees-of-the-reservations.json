@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "One pass allows free admission for up to 5 people. One pass per party. See the museum's website for hours and details https://ussconstitutionmuseum.org . This digital pass can be printed, or shown to museum staff on the patron's phone."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "One pass allows free admission for up to 5 people. One pass per party. See the museum's website for hours and details https://ussconstitutionmuseum.org . This digital pass can be printed, or shown to museum staff on the patron's phone."
+    },
+    "restrictions": null
+  }
+}

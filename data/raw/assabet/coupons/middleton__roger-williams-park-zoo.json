@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 13.5,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This pass admits up to 6 people at a rate of $13.50 for Adults and $11.25 for Children (Ages 6-18). This pass must be returned to the library by 10am on the day following the reservation."
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 11.25,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass admits up to 6 people at a rate of $13.50 for Adults and $11.25 for Children (Ages 6-18). This pass must be returned to the library by 10am on the day following the reservation."
+        }
+      ],
+      "summary": "$13.5/person",
+      "source_phrase_block": "This pass admits up to 6 people at a rate of $13.50 for Adults and $11.25 for Children (Ages 6-18). This pass must be returned to the library by 10am on the day following the reservation."
+    },
+    "restrictions": null
+  }
+}

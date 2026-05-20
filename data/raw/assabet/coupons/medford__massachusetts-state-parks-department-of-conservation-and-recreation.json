@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Each pass admits up to 2 adults for $15.00/each and up to 4 youth at $10/each for general admission ."
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "Each pass admits up to 2 adults for $15.00/each and up to 4 youth at $10/each for general admission ."
+    },
+    "restrictions": null
+  }
+}

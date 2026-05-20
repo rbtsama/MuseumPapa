@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "free admission"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass allows free admission for up to 4 people. This includes access to the Museum and Summer Lawn Events. Please consult website for events and hours.\nTHIS IS A RETURNABLE PASS:\nThis pass&nbsp;must be returned the following day&nbsp;of your scheduled reservation to the location where the pass was reserved.&nbsp;Passes reserved on Saturday can be returned on the following Monday.\nNote: This pass is limited to one booking per month per person.\nPhysical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.\nTo use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+    },
+    "restrictions": null
+  }
+}

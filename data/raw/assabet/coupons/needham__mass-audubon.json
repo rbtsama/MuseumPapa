@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "(RETURNABLE) General admission pass to the State Parks System. ParksPass is valid for the passenger vehicle displaying this pass on rearview mirror. FOR NEEDHAM RESIDENTS ONLY"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "(RETURNABLE) General admission pass to the State Parks System. ParksPass is valid for the passenger vehicle displaying this pass on rearview mirror. FOR NEEDHAM RESIDENTS ONLY"
+    },
+    "restrictions": null
+  }
+}

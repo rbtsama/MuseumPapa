@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Print from home pass. Pass allows 2 people at $10 per person (if you book more, the museum will charge you the balance upon entry). Reserve your timed-tickets in advance on the ICA website at www.icaboston.org and select the \"Library Pass Discount\" price or call ICA Visitor Servi"
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "Print from home pass. Pass allows 2 people at $10 per person (if you book more, the museum will charge you the balance upon entry). Reserve your timed-tickets in advance on the ICA website at www.icaboston.org and select the \"Library Pass Discount\" price or call ICA Visitor Services at 617-478-3100. Present your printed passes at the Visitor Services desk to purchase tickets onsite. Visitors must present their e-ticket along with their paper library pass when checking in at the museum. Please note that purchases made on the ICA website or over the phone incur a $4 service fee per ticket."
+    },
+    "restrictions": null
+  }
+}

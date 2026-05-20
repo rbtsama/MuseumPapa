@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 14,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Library member rates 2026 : Adult/Senior - $14.00 Child (3-14) - $11.75 Library Passes are not accepted in the month of OCTOBER."
+        }
+      ],
+      "summary": "$14/person",
+      "source_phrase_block": "Library member rates 2026 : Adult/Senior - $14.00 Child (3-14) - $11.75 Library Passes are not accepted in the month of OCTOBER."
+    },
+    "restrictions": null
+  }
+}

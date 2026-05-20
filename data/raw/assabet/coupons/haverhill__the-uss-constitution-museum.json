@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This pass admits 6 people for the reduced admission of $9 per adult, $6 per child (under 2 is free) to either the Franklin Park Zoo or the Stone Zoo. Pass is only good for daytime admission and cannot be used for Zoolights or Boston Lights events. Please check Zoo New England's w"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass admits 6 people for the reduced admission of $9 per adult, $6 per child (under 2 is free) to either the Franklin Park Zoo or the Stone Zoo. Pass is only good for daytime admission and cannot be used for Zoolights or Boston Lights events. Please check Zoo New England's w"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "This pass admits 6 people for the reduced admission of $9 per adult, $6 per child (under 2 is free) to either the Franklin Park Zoo or the Stone Zoo. Pass is only good for daytime admission and cannot be used for Zoolights or Boston Lights events. Please check Zoo New England's website for information about and directions to the zoo of your choice ( www.zoonewengland.org/ ). The pass will need to be picked up from the library. Contact 978-373-1586 x603 with any questions."
+    },
+    "restrictions": null
+  }
+}

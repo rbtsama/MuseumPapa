@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 20,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Print from Home pass Pass allows 20% discount for online tickets"
+        }
+      ],
+      "summary": "20% off",
+      "source_phrase_block": "Print from Home pass Pass allows 20% discount for online tickets"
+    },
+    "restrictions": null
+  }
+}

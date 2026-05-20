@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "This pass admits 5 people for free."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass admits 5 people for free."
+    },
+    "restrictions": null
+  }
+}

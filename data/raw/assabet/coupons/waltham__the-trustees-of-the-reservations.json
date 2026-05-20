@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This pass allows up to 6 people to visit at $9 per adult and $6 per child. Children under 2 are free. Library coupons are not valid for admission to the evening \"Boston Lights\" exhibition. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation De"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass allows up to 6 people to visit at $9 per adult and $6 per child. Children under 2 are free. Library coupons are not valid for admission to the evening \"Boston Lights\" exhibition. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation De"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "This pass allows up to 6 people to visit at $9 per adult and $6 per child. Children under 2 are free. Library coupons are not valid for admission to the evening \"Boston Lights\" exhibition. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the date you've selected in our calendar.*"
+    },
+    "restrictions": null
+  }
+}

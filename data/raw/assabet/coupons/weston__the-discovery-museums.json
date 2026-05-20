@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "With this pass, one adult 50% discounted admission. With this pass, children (ages 5-17) $1.00 admission. No discounts on classes, tours, or retail items."
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 1,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "With this pass, one adult 50% discounted admission. With this pass, children (ages 5-17) $1.00 admission. No discounts on classes, tours, or retail items."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "With this pass, one adult 50% discounted admission. With this pass, children (ages 5-17) $1.00 admission. No discounts on classes, tours, or retail items."
+    },
+    "restrictions": null
+  }
+}

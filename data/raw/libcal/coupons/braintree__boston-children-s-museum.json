@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "half price"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "308 Congress St., Boston, MA, 02210\n                                                            \n    Map\n(617) 426-6500\nAdmits up to four (adults or children) at half price per person.&nbsp;\nAfter receiving a library discount pass, you must reserve a visit online with Boston Children&rsquo;s Museum. You confirmation from the library will have instructions.&nbsp;You&nbsp;will need to show the Museum both the Library Reservation and the tickets they send you.\nTwo annual memberships of $700.00 each are provided by the Friends of Thayer Public Library.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

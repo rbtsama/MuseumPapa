@@ -1,6 +1,13 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 5.0,
+        "age_range": null,
+        "source_phrase": "​ Museum Hours of Operation: Tuesday and Saturday 11am-4pm ​ Museum Admission: $5 for adults Free for under age 16, Museum Members, and Military/Veterans NEW ! ​"
+      }
+    ]
   }
 }

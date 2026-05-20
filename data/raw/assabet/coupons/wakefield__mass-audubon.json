@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Pass provides free parking for 1 car"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass provides free parking for 1 car"
+    },
+    "restrictions": null
+  }
+}

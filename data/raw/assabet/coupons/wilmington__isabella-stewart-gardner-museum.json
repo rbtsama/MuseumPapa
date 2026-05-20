@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 2,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Pass admits up to 4 people at $2 per person (children under two are admitted free) Hours of operation vary by sanctuary. Visitors must reserve their parking spot at Drumlin Farm to ensure access on weekends when they reach capacity. Check the their website for guidelines and upda"
+        }
+      ],
+      "summary": "$2/person",
+      "source_phrase_block": "Pass admits up to 4 people at $2 per person (children under two are admitted free) Hours of operation vary by sanctuary. Visitors must reserve their parking spot at Drumlin Farm to ensure access on weekends when they reach capacity. Check the their website for guidelines and updates before reserving this pass. Funded by the Community Fund"
+    },
+    "restrictions": null
+  }
+}

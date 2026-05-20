@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 5.0,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "four Adult tickets at $5 each"
+        },
+        {
+          "audience": "children",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Children under 18 always get in free"
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "25 Evans Way, Boston, Massachusetts, 02115\n                                                            \n    Map\nThis pass allows for booking up to four Adult tickets at $5 each. Children under 18 always get in free and should be booked as child tickets.\nThis library pass does not guarantee a reservation to the Museum.&nbsp;If you have any issues reserving your tickets, you can call the Gardner Museum&#39;s Box Office at 617-278-5156.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below.\nTo use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 20,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "20% discount on tickets purchased per show. Tickets must be purchased on line at nhphil.org with library discount code."
+        }
+      ],
+      "summary": "20% off",
+      "source_phrase_block": "20% discount on tickets purchased per show. Tickets must be purchased on line at nhphil.org with library discount code."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Free admission for up to 2 adults and 2 children. Additional instructions: - Pre-registration is recommended. Visit the Trustees of Reservations website to reserve. -Select the GO "
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Type of pass: Paper, must be picked up from the library the week of your reservation date. Pricing: Free admission for up to 2 adults and 2 children. Additional instructions: - Pre-registration is recommended. Visit the Trustees of Reservations website to reserve. -Select the GO Pass ticket option when purchasing your tickets. You must still bring your paper pass. Please note: deCordova has temporarily suspended indoor art exhibitions starting March 13, 2023, for upgrades expected to take two to three years. All other events, programs, and activities will continue as planned. For more information, click here ."
+    },
+    "restrictions": null
+  }
+}

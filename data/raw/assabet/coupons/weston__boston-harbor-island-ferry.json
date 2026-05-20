@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Each pass admits up to four people for general admission (Adult, Youth 6-17, Students, and Seniors). Admission for children 5 and younger is free. Not valid for special events or for public programming."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Each pass admits up to four people for general admission (Adult, Youth 6-17, Students, and Seniors). Admission for children 5 and younger is free. Not valid for special events or for public programming."
+    },
+    "restrictions": null
+  }
+}

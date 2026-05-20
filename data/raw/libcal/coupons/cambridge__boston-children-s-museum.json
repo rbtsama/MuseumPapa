@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 1.0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "$1 per person"
+        }
+      ],
+      "summary": "$1/person",
+      "source_phrase_block": "308 Congress St., Boston, MA, 02210\n                                                            \n    Map\n617-426-6500\nEach pass admits up to 4 (adults or children) at half price per person.\nLibrary Coupons are not valid for Sunday afternoons (Admission is $1 per person on Sundays from 1:30 p.m. to 4:30 p.m.).\nThis pass is valid only on the date printed on the pass.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

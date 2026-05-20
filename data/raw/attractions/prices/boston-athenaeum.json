@@ -1,6 +1,31 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 11.0,
+        "age_range": null,
+        "source_phrase": "erience with our digital guide on Bloomberg Connects. Visitors (ages 14 and up) $11 Visitors (ages 13 and under accompanied by an adult) $5 Students/Educators/Mili"
+      },
+      {
+        "audience": "adult",
+        "price": 5.0,
+        "age_range": null,
+        "source_phrase": "itors (ages 14 and up) $11 Visitors (ages 13 and under accompanied by an adult) $5 Students/Educators/Military (with a valid ID) $8 Card to Culture $2 (details be"
+      },
+      {
+        "audience": "adult",
+        "price": 8.0,
+        "age_range": null,
+        "source_phrase": "under accompanied by an adult) $5 Students/Educators/Military (with a valid ID) $8 Card to Culture $2 (details below) NARM/ROAM No charge with proof of active mem"
+      },
+      {
+        "audience": "adult",
+        "price": 2.0,
+        "age_range": null,
+        "source_phrase": "y an adult) $5 Students/Educators/Military (with a valid ID) $8 Card to Culture $2 (details below) NARM/ROAM No charge with proof of active membership Art & Archi"
+      }
+    ]
   }
 }

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Pass admits 2 people for $12 per person for general admission only. Reservations for your ticket may be made in advance by calling the museum or by going to pem.org/tickets Yin Yu Tang Chinese House and other special exhibits require additional admission fees. This is a printable"
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "Pass admits 2 people for $12 per person for general admission only. Reservations for your ticket may be made in advance by calling the museum or by going to pem.org/tickets Yin Yu Tang Chinese House and other special exhibits require additional admission fees. This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have made a reservation."
+    },
+    "restrictions": null
+  }
+}

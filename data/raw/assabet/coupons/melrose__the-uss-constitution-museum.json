@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "The library’s pass admits 6 people with a $9 co-pay for adults and $6 for children ages 2 - 12 years, children under 2 are free. Zoos current hours and admission prices . This pass is good at both the Stone Zoo in Stoneham and the Franklin Park Zoo in Boston. No pets are allowed "
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "The library’s pass admits 6 people with a $9 co-pay for adults and $6 for children ages 2 - 12 years, children under 2 are free. Zoos current hours and admission prices . This pass is good at both the Stone Zoo in Stoneham and the Franklin Park Zoo in Boston. No pets are allowed "
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "The library’s pass admits 6 people with a $9 co-pay for adults and $6 for children ages 2 - 12 years, children under 2 are free. Zoos current hours and admission prices . This pass is good at both the Stone Zoo in Stoneham and the Franklin Park Zoo in Boston. No pets are allowed at the Zoos. Zoolights is not discounted with the pass. Pass funded by the City of Melrose."
+    },
+    "restrictions": null
+  }
+}

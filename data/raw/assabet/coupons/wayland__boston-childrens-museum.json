@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This is an e-voucher . Discount code is e-mailed to the patron. The discount code provides access to purchase tickets at 50% off the regular price for the following: Spectacle Island May 16 - June 15: Thursdays through Sundays June 16 - Sep 1: every day Sep 4 - 21: Thursdays thro"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This is an e-voucher . Discount code is e-mailed to the patron. The discount code provides access to purchase tickets at 50% off the regular price for the following: Spectacle Island May 16 - June 15: Thursdays through Sundays June 16 - Sep 1: every day Sep 4 - 21: Thursdays through Sundays Sep 26 - Oct 13: Fridays through Sundays Georges Island June 16 - Sep 1: every day Spectacle Island June 16 - Sep 1: every day Sep 4 - Oct 13: Thursdays through Sundays Ferries to Georges and Spectacle Islands are boarded at Long Wharf North in Downtown Boston. Ferries to Peddocks Island are boarded from Hingham."
+    },
+    "restrictions": null
+  }
+}

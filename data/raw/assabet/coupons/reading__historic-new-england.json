@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Each pass allows up to two people a discounted rate of $10 each. The ICA is always free to children 18 and under. Current hours and admission information are available at: https://www.icaboston.org/visit/ Reservations are encouraged, but not required."
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "Each pass allows up to two people a discounted rate of $10 each. The ICA is always free to children 18 and under. Current hours and admission information are available at: https://www.icaboston.org/visit/ Reservations are encouraged, but not required."
+    },
+    "restrictions": null
+  }
+}

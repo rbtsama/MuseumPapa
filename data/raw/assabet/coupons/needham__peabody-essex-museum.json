@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 18,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Pass is valid for up to 6 guests to each of Plimoth Patuxet Museum's living history sites, to purchase a Heritage Pass at the discounted admission rates of $18 per adult and $12 per child. (Regularly $46 and $29) Library ID#52591"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 12,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Pass is valid for up to 6 guests to each of Plimoth Patuxet Museum's living history sites, to purchase a Heritage Pass at the discounted admission rates of $18 per adult and $12 per child. (Regularly $46 and $29) Library ID#52591"
+        }
+      ],
+      "summary": "$18/person",
+      "source_phrase_block": "Pass is valid for up to 6 guests to each of Plimoth Patuxet Museum's living history sites, to purchase a Heritage Pass at the discounted admission rates of $18 per adult and $12 per child. (Regularly $46 and $29) Library ID#52591"
+    },
+    "restrictions": null
+  }
+}

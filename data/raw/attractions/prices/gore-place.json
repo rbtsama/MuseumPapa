@@ -3,10 +3,22 @@
   "extracted": {
     "prices": [
       {
-        "audience": "adult",
+        "audience": "member",
         "price": 25.0,
         "age_range": null,
-        "source_phrase": "$25 general admission, $20 members, $15 Card to Culture."
+        "source_phrase": "House Concert Jun 17, 2026 | 7:00 pm Classical music in an historic space Cost: $25 general admission, $20 members, $15 Card to Culture. Puppet Show Picnic Jun 25,"
+      },
+      {
+        "audience": "member",
+        "price": 20.0,
+        "age_range": null,
+        "source_phrase": "026 | 7:00 pm Classical music in an historic space Cost: $25 general admission, $20 members, $15 Card to Culture. Puppet Show Picnic Jun 25, 2026 | 5:00 pm Celebra"
+      },
+      {
+        "audience": "member",
+        "price": 15.0,
+        "age_range": null,
+        "source_phrase": "Classical music in an historic space Cost: $25 general admission, $20 members, $15 Card to Culture. Puppet Show Picnic Jun 25, 2026 | 5:00 pm Celebrate the start"
       }
     ]
   }

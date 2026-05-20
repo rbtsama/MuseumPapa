@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Each pass admits 1 vehicle for parking free admission. The pass must be returned at the end of the day of use so that it is available for use the next day. WEEKEND PASSES If you intend to use the pass on a Sunday, place your reservation for Saturday, the day before, and return th"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Each pass admits 1 vehicle for parking free admission. The pass must be returned at the end of the day of use so that it is available for use the next day. WEEKEND PASSES If you intend to use the pass on a Sunday, place your reservation for Saturday, the day before, and return the pass before Monday morning. You can use the pass on both Saturday and Sunday if you wish."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "This pass admits up to 2 adults at a discount rate of $12 per person . Children age 16 and under are free . This pass is an e-voucher that does not need to be picked up at or returned to the library . You must book a date and time for your visit after you have reserved the pass ."
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "This pass admits up to 2 adults at a discount rate of $12 per person . Children age 16 and under are free . This pass is an e-voucher that does not need to be picked up at or returned to the library . You must book a date and time for your visit after you have reserved the pass . You can do so by visiting the PEM website or by calling (978) 542-1511 . On the PEM ticket page, enter the unique promo code you received upon reserving the pass, and then select your discounted admission tickets. Timed tickets to Yin Yu Tang: A Chinese Home are included with museum admission and may be selected as part of the online checkout process."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

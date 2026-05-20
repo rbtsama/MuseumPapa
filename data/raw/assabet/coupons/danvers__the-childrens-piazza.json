@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Opened in 1992, the Griffin Museum of Photography presents exhibitions, programs and lectures that support their mission of encouraging a broader understanding and appreciation of the art of photography. Three galleries are dedicated to changing exhibitions of photography by well"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Opened in 1992, the Griffin Museum of Photography presents exhibitions, programs and lectures that support their mission of encouraging a broader understanding and appreciation of the art of photography. Three galleries are dedicated to changing exhibitions of photography by well-known, emerging, and student photographers. (Three additional satellite galleries can be found in various locations in the Boston area.) This pass admits 2 adults for free. Children under 12 are free."
+    },
+    "restrictions": null
+  }
+}

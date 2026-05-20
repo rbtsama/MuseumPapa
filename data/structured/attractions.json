@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-20T15:49:28.055431+00:00",
+    "built_at": "2026-05-20T17:35:44.347275+00:00",
     "n_attractions": 48
   },
   "attractions": [
@@ -9,7 +9,44 @@
       "name": "The American Heritage Museum",
       "website": "https://www.americanheritagemuseum.org/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 23.0,
+          "age_range": null,
+          "source_phrase": "ve, Christmas Day, and New Years Day. GENERAL ADMISSIONS PRICING AT DESK Adults $23.00 Children (16 and Under) $12.00 Seniors (62 plus) $20.00 Active Duty Military (W"
+        },
+        {
+          "audience": "adult",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "s Day. GENERAL ADMISSIONS PRICING AT DESK Adults $23.00 Children (16 and Under) $12.00 Seniors (62 plus) $20.00 Active Duty Military (With ID) and Veterans $20.00 Chi"
+        },
+        {
+          "audience": "adult",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "PRICING AT DESK Adults $23.00 Children (16 and Under) $12.00 Seniors (62 plus) $20.00 Active Duty Military (With ID) and Veterans $20.00 Children 3 and Under FREE Am"
+        },
+        {
+          "audience": "child",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "er) $12.00 Seniors (62 plus) $20.00 Active Duty Military (With ID) and Veterans $20.00 Children 3 and Under FREE American Heritage Museum Members ( click here to beco"
+        },
+        {
+          "audience": "military",
+          "price": 2.0,
+          "age_range": null,
+          "source_phrase": "orean War Veterans FREE MA Teachers Association (MTA) (with MTA Card) FREE SAVE $2 PER TICKET BY PURCHASING ADMISSION ONLINE! Massachusetts EBT, WIC, and Connecto"
+        },
+        {
+          "audience": "adult",
+          "price": 3.0,
+          "age_range": null,
+          "source_phrase": "to cultural programming. Massachusetts EBT, WIC, and ConnectorCare Cardholders $3 Adult Admission and Free admission for up to four (4) children under the age of"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://www.americanheritagemuseum.org/"
@@ -45,7 +82,32 @@
       "name": "Home - Boston Athenaeum",
       "website": "https://www.bostonathenaeum.org/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 11.0,
+          "age_range": null,
+          "source_phrase": "erience with our digital guide on Bloomberg Connects. Visitors (ages 14 and up) $11 Visitors (ages 13 and under accompanied by an adult) $5 Students/Educators/Mili"
+        },
+        {
+          "audience": "adult",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "itors (ages 14 and up) $11 Visitors (ages 13 and under accompanied by an adult) $5 Students/Educators/Military (with a valid ID) $8 Card to Culture $2 (details be"
+        },
+        {
+          "audience": "adult",
+          "price": 8.0,
+          "age_range": null,
+          "source_phrase": "under accompanied by an adult) $5 Students/Educators/Military (with a valid ID) $8 Card to Culture $2 (details below) NARM/ROAM No charge with proof of active mem"
+        },
+        {
+          "audience": "adult",
+          "price": 2.0,
+          "age_range": null,
+          "source_phrase": "y an adult) $5 Students/Educators/Military (with a valid ID) $8 Card to Culture $2 (details below) NARM/ROAM No charge with proof of active membership Art & Archi"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://www.bostonathenaeum.org/"
@@ -238,7 +300,32 @@
       "name": "The Mother Church in Boston - Christian Science",
       "website": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza",
       "hero_image": "https://www.christianscience.com/var/cscom/storage/images/media/navigation-refresh-media/images/the-mother-church-in-boston/the-mother-church-in-boston-banner2/717693-1-eng-US/the-mother-church-in-boston-banner.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 6.0,
+          "age_range": null,
+          "source_phrase": "information Plaza map All buildings are wheelchair accessible. Tickets Adults: $6.00 / Youth 0-17: Free Individual ticket Questions? Call 617-450-7224 Group tickets"
+        },
+        {
+          "audience": "adult",
+          "price": 2.0,
+          "age_range": null,
+          "source_phrase": "professional & one guest with show of business card Card to Culture (EBT & WIC) $2 Reduced price with EBT and/or WIC card (up to four adults per card) Senior (62+"
+        },
+        {
+          "audience": "adult",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "educed price with EBT and/or WIC card (up to four adults per card) Senior (62+) $5 Reduced price with show of ID Student $5 Reduced price with valid student ID Fi"
+        },
+        {
+          "audience": "student",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "with show of ID Student $5 Reduced price with valid student ID First Responder $5 Reduced price for first responder and four guests with ID See the full list of"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza"
@@ -310,7 +397,32 @@
       "name": "Davis Farmland | Farm Animals, Family Fun &amp; Seasonal Activities in Sterling, MA",
       "website": "https://www.davisfarmland.com/",
       "hero_image": "https://wp-cdn-davisfarmland.s3.amazonaws.com/prod/uploads/2025/05/logo-davis-farmland-1x.png",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "senior",
+          "price": 28.95,
+          "age_range": null,
+          "source_phrase": "8211; Friday Open 9:30-4 PM last admission at 3 PM General Admission (age 2-59) $28.95 Seniors (60+) $25.95 Saturday, Sunday & Memorial Day Mon. May 25 Open 9:30-5 PM"
+        },
+        {
+          "audience": "senior",
+          "price": 25.95,
+          "age_range": null,
+          "source_phrase": "0-4 PM last admission at 3 PM General Admission (age 2-59) $28.95 Seniors (60+) $25.95 Saturday, Sunday & Memorial Day Mon. May 25 Open 9:30-5 PM last admission at 4"
+        },
+        {
+          "audience": "senior",
+          "price": 31.95,
+          "age_range": null,
+          "source_phrase": "Mon. May 25 Open 9:30-5 PM last admission at 4 PM General Admission (age 2-59) $31.95 Seniors (60+) $28.95 SAVE $4 PER TICKET &#8211; BUY ONLINE DISCOUNT TICKETS! Th"
+        },
+        {
+          "audience": "senior",
+          "price": 4.0,
+          "age_range": null,
+          "source_phrase": "admission at 4 PM General Admission (age 2-59) $31.95 Seniors (60+) $28.95 SAVE $4 PER TICKET &#8211; BUY ONLINE DISCOUNT TICKETS! There&#8217;s a limited number"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://www.davisfarmland.com/"
@@ -346,7 +458,20 @@
       "name": "EcoTarium &#8211; Museum of Science and Nature",
       "website": "http://www.ecotarium.org/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "senior",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "g. See the full list of participants in Card to Culture discounts. Wonderfund - $5 per person. Must show a valid Wonderfund card. Senior Discount - $6 off admissi"
+        },
+        {
+          "audience": "senior",
+          "price": 6.0,
+          "age_range": null,
+          "source_phrase": "onderfund - $5 per person. Must show a valid Wonderfund card. Senior Discount - $6 off admission for each senior (age 65+). Student Discount - $6 off admission wi"
+        }
+      ],
       "categories": [],
       "sources": [
         "http://www.ecotarium.org/"
@@ -420,10 +545,22 @@
       "hero_image": "https://goreplace.org/images/made/images/uploads/IMG_6800_600_315_s_c1.jpeg",
       "prices": [
         {
-          "audience": "adult",
+          "audience": "member",
           "price": 25.0,
           "age_range": null,
-          "source_phrase": "$25 general admission, $20 members, $15 Card to Culture."
+          "source_phrase": "House Concert Jun 17, 2026 | 7:00 pm Classical music in an historic space Cost: $25 general admission, $20 members, $15 Card to Culture. Puppet Show Picnic Jun 25,"
+        },
+        {
+          "audience": "member",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "026 | 7:00 pm Classical music in an historic space Cost: $25 general admission, $20 members, $15 Card to Culture. Puppet Show Picnic Jun 25, 2026 | 5:00 pm Celebra"
+        },
+        {
+          "audience": "member",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "Classical music in an historic space Cost: $25 general admission, $20 members, $15 Card to Culture. Puppet Show Picnic Jun 25, 2026 | 5:00 pm Celebrate the start"
         }
       ],
       "categories": [],
@@ -533,7 +670,26 @@
       "name": null,
       "website": "https://hmnh.harvard.edu/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": ", and admission to one museum admits you to both during regular hours. Adults: $15.00 Seniors (65+): $13.00 Harvard ID Holders: Free +1 guest Non-Harvard students wi"
+        },
+        {
+          "audience": "adult",
+          "price": 13.0,
+          "age_range": null,
+          "source_phrase": "e museum admits you to both during regular hours. Adults: $15.00 Seniors (65+): $13.00 Harvard ID Holders: Free +1 guest Non-Harvard students with ID: $10.00 Youth ag"
+        },
+        {
+          "audience": "child",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "s (65+): $13.00 Harvard ID Holders: Free +1 guest Non-Harvard students with ID: $10.00 Youth ages 3–18: $10.00 Youth under 3: Free Free for members Directions and Par"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://hmnh.harvard.edu/"
@@ -569,7 +725,26 @@
       "name": "Harvard Museums of Science &amp; Culture",
       "website": "https://hmsc.harvard.edu/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "of Natural History Open daily from 9:00 am to 5:00 pm General Admission Adults: $15.00 Seniors (65+): $13.00 Harvard ID Holders: Free Non-Harvard students with I.D.:"
+        },
+        {
+          "audience": "adult",
+          "price": 13.0,
+          "age_range": null,
+          "source_phrase": "n daily from 9:00 am to 5:00 pm General Admission Adults: $15.00 Seniors (65+): $13.00 Harvard ID Holders: Free Non-Harvard students with I.D.: $10.00 Youth ages 3–18"
+        },
+        {
+          "audience": "child",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "Seniors (65+): $13.00 Harvard ID Holders: Free Non-Harvard students with I.D.: $10.00 Youth ages 3–18: $10.00 Youth under 3: Free Free for members Accessibility Peab"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://hmsc.harvard.edu/"
@@ -605,7 +780,20 @@
       "name": "Heritage Museums &amp; Gardens - Heritage Museums &amp; Gardens",
       "website": "https://heritagemuseumsandgardens.org/",
       "hero_image": "https://bunny-wp-pullzone-94pwz2rapx.b-cdn.net/wp-content/uploads/2021/04/Logo_HMG-Full-Color-Horizontal.png",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 26.0,
+          "age_range": null,
+          "source_phrase": "g Heritage Museums & Gardens is Open Daily 10 am-5 pm, until October 18 Adults: $26 Youth (3-17): $16 Child (0-2): $0 Members: Free _______________________________"
+        },
+        {
+          "audience": "adult",
+          "price": 16.0,
+          "age_range": null,
+          "source_phrase": "& Gardens is Open Daily 10 am-5 pm, until October 18 Adults: $26 Youth (3-17): $16 Child (0-2): $0 Members: Free _________________________________ Visitor Policie"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://heritagemuseumsandgardens.org/"
@@ -641,7 +829,38 @@
       "name": "Isabella Stewart Gardner Museum | Isabella Stewart Gardner Museum",
       "website": "http://www.gardnermuseum.org/home/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 22.0,
+          "age_range": null,
+          "source_phrase": "our inclusive Museum experiences Frequently Asked Questions Ticket Prices Adult $22 Children (17 and under) Free Senior (65 and up) $20 Student (with current ID) $"
+        },
+        {
+          "audience": "adult",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "estions Ticket Prices Adult $22 Children (17 and under) Free Senior (65 and up) $20 Student (with current ID) $15 Members Free Free Admission for Members and Patro"
+        },
+        {
+          "audience": "child",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "2 Children (17 and under) Free Senior (65 and up) $20 Student (with current ID) $15 Members Free Free Admission for Members and Patrons Enjoy free admission, invit"
+        },
+        {
+          "audience": "adult",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "e. Valid ID required at visit. Discounted Admission Offers Museum Pass Program: $5 Admission (up to 4 adults/pass) Museum Pass Program passholders must reserve pa"
+        },
+        {
+          "audience": "adult",
+          "price": 2.0,
+          "age_range": null,
+          "source_phrase": "Card to Culture EBT, WIC , or ConnectorCare card holders receive a discount of $2 per person, per card for up to four adults per visit. Children under 18 are alw"
+        }
+      ],
       "categories": [],
       "sources": [
         "http://www.gardnermuseum.org/home/"
@@ -677,7 +896,20 @@
       "name": "Boston Car Museum | Larz Anderson Auto Museum",
       "website": "https://www.larzanderson.org/",
       "hero_image": "https://static.wixstatic.com/media/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png/v1/fit/w_2500,h_1330,al_c/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "sday of November Christmas Day: December 25 BECOME A MEMBER ADMISSION ​ Adults, $15 | Seniors, Students, Military (with ID), Children 6-12, $10 Children under 6 ar"
+        },
+        {
+          "audience": "adult",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "ADMISSION ​ Adults, $15 | Seniors, Students, Military (with ID), Children 6-12, $10 Children under 6 are free. Museum Members are always free. Free admission for N"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://www.larzanderson.org/"
@@ -713,7 +945,62 @@
       "name": "Mass Audubon",
       "website": "http://www.massaudubon.org/",
       "hero_image": "/build/images/meta_image-meadow-with-nestboxes-in-late-spring-at-arcadia-c-phil-doyle-750.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "t Education Center , Canton Wednesday, May 20 12:30-2:00pm Adults Adult Members $10 Adult Nonmembers $12 Learn more Nature Inspired Ceramic Migratory Bird Ornament"
+        },
+        {
+          "audience": "adult",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "Canton Wednesday, May 20 12:30-2:00pm Adults Adult Members $10 Adult Nonmembers $12 Learn more Nature Inspired Ceramic Migratory Bird Ornaments Museum of American"
+        },
+        {
+          "audience": "adult",
+          "price": 60.0,
+          "age_range": null,
+          "source_phrase": ", Canton 2 classes starting Wednesday, May 20 7:00-9:00pm Adults Adult Members $60 Adult Nonmembers $72 Learn more Nature-Inspired Pottery: May Open Studio Series"
+        },
+        {
+          "audience": "adult",
+          "price": 72.0,
+          "age_range": null,
+          "source_phrase": "tarting Wednesday, May 20 7:00-9:00pm Adults Adult Members $60 Adult Nonmembers $72 Learn more Nature-Inspired Pottery: May Open Studio Series Museum of American B"
+        },
+        {
+          "audience": "adult",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "l Wildlife Sanctuary , Sharon Thursday, May 21 6:00-8:00am Adults Adult Members $20 Adult Nonmembers $25 Learn more In Search of Warblers Beech Forest , Provinceto"
+        },
+        {
+          "audience": "adult",
+          "price": 25.0,
+          "age_range": null,
+          "source_phrase": ", Sharon Thursday, May 21 6:00-8:00am Adults Adult Members $20 Adult Nonmembers $25 Learn more In Search of Warblers Beech Forest , Provincetown Thursday, May 21 8"
+        },
+        {
+          "audience": "adult",
+          "price": 18.0,
+          "age_range": null,
+          "source_phrase": "Beech Forest , Provincetown Thursday, May 21 8:00-10:00am Adults Adult Members $18 Adult Nonmembers $22 Learn more Nature in Your Neighborhood: All About Birds -"
+        },
+        {
+          "audience": "adult",
+          "price": 22.0,
+          "age_range": null,
+          "source_phrase": "ncetown Thursday, May 21 8:00-10:00am Adults Adult Members $18 Adult Nonmembers $22 Learn more Nature in Your Neighborhood: All About Birds - Ipswich Daniel Boone"
+        },
+        {
+          "audience": "child",
+          "price": 2.0,
+          "age_range": null,
+          "source_phrase": "sses you can borrow that let you visit any of our wildlife sanctuaries for just $2 per person for up to four people (children under age 2 are always free). Detail"
+        }
+      ],
       "categories": [],
       "sources": [
         "http://www.massaudubon.org/"
@@ -749,7 +1036,62 @@
       "name": "Mass Audubon",
       "website": "https://www.massaudubon.org/",
       "hero_image": "/build/images/meta_image-meadow-with-nestboxes-in-late-spring-at-arcadia-c-phil-doyle-750.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "t Education Center , Canton Wednesday, May 20 12:30-2:00pm Adults Adult Members $10 Adult Nonmembers $12 Learn more Nature Inspired Ceramic Migratory Bird Ornament"
+        },
+        {
+          "audience": "adult",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "Canton Wednesday, May 20 12:30-2:00pm Adults Adult Members $10 Adult Nonmembers $12 Learn more Nature Inspired Ceramic Migratory Bird Ornaments Museum of American"
+        },
+        {
+          "audience": "adult",
+          "price": 60.0,
+          "age_range": null,
+          "source_phrase": ", Canton 2 classes starting Wednesday, May 20 7:00-9:00pm Adults Adult Members $60 Adult Nonmembers $72 Learn more Nature-Inspired Pottery: May Open Studio Series"
+        },
+        {
+          "audience": "adult",
+          "price": 72.0,
+          "age_range": null,
+          "source_phrase": "tarting Wednesday, May 20 7:00-9:00pm Adults Adult Members $60 Adult Nonmembers $72 Learn more Nature-Inspired Pottery: May Open Studio Series Museum of American B"
+        },
+        {
+          "audience": "adult",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "l Wildlife Sanctuary , Sharon Thursday, May 21 6:00-8:00am Adults Adult Members $20 Adult Nonmembers $25 Learn more In Search of Warblers Beech Forest , Provinceto"
+        },
+        {
+          "audience": "adult",
+          "price": 25.0,
+          "age_range": null,
+          "source_phrase": ", Sharon Thursday, May 21 6:00-8:00am Adults Adult Members $20 Adult Nonmembers $25 Learn more In Search of Warblers Beech Forest , Provincetown Thursday, May 21 8"
+        },
+        {
+          "audience": "adult",
+          "price": 18.0,
+          "age_range": null,
+          "source_phrase": "Beech Forest , Provincetown Thursday, May 21 8:00-10:00am Adults Adult Members $18 Adult Nonmembers $22 Learn more Nature in Your Neighborhood: All About Birds -"
+        },
+        {
+          "audience": "adult",
+          "price": 22.0,
+          "age_range": null,
+          "source_phrase": "ncetown Thursday, May 21 8:00-10:00am Adults Adult Members $18 Adult Nonmembers $22 Learn more Nature in Your Neighborhood: All About Birds - Ipswich Daniel Boone"
+        },
+        {
+          "audience": "child",
+          "price": 2.0,
+          "age_range": null,
+          "source_phrase": "sses you can borrow that let you visit any of our wildlife sanctuaries for just $2 per person for up to four people (children under age 2 are always free). Detail"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://www.massaudubon.org/"
@@ -785,7 +1127,14 @@
       "name": "MA State Police Museum &amp; Learning Center",
       "website": "https://www.mspmlc.org/ ",
       "hero_image": "https://static.wixstatic.com/media/55c59e_802caba4df9f4a8db7fbed0b8b2ce5cb%7Emv2.png/v1/fit/w_2500,h_1330,al_c/55c59e_802caba4df9f4a8db7fbed0b8b2ce5cb%7Emv2.png",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "​ Museum Hours of Operation: Tuesday and Saturday 11am-4pm ​ Museum Admission: $5 for adults Free for under age 16, Museum Members, and Military/Veterans NEW ! ​"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://www.mspmlc.org/ "
@@ -857,7 +1206,38 @@
       "name": "Naismith Basketball Hall of Fame | Springfield, MA",
       "website": "https://www.hoophall.com/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 34.0,
+          "age_range": null,
+          "source_phrase": "cessible no matter what direction you are traveling from. Ticket Pricing Adults $34 Youth (5-12) $20 Seniors (65+) $25 Prices may vary based on ticket type. Get Ti"
+        },
+        {
+          "audience": "adult",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "r what direction you are traveling from. Ticket Pricing Adults $34 Youth (5-12) $20 Seniors (65+) $25 Prices may vary based on ticket type. Get Tickets Museum Hour"
+        },
+        {
+          "audience": "adult",
+          "price": 25.0,
+          "age_range": null,
+          "source_phrase": "ou are traveling from. Ticket Pricing Adults $34 Youth (5-12) $20 Seniors (65+) $25 Prices may vary based on ticket type. Get Tickets Museum Hours 10am - 4pm Open"
+        },
+        {
+          "audience": "adult",
+          "price": 27.0,
+          "age_range": null,
+          "source_phrase": "r group to receive group discount Learn About Group Visits Group Pricing Adults $27 Youth (5-12) $16 Seniors (65+) $20 Prices may vary based on ticket type. Book Y"
+        },
+        {
+          "audience": "adult",
+          "price": 16.0,
+          "age_range": null,
+          "source_phrase": "e group discount Learn About Group Visits Group Pricing Adults $27 Youth (5-12) $16 Seniors (65+) $20 Prices may vary based on ticket type. Book Your Group More to"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://www.hoophall.com/"
@@ -893,7 +1273,62 @@
       "name": "New England Aquarium in Boston - Protecting Animals &amp; the Ocean",
       "website": "http://www.neaq.org/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 44.95,
+          "age_range": null,
+          "source_phrase": "on weekends. Standard Pricing Aquarium Admission + Movie Bundle and save! Adult $44.95 Child (3–11) $35.95 Children 2 and under Free Senior (60+) $42.95 AQUARIUM + Mo"
+        },
+        {
+          "audience": "adult",
+          "price": 35.95,
+          "age_range": null,
+          "source_phrase": "d Pricing Aquarium Admission + Movie Bundle and save! Adult $44.95 Child (3–11) $35.95 Children 2 and under Free Senior (60+) $42.95 AQUARIUM + Movie Aquarium Admissi"
+        },
+        {
+          "audience": "adult",
+          "price": 42.95,
+          "age_range": null,
+          "source_phrase": "d save! Adult $44.95 Child (3–11) $35.95 Children 2 and under Free Senior (60+) $42.95 AQUARIUM + Movie Aquarium Admission Book online to ensure entry. Adult $39.95 C"
+        },
+        {
+          "audience": "adult",
+          "price": 39.95,
+          "age_range": null,
+          "source_phrase": ") $42.95 AQUARIUM + Movie Aquarium Admission Book online to ensure entry. Adult $39.95 Child (3–11) $30.95 Children 2 and under Free Senior (60+) $37.95 Aquarium Tick"
+        },
+        {
+          "audience": "adult",
+          "price": 30.95,
+          "age_range": null,
+          "source_phrase": "Movie Aquarium Admission Book online to ensure entry. Adult $39.95 Child (3–11) $30.95 Children 2 and under Free Senior (60+) $37.95 Aquarium Tickets New England Resi"
+        },
+        {
+          "audience": "adult",
+          "price": 37.95,
+          "age_range": null,
+          "source_phrase": "entry. Adult $39.95 Child (3–11) $30.95 Children 2 and under Free Senior (60+) $37.95 Aquarium Tickets New England Resident Discount: Aquarium Admission + Movie Bund"
+        },
+        {
+          "audience": "adult",
+          "price": 34.95,
+          "age_range": null,
+          "source_phrase": ") $37.95 AQUARIUM + Movie Aquarium Admission Book online to ensure entry. Adult $34.95 Child (3–11) $25.95 Child 2 and under Free Senior (60+) $32.95 Aquarium Tickets"
+        },
+        {
+          "audience": "adult",
+          "price": 25.95,
+          "age_range": null,
+          "source_phrase": "Movie Aquarium Admission Book online to ensure entry. Adult $34.95 Child (3–11) $25.95 Child 2 and under Free Senior (60+) $32.95 Aquarium Tickets *Residents of CT, M"
+        },
+        {
+          "audience": "adult",
+          "price": 32.95,
+          "age_range": null,
+          "source_phrase": "ure entry. Adult $34.95 Child (3–11) $25.95 Child 2 and under Free Senior (60+) $32.95 Aquarium Tickets *Residents of CT, MA, ME, NH, RI, and VT receive discounted Aq"
+        }
+      ],
       "categories": [],
       "sources": [
         "http://www.neaq.org/"
@@ -929,7 +1364,50 @@
       "name": "New England Botanic Garden at Tower Hill",
       "website": "https://www.nebg.org/",
       "hero_image": "https://nebg.org/wp-content/uploads/2022/10/entry-garden.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 24.0,
+          "age_range": null,
+          "source_phrase": "ssion Prices TICKET TYPE ADVANCE PRICES WALK-UP PRICES Members FREE FREE Adults $24 $26 Seniors (65+) $19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Fr"
+        },
+        {
+          "audience": "adult",
+          "price": 26.0,
+          "age_range": null,
+          "source_phrase": "n Prices TICKET TYPE ADVANCE PRICES WALK-UP PRICES Members FREE FREE Adults $24 $26 Seniors (65+) $19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Free F"
+        },
+        {
+          "audience": "adult",
+          "price": 19.0,
+          "age_range": null,
+          "source_phrase": "PE ADVANCE PRICES WALK-UP PRICES Members FREE FREE Adults $24 $26 Seniors (65+) $19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Free Free Free Dogs : $8"
+        },
+        {
+          "audience": "adult",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "DVANCE PRICES WALK-UP PRICES Members FREE FREE Adults $24 $26 Seniors (65+) $19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Free Free Free Dogs : $8 ( L"
+        },
+        {
+          "audience": "adult",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "PRICES Members FREE FREE Adults $24 $26 Seniors (65+) $19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Free Free Free Dogs : $8 ( Learn more about dog w"
+        },
+        {
+          "audience": "adult",
+          "price": 14.0,
+          "age_range": null,
+          "source_phrase": "CES Members FREE FREE Adults $24 $26 Seniors (65+) $19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Free Free Free Dogs : $8 ( Learn more about dog walki"
+        },
+        {
+          "audience": "child",
+          "price": 8.0,
+          "age_range": null,
+          "source_phrase": "19 $20 Child (age 4-12) $12 $14 Child (age 3 and under) : Free Free Free Dogs : $8 ( Learn more about dog walking guidelines ) $8 $8 Learn about discounted genera"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://www.nebg.org/"
@@ -965,7 +1443,14 @@
       "name": "New England Quilt Museum",
       "website": "https://www.neqm.org/",
       "hero_image": "http://static1.squarespace.com/static/65958663bca4b21bc541fb73/t/659834bde6f3db569ac29e75/1704473789312/logo-header.png?format=1500w",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "child",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "aturday : 10 AM - 4 PM Closed Sundays and Mondays Admission Regular Admission - $10 Children 12 and under - FREE Museum Members - FREE EBT cardholders and 1 guest"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://www.neqm.org/"
@@ -1037,7 +1522,56 @@
       "name": "Old Sturbridge Village",
       "website": "https://www.osv.org/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 3.0,
+          "age_range": null,
+          "source_phrase": "utsche Français 简体字 (Chinese) General Daytime Admission Buy tickets here . SAVE $3 per Adult, Senior, or Youth general daytime admission ticket by purchasing your"
+        },
+        {
+          "audience": "adult",
+          "price": 27.0,
+          "age_range": null,
+          "source_phrase": "ad of at the door!* Buy tickets online . Daytime Admission Rates Online: Adults $27.00 Seniors (60 and over) $25.00 Youths (4-17) $12.00 Children (Age 3 and under) FR"
+        },
+        {
+          "audience": "adult",
+          "price": 25.0,
+          "age_range": null,
+          "source_phrase": "ts online . Daytime Admission Rates Online: Adults $27.00 Seniors (60 and over) $25.00 Youths (4-17) $12.00 Children (Age 3 and under) FREE Daytime Admission Rates At"
+        },
+        {
+          "audience": "adult",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "dmission Rates Online: Adults $27.00 Seniors (60 and over) $25.00 Youths (4-17) $12.00 Children (Age 3 and under) FREE Daytime Admission Rates At the Door: Adults $30"
+        },
+        {
+          "audience": "adult",
+          "price": 30.0,
+          "age_range": null,
+          "source_phrase": ".00 Children (Age 3 and under) FREE Daytime Admission Rates At the Door: Adults $30.00 Seniors (60 and over) $28.00 Youths (4-17) $15.00 Children (Age 3 and under) FR"
+        },
+        {
+          "audience": "adult",
+          "price": 28.0,
+          "age_range": null,
+          "source_phrase": ") FREE Daytime Admission Rates At the Door: Adults $30.00 Seniors (60 and over) $28.00 Youths (4-17) $15.00 Children (Age 3 and under) FREE *PLEASE NOTE: The $3 onlin"
+        },
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "ion Rates At the Door: Adults $30.00 Seniors (60 and over) $28.00 Youths (4-17) $15.00 Children (Age 3 and under) FREE *PLEASE NOTE: The $3 online discount cannot be"
+        },
+        {
+          "audience": "child",
+          "price": 3.0,
+          "age_range": null,
+          "source_phrase": ") $28.00 Youths (4-17) $15.00 Children (Age 3 and under) FREE *PLEASE NOTE: The $3 online discount cannot be combined with other discounts or applied to prior pur"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://www.osv.org/"
@@ -1073,7 +1607,26 @@
       "name": "Home",
       "website": "http://www.louisamayalcott.org/",
       "hero_image": "https://img1.wsimg.com/isteam/ip/856fd03b-c594-497c-b644-a8652bdc6bcd/OH-and-2-Tims-for-web.png",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "ersons) can reserve Timed-Entry Admission online Current Admission Rates Adults $15 Older Adults / College Students $12 62+ years / 18+ years with ID Youths $8 Age"
+        },
+        {
+          "audience": "adult",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "ssion online Current Admission Rates Adults $15 Older Adults / College Students $12 62+ years / 18+ years with ID Youths $8 Ages 6 - 17 Please note: Youths must be"
+        },
+        {
+          "audience": "adult",
+          "price": 8.0,
+          "age_range": null,
+          "source_phrase": "ts $15 Older Adults / College Students $12 62+ years / 18+ years with ID Youths $8 Ages 6 - 17 Please note: Youths must be accompanied by an Adult, Senior, or Col"
+        }
+      ],
       "categories": [],
       "sources": [
         "http://www.louisamayalcott.org/"
@@ -1145,7 +1698,26 @@
       "name": "Peabody Essex Museum | World-Renowned Art Museum In Salem, MA",
       "website": "http://www.pem.org/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 25.0,
+          "age_range": null,
+          "source_phrase": "m–5 pm Friday 10 am–5 pm Saturday 10 am–5 pm Sunday 10 am–5 pm Admission Adults $25 Seniors (65+) $23 Students (with ID) $15 Youth (under 16) Free Salem Residents"
+        },
+        {
+          "audience": "adult",
+          "price": 23.0,
+          "age_range": null,
+          "source_phrase": "m–5 pm Saturday 10 am–5 pm Sunday 10 am–5 pm Admission Adults $25 Seniors (65+) $23 Students (with ID) $15 Youth (under 16) Free Salem Residents Free People who wo"
+        },
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "pm Sunday 10 am–5 pm Admission Adults $25 Seniors (65+) $23 Students (with ID) $15 Youth (under 16) Free Salem Residents Free People who work in Salem receive fre"
+        }
+      ],
       "categories": [],
       "sources": [
         "http://www.pem.org/"
@@ -1275,7 +1847,20 @@
       "name": "Sandmagination | New England&#039;s Largest Indoor Sandbox",
       "website": "https://sandmagination.com/",
       "hero_image": "https://sandmagination.com/wp-content/uploads/2025/01/Kids-Playing-Sandmagination.com_.webp",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "1 Year) 90 Minutes $0.00 Little Starfish - No Sibling (&lt; 1 Year) 90 Minutes $5.00 First Adult in a Party 90 Minutes Free Additional Adults 90 Minutes $4.00 Addit"
+        },
+        {
+          "audience": "adult",
+          "price": 4.0,
+          "age_range": null,
+          "source_phrase": "nutes $5.00 First Adult in a Party 90 Minutes Free Additional Adults 90 Minutes $4.00 Additional Hour 60 Minutes $5.00 Therapists (attending with family) 90 Minutes"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://sandmagination.com/"
@@ -1311,7 +1896,56 @@
       "name": "Seacoast Science Center: NH&#039;s Marine Science Center",
       "website": "http://www.seacoastsciencecenter.org/",
       "hero_image": "https://www.seacoastsciencecenter.org/wp-content/uploads/2022/12/wave-lines-white_1px.svg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "e Park fee . Membership includes free admission to SSC and OPSP. Ages 12-Adult: $15 Seniors (65+): $12.50 Active Duty Military & Veterans (with ID): $12.50 Ages 3-"
+        },
+        {
+          "audience": "adult",
+          "price": 12.5,
+          "age_range": null,
+          "source_phrase": "ship includes free admission to SSC and OPSP. Ages 12-Adult: $15 Seniors (65+): $12.50 Active Duty Military & Veterans (with ID): $12.50 Ages 3-11: $10 Ages 0-2: FREE"
+        },
+        {
+          "audience": "senior",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "iors (65+): $12.50 Active Duty Military & Veterans (with ID): $12.50 Ages 3-11: $10 Ages 0-2: FREE Members: FREE admission to SSC and OPSP! Become a member now and"
+        },
+        {
+          "audience": "adult",
+          "price": 4.0,
+          "age_range": null,
+          "source_phrase": "ate Park Admission Gate closes at dusk. Park Phone: 603-436-7406 Ages 12-Adult: $4 Ages 6-11: $2 Under age 6: FREE NH Residents, 65+: FREE SSC Members: FREE Odior"
+        },
+        {
+          "audience": "adult",
+          "price": 2.0,
+          "age_range": null,
+          "source_phrase": "sion Gate closes at dusk. Park Phone: 603-436-7406 Ages 12-Adult: $4 Ages 6-11: $2 Under age 6: FREE NH Residents, 65+: FREE SSC Members: FREE Odiorne Point State"
+        },
+        {
+          "audience": "adult",
+          "price": 8.0,
+          "age_range": null,
+          "source_phrase": "are available for 8 or more participants only. Explorer Group: SSC & Park Cost: $8 per participant, $12 per adult Cost for NH schools during the school year: $6 p"
+        },
+        {
+          "audience": "adult",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "or more participants only. Explorer Group: SSC & Park Cost: $8 per participant, $12 per adult Cost for NH schools during the school year: $6 per student, $8 per ad"
+        },
+        {
+          "audience": "adult",
+          "price": 6.0,
+          "age_range": null,
+          "source_phrase": ": $8 per participant, $12 per adult Cost for NH schools during the school year: $6 per student, $8 per adult Explorer Group: Park Only Cost: $2 per participant, $"
+        }
+      ],
       "categories": [],
       "sources": [
         "http://www.seacoastsciencecenter.org/"
@@ -1347,7 +1981,32 @@
       "name": "Homepage - Aviation Museum of N.H.",
       "website": "https://aviationmuseumofnh.org/",
       "hero_image": "https://aviationmuseumofnh.org/wp-content/uploads/2023/06/AVNH-FINAL-LOGO-0214-1-scaled.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "prices will be in effect at the Aviation Museum of N.H: • Adults 13 and above, $15 • Youth age 6 to 12, $7.50 • Children 5 and under, FREE! • Seniors (65+), veter"
+        },
+        {
+          "audience": "adult",
+          "price": 7.5,
+          "age_range": null,
+          "source_phrase": "at the Aviation Museum of N.H: • Adults 13 and above, $15 • Youth age 6 to 12, $7.50 • Children 5 and under, FREE! • Seniors (65+), veterans, active military, $7.50"
+        },
+        {
+          "audience": "child",
+          "price": 7.5,
+          "age_range": null,
+          "source_phrase": "$7.50 • Children 5 and under, FREE! • Seniors (65+), veterans, active military, $7.50 • Aviation Museum members, FREE! • Library Pass: Maximum of four people on one"
+        },
+        {
+          "audience": "member",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "y must pay appropriate admission fee. • &#8216;Museums for All &#8216;discount: $5 for all members of a family (up to four people total) presenting a valid federa"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://aviationmuseumofnh.org/"
@@ -1486,7 +2145,32 @@
       "name": "Homepage | Discovery Museum",
       "website": "http://www.discoveryacton.org/",
       "hero_image": "https://www.discoveryacton.org/sites/default/files/styles/scaled_original_wide/public/images/IMLS%20National%20Medal-staff%20pic-cropped.jpg?itok=Wo945sGF",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "child",
+          "price": 1.0,
+          "age_range": null,
+          "source_phrase": "Corporate Donate Now! Planned Giving Bid for Kids Online Auction | May 18 - 27 $1.6M campaign for in-school STEM Discovery After Dark | July 23 Calendar Parties"
+        },
+        {
+          "audience": "adult",
+          "price": 19.0,
+          "age_range": null,
+          "source_phrase": "e cost of your visit. ONE Price for Discovery Museum and Discovery Woods Adult: $19.00 Senior (60+): $18.00 Child: $19.00 Under 1 year old: Free Teachers are always f"
+        },
+        {
+          "audience": "adult",
+          "price": 18.0,
+          "age_range": null,
+          "source_phrase": "ONE Price for Discovery Museum and Discovery Woods Adult: $19.00 Senior (60+): $18.00 Child: $19.00 Under 1 year old: Free Teachers are always free! Members: FREE Le"
+        },
+        {
+          "audience": "member",
+          "price": 1.0,
+          "age_range": null,
+          "source_phrase": "also covers the carbon offset fees for all staff and volunteers. For members, a $1 opt-out carbon offset fee to mitigate the impact of your travel is part of your"
+        }
+      ],
       "categories": [],
       "sources": [
         "http://www.discoveryacton.org/"
@@ -1508,13 +2192,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "closed",
+        "tuesday": "09:00-16:30",
+        "wednesday": "09:00-16:30",
+        "thursday": "09:00-16:30",
+        "friday": "09:00-16:30",
+        "saturday": "09:00-16:30",
+        "sunday": "09:00-16:30"
       }
     },
     {
@@ -1522,7 +2206,62 @@
       "name": "The House of the Seven Gables | Salem MA Museum",
       "website": "https://www.7gables.org/",
       "hero_image": "https://7gables.org/wp-content/uploads/2022/05/MainImage_TonyHealy@2x-scaled.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "senior",
+          "price": 26.0,
+          "age_range": null,
+          "source_phrase": "lem &#038; Beyond Museum Store Tickets ADMISSION RATES & DISCOUNTS Mansion Tour $26 Mansion Tour - Age 65+ $21 Mansion Tour - Ages 5-12 $18 Grounds Pass (May 1-Sep"
+        },
+        {
+          "audience": "child",
+          "price": 21.0,
+          "age_range": null,
+          "source_phrase": "ore Tickets ADMISSION RATES & DISCOUNTS Mansion Tour $26 Mansion Tour - Age 65+ $21 Mansion Tour - Ages 5-12 $18 Grounds Pass (May 1-Sept 30)* $13 Children Under 5"
+        },
+        {
+          "audience": "child",
+          "price": 18.0,
+          "age_range": null,
+          "source_phrase": "DISCOUNTS Mansion Tour $26 Mansion Tour - Age 65+ $21 Mansion Tour - Ages 5-12 $18 Grounds Pass (May 1-Sept 30)* $13 Children Under 5 FREE - accompanied by an adu"
+        },
+        {
+          "audience": "adult",
+          "price": 13.0,
+          "age_range": null,
+          "source_phrase": "n Tour - Age 65+ $21 Mansion Tour - Ages 5-12 $18 Grounds Pass (May 1-Sept 30)* $13 Children Under 5 FREE - accompanied by an adult Gables Members FREE Salem Resid"
+        },
+        {
+          "audience": "adult",
+          "price": 26.0,
+          "age_range": null,
+          "source_phrase": ", click here . DETAILED PRICING - MANSION TOUR PACKAGE (NOV-SEPT) Adult &#8211; $26.00 Child (Age 5-12) &#8211; $18.00 Child Under 5 &#8211; FREE Senior (65+) &#8211;"
+        },
+        {
+          "audience": "adult",
+          "price": 18.0,
+          "age_range": null,
+          "source_phrase": "- MANSION TOUR PACKAGE (NOV-SEPT) Adult &#8211; $26.00 Child (Age 5-12) &#8211; $18.00 Child Under 5 &#8211; FREE Senior (65+) &#8211; $21.00 First Responder/Teacher"
+        },
+        {
+          "audience": "senior",
+          "price": 21.0,
+          "age_range": null,
+          "source_phrase": "nder 5 &#8211; FREE Senior (65+) &#8211; $21.00 First Responder/Teacher &#8211; $21.00 College Student &#8211; $21.00 MA Public College Student &#8211; Free Military"
+        },
+        {
+          "audience": "adult",
+          "price": 21.0,
+          "age_range": null,
+          "source_phrase": ") &#8211; $21.00 First Responder/Teacher &#8211; $21.00 College Student &#8211; $21.00 MA Public College Student &#8211; Free Military &#8211; Adult &#8211; $21.00 Mi"
+        },
+        {
+          "audience": "adult",
+          "price": 16.0,
+          "age_range": null,
+          "source_phrase": "ree Military &#8211; Adult &#8211; $21.00 Military &#8211; Child (5-12) &#8211; $16.00 Salem Resident &#8211; FREE, proof of residency required NARM/Museum Profession"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://www.7gables.org/"
@@ -1558,7 +2297,20 @@
       "name": "Home - The Icon Museum and Study Center",
       "website": "https://www.iconmuseum.org/",
       "hero_image": "https://www.iconmuseum.org/wp-content/uploads/2026/05/Greek-Gallery-Event-edited-scaled.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "month, courtesy of the Nypro Foundation. ADMISSION Members: FREE Adults: (18+) $15 Seniors: (65+) $12 Students: (with ID) FREE Children and youth: (0-17) FREE pur"
+        },
+        {
+          "audience": "adult",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "the Nypro Foundation. ADMISSION Members: FREE Adults: (18+) $15 Seniors: (65+) $12 Students: (with ID) FREE Children and youth: (0-17) FREE purchase tickets Excep"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://www.iconmuseum.org/"
@@ -1702,7 +2454,20 @@
       "name": "Home - Wenham Museum",
       "website": "http://www.wenhammuseum.org/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "ton Discovery Guide | Yelp | Trip Advisor Rates 2025 Individual Admission Rates $15.00 &#8211; Adults $10.00 &#8211; Seniors (ages 65+) $10.00 &#8211; Children ages 2"
+        },
+        {
+          "audience": "adult",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "Yelp | Trip Advisor Rates 2025 Individual Admission Rates $15.00 &#8211; Adults $10.00 &#8211; Seniors (ages 65+) $10.00 &#8211; Children ages 2 &#8211; 18; babies ag"
+        }
+      ],
       "categories": [],
       "sources": [
         "http://www.wenhammuseum.org/"
@@ -1738,7 +2503,20 @@
       "name": "Worcester Art Museum",
       "website": "http://www.worcesterart.org/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 22.0,
+          "age_range": null,
+          "source_phrase": "y, Easter Sunday, Independence Day, Thanksgiving, and Christmas. Tickets Adults $22 Students $17 Seniors $17 Youth 17 and under FREE Members FREE College Partners"
+        },
+        {
+          "audience": "adult",
+          "price": 17.0,
+          "age_range": null,
+          "source_phrase": "day, Independence Day, Thanksgiving, and Christmas. Tickets Adults $22 Students $17 Seniors $17 Youth 17 and under FREE Members FREE College Partners FREE Discount"
+        }
+      ],
       "categories": [],
       "sources": [
         "http://www.worcesterart.org/"
@@ -1760,13 +2538,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
         "saturday": "unknown",
-        "sunday": "unknown"
+        "sunday": "10:00-16:00"
       }
     },
     {

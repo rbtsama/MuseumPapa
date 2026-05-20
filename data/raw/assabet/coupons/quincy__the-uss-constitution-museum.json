@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Coupon admits up to six guests at $9.00 per adult and $6.00 per child . Children under two years old are free. This is a non-returnable coupon pass that must be picked up at the Main Library Circulation Desk after it is reserved."
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Coupon admits up to six guests at $9.00 per adult and $6.00 per child . Children under two years old are free. This is a non-returnable coupon pass that must be picked up at the Main Library Circulation Desk after it is reserved."
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Coupon admits up to six guests at $9.00 per adult and $6.00 per child . Children under two years old are free. This is a non-returnable coupon pass that must be picked up at the Main Library Circulation Desk after it is reserved."
+    },
+    "restrictions": null
+  }
+}

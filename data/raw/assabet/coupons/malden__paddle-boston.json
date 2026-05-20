@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "After reserving this Library pass, you will receive a promo code on the confirmation page. The code allows you to purchase up to two tickets at the reduced rate of $12 each."
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "After reserving this Library pass, you will receive a promo code on the confirmation page. The code allows you to purchase up to two tickets at the reduced rate of $12 each."
+    },
+    "restrictions": null
+  }
+}

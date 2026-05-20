@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "This pass allows half-price admission for up to 4 people . The email confirmation sent to you serves as your discount pass. Please present this pass (either printed or on your mobile device) upon entry to the museum. Please note that advanced reservations are not required, but st"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This pass allows half-price admission for up to 4 people . The email confirmation sent to you serves as your discount pass. Please present this pass (either printed or on your mobile device) upon entry to the museum. Please note that advanced reservations are not required, but still available if interested by visiting the Wenham Museum website ."
+    },
+    "restrictions": null
+  }
+}

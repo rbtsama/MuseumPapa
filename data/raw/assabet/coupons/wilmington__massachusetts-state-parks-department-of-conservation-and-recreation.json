@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 15,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Pass admits 2 adult tickets at $15 per ticket and 4 youth tickets at $15 per ticket (prices is subject to change). Ticketed special exhibits are not included. There is no physical pass to pick up at the library. This program is supported in part by a grant from the Wilmington Cou"
+        }
+      ],
+      "summary": "$15/person",
+      "source_phrase_block": "Pass admits 2 adult tickets at $15 per ticket and 4 youth tickets at $15 per ticket (prices is subject to change). Ticketed special exhibits are not included. There is no physical pass to pick up at the library. This program is supported in part by a grant from the Wilmington Council for the Arts, a local agency which is supported by the Massachusetts Cultural Council, a state agency."
+    },
+    "restrictions": null
+  }
+}

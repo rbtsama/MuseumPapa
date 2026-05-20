@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 9.0,
+          "count": 6,
+          "age_range": null,
+          "source_phrase": "$9 per person"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "1 Franklin Park Rd. Boston, MA 02121 617-541-LION (5466), Boston, MA, 02121\n                                                            \n    Map\n617-541-5466\nEach pass admits 6 people. Adults are $9 per person and children are $6 per person.\nThe pass is good for either the Stone Zoo or the Franklin Park Zoo.\nThe pass is a physical coupon and you need to pick it up at the Milton Public Library before going to the zoo.\nPLEASE BRING YOUR CONFIRMATION EMAIL TO THE MPL TO PICK UP YOUR PASS BEFORE GOING TO THE ZOO\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

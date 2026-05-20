@@ -1,0 +1,23 @@
+{
+  "status": "pending",
+  "target_kind": "coupons",
+  "library_id": "north-andover",
+  "attraction_slug": "museum-of-science",
+  "platform": "assabet",
+  "benefit_text": "Library ID: 57959\nThis coupon allows 50% off admission to the New England Aquarium.\nOnly applies to adult and child pricing.\nThis is not a ticket.\nRedeem this coupon in the General Admission line at the Aquarium’s ticket booth for discounted admission for up to 4 people.\nPlease visit neaq.org/coupons for details.",
+  "source_phrases": [
+    "Library ID: 57959",
+    "This coupon allows 50% off admission to the New England Aquarium.",
+    "Only applies to adult and child pricing.",
+    "This is not a ticket.",
+    "Redeem this coupon in the General Admission line at the Aquarium’s ticket booth for discounted admission for up to 4 people.",
+    "Please visit neaq.org/coupons for details.",
+    "Review the Aquarium’s website at www.neaq.org/safety ahead of your visit to ensure a safe and accessible experience.",
+    "Valid only for Aquarium admission.",
+    "This coupon does not provide any other discounts and cannot be applied to combo tickets.",
+    "Library coupons or tickets obtained with library coupons may not be sold.",
+    "Void if altered or copied. No cash value.",
+    "Hours of operation are subject to change.&nbsp;"
+  ],
+  "prompt_template": "You read a library museum-pass benefit description and extract a\nstructured Coupon record describing what the pass gives the visitor.\n\nInput variables:\n- library: {library_id}\n- attraction: {attraction_slug}\n- benefit_text: verbatim text from the library's pass listing\n- source_phrases: list of paragraph-level quotes from the listing page\n\nOutput JSON:\n{{\n  \"status\": \"ok\",\n  \"extracted\": {{\n    \"pass_form\": \"digital_email\" | \"physical_circ\" | \"physical_coupon\",\n    \"coupon\": {{\n      \"capacity\": {{\"kind\": \"people\"|\"vehicle\"|\"ticket\"|\"unspecified\", \"n\": int|null}},\n      \"audience_policies\": [\n        {{\"audience\": \"Everyone\"|\"adults\"|\"children\"|\"youth\"|\"seniors\"|\"family\",\n          \"form\": \"free\"|\"percent-off\"|\"dollar-off\"|\"per-person-price\"|\"bogo\"|\"discount\",\n          \"value\": number|null,\n          \"count\": int|null,\n          \"age_range\": {{\"min\":int,\"max\":int}}|null,\n          \"source_phrase\": \"verbatim quote\"}}\n      ],\n      \"summary\": \"mobile-app one-liner like '50% off' or 'FREE' or '$5 off'\",\n      \"source_phrase_block\": \"verbatim full benefit block\"\n    }},\n    \"restrictions\": {{\n      \"blackout\": [{{\"month\":int,\"day\":int}}, ...],\n      \"blackout_recurring\": [\"sundays\",\"mondays\",...],\n      \"weekdays_only\": bool,\n      \"seasonal\": {{\"start_month\":int,\"end_month\":int}}|null,\n      \"advance_booking_required\": bool,\n      \"advance_booking_hours\": int|null\n    }} | null\n  }}\n}}\n\nGuidance:\n- \"Passes admit 4 people for 50% off\" => capacity {{people,4}}, audience_policy\n  {{Everyone, percent-off, 50}}, summary \"50% off\".\n- \"2-for-1 ferry fees\" or \"buy one get one\" => form \"bogo\".\n- \"Adults $10/person, children 7-17 $10/person\" => two audience_policies,\n  form per-person-price, value 10 each.\n- \"FREE admission\" or \"no charge\" => form \"free\", value 0.\n- \"Printable/Digital Coupon Pass\" => pass_form \"digital_email\".\n- \"must be picked up from the branch\" => pass_form \"physical_circ\" (loanable item).\n- If benefit text is ONLY navigation text (e.g. \"click on the desired day\"),\n  return status \"failed\" with error \"no benefit text available\".\n\nbenefit_text:\n\"\"\"\n{benefit_text}\n\"\"\"\n\nsource_phrases:\n{source_phrases_joined}\n"
+}

@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Each pass admits up to 6 people total at $9.00 per adult and $6.00 per child. Does not include the Christmas Lights display."
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Each pass admits up to 6 people total at $9.00 per adult and $6.00 per child. Does not include the Christmas Lights display."
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Each pass admits up to 6 people total at $9.00 per adult and $6.00 per child. Does not include the Christmas Lights display."
+    },
+    "restrictions": null
+  }
+}

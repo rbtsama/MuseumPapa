@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Pass admits 4 people for $5 a person. Children under the age of 18 are always admitted free. When reserving Gardner Museum timed entry tickets online, you will submit the promo code, select the correct date and your chosen timed entry, and continue checking out (the discount will"
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "Pass admits 4 people for $5 a person. Children under the age of 18 are always admitted free. When reserving Gardner Museum timed entry tickets online, you will submit the promo code, select the correct date and your chosen timed entry, and continue checking out (the discount will be applied at checkout). Tickets must be reserved at least 48 hours prior to visiting—this library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets you can call the Gardner Museum's Box Office at 617-278-5156. Patrons must present both this library pass and Museum timed tickets for admission into the Museum. For more information, please visit: isgm.org/welcome ."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

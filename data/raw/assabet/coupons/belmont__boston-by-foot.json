@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Please note: The Boston Children's Museum hours change frequently. Please verify the date you wish to visit via their website before reserving your pass. Please reserve a Boston Children's Museum printable museum pass through the Belmont Public Library; when you click \"Access Pas"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Please note: The Boston Children's Museum hours change frequently. Please verify the date you wish to visit via their website before reserving your pass. Please reserve a Boston Children's Museum printable museum pass through the Belmont Public Library; when you click \"Access Pass\" in your confirmation email, the printable pass will open and you will see a promo code, located just beneath the barcode - it is a series of letters and numbers. You will need to show this pass, either printed or on your handheld device, for discounted entry to the museum. After receiving the printable museum pass from the library, you then reserve your visit online with Boston Children’s Museum on their page here, under \"Discount Tickets: https://bostonchildrensmuseum.org/ticketing/. Advance tickets/reservations are highly recommended, especially during weekends, holidays and school vacation weeks. The Boston Children's Museum pass admits 4 people. With the pass, the current co-pay is half price per person."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "THIS IS AN ONLINE PASS. IT WILL BE E-MAILED TO YOU UPON RESERVING IT. This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617 278 5156. The library pass allows you to get "
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "THIS IS AN ONLINE PASS. IT WILL BE E-MAILED TO YOU UPON RESERVING IT. This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617 278 5156. The library pass allows you to get up to four tickets at $5 each (choose the Library Pass ticket type). Any additional ticket will be normally priced (Children under 18 are always free and should be reserved as child tickets) PATRONS MUST PRESENT THIS LIBRARY CODE FOR ENTRY TO THE MUSEUM For more information, including health and safety requirements, please visit isgm.org/welcome"
+    },
+    "restrictions": null
+  }
+}

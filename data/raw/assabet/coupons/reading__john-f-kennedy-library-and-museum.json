@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "This pass provides free parking to one vehicle at over 50 facilities in the state parks system. *This pass needs to be picked up at and returned to Reading Public Library"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass provides free parking to one vehicle at over 50 facilities in the state parks system. *This pass needs to be picked up at and returned to Reading Public Library"
+    },
+    "restrictions": null
+  }
+}

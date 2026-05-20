@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Please check Peabody Essex Museum website for updated information before visiting. Tickets bought in advance are encouraged at pem.org/tickets or by calling 978-542-1511. Pass admits 2 people for $12 per person for general admission only. Children under age 16 free general admiss"
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "Please check Peabody Essex Museum website for updated information before visiting. Tickets bought in advance are encouraged at pem.org/tickets or by calling 978-542-1511. Pass admits 2 people for $12 per person for general admission only. Children under age 16 free general admission. Salem Residents free general admission. Yin Yu Tang Chinese House and other special exhibits require additional admission fees."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 18,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This pass provides a discounted on Heritage Passes, Combination Passes, and Plimoth Patuxet Only Passes of $18 per adult and $12 per child ages 5-17, for up to 6 people. Patrons are not able to purchase tickets online, this pass must be presented at the museum for the discount."
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 12,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass provides a discounted on Heritage Passes, Combination Passes, and Plimoth Patuxet Only Passes of $18 per adult and $12 per child ages 5-17, for up to 6 people. Patrons are not able to purchase tickets online, this pass must be presented at the museum for the discount."
+        }
+      ],
+      "summary": "$18/person",
+      "source_phrase_block": "This pass provides a discounted on Heritage Passes, Combination Passes, and Plimoth Patuxet Only Passes of $18 per adult and $12 per child ages 5-17, for up to 6 people. Patrons are not able to purchase tickets online, this pass must be presented at the museum for the discount."
+    },
+    "restrictions": null
+  }
+}

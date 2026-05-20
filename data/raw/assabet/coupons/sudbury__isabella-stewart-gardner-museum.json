@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 2,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "PLEASE NOTE: This is an electronic pass that you will receive in your email. You may either print it or present it on your phone at the Sanctuary of your choice. This one-day Library Partner Admission Pass admits 1 vehicle OR up to 4 people to a Mass Audubon wildlife sanctuary. W"
+        }
+      ],
+      "summary": "$2/person",
+      "source_phrase_block": "PLEASE NOTE: This is an electronic pass that you will receive in your email. You may either print it or present it on your phone at the Sanctuary of your choice. This one-day Library Partner Admission Pass admits 1 vehicle OR up to 4 people to a Mass Audubon wildlife sanctuary. With the pass, admission is discounted to $2 per visitor over the age of 2. Because day open, hours open and holiday day closings may vary among sanctuaries, please check the Mass Audubon website (https://www.massaudubon.org) to confirm."
+    },
+    "restrictions": null
+  }
+}

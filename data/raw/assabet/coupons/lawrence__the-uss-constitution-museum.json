@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "bogo",
+          "value": null,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Wheelock Family Theatre Teatro Familia Wheelock Friday night performances : buy one get one free. No pass required: call to reserve. Presentaciones de los viernes en la noche: compra uno, lleva uno gratis. No se requiere un boleto: llame para reservar."
+        }
+      ],
+      "summary": "BOGO",
+      "source_phrase_block": "Wheelock Family Theatre Teatro Familia Wheelock Friday night performances : buy one get one free. No pass required: call to reserve. Presentaciones de los viernes en la noche: compra uno, lleva uno gratis. No se requiere un boleto: llame para reservar."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 5,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Each pass permits two adults and two accompanied children to tour the 1806 Gore Mansion at the reduced rate of $5 per adult and free for the accompanying children--regularly $16 per adult and $11 for children ages 6-16."
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 11,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Each pass permits two adults and two accompanied children to tour the 1806 Gore Mansion at the reduced rate of $5 per adult and free for the accompanying children--regularly $16 per adult and $11 for children ages 6-16."
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "Each pass permits two adults and two accompanied children to tour the 1806 Gore Mansion at the reduced rate of $5 per adult and free for the accompanying children--regularly $16 per adult and $11 for children ages 6-16."
+    },
+    "restrictions": null
+  }
+}

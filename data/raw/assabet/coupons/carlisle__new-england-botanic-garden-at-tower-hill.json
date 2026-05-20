@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Half priced admission for up to 2 adults and 4 youths. Patrons should use the Timed-Entry Admission site on the Orchard House website to secure a pre-paid reservation at the 50% discount. Please note: The discount is not applicable to special events, educational programs, large g"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Half priced admission for up to 2 adults and 4 youths. Patrons should use the Timed-Entry Admission site on the Orchard House website to secure a pre-paid reservation at the 50% discount. Please note: The discount is not applicable to special events, educational programs, large group tours, or merchandise purchases in the Museum Store. For Museum questions, see their website or call 978-369-4118"
+    },
+    "restrictions": null
+  }
+}

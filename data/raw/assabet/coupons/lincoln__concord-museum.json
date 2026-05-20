@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "The library’s pass admits up to 4 people into the museum free of charge. Special event admission is not included under the library pass discount. Free parking is available behind the museum with direct elevator access to our galleries. Regular admission prices: Adults, $7; Senior"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "The library’s pass admits up to 4 people into the museum free of charge. Special event admission is not included under the library pass discount. Free parking is available behind the museum with direct elevator access to our galleries. Regular admission prices: Adults, $7; Seniors (65+) and Framingham residents with ID, $6; Students (High school + college (with ID), $5.00; Children under 13, free."
+    },
+    "restrictions": null
+  }
+}

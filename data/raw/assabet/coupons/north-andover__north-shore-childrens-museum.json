@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Promo code that entitles you to a maximum of two general museum admission tickets at a reduced fee of $12 per person"
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "Promo code that entitles you to a maximum of two general museum admission tickets at a reduced fee of $12 per person"
+    },
+    "restrictions": null
+  }
+}

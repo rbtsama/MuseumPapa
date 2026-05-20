@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 3
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 3,
+          "age_range": null,
+          "source_phrase": "Pass admits 3 people at half price. ($9.50 instead of $19.00) No payment will be collected online, you will pay when you arrive. Note: The museum is closed on Mondays"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Pass admits 3 people at half price. ($9.50 instead of $19.00) No payment will be collected online, you will pay when you arrive. Note: The museum is closed on Mondays"
+    },
+    "restrictions": null
+  }
+}

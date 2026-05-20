@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 20.0,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "$20 per person"
+        }
+      ],
+      "summary": "$20/person",
+      "source_phrase_block": "1 Central Wharf, Boston, MA, 02110\n                                                            \n    Map\n617-973-5206\nEach pass admits up to 4 people&nbsp;for 50% off.&nbsp;Valid only for Aquarium admission. This coupon does not provide any other discounts and is not valid for movie or whale watch tickets.\nNOTE:&nbsp;Starting May 26, this pass admits up to 4 people for $20 per person and is only valid on weekdays.\nThis coupon is valid only on the date printed on the pass.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

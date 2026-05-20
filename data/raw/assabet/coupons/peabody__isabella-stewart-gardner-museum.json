@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 2,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Pass admits up to 4 people to a Mass Audubon wildlife sanctuary. With pass, admission is discounted to $2 per visitor over the age of 2. This is a physical pass that must be picked up at the Main Branch library."
+        }
+      ],
+      "summary": "$2/person",
+      "source_phrase_block": "Pass admits up to 4 people to a Mass Audubon wildlife sanctuary. With pass, admission is discounted to $2 per visitor over the age of 2. This is a physical pass that must be picked up at the Main Branch library."
+    },
+    "restrictions": null
+  }
+}

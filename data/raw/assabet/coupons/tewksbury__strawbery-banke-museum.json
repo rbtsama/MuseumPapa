@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "This is a coupon pass that must be picked up at the Library. The Trustees GO Pass: is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events or programs, on any equipment rental, or in place of any other permits"
+        }
+      ],
+      "summary": "Discount",
+      "source_phrase_block": "This is a coupon pass that must be picked up at the Library. The Trustees GO Pass: is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events or programs, on any equipment rental, or in place of any other permits or passes allows free or reduced admission, for 2 adults and children under 18, at the Family Level Membership price at Trustees properties that charge an admission fee To use this pass at Fruitlands, deCordova, or Castle Hill, please enter the promo code GOPASS when securing a timed ticket. Tickets are available at www.thetrustees.org/passes. You must present the physical Library pass at the property in order to receive the discount. Please note: For a list of properties and information about the hours and admission requirements at each property, please visit www.thetrustees.org"
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

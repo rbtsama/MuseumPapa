@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Free admission for up to 4 people. At least one 1 must bring proof of MA residence. This pass can be used at the following location: Harvard Museum of Natural History, The Peabody Museum of Archeology and Ethnology, The Harvard Museum of the Near East, or the The Collection of Hi"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Free admission for up to 4 people. At least one 1 must bring proof of MA residence. This pass can be used at the following location: Harvard Museum of Natural History, The Peabody Museum of Archeology and Ethnology, The Harvard Museum of the Near East, or the The Collection of Historical Scientific Instruments"
+    },
+    "restrictions": null
+  }
+}

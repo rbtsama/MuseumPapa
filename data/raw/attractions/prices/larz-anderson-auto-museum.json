@@ -1,6 +1,19 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 15.0,
+        "age_range": null,
+        "source_phrase": "sday of November Christmas Day: December 25 BECOME A MEMBER ADMISSION ​ Adults, $15 | Seniors, Students, Military (with ID), Children 6-12, $10 Children under 6 ar"
+      },
+      {
+        "audience": "adult",
+        "price": 10.0,
+        "age_range": null,
+        "source_phrase": "ADMISSION ​ Adults, $15 | Seniors, Students, Military (with ID), Children 6-12, $10 Children under 6 are free. Museum Members are always free. Free admission for N"
+      }
+    ]
   }
 }

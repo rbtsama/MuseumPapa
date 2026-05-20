@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass provides 50% off admission for one family (immediate family/household only). Please visit The Children's Piazza website (thechildrenspiazza.com) to make a reservation prior to your visit. Reservations required for entry. Pass only valid on date reserved."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This pass provides 50% off admission for one family (immediate family/household only). Please visit The Children's Piazza website (thechildrenspiazza.com) to make a reservation prior to your visit. Reservations required for entry. Pass only valid on date reserved."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "This pass offers free general parking at many Massachusetts State Parks. Pickup the pass the day before or the day of the reservation date. This pass is not valid for camping or parking at the following locations – Quabbin Reservoir Boat Launch Areas, Squantum Point, North Point,"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass offers free general parking at many Massachusetts State Parks. Pickup the pass the day before or the day of the reservation date. This pass is not valid for camping or parking at the following locations – Quabbin Reservoir Boat Launch Areas, Squantum Point, North Point, any metered facilities, or Draw Seven Commuter lots. This pass MUST be returned to Acton Memorial Library before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue passes are subject to a fine of $10 per day."
+    },
+    "restrictions": null
+  }
+}

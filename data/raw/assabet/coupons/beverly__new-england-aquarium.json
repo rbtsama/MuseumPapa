@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "Admits up to 5 people at 1/2 off regular admission. Ages 12 months and under are free. Pass may be presented on a hand held device or as a paper printout at the museum."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Admits up to 5 people at 1/2 off regular admission. Ages 12 months and under are free. Pass may be presented on a hand held device or as a paper printout at the museum."
+    },
+    "restrictions": null
+  }
+}

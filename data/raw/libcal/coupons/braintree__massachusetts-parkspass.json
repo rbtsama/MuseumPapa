@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "free parking"
+        }
+      ],
+      "summary": "FREE parking",
+      "source_phrase_block": "Various Locations\n                                                            \n    Map\nVarious locations throughout Massachusetts:&nbsp;Locations | Mass.gov\n\n\n\nEach pass admits allows free parking for one vehicle at over 50 day-use facilities in the state parks system that charge a parking fee.\n\nThis pass must be returned to the Reference Desk by 10:00 am on the day after use. If the Library is closed on the day after use, it is due the next day the Library is open.\nAnnual membership of $300.00 provided by the Friends of Thayer Public Library.\nPhysical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

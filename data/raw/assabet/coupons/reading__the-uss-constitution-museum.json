@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Pass is valid for Franklin Park Zoo in Boston and Stone Zoo in Stoneham, MA. Admits 6 people at $9.00 per adult and $6.00 per child. Children 2 years and younger are free. Note: This pass is no longer an online discount code- it is a coupon pass that must be picked up at the libr"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Pass is valid for Franklin Park Zoo in Boston and Stone Zoo in Stoneham, MA. Admits 6 people at $9.00 per adult and $6.00 per child. Children 2 years and younger are free. Note: This pass is no longer an online discount code- it is a coupon pass that must be picked up at the libr"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Pass is valid for Franklin Park Zoo in Boston and Stone Zoo in Stoneham, MA. Admits 6 people at $9.00 per adult and $6.00 per child. Children 2 years and younger are free. Note: This pass is no longer an online discount code- it is a coupon pass that must be picked up at the library. To use the library discount, you must present the physical library ticket at the Zoo's admission booth. Reservations are not required for this discount. Library passes may be used for general daytime admission only. They cannot be used for the evening Boston Lights or ZooLights events."
+    },
+    "restrictions": null
+  }
+}

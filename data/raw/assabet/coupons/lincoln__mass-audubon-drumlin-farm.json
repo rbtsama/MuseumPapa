@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Each pass admits 1 vehicle for free. Please note that reserving a library pass does not guarantee that space will be available on your preferred date. Passes may be checked out for 1 day and are due back before library opens the day following use. This is a physical pass that mus"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Each pass admits 1 vehicle for free. Please note that reserving a library pass does not guarantee that space will be available on your preferred date. Passes may be checked out for 1 day and are due back before library opens the day following use. This is a physical pass that must be picked up at the Reference Desk. Please call 781-259-8465 x 3 with any questions. Please note that the Main Beach at Walden pond will be closed for the 2025 summer season due to construction."
+    },
+    "restrictions": null
+  }
+}

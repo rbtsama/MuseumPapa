@@ -1,6 +1,37 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 34.0,
+        "age_range": null,
+        "source_phrase": "cessible no matter what direction you are traveling from. Ticket Pricing Adults $34 Youth (5-12) $20 Seniors (65+) $25 Prices may vary based on ticket type. Get Ti"
+      },
+      {
+        "audience": "adult",
+        "price": 20.0,
+        "age_range": null,
+        "source_phrase": "r what direction you are traveling from. Ticket Pricing Adults $34 Youth (5-12) $20 Seniors (65+) $25 Prices may vary based on ticket type. Get Tickets Museum Hour"
+      },
+      {
+        "audience": "adult",
+        "price": 25.0,
+        "age_range": null,
+        "source_phrase": "ou are traveling from. Ticket Pricing Adults $34 Youth (5-12) $20 Seniors (65+) $25 Prices may vary based on ticket type. Get Tickets Museum Hours 10am - 4pm Open"
+      },
+      {
+        "audience": "adult",
+        "price": 27.0,
+        "age_range": null,
+        "source_phrase": "r group to receive group discount Learn About Group Visits Group Pricing Adults $27 Youth (5-12) $16 Seniors (65+) $20 Prices may vary based on ticket type. Book Y"
+      },
+      {
+        "audience": "adult",
+        "price": 16.0,
+        "age_range": null,
+        "source_phrase": "e group discount Learn About Group Visits Group Pricing Adults $27 Youth (5-12) $16 Seniors (65+) $20 Prices may vary based on ticket type. Book Your Group More to"
+      }
+    ]
   }
 }

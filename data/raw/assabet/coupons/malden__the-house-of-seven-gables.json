@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This library pass entitles you to up to two tickets for Gallery Admission at $10 per person (discounted from $20)."
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "This library pass entitles you to up to two tickets for Gallery Admission at $10 per person (discounted from $20)."
+    },
+    "restrictions": null
+  }
+}

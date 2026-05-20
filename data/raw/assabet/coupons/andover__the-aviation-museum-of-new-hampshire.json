@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Print from home pass. Pass is for free admission for a family to Bedrock Gardens (not special events). -Valid on date of admission only. -To be turned in on admission. -More information can be found at www.bedrockgardens.org."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Print from home pass. Pass is for free admission for a family to Bedrock Gardens (not special events). -Valid on date of admission only. -To be turned in on admission. -More information can be found at www.bedrockgardens.org."
+    },
+    "restrictions": null
+  }
+}

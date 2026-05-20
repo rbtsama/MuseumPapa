@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 3
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 3,
+          "age_range": null,
+          "source_phrase": "The pass discount provides half priced admissions for up to 3 individuals including children. Directions and information regarding e-voucher use will be provided in your confirmation email."
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "The pass discount provides half priced admissions for up to 3 individuals including children. Directions and information regarding e-voucher use will be provided in your confirmation email."
+    },
+    "restrictions": null
+  }
+}

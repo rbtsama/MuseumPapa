@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "This pass discount provides free parking for one vehicle at any DCR park. You may reserve this pass 1 Saturday and 1 Sunday per month. This returnable pass must be picked up in person at the Library's Circulation desk and presented upon entry. Returnable passes must be returned t"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass discount provides free parking for one vehicle at any DCR park. You may reserve this pass 1 Saturday and 1 Sunday per month. This returnable pass must be picked up in person at the Library's Circulation desk and presented upon entry. Returnable passes must be returned to the library. Directions and information regarding the returnable pass use will be provided in your confirmation email."
+    },
+    "restrictions": null
+  }
+}

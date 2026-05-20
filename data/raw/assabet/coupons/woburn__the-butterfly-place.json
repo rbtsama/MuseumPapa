@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "dollar-off",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "This pass is a physical card that must be picked up at the library, checked out and returned to the library . Once reserved, you may pick up the pass the day of use. Check with the Museum for any additional information about the day you plan to visit including safety guidelines a"
+        }
+      ],
+      "summary": "$5 off",
+      "source_phrase_block": "This pass is a physical card that must be picked up at the library, checked out and returned to the library . Once reserved, you may pick up the pass the day of use. Check with the Museum for any additional information about the day you plan to visit including safety guidelines and potential timed ticketing requirements. Each pass admits up to 4 people at $5 off per person. Pass must be returned before 9 AM the next day."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

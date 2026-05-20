@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "This coupon allows 50% off admission to the New England Aquarium for up to 4 people. Only applies to adult and child pricing. *This is an e-pass which will be emailed to you and must be used on the selected date.*"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This coupon allows 50% off admission to the New England Aquarium for up to 4 people. Only applies to adult and child pricing. *This is an e-pass which will be emailed to you and must be used on the selected date.*"
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Family Level admission rate"
+        }
+      ],
+      "summary": "discount",
+      "source_phrase_block": "200 High Street, Boston, MA, 02110\n                                                            \n    Map\n978-921-1944\nSEASONAL PASS - Each pass admits&nbsp;2 adults &amp; children under 18 at the Family Level admission rate.\nPasses are not date specific and&nbsp;can be used once until the expiration date printed on the pass.\nValid at more than 100 Trustees properties that collect an admission fee (including Fruitlands, deCordova and The Old Manse). Please note that some properties require pre-registration.&nbsp;Information about properties and advance registration available here:&nbsp;https://thetrustees.org/content/passes/\nPhysical passes must be picked up from one of the library locations listed in the dropdown menu below. Select your location preference and then pick the dates from the availability calendar."
+    },
+    "restrictions": null
+  }
+}

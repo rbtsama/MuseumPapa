@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Pass admits 2 people for $12 per person for general admission only. Yin Yu Tang Chinese House and other special exhibits require additional admission fees."
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "Pass admits 2 people for $12 per person for general admission only. Yin Yu Tang Chinese House and other special exhibits require additional admission fees."
+    },
+    "restrictions": null
+  }
+}

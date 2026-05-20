@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 20,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass gives you 20% off your ticket purchase from the NH Philharmonic. The discount can only be used through online ticket purchase using a code from the library. Visit www.nhphil.org to learn about the shows, schedules, and to purchase tickets. Contact 978-373-1586 x603 with"
+        }
+      ],
+      "summary": "20% off",
+      "source_phrase_block": "This pass gives you 20% off your ticket purchase from the NH Philharmonic. The discount can only be used through online ticket purchase using a code from the library. Visit www.nhphil.org to learn about the shows, schedules, and to purchase tickets. Contact 978-373-1586 x603 with any questions."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "DCR MA Parks [returnable pass] Parques DCR de Massachusetts [pase retornable] Provides free parking for one vehicle at a Massachusetts State Park. Permite parquear gratis un vehículo. *Returnable passes may be picked up one day in advance and must be returned by 10am the followin"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "DCR MA Parks [returnable pass] Parques DCR de Massachusetts [pase retornable] Provides free parking for one vehicle at a Massachusetts State Park. Permite parquear gratis un vehículo. *Returnable passes may be picked up one day in advance and must be returned by 10am the following day.* *Los boletos que son retornables deben recogerse el día antes y devolverse antes de las 10am del próximo dia.*"
+    },
+    "restrictions": null
+  }
+}

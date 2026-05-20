@@ -1,0 +1,35 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Free parking for one vehicle at Massachusetts State Parks. Available March through December. This pass must be returned to the library the day following the checkout."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Free parking for one vehicle at Massachusetts State Parks. Available March through December. This pass must be returned to the library the day following the checkout."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": {
+        "start_month": 3,
+        "end_month": 12
+      },
+      "advance_booking_required": false,
+      "advance_booking_hours": null
+    }
+  }
+}

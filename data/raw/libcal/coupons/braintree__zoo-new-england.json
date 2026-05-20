@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9.0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "$9.00 per adult"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6.0,
+          "count": null,
+          "age_range": {
+            "min": 2,
+            "max": 12
+          },
+          "source_phrase": "$6.00 per child (2-12)"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "One Franklin Park Road , MA, Boston, MA, 02121\n                                                            \n    Map\nFranklin Park 617-541-LION (5466), Stone Zoo 781-438-5100\nAdmits six (6) people at $9.00 per adult and $6.00 per child (2-12).&nbsp;\n\n&nbsp;\nAnnual membership of $650.00 provided by the Friends of Thayer Public Library.\nPhysical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

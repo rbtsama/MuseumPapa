@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "This pass provides 50% off general admission for up to 2 adults (18 years and older) and all youth family members (ages 13 - 17); children 12 years and under are always admitted without charge. This pass is paper and does not need to be returned to the library. The pass will need"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This pass provides 50% off general admission for up to 2 adults (18 years and older) and all youth family members (ages 13 - 17); children 12 years and under are always admitted without charge. This pass is paper and does not need to be returned to the library. The pass will need to be picked up from the library. Contact 978-373-1586 x603 with any questions."
+    },
+    "restrictions": null
+  }
+}

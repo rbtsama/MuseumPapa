@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Museum of Fine Arts [e-voucher] Museo de Bellas Artes [electrónico] Admits 2 adults at 10$ per person and up to 4 Children (7-17) at $10 each. Admisión para 2 adultos a $10 por persona y 4 niños (7-17) a $10 por persona. Please visit the website for hours of operation. Visite el "
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "Museum of Fine Arts [e-voucher] Museo de Bellas Artes [electrónico] Admits 2 adults at 10$ per person and up to 4 Children (7-17) at $10 each. Admisión para 2 adultos a $10 por persona y 4 niños (7-17) a $10 por persona. Please visit the website for hours of operation. Visite el sitio web para obtener información sobre los horarios."
+    },
+    "restrictions": null
+  }
+}

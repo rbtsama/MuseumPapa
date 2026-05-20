@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Each promo code use provides up to two adults and four youths (7–17) with $15 admission (general and special exhibition) per person. Tickets to the MFA are always free for visitors under seven years old. This is a printable pass. You will receive the pass in your email or library"
+        }
+      ],
+      "summary": "Discount",
+      "source_phrase_block": "Each promo code use provides up to two adults and four youths (7–17) with $15 admission (general and special exhibition) per person. Tickets to the MFA are always free for visitors under seven years old. This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have made a reservation. BRING THIS PASS TO THE ADMISSIONS DESK (either printed or on your device) at the museum to have the discount applied."
+    },
+    "restrictions": null
+  }
+}

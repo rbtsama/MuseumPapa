@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Each pass admits 2 adults at $10 per person (general admission and special exhibition) and up to 4 children ages 7-17 at $10 each for special exhibition only; there is no discount for children 7-17 for general admission. Children 6 and under are admitted free. After reserving thi"
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "Each pass admits 2 adults at $10 per person (general admission and special exhibition) and up to 4 children ages 7-17 at $10 each for special exhibition only; there is no discount for children 7-17 for general admission. Children 6 and under are admitted free. After reserving this library's pass, you will receive a code that you must use to book timed tickets directly from the MFA website. Please also print this library pass confirmation and bring it with you or display it on a phone when you arrive."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

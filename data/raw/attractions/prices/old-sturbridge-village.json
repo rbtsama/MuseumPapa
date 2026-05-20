@@ -1,6 +1,55 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 3.0,
+        "age_range": null,
+        "source_phrase": "utsche Français 简体字 (Chinese) General Daytime Admission Buy tickets here . SAVE $3 per Adult, Senior, or Youth general daytime admission ticket by purchasing your"
+      },
+      {
+        "audience": "adult",
+        "price": 27.0,
+        "age_range": null,
+        "source_phrase": "ad of at the door!* Buy tickets online . Daytime Admission Rates Online: Adults $27.00 Seniors (60 and over) $25.00 Youths (4-17) $12.00 Children (Age 3 and under) FR"
+      },
+      {
+        "audience": "adult",
+        "price": 25.0,
+        "age_range": null,
+        "source_phrase": "ts online . Daytime Admission Rates Online: Adults $27.00 Seniors (60 and over) $25.00 Youths (4-17) $12.00 Children (Age 3 and under) FREE Daytime Admission Rates At"
+      },
+      {
+        "audience": "adult",
+        "price": 12.0,
+        "age_range": null,
+        "source_phrase": "dmission Rates Online: Adults $27.00 Seniors (60 and over) $25.00 Youths (4-17) $12.00 Children (Age 3 and under) FREE Daytime Admission Rates At the Door: Adults $30"
+      },
+      {
+        "audience": "adult",
+        "price": 30.0,
+        "age_range": null,
+        "source_phrase": ".00 Children (Age 3 and under) FREE Daytime Admission Rates At the Door: Adults $30.00 Seniors (60 and over) $28.00 Youths (4-17) $15.00 Children (Age 3 and under) FR"
+      },
+      {
+        "audience": "adult",
+        "price": 28.0,
+        "age_range": null,
+        "source_phrase": ") FREE Daytime Admission Rates At the Door: Adults $30.00 Seniors (60 and over) $28.00 Youths (4-17) $15.00 Children (Age 3 and under) FREE *PLEASE NOTE: The $3 onlin"
+      },
+      {
+        "audience": "adult",
+        "price": 15.0,
+        "age_range": null,
+        "source_phrase": "ion Rates At the Door: Adults $30.00 Seniors (60 and over) $28.00 Youths (4-17) $15.00 Children (Age 3 and under) FREE *PLEASE NOTE: The $3 online discount cannot be"
+      },
+      {
+        "audience": "child",
+        "price": 3.0,
+        "age_range": null,
+        "source_phrase": ") $28.00 Youths (4-17) $15.00 Children (Age 3 and under) FREE *PLEASE NOTE: The $3 online discount cannot be combined with other discounts or applied to prior pur"
+      }
+    ]
   }
 }

@@ -1,0 +1,28 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 20,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "THIS IS A PRINTABLE PASS. Admission pass will allow a total of six discounted admissions at current rates of: $20 per adult, ($17 per senior 65+) $15 per youth (ages 5 to 12) $17 per youth (ages 13 and up), children ages 4 and under are free Library pass must be presented at the "
+        }
+      ],
+      "summary": "$20/person",
+      "source_phrase_block": "THIS IS A PRINTABLE PASS. Admission pass will allow a total of six discounted admissions at current rates of: $20 per adult, ($17 per senior 65+) $15 per youth (ages 5 to 12) $17 per youth (ages 13 and up), children ages 4 and under are free Library pass must be presented at the time of admission."
+    },
+    "restrictions": null
+  }
+}

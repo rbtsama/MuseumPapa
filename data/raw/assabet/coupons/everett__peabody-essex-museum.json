@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "GO Passes allow for one-time use as admission for two adults and children under 18 to any of the 100+ Trustees properties. GO Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. GO Passes are valid for "
+        }
+      ],
+      "summary": "Discount",
+      "source_phrase_block": "GO Passes allow for one-time use as admission for two adults and children under 18 to any of the 100+ Trustees properties. GO Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. GO Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, Inns, Campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. To use GO Passes with a Trustees site that requires timed entry, you will need to enter the promo code listed on the physical pass. Passes are available at www.thetrustees.org/passes"
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

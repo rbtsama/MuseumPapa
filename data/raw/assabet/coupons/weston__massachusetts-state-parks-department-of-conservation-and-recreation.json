@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 15,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Each pass allows admission for 2 adults at $15 each and up to 4 children, ages 7-17, at $10 each (general and special exhibition) . There is no discount for children 7-17 for general admission, currently $10. Youths 0 - 6 are admitted to the museum free of charge. The library mak"
+        }
+      ],
+      "summary": "$15/person",
+      "source_phrase_block": "Each pass allows admission for 2 adults at $15 each and up to 4 children, ages 7-17, at $10 each (general and special exhibition) . There is no discount for children 7-17 for general admission, currently $10. Youths 0 - 6 are admitted to the museum free of charge. The library makes 2 passes available per day. Library passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any public programs. All prices are subject to change. Discount admission may not be combined with other offers."
+    },
+    "restrictions": null
+  }
+}

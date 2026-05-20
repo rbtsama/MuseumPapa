@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This pass provides admission for six people at the price of $9.00 per adult and $6.00 per child. This pass is not valid for Zoo Lights."
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass provides admission for six people at the price of $9.00 per adult and $6.00 per child. This pass is not valid for Zoo Lights."
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "This pass provides admission for six people at the price of $9.00 per adult and $6.00 per child. This pass is not valid for Zoo Lights."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "Admits up to 5 people for free admission. Pass can be presented on a hand held device or as a paper printout at the museum."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Admits up to 5 people for free admission. Pass can be presented on a hand held device or as a paper printout at the museum."
+    },
+    "restrictions": null
+  }
+}

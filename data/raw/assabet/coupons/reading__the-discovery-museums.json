@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "This pass provides a 50% discount for up to 2 adults and 2 children. Children under 2 free. It is not to be combined with other offers, group rates or special event prices. Please fill out the reverse side of the coupon pass prior to using. *This is a coupon pass that must be pic"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This pass provides a 50% discount for up to 2 adults and 2 children. Children under 2 free. It is not to be combined with other offers, group rates or special event prices. Please fill out the reverse side of the coupon pass prior to using. *This is a coupon pass that must be picked up at the library"
+    },
+    "restrictions": null
+  }
+}

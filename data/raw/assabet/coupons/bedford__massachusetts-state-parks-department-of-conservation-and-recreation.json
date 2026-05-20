@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "ADMISSION INCREASE: Starting January 20, 2026 the adult admission price for MFA with a library discount will increase from $10 each to $15 each (youth prices will remain at $10 each) The Library Discount Pass admits 2 adults for $10 each (this includes general admission and speci"
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "ADMISSION INCREASE: Starting January 20, 2026 the adult admission price for MFA with a library discount will increase from $10 each to $15 each (youth prices will remain at $10 each) The Library Discount Pass admits 2 adults for $10 each (this includes general admission and special exhibitions). In addition, the pass admits up to 4 children ages 7-17 into special exhibitions for $10 each (general admission for 7-17 is regularly $10). PLEASE NOTE: If your plans are to visit the museum for a special exhibit, order the special exhibit ticket. The cost is $10 each and will include general admission to the museum. Children 6 and under are admitted free. Once reserved, you will receive an e-mail that contains a discount code. You can print the library pass with discount code or display it on your mobile device for use at the museum or you can use the discount code to make advance reservations on the museums website. Promo Code may not be combined with any other offers. Pass is not applicable"
+    },
+    "restrictions": null
+  }
+}

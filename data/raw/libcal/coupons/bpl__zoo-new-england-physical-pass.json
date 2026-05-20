@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9.0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "$9 per adult"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6.0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "$6 per child"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Coupon admits 6 people at $9 per adult and $6 per child.\nNote: This pass is limited to one booking per month per person.\nPhysical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.\nTo use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+    },
+    "restrictions": null
+  }
+}

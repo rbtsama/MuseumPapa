@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 9
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 9,
+          "age_range": null,
+          "source_phrase": "This digital pass provides free admission to the museum for up to 9 people. While advance tickets are not required at this time, please be sure to check the museum website for up to date details that will help you plan your visit. The USS Constitution ship is separate from the mu"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This digital pass provides free admission to the museum for up to 9 people. While advance tickets are not required at this time, please be sure to check the museum website for up to date details that will help you plan your visit. The USS Constitution ship is separate from the museum. This pass is generously sponsored by the USS Constitution Museum."
+    },
+    "restrictions": null
+  }
+}

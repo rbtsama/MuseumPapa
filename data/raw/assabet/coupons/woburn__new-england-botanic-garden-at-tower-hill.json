@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Hours: Thursday through Monday: 10 AM – 5 PM • Each library coupon pass admits up to two people @ $12 per person. * Funded by the Friends of the WPL"
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "Hours: Thursday through Monday: 10 AM – 5 PM • Each library coupon pass admits up to two people @ $12 per person. * Funded by the Friends of the WPL"
+    },
+    "restrictions": null
+  }
+}

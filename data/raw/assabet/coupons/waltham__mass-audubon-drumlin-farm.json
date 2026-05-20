@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "This pass allows one vehicle to park for free at any MA State Parks. *This is a paper parking pass which must be picked up at the Ground Floor Circulation Desk and used on the date selected. The pass can be picked up on the day of or day before use and must be returned by the day"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass allows one vehicle to park for free at any MA State Parks. *This is a paper parking pass which must be picked up at the Ground Floor Circulation Desk and used on the date selected. The pass can be picked up on the day of or day before use and must be returned by the day following use.*"
+    },
+    "restrictions": null
+  }
+}

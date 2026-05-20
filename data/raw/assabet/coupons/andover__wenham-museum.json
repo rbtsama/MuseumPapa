@@ -1,0 +1,43 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Pick up coupon at library. Pass allows up to 6 people discounted admission ($9.00/adult and $6.00/child) to the Stone Zoo or the Franklin Park Zoo Library coupon holders are no longer required to make a timed ticket reservation. Patrons may walk in with the library coupon and pur"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Pick up coupon at library. Pass allows up to 6 people discounted admission ($9.00/adult and $6.00/child) to the Stone Zoo or the Franklin Park Zoo Library coupon holders are no longer required to make a timed ticket reservation. Patrons may walk in with the library coupon and pur"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Pick up coupon at library. Pass allows up to 6 people discounted admission ($9.00/adult and $6.00/child) to the Stone Zoo or the Franklin Park Zoo Library coupon holders are no longer required to make a timed ticket reservation. Patrons may walk in with the library coupon and purchase tickets for the discounted rate."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

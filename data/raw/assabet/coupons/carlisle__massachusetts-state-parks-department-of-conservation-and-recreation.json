@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Each pass admits two adults at $10 each for general admission and special exhibition and up to 4 children aged 7-17 at $10 each for special exhibition only. There is no discount for children 7-17 for general admission (currently $10) . Children 6 and under are admitted free. The "
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "Each pass admits two adults at $10 each for general admission and special exhibition and up to 4 children aged 7-17 at $10 each for special exhibition only. There is no discount for children 7-17 for general admission (currently $10) . Children 6 and under are admitted free. The Museum of Fine Arts suggests reserving tickets prior to your visit. Once you reserve the museum pass through this website, you will receive a confirmation email with a promo-code. Use this code to reserve tickets on the MFA website or present it at the MFA admissions desk to receive your discount when you visit the museum. For museum questions call the MFA customer service line at 1-800-440-6975."
+    },
+    "restrictions": null
+  }
+}

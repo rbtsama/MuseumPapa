@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 2.0,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Each visitor will be charged $2.00"
+        }
+      ],
+      "summary": "$2/person",
+      "source_phrase_block": "This pass allows up to four patrons&nbsp;per visit. Each visitor will be charged $2.00. Children under two are admitted free.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below.\nTo use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+    },
+    "restrictions": null
+  }
+}

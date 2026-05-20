@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This Coupon pass admits one household and is good for a 1-week voucher of free access Newton's West Suburban YMCA. (Valid at both the Church St. and Wells Ave locations.) Pickup up to one week in advance. Redeem the coupon at the YMCA within 1 week of date written on coupon. You "
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This Coupon pass admits one household and is good for a 1-week voucher of free access Newton's West Suburban YMCA. (Valid at both the Church St. and Wells Ave locations.) Pickup up to one week in advance. Redeem the coupon at the YMCA within 1 week of date written on coupon. You will receive 1 week of free access beginning the date you redeem at the YMCA. Each household may check out a YMCA pass once per calendar year. Check the Pool, Gym, and Group Exercise Classes Schedule here ."
+    },
+    "restrictions": null
+  }
+}

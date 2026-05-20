@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "The pass admits 2 adults and 4 children (ages 7-17) at $10 each (general admission and special exhibition). Admission is free for children under 7. Admission price changing 1/20/2026 : The regular price of adult admission will increase to $30, and the discounted rate with this pa"
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "The pass admits 2 adults and 4 children (ages 7-17) at $10 each (general admission and special exhibition). Admission is free for children under 7. Admission price changing 1/20/2026 : The regular price of adult admission will increase to $30, and the discounted rate with this pass will increase to $15. Discount admission for children will remain $10. This change takes effect starting 1/20/2026."
+    },
+    "restrictions": null
+  }
+}

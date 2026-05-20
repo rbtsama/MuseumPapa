@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Pass admits 2 people at $10.00 per person. Valid only for the date listed on this pass. This is a coupon pass that will be emailed and can be printed or displayed on your mobile screen."
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "Pass admits 2 people at $10.00 per person. Valid only for the date listed on this pass. This is a coupon pass that will be emailed and can be printed or displayed on your mobile screen."
+    },
+    "restrictions": null
+  }
+}

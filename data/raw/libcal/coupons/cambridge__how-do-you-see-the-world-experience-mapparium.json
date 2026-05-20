@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "admits up to 4 adults free of charge to the Mapparium™ globe in the How Do You See the World? experience (value $6/Adult). Youth 17 and younger are always free. All other exhibits in the How Do You See the World? experience are always free"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "210 Massachusetts Ave, Boston, MA, 02115\n                                                            \n    Map\n617-450-7224\nEach pass admits up to 4 adults free of charge to the Mapparium&trade; globe in the How Do You See the World? experience (value $6/Adult). Youth 17 and younger are always free.&nbsp;\nAll other exhibits in the How Do You See the World? experience are always free, as are weekend church tours, and neither require a ticket.&nbsp;\nPass instructions:&nbsp;\nRedeem this pass for tickets onsite in the Welcome Hall. Ticket reservations are not available ahead of time.&nbsp;\nAll Mapparium showtimes are first come, first serve; this pass doesn&#39;t guarantee tickets for a specific time or day.&nbsp;\nThis pass is only valid on the day of your visit.&nbsp;"
+    },
+    "restrictions": null
+  }
+}

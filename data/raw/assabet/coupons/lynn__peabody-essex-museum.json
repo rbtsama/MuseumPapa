@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 6,
+          "age_range": null,
+          "source_phrase": "*** Not Valid in October *** Discount : Half-priced admission for up to 6 people ($13.25 for adults, $10.75 for children ages 3-14). Children under the age of 3 are always free at this museum. Visit the main desk at the library to pick up your discount pass. Discount passes for t"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "*** Not Valid in October *** Discount : Half-priced admission for up to 6 people ($13.25 for adults, $10.75 for children ages 3-14). Children under the age of 3 are always free at this museum. Visit the main desk at the library to pick up your discount pass. Discount passes for this museum can be picked up the day before (after 11am) or the day of your planned visit. A $5 CASH DEPOSIT is required. This deposit will be refunded if/when the discount pass is returned on time (by 11am the first business day after your museum visit). To use : Tickets must be purchased in advance on museum's website with the discount code provided on the card. Present discount card upon arrival to receive tickets. If the card is not provided, the full admission fee will be charged. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reserv"
+    },
+    "restrictions": null
+  }
+}

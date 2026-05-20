@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 18,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This coupon enables you to purchase a Heritage Pass, at the reduced rate of $18 per adult; $12 per child ages 5-17. One-time use only. Visit plimoth.org/plan-your-visit for up to date visitor information, or call Plimoth Patuxet Museums at 508-746-1622."
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 12,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This coupon enables you to purchase a Heritage Pass, at the reduced rate of $18 per adult; $12 per child ages 5-17. One-time use only. Visit plimoth.org/plan-your-visit for up to date visitor information, or call Plimoth Patuxet Museums at 508-746-1622."
+        }
+      ],
+      "summary": "$18/person",
+      "source_phrase_block": "This coupon enables you to purchase a Heritage Pass, at the reduced rate of $18 per adult; $12 per child ages 5-17. One-time use only. Visit plimoth.org/plan-your-visit for up to date visitor information, or call Plimoth Patuxet Museums at 508-746-1622."
+    },
+    "restrictions": null
+  }
+}

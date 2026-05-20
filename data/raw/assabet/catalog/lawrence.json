@@ -1,216 +1,136 @@
 {
   "library_id": "lawrence",
-  "index_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/",
+  "index_url": "https://lawrencepl.assabetinteractive.com/museum-passes/",
   "passes": [
-    {
-      "library_id": "lawrence",
-      "attraction_slug": "american-heritage-museum",
-      "title": "American Heritage Museum",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/american-heritage-museum/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
-    },
-    {
-      "library_id": "lawrence",
-      "attraction_slug": "the-aviation-museum-of-new-hampshire",
-      "title": "The Aviation Museum Of New Hampshire",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/the-aviation-museum-of-new-hampshire/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
-    },
     {
       "library_id": "lawrence",
       "attraction_slug": "boston-childrens-museum",
       "title": "Boston Childrens Museum",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/boston-childrens-museum/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
+      "detail_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/boston-childrens-museum/",
+      "benefit_text": null,
+      "pass_type_text": null,
+      "source_phrases": []
     },
     {
       "library_id": "lawrence",
-      "attraction_slug": "the-butterfly-place",
-      "title": "The Butterfly Place",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/the-butterfly-place/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "attraction_slug": "harvard-museums-of-science-and-culture",
+      "title": "Harvard Museums Of Science And Culture",
+      "detail_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/harvard-museums-of-science-and-culture/",
+      "benefit_text": "DCR MA Parks [returnable pass]\nParques DCR de Massachusetts [pase retornable]\nProvides free parking for one vehicle at a Massachusetts State Park.&nbsp;\nPermite parquear gratis un vehículo.\n*Returnable passes may be picked up one day in advance and must be returned by 10am the following day.*\n*Los boletos que son retornables deben recogerse el día antes y devolverse antes de las 10am del próximo dia.*",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
-    },
-    {
-      "library_id": "lawrence",
-      "attraction_slug": "davis-farmland",
-      "title": "Davis Farmland",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/davis-farmland/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
-    },
-    {
-      "library_id": "lawrence",
-      "attraction_slug": "the-discovery-museums",
-      "title": "The Discovery Museums",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/the-discovery-museums/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
-    },
-    {
-      "library_id": "lawrence",
-      "attraction_slug": "historic-new-england",
-      "title": "Historic New England",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/historic-new-england/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
-    },
-    {
-      "library_id": "lawrence",
-      "attraction_slug": "the-icon-museum-and-study-center",
-      "title": "The Icon Museum And Study Center",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/the-icon-museum-and-study-center/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
-    },
-    {
-      "library_id": "lawrence",
-      "attraction_slug": "isabella-stewart-gardner-museum",
-      "title": "Isabella Stewart Gardner Museum",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/isabella-stewart-gardner-museum/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
-    },
-    {
-      "library_id": "lawrence",
-      "attraction_slug": "john-f-kennedy-library-and-museum",
-      "title": "John F Kennedy Library And Museum",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/john-f-kennedy-library-and-museum/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
-    },
-    {
-      "library_id": "lawrence",
-      "attraction_slug": "mass-audubon",
-      "title": "Mass Audubon",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/mass-audubon/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "DCR MA Parks [returnable pass]",
+        "Parques DCR de Massachusetts [pase retornable]",
+        "Provides free parking for one vehicle at a Massachusetts State Park.&nbsp;",
+        "Permite parquear gratis un vehículo.",
+        "*Returnable passes may be picked up one day in advance and must be returned by 10am the following day.*",
+        "*Los boletos que son retornables deben recogerse el día antes y devolverse antes de las 10am del próximo dia.*",
+        "For more information please contact us at 978-620-3600.",
+        "Para mas información llame a 978-620-3600."
       ]
     },
     {
       "library_id": "lawrence",
       "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
       "title": "Massachusetts State Parks Department Of Conservation And Recreation",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/massachusetts-state-parks-department-of-conservation-and-recreation/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "detail_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/massachusetts-state-parks-department-of-conservation-and-recreation/",
+      "benefit_text": "Museum of Fine Arts [e-voucher]\nMuseo de Bellas Artes [electrónico]\nAdmits 2 adults at 10$ per person and up to 4 Children (7-17) at $10 each.\nAdmisión para 2 adultos a $10 por persona y 4 niños (7-17) a $10 por persona.\nPlease visit the website for hours of operation.\nVisite el sitio web para obtener información sobre los horarios.&nbsp;",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "Museum of Fine Arts [e-voucher]",
+        "Museo de Bellas Artes [electrónico]",
+        "Admits 2 adults at 10$ per person and up to 4 Children (7-17) at $10 each.",
+        "Admisión para 2 adultos a $10 por persona y 4 niños (7-17) a $10 por persona.",
+        "Please visit the website for hours of operation.",
+        "Visite el sitio web para obtener información sobre los horarios.&nbsp;"
       ]
     },
     {
       "library_id": "lawrence",
       "attraction_slug": "museum-of-fine-arts",
       "title": "Museum Of Fine Arts",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/museum-of-fine-arts/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "detail_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/museum-of-fine-arts/",
+      "benefit_text": "Museum of Science [e-voucher]\nMuseo de Ciencias [electrónico]\nAdmits 4 people at half price.&nbsp;\nAdmisión para 4 personas a medio precio.\nPlease visit the museum of science website for hours of operation.&nbsp;\nVisite el sitio web para obtener información sobre los horarios.&nbsp;",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "Museum of Science [e-voucher]",
+        "Museo de Ciencias [electrónico]",
+        "Admits 4 people at half price.&nbsp;",
+        "Admisión para 4 personas a medio precio.",
+        "Please visit the museum of science website for hours of operation.&nbsp;",
+        "Visite el sitio web para obtener información sobre los horarios.&nbsp;"
       ]
     },
     {
       "library_id": "lawrence",
       "attraction_slug": "museum-of-science",
       "title": "Museum Of Science",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/museum-of-science/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "detail_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/museum-of-science/",
+      "benefit_text": "The New England Aquarium [e-voucher]&nbsp;&nbsp;\nAcuario de Nueva Inglaterra [electrónico]\nAdmits up to 4 people at half price. Available all year. Please check the website for price of general admission.\nAdmisión para 4 personas a medio precio. Disponible el año completo. Por favor vaya a la página web y verifique el precio general de admisión.&nbsp;\nPlease visit the website for hours of operation.\nVisite el sitio web para obtener información sobre los horarios.&nbsp;",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "The New England Aquarium [e-voucher]&nbsp;&nbsp;",
+        "Acuario de Nueva Inglaterra [electrónico]",
+        "Admits up to 4 people at half price. Available all year. Please check the website for price of general admission.",
+        "Admisión para 4 personas a medio precio. Disponible el año completo. Por favor vaya a la página web y verifique el precio general de admisión.&nbsp;",
+        "Please visit the website for hours of operation.",
+        "Visite el sitio web para obtener información sobre los horarios.&nbsp;"
       ]
     },
     {
       "library_id": "lawrence",
-      "attraction_slug": "new-england-botanic-garden-at-tower-hill",
-      "title": "New England Botanic Garden At Tower Hill",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/new-england-botanic-garden-at-tower-hill/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "attraction_slug": "new-england-aquarium",
+      "title": "New England Aquarium",
+      "detail_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/",
+      "benefit_text": "USS Constitution Museum[e-voucher]\nMuseo del USS Constitution [electrónico]\nAdmits 5 people for free.&nbsp;\nAdmisión para 5 personas gratis.\nThe Museum is open daily. Please visit the website for more information on hours of operation.\nEl Museo abre todos los días. Visite el sitio web para obtener más información sobre los horarios.",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
-    },
-    {
-      "library_id": "lawrence",
-      "attraction_slug": "new-england-quilt-museum",
-      "title": "New England Quilt Museum",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/new-england-quilt-museum/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
-    },
-    {
-      "library_id": "lawrence",
-      "attraction_slug": "peabody-essex-museum",
-      "title": "Peabody Essex Museum",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/peabody-essex-museum/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
-    },
-    {
-      "library_id": "lawrence",
-      "attraction_slug": "salem-witch-museum",
-      "title": "Salem Witch Museum",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/salem-witch-museum/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
-    },
-    {
-      "library_id": "lawrence",
-      "attraction_slug": "seacoast-science-center",
-      "title": "Seacoast Science Center",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/seacoast-science-center/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "USS Constitution Museum[e-voucher]",
+        "Museo del USS Constitution [electrónico]",
+        "Admits 5 people for free.&nbsp;",
+        "Admisión para 5 personas gratis.",
+        "The Museum is open daily. Please visit the website for more information on hours of operation.",
+        "El Museo abre todos los días. Visite el sitio web para obtener más información sobre los horarios."
       ]
     },
     {
       "library_id": "lawrence",
       "attraction_slug": "the-uss-constitution-museum",
       "title": "The Uss Constitution Museum",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/the-uss-constitution-museum/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "detail_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/the-uss-constitution-museum/",
+      "benefit_text": "Wheelock Family Theatre\nTeatro Familia Wheelock\nFriday night performances : buy one get one free. No pass required: call to reserve.\nPresentaciones de los viernes en la noche: compra uno, lleva uno gratis. No se requiere un boleto: llame para reservar.",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "Wheelock Family Theatre",
+        "Teatro Familia Wheelock",
+        "Friday night performances : buy one get one free. No pass required: call to reserve.",
+        "Presentaciones de los viernes en la noche: compra uno, lleva uno gratis. No se requiere un boleto: llame para reservar."
+      ]
+    },
+    {
+      "library_id": "lawrence",
+      "attraction_slug": "wheelock-family-theatre",
+      "title": "Wheelock Family Theatre",
+      "detail_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/wheelock-family-theatre/",
+      "benefit_text": "Stone or Franklin Park Zoo [coupon]\nZoológicos Stone o Franklin Park Zoo [cupón]\nAdmits 6 people at $9 per adult and $6 per child.\nAdmisión para 6 personas a $9 por adulto y $6 por niño.\nThe Museum is open daily. Please visit the website for more information on hours of operation.&nbsp;\nEl Museo abre todos los días. Visite el sitio web para obtener más información sobre los horarios.",
+      "pass_type_text": null,
+      "source_phrases": [
+        "Stone or Franklin Park Zoo [coupon]",
+        "Zoológicos Stone o Franklin Park Zoo [cupón]",
+        "Admits 6 people at $9 per adult and $6 per child.",
+        "Admisión para 6 personas a $9 por adulto y $6 por niño.",
+        "The Museum is open daily. Please visit the website for more information on hours of operation.&nbsp;",
+        "El Museo abre todos los días. Visite el sitio web para obtener más información sobre los horarios."
       ]
     },
     {
       "library_id": "lawrence",
       "attraction_slug": "zoo-new-england",
       "title": "Zoo New England",
-      "detail_url": "https://lawrencelibrary.assabetinteractive.com/museum-passes/by-museum/zoo-new-england/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
+      "detail_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/zoo-new-england/",
+      "benefit_text": null,
+      "pass_type_text": null,
+      "source_phrases": []
     }
   ]
 }

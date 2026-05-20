@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Print from home pass. A library pass will not be accepted for admission to the Museum. Bring the code or printed pass to use onsite to reserve same-day tickets. Each pass admits 2 adults for $10 each (general admission and special exhibition) and up to 4 children ages 7 – 17 for "
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "Print from home pass. A library pass will not be accepted for admission to the Museum. Bring the code or printed pass to use onsite to reserve same-day tickets. Each pass admits 2 adults for $10 each (general admission and special exhibition) and up to 4 children ages 7 – 17 for $10 each (special exhibition only). There is no discount for general admission for children ages 7-17 (cost is $10/ticket). Children age 6 and under are free."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 14,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Pass admits 6 people at $14.00 for adults and $11.75 for children. You must bring the orange pass to the museum to receive the discounted price. Anyone arriving without the orange pass will need to pay full rate on arrival to the museum. Library passes are not accepted in the mon"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 11.75,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Pass admits 6 people at $14.00 for adults and $11.75 for children. You must bring the orange pass to the museum to receive the discounted price. Anyone arriving without the orange pass will need to pay full rate on arrival to the museum. Library passes are not accepted in the mon"
+        }
+      ],
+      "summary": "$14/person",
+      "source_phrase_block": "Pass admits 6 people at $14.00 for adults and $11.75 for children. You must bring the orange pass to the museum to receive the discounted price. Anyone arriving without the orange pass will need to pay full rate on arrival to the museum. Library passes are not accepted in the month of October."
+    },
+    "restrictions": null
+  }
+}

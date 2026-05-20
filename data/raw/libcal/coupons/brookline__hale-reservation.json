@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Free parking"
+        }
+      ],
+      "summary": "FREE parking",
+      "source_phrase_block": "80 Carby Street, Westwood, MA, 02090\n                                                            \n    Map\n(781) 326-1770\nHale Reservation&#39;s ponds, trails, plants, animals, birds, fish, and insects spark curiosity. Lifelong learners enjoy limitless opportunities for growth and discovery here, whether they&rsquo;re overcoming a fear of heights on the challenge course or spying a family of deer along a trail.\nPass benefits: Free parking for one vehicle at Hale Reservation.&nbsp; Includes trail map.&nbsp; Does not include admission to South Beach.&nbsp;Visit the Hale Reservation&#39;s website.\nThis pass must be reserved through the library&#39;s online catalog. The pass must be picked up and returned to the library&#39;s Brookline Village location.&nbsp;\nNo passes are available at this time."
+    },
+    "restrictions": null
+  }
+}

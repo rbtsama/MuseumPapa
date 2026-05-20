@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "no charge"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass will admit up to 2 adults &amp; 2 children at no charge.\nThis is a disposable pass.\nPlease note that your email reservation confirmation is NOT a substitute for the physical pass. You must have a physical pass to gain entry. Printed email confirmation vouchers will not be honored at any museum location. This pass is available to book at the Central and Jamaica Plain library branches. Please pick up your physical pass at the branch where you booked it.\nNote: This pass is limited to one booking per month per person.\nPhysical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.\nTo use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+    },
+    "restrictions": null
+  }
+}

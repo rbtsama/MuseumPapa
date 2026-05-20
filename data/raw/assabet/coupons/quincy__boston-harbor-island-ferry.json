@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Single coupon provides FREE admission for up to four visitors. Does not provide access to Harvard Art Museums. This is a non-returnable coupon pass that must be picked up at the Main Library Circulation Desk after it is reserved."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Single coupon provides FREE admission for up to four visitors. Does not provide access to Harvard Art Museums. This is a non-returnable coupon pass that must be picked up at the Main Library Circulation Desk after it is reserved."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 15,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "All visitors are encouraged to reserve a timed-entry ticket in advance. To purchase your timed tickets go to https://www.mfa.org/tickets and use the promo-code printed on the pass. A Library pass will not be accepted for admission to the museum. Use the promo code shown below the"
+        }
+      ],
+      "summary": "$15/person",
+      "source_phrase_block": "All visitors are encouraged to reserve a timed-entry ticket in advance. To purchase your timed tickets go to https://www.mfa.org/tickets and use the promo-code printed on the pass. A Library pass will not be accepted for admission to the museum. Use the promo code shown below the barcode above to reserve discounted admission tickets. This pass admits up to two adults with $15 admission per person and four youths (ages 7–17) with $10 admission per person. Tickets to the MFA are always free for visitors under seven years old. You save by using this pass! Admission without this pass is: Adults: $30"
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

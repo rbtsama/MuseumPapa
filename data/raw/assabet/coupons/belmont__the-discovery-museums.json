@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 5,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Gore Place is pleased to announce the combined Mansion Tour, Take-a-Walk, and Story Time Library Pass for 2024-2025. Each pass permits two adults and two accompanied children to tour the 1806 Gore Mansion at the reduced rate of $5 per adult and free for the accompanied children--"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 11,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Gore Place is pleased to announce the combined Mansion Tour, Take-a-Walk, and Story Time Library Pass for 2024-2025. Each pass permits two adults and two accompanied children to tour the 1806 Gore Mansion at the reduced rate of $5 per adult and free for the accompanied children--"
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "Gore Place is pleased to announce the combined Mansion Tour, Take-a-Walk, and Story Time Library Pass for 2024-2025. Each pass permits two adults and two accompanied children to tour the 1806 Gore Mansion at the reduced rate of $5 per adult and free for the accompanied children--regularly $16 per adult and $11 for children ages 6-16. The pass also permits passholders to rent a Take-a-Walk bag for $2--regularly $5. We have expanded the program this year to also allow passholders to bring two children to a Wednesday Story Time-first Wednesday of each month, for $5 per child-regularly $10. We are open for Mansion Tours, currently Mondays, Wednesdays, Fridays, and Saturdays. Days and times are subject to change, so it is best for visitors to consult our website at goreplace.org when planning their visit. Event and holiday closings as well as school vacation hours are all listed on our website. Please note: The Mansion Tour pass is good for daytime Mansion tours only and may not be used dur"
+    },
+    "restrictions": null
+  }
+}

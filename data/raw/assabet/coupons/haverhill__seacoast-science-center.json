@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "This pass provides free admission for up to 5 people, one pass per party. The museum is open daily 10-5. The ship is open Wednesday - Sunday 10-4. Check https://ussconstitutionmuseum.org/ for more information. The pass will be emailed to you and can be printed or shown on your de"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass provides free admission for up to 5 people, one pass per party. The museum is open daily 10-5. The ship is open Wednesday - Sunday 10-4. Check https://ussconstitutionmuseum.org/ for more information. The pass will be emailed to you and can be printed or shown on your device at time of visit. Contact 978-373-1586 x603 with any questions."
+    },
+    "restrictions": null
+  }
+}

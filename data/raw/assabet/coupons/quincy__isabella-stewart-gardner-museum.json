@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Pass entitles bearer to free parking for one vehicle (excluding buses or vans). Please visit the Massachusetts State Parks online (https://www.mass.gov/guides/visiting-massachusetts-state-parks-guide) to learn all the locations that you can use this parking pass. This is a circul"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass entitles bearer to free parking for one vehicle (excluding buses or vans). Please visit the Massachusetts State Parks online (https://www.mass.gov/guides/visiting-massachusetts-state-parks-guide) to learn all the locations that you can use this parking pass. This is a circulating pass that must be checked out and returned to the library. Instructions will be emailed to you upon reservation."
+    },
+    "restrictions": null
+  }
+}

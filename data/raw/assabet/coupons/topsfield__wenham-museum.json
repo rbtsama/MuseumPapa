@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This coupon admits a maximum of 6 people at $9 per adult and $6 per child to the two Zoo New England destinations: the Stone Zoo in Stoneham, or the Franklin Park Zoo in Boston. After the pass is reserved, it must be picked up at the Topsfield Town Library Circulation Desk during"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This coupon admits a maximum of 6 people at $9 per adult and $6 per child to the two Zoo New England destinations: the Stone Zoo in Stoneham, or the Franklin Park Zoo in Boston. After the pass is reserved, it must be picked up at the Topsfield Town Library Circulation Desk during"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "This coupon admits a maximum of 6 people at $9 per adult and $6 per child to the two Zoo New England destinations: the Stone Zoo in Stoneham, or the Franklin Park Zoo in Boston. After the pass is reserved, it must be picked up at the Topsfield Town Library Circulation Desk during our hours of operation . It is a paper coupon and does not need to be returned to the library. Please note: these passes can only be used for daytime admission. They cannot be used for Stone Zoo ZooLights or Franklin Park Zoo Boston Lights. To use the library discount, you must present the physical library ticket at the Zoo's admission booth. Reservations are not required for this discount."
+    },
+    "restrictions": null
+  }
+}

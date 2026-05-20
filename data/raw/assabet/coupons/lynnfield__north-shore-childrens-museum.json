@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 12,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Pass admits two adults at $12 per person. Children under age 16 are always admitted free. Admission to Yin Yu Tang, the Chinese House, and special ticketed exhibitions may require a separate fee. Visitors using a library pass are not entitled to any other member benefits. Please "
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "Pass admits two adults at $12 per person. Children under age 16 are always admitted free. Admission to Yin Yu Tang, the Chinese House, and special ticketed exhibitions may require a separate fee. Visitors using a library pass are not entitled to any other member benefits. Please visit the museum website for information on visiting policies. This pass uses a discount code. You will receive the discount code via email after booking this pass. Please note that for the month of October, you must then purchase tickets from the museum ahead of time. See confirmation email for instructions."
+    },
+    "restrictions": null
+  }
+}

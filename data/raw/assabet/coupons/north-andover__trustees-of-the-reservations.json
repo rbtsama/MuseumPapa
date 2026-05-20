@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "Admits up to 5 people for free to the USS Constitution Museum. The USS Constitution Museum and the Ship are operated separately and do not share the same hours of operation. Security procedures are required to visit the Ship, but not the Museum. The Ship's hours and security info"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Admits up to 5 people for free to the USS Constitution Museum. The USS Constitution Museum and the Ship are operated separately and do not share the same hours of operation. Security procedures are required to visit the Ship, but not the Museum. The Ship's hours and security information are subject to change at any time. Visit USS Constitution’s website for more information on visiting the Ship. Before visiting the USS Constitution Museum, please review their reopening policies here."
+    },
+    "restrictions": null
+  }
+}

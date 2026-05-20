@@ -1,0 +1,43 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10.0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "$10 per person"
+        },
+        {
+          "audience": "children",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": {
+            "min": 0,
+            "max": 17
+          },
+          "source_phrase": "Children 17 and under are free"
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "100 Northern Avenue, Boston, MA, 02210\n                                                            \n    Map\n617-478-3100\nE-ticket. Each pass admits two people with a $10 per person charge at the Museum. Children 17 and under are free. Two passes may be reserved for each visit.&nbsp;Admission is free for all on Thursdays from 5 to 9 and for families (up to 2 adults accompanied by children under 12) on the last Saturday of the month.\nThe ICA is no longer requiring timed entry for admission to the museum, however advance reservations are strongly recommended.\nAnnual membership of $185.00 provided by the Friends of Thayer Public Library.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

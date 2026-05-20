@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "admits 1 person for free"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "100 Cambridgeside Pl, Cambridge, MA, 02141\n                                                            \n    Map\n617-621-3001\nSEASONAL PASS - Each pass admits 1 person for free. You must pick up your pass at the Main Library.\n2026 Season&nbsp;\nCruises daily May 22-September 7\nMon-Thurs at 12pm, 1:30pm and 3pm\nFri-Sun at 12pm, 1:30pm, 3pm, and 4:30pm\nCruises September 9-27"
+    },
+    "restrictions": null
+  }
+}

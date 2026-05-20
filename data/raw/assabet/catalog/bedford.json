@@ -7,9 +7,18 @@
       "attraction_slug": "boston-childrens-museum",
       "title": "Boston Childrens Museum",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/boston-childrens-museum/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "benefit_text": "The pass provides 50% off up to 4 ferry tickets from Boston to Spectacle Island and Georges Island or from Hingham to Peddocks Island.\nThis is a SEASONAL pass available mid-May through early October.\nSpring Schedule *May 15 - June 14: Thursdays through Sundays - Georges Island\nSummer Schedule *June 16 - September 1: Daily - Georges Island\n*June 15 - September 7: Daily (Except Tuesdays) - Peddocks Island from Hingham\n*July 15 - September 1: Daily Spectacle Island",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "The pass provides 50% off up to 4 ferry tickets from Boston to Spectacle Island and Georges Island or from Hingham to Peddocks Island.",
+        "This is a SEASONAL pass available mid-May through early October.",
+        "Spring Schedule *May 15 - June 14: Thursdays through Sundays - Georges Island",
+        "Summer Schedule *June 16 - September 1: Daily - Georges Island",
+        "*June 15 - September 7: Daily (Except Tuesdays) - Peddocks Island from Hingham",
+        "*July 15 - September 1: Daily Spectacle Island",
+        "Fall Schedule Spectacle Island *September 4 - 21: Thursdays through Sundays *September 26 - October 13: Fridays through Sundays",
+        "Peddocks Island *September 10 - October 12: Thursdays through Sundays",
+        "The most up-to-date information can be found at:&nbsp; Ferry Ticket Information"
       ]
     },
     {
@@ -17,9 +26,11 @@
       "attraction_slug": "boston-harbor-island-ferry",
       "title": "Boston Harbor Island Ferry",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/boston-harbor-island-ferry/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "benefit_text": "This pass is a laminated pass that is checked out and must be returned. &nbsp; Once reserved, you may pick up the pass either the day of use or the day before if the library is open.&nbsp; Check with the museum for any additional information about your visit including safety guidelines and timed ticketing requirements.&nbsp; Each pass admits up to 4 people at $5 off per person from the regular admission price.\nCannot be combined with other discounts. Not valid for member pricing.",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "This pass is a laminated pass that is checked out and must be returned. &nbsp; Once reserved, you may pick up the pass either the day of use or the day before if the library is open.&nbsp; Check with the museum for any additional information about your visit including safety guidelines and timed ticketing requirements.&nbsp; Each pass admits up to 4 people at $5 off per person from the regular admission price.",
+        "Cannot be combined with other discounts. Not valid for member pricing."
       ]
     },
     {
@@ -27,9 +38,13 @@
       "attraction_slug": "concord-museum",
       "title": "Concord Museum",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/concord-museum/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "benefit_text": "This discount pass allows a ONE TIME USE admitting 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price.&nbsp;\nYour confirmation e-mail will allow you to print the pass or show it on your phone.\nDiscount is only valid for the date printed on the Library Pass.\nPresent the Library Discount Pass to Admissions staff when checking in and the discount will be applied to the cost of your visit.",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "This discount pass allows a ONE TIME USE admitting 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price.&nbsp;",
+        "Your confirmation e-mail will allow you to print the pass or show it on your phone.",
+        "Discount is only valid for the date printed on the Library Pass.",
+        "Present the Library Discount Pass to Admissions staff when checking in and the discount will be applied to the cost of your visit."
       ]
     },
     {
@@ -37,19 +52,22 @@
       "attraction_slug": "the-discovery-museums",
       "title": "The Discovery Museums",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/the-discovery-museums/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
+      "benefit_text": null,
+      "pass_type_text": null,
+      "source_phrases": []
     },
     {
       "library_id": "bedford",
       "attraction_slug": "isabella-stewart-gardner-museum",
       "title": "Isabella Stewart Gardner Museum",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/isabella-stewart-gardner-museum/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "benefit_text": "This single-use Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary.&nbsp; A discounted admission fee of&nbsp; $2&nbsp; per person will be charged for anyone over the age of 2.&nbsp;\nYour confirmation e-mail will allow you to print out your pass or present it on your mobile device. Pass must be presented to Mass Audubon staff and is only valid for the date printed on your pass.\nPlease visit https://www.massaudubon.org/get-outdoors &nbsp;&nbsp;for the latest information on sanctuary hours and closure dates due to special fundraising events or inclement weather.&nbsp;\nMass Audubon does not guarantee access on any specific date/time if tickets are not available.",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "This single-use Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary.&nbsp; A discounted admission fee of&nbsp; $2&nbsp; per person will be charged for anyone over the age of 2.&nbsp;",
+        "Your confirmation e-mail will allow you to print out your pass or present it on your mobile device. Pass must be presented to Mass Audubon staff and is only valid for the date printed on your pass.",
+        "Please visit https://www.massaudubon.org/get-outdoors &nbsp;&nbsp;for the latest information on sanctuary hours and closure dates due to special fundraising events or inclement weather.&nbsp;",
+        "Mass Audubon does not guarantee access on any specific date/time if tickets are not available."
       ]
     },
     {
@@ -57,9 +75,12 @@
       "attraction_slug": "mass-audubon",
       "title": "Mass Audubon",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/mass-audubon/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "benefit_text": "DCR Parks pass allows one car unlimited day-use parking access to state park facilities that charge a parking fee. (Not valid for parking at Quabbin Reservoir, Sqantum Point, North Point, Draw Seven Commuter Lots or for camping.)\nYou will need to pick up your pass at the Circulation Desk in the main lobby of the Library.&nbsp;&nbsp;\nWe encourage you to visit www.mass.gov/orgs/department-of-conservation-recreation for a full listing of DCR locations and hours of operation before making your travel plans.",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "DCR Parks pass allows one car unlimited day-use parking access to state park facilities that charge a parking fee. (Not valid for parking at Quabbin Reservoir, Sqantum Point, North Point, Draw Seven Commuter Lots or for camping.)",
+        "You will need to pick up your pass at the Circulation Desk in the main lobby of the Library.&nbsp;&nbsp;",
+        "We encourage you to visit www.mass.gov/orgs/department-of-conservation-recreation for a full listing of DCR locations and hours of operation before making your travel plans."
       ]
     },
     {
@@ -67,9 +88,15 @@
       "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
       "title": "Massachusetts State Parks Department Of Conservation And Recreation",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/massachusetts-state-parks-department-of-conservation-and-recreation/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "benefit_text": "ADMISSION INCREASE:&nbsp; Starting January 20, 2026 the adult admission price for MFA with a library discount will increase from $10 each to $15 each (youth prices will remain at $10 each)\nThe Library Discount Pass admits 2 adults for $10 each (this includes general admission and special exhibitions). In addition, the pass admits up to 4 children ages 7-17 into special exhibitions for $10 each (general admission for 7-17 is regularly $10).&nbsp;&nbsp;\nPLEASE NOTE: If your plans are to visit the museum for a special exhibit, order the special exhibit ticket.&nbsp; The cost is $10 each and will include general admission to the museum.\nChildren 6 and under are admitted free.\nOnce reserved, you will receive an e-mail that contains a discount code. You can print the library pass with discount code or display it on your mobile device for use at the museum or you can use the discount code to make advance reservations on the museums website.\nPromo Code may not be combined with any other offers. Pass is not applicable towards discounts on shopping, parking, dining, films, concerts, lectures, courses or any other public programs.",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "ADMISSION INCREASE:&nbsp; Starting January 20, 2026 the adult admission price for MFA with a library discount will increase from $10 each to $15 each (youth prices will remain at $10 each)",
+        "The Library Discount Pass admits 2 adults for $10 each (this includes general admission and special exhibitions). In addition, the pass admits up to 4 children ages 7-17 into special exhibitions for $10 each (general admission for 7-17 is regularly $10).&nbsp;&nbsp;",
+        "PLEASE NOTE: If your plans are to visit the museum for a special exhibit, order the special exhibit ticket.&nbsp; The cost is $10 each and will include general admission to the museum.",
+        "Children 6 and under are admitted free.",
+        "Once reserved, you will receive an e-mail that contains a discount code. You can print the library pass with discount code or display it on your mobile device for use at the museum or you can use the discount code to make advance reservations on the museums website.",
+        "Promo Code may not be combined with any other offers. Pass is not applicable towards discounts on shopping, parking, dining, films, concerts, lectures, courses or any other public programs."
       ]
     },
     {
@@ -77,9 +104,11 @@
       "attraction_slug": "museum-of-fine-arts",
       "title": "Museum Of Fine Arts",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/museum-of-fine-arts/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "benefit_text": "This pass admits up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are always admitted for free.\n1. Your Library pass can only be used on the date printed on the pass. 2. Please bring your library pass confirmation (printed or displayed on a phone). 3. When you arrive at the Museum, stop at the Box Office to exchange your library pass and purchase Exhibit Hall tickets at the discounted rate.&nbsp; If you have any questions or would like to reserve your Exhibit Hall passes in advance, please call 617-723-2500 (9:00 a.m. - 5:00 p.m. daily).",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "This pass admits up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under 3 are always admitted for free.",
+        "1. Your Library pass can only be used on the date printed on the pass. 2. Please bring your library pass confirmation (printed or displayed on a phone). 3. When you arrive at the Museum, stop at the Box Office to exchange your library pass and purchase Exhibit Hall tickets at the discounted rate.&nbsp; If you have any questions or would like to reserve your Exhibit Hall passes in advance, please call 617-723-2500 (9:00 a.m. - 5:00 p.m. daily)."
       ]
     },
     {
@@ -87,19 +116,21 @@
       "attraction_slug": "museum-of-science",
       "title": "Museum Of Science",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/museum-of-science/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
+      "benefit_text": null,
+      "pass_type_text": null,
+      "source_phrases": []
     },
     {
       "library_id": "bedford",
       "attraction_slug": "new-england-aquarium",
       "title": "New England Aquarium",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "benefit_text": "The Library Pass to New England Botanic Garden at Tower Hill allows a 50% admission discount for two people.&nbsp; Advance reservations are no longer required but are still available for those who would like to purchase tickets in advance.&nbsp;&nbsp;\nOnce you reserve the New England Botanic Garden at Tower Hill pass you will receive an email that includes instructions to get the 50% discount. This pass requires you to pick up the discount pass from the library the day before your visit.&nbsp; This laminated membership pass needs to be returned to the library after your visit.\nFirst-time visitors can review admission information at:&nbsp; nebg.org/planyourvisit",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "The Library Pass to New England Botanic Garden at Tower Hill allows a 50% admission discount for two people.&nbsp; Advance reservations are no longer required but are still available for those who would like to purchase tickets in advance.&nbsp;&nbsp;",
+        "Once you reserve the New England Botanic Garden at Tower Hill pass you will receive an email that includes instructions to get the 50% discount. This pass requires you to pick up the discount pass from the library the day before your visit.&nbsp; This laminated membership pass needs to be returned to the library after your visit.",
+        "First-time visitors can review admission information at:&nbsp; nebg.org/planyourvisit"
       ]
     },
     {
@@ -107,9 +138,12 @@
       "attraction_slug": "new-england-botanic-garden-at-tower-hill",
       "title": "New England Botanic Garden At Tower Hill",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/new-england-botanic-garden-at-tower-hill/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "benefit_text": "The discount pass admits 2 adults at a reduced admission rate of $12.00 per person any day the museum is open.&nbsp; Children under 16 are always free.&nbsp; With the discount pass patrons may reserve discounted tickets at my.pem.org/events or by calling the PEM reservation line at 978-542-1511.&nbsp;&nbsp;\nAdmission to Yin Yu Tang the Chinese House and special ticketed exhibitions may require a separate fee.&nbsp; Please make sure to review health and safety requirements before your visit.\n&nbsp;",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "The discount pass admits 2 adults at a reduced admission rate of $12.00 per person any day the museum is open.&nbsp; Children under 16 are always free.&nbsp; With the discount pass patrons may reserve discounted tickets at my.pem.org/events or by calling the PEM reservation line at 978-542-1511.&nbsp;&nbsp;",
+        "Admission to Yin Yu Tang the Chinese House and special ticketed exhibitions may require a separate fee.&nbsp; Please make sure to review health and safety requirements before your visit.",
+        "&nbsp;"
       ]
     },
     {
@@ -117,19 +151,22 @@
       "attraction_slug": "peabody-essex-museum",
       "title": "Peabody Essex Museum",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/peabody-essex-museum/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
+      "benefit_text": null,
+      "pass_type_text": null,
+      "source_phrases": []
     },
     {
       "library_id": "bedford",
       "attraction_slug": "the-trustees-of-the-reservations",
       "title": "The Trustees Of The Reservations",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/the-trustees-of-the-reservations/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
+      "benefit_text": "Pass admits up to 6 people at a reduced admission of $9 per adult and $6 per child aged 2-12 yrs. Pass can be used at either the Franklin Park Zoo in Boston or the Stone Zoo in Stoneham.&nbsp;\nPick up discount pass at the library either the day before or the day of your visit.&nbsp;\nBring this pass to the Zoo ticket desk to receive admission discount (passes are not valid for Stone Zoo Zoolights or Franklin Park Zoo Boston Lights).&nbsp; For additional details on Zoo New England's policies and hours of operation please visit there website at zoonewengland.org .\nPlease note: Zoo New England no longer accepts printable passes from confirmation email.",
+      "pass_type_text": null,
       "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
+        "Pass admits up to 6 people at a reduced admission of $9 per adult and $6 per child aged 2-12 yrs. Pass can be used at either the Franklin Park Zoo in Boston or the Stone Zoo in Stoneham.&nbsp;",
+        "Pick up discount pass at the library either the day before or the day of your visit.&nbsp;",
+        "Bring this pass to the Zoo ticket desk to receive admission discount (passes are not valid for Stone Zoo Zoolights or Franklin Park Zoo Boston Lights).&nbsp; For additional details on Zoo New England's policies and hours of operation please visit there website at zoonewengland.org .",
+        "Please note: Zoo New England no longer accepts printable passes from confirmation email."
       ]
     },
     {
@@ -137,10 +174,9 @@
       "attraction_slug": "zoo-new-england",
       "title": "Zoo New England",
       "detail_url": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/zoo-new-england/",
-      "benefit_text": "To choose a date for your reservation, please click on the number of the desired day.",
-      "source_phrases": [
-        "To choose a date for your reservation, please click on the number of the desired day."
-      ]
+      "benefit_text": null,
+      "pass_type_text": null,
+      "source_phrases": []
     }
   ]
 }

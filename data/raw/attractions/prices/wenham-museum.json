@@ -1,6 +1,19 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 15.0,
+        "age_range": null,
+        "source_phrase": "ton Discovery Guide | Yelp | Trip Advisor Rates 2025 Individual Admission Rates $15.00 &#8211; Adults $10.00 &#8211; Seniors (ages 65+) $10.00 &#8211; Children ages 2"
+      },
+      {
+        "audience": "adult",
+        "price": 10.0,
+        "age_range": null,
+        "source_phrase": "Yelp | Trip Advisor Rates 2025 Individual Admission Rates $15.00 &#8211; Adults $10.00 &#8211; Seniors (ages 65+) $10.00 &#8211; Children ages 2 &#8211; 18; babies ag"
+      }
+    ]
   }
 }

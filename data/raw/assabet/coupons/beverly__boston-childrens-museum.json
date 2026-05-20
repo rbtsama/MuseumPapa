@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Admits up to 4 people at $5 per person. Ages 17 and under are free. Online reservations are required."
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "Admits up to 4 people at $5 per person. Ages 17 and under are free. Online reservations are required."
+    },
+    "restrictions": null
+  }
+}

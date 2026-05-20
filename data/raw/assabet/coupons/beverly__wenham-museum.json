@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Available only at the main library. Admits up to 6 people at $9 per adult. Ages 2-12 at $6 per child. Ages 1 year and under are free. Valid during regular daytime hours. Pass must be picked up at the library and presented at the zoo."
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Available only at the main library. Admits up to 6 people at $9 per adult. Ages 2-12 at $6 per child. Ages 1 year and under are free. Valid during regular daytime hours. Pass must be picked up at the library and presented at the zoo."
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "Available only at the main library. Admits up to 6 people at $9 per adult. Ages 2-12 at $6 per child. Ages 1 year and under are free. Valid during regular daytime hours. Pass must be picked up at the library and presented at the zoo."
+    },
+    "restrictions": null
+  }
+}

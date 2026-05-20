@@ -1,0 +1,28 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 3
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 20,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "The pass admits up to three adults and 3 children for the discounted rates of $20 per adult, $17 per senior, and $15 per youth. The hall is open daily from 10 am to 4 pm. But be sure to check their list of early closings before you reserve this pass."
+        }
+      ],
+      "summary": "$20/person",
+      "source_phrase_block": "The pass admits up to three adults and 3 children for the discounted rates of $20 per adult, $17 per senior, and $15 per youth. The hall is open daily from 10 am to 4 pm. But be sure to check their list of early closings before you reserve this pass."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "Discount: Half-priced admission for up to 5 people. Children under the age of 1 year are always free at this museum. A digital coupon will be sent to the provided email address or visit the main desk at the library to pick up this discount coupon. This coupon must be used on the "
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "Discount: Half-priced admission for up to 5 people. Children under the age of 1 year are always free at this museum. A digital coupon will be sent to the provided email address or visit the main desk at the library to pick up this discount coupon. This coupon must be used on the date printed on the coupon. Discount coupons can be picked from the library up to 1 week in advance. To use: Present the discount pass (digital or physical) at the North Shore Children's Museum front desk when purchasing your tickets ATTENTION: Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation. If another member of your household will be checking out your discount pass, you must contact the library in advance. Please wait until you are ready to book your tickets before selecting the \"Access Pass\" icon in your confirmation email. Discount pa"
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This is a SET OF 2 laminated passes, each pass offers discount to ONE person: Each pass will admit 1 adult at a 50% discount. This pass will admit children (ages 5-17) for $1.00 admission each. No discounts on classes, tours, or retail items. Pick up the pass from the library and"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 1,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This is a SET OF 2 laminated passes, each pass offers discount to ONE person: Each pass will admit 1 adult at a 50% discount. This pass will admit children (ages 5-17) for $1.00 admission each. No discounts on classes, tours, or retail items. Pick up the pass from the library and"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "This is a SET OF 2 laminated passes, each pass offers discount to ONE person: Each pass will admit 1 adult at a 50% discount. This pass will admit children (ages 5-17) for $1.00 admission each. No discounts on classes, tours, or retail items. Pick up the pass from the library and bring it with you when you visit. The Garden is open from April 19, 2026 to October 15, 2026. Check website ( http://www.nativeplanttrust.org/visit/garden-woods/ ) for exact dates &amp; hours."
+    },
+    "restrictions": null
+  }
+}

@@ -2,16 +2,15 @@
   "status": "ok",
   "extracted": {
     "hours": {
-      "monday": "unknown",
-      "tuesday": "unknown",
-      "wednesday": "unknown",
-      "thursday": "unknown",
-      "friday": "unknown",
-      "saturday": "unknown",
-      "sunday": "unknown"
+      "monday": "closed",
+      "tuesday": "09:00-16:30",
+      "wednesday": "09:00-16:30",
+      "thursday": "09:00-16:30",
+      "friday": "09:00-16:30",
+      "saturday": "09:00-16:30",
+      "sunday": "09:00-16:30"
     },
     "seasonal": null,
-    "source_phrase": "Today’s Hours 9:00am to 4:30pm",
-    "note": "Landing page only shows today's hours; full weekly schedule not published on this page."
+    "source_phrase": "Monday : Closed"
   }
 }

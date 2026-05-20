@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "half price"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "1 Science Park, Boston, MA, 02114\n                                                            \n    Map\n617-723-2500\nAs science and technology increasingly shape our lives, the Museum of Science strives to equip and inspire everyone to use science for the global good. Among the world&rsquo;s largest science centers and New England&rsquo;s most attended cultural institution, we engage nearly five million people a year &ndash; at Science Park and in museums around the world, in classrooms, and online.\nThe Museum&rsquo;s singular location connecting Boston and Cambridge puts us at the junction of some of the world&rsquo;s most influential academic institutions and industries, local and state government, schools, and the public. Trusted by each sector, we are ideally positioned to convene, inspire, and create meaningful experiences for all.\nPass benefits: Admits up to 4 at half price. Children ages 2 and under receive free admission. Does not include Omni Theater, Planetarium, Butterfly Garden, 4D Theater.&nbsp;Visit the Museum of Science&#39;s website.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

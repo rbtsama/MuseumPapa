@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "Admission to the USS Constitution Museum is on a first-come, first served basis. USS Constitution ship has limited hours. Please check website for open days. Each pass admits up to 5 people for free. For Museum questions, visit their website (ussconstitutionmuseum.org/visit) or c"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Admission to the USS Constitution Museum is on a first-come, first served basis. USS Constitution ship has limited hours. Please check website for open days. Each pass admits up to 5 people for free. For Museum questions, visit their website (ussconstitutionmuseum.org/visit) or call 617-426-1812"
+    },
+    "restrictions": null
+  }
+}

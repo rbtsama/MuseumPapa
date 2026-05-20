@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "ticket",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Coupon code good for one boat rental"
+        }
+      ],
+      "summary": "discount",
+      "source_phrase_block": "Coupon code good for one boat rental per order.\nThe American City Coalition (TACC) is a 501(c)(3) organization based in Roxbury&rsquo;s Nubian Square. We tackle community-identified barriers through economic and workforce development, research, and policy strategies that expand pathways to meaningful opportunities in communities of color. Boston is a coastal city with 47 miles of shoreline; Boston Harbor is the city&#39;s largest public open space. Through our Waterways: Connecting Residents of Roxbury and Dorchester to Boston&#39;s Waterfront program, TACC is implementing strategies that reduce community-identified barriers to accessing the waterfront and increase the number of Roxbury and Dorchester residents benefitting from living in a coastal city. Reach out to us at&nbsp;waterways@tamcc.org&nbsp;or 857.308.3012 to learn more and get involved.\nNo passes are available at this time.\nTo use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+    },
+    "restrictions": null
+  }
+}

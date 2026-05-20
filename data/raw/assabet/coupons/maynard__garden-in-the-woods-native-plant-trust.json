@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "One free coupon pass available per day. Each pass is good for two adults and anyone under the age of 18 living in the same household. Please check Historic New England website at www.historicnewengland.org for open days and hours. Please note that Historic New England encourages "
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "One free coupon pass available per day. Each pass is good for two adults and anyone under the age of 18 living in the same household. Please check Historic New England website at www.historicnewengland.org for open days and hours. Please note that Historic New England encourages pre-booking for all tours and requires that the physical coupon pass be shown when you arrive for your tour."
+    },
+    "restrictions": null
+  }
+}

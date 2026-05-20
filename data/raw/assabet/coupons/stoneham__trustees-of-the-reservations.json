@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This pass admits up to 6 people for a discounted rate of $9.00 for adults and $6.00 for children . This is a physical pass that must be picked up at the library and can be discarded after use . This pass is not limited by date or time , but can only be used once . This pass offer"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass admits up to 6 people for a discounted rate of $9.00 for adults and $6.00 for children . This is a physical pass that must be picked up at the library and can be discarded after use . This pass is not limited by date or time , but can only be used once . This pass offer"
+        }
+      ],
+      "summary": "$9/person",
+      "source_phrase_block": "This pass admits up to 6 people for a discounted rate of $9.00 for adults and $6.00 for children . This is a physical pass that must be picked up at the library and can be discarded after use . This pass is not limited by date or time , but can only be used once . This pass offers admission to either the Stone Zoo or the Franklin Park Zoo ."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "This is an e-voucher . Pass is e-mailed to the patron. This pass admits 5 people for free. You can either present a printed Library pass or display it from your phone or other device at the Museum. Valid only for the date listed on the pass. Limit one pass per party. Please note "
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This is an e-voucher . Pass is e-mailed to the patron. This pass admits 5 people for free. You can either present a printed Library pass or display it from your phone or other device at the Museum. Valid only for the date listed on the pass. Limit one pass per party. Please note that the ship and museum have different hours. Museum Hours: Open Daily; Winter Hours: 10:00 AM - 5:00 PM; Summer Hours: 9:00AM - 6:00PM. The Museum closes for Thanksgiving Day, Christmas Day, and New Year's Day, and closes early on Christmas Eve."
+    },
+    "restrictions": null
+  }
+}

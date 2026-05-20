@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 6
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 13.25,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This pass allows the bearer a discounted admission rate ($13.25 for adults, $10.75 for children ages 3-14) for up to six visitors. You must purchase tickets from the museum ahead of time. See confirmation email for instructions. *This pass needs to be picked up at and returned to"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 10.75,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass allows the bearer a discounted admission rate ($13.25 for adults, $10.75 for children ages 3-14) for up to six visitors. You must purchase tickets from the museum ahead of time. See confirmation email for instructions. *This pass needs to be picked up at and returned to"
+        }
+      ],
+      "summary": "$13.25/person",
+      "source_phrase_block": "This pass allows the bearer a discounted admission rate ($13.25 for adults, $10.75 for children ages 3-14) for up to six visitors. You must purchase tickets from the museum ahead of time. See confirmation email for instructions. *This pass needs to be picked up at and returned to Reading Public Library NOT AVAILABLE IN OCTOBER"
+    },
+    "restrictions": null
+  }
+}

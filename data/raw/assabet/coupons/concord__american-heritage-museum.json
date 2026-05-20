@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "This is a Day Membership pass which allows two people to visit the Boston Athenaeum during operating hours at no cost. Pass holders are welcome to experience the Athenaeum as a member for a day, enjoy access to 12 floors of inviting spaces, with WiFi, well-lit work tables, cozy n"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This is a Day Membership pass which allows two people to visit the Boston Athenaeum during operating hours at no cost. Pass holders are welcome to experience the Athenaeum as a member for a day, enjoy access to 12 floors of inviting spaces, with WiFi, well-lit work tables, cozy nooks, and beautiful city views."
+    },
+    "restrictions": null
+  }
+}

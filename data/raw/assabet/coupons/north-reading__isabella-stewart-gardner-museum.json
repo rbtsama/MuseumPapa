@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "This pass allows free parking for one vehicle. Day Pass must be picked up at the library and returned by 10am the following morning."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This pass allows free parking for one vehicle. Day Pass must be picked up at the library and returned by 10am the following morning."
+    },
+    "restrictions": null
+  }
+}

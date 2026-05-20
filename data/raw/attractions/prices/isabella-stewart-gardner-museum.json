@@ -1,6 +1,37 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 22.0,
+        "age_range": null,
+        "source_phrase": "our inclusive Museum experiences Frequently Asked Questions Ticket Prices Adult $22 Children (17 and under) Free Senior (65 and up) $20 Student (with current ID) $"
+      },
+      {
+        "audience": "adult",
+        "price": 20.0,
+        "age_range": null,
+        "source_phrase": "estions Ticket Prices Adult $22 Children (17 and under) Free Senior (65 and up) $20 Student (with current ID) $15 Members Free Free Admission for Members and Patro"
+      },
+      {
+        "audience": "child",
+        "price": 15.0,
+        "age_range": null,
+        "source_phrase": "2 Children (17 and under) Free Senior (65 and up) $20 Student (with current ID) $15 Members Free Free Admission for Members and Patrons Enjoy free admission, invit"
+      },
+      {
+        "audience": "adult",
+        "price": 5.0,
+        "age_range": null,
+        "source_phrase": "e. Valid ID required at visit. Discounted Admission Offers Museum Pass Program: $5 Admission (up to 4 adults/pass) Museum Pass Program passholders must reserve pa"
+      },
+      {
+        "audience": "adult",
+        "price": 2.0,
+        "age_range": null,
+        "source_phrase": "Card to Culture EBT, WIC , or ConnectorCare card holders receive a discount of $2 per person, per card for up to four adults per visit. Children under 18 are alw"
+      }
+    ]
   }
 }

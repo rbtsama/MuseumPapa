@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "This pass admits two people at a discounted price. Timed tickets to Yin Yu Tang: A Chinese Home are included with museum admission. You must first reserve your library pass to receive your promotional code to purchase PEM tickets. The pass will be emailed to you when you place yo"
+        }
+      ],
+      "summary": "Discount",
+      "source_phrase_block": "This pass admits two people at a discounted price. Timed tickets to Yin Yu Tang: A Chinese Home are included with museum admission. You must first reserve your library pass to receive your promotional code to purchase PEM tickets. The pass will be emailed to you when you place your reservation ."
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

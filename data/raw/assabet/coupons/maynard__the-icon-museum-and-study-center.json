@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 10,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "Library Passes are $10 per ticket (discounted from the regular fee of $20 per ticket). One library pass will be valid for up to two admission tickets at the discounted price. Current pricing and visitor information: https://www.icaboston.org/visit Patrons under the age of 18 are "
+        }
+      ],
+      "summary": "$10/person",
+      "source_phrase_block": "Library Passes are $10 per ticket (discounted from the regular fee of $20 per ticket). One library pass will be valid for up to two admission tickets at the discounted price. Current pricing and visitor information: https://www.icaboston.org/visit Patrons under the age of 18 are free without the pass. Please visit the ICA website for schedule changes and visitor information. Also: Admission is FREE for all every Thursday from 5 to 9 PM during ICA Free Thursday Nights. Advanced tickets are recommended for free days and nights. Tickets for Free Thursday Nights become available at 10 AM the morning of directly through the ICA website."
+    },
+    "restrictions": null
+  }
+}

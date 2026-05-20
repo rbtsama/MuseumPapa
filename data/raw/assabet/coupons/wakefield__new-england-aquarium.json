@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 5
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": 5,
+          "age_range": null,
+          "source_phrase": "50% off admission for a family of up to 5 adults/children. Tickets can be purchased in advance by selecting the Library Museum Pass option on the museum website. An ePass can either be presented on a mobile device or as a print-out to receive the discounted admission rate in-pers"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "50% off admission for a family of up to 5 adults/children. Tickets can be purchased in advance by selecting the Library Museum Pass option on the museum website. An ePass can either be presented on a mobile device or as a print-out to receive the discounted admission rate in-person. If the library pass is not presented at the museum, you will be charged the difference for full price tickets. Valid only on the date listed on the pass, subject to museum capacity. Due to a high volume of visitors, it is best to reserve museum tickets online or call the museum to hold tickets, or to confirm availability the day of before visiting the North Shore Children's Museum."
+    },
+    "restrictions": null
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "NO RESERVATION IS NEEDED AND NO COUPON NEEDS TO BE PICKED UP Public library card holders will receive a 50% discount when they show their physical or digital library card Kids under 12 are free"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "NO RESERVATION IS NEEDED AND NO COUPON NEEDS TO BE PICKED UP Public library card holders will receive a 50% discount when they show their physical or digital library card Kids under 12 are free"
+    },
+    "restrictions": null
+  }
+}

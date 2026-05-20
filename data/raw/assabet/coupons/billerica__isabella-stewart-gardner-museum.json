@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "percent-off",
+          "value": 50,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "The library card acts as your pass. There is no pass to reserve. Show your physical or digital Massachusetts library card at the admissions desk of the John F. Kennedy Library to receive a 50% discount on the cardholder's admission ticket. This offer is valid for visitors aged 13"
+        }
+      ],
+      "summary": "50% off",
+      "source_phrase_block": "The library card acts as your pass. There is no pass to reserve. Show your physical or digital Massachusetts library card at the admissions desk of the John F. Kennedy Library to receive a 50% discount on the cardholder's admission ticket. This offer is valid for visitors aged 13 and over and each visitor must present their own Massachusetts library card to receive the discount. Visitors aged 12 and under receive free admission. JOHN F. KENNEDY PRESIDENTIAL LIBRARY AND MUSEUM www.jfklibrary.org | 617.514.1600 Open 10:00 am-5:00 pm, last admission at 3:30 pm"
+    },
+    "restrictions": null
+  }
+}

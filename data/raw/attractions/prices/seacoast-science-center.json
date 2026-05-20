@@ -1,6 +1,55 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 15.0,
+        "age_range": null,
+        "source_phrase": "e Park fee . Membership includes free admission to SSC and OPSP. Ages 12-Adult: $15 Seniors (65+): $12.50 Active Duty Military & Veterans (with ID): $12.50 Ages 3-"
+      },
+      {
+        "audience": "adult",
+        "price": 12.5,
+        "age_range": null,
+        "source_phrase": "ship includes free admission to SSC and OPSP. Ages 12-Adult: $15 Seniors (65+): $12.50 Active Duty Military & Veterans (with ID): $12.50 Ages 3-11: $10 Ages 0-2: FREE"
+      },
+      {
+        "audience": "senior",
+        "price": 10.0,
+        "age_range": null,
+        "source_phrase": "iors (65+): $12.50 Active Duty Military & Veterans (with ID): $12.50 Ages 3-11: $10 Ages 0-2: FREE Members: FREE admission to SSC and OPSP! Become a member now and"
+      },
+      {
+        "audience": "adult",
+        "price": 4.0,
+        "age_range": null,
+        "source_phrase": "ate Park Admission Gate closes at dusk. Park Phone: 603-436-7406 Ages 12-Adult: $4 Ages 6-11: $2 Under age 6: FREE NH Residents, 65+: FREE SSC Members: FREE Odior"
+      },
+      {
+        "audience": "adult",
+        "price": 2.0,
+        "age_range": null,
+        "source_phrase": "sion Gate closes at dusk. Park Phone: 603-436-7406 Ages 12-Adult: $4 Ages 6-11: $2 Under age 6: FREE NH Residents, 65+: FREE SSC Members: FREE Odiorne Point State"
+      },
+      {
+        "audience": "adult",
+        "price": 8.0,
+        "age_range": null,
+        "source_phrase": "are available for 8 or more participants only. Explorer Group: SSC & Park Cost: $8 per participant, $12 per adult Cost for NH schools during the school year: $6 p"
+      },
+      {
+        "audience": "adult",
+        "price": 12.0,
+        "age_range": null,
+        "source_phrase": "or more participants only. Explorer Group: SSC & Park Cost: $8 per participant, $12 per adult Cost for NH schools during the school year: $6 per student, $8 per ad"
+      },
+      {
+        "audience": "adult",
+        "price": 6.0,
+        "age_range": null,
+        "source_phrase": ": $8 per participant, $12 per adult Cost for NH schools during the school year: $6 per student, $8 per adult Explorer Group: Park Only Cost: $2 per participant, $"
+      }
+    ]
   }
 }

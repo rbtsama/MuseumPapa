@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 12.0,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "2 adults at $12 per person"
+        },
+        {
+          "audience": "children",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": {
+            "min": 0,
+            "max": 16
+          },
+          "source_phrase": "Youth ages 16 and under receive free"
+        }
+      ],
+      "summary": "$12/person",
+      "source_phrase_block": "161 Essex Street, Salem, MA, 01970\n                                                            \n    Map\n(978) 745-9500\nFor over 220 years,&nbsp;PEM&nbsp;has been dedicated to collecting, preserving, and showcasing compelling artwork throughout history and from around the world.&nbsp;The Peabody Essex Museum in Salem, Massachusetts, US, is a successor to the East India Marine Society, established in 1799. It combines the collections of the former Peabody Museum of Salem and the Essex Institute.\nPass benefits: Admits up to 2 adults at $12 per person. Youth ages 16 and under receive free admission.&nbsp; Does not include admission to the Chinese House.&nbsp;Visit the Peabody Essex Museum&#39;s website.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
+}

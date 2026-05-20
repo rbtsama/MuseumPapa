@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Pass must be returned at the Chelsea Public Library the day after use. Free parking for 1 vehicle at state park facilities that charge a parking fee."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Pass must be returned at the Chelsea Public Library the day after use. Free parking for 1 vehicle at state park facilities that charge a parking fee."
+    },
+    "restrictions": null
+  }
+}

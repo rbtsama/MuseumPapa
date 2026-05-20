@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 4
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 4,
+          "age_range": null,
+          "source_phrase": "Discount : Buy one ticket, get one ticket free for up to 4 people (cannot be used for Sunset Cruises). Children under the age of 3 are always free. A discount code will be sent to your email. If you do not have an email address, a discount code can be picked up from the library u"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Discount : Buy one ticket, get one ticket free for up to 4 people (cannot be used for Sunset Cruises). Children under the age of 3 are always free. A discount code will be sent to your email. If you do not have an email address, a discount code can be picked up from the library up to 1 week in advance. To use: Timed tickets must be purchased in advance through the museum's website or by calling the reservation line (617-227-4321), using the discount code provided. On the day of your trip, go to the Boston Harbor Cruises Ferry Center at Long Wharf in Boston or at Pemberton Point in Hull, MA. Pick up your tickets at the Will-Call window at least 15 minutes prior to your scheduled ferry departure. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out y"
+    },
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
+  }
+}

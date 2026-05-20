@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "vehicle",
+        "n": 1
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 1,
+          "age_range": null,
+          "source_phrase": "Each pass admits one vehicle for free to Massachusetts State Parks. Patrons may book up to 2 passes per day."
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Each pass admits one vehicle for free to Massachusetts State Parks. Patrons may book up to 2 passes per day."
+    },
+    "restrictions": null
+  }
+}

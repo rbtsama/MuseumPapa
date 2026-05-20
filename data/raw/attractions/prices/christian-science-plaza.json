@@ -1,6 +1,31 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 6.0,
+        "age_range": null,
+        "source_phrase": "information Plaza map All buildings are wheelchair accessible. Tickets Adults: $6.00 / Youth 0-17: Free Individual ticket Questions? Call 617-450-7224 Group tickets"
+      },
+      {
+        "audience": "adult",
+        "price": 2.0,
+        "age_range": null,
+        "source_phrase": "professional & one guest with show of business card Card to Culture (EBT & WIC) $2 Reduced price with EBT and/or WIC card (up to four adults per card) Senior (62+"
+      },
+      {
+        "audience": "adult",
+        "price": 5.0,
+        "age_range": null,
+        "source_phrase": "educed price with EBT and/or WIC card (up to four adults per card) Senior (62+) $5 Reduced price with show of ID Student $5 Reduced price with valid student ID Fi"
+      },
+      {
+        "audience": "student",
+        "price": 5.0,
+        "age_range": null,
+        "source_phrase": "with show of ID Student $5 Reduced price with valid student ID First Responder $5 Reduced price for first responder and four guests with ID See the full list of"
+      }
+    ]
   }
 }
