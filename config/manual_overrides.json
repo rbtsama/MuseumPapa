@@ -19,6 +19,10 @@
       "address": { "street": "123 Main Street", "city": "Watertown", "state": "MA", "zip": "02472" }
     }
   },
-  "attractions": {},
+  "attractions": {
+    "harvard-museum-of-natural-history": {
+      "name": "Harvard Museum of Natural History"
+    }
+  },
   "passes": {}
 }

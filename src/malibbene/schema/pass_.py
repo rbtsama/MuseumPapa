@@ -64,7 +64,7 @@ class Pass:
     library_id: str
     attraction_slug: str
     pass_form: PassForm
-    coupon: Coupon
+    coupon: Optional[Coupon] = None
     available_at_branches: Union[str, list[str]] = "all"
     eligibility_override: Optional[EligibilityOverride] = None
     restrictions: Optional[Restrictions] = None
