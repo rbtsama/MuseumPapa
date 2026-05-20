@@ -19,46 +19,51 @@ def main():
     if isinstance(seeds, dict):
         seeds = seeds["libraries"]
     raw = ROOT/"data/raw"
-    summary = {"ok":0,"failed":0,"per_lib":[]}
+    summary = {"catalog_ok":0,"catalog_fail":0,"policy_ok":0,"policy_fail":0,"branches_ok":0,"errors":[]}
+    catalog_dir = raw/"assabet"/"catalog"
     for s in seeds:
-        try:
-            _run_one(s, raw)
-            summary["ok"] += 1
-            print(f"OK {s['id']}")
-        except Exception as e:
-            summary["failed"] += 1
-            summary["per_lib"].append({"lib":s["id"],"error":str(e)})
-            print(f"FAIL {s['id']}: {e}")
-    print(summary)
+        _run_one(s, raw, summary)
+    print(summary, flush=True)
 
-def _run_one(seed: dict, raw: Path):
+def _run_one(seed: dict, raw: Path, summary: dict):
     lib_id = seed["id"]; platform = seed["platform"]
     if platform == "assabet":
         from malibbene.sources_v2.assabet import catalog, policies
-        base = seed.get("assabet_base") or seed.get("base_url") or f"https://{seed['id']}library.assabetinteractive.com"
-        catalog.scrape_library(lib_id, base, raw)
+        base = seed.get("assabet_base") or (f"https://{seed['domain']}" if seed.get("domain") else None)
+        if base:
+            _stage("catalog", lib_id, lambda: catalog.scrape_library(lib_id, base, raw), summary)
         if seed.get("card_page"):
-            policies.scrape_policies(lib_id, seed["card_page"], seed.get("pass_page"), raw)
+            _stage("policy", lib_id, lambda: policies.scrape_policies(
+                lib_id, seed["card_page"], seed.get("pass_page"), raw), summary)
     elif platform == "libcal":
         from malibbene.sources_v2.libcal import catalog, policies, branches
         libcal_base = seed.get("libcal_base") or seed.get("base_url")
-        if not libcal_base:
-            raise ValueError("libcal_base missing")
-        catalog.scrape_library(lib_id, libcal_base, raw)
+        if libcal_base:
+            _stage("catalog", lib_id, lambda: catalog.scrape_library(lib_id, libcal_base, raw), summary)
         if seed.get("card_page"):
-            policies.scrape_policies(lib_id, seed["card_page"], seed.get("pass_page"), raw)
+            _stage("policy", lib_id, lambda: policies.scrape_policies(
+                lib_id, seed["card_page"], seed.get("pass_page"), raw), summary)
         if lib_id in ("bpl","cambridge","brookline") and seed.get("locations_url"):
-            branches.scrape_branches(lib_id, seed["locations_url"], raw)
+            _stage("branches", lib_id, lambda: branches.scrape_branches(
+                lib_id, seed["locations_url"], raw), summary)
     elif platform == "museumkey":
         from malibbene.sources_v2.museumkey import catalog, policies
         base = seed.get("base_url") or seed.get("museumkey_base")
-        if not base:
-            raise ValueError("base_url missing for museumkey")
-        catalog.scrape_library(lib_id, base, raw)
+        if base:
+            _stage("catalog", lib_id, lambda: catalog.scrape_library(lib_id, base, raw), summary)
         if seed.get("card_page"):
-            policies.scrape_policies(lib_id, seed["card_page"], seed.get("pass_page"), raw)
-    else:
-        raise ValueError(f"unknown platform: {platform}")
+            _stage("policy", lib_id, lambda: policies.scrape_policies(
+                lib_id, seed["card_page"], seed.get("pass_page"), raw), summary)
+
+def _stage(name: str, lib_id: str, fn, summary: dict):
+    try:
+        fn()
+        summary[f"{name}_ok"] = summary.get(f"{name}_ok", 0) + 1
+        print(f"OK {name} {lib_id}", flush=True)
+    except Exception as e:
+        summary[f"{name}_fail"] = summary.get(f"{name}_fail", 0) + 1
+        summary["errors"].append({"stage":name,"lib":lib_id,"error":str(e)})
+        print(f"FAIL {name} {lib_id}: {e}", flush=True)
 
 if __name__ == "__main__":
     main()

@@ -24,19 +24,19 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 CACHE_DIR = Path(__file__).resolve().parents[3] / "data" / ".cache"
 CACHE_TTL_SECONDS = 24 * 3600
 
-# Global polite delay between outbound fetches — Assabet hosts share infrastructure
-# so per-host throttling isn't enough; we space ALL outbound urllib calls apart.
-_MIN_INTERVAL_S = 1.5
-_last_fetch_at: float = 0.0
+# Per-host polite delay (not global) so a single slow host doesn't block parallel work.
+_MIN_INTERVAL_S = 0.5
+_last_fetch_at: dict[str, float] = {}
 
 
-def _polite_wait() -> None:
-    global _last_fetch_at
+def _polite_wait(url: str) -> None:
+    from urllib.parse import urlparse
+    host = urlparse(url).netloc
     now = time.time()
-    delta = now - _last_fetch_at
+    delta = now - _last_fetch_at.get(host, 0.0)
     if delta < _MIN_INTERVAL_S:
         time.sleep(_MIN_INTERVAL_S - delta)
-    _last_fetch_at = time.time()
+    _last_fetch_at[host] = time.time()
 
 
 def _cache_path(url: str) -> Path:
@@ -68,7 +68,7 @@ def _fetch_urllib(url: str, *, headers: dict[str, str] | None, timeout: int) -> 
     }
     if headers:
         req_headers.update(headers)
-    _polite_wait()
+    _polite_wait(url)
     req = urllib.request.Request(url, headers=req_headers)
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return r.read().decode("utf-8", errors="replace")
@@ -81,7 +81,7 @@ def fetch(
     force: bool = False,
     headers: dict[str, str] | None = None,
     timeout: int = 30,
-    retries: int = 5,
+    retries: int = 3,
 ) -> str:
     """Fetch ``url`` and return body text.
 
@@ -109,8 +109,10 @@ def fetch(
             # rate-limit window on Assabet subdomains is often 30-60s.
             last_err = e
             if e.code in (429, 503) or 500 <= e.code < 600:
-                # 5s, 15s, 45s, 90s, 180s — Cloudflare windows are often 60-300s
-                time.sleep(min(5 * (3**attempt), 180))
+                # 3s, 8s, 20s — short budget so the crawl finishes within ~10min
+                # per lib worst case. Persistent 503 means we'll just skip and
+                # move on rather than blocking the whole job.
+                time.sleep(min(3 * (2**attempt) + 1, 20))
             else:
                 # 4xx other than 429: not retriable (404 etc.).
                 break
