@@ -42,6 +42,10 @@ data/structured/_tmp_*
 # 抓取过程中保存的中间 HTML 页面
 data/raw/library_addresses/_pages/
 data/raw/attraction_prices/_pages/
+data/raw/*/_html/
+
+# 快照归档(体积大,只入 manifest)
+data/snapshots/
 
 # Web frontend (Vite + React)
 web/node_modules
