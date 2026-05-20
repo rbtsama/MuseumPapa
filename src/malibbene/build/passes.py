@@ -1,157 +1,48 @@
-"""Build final passes.json — flat list of (library × attraction) pass entries."""
 from __future__ import annotations
+import json
+from pathlib import Path
+from datetime import datetime, timezone
+from malibbene.common.audit_overrides import load_overrides, apply_overrides
 
-import datetime as dt
+PLATFORMS = ("assabet","libcal","museumkey")
 
-from .coupons import coupon_block, restrictions_block
-from .slug_canonical import canonical as canonical_slug
+def _read(p): return json.loads(p.read_text()) if p.exists() else None
 
-# pass_type values from normalize_benefit that imply a physical pickup at the
-# library branch (vs. an email-delivered digital coupon).
-_PHYSICAL_PASS_TYPES = {"physical-circ", "physical-coupon"}
-
-
-def _resolve_pickup(
-    *,
-    library_id: str,
-    attraction_slug: str,
-    pass_type: str,
-    classifications: dict,
-    branch_ids_by_lib: dict[str, list[str]],
-) -> tuple[str, list[str]]:
-    """Return (pickup_method, pickup_branches) for one pass.
-
-    Priority:
-      1. Subagent classification (covers BPL/Cambridge/Brookline incl. their
-         empty/`unknown` pass_type cases) — takes precedence so branch-specific
-         pickup_branches lists land in passes.json.
-      2. Normalized pass_type from the catalog (covers Assabet + LibCal
-         Braintree/Milton + MuseumKey) — single-branch lib, so physical maps to
-         the synthetic `<lib_id>--main` branch.
-      3. Fallback: treat as digital with empty branches.
-    """
-    lib_classifications = classifications.get(library_id, {})
-    if attraction_slug in lib_classifications:
-        entry = lib_classifications[attraction_slug]
-        method = entry["pickup_method"]
-        branches = entry.get("pickup_branches") or []
-        return method, list(branches)
-
-    if pass_type in _PHYSICAL_PASS_TYPES:
-        ids = branch_ids_by_lib.get(library_id, [])
-        if not ids:
-            ids = [f"{library_id}--main"]
-        return "physical_at_branch", list(ids)
-
-    if pass_type == "digital":
-        return "digital", []
-
-    return "digital", []
-
-
-def _resolve_pass_type(
-    *,
-    original_pass_type: str,
-    pickup_method: str,
-    benefits_text: str,
-) -> str:
-    """Derive pass_type when the catalog left it 'unknown'.
-
-    LibCal + MuseumKey platforms don't expose a pass_type label, so plan-6's
-    pass_type stays 'unknown' for ~23 cases. But plan-6's subagent classified
-    pickup_method correctly, and raw text usually says 'return' for circ passes.
-    Combine the two signals to recover a useful pass_type.
-    """
-    if original_pass_type and original_pass_type != "unknown":
-        return original_pass_type
-    if pickup_method == "digital":
-        return "digital"
-    if pickup_method == "physical_at_branch":
-        text = (benefits_text or "").lower()
-        if "return" in text or "returning" in text:
-            return "physical-circ"
-        return "physical-coupon"
-    return original_pass_type or "unknown"
-
-
-def build_passes(
-    catalog: dict,
-    coupons: dict | None = None,
-    *,
-    classifications: dict | None = None,
-    branches_doc: dict | None = None,
-    free_under_age_overrides: dict[str, int] | None = None,
-) -> dict:
-    """Return {passes: [...], _meta: {...}}.
-
-    Each element of `passes` is a (library_id, attraction_slug) row carrying
-    coupon, restrictions, pass_type, pickup_method, pickup_branches, source_url,
-    and availability calendar.
-
-    Args:
-        catalog: parsed library_catalog.json
-        coupons: optional dict "{lib_id}_{slug}" → parsed
-                 data/raw/pass_coupons/{lib_id}_{slug}.json
-        classifications: optional {lib_id: {pass_id: {pickup_method, pickup_branches, ...}}}
-                  produced by plan-6 subagent classifiers (BPL/Cambridge/Brookline).
-        branches_doc: optional structured/branches.json — used to enumerate
-                  branch ids per parent_lib for the single-branch fallback.
-    """
-    coupons = coupons or {}
-    classifications = classifications or {}
-    free_under_age_overrides = free_under_age_overrides or {}
-    branch_ids_by_lib: dict[str, list[str]] = {}
-    if branches_doc:
-        for b in branches_doc.get("branches", []):
-            branch_ids_by_lib.setdefault(b["parent_lib_id"], []).append(b["id"])
-
-    out = []
-    n_physical = 0
-    for lib_id, lib_entry in catalog.get("libraries", {}).items():
-        for raw_slug, p in lib_entry.get("passes", {}).items():
-            cal = p.get("calendar")
-            canon = canonical_slug(raw_slug)
-            # raw coupon files keyed by legacy slug; try raw first, fall back to canonical
-            coupon_key_raw = f"{lib_id}_{raw_slug}"
-            coupon_key_canon = f"{lib_id}_{canon}"
-            coupon_rec = coupons.get(coupon_key_raw) or coupons.get(coupon_key_canon)
-            pass_type = p.get("pass_type", "unknown")
-            pickup_method, pickup_branches = _resolve_pickup(
-                library_id=lib_id,
-                attraction_slug=raw_slug,
-                pass_type=pass_type,
-                classifications=classifications,
-                branch_ids_by_lib=branch_ids_by_lib,
-            )
-            pass_type = _resolve_pass_type(
-                original_pass_type=pass_type,
-                pickup_method=pickup_method,
-                benefits_text=p.get("benefits_text", ""),
-            )
-            if pickup_method == "physical_at_branch":
-                n_physical += 1
-            museum_free = free_under_age_overrides.get(canon)
-            out.append({
-                "library_id": lib_id,
-                "attraction_slug": canon,
-                "pass_type": pass_type,
-                "pass_type_raw": p.get("pass_type_raw", ""),
-                "pickup_method": pickup_method,
-                "pickup_branches": pickup_branches,
-                "coupon": coupon_block(coupon_rec, museum_free_under_age=museum_free),
-                "restrictions": restrictions_block(coupon_rec),
-                "source_url": p.get("source_url", ""),
-                "availability": cal if cal else None,
-            })
-    return {
-        "_meta": {
-            "built_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "n_passes": len(out),
-            "n_with_availability": sum(1 for x in out if x["availability"]),
-            "n_with_coupon": sum(1 for x in out if x["coupon"]["audience_policies"]),
-            "n_with_restrictions": sum(1 for x in out if x["restrictions"] is not None),
-            "n_physical_at_branch": n_physical,
-            "n_digital": len(out) - n_physical,
-        },
-        "passes": out,
-    }
+def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
+    overrides = load_overrides(overrides_root)
+    out_passes = []
+    for platform in PLATFORMS:
+        catalog_dir = raw_root / platform / "catalog"
+        if not catalog_dir.exists(): continue
+        for cat_f in catalog_dir.glob("*.json"):
+            cat = json.loads(cat_f.read_text())
+            lib = cat["library_id"]
+            for p in cat.get("passes",[]):
+                slug = p["attraction_slug"]
+                row = {
+                    "library_id": lib, "attraction_slug": slug,
+                    "pass_form": "physical_coupon",
+                    "available_at_branches": "all",
+                    "source_url": p.get("detail_url"),
+                    "source_phrases": p.get("source_phrases",[]),
+                    "coupon": None, "restrictions": None,
+                    "availability": {},
+                    "eligibility_override": None,
+                }
+                coup = _read(raw_root/platform/"coupons"/f"{lib}__{slug}.json")
+                if coup and coup.get("status")=="ok":
+                    e = coup["extracted"]
+                    row["pass_form"] = e.get("pass_form","physical_coupon")
+                    row["coupon"] = e.get("coupon")
+                    row["restrictions"] = e.get("restrictions")
+                avail = _read(raw_root/platform/"availability"/lib/f"{slug}.json")
+                if avail:
+                    row["availability"] = {d["date"]:d["status"] for d in avail.get("days",[])}
+                key = f"{lib}__{slug}"
+                row = apply_overrides(f"pass:{key}", row, overrides)
+                out_passes.append(row)
+    out = {"_meta":{"built_at":datetime.now(timezone.utc).isoformat(),
+                    "n_passes":len(out_passes)}, "passes": out_passes}
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False))
+    return out
