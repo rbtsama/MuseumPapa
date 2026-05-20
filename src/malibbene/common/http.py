@@ -16,9 +16,27 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-UA = "Mozilla/5.0 (NorthShore-Data-Collector)"
+# Real Chrome UA — many municipal library sites (WP-Engine / Cloudflare) block
+# requests with non-browser UA strings, returning 403/503 even before retry logic
+# can help. With a real UA + small global delay we get past most of them.
+UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+      "(KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36")
 CACHE_DIR = Path(__file__).resolve().parents[3] / "data" / ".cache"
 CACHE_TTL_SECONDS = 24 * 3600
+
+# Global polite delay between outbound fetches — Assabet hosts share infrastructure
+# so per-host throttling isn't enough; we space ALL outbound urllib calls apart.
+_MIN_INTERVAL_S = 1.5
+_last_fetch_at: float = 0.0
+
+
+def _polite_wait() -> None:
+    global _last_fetch_at
+    now = time.time()
+    delta = now - _last_fetch_at
+    if delta < _MIN_INTERVAL_S:
+        time.sleep(_MIN_INTERVAL_S - delta)
+    _last_fetch_at = time.time()
 
 
 def _cache_path(url: str) -> Path:
@@ -41,9 +59,16 @@ def _write_cache(url: str, body: str) -> None:
 
 
 def _fetch_urllib(url: str, *, headers: dict[str, str] | None, timeout: int) -> str:
-    req_headers = {"User-Agent": UA}
+    req_headers = {
+        "User-Agent": UA,
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "identity",  # avoid gzip — we don't decompress
+        "Connection": "keep-alive",
+    }
     if headers:
         req_headers.update(headers)
+    _polite_wait()
     req = urllib.request.Request(url, headers=req_headers)
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return r.read().decode("utf-8", errors="replace")
@@ -56,7 +81,7 @@ def fetch(
     force: bool = False,
     headers: dict[str, str] | None = None,
     timeout: int = 30,
-    retries: int = 3,
+    retries: int = 5,
 ) -> str:
     """Fetch ``url`` and return body text.
 
@@ -84,7 +109,8 @@ def fetch(
             # rate-limit window on Assabet subdomains is often 30-60s.
             last_err = e
             if e.code in (429, 503) or 500 <= e.code < 600:
-                time.sleep(5 * (3**attempt))  # 5s, 15s, 45s
+                # 5s, 15s, 45s, 90s, 180s — Cloudflare windows are often 60-300s
+                time.sleep(min(5 * (3**attempt), 180))
             else:
                 # 4xx other than 429: not retriable (404 etc.).
                 break
