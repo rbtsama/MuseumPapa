@@ -72,14 +72,22 @@ def _process_platform(platform: str, raw_root: Path, *, force: bool) -> dict[str
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--platform", default="all", choices=["all", "assabet", "libcal"])
+    ap.add_argument(
+        "--platform",
+        default="all",
+        choices=["all", "assabet", "libcal", "museumkey"],
+    )
     ap.add_argument("--out-dir", default=str(ROOT / "data" / "raw"))
     ap.add_argument("--force", action="store_true",
                     help="Overwrite existing outputs even if status=ok.")
     args = ap.parse_args()
 
     raw_root = Path(args.out_dir)
-    platforms = ["assabet", "libcal"] if args.platform == "all" else [args.platform]
+    platforms = (
+        ["assabet", "libcal", "museumkey"]
+        if args.platform == "all"
+        else [args.platform]
+    )
     grand = {"total": 0, "written": 0, "skipped": 0, "failed": 0, "errors": 0}
     for p in platforms:
         print(f"[{p}] extracting coupons")

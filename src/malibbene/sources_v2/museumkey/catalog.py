@@ -34,6 +34,66 @@ _NAME_RE_MK2 = re.compile(
 _MUSID_RE = re.compile(r"musID=(\d+)")
 _SLUG_RE = re.compile(r"[^a-z0-9]+")
 
+# Per-pass benefit text lives in a sibling <div ... id="detail<musid>"> block.
+# Used by both themes (v1 Cohasset and MK2 Hingham).
+_DETAIL_BLOCK_RE = re.compile(
+    r'id="detail(\d+)"[^>]*>(.*?)(?=<a\s+data-bs-toggle="collapse"|'
+    r'id="detail\d+"|<div\s+class="page_header"|</body>)',
+    re.DOTALL | re.IGNORECASE,
+)
+_TAG_RE = re.compile(r"<[^>]+>")
+_WS_RE = re.compile(r"\s+")
+# Lines like "308 Congress Street Boston, MA 02210 617-426-6500 Get Directions"
+# carry no benefit info; strip leading address+phone+Get Directions chunk so
+# the downstream coupon extractor doesn't have to wade through it.
+_LEAD_ADDRESS_RE = re.compile(
+    # Match leading "address ... phone Get Directions". Phone allows optional
+    # parens around the area code ("(781) 383-1434") and various separators.
+    r"^.{0,250}?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b\s*(?:Get Directions\s*)?",
+    re.IGNORECASE,
+)
+# MK2 (Hingham) layout interleaves "Visit museum website..." between Get
+# Directions and the real benefit paragraph. Strip it from the *leading* edge.
+_LEAD_VISIT_LINK_RE = re.compile(
+    r"^\s*Visit museum website for more information\.?\s*",
+    re.IGNORECASE,
+)
+_TRAILING_CTA_RE = re.compile(
+    r"\s*(?:Check Dates|Learn More|Visit museum website for more information\.?)\s*$",
+    re.IGNORECASE,
+)
+
+
+def _clean_benefit_text(raw_block: str) -> str:
+    """Strip HTML, normalize whitespace, drop leading address/phone and CTA tail."""
+    # Replace block boundaries with spaces so "</p><p>" doesn't fuse words.
+    text = _TAG_RE.sub(" ", raw_block)
+    text = _html.unescape(text)
+    text = _WS_RE.sub(" ", text).strip()
+    # Strip leading "<address> <phone> Get Directions"
+    text = _LEAD_ADDRESS_RE.sub("", text).strip()
+    # MK2: "Visit museum website..." may sit between the stripped address
+    # block and the real benefit paragraph.
+    text = _LEAD_VISIT_LINK_RE.sub("", text).strip()
+    # Strip dangling CTA tail (may repeat)
+    prev = None
+    while prev != text:
+        prev = text
+        text = _TRAILING_CTA_RE.sub("", text).strip()
+    return text
+
+
+def _build_detail_map(html: str) -> dict[str, str]:
+    """Map musid -> cleaned benefit text from all detail blocks on the page."""
+    out: dict[str, str] = {}
+    for m in _DETAIL_BLOCK_RE.finditer(html):
+        musid = m.group(1)
+        body = m.group(2)
+        text = _clean_benefit_text(body)
+        if text:
+            out[musid] = text
+    return out
+
 
 def _slugify(name: str) -> str:
     s = _SLUG_RE.sub("-", name.lower()).strip("-")
@@ -48,6 +108,24 @@ def parse_museumkey_index(html: str, library_id: str) -> list[dict]:
     """
     out: list[dict] = []
     seen: set[str] = set()
+    detail_map = _build_detail_map(html)
+
+    def _emit(name: str, musid: str) -> None:
+        slug = _slugify(name)
+        if slug in seen:
+            return
+        seen.add(slug)
+        benefit = detail_map.get(musid, "")
+        entry = {
+            "library_id": library_id,
+            "title": name,
+            "attraction_slug": slug,
+            "musid": musid,
+            "reserve_query": f"?musID={musid}",
+            "benefit_text": benefit,
+            "source_phrases": [benefit] if benefit else [],
+        }
+        out.append(entry)
 
     # Try v1 theme first; fall back to MK2.
     v1 = list(_NAME_RE_V1.finditer(html))
@@ -59,17 +137,7 @@ def parse_museumkey_index(html: str, library_id: str) -> list[dict]:
             name = _html.unescape(nm.group(1)).strip()
             if not name or not musid:
                 continue
-            slug = _slugify(name)
-            if slug in seen:
-                continue
-            seen.add(slug)
-            out.append({
-                "library_id": library_id,
-                "title": name,
-                "attraction_slug": slug,
-                "musid": musid,
-                "reserve_query": f"?musID={musid}",
-            })
+            _emit(name, musid)
         return out
 
     mk2 = list(_NAME_RE_MK2.finditer(html))
@@ -80,17 +148,7 @@ def parse_museumkey_index(html: str, library_id: str) -> list[dict]:
         name = _html.unescape(nm.group(1)).strip()
         if not name or not musid:
             continue
-        slug = _slugify(name)
-        if slug in seen:
-            continue
-        seen.add(slug)
-        out.append({
-            "library_id": library_id,
-            "title": name,
-            "attraction_slug": slug,
-            "musid": musid,
-            "reserve_query": f"?musID={musid}",
-        })
+        _emit(name, musid)
     return out
 
 

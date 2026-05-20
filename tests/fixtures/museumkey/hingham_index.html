@@ -1,0 +1,819 @@
+
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en'>
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PNFECJ75GY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PNFECJ75GY');
+</script>
+<meta name="robots" content="noindex"/> 
+<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel='shortcut icon' href='/favicon.ico' type='image/x-icon'/ >
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:bold,bolditalic,lighter,wght@100..900">
+  
+<title>Choose Museum | Hingham Public Library</title>
+<!--Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<!-- //Custom theme -->
+<link rel='stylesheet' href='/ui/assets/layout_bs5.css' media='all'>
+  
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<!-- datatables -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.4/datatables.min.css"/>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.4/datatables.min.js"></script>
+
+<!-- bootstrap-select -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+	
+<!-- ToolTip for Nav Menu -->               
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function(element){
+        return new bootstrap.Tooltip(element);
+    });
+});
+</script>
+
+
+</head>
+<body>
+
+<!-- My Account Modal -->
+<div id="modalAccount" class="modal fade in" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><strong><i class="fa fa-user"></i> My Account</strong></h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+      
+<div class="row">
+	<div class="col-sm-8 offset-sm-2">
+		<form method="POST" action="/ui/account/?code=hingma02043">
+        	        	        	        				<div class="form-group">
+								<input type="text" name="user" id="user" placeholder="Card Number" class="form-control" required="required" pattern=".+|.+" title="Please Enter a Valid Card Number" value="">
+			</div>
+				
+			<input type='hidden' name='logged_in' value='1'  />
+            <div class="form-group">
+				<button type="submit" class="btn btn-lg btn-block btn-museum">Log In</button>
+            </div>
+		</form>
+	</div>
+</div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--Navigation Menu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-default" style="padding-top:.7em;padding-bottom:.7em;">
+  <div class="container">
+	<a class='navbar-brand' href='/ui/?code=hingma02043' aria-label="Back Home"><img src="https://museumkey.s3.us-east-1.amazonaws.com/img/layout/admin_logo.png" height="40" alt="MuseumKey Logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler navbar-toggler-icon"></span>
+    </button>
+    
+    
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li>
+      		<form class="input-group w-auto my-auto  d-sm-flex" method="GET" action="/ui//byMuseum/">
+        		<input type="hidden" name="code" value="hingma02043" />
+        		<input autocomplete="off" type="search" class="form-control me-2" placeholder="Search" style="min-width: 125px" name="qu" value="" />
+        		<button class="btn btn-outline-secondary" type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+      		</form> 
+        </li>  
+	</ul>
+	<ul class="navbar-nav navbar-right mr-3">
+		<li>
+          <a class="nav-link" href="/ui/byMuseum/?code=hingma02043&branchID=505" data-bs-toggle="tooltip" data-bs-placement="bottom" title="By Museum">
+			<span role="img" aria-label="By Museum"><i class="fa-sharp fa-solid fa-building-columns fa-lg" aria-hidden="true"></i></span> 
+			<span class="collapse" id="navbarSupportedContent">By Museum</span>
+       	  </a>
+       	</li>
+		<li>
+		  <a class="nav-link" href="/ui/byDate/?code=hingma02043&branchID=505" data-bs-toggle="tooltip" data-bs-placement="bottom" title="By Date">
+        	<span role="img" aria-label="By Date"><i class="fa-solid fa-calendar-days fa-lg" aria-hidden="true"></i></span>
+			<span class="collapse" id="navbarSupportedContent">By Date</span>
+          </a>
+        </li>
+		  
+  
+          <li>
+		  <a class="nav-link" href="/ui/help/?code=hingma02043" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Help">
+        	<span role="img" aria-label="Help"><i class="fa-solid fa-circle-question fa-lg" aria-hidden="true"></i></span> 
+			<span class="collapse" id="navbarSupportedContent">Help</span>
+          </a>
+      	</li>   
+  
+        
+	<li>
+		<span data-bs-toggle="modal" data-bs-target="#modalAccount" >
+		<a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Login">
+          	<span role="img" aria-label="Login"><i class="fa-solid fa-right-to-bracket fa-lg" aria-hidden="true"></i></span> 
+			<span class="collapse" id="navbarSupportedContent" style="font-size:12px; font-weight:bold;">Login</span>
+		</a>
+		</span>
+	</li>
+
+			
+	          
+	</ul> 
+          
+    </div>
+    
+   
+  </div>
+</nav>
+<!--Navigation Menu End-->
+  
+  
+<div class="container">
+	<div class='row mt-3' >
+	<header class='logo_container' >
+    	<a href="/ui/?code=hingma02043"><img name='' src="https://museumkey.s3.us-east-1.amazonaws.com/img/site/hingma02043.png" alt="Header Banner for Hingham Public Library" width="100%" /></a>
+    </header>
+    
+  
+	<main>
+	<div class='col-md-12 offset-md-0'>
+		<div class='card card-default round-panel-not-top'>
+
+			<div class='card-body'>
+
+<h1 class="text-center page_header ">Which museum would you <br>like to visit?</h1>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14274" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Boston_By_Foot.png"  alt="Boston By Foot Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>Boston By Foot</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+					<span class="fa fa-print"></span>				</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14274" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>87 Mt Vernon Street</br>
+		Boston, MA 02108</br>
+		617-367-2345</p>
+        
+		<p><a href="http://google.com/maps/place/87 Mt Vernon Street Boston MA 02108" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='https://bostonbyfoot.org'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a digital pass that will be emailed to you once you complete your registration.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Offers free admission for your group on most Boston by Foot walking tours (does not include: Footloose on the Freedom Trail, Beacon with a Boo, any water-based tours, or any private tours).</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14274&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14276" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Boston_Childrens_Museum.png"  alt="Boston Children's Museum Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>Boston Children's Museum</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+					<span class="fa fa-print"></span>				</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14276" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>308 Congress Street</br>
+		Boston, MA 02210</br>
+		617-426-6500</p>
+        
+		<p><a href="http://google.com/maps/place/308 Congress Street Boston MA 02210" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='http://www.bostonchildrensmuseum.org'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: small;">This is a digital pass that will be emailed to you once you complete your registration.&nbsp;</span></span></p><p><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: small;">The admission fee is half price per person for up to four people.</span></span></p><p><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: small;">This pass has been provided by a generous contribution from the Hingham Newcomers Club.</span></span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14276&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14275" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Boston_Harbor_Islands.png"  alt="Boston Harbor Island Ferry Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>Boston Harbor Island Ferry</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+					<span class="fa fa-print"></span>				</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14275" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>66 Long Wharf</br>
+		Boston, MA 02110</br>
+		617-227-4321</p>
+        
+		<p><a href="http://google.com/maps/place/66 Long Wharf Boston MA 02110" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='http://www.bostonharborislands.org'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a digital pass that will be emailed to you once you complete your registration.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a two for one pass to the Boston Harbor Islands and is good for up to four people. It is not good for Sunset Cruises.</span></p>
+<p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Reservations Recommended by calling Boston Harbor Cruises at 617-227-4321. Specify which island you plan to visit, your date of travel, and your departure and return times based on the ferry schedule.</span></p>
+<p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">On the day of your trip, go to the Boston Harbor Cruises Ferry Center at Long Wharf in Boston or at Pemberton Point in Hull, MA. Pick up your tickets at the Will-Call window at least 15 minutes prior to your scheduled ferry departure.</span></p>
+<p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Present the Boston Harbor Islands Library Pass to receive your free ticket with purchase of one Harbor Islands ferry ticket.</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14275&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14277" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Harvard_Museum_of_Natural_History.png"  alt="Harvard Museum of Natural  History Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>Harvard Museum of Natural  History</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+									</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14277" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>26 Oxford Street</br>
+		Cambridge, MA 02138</br>
+		617-495-3045</p>
+        
+		<p><a href="http://google.com/maps/place/26 Oxford Street Cambridge MA 02138" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='http://hmnh.harvard.edu/'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">$6.00 Admission fee per person for up to four people. This pass also includes admission to the Peabody Museum of Archaeology and Ethnology. The two museums connect on the third floor and visitors may move freely from one to the other - all for one admission price.</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14277&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14278" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Heritage_Museums_and_Gardens.png"  alt="Heritage Museums & Gardens Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>Heritage Museums & Gardens</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+					<span class="fa fa-print"></span>				</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14278" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>67 Grove Street</br>
+		Sandwich, MA 02563</br>
+		508-888-3300</p>
+        
+		<p><a href="http://google.com/maps/place/67 Grove Street Sandwich MA 02563" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='https://heritagemuseumsandgardens.org'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a digital pass that will be emailed to you once you complete your registration.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Pass allows 50% off regular general admission to museum &amp; gardens for up to 6 adults or youths (3-17 years old). Children 2 and under are admitted free.</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14278&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14279" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Institute_of_Contemporary_Art.png"  alt="Institute of Contemporary Art Boston Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>Institute of Contemporary Art Boston</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+					<span class="fa fa-print"></span>				</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14279" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>25 Harbor Shore Drive</br>
+		Boston, MA 02210</br>
+		617-478-3100</p>
+        
+		<p><a href="http://google.com/maps/place/25 Harbor Shore Drive Boston MA 02210" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='https://www.icaboston.org'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a digital pass that will be emailed to you once you complete your registration.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Each pass allows up to two people a discounted rate of $10.00 each. The ICA is always free to children 17 and under. &nbsp;The ICA is free to the public on Thursday nights from 5:00-9:00pm.</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14279&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14288" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Isabella_Stewart_Gardner_Museum.png"  alt="Isabella Stewart Gardner Museum Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>Isabella Stewart Gardner Museum</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+					<span class="fa fa-print"></span>				</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14288" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>25 Evans Way</br>
+		Boston, MA 02115</br>
+		617-566-1401</p>
+        
+		<p><a href="http://google.com/maps/place/25 Evans Way Boston MA 02115" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='http://www.gardnermuseum.org'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a digital pass that will be emailed to you once you complete your registration.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Each pass provides up to 4 people with $5.00 admission per person, redeemable at the admission desk. Children under the age of 18 are always admitted free.&nbsp;</span></p><p>This pass has been provided by a generous contribution from&nbsp; the South Shore Ladies Club.</p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14288&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14290" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Massachusetts_State_Parks.png"  alt="Massachusetts State Parks Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>Massachusetts State Parks</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+									</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14290" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>251 Causeway Street, Suite 900</br>
+		Boston, MA 02114</br>
+		617-626-1250</p>
+        
+		<p><a href="http://google.com/maps/place/251 Causeway Street, Suite 900 Boston MA 02114" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='http://www.mass.gov/eea/agencies/dcr'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p style="text-align: center;"><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a physical pass that must be picked up at the Reference Desk.&nbsp;</span>Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance.</p><p style="text-align: center;"><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Free parking for most State parks.&nbsp;</span></p><p style="text-align: center;"><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Must be returned no later than the day after use.</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14290&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14286" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Museum_of_Fine_Arts.png"  alt="Museum of Fine Arts Boston Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>Museum of Fine Arts Boston</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+					<span class="fa fa-print"></span>				</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14286" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>465 Huntington Avenue</br>
+		Boston, MA 02115</br>
+		617-267-9300</p>
+        
+		<p><a href="http://google.com/maps/place/465 Huntington Avenue Boston MA 02115" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='http://www.mfa.org'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a digital pass that will be emailed to you once you complete your registration.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">$15 Admission fee per person for up to 2 adults.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">$10 Admission fee per person for up to 4 youths 7-17.</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14286&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14285" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Museum_of_Science.png"  alt="Museum of Science Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>Museum of Science</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+					<span class="fa fa-print"></span>				</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14285" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>1 Science Park </br>
+		Boston, MA 02134</br>
+		617-723-2500</p>
+        
+		<p><a href="http://google.com/maps/place/1 Science Park  Boston MA 02134" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='http://www.mos.org/'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a digital pass that will be emailed to you once you complete your registration.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">50% off admission fee per person for up to 4 people.</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14285&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14219" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/New_England_Aquarium.png"  alt="New England Aquarium Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>New England Aquarium</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+					<span class="fa fa-print"></span>				</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14219" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>1 Central Wharf</br>
+		Boston, MA 02110</br>
+		617-973-5200</p>
+        
+		<p><a href="http://google.com/maps/place/1 Central Wharf Boston MA 02110" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='http://www.neaq.org'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a digital pass that will be emailed to you once you complete your registration.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Each pass offers a 50% discount on 4 full priced tickets.<br style=""><br style="">Passes do not apply to Aquarium boat programs, IMAX shows or school group visits.</span></p><p><span style="font-family: Arial, Helvetica, sans-serif; font-size: small;">This pass has been provided by a generous contribution from the Hingham Newcomers Club.</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14219&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14282" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Patriots_Place.png"  alt="The Patriots Hall of Fame Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>The Patriots Hall of Fame</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+									</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14282" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>2 Patriot Place</br>
+		Foxborough, MA 02035</br>
+		508-698-4800</p>
+        
+		<p><a href="http://google.com/maps/place/2 Patriot Place Foxborough MA 02035" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='http://www.patriot-place.com/patriotshalloffame'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a physical pass that must be picked up at the Reference Desk.&nbsp;</span><span style="font-family: Arial, Helvetica, sans-serif; font-size: small;">Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Pass admits two people free of charge.</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14282&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14287" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Peabody_Essex_Museum.png"  alt="Peabody Essex Museum Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>Peabody Essex Museum</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+					<span class="fa fa-print"></span>				</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14287" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>161 Essex Street</br>
+		Salem, MA 01970</br>
+		978-745-9500</p>
+        
+		<p><a href="http://google.com/maps/place/161 Essex Street Salem MA 01970" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='http://www.pem.org'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a digital pass that will be emailed to you once you complete your registration.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">$12 admission to general museum for up to 2 adults, children under 16 are free. Admission to the Yin Yu Tang, the Chinese house, is included in general admission, but advanced reservations are required. Access to Phillips Research library and special ticketed exhibitions also require a separate fee. Visitors using a library pass are not entitled to any other member benefits.</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14287&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14283" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Plimoth_Plantation.png"  alt="Plimoth Patuxet Museums Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>Plimoth Patuxet Museums</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+					<span class="fa fa-print"></span>				</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14283" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>137 Warren Avenue</br>
+		Plymouth, MA 02360</br>
+		508-746-1622</p>
+        
+		<p><a href="http://google.com/maps/place/137 Warren Avenue Plymouth MA 02360" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='https://www.plimoth.org'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a digital pass that will be emailed to you once you complete your registration.</span></p><p><span style="color: rgb(51, 51, 51); text-align: justify;"><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Each pass allows admission for up to 6 people at $18 for adults and $12 for children ages 5-17.</span></span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14283&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14281" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Trustees_of_Reservations.png"  alt="The Trustees of Reservations GO Pass Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>The Trustees of Reservations GO Pass</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+									</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14281" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>200 High Street</br>
+		Boston, MA 02110</br>
+		617-542-7696</p>
+        
+		<p><a href="http://google.com/maps/place/200 High Street Boston MA 02110" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='http://www.thetrustees.org'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a physical pass that must be picked up at the Reference Desk.&nbsp;</span><span style="font-family: Arial, Helvetica, sans-serif; font-size: small;">Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Pass provides free or reduced admission for 2 Adults and children under 18 to Trustees properties across the state, including World's End in Hingham.</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14281&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14289" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/USS_Constitution_Museum.png"  alt="USS Constitution Museum Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>USS Constitution Museum</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+									</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14289" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>Building 22, Charlestown Navy Yard</br>
+		Charlestown, MA 02129</br>
+		617-426-1812</p>
+        
+		<p><a href="http://google.com/maps/place/Building 22, Charlestown Navy Yard Charlestown MA 02129" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='https://www.ussconstitutionmuseum.org'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a physical pass that must be picked up at the Reference Desk.&nbsp;</span><span style="font-family: Arial, Helvetica, sans-serif; font-size: small;">Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Free admission for up to 9 visitors.&nbsp;</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14289&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+
+
+<a data-bs-toggle="collapse" data-bs-target="#detail14280" style="cursor:pointer;" href="">
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+			<img src="https://museumkey.s3.us-east-1.amazonaws.com/img/museums/Zoo_New_England.png"  alt="Zoo New England Logo" class="mk2Image" />
+			<div class="mk2ButtonText">
+				<div class="mk2ButtonName">
+					<p>Zoo New England</p>
+					<p style="font-size:12px;"><span class="fa fa-info-circle"></span> Learn More</p>
+				</div>
+				<div class="mk2ButtonIcon">
+									</div>
+			</div><!-- /mk2ButtonName -->       
+      	</div><!-- /col-sm-10 -->
+    </div><!-- /row -->
+</a>
+
+<div class="row collapse" id="detail14280" style="margin-top:15px;">
+	<div class="col-sm-10 offset-sm-1 text-center">
+		<p>1 Franklin Park Road</br>
+		Boston, MA 02121</br>
+		617-541-5466</p>
+        
+		<p><a href="http://google.com/maps/place/1 Franklin Park Road Boston MA 02121" target="_blank"><span class="fa fa-map-marker"></span> Get Directions </a></p>
+        <p><a href='http://www.zoonewengland.org'  target="_blank">Visit museum website for more information.</a></p>
+		<p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">This is a physical pass that must be picked up at the Reference Desk.&nbsp;</span><span style="font-family: Arial, Helvetica, sans-serif; font-size: small;">Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance.</span></p><p><span style="font-size: small; font-family: Arial, Helvetica, sans-serif;">Franklin Park Zoo in Boston and Stone Zoo in Stoneham, MA. Admits 6 people at $9.00 per adult and $6.00 per child. Children 2 years and younger are free.</span></p></p>
+		
+		<div class="col-sm-6 offset-sm-3 text-center">
+			<a href="../listDate/?code=hingma02043&branchID=505&musID=14280&display=cal"><button type="submit" class="btn btn-lg btn-block btn-museum">Check Dates <span class="fa fa-angle-right"></span></button></a>
+		</div>
+	
+	</div><!-- /col-sm-6 offset-sm-3 -->
+</div><!-- /row -->
+
+<div class="page_header"></div>
+
+</div></div></div></main></div> 
+<script>
+$('.passinfo .details').on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var $collapse = $this.closest('.collapse-group').find('.collapse');
+    $collapse.collapse('toggle');
+});
+</script>
+
+	
+
+
+</body></html>
