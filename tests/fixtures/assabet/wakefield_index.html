@@ -1,0 +1,1468 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Museum Passes: Select Museum | Lucius Beebe Memorial Library</title>
+	
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+	
+	<!-- <link rel="stylesheet" type="text/css" media="all" href="https://wakefieldlibrary.assabetinteractive.com/include/fonts/source-sans-pro-2.010R-ro-1.065R-it/source-sans-pro.css?cache=20260506103000" /> -->
+	<!-- <link rel="stylesheet" type="text/css" media="all" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic&amp;display=swap" /> -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" />
+	<link rel="stylesheet" type="text/css" media="all" href="https://wakefieldlibrary.assabetinteractive.com/css/calendar-layout.css?cache=20260506103000" />
+	<link rel="stylesheet" type="text/css" media="all" href="https://wakefieldlibrary.assabetinteractive.com/css/calendar-formatting.css?cache=20260506103000" />
+	
+	<link rel="stylesheet" type="text/css" media="all" href="https://wakefieldlibrary.assabetinteractive.com/css/meeting-rooms-and-museum-passes.css?cache=20260506103000" />
+
+	<link rel="stylesheet" type="text/css" media="all" href="https://wakefieldlibrary.assabetinteractive.com/css/meeting-rooms.css?cache=20260506103000" />
+
+	 
+	
+	<style type="text/css">
+.listing-event.category-adult{
+	background-color:rgba(220,230,228,1);
+	padding:0.25em 0.25em 0.25em 0.5em;
+	/*border-left:4px solid #f00*/
+}
+.listing-event.category-commit-to-your-community{
+	background-color:rgba(128,0,128,.2);
+	padding:0.25em 0.25em 0.25em 0.5em;
+	/*border-left:4px solid #f00*/
+}
+.listing-event.category-children{
+	background-color:rgba(0,181,204,.2);
+	padding:0.25em 0.25em 0.25em 0.5em;
+	/*border-left:4px solid #f00*/
+}
+.listing-event.category-teens{
+	background-color:rgba(0,181,204,.2);
+	padding:0.25em 0.25em 0.25em 0.5em;
+	/*border-left:4px solid #f00*/
+}
+.listing-event.category-building{
+	background-color:rgba(205,133,133,1);
+	padding:0.25em 0.25em 0.25em 0.5em;
+	/*border-left:4px solid #f00*/
+}
+
+/* import a Google font */
+@import url('https://fonts.googleapis.com/css?family=Francois+One');
+
+a {
+color:#004C45;
+}
+
+header, main {
+border-color:#004C45;
+}
+
+section.calendar-header {
+background-color:#004C45;
+}
+
+h1.calendar-month-name {
+font-family: 'Francois One', 'Source Sans Pro', tahoma, arial, sans-serif;
+font-weight:400;
+color:#faebd7;
+}
+
+ul.calendar-view-controls li, ul.calendar-filters-controls li {
+font-family: 'Francois One', 'Source Sans Pro', tahoma, arial, sans-serif;
+font-weight:400;
+}
+
+ul.calendar-view-controls a, ul.calendar-filters-controls a {
+color:#6b3d5c !important;
+}
+
+ul.calendar-month-controls a, ul.calendar-month-controls span {
+color:#acacac;
+}
+
+body.calendar ul.calendar-month-controls a {
+border-color:#acacac;
+}
+
+body.museum-passes ul.calendar-month-controls a,
+body.meeting-and-study-rooms ul.calendar-month-controls a {
+border-color:#acacac;
+color:#6b3d5c;
+}
+
+body.calendar ul.calendar-month-controls a.inactive {
+color:#fff;
+}
+
+body.museum-passes ul.calendar-month-controls a.inactive,
+body.meeting-and-study-rooms ul.calendar-month-controls a.inactive {
+color:#acacac;
+}
+
+form.calendar-filters-form input.filters-button, main input[type="submit"], main button.confirm {
+background-color:#980707;
+}
+
+.location-summary-panel {
+background-color:#f7e2ad;
+}
+
+.location-summary-panel h4 {
+color:#000;
+}
+
+ul.key .time-available,
+body.museum-passes .day:not(.day-past):not(.day-blank):not(.day-unavailable):not(.day-no-openings),
+body.meeting-and-study-rooms .day:not(.day-past):not(.day-blank):not(.day-unavailable):not(.day-no-openings) {
+background-color:#f7e2ad;
+}
+
+.day-number a {
+color:#980707;
+}
+
+.day-past .day-number a, .day-unavailable a, .day-no-openings a {
+color:#666;
+}
+
+body.popup {
+background-color:#000;
+}
+
+body.popup .event > h3, label.pass .location-summary-panel h4 {
+color:#000;
+}
+
+main input[type="text"], main input[type="email"], main input[type="number"], main input[type="tel"], main select, main textarea {
+background-color:#f7e2ad;
+}
+
+/*
+input[required="required"]:invalid, select[required="required"]:invalid, textarea[required="required"]:invalid {
+border-color:#f7e2ad;
+}
+*/
+
+body.popup label.pass, body.popup label.pass .location-summary-panel {
+background-color:#f7e2ad;
+}
+
+/* CALENDAR */
+
+body.calendar .day-names {
+background-color:#666;
+}
+
+body.calendar .day {
+border-color:#bc0a0a;
+}
+
+body.calendar .day-today {
+background-color:#f7e2ad;
+}
+
+.day-blank {
+background-color:#D1D3D4;
+}
+
+.event > h3 {
+color:#980707;
+}
+.branch-community-locations .event-location-branch,
+.branch-community-locations .event-location-address {
+ display:none;
+}
+body.museum-passes:not(.popup) .location.museum-john-f-kennedy-library-and-museum
+.location-form.museums button.confirm {
+display: none;
+}
+body.event-listing.month-current .day-past {
+	display:none !important;
+}
+
+@media all and (max-width: 45.9375em) {
+	
+	body.month-current .day-past {
+		display:none !important;
+	}
+
+}
+body.filter-category-digital-media-lab ul.calendar-view-controls {
+
+       display: none;
+
+}
+body.filter-category-meeting-rooms ul.calendar-view-controls {
+
+       display: none;
+
+}
+</style>	
+	<link rel="canonical" href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/" />
+
+	<meta name="copyright" content="&copy; 2026 Assabet Interactive, LLC" />
+	<meta name="generator" content="Assabet Interactive, LLC" />
+	<meta name="web_author" content="Assabet Interactive, LLC" />
+
+	<script type="text/javascript" src="https://wakefieldlibrary.assabetinteractive.com/include/jquery-1.11.2.min.js"></script>
+
+	<script type="text/javascript" src="https://wakefieldlibrary.assabetinteractive.com/include/iframeResizer.contentWindow.min.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="https://wakefieldlibrary.assabetinteractive.com/include/html5shiv.min.js"></script>
+	<![endif]-->
+
+	<script type="text/javascript">
+
+		var panel_open = '';
+
+		$(document).ready(function() {
+
+			// force screenreaders to announce alerts/warnings/errors/confirmation immediately, and announce instructions politely
+			$('[role="alert"]').find('p:first').append('&nbsp;');
+			$('[aria-live="polite"]').append('&nbsp;');
+
+			// close panels and setup their behavior
+			$('.calendar-filters').css({'display':'none'});
+			$('li.calendar-filters-by-category > a').attr('aria-expanded', 'false').click(function(e) {
+
+				e.preventDefault();
+
+				// close the other panel if it's open
+				if ( $('section.calendar-filters-by-branch').css('display')!='none' ) {
+					$('section.calendar-filters-by-branch').slideUp(function() {
+						$('li.calendar-filters-by-branch > a').attr('aria-expanded', 'false');
+						$(this).attr('tabindex', '-1');
+					});
+					
+				}
+
+				// toggle this panel open or closed as needed
+				$('section.calendar-filters-by-category').slideToggle(function() {
+					$('li.calendar-filters-by-category > a').attr('aria-expanded', ($('li.calendar-filters-by-category > a').attr('aria-expanded')=='false' ? 'true' : 'false'));
+					if ( $('section.calendar-filters-by-category').css('display')!='none' ) {
+						$('section.calendar-filters-by-category').attr('tabindex', '0').focus();
+						panel_open = 'category';
+					} else {
+						$('li.calendar-filters-by-category > a').focus();
+						panel_open = '';
+					}
+				});
+				
+
+			});
+
+			$('li.calendar-filters-by-branch > a').attr('aria-expanded', 'false').click(function(e) {
+
+				e.preventDefault();
+
+				// close the other panel if it's open
+				if ( $('section.calendar-filters-by-category').css('display')!='none' ) {
+					$('section.calendar-filters-by-category').slideUp(function() {
+						$('li.calendar-filters-by-category > a').attr('aria-expanded', 'false');
+						$(this).attr('tabindex', '-1');
+					});
+					
+				}
+
+				// toggle this panel open or closed as needed
+				$('section.calendar-filters-by-branch').slideToggle(function() {
+					$('li.calendar-filters-by-branch > a').attr('aria-expanded', ($('li.calendar-filters-by-branch > a').attr('aria-expanded')=='false' ? 'true' : 'false'));
+					if ( $('section.calendar-filters-by-branch').css('display')!='none' ) {
+						$('section.calendar-filters-by-branch').attr('tabindex', '0').focus();
+						panel_open = 'branch';
+					} else {
+						$('li.calendar-filters-by-branch > a').focus();
+						panel_open = '';
+					}
+				});
+
+			});
+
+			// look for escape keypresses, and close panels if open
+			$(document).on('keyup', function(e) {
+				if (e.keyCode==27) {
+					if (panel_open=='category') {
+						$('li.calendar-filters-by-category > a').click();
+					} else if (panel_open=='branch') {
+						$('li.calendar-filters-by-branch > a').click();
+					}
+				}
+			});
+
+			$('section.calendar-filters-by-category .filters-button.reset-button').click(function(e) {
+				e.preventDefault();
+				$('li.calendar-filters-by-category > a').click();
+			});
+
+			$('section.calendar-filters-by-branch .filters-button.reset-button').click(function(e) {
+				e.preventDefault();
+				$('li.calendar-filters-by-branch > a').click();
+			});
+
+			// set focus on next/prev clicks
+			if (window.location.search.match('from=next')) {
+				$('#calendar-month-control-next').focus();
+			} else if (window.location.search.match('from=prev')) {
+				$('#calendar-month-control-prev').focus();
+			} else if (window.location.search.match('from=filter-categories')) {
+				$('#calendar-filters-control-by-category').focus();
+			} else if (window.location.search.match('from=filter-branches')) {
+				$('#calendar-filters-control-by-branch').focus();
+			}
+
+			$('form.calendar-search-form .reset-button').click(function(e) {
+
+				e.preventDefault();
+
+				window.location = '';
+
+			});
+
+			$('.location-summary-panel').css({'display':'none'});
+			$('.location-summary-panel-trigger').attr('aria-expanded', 'false').css({'display':'inline-block'});
+			$('.location-summary > img.location-summary-panel-trigger-image').attr('aria-expanded', 'false');
+			$('.location-summary-panel-trigger').click(function(e) {
+
+				e.preventDefault();
+
+				$(this).closest('.location-summary').siblings('.location-summary-panel').slideToggle();
+
+				if ($(this).html()==$(this).data('open')) {
+					$(this).attr('aria-expanded', 'false').html($(this).data('closed'));
+					$(this).closest('.location-summary').find('.location-summary-panel-trigger-image').attr('aria-expanded', 'false');
+				} else {
+					$(this).attr('aria-expanded', 'true').html($(this).data('open'));
+					$(this).closest('.location-summary').find('.location-summary-panel-trigger-image').attr('aria-expanded', 'true');
+				}
+
+			});
+
+			$('.location-summary > img.location-summary-panel-trigger-image').click(function(e) {
+
+				e.preventDefault();
+
+				$(this).closest('.location-summary').find('.location-summary-panel-trigger').click();
+
+			});
+
+			$('body:not(.nopopout) .calendar-days.by-museum .day-number a').click(function(e) {
+
+				e.preventDefault();
+
+				if ($(this).attr('href')!='#') {
+					window_open($(this).attr('href'));
+				}
+
+			});
+
+			$('body:not(.nopopout) .location-form.by-date form').submit(function(e) {
+
+				e.preventDefault();
+
+				window_open($(this).attr('action'));
+
+			});
+
+		});
+
+		function window_open(actn) {
+			window.open(actn, '', 'height=600,width=800,menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes');
+		}
+
+		function in_iframe() {
+			try {
+				return window.self !== window.top;
+			} catch (e) {
+				return true;
+			}
+		}
+
+	</script>
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-1SHLL7B5Q7"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-1SHLL7B5Q7');
+		gtag('config', 'UA-77275262-1');	</script>
+	
+</head>
+
+
+<body class="museum-passes institution-wakefieldlibrary     ">
+
+	<a href="#main-content" id="skip">Skip to Content</a>
+
+	<header>
+		
+		<section class="calendar-header cf">
+
+			<h1 id="calendar-month-name" class="calendar-month-name">Museum Passes</h1>
+
+		</section>
+
+		<section class="calendar-subheader cf">
+
+						
+			<ul class="calendar-view-controls cf" aria-label="View">
+
+				<li class="calendar-view-control-label" aria-hidden="true">View:</li>
+
+				<li class="calendar-view-control calendar-view-by-date "><a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-date/2026-may/">By Date</a></li>
+
+				<li class="calendar-view-control calendar-view-by-museum active"><a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/">By Museum</a></li>
+
+			</ul>
+
+			
+			
+			<ul class="calendar-filters-controls cf" aria-label="Filter">
+
+				<li class="calendar-filters-control-label" aria-hidden="true">Filter:</li>
+
+								<li class="calendar-filters-control calendar-filters-by-category"><a href="#" id="calendar-filters-control-by-category" role="button" aria-expanded="true" aria-controls="calendar-filters-by-category">By Category</a></li>
+				
+				
+				
+			</ul>
+
+			
+			
+			
+		</section>
+
+		
+		<section class="calendar-filters calendar-filters-by-category cf" id="calendar-filters-by-category" aria-labelledby="calendar-filters-control-by-category">
+
+			<form class="calendar-filters-form" method="get" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/">
+
+				
+				
+				<fieldset>
+
+					<legend>Museum Categories</legend>
+
+					<p id="checkbox-label-categories">To limit museum types being displayed, check the corresponding categories:</p>
+
+					<ul class="calendar-filters-options" role="group" aria-labelledby="checkbox-label-categories">
+
+						
+						<li class="calendar-filters-option calendar-filters-option-art">
+							<input type="checkbox" value="art" name="filter-categories[]" id="filter-art" class="filters-checkbox"  />
+							<label for="filter-art">Art</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-children">
+							<input type="checkbox" value="children" name="filter-categories[]" id="filter-children" class="filters-checkbox"  />
+							<label for="filter-children">Children</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-crafts">
+							<input type="checkbox" value="crafts" name="filter-categories[]" id="filter-crafts" class="filters-checkbox"  />
+							<label for="filter-crafts">Crafts</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-family">
+							<input type="checkbox" value="family" name="filter-categories[]" id="filter-family" class="filters-checkbox"  />
+							<label for="filter-family">Family</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-governance">
+							<input type="checkbox" value="governance" name="filter-categories[]" id="filter-governance" class="filters-checkbox"  />
+							<label for="filter-governance">Governance</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-history">
+							<input type="checkbox" value="history" name="filter-categories[]" id="filter-history" class="filters-checkbox"  />
+							<label for="filter-history">History</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-music">
+							<input type="checkbox" value="music" name="filter-categories[]" id="filter-music" class="filters-checkbox"  />
+							<label for="filter-music">Music</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-nature">
+							<input type="checkbox" value="nature" name="filter-categories[]" id="filter-nature" class="filters-checkbox"  />
+							<label for="filter-nature">Nature</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-science">
+							<input type="checkbox" value="science" name="filter-categories[]" id="filter-science" class="filters-checkbox"  />
+							<label for="filter-science">Science</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-zoo">
+							<input type="checkbox" value="zoo" name="filter-categories[]" id="filter-zoo" class="filters-checkbox"  />
+							<label for="filter-zoo">Zoo</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-technology">
+							<input type="checkbox" value="technology" name="filter-categories[]" id="filter-technology" class="filters-checkbox"  />
+							<label for="filter-technology">Technology</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-ocean">
+							<input type="checkbox" value="ocean" name="filter-categories[]" id="filter-ocean" class="filters-checkbox"  />
+							<label for="filter-ocean">Ocean</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-sky">
+							<input type="checkbox" value="sky" name="filter-categories[]" id="filter-sky" class="filters-checkbox"  />
+							<label for="filter-sky">Sky</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-recreation">
+							<input type="checkbox" value="recreation" name="filter-categories[]" id="filter-recreation" class="filters-checkbox"  />
+							<label for="filter-recreation">Recreation</label>
+						</li>
+
+						
+						<li class="calendar-filters-option calendar-filters-option-dance">
+							<input type="checkbox" value="dance" name="filter-categories[]" id="filter-dance" class="filters-checkbox"  />
+							<label for="filter-dance">Dance</label>
+						</li>
+
+						
+					</ul>
+
+					<button type="submit" name="from" value="filter-categories" class="filters-button">Apply Filters</button>
+
+					<input type="reset" value="Cancel" class="filters-button reset-button" />
+
+				</fieldset>
+
+			</form>
+
+		</section>
+
+		
+		
+	</header>
+
+	<main id="main-content">
+
+	
+	
+	
+	
+	<p class="instructions" aria-live="polite">To select a museum, click “Details/Reserve”, then select which Pass to reserve.</p>
+
+	
+	<div class="museum-pass-category"><h2 class="museum-pass-category-title">Museums</h2></div>
+	
+	<div class="location museum museum-boston-childrens-museum">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "308 Congress Street, Boston, MA 02210","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-boston-childrens-museum_3_md.jpg","telephone": "617-426-6500","name": "Boston Children&amp;apos;s Museum","url": "","description": "Founded in 1913 by the Science Teachers&amp;apos; Bureau, the Boston Children&amp;apos;s Museum is the second oldest children&amp;apos;s museum in the world and one of the few that maintain a collection. Designed for both children and families, the Museum exhibits focus on science, culture, environmental awareness, health &amp; fitness, and the arts, emphasizing hands-on engagement and learning through experience, and employing play as a tool to spark the inherent creativity, curiosity, and imagination of children."}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-boston-childrens-museum_3_xs.jpg" alt="Boston Children&apos;s Museum" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-boston-childrens-museum" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-boston-childrens-museum" aria-label="Details/Reserve Boston Children&amp;apos;s Museum" />
+			<h3>Boston Children&apos;s Museum</h3>
+
+			<p>308 Congress Street, Boston, MA 02210<br /><a href="tel:617-426-6500" aria-label="Phone Boston Children&amp;apos;s Museum">617-426-6500</a><br /><a href="http://www.bostonchildrensmuseum.org/" target="_blank" rel="nofollow" aria-label="Visit Boston Children&amp;apos;s Museum website">http://www.bostonchildrensmuseum.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-boston-childrens-museum" role="button" aria-expanded="true" aria-controls="location-summary-panel-boston-childrens-museum" aria-label="Details/Reserve Boston Children&amp;apos;s Museum">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-boston-childrens-museum" aria-labelledby="location-summary-panel-trigger-boston-childrens-museum">
+
+			<h4>Boston Children&apos;s Museum</h4>
+
+			<p>Founded in 1913 by the Science Teachers&apos; Bureau, the Boston Children&apos;s Museum is the second oldest children&apos;s museum in the world and one of the few that maintain a collection. Designed for both children and families, the Museum exhibits focus on science, culture, environmental awareness, health & fitness, and the arts, emphasizing hands-on engagement and learning through experience, and employing play as a tool to spark the inherent creativity, curiosity, and imagination of children.</p>
+
+			<p class="museum-pass-directions"><a href="http://www.bostonchildrensmuseum.org/visit/directions" target="_blank" rel="nofollow" aria-label="Directions to Boston Children&amp;apos;s Museum">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=children" aria-label="Filter by category: Children">Children</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=crafts" aria-label="Filter by category: Crafts">Crafts</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=technology" aria-label="Filter by category: Technology">Technology</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Printable/Digital Coupon Pass (link delivered by email)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>
+<p>Pass admits up to four people for half price.</p>
+<p>In July &amp; August the museum is open Monday-Sunday</p>
+<p>From September - through June the museum is open Wednesday - Monday. During school vacations the museum is open on Tuesdays.</p>
+
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/boston-childrens-museum/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="17" class="confirm" aria-label="Reserve a pass to Boston Children&amp;apos;s Museum">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-harvard-museums-of-science-and-culture">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "11 Divinity Avenue, Cambridge, MA 02138","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-harvard-museums-of-science-and-culture_52_md.jpg","telephone": "617-496-1638","name": "Harvard Museums of Science and Culture","url": "","description": "The Harvard Museums of Science &amp; Culture is a partnership of museums on the Harvard University Cambridge campus dedicated to the natural world, science, and human cultures. They include the Collection of Historical Scientific Instruments, the Harvard Museum of Natural History (comprised of the Harvard University Herbaria, Mineralogical and Geological Museum, and Museum of Comparative Zoology), the Harvard Museum of the Ancient Near East, and the Peabody Museum of Archaeology &amp; Ethnology, all located between Oxford St./Divinity Ave area. Of particular note are the famous glass flowers, models commissioned by Harvard in 1886 to aid in the teaching of botany (and made in Germany over the course of more than eight decades), on display in the Harvard Museum of Natural History."}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-harvard-museums-of-science-and-culture_52_xs.jpg" alt="Harvard Museums of Science and Culture" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-harvard-museums-of-science-and-culture" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-harvard-museums-of-science-and-culture" aria-label="Details/Reserve Harvard Museums of Science and Culture" />
+			<h3>Harvard Museums of Science and Culture</h3>
+
+			<p>11 Divinity Avenue, Cambridge, MA 02138<br /><a href="tel:617-496-1638" aria-label="Phone Harvard Museums of Science and Culture">617-496-1638</a><br /><a href="https://hmsc.harvard.edu/" target="_blank" rel="nofollow" aria-label="Visit Harvard Museums of Science and Culture website">https://hmsc.harvard.edu/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-harvard-museums-of-science-and-culture" role="button" aria-expanded="true" aria-controls="location-summary-panel-harvard-museums-of-science-and-culture" aria-label="Details/Reserve Harvard Museums of Science and Culture">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-harvard-museums-of-science-and-culture" aria-labelledby="location-summary-panel-trigger-harvard-museums-of-science-and-culture">
+
+			<h4>Harvard Museums of Science and Culture</h4>
+
+			<p>The Harvard Museums of Science & Culture is a partnership of museums on the Harvard University Cambridge campus dedicated to the natural world, science, and human cultures. They include the Collection of Historical Scientific Instruments, the Harvard Museum of Natural History (comprised of the Harvard University Herbaria, Mineralogical and Geological Museum, and Museum of Comparative Zoology), the Harvard Museum of the Ancient Near East, and the Peabody Museum of Archaeology & Ethnology, all located between Oxford St./Divinity Ave area. Of particular note are the famous glass flowers, models commissioned by Harvard in 1886 to aid in the teaching of botany (and made in Germany over the course of more than eight decades), on display in the Harvard Museum of Natural History.</p>
+
+			<p class="museum-pass-directions"><a href="https://hmsc.harvard.edu/" target="_blank" rel="nofollow" aria-label="Directions to Harvard Museums of Science and Culture">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=children" aria-label="Filter by category: Children">Children</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=history" aria-label="Filter by category: History">History</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=nature" aria-label="Filter by category: Nature">Nature</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=science" aria-label="Filter by category: Science">Science</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Coupon Pass (must be picked up from the branch, but does not require returning)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>Passes admit 4 people for 50% off regular museum admission rates. Please check their <a href="https://hmsc.harvard.edu/visit" target="_blank">website</a> for the individual museums days and hours that they are open.</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/harvard-museums-of-science-and-culture/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="1" class="confirm" aria-label="Reserve a pass to Harvard Museums of Science and Culture">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-the-house-of-seven-gables">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "115 Derby Street, Salem, MA 01970","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-the-house-of-seven-gables_84_md.jpg","telephone": "978-744-0991","name": "The House of Seven Gables","url": "","description": "The House of the Seven Gables, one of the oldest surviving timber-framed mansion houses in continental North America, was the setting of Nathaniel Hawthorne&amp;apos;s famous 1851 novel of the same name. The historic site which includes the house (a National Historic Landmark District) includes a guided tour of the Turner-Ingersoll Mansion (the House of the Seven Gables) and visits to the Nathaniel Hawthorne Birthplace, the Colonial Revival seaside gardens, and the Counting House, with a maritime discovery zone called &amp;ldquo;Kids&amp;apos; Cove at The Gables.&amp;rdquo; (An audio tour of the gardens, grounds, and waterfront is available through the UniGuide App.) Lectures and seasonal living history labs are scheduled throughout the year, and a changing annual exhibition examines various aspects of the institution&amp;apos;s 350 years of history. There is a gift shop on the premises. The website has virtual field trips and interactive exhibitions that can provide helpful background information before a visit."}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-the-house-of-seven-gables_84_xs.jpg" alt="The House of Seven Gables" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-the-house-of-seven-gables" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-the-house-of-seven-gables" aria-label="Details/Reserve The House of Seven Gables" />
+			<h3>The House of Seven Gables</h3>
+
+			<p>115 Derby Street, Salem, MA 01970<br /><a href="tel:978-744-0991" aria-label="Phone The House of Seven Gables">978-744-0991</a><br /><a href="https://www.7gables.org/" target="_blank" rel="nofollow" aria-label="Visit The House of Seven Gables website">https://www.7gables.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-the-house-of-seven-gables" role="button" aria-expanded="true" aria-controls="location-summary-panel-the-house-of-seven-gables" aria-label="Details/Reserve The House of Seven Gables">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-the-house-of-seven-gables" aria-labelledby="location-summary-panel-trigger-the-house-of-seven-gables">
+
+			<h4>The House of Seven Gables</h4>
+
+			<p>The House of the Seven Gables, one of the oldest surviving timber-framed mansion houses in continental North America, was the setting of Nathaniel Hawthorne&apos;s famous 1851 novel of the same name. The historic site which includes the house (a National Historic Landmark District) includes a guided tour of the Turner-Ingersoll Mansion (the House of the Seven Gables) and visits to the Nathaniel Hawthorne Birthplace, the Colonial Revival seaside gardens, and the Counting House, with a maritime discovery zone called &ldquo;Kids&apos; Cove at The Gables.&rdquo; (An audio tour of the gardens, grounds, and waterfront is available through the UniGuide App.) Lectures and seasonal living history labs are scheduled throughout the year, and a changing annual exhibition examines various aspects of the institution&apos;s 350 years of history. There is a gift shop on the premises. The website has virtual field trips and interactive exhibitions that can provide helpful background information before a visit.</p>
+
+			<p class="museum-pass-directions"><a href="https://www.7gables.org/visit/plan-your-visit/" target="_blank" rel="nofollow" aria-label="Directions to The House of Seven Gables">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=children" aria-label="Filter by category: Children">Children</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=science" aria-label="Filter by category: Science">Science</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Coupon Pass (must be picked up from the branch, but does not require returning)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>Pass gives patrons half price&nbsp; admission for up to four people.</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/the-house-of-seven-gables/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="2" class="confirm" aria-label="Reserve a pass to The House of Seven Gables">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-institute-of-contemporary-art-boston">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "25 Harbor Shore Drive, Boston, MA 02210","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-institute-of-contemporary-art-boston_13_md.jpg","telephone": "617-478-3100","name": "Institute of Contemporary Art/Boston","url": "","description": "The building that houses the Institute of Contemporary Art/Boston on Fan Pier is the first in the US designed by the architectural firm of Diller Scofidio + Renfro. The museum was founded in 1936 as a sister institution to New York&amp;apos;s MoMA, though it had no permanent collection until starting one after moving into the new building on the waterfront in 2006. In addition to the collection, changing exhibitions, music, dance, film, talks, tours, family activities, and teen programming are offered throughout the year.  "}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-institute-of-contemporary-art-boston_13_xs.jpg" alt="Institute of Contemporary Art/Boston" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-institute-of-contemporary-art-boston" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-institute-of-contemporary-art-boston" aria-label="Details/Reserve Institute of Contemporary Art/Boston" />
+			<h3>Institute of Contemporary Art/Boston</h3>
+
+			<p>25 Harbor Shore Drive, Boston, MA 02210<br /><a href="tel:617-478-3100" aria-label="Phone Institute of Contemporary Art/Boston">617-478-3100</a><br /><a href="https://www.icaboston.org/" target="_blank" rel="nofollow" aria-label="Visit Institute of Contemporary Art/Boston website">https://www.icaboston.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-institute-of-contemporary-art-boston" role="button" aria-expanded="true" aria-controls="location-summary-panel-institute-of-contemporary-art-boston" aria-label="Details/Reserve Institute of Contemporary Art/Boston">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-institute-of-contemporary-art-boston" aria-labelledby="location-summary-panel-trigger-institute-of-contemporary-art-boston">
+
+			<h4>Institute of Contemporary Art/Boston</h4>
+
+			<p>The building that houses the Institute of Contemporary Art/Boston on Fan Pier is the first in the US designed by the architectural firm of Diller Scofidio + Renfro. The museum was founded in 1936 as a sister institution to New York&apos;s MoMA, though it had no permanent collection until starting one after moving into the new building on the waterfront in 2006. In addition to the collection, changing exhibitions, music, dance, film, talks, tours, family activities, and teen programming are offered throughout the year.</p>
+
+			<p class="museum-pass-directions"><a href="https://www.icaboston.org/directions-parking" target="_blank" rel="nofollow" aria-label="Directions to Institute of Contemporary Art/Boston">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=art" aria-label="Filter by category: Art">Art</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=music" aria-label="Filter by category: Music">Music</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=dance" aria-label="Filter by category: Dance">Dance</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Printable/Digital Coupon Pass (link delivered by email)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>Pass admits up to 2 visitors at the discounted price of $10 per admission. Admission is free to anyone 18 and under. The ICA is free to all on Thursday nights from 5:00-9:00pm.</p>
+<p>Please note that Museum hours and admission are subject to change. Current information can be found&nbsp; on their website: <a href="https://www.icaboston.org/visit" target="_blank">https://www.icaboston.org/visit</a></p>
+<p>Advance reservation strongly recommended.</p>
+<p>Cannot be used for performances or special events.</p>
+<p>Does not guarantee admittance to special exhibitions with timed entry.</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/institute-of-contemporary-art-boston/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="3" class="confirm" aria-label="Reserve a pass to Institute of Contemporary Art/Boston">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-isabella-stewart-gardner-museum">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "25 Evans Way, Boston, MA 02115","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-gardner-museum_14_md.jpg","telephone": "617-566-1401","name": "Isabella Stewart Gardner Museum","url": "","description": "The Gardner Museum houses the collection of Isabella Stewart Gardner, a local patron of the arts who died in 1924, in a building she commissioned to look like a 15th century  Venetian palazzo. The center of the original building showcases courtyard plantings that reflect the seasons as they evolve throughout the year. In addition to her collection, which remains displayed exactly as she arranged it per her will, there are changing exhibitions, concerts, lectures, family events, and an artist-in-residence program. In 2012, the museum opened an addition designed by Renzo Piano that houses a space for their concert series.  "}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-gardner-museum_14_xs.jpg" alt="Isabella Stewart Gardner Museum" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-isabella-stewart-gardner-museum" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-isabella-stewart-gardner-museum" aria-label="Details/Reserve Isabella Stewart Gardner Museum" />
+			<h3>Isabella Stewart Gardner Museum</h3>
+
+			<p>25 Evans Way, Boston, MA 02115<br /><a href="tel:617-566-1401" aria-label="Phone Isabella Stewart Gardner Museum">617-566-1401</a><br /><a href="http://www.gardnermuseum.org/home/" target="_blank" rel="nofollow" aria-label="Visit Isabella Stewart Gardner Museum website">http://www.gardnermuseum.org/home/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-isabella-stewart-gardner-museum" role="button" aria-expanded="true" aria-controls="location-summary-panel-isabella-stewart-gardner-museum" aria-label="Details/Reserve Isabella Stewart Gardner Museum">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-isabella-stewart-gardner-museum" aria-labelledby="location-summary-panel-trigger-isabella-stewart-gardner-museum">
+
+			<h4>Isabella Stewart Gardner Museum</h4>
+
+			<p>The Gardner Museum houses the collection of Isabella Stewart Gardner, a local patron of the arts who died in 1924, in a building she commissioned to look like a 15th century  Venetian palazzo. The center of the original building showcases courtyard plantings that reflect the seasons as they evolve throughout the year. In addition to her collection, which remains displayed exactly as she arranged it per her will, there are changing exhibitions, concerts, lectures, family events, and an artist-in-residence program. In 2012, the museum opened an addition designed by Renzo Piano that houses a space for their concert series.</p>
+
+			<p class="museum-pass-directions"><a href="http://www.gardnermuseum.org/visit/directions" target="_blank" rel="nofollow" aria-label="Directions to Isabella Stewart Gardner Museum">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=art" aria-label="Filter by category: Art">Art</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=music" aria-label="Filter by category: Music">Music</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Printable/Digital Coupon Pass (link delivered by email)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>Pass admits 4 people for $5 a person. Children under the age of 18 are always admitted free.</p>
+<p>When reserving Gardner Museum timed entry tickets online, you will submit the promo code, select the correct date and your chosen timed entry, and continue checking out (the discount will be applied at checkout). Tickets must be reserved at least 48 hours prior to visiting—this library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets you can call the Gardner Museum's Box Office at 617-278-5156. Patrons must present both this library pass and Museum timed tickets for admission into the Museum. For more information, please visit:&nbsp;<a href="isgm.org/welcome" target="_blank">isgm.org/welcome</a>.</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/isabella-stewart-gardner-museum/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="4" class="confirm" aria-label="Reserve a pass to Isabella Stewart Gardner Museum">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-john-f-kennedy-library-and-museum">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "Columbia Point, Boston, MA 02125","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-jfk-library-and-museum_15_md.jpg","telephone": "617-514-1600","name": "John F. Kennedy Library &amp;amp; Museum","url": "","description": "The John F. Kennedy Presidential Library and Museum, dedicated to the memory of the nation&amp;apos;s thirty-fifth president, is located on a ten-acre park which overlooks the sea in an building designed by I.M. Pei. The Museum portrays the life, leadership, and legacy of President Kennedy, conveys his enthusiasm for politics and public service, and illustrates the nature of the office of the President, all through permanent and changing exhibits. The Library is available to students and scholars to conduct research using its collection of historical materials chronicling mid-20th century politics and the life and administration of the institution&amp;apos;s namesake."}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-jfk-library-and-museum_15_xs.jpg" alt="John F. Kennedy Library &amp; Museum" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-john-f-kennedy-library-and-museum" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-john-f-kennedy-library-and-museum" aria-label="Details/Reserve John F. Kennedy Library &amp;amp; Museum" />
+			<h3>John F. Kennedy Library &amp; Museum</h3>
+
+			<p>Columbia Point, Boston, MA 02125<br /><a href="tel:617-514-1600" aria-label="Phone John F. Kennedy Library &amp;amp; Museum">617-514-1600</a><br /><a href="https://www.jfklibrary.org/" target="_blank" rel="nofollow" aria-label="Visit John F. Kennedy Library &amp;amp; Museum website">https://www.jfklibrary.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-john-f-kennedy-library-and-museum" role="button" aria-expanded="true" aria-controls="location-summary-panel-john-f-kennedy-library-and-museum" aria-label="Details/Reserve John F. Kennedy Library &amp;amp; Museum">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-john-f-kennedy-library-and-museum" aria-labelledby="location-summary-panel-trigger-john-f-kennedy-library-and-museum">
+
+			<h4>John F. Kennedy Library &amp; Museum</h4>
+
+			<p>The John F. Kennedy Presidential Library and Museum, dedicated to the memory of the nation&apos;s thirty-fifth president, is located on a ten-acre park which overlooks the sea in an building designed by I.M. Pei. The Museum portrays the life, leadership, and legacy of President Kennedy, conveys his enthusiasm for politics and public service, and illustrates the nature of the office of the President, all through permanent and changing exhibits. The Library is available to students and scholars to conduct research using its collection of historical materials chronicling mid-20th century politics and the life and administration of the institution&apos;s namesake.</p>
+
+			<p class="museum-pass-directions"><a href="https://www.google.com/maps/dir//John+F.+Kennedy+Presidential+Library+and+Museum,+Columbia+Point,+Boston,+MA+02125" target="_blank" rel="nofollow" aria-label="Directions to John F. Kennedy Library &amp;amp; Museum">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=governance" aria-label="Filter by category: Governance">Governance</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=history" aria-label="Filter by category: History">History</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Coupon Pass (must be picked up from the branch, but does not require returning)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>Passes are no longer required—the presentation of a valid library card grants the cardholder 50% off of one admission ticket—but please place a reservation for the desired date of your visit.&nbsp; Visitors aged 12 and under receive free admission. Please visit <a href="https://www.jfklibrary.org/visit-museum/visit/plan-your-trip" target="_blank">JFK Museum's website</a> for more details and to reserve tickets in advance.</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/john-f-kennedy-library-and-museum/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="5" class="confirm" aria-label="Reserve a pass to John F. Kennedy Library &amp;amp; Museum">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-mass-audubon">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "MA","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-mass-audubon_29_md.jpg","telephone": "781-259-9500","name": "Mass Audubon","url": "","description": "Mass Audubon has over 55 wildlife sanctuaries and centers throughout Massachusetts where visitors can learn about and interact with nature. More than 38,000 acres of protected land deliver inspiring hilltop views to breathtaking coastal landscapes, serene woods, and working farms. Visit their website for a list of locations."}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-mass-audubon_29_xs.jpg" alt="Mass Audubon" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-mass-audubon" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-mass-audubon" aria-label="Details/Reserve Mass Audubon" />
+			<h3>Mass Audubon</h3>
+
+			<p>MA<br /><a href="tel:781-259-9500" aria-label="Phone Mass Audubon">781-259-9500</a><br /><a href="https://www.massaudubon.org/" target="_blank" rel="nofollow" aria-label="Visit Mass Audubon website">https://www.massaudubon.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-mass-audubon" role="button" aria-expanded="true" aria-controls="location-summary-panel-mass-audubon" aria-label="Details/Reserve Mass Audubon">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-mass-audubon" aria-labelledby="location-summary-panel-trigger-mass-audubon">
+
+			<h4>Mass Audubon</h4>
+
+			<p>Mass Audubon has over 55 wildlife sanctuaries and centers throughout Massachusetts where visitors can learn about and interact with nature. More than 38,000 acres of protected land deliver inspiring hilltop views to breathtaking coastal landscapes, serene woods, and working farms. Visit their website for a list of locations.</p>
+
+			<p class="museum-pass-directions"><a href="https://www.massaudubon.org/get-outdoors/wildlife-sanctuaries/map-of-sanctuaries" target="_blank" rel="nofollow" aria-label="Directions to Mass Audubon">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=children" aria-label="Filter by category: Children">Children</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=nature" aria-label="Filter by category: Nature">Nature</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=recreation" aria-label="Filter by category: Recreation">Recreation</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Printable/Digital Coupon Pass (link delivered by email)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>The one-day pass is valid for up to 4 people to a Mass Audubon wildlife sanctuary. At some sanctuaries there is a $2 admission fee per visitor over the age of 2.</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/mass-audubon/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="6" class="confirm" aria-label="Reserve a pass to Mass Audubon">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-massachusetts-state-parks-department-of-conservation-and-recreation">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "251 Causeway Street, Suite 900, Boston, MA 02114-2104","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-mass-state-parks_9_md.jpg","telephone": "617-626-1250","name": "Massachusetts State Parks (Department of Conservation and Recreation)","url": "","description": "The Massachusetts State Parks have locations in all regions of the Commonwealth, from Pittsfield to Boston, and from Gloucester to Provincetown. They include beaches, wooded parks, parkways, and reservoirs, each with its own unique activities and amenities like hiking, biking, swimming and boating, camping, and more. "}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-mass-state-parks_9_xs.jpg" alt="Massachusetts State Parks (Department of Conservation and Recreation)" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-massachusetts-state-parks-department-of-conservation-and-recreation" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-massachusetts-state-parks-department-of-conservation-and-recreation" aria-label="Details/Reserve Massachusetts State Parks (Department of Conservation and Recreation)" />
+			<h3>Massachusetts State Parks (Department of Conservation and Recreation)</h3>
+
+			<p>251 Causeway Street, Suite 900, Boston, MA 02114-2104<br /><a href="tel:617-626-1250" aria-label="Phone Massachusetts State Parks (Department of Conservation and Recreation)">617-626-1250</a><br /><a href="http://www.mass.gov/eea/agencies/dcr/massparks/" target="_blank" rel="nofollow" aria-label="Visit Massachusetts State Parks (Department of Conservation and Recreation) website">http://www.mass.gov/eea/agencies/dcr/massparks/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-massachusetts-state-parks-department-of-conservation-and-recreation" role="button" aria-expanded="true" aria-controls="location-summary-panel-massachusetts-state-parks-department-of-conservation-and-recreation" aria-label="Details/Reserve Massachusetts State Parks (Department of Conservation and Recreation)">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-massachusetts-state-parks-department-of-conservation-and-recreation" aria-labelledby="location-summary-panel-trigger-massachusetts-state-parks-department-of-conservation-and-recreation">
+
+			<h4>Massachusetts State Parks (Department of Conservation and Recreation)</h4>
+
+			<p>The Massachusetts State Parks have locations in all regions of the Commonwealth, from Pittsfield to Boston, and from Gloucester to Provincetown. They include beaches, wooded parks, parkways, and reservoirs, each with its own unique activities and amenities like hiking, biking, swimming and boating, camping, and more.</p>
+
+			<p class="museum-pass-directions"><a href="http://www.mass.gov/eea/agencies/dcr/massparks/places-to-go/" target="_blank" rel="nofollow" aria-label="Directions to Massachusetts State Parks (Department of Conservation and Recreation)">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=children" aria-label="Filter by category: Children">Children</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=nature" aria-label="Filter by category: Nature">Nature</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=recreation" aria-label="Filter by category: Recreation">Recreation</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Circulating Pass (must be picked up and returned to the branch)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>Pass provides free parking for 1 car</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/massachusetts-state-parks-department-of-conservation-and-recreation/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="7" class="confirm" aria-label="Reserve a pass to Massachusetts State Parks (Department of Conservation and Recreation)">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-museum-of-fine-arts">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "465 Huntington Avenue, Boston, MA 02115","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-museum-of-fine-arts-boston_1_md.png","telephone": "617-267-9300","name": "Museum of Fine Arts","url": "","description": "The Boston Museum of Fine Arts, in existence since July 4, 1876, is one of the most comprehensive art museums in the world, with a collection of almost 500,000 works of art, ranging from ancient Egyptian artifacts to contemporary painting, sculpture and video. In addition, there are always special exhibitions on view, opportunities to take advantage of educational programs&amp;mdash;some right in the galleries&amp;mdash;and a contemplative Japanese garden. "}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-museum-of-fine-arts-boston_1_xs.png" alt="Museum of Fine Arts" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-museum-of-fine-arts" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-museum-of-fine-arts" aria-label="Details/Reserve Museum of Fine Arts" />
+			<h3>Museum of Fine Arts</h3>
+
+			<p>465 Huntington Avenue, Boston, MA 02115<br /><a href="tel:617-267-9300" aria-label="Phone Museum of Fine Arts">617-267-9300</a><br /><a href="http://www.mfa.org/" target="_blank" rel="nofollow" aria-label="Visit Museum of Fine Arts website">http://www.mfa.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-museum-of-fine-arts" role="button" aria-expanded="true" aria-controls="location-summary-panel-museum-of-fine-arts" aria-label="Details/Reserve Museum of Fine Arts">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-museum-of-fine-arts" aria-labelledby="location-summary-panel-trigger-museum-of-fine-arts">
+
+			<h4>Museum of Fine Arts</h4>
+
+			<p>The Boston Museum of Fine Arts, in existence since July 4, 1876, is one of the most comprehensive art museums in the world, with a collection of almost 500,000 works of art, ranging from ancient Egyptian artifacts to contemporary painting, sculpture and video. In addition, there are always special exhibitions on view, opportunities to take advantage of educational programs&mdash;some right in the galleries&mdash;and a contemplative Japanese garden.</p>
+
+			<p class="museum-pass-directions"><a href="http://www.mfa.org/visit/getting-here" target="_blank" rel="nofollow" aria-label="Directions to Museum of Fine Arts">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=art" aria-label="Filter by category: Art">Art</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=history" aria-label="Filter by category: History">History</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Printable/Digital Coupon Pass (link delivered by email)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>Pass admits 2 adults at $10 a person (general admission and special exhibition) and up to 4 children ages 7-17 at $10 each (general and special exhibition). There is no discount for children 7-17 for general admisson, currently $10. Children under 6 are admitted free.&nbsp;</p>
+<p>Please note, as of January 20, 2026, there is a ticket price increase. Pass for two adult tickets will be ($15 each) and four youth tickets ($10 each). Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Year’s Day, Patriots’ Day, Fourth of July, Thanksgiving, and Christmas.</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/museum-of-fine-arts/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="9" class="confirm" aria-label="Reserve a pass to Museum of Fine Arts">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-museum-of-science">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "1 Science Park, Boston, MA 02114","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-museum-of-science-boston_16_md.jpg","telephone": "617-723-2500","name": "Museum of Science","url": "","description": "The Museum of Science in Boston is located on a piece of land that extends the width of the Charles River, connecting Boston and Cambridge. Dedicated to promoting and educating visitors about science and technology, the museum includes a planetarium, the world&amp;apos;s largest open-air Van de Graaff generator, an IMAX theatre, a butterfly garden, and permanent and changing exhibits on birds, insects and animals; space; dinosaurs; engineering; nanotechnology; math; biology; and more.   "}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-museum-of-science-boston_16_xs.jpg" alt="Museum of Science" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-museum-of-science" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-museum-of-science" aria-label="Details/Reserve Museum of Science" />
+			<h3>Museum of Science</h3>
+
+			<p>1 Science Park, Boston, MA 02114<br /><a href="tel:617-723-2500" aria-label="Phone Museum of Science">617-723-2500</a><br /><a href="http://www.mos.org/" target="_blank" rel="nofollow" aria-label="Visit Museum of Science website">http://www.mos.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-museum-of-science" role="button" aria-expanded="true" aria-controls="location-summary-panel-museum-of-science" aria-label="Details/Reserve Museum of Science">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-museum-of-science" aria-labelledby="location-summary-panel-trigger-museum-of-science">
+
+			<h4>Museum of Science</h4>
+
+			<p>The Museum of Science in Boston is located on a piece of land that extends the width of the Charles River, connecting Boston and Cambridge. Dedicated to promoting and educating visitors about science and technology, the museum includes a planetarium, the world&apos;s largest open-air Van de Graaff generator, an IMAX theatre, a butterfly garden, and permanent and changing exhibits on birds, insects and animals; space; dinosaurs; engineering; nanotechnology; math; biology; and more.</p>
+
+			<p class="museum-pass-directions"><a href="http://www.mos.org/directions" target="_blank" rel="nofollow" aria-label="Directions to Museum of Science">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=children" aria-label="Filter by category: Children">Children</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=history" aria-label="Filter by category: History">History</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=nature" aria-label="Filter by category: Nature">Nature</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=science" aria-label="Filter by category: Science">Science</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=technology" aria-label="Filter by category: Technology">Technology</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=sky" aria-label="Filter by category: Sky">Sky</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Printable/Digital Coupon Pass (link delivered by email)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>&nbsp; 1. This pass will admit up to 4 people at a 50% discount on tickets to the Museum’s Exhibit Halls. Children under the age of 3 are also free, and do not count towards the 4 visitor limit.</p>
+<p>&nbsp;2. Your Library pass can only be used on the date printed on the pass.</p>
+<p>&nbsp;3. Please bring your library pass confirmation (printed or displayed on a phone) when you visit.</p>
+<p>&nbsp; 4. When you arrive at the Museum, stop at the Box Office to exchange your library pass and purchase your&nbsp; Exhibit Halls tickets at the discounted rate. If you have any questions or would like to reserve your Exhibit Halls passes in advance to avoid waiting in line the day of your visit, please call 617-723-2500 (9:00am - 5:00pm daily).</p>
+<p>
+<p>&nbsp; &nbsp;5. If you are not able to show your Library confirmation on a phone, you may print out a copy using the link in the confirmation email or request a paper copy from the library.</p></p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/museum-of-science/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="10" class="confirm" aria-label="Reserve a pass to Museum of Science">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-new-england-aquarium">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "1 Central Wharf, Boston, MA 02110","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-new-england-aquarium_19_md.jpg","telephone": "617-973-5200","name": "New England Aquarium","url": "","description": "The New England Aquarium is home to thousands of aquatic animals, from the giant Pacific octopus to Northern fur seals to little blue penguins. They offer a wide range of exhibits, including a shark and ray touch tank and the Giant Ocean Tank, a four-story coral reef featuring hundreds of Caribbean animals. In addition, they have an IMAX theatre and run whale watch boat excursions in partnership with Boston Harbor Cruises from April through November."}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-new-england-aquarium_19_xs.jpg" alt="New England Aquarium" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-new-england-aquarium" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-new-england-aquarium" aria-label="Details/Reserve New England Aquarium" />
+			<h3>New England Aquarium</h3>
+
+			<p>1 Central Wharf, Boston, MA 02110<br /><a href="tel:617-973-5200" aria-label="Phone New England Aquarium">617-973-5200</a><br /><a href="http://www.neaq.org/" target="_blank" rel="nofollow" aria-label="Visit New England Aquarium website">http://www.neaq.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-new-england-aquarium" role="button" aria-expanded="true" aria-controls="location-summary-panel-new-england-aquarium" aria-label="Details/Reserve New England Aquarium">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-new-england-aquarium" aria-labelledby="location-summary-panel-trigger-new-england-aquarium">
+
+			<h4>New England Aquarium</h4>
+
+			<p>The New England Aquarium is home to thousands of aquatic animals, from the giant Pacific octopus to Northern fur seals to little blue penguins. They offer a wide range of exhibits, including a shark and ray touch tank and the Giant Ocean Tank, a four-story coral reef featuring hundreds of Caribbean animals. In addition, they have an IMAX theatre and run whale watch boat excursions in partnership with Boston Harbor Cruises from April through November.</p>
+
+			<p class="museum-pass-directions"><a href="http://www.neaq.org/visit/hours-directions/" target="_blank" rel="nofollow" aria-label="Directions to New England Aquarium">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=children" aria-label="Filter by category: Children">Children</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=nature" aria-label="Filter by category: Nature">Nature</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=science" aria-label="Filter by category: Science">Science</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=ocean" aria-label="Filter by category: Ocean">Ocean</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Printable/Digital Coupon Pass (link delivered by email)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This coupon allows 50% off admission to the New England Aquarium for up to 4 people.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is not a ticket.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Redeem this coupon in the General Admission line at the Aquarium’s ticket booth for discounted admission for up to four people.</p>
+<p>·&nbsp; &nbsp; &nbsp; &nbsp;From May 26-September 4, 2026 discounted passes are only available Monday-Friday.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please visit <a href="https://www.neaq.org/visit/tickets/offers-discounts/" target="_blank">https://www.neaq.org/visit/tickets/offers-discounts/</a>&nbsp;for details.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Review the Aquarium’s website at <a href="www.neaq.org/safety" target="_blank">www.neaq.org/safety</a> ahead of your visit to ensure a safe and accessible experience.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Valid only for Aquarium admission.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This coupon does not provide any other discounts and cannot be applied to combo tickets.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Library coupons or tickets obtained with library coupons may not be sold.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Void if altered or copied. No cash value.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hours of operation are subject to change.</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="11" class="confirm" aria-label="Reserve a pass to New England Aquarium">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-north-shore-childrens-museum">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "10 Main Street, Peabody, MA 01960","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-north-shore-childrens-museum_289_md.png","telephone": "978-538-5765","name": "North Shore Children&amp;apos;s Museum","url": "","description": "Located in downtown Peabody, MA, the North Shore Children&amp;apos;s Museum offers 15 hands-on exhibits geared towards explorative and imaginative play for children ages 2 to 8. A child may become a superhero in the Comic Room, a builder in the Gross Motor Room, an artist in the Makerspace, and more. All exhibits are in ADA-accessible spaces."}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-north-shore-childrens-museum_289_xs.png" alt="North Shore Children&apos;s Museum" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-north-shore-childrens-museum" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-north-shore-childrens-museum" aria-label="Details/Reserve North Shore Children&amp;apos;s Museum" />
+			<h3>North Shore Children&apos;s Museum</h3>
+
+			<p>10 Main Street, Peabody, MA 01960<br /><a href="tel:978-538-5765" aria-label="Phone North Shore Children&amp;apos;s Museum">978-538-5765</a><br /><a href="https://www.nschildrensmuseum.org/" target="_blank" rel="nofollow" aria-label="Visit North Shore Children&amp;apos;s Museum website">https://www.nschildrensmuseum.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-north-shore-childrens-museum" role="button" aria-expanded="true" aria-controls="location-summary-panel-north-shore-childrens-museum" aria-label="Details/Reserve North Shore Children&amp;apos;s Museum">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-north-shore-childrens-museum" aria-labelledby="location-summary-panel-trigger-north-shore-childrens-museum">
+
+			<h4>North Shore Children&apos;s Museum</h4>
+
+			<p>Located in downtown Peabody, MA, the North Shore Children&apos;s Museum offers 15 hands-on exhibits geared towards explorative and imaginative play for children ages 2 to 8. A child may become a superhero in the Comic Room, a builder in the Gross Motor Room, an artist in the Makerspace, and more. All exhibits are in ADA-accessible spaces.</p>
+
+			<p class="museum-pass-directions"><a href="https://www.google.com/maps/place/10+Main+St,+Peabody,+MA+01960/@42.5257587,-70.9286791,17z/data=!3m1!4b1!4m5!3m4!1s0x89e313996ce9e57b:0xda13bf28d2bf7666!8m2!3d42.5257548!4d-70.9264904" target="_blank" rel="nofollow" aria-label="Directions to North Shore Children&amp;apos;s Museum">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=children" aria-label="Filter by category: Children">Children</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=science" aria-label="Filter by category: Science">Science</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Printable/Digital Coupon Pass (link delivered by email)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>50% off admission for a family of up to 5 adults/children.</p>
+<p>Tickets can be <a href="https://www.nschildrensmuseum.org/visit/buy-tickets/" target="_blank">purchased in advance</a> by selecting the Library Museum Pass option on the museum website. An ePass  can either be presented on a mobile device or as a print-out to receive the discounted admission rate in-person. If the library pass is not presented at the museum, you will be charged the difference for full price tickets.&nbsp;</p>
+<p>Valid only on the date listed on the pass, subject to museum capacity. Due to a high volume of visitors, it is best to reserve <a href="https://www.nschildrensmuseum.org/visit/buy-tickets/" target="_blank">museum tickets online</a> or call the museum to hold tickets, or to confirm availability the day of before visiting the North Shore Children's Museum.</p>
+
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/north-shore-childrens-museum/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="26" class="confirm" aria-label="Reserve a pass to North Shore Children&amp;apos;s Museum">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-peabody-essex-museum">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "161 Essex Street, Salem, MA 01970-3783","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-peabody-essex-museum_17_md.jpg","telephone": "978-745-9500","name": "Peabody Essex Museum","url": "","description": "The Peabody Essex Museum grew out of the collection of East India Marine Society, an organization of Salem captains whose charter called for acquisition of &amp;ldquo;natural and artificial curiosities.&amp;rdquo; Its permanent collection contains art and artifacts of Africa, Asia, India, China (with a Qing Dynasty house brought from the Huizhou region), Japan, Korea, Pacific Islands, and features objects of maritime art and history that include paintings, drawings, ship models, marine decorative arts, tools, weapons, navigational instruments, and ship and yacht plans. It also has a thriving changing exhibition schedule that sometimes includes important traveling shows."}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-peabody-essex-museum_17_xs.jpg" alt="Peabody Essex Museum" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-peabody-essex-museum" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-peabody-essex-museum" aria-label="Details/Reserve Peabody Essex Museum" />
+			<h3>Peabody Essex Museum</h3>
+
+			<p>161 Essex Street, Salem, MA 01970-3783<br /><a href="tel:978-745-9500" aria-label="Phone Peabody Essex Museum">978-745-9500</a><br /><a href="http://www.pem.org/" target="_blank" rel="nofollow" aria-label="Visit Peabody Essex Museum website">http://www.pem.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-peabody-essex-museum" role="button" aria-expanded="true" aria-controls="location-summary-panel-peabody-essex-museum" aria-label="Details/Reserve Peabody Essex Museum">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-peabody-essex-museum" aria-labelledby="location-summary-panel-trigger-peabody-essex-museum">
+
+			<h4>Peabody Essex Museum</h4>
+
+			<p>The Peabody Essex Museum grew out of the collection of East India Marine Society, an organization of Salem captains whose charter called for acquisition of &ldquo;natural and artificial curiosities.&rdquo; Its permanent collection contains art and artifacts of Africa, Asia, India, China (with a Qing Dynasty house brought from the Huizhou region), Japan, Korea, Pacific Islands, and features objects of maritime art and history that include paintings, drawings, ship models, marine decorative arts, tools, weapons, navigational instruments, and ship and yacht plans. It also has a thriving changing exhibition schedule that sometimes includes important traveling shows.</p>
+
+			<p class="museum-pass-directions"><a href="http://pem.org/visit/" target="_blank" rel="nofollow" aria-label="Directions to Peabody Essex Museum">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=art" aria-label="Filter by category: Art">Art</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=history" aria-label="Filter by category: History">History</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=ocean" aria-label="Filter by category: Ocean">Ocean</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Printable/Digital Coupon Pass (link delivered by email)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>Pass admits 2 people for $12 a person</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/peabody-essex-museum/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="12" class="confirm" aria-label="Reserve a pass to Peabody Essex Museum">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-plimoth-patuxet-museums">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "137 Warren Avenue, Plymouth, MA 02360","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-plimoth-patuxet_21_md.jpg","telephone": "508-746-1622","name": "Plimoth Patuxet Museums","url": "","description": "Plimoth Patuxet Museums offers a living history that tells the story of the English colonists who became known as &amp;ldquo;Pilgrims&amp;rdquo; and the Native Americans with whom they interacted. A big draw is the re-creation of the original settlement, populated with interpreters in period dress with whom one may interact that are based on actual historical figures. Native People from various nations in historically accurate dress provide information about the Wampanoag&amp;mdash;the first tribe the Pilgrims encountered&amp;mdash;at a home site based on how the group would have lived in the 17th century. In addition to the two settlements, the museum includes a visitor center, the Craft Center, barns that contain rare and heritage animal breeds, and a grist mill that manufactures cornmeal. Plymouth Patuxet Museums is also responsible for the replica of the Mayflower, the ship that brought the Pilgrims to the New World."}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-plimoth-patuxet_21_xs.jpg" alt="Plimoth Patuxet Museums" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-plimoth-patuxet-museums" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-plimoth-patuxet-museums" aria-label="Details/Reserve Plimoth Patuxet Museums" />
+			<h3>Plimoth Patuxet Museums</h3>
+
+			<p>137 Warren Avenue, Plymouth, MA 02360<br /><a href="tel:508-746-1622" aria-label="Phone Plimoth Patuxet Museums">508-746-1622</a><br /><a href="http://www.plimoth.org/" target="_blank" rel="nofollow" aria-label="Visit Plimoth Patuxet Museums website">http://www.plimoth.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-plimoth-patuxet-museums" role="button" aria-expanded="true" aria-controls="location-summary-panel-plimoth-patuxet-museums" aria-label="Details/Reserve Plimoth Patuxet Museums">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-plimoth-patuxet-museums" aria-labelledby="location-summary-panel-trigger-plimoth-patuxet-museums">
+
+			<h4>Plimoth Patuxet Museums</h4>
+
+			<p>Plimoth Patuxet Museums offers a living history that tells the story of the English colonists who became known as &ldquo;Pilgrims&rdquo; and the Native Americans with whom they interacted. A big draw is the re-creation of the original settlement, populated with interpreters in period dress with whom one may interact that are based on actual historical figures. Native People from various nations in historically accurate dress provide information about the Wampanoag&mdash;the first tribe the Pilgrims encountered&mdash;at a home site based on how the group would have lived in the 17th century. In addition to the two settlements, the museum includes a visitor center, the Craft Center, barns that contain rare and heritage animal breeds, and a grist mill that manufactures cornmeal. Plymouth Patuxet Museums is also responsible for the replica of the Mayflower, the ship that brought the Pilgrims to the New World.</p>
+
+			<p class="museum-pass-directions"><a href="http://www.plimoth.org/plan-your-visit/getting-here" target="_blank" rel="nofollow" aria-label="Directions to Plimoth Patuxet Museums">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=children" aria-label="Filter by category: Children">Children</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=crafts" aria-label="Filter by category: Crafts">Crafts</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=history" aria-label="Filter by category: History">History</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Printable/Digital Coupon Pass (link delivered by email)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>This library pass must be presented to Plimoth Patuxet Museums guest services staff upon arrival at the Museum for&nbsp; Library patrons to purchase a Heritage Pass, Combination Pass, or Plimoth Patuxet Only pass for up to six individuals at the reduced rate of $18 per adult; $12 per child ages 5-17. This coupon is for one time use only by the patron.&nbsp;</p>
+<p>Visit <a href="https://plimoth.org/plan-your-visit" target="_blank">plimoth.org/plan-your-visit</a> for up to date visitor information including  new safety protocols, or call 508-746-1622 for hours, directions or other information.</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/plimoth-patuxet-museums/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="23" class="confirm" aria-label="Reserve a pass to Plimoth Patuxet Museums">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-salem-witch-museum">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "19 1/2 Washington Square, Salem, MA 01970","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-salem-witch-museum_60_md.jpg","telephone": "978-744-1692","name": "Salem Witch Museum","url": "","description": "Based on actual trial documents and using life-size stage sets with figures, lighting, and narration, the museum&amp;apos;s principle exhibit examines the 1692 Salem witch trials. In a second exhibit, &amp;ldquo;Witches: Evolving Perceptions,&amp;rdquo; guides take you through changing interpretations of witches, the truth behind the stereotypes, witchcraft practice today, and witch hunting. A gift shop is on the premises. "}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-salem-witch-museum_60_xs.jpg" alt="Salem Witch Museum" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-salem-witch-museum" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-salem-witch-museum" aria-label="Details/Reserve Salem Witch Museum" />
+			<h3>Salem Witch Museum</h3>
+
+			<p>19 1/2 Washington Square, Salem, MA 01970<br /><a href="tel:978-744-1692" aria-label="Phone Salem Witch Museum">978-744-1692</a><br /><a href="http://www.salemwitchmuseum.com/" target="_blank" rel="nofollow" aria-label="Visit Salem Witch Museum website">http://www.salemwitchmuseum.com/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-salem-witch-museum" role="button" aria-expanded="true" aria-controls="location-summary-panel-salem-witch-museum" aria-label="Details/Reserve Salem Witch Museum">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-salem-witch-museum" aria-labelledby="location-summary-panel-trigger-salem-witch-museum">
+
+			<h4>Salem Witch Museum</h4>
+
+			<p>Based on actual trial documents and using life-size stage sets with figures, lighting, and narration, the museum&apos;s principle exhibit examines the 1692 Salem witch trials. In a second exhibit, &ldquo;Witches: Evolving Perceptions,&rdquo; guides take you through changing interpretations of witches, the truth behind the stereotypes, witchcraft practice today, and witch hunting. A gift shop is on the premises.</p>
+
+			<p class="museum-pass-directions"><a href="https://www.salemwitchmuseum.com/about/directions" target="_blank" rel="nofollow" aria-label="Directions to Salem Witch Museum">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=children" aria-label="Filter by category: Children">Children</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=history" aria-label="Filter by category: History">History</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Circulating Pass (must be picked up and returned to the branch)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>Pass admits 6 people at $14.00 for adults and $11.75 for children. You must bring the orange pass to the museum to receive the discounted price. Anyone arriving without the orange pass will need to pay full rate on arrival to the museum. Library passes are not accepted in the month of October.</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/salem-witch-museum/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="13" class="confirm" aria-label="Reserve a pass to Salem Witch Museum">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-trustees-of-the-reservations">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "MA","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-trustees-of-the-reservations_32_md.jpg","telephone": "978-921-1944","name": "Trustees of the Reservations","url": "","description": "The Trustees of the Reservations preserve and protect more than 100 special properties of exceptional scenic, historic, and ecological value&amp;mdash;nearly 25,000 acres&amp;mdash;all around Massachusetts. From Crane&amp;apos;s Beach in Ipswich and World&amp;apos;s End in Hingham to The Old Manse in Concord and Fruitlands Museum in Harvard, visitors to Trustees sites enjoy local history and nature in its various forms: beaches, meadows, forests, swamps and more."}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-trustees-of-the-reservations_32_xs.jpg" alt="Trustees of the Reservations" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-trustees-of-the-reservations" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-trustees-of-the-reservations" aria-label="Details/Reserve Trustees of the Reservations" />
+			<h3>Trustees of the Reservations</h3>
+
+			<p>MA<br /><a href="tel:978-921-1944" aria-label="Phone Trustees of the Reservations">978-921-1944</a><br /><a href="http://www.thetrustees.org/" target="_blank" rel="nofollow" aria-label="Visit Trustees of the Reservations website">http://www.thetrustees.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-trustees-of-the-reservations" role="button" aria-expanded="true" aria-controls="location-summary-panel-trustees-of-the-reservations" aria-label="Details/Reserve Trustees of the Reservations">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-trustees-of-the-reservations" aria-labelledby="location-summary-panel-trigger-trustees-of-the-reservations">
+
+			<h4>Trustees of the Reservations</h4>
+
+			<p>The Trustees of the Reservations preserve and protect more than 100 special properties of exceptional scenic, historic, and ecological value&mdash;nearly 25,000 acres&mdash;all around Massachusetts. From Crane&apos;s Beach in Ipswich and World&apos;s End in Hingham to The Old Manse in Concord and Fruitlands Museum in Harvard, visitors to Trustees sites enjoy local history and nature in its various forms: beaches, meadows, forests, swamps and more.</p>
+
+			<p class="museum-pass-directions"><a href="http://www.thetrustees.org/places-to-visit/list-reservations/" target="_blank" rel="nofollow" aria-label="Directions to Trustees of the Reservations">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=history" aria-label="Filter by category: History">History</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=nature" aria-label="Filter by category: Nature">Nature</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=recreation" aria-label="Filter by category: Recreation">Recreation</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Coupon Pass (must be picked up from the branch, but does not require returning)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>Pass admits 2 adults and children under 18. Prices vary by location.</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/trustees-of-the-reservations/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="14" class="confirm" aria-label="Reserve a pass to Trustees of the Reservations">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-the-uss-constitution-museum">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "Charlestown Navy Yard, Building 22, Charlestown, MA 02129","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-uss-constitution-museum_24_md.jpg","telephone": "617-426-1812","name": "USS Constitution Museum","url": "","description": "The museum, a part of the Boston National Historical Park, is located in the Charlestown Navy Yard near the ship USS Constitution (&amp;ldquo;Old Ironsides&amp;rdquo;) at the end of Boston&amp;apos;s Freedom Trail. The museum provides a detailed look at the history of the ship, information about the war of 1812, and the battle between the ship and HMS Java. Stories are told through interactive exhibits, unique artifacts, archival records, and artwork. The museum also includes a research library which houses a strong collection of manuscripts, books, artifacts, and microfilm of primary source material. The ship itself is maintained by the US Navy, and may be visited free of charge on certain days."}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-uss-constitution-museum_24_xs.jpg" alt="USS Constitution Museum" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-the-uss-constitution-museum" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-the-uss-constitution-museum" aria-label="Details/Reserve USS Constitution Museum" />
+			<h3>USS Constitution Museum</h3>
+
+			<p>Charlestown Navy Yard, Building 22, Charlestown, MA 02129<br /><a href="tel:617-426-1812" aria-label="Phone USS Constitution Museum">617-426-1812</a><br /><a href="https://ussconstitutionmuseum.org/" target="_blank" rel="nofollow" aria-label="Visit USS Constitution Museum website">https://ussconstitutionmuseum.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-the-uss-constitution-museum" role="button" aria-expanded="true" aria-controls="location-summary-panel-the-uss-constitution-museum" aria-label="Details/Reserve USS Constitution Museum">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-the-uss-constitution-museum" aria-labelledby="location-summary-panel-trigger-the-uss-constitution-museum">
+
+			<h4>USS Constitution Museum</h4>
+
+			<p>The museum, a part of the Boston National Historical Park, is located in the Charlestown Navy Yard near the ship USS Constitution (&ldquo;Old Ironsides&rdquo;) at the end of Boston&apos;s Freedom Trail. The museum provides a detailed look at the history of the ship, information about the war of 1812, and the battle between the ship and HMS Java. Stories are told through interactive exhibits, unique artifacts, archival records, and artwork. The museum also includes a research library which houses a strong collection of manuscripts, books, artifacts, and microfilm of primary source material. The ship itself is maintained by the US Navy, and may be visited free of charge on certain days.</p>
+
+			
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=art" aria-label="Filter by category: Art">Art</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=history" aria-label="Filter by category: History">History</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=ocean" aria-label="Filter by category: Ocean">Ocean</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Printable/Digital Coupon Pass (link delivered by email)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>Pass admits 5 people for free, one pass per party.</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/the-uss-constitution-museum/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="15" class="confirm" aria-label="Reserve a pass to USS Constitution Museum">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+	<div class="location museum museum-zoo-new-england">
+
+		<div class="location-summary museum-pass-summary cf">
+
+			<script type="application/ld+json">{"@context": "http://schema.org","@type": "CivicStructure","address": "1 Franklin Park Road, Boston, MA 02121","logo": "https://s3.amazonaws.com/ai-assets/museum-logos/ma-zoo-new-england_5_md.jpg","telephone": "617-541-5466","name": "Zoo New England","url": "","description": "Zoo New England operates Franklin Park Zoo, a 72-acre site nestled in Boston&amp;apos;s historic Franklin Park, and the Stone Zoo, located on a 26-acre site near Spot Pond reservoir in Stoneham, MA. In addition to animals, both zoos are engaged in wildlife and conservation programs, research, and education."}</script>
+			<img src="https://s3.amazonaws.com/ai-assets/museum-logos/ma-zoo-new-england_5_xs.jpg" alt="Zoo New England" class="location-summary-panel-trigger-image" id="location-summary-panel-trigger-image-zoo-new-england" role="button" tabindex="0" aria-expanded="true" aria-controls="location-summary-panel-zoo-new-england" aria-label="Details/Reserve Zoo New England" />
+			<h3>Zoo New England</h3>
+
+			<p>1 Franklin Park Road, Boston, MA 02121<br /><a href="tel:617-541-5466" aria-label="Phone Zoo New England">617-541-5466</a><br /><a href="http://www.zoonewengland.org/" target="_blank" rel="nofollow" aria-label="Visit Zoo New England website">http://www.zoonewengland.org/</a><br /><a href="#" class="location-summary-panel-trigger" data-closed="[Details/Reserve]" data-open="[Collapse Details]" id="location-summary-panel-trigger-zoo-new-england" role="button" aria-expanded="true" aria-controls="location-summary-panel-zoo-new-england" aria-label="Details/Reserve Zoo New England">[Details/Reserve]</a></p>
+		</div>
+
+		<div class="location-summary-panel museum-pass-summary-panel wysiwyg cf" id="location-summary-panel-zoo-new-england" aria-labelledby="location-summary-panel-trigger-zoo-new-england">
+
+			<h4>Zoo New England</h4>
+
+			<p>Zoo New England operates Franklin Park Zoo, a 72-acre site nestled in Boston&apos;s historic Franklin Park, and the Stone Zoo, located on a 26-acre site near Spot Pond reservoir in Stoneham, MA. In addition to animals, both zoos are engaged in wildlife and conservation programs, research, and education.</p>
+
+			<p class="museum-pass-directions"><a href="http://www.zoonewengland.org/franklin-park-zoo/hours,-info-faq" target="_blank" rel="nofollow" aria-label="Directions to Zoo New England">[Get Directions]</a></p>
+			<p class="museum-pass-categories"><strong>Categories:</strong> <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=family" aria-label="Filter by category: Family">Family</a>, <a href="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/?filter-categories[]=zoo" aria-label="Filter by category: Zoo">Zoo</a></p><p class="museum-pass-pass-type"><strong>Pass Type:</strong> Coupon Pass (must be picked up from the branch, but does not require returning)</p>
+			<div class="location-form wysiwyg museums by-museum">
+			
+				<h5>Pass Benefits</h5>
+
+				<p>Pass admits 6 people at $9 per adult and $6 per child. Children under 2 are free.</p>
+
+				<div class="location-form-wrapper">
+
+					<form method="post" action="https://wakefieldlibrary.assabetinteractive.com/museum-passes/by-museum/zoo-new-england/">
+
+						<fieldset>
+
+							<legend>Reserve a Pass</legend>
+
+							<button type="submit" value="16" class="confirm" aria-label="Reserve a pass to Zoo New England">Reserve a Pass</button>
+
+						</fieldset>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	
+</main>
+	<footer><small><a href="https://www.assabetinteractive.com/?utm_source=ai_application&utm_medium=web&utm_campaign=wakefieldlibrary" target="_blank">&copy; 2026 Assabet Interactive, LLC</a>.&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.assabetinteractive.com/accessibility-statement.htm?utm_source=ai_application&utm_medium=web&utm_campaign=wakefieldlibrary">Accessibility Statement</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.assabetinteractive.com/privacy-policy.htm?utm_source=ai_application&utm_medium=web&utm_campaign=wakefieldlibrary">Privacy Policy</a></small></footer><script type="text/javascript">if ( in_iframe() ) {$('html').addClass('framed');}</script>
+</body>
+</html>
+
