@@ -1,0 +1,104 @@
+{
+  "library_id": "cohasset",
+  "index_url": "https://www2.museumkey.com/ui/byMuseum/?code=paulma02025&branchID=231",
+  "passes": [
+    {
+      "library_id": "cohasset",
+      "title": "Boston Children's Museum",
+      "attraction_slug": "boston-children-s-museum",
+      "musid": "4894",
+      "reserve_query": "?musID=4894"
+    },
+    {
+      "library_id": "cohasset",
+      "title": "Boston Harbor Island Ferry",
+      "attraction_slug": "boston-harbor-island-ferry",
+      "musid": "4906",
+      "reserve_query": "?musID=4906"
+    },
+    {
+      "library_id": "cohasset",
+      "title": "The Butterfly Place",
+      "attraction_slug": "the-butterfly-place",
+      "musid": "11201",
+      "reserve_query": "?musID=11201"
+    },
+    {
+      "library_id": "cohasset",
+      "title": "Cohasset Historical Society",
+      "attraction_slug": "cohasset-historical-society",
+      "musid": "4904",
+      "reserve_query": "?musID=4904"
+    },
+    {
+      "library_id": "cohasset",
+      "title": "Isabella Stewart Gardner Museum",
+      "attraction_slug": "isabella-stewart-gardner-museum",
+      "musid": "4895",
+      "reserve_query": "?musID=4895"
+    },
+    {
+      "library_id": "cohasset",
+      "title": "John F. Kennedy Presidential Library and Museum",
+      "attraction_slug": "john-f-kennedy-presidential-library-and-museum",
+      "musid": "10432",
+      "reserve_query": "?musID=10432"
+    },
+    {
+      "library_id": "cohasset",
+      "title": "Massachusetts State Parks",
+      "attraction_slug": "massachusetts-state-parks",
+      "musid": "4896",
+      "reserve_query": "?musID=4896"
+    },
+    {
+      "library_id": "cohasset",
+      "title": "Museum of Fine Arts Boston",
+      "attraction_slug": "museum-of-fine-arts-boston",
+      "musid": "4897",
+      "reserve_query": "?musID=4897"
+    },
+    {
+      "library_id": "cohasset",
+      "title": "Museum of Science",
+      "attraction_slug": "museum-of-science",
+      "musid": "4898",
+      "reserve_query": "?musID=4898"
+    },
+    {
+      "library_id": "cohasset",
+      "title": "New England Aquarium",
+      "attraction_slug": "new-england-aquarium",
+      "musid": "4900",
+      "reserve_query": "?musID=4900"
+    },
+    {
+      "library_id": "cohasset",
+      "title": "Plimoth Patuxet",
+      "attraction_slug": "plimoth-patuxet",
+      "musid": "4901",
+      "reserve_query": "?musID=4901"
+    },
+    {
+      "library_id": "cohasset",
+      "title": "The Trustees of Reservations GO Pass",
+      "attraction_slug": "the-trustees-of-reservations-go-pass",
+      "musid": "4902",
+      "reserve_query": "?musID=4902"
+    },
+    {
+      "library_id": "cohasset",
+      "title": "USS Constitution Museum",
+      "attraction_slug": "uss-constitution-museum",
+      "musid": "4903",
+      "reserve_query": "?musID=4903"
+    },
+    {
+      "library_id": "cohasset",
+      "title": "Zoo New England",
+      "attraction_slug": "zoo-new-england",
+      "musid": "4907",
+      "reserve_query": "?musID=4907"
+    }
+  ]
+}
