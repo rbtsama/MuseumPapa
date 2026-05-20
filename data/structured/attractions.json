@@ -1,0 +1,1809 @@
+{
+  "_meta": {
+    "built_at": "2026-05-20T15:49:28.055431+00:00",
+    "n_attractions": 48
+  },
+  "attractions": [
+    {
+      "slug": "american-heritage-museum",
+      "name": "The American Heritage Museum",
+      "website": "https://www.americanheritagemuseum.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.americanheritagemuseum.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.americanheritagemuseum.org/purchase-tickets-online/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "dedicated_pass_holders_url",
+        "pass_holder_url": "https://www.americanheritagemuseum.org/become-a-member/library-pass-program/",
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
+    },
+    {
+      "slug": "boston-athenaeum",
+      "name": "Home - Boston Athenaeum",
+      "website": "https://www.bostonathenaeum.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.bostonathenaeum.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://bostonathenaeum.org/visit/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "09:00-20:00",
+        "tuesday": "09:00-20:00",
+        "wednesday": "09:00-20:00",
+        "thursday": "09:00-20:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "closed"
+      }
+    },
+    {
+      "slug": "boston-by-foot",
+      "name": "Boston By Foot | Walking Tours | Historical | Architecture",
+      "website": "http://www.bostonbyfoot.org/",
+      "hero_image": "https://bostonbyfoot.org/images/home/2192790797_0f349d3cb0_b.jpg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.bostonbyfoot.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "none",
+        "scope": null,
+        "locals_free": false,
+        "note": "Page only mentions 'residents and visitors' in mission statement; no residency requirement for visitors.",
+        "source_phrase": "We envision a city whose residents and visitors have a deep understanding and appreciation of the city's complex and diverse history"
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://fareharbor.com/embeds/book/bostonbyfoot/items/?full-items=yes",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "boston-childrens-museum",
+      "name": "Homepage - Boston Children's Museum",
+      "website": "http://www.bostonchildrensmuseum.org/",
+      "hero_image": "https://bostonchildrensmuseum.org/wp-content/uploads/2021/07/logoblue.png",
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 24.0,
+          "age_range": null,
+          "source_phrase": "adults: $24"
+        },
+        {
+          "audience": "child",
+          "price": 24.0,
+          "age_range": null,
+          "source_phrase": "children (1 – 15): $24"
+        }
+      ],
+      "categories": [],
+      "sources": [
+        "http://www.bostonchildrensmuseum.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "Only 'President' matches; no residency policy.",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://bostonchildrensmuseum.org/ticketing",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "09:00-16:00",
+        "tuesday": "closed",
+        "wednesday": "09:00-16:00",
+        "thursday": "09:00-16:00",
+        "friday": "09:00-16:00",
+        "saturday": "09:00-16:00",
+        "sunday": "09:00-16:00"
+      }
+    },
+    {
+      "slug": "boston-harbor-island-ferry",
+      "name": "Explore National Park | Boston Harbor Islands",
+      "website": "http://www.bostonharborislands.org/",
+      "hero_image": "https://www.bostonharborislands.org/wp-content/uploads/opengraph.jpg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.bostonharborislands.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.bostonharborislands.org/ferry-tickets/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "boston-harbor-islands",
+      "name": "Explore National Park | Boston Harbor Islands",
+      "website": "https://www.bostonharborislands.org/",
+      "hero_image": "https://www.bostonharborislands.org/wp-content/uploads/opengraph.jpg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.bostonharborislands.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.bostonharborislands.org/ferry-tickets/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "christian-science-plaza",
+      "name": "The Mother Church in Boston - Christian Science",
+      "website": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza",
+      "hero_image": "https://www.christianscience.com/var/cscom/storage/images/media/navigation-refresh-media/images/the-mother-church-in-boston/the-mother-church-in-boston-banner2/717693-1-eng-US/the-mother-church-in-boston-banner.jpg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "concord-museum",
+      "name": "Welcome to the Concord Museum &#8212; Concord Museum",
+      "website": "http://www.concordmuseum.org/",
+      "hero_image": "https://concordmuseum.org/wp-content/uploads/2023/09/share-fb_concord-museum.jpg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.concordmuseum.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://concordmuseum.org/visit/plan-your-visit/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "closed",
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "10:00-16:00"
+      }
+    },
+    {
+      "slug": "davis-farmland",
+      "name": "Davis Farmland | Farm Animals, Family Fun &amp; Seasonal Activities in Sterling, MA",
+      "website": "https://www.davisfarmland.com/",
+      "hero_image": "https://wp-cdn-davisfarmland.s3.amazonaws.com/prod/uploads/2025/05/logo-davis-farmland-1x.png",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.davisfarmland.com/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://davisfarmland.com/reservations/birthday-parties/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "09:30-16:00",
+        "tuesday": "09:30-16:00",
+        "wednesday": "09:30-16:00",
+        "thursday": "09:30-16:00",
+        "friday": "09:30-16:00",
+        "saturday": "09:30-17:00",
+        "sunday": "09:30-17:00"
+      }
+    },
+    {
+      "slug": "ecotarium",
+      "name": "EcoTarium &#8211; Museum of Science and Nature",
+      "website": "http://www.ecotarium.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.ecotarium.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "http://2573.blackbaudhosting.com/2573/tickets?tab=3&txobjid=9a23d613-e637-4832-9fc4-04e67613729a",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "closed",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
+    },
+    {
+      "slug": "garden-in-the-woods-native-plant-trust",
+      "name": "Native Plant Trust",
+      "website": "http://www.nativeplanttrust.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.nativeplanttrust.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "/visit/garden-woods/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
+    },
+    {
+      "slug": "gore-place",
+      "name": "Welcome To Gore Place - Gore Place",
+      "website": "https://www.goreplace.org/",
+      "hero_image": "https://goreplace.org/images/made/images/uploads/IMG_6800_600_315_s_c1.jpeg",
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 25.0,
+          "age_range": null,
+          "source_phrase": "$25 general admission, $20 members, $15 Card to Culture."
+        }
+      ],
+      "categories": [],
+      "sources": [
+        "https://www.goreplace.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://goreplace.org/visit",
+        "lead_time_hours": 0,
+        "pass_holder_path": "dedicated_pass_holders_url",
+        "pass_holder_url": "https://goreplace.org/support/library-passes",
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "greater-boston-stage-company",
+      "name": "Vibrant Professional Theatre - Greater Boston Stage",
+      "website": "https://www.greaterbostonstage.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.greaterbostonstage.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://greaterbostonstagecompany.my.salesforce-sites.com/ticket/#/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "griffin-museum-of-photography",
+      "name": "Griffin Museum - Griffin Museum of Photography",
+      "website": "http://www.griffinmuseum.org/",
+      "hero_image": "http://griffinmuseum.org/wp-content/uploads/2016/11/purchase-icon.jpg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.griffinmuseum.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "No substantive residency text found.",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://griffinmuseum.org/shop/museum-admission/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "closed",
+        "tuesday": "12:00-16:00",
+        "wednesday": "12:00-16:00",
+        "thursday": "12:00-16:00",
+        "friday": "12:00-16:00",
+        "saturday": "12:00-16:00",
+        "sunday": "12:00-16:00"
+      }
+    },
+    {
+      "slug": "harvard-museum-of-natural-history",
+      "name": null,
+      "website": "https://hmnh.harvard.edu/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://hmnh.harvard.edu/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "Only 'President and Fellows of Harvard College' copyright; no residency policy.",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://visitor.constantcontact.com/manage/optin?v=001RpCZPV7rN6RZMuXGleJ-OO19CgbCCgyg7BTgNmLgZTAaUhVJbXYL_ND5tcbS0zf1gnPICBFf_D87gfKnCSDQkvd4DRm2NZk5BZISW5l3XY_vgU_jTEohNA%3D%3D",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "09:00-17:00"
+      }
+    },
+    {
+      "slug": "harvard-museums-of-science-and-culture",
+      "name": "Harvard Museums of Science &amp; Culture",
+      "website": "https://hmsc.harvard.edu/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://hmsc.harvard.edu/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "Only 'President and Fellows of Harvard College' copyright; no residency policy.",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://visitor.r20.constantcontact.com/manage/optin?v=001RpCZPV7rN6RZMuXGleJ-OCSFbweYGKHgQJg49nNB7IOMNJ-ZmKw69uEWrTNr_oXKz32QVIOIZjIMGNrqQtZCioFIcYCMtHEpyB8SuMT6if4%3D",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "09:00-17:00"
+      }
+    },
+    {
+      "slug": "heritage-museums-gardens",
+      "name": "Heritage Museums &amp; Gardens - Heritage Museums &amp; Gardens",
+      "website": "https://heritagemuseumsandgardens.org/",
+      "hero_image": "https://bunny-wp-pullzone-94pwz2rapx.b-cdn.net/wp-content/uploads/2021/04/Logo_HMG-Full-Color-Horizontal.png",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://heritagemuseumsandgardens.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://heritagemuseumsandgardens.org/about-us/visit/hours-admission-guidelines/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
+    },
+    {
+      "slug": "isabella-stewart-gardner-museum",
+      "name": "Isabella Stewart Gardner Museum | Isabella Stewart Gardner Museum",
+      "website": "http://www.gardnermuseum.org/home/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.gardnermuseum.org/home/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.gardnermuseum.org/visit",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "11:00-17:00",
+        "tuesday": "closed",
+        "wednesday": "11:00-17:00",
+        "thursday": "11:00-21:00",
+        "friday": "11:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
+    },
+    {
+      "slug": "larz-anderson-auto-museum",
+      "name": "Boston Car Museum | Larz Anderson Auto Museum",
+      "website": "https://www.larzanderson.org/",
+      "hero_image": "https://static.wixstatic.com/media/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png/v1/fit/w_2500,h_1330,al_c/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.larzanderson.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": null,
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "closed",
+        "tuesday": "10:00-15:00",
+        "wednesday": "10:00-15:00",
+        "thursday": "10:00-15:00",
+        "friday": "10:00-15:00",
+        "saturday": "10:00-15:00",
+        "sunday": "10:00-15:00"
+      }
+    },
+    {
+      "slug": "mass-audubon-drumlin-farm",
+      "name": "Mass Audubon",
+      "website": "http://www.massaudubon.org/",
+      "hero_image": "/build/images/meta_image-meadow-with-nestboxes-in-late-spring-at-arcadia-c-phil-doyle-750.jpg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.massaudubon.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "Only references to 'resident' animals (otters, sheep, owls); no visitor residency policy.",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "/places-to-explore/admission-expanding-access",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "mass-audubon",
+      "name": "Mass Audubon",
+      "website": "https://www.massaudubon.org/",
+      "hero_image": "/build/images/meta_image-meadow-with-nestboxes-in-late-spring-at-arcadia-c-phil-doyle-750.jpg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.massaudubon.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "Only references to 'resident' animals (otters, sheep, owls); no visitor residency policy.",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "/places-to-explore/admission-expanding-access",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "massachusetts-state-police-museum-and-learning-center",
+      "name": "MA State Police Museum &amp; Learning Center",
+      "website": "https://www.mspmlc.org/ ",
+      "hero_image": "https://static.wixstatic.com/media/55c59e_802caba4df9f4a8db7fbed0b8b2ce5cb%7Emv2.png/v1/fit/w_2500,h_1330,al_c/55c59e_802caba4df9f4a8db7fbed0b8b2ce5cb%7Emv2.png",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.mspmlc.org/ "
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.mspmlc.org/visit",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "closed",
+        "tuesday": "11:00-16:00",
+        "wednesday": "closed",
+        "thursday": "closed",
+        "friday": "closed",
+        "saturday": "11:00-16:00",
+        "sunday": "closed"
+      }
+    },
+    {
+      "slug": "museum-of-science",
+      "name": "Home | Museum of Science",
+      "website": "http://www.mos.org/",
+      "hero_image": "https://www.mos.org/sites/default/files/styles/1200x675_16_9_lg_/public/2024-02/Museum-Exterior-1x1.jpg?itok=d_Y1X48L",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.mos.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "timed_entry",
+        "booking_url": "https://tickets.mos.org/events",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": null,
+        "source_phrase": "art, and music in a whole new way. Explore Events Image Exhibit Halls Open Daily, 9 am ‑ 5 pm To purchase tickets to the Museum Exhibit Halls, use the \"Buy Tickets\" button below. Timed tickets are no longer required – just select the date you will be visiting. Buy Exhibit Tickets View Today's Schedule Experience the Museum Image Adventure Awaits Plan Your Trip Explore."
+      },
+      "hours": {
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "09:00-17:00"
+      }
+    },
+    {
+      "slug": "naismith-memorial-basketball-hall-of-fame",
+      "name": "Naismith Basketball Hall of Fame | Springfield, MA",
+      "website": "https://www.hoophall.com/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.hoophall.com/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://event.etix.com/ticket/o/5755",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "10:00-16:00",
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "10:00-16:00"
+      }
+    },
+    {
+      "slug": "new-england-aquarium",
+      "name": "New England Aquarium in Boston - Protecting Animals &amp; the Ocean",
+      "website": "http://www.neaq.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.neaq.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "timed_entry",
+        "booking_url": "https://www.neaq.org/plan-your-visit/tickets/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": null,
+        "source_phrase": "ours: 9:00 a.m. - 5:00 p.m. Today’s hours: 9:00 a.m. - 5:00 p.m. Today’s hours: 9:00 a.m. - 5:00 p.m. Today’s hours: 9:00 a.m. - 5:00 p.m. Today’s hours: 9:00 a.m. - 6:00 p.m. Buy timed entry tickets → Learn about discounts and offers → Daily Presentations and Map → Save more with CityPass → Learn more about Boston Family Days → Arrange a group visit → Directions and p"
+      },
+      "hours": {
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-18:00",
+        "sunday": "09:00-18:00"
+      }
+    },
+    {
+      "slug": "new-england-botanic-garden-at-tower-hill",
+      "name": "New England Botanic Garden at Tower Hill",
+      "website": "https://www.nebg.org/",
+      "hero_image": "https://nebg.org/wp-content/uploads/2022/10/entry-garden.jpg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.nebg.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "Only 'NEVADA RESIDENTS' privacy/opt-out clause; no visitor residency policy.",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": null,
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "new-england-quilt-museum",
+      "name": "New England Quilt Museum",
+      "website": "https://www.neqm.org/",
+      "hero_image": "http://static1.squarespace.com/static/65958663bca4b21bc541fb73/t/659834bde6f3db569ac29e75/1704473789312/logo-header.png?format=1500w",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.neqm.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.neqm.org/visit",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "closed",
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "closed"
+      }
+    },
+    {
+      "slug": "north-shore-childrens-museum",
+      "name": "North Shore Children&#039;s Museum | Peabody, MA",
+      "website": "https://www.nschildrensmuseum.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.nschildrensmuseum.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "none",
+        "scope": null,
+        "locals_free": false,
+        "note": "Open to all visitors. Town-specific free admission days for Saugus, Wakefield, Hamilton-Wenham, and Marblehead residents (proof of residency required on those specific days only).",
+        "source_phrase": "Saugus residents can enjoy free admission to the museum on Saturday, May 30 and Sunday, May 31!"
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.nschildrensmuseum.org/visit/buy-tickets/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "09:00-16:00",
+        "thursday": "09:00-16:00",
+        "friday": "09:00-16:00",
+        "saturday": "09:00-16:00",
+        "sunday": "12:00-16:00"
+      }
+    },
+    {
+      "slug": "old-sturbridge-village",
+      "name": "Old Sturbridge Village",
+      "website": "https://www.osv.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.osv.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.osv.org/visit/daytime-admission-discounts/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "dedicated_pass_holders_url",
+        "pass_holder_url": "https://www.osv.org/visit/library-passes/",
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "09:30-17:00",
+        "thursday": "09:30-17:00",
+        "friday": "09:30-17:00",
+        "saturday": "09:30-17:00",
+        "sunday": "09:30-17:00"
+      }
+    },
+    {
+      "slug": "orchard-house",
+      "name": "Home",
+      "website": "http://www.louisamayalcott.org/",
+      "hero_image": "https://img1.wsimg.com/isteam/ip/856fd03b-c594-497c-b644-a8652bdc6bcd/OH-and-2-Tims-for-web.png",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.louisamayalcott.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "Only references former historic residents (Alcott family / Timothy Hoar); no visitor residency policy.",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "timed_entry",
+        "booking_url": "https://louisamayalcott.org/visit",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": null,
+        "source_phrase": "Home OPEN: M-Sat 10-5 & Sun 11-5 Click for Timed-Entry Louisa May Alcott's Orchard House Louisa May Alcott's Orchard House Louisa May Alcott's Orchard House Louisa May Alcott's Orchard House Home FAQs Visit About Events Summer Adult E"
+      },
+      "hours": {
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
+    },
+    {
+      "slug": "paddle-boston",
+      "name": "Paddle Boston &#8211; Charles River Canoe &amp; Kayak :: Sales, Rentals, Trips, Instruction, and Gear in Boston",
+      "website": "https://www.paddleboston.com/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.paddleboston.com/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://paddleboston.com/group-outings/rates-and-reservations/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "peabody-essex-museum",
+      "name": "Peabody Essex Museum | World-Renowned Art Museum In Salem, MA",
+      "website": "http://www.pem.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.pem.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.pem.org/visit",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "10:00-17:00",
+        "tuesday": "closed",
+        "wednesday": "closed",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
+    },
+    {
+      "slug": "plimoth-patuxet",
+      "name": "Plimoth Patuxet Museums | Home",
+      "website": "http://www.plimoth.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.plimoth.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://plimoth.org/plan-your-visit/visitor-guide",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "salem-witch-museum",
+      "name": "The Salem Witch Museum",
+      "website": "http://www.salemwitchmuseum.com/",
+      "hero_image": null,
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 19.0,
+          "age_range": null,
+          "source_phrase": "Adults: $19.00"
+        },
+        {
+          "audience": "senior",
+          "price": 17.5,
+          "age_range": null,
+          "source_phrase": "Seniors (62+): $17.50"
+        },
+        {
+          "audience": "child",
+          "price": 16.0,
+          "age_range": {
+            "min": 6,
+            "max": 14
+          },
+          "source_phrase": "Children (Ages 6-14): $16.00"
+        }
+      ],
+      "categories": [],
+      "sources": [
+        "http://www.salemwitchmuseum.com/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://tickets.salemwitchmuseum.com/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
+    },
+    {
+      "slug": "sandmagination",
+      "name": "Sandmagination | New England&#039;s Largest Indoor Sandbox",
+      "website": "https://sandmagination.com/",
+      "hero_image": "https://sandmagination.com/wp-content/uploads/2025/01/Kids-Playing-Sandmagination.com_.webp",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://sandmagination.com/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://sandmagination.com/admissions",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "09:00-18:00",
+        "tuesday": "09:00-18:00",
+        "wednesday": "09:00-18:00",
+        "thursday": "09:00-18:00",
+        "friday": "09:00-18:00",
+        "saturday": "09:00-18:00",
+        "sunday": "09:00-18:00"
+      }
+    },
+    {
+      "slug": "seacoast-science-center",
+      "name": "Seacoast Science Center: NH&#039;s Marine Science Center",
+      "website": "http://www.seacoastsciencecenter.org/",
+      "hero_image": "https://www.seacoastsciencecenter.org/wp-content/uploads/2022/12/wave-lines-white_1px.svg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.seacoastsciencecenter.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.seacoastsciencecenter.org/visit/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "10:00-16:00",
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "10:00-16:00"
+      }
+    },
+    {
+      "slug": "the-aviation-museum-of-new-hampshire",
+      "name": "Homepage - Aviation Museum of N.H.",
+      "website": "https://aviationmuseumofnh.org/",
+      "hero_image": "https://aviationmuseumofnh.org/wp-content/uploads/2023/06/AVNH-FINAL-LOGO-0214-1-scaled.jpg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://aviationmuseumofnh.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://aviationmuseumofnh.org/hours-and-directions/hours/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "the-childrens-piazza",
+      "name": "About  | The Children's Piazza",
+      "website": "https://www.thechildrenspiazza.com/",
+      "hero_image": "https://www.thechildrenspiazza.com/uploads/b/7ba6f940-a408-11e9-9a28-67bb30306769/Piazza%20circle%20gray%20no%20lines%20w%20white_NzQwNj.png",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.thechildrenspiazza.com/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": null,
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "the-danforth",
+      "name": "Danforth Art Museum and Art School",
+      "website": "https://danforth.framingham.edu/",
+      "hero_image": null,
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 7.0,
+          "age_range": null,
+          "source_phrase": "Adults: $7.00"
+        },
+        {
+          "audience": "senior",
+          "price": 6.0,
+          "age_range": null,
+          "source_phrase": "Seniors (65+)+FSU Alum: $6.00"
+        },
+        {
+          "audience": "child",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "Children (through 13): Free"
+        },
+        {
+          "audience": "student",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "Students High School + College: $5.00"
+        },
+        {
+          "audience": "student",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "Danforth Members, NARM Members, FSU students, faculty and staff: Free"
+        }
+      ],
+      "categories": [],
+      "sources": [
+        "https://danforth.framingham.edu/"
+      ],
+      "visitor_eligibility": {
+        "residency": "none",
+        "scope": null,
+        "locals_free": false,
+        "note": "Open to all visitors. Framingham residents get a discounted price tier ($6.00) but admission is not restricted by residency.",
+        "source_phrase": "Framingham residents: $6.00"
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://danforth.framingham.edu/visit/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "closed",
+        "tuesday": "12:00-17:00",
+        "wednesday": "12:00-17:00",
+        "thursday": "12:00-17:00",
+        "friday": "12:00-17:00",
+        "saturday": "12:00-17:00",
+        "sunday": "12:00-17:00"
+      }
+    },
+    {
+      "slug": "the-discovery-museums",
+      "name": "Homepage | Discovery Museum",
+      "website": "http://www.discoveryacton.org/",
+      "hero_image": "https://www.discoveryacton.org/sites/default/files/styles/scaled_original_wide/public/images/IMLS%20National%20Medal-staff%20pic-cropped.jpg?itok=Wo945sGF",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.discoveryacton.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.discoveryacton.org/visit/plan-your-visit",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "the-house-of-seven-gables",
+      "name": "The House of the Seven Gables | Salem MA Museum",
+      "website": "https://www.7gables.org/",
+      "hero_image": "https://7gables.org/wp-content/uploads/2022/05/MainImage_TonyHealy@2x-scaled.jpg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.7gables.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://7gables.org/tickets/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
+    },
+    {
+      "slug": "the-icon-museum-and-study-center",
+      "name": "Home - The Icon Museum and Study Center",
+      "website": "https://www.iconmuseum.org/",
+      "hero_image": "https://www.iconmuseum.org/wp-content/uploads/2026/05/Greek-Gallery-Event-edited-scaled.jpg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.iconmuseum.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": null,
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "closed",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "10:00-16:00"
+      }
+    },
+    {
+      "slug": "the-spellman-museum-of-stamps-and-postal-history",
+      "name": "Home | Spellman Museum",
+      "website": "https://www.spellmanmuseum.org/",
+      "hero_image": "https://i0.wp.com/spellmanmuseum.org/wp-content/uploads/2021/06/Spellman_Logo.png?fit=800%2C483&#038;ssl=1",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://www.spellmanmuseum.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": null,
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "the-uss-constitution-museum",
+      "name": "Home - USS Constitution Museum",
+      "website": "https://ussconstitutionmuseum.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://ussconstitutionmuseum.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://ussconstitutionmuseum.org/visit/museum-ship/hours-admission/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "dedicated_pass_holders_url",
+        "pass_holder_url": "https://ussconstitutionmuseum.org/library-pass-program/",
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "uss-constitution-museum",
+      "name": "Home - USS Constitution Museum",
+      "website": "https://ussconstitutionmuseum.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "https://ussconstitutionmuseum.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://ussconstitutionmuseum.org/visit/museum-ship/hours-admission/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "dedicated_pass_holders_url",
+        "pass_holder_url": "https://ussconstitutionmuseum.org/library-pass-program/",
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "wenham-museum",
+      "name": "Home - Wenham Museum",
+      "website": "http://www.wenhammuseum.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.wenhammuseum.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "Only reference to historic 'first residents' of the 360-year-old home; no visitor residency policy.",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.eventbrite.com/e/visit-the-wenham-museum-tickets-111445687050",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "09:00-16:00",
+        "thursday": "09:00-16:00",
+        "friday": "09:00-16:00",
+        "saturday": "09:00-16:00",
+        "sunday": "closed"
+      }
+    },
+    {
+      "slug": "worcester-art-museum",
+      "name": "Worcester Art Museum",
+      "website": "http://www.worcesterart.org/",
+      "hero_image": null,
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.worcesterart.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "no residency policy found on page",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "https://www.worcesterart.org/visit/#admission",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "unknown",
+        "tuesday": "unknown",
+        "wednesday": "unknown",
+        "thursday": "unknown",
+        "friday": "unknown",
+        "saturday": "unknown",
+        "sunday": "unknown"
+      }
+    },
+    {
+      "slug": "zoo-new-england",
+      "name": "Zoo New England | Franklin Park Zoo and Stone Zoo",
+      "website": "http://www.zoonewengland.org/",
+      "hero_image": "http://www.zoonewengland.org/media/1259935/zoo-new-england.jpg",
+      "prices": [],
+      "categories": [],
+      "sources": [
+        "http://www.zoonewengland.org/"
+      ],
+      "visitor_eligibility": {
+        "residency": "unknown",
+        "scope": null,
+        "locals_free": false,
+        "note": "Only 'President's Circle' donor program; no residency policy.",
+        "source_phrase": null
+      },
+      "reservation": {
+        "required": "walk_in_ok",
+        "booking_url": "/visit/group-reservations/",
+        "lead_time_hours": 0,
+        "pass_holder_path": "unknown",
+        "pass_holder_url": null,
+        "notes": "no explicit reservation language; defaulted to walk_in_ok",
+        "source_phrase": null
+      },
+      "hours": {
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "09:00-17:00"
+      }
+    }
+  ]
+}

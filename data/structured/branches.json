@@ -1,0 +1,152 @@
+{
+  "_meta": {
+    "built_at": "2026-05-20T15:49:28.056421+00:00",
+    "n_branches": 24
+  },
+  "branches": [
+    {
+      "id": "bpl-central",
+      "library_id": "bpl",
+      "name": "Central",
+      "code": "3"
+    },
+    {
+      "id": "bpl-adams-street",
+      "library_id": "bpl",
+      "name": "Adams Street",
+      "code": "13"
+    },
+    {
+      "id": "bpl-brighton",
+      "library_id": "bpl",
+      "name": "Brighton",
+      "code": "15"
+    },
+    {
+      "id": "bpl-charlestown",
+      "library_id": "bpl",
+      "name": "Charlestown",
+      "code": "16"
+    },
+    {
+      "id": "bpl-chinatown",
+      "library_id": "bpl",
+      "name": "Chinatown",
+      "code": "83"
+    },
+    {
+      "id": "bpl-codman-square",
+      "library_id": "bpl",
+      "name": "Codman Square",
+      "code": "17"
+    },
+    {
+      "id": "bpl-connolly",
+      "library_id": "bpl",
+      "name": "Connolly",
+      "code": "18"
+    },
+    {
+      "id": "bpl-east-boston",
+      "library_id": "bpl",
+      "name": "East Boston",
+      "code": "21"
+    },
+    {
+      "id": "bpl-egleston-square",
+      "library_id": "bpl",
+      "name": "Egleston Square",
+      "code": "22"
+    },
+    {
+      "id": "bpl-faneuil",
+      "library_id": "bpl",
+      "name": "Faneuil",
+      "code": "23"
+    },
+    {
+      "id": "bpl-grove-hall",
+      "library_id": "bpl",
+      "name": "Grove Hall",
+      "code": "25"
+    },
+    {
+      "id": "bpl-honan-allston",
+      "library_id": "bpl",
+      "name": "Honan-Allston",
+      "code": "26"
+    },
+    {
+      "id": "bpl-hyde-park",
+      "library_id": "bpl",
+      "name": "Hyde Park",
+      "code": "27"
+    },
+    {
+      "id": "bpl-jamaica-plain",
+      "library_id": "bpl",
+      "name": "Jamaica Plain",
+      "code": "28"
+    },
+    {
+      "id": "bpl-lower-mills",
+      "library_id": "bpl",
+      "name": "Lower Mills",
+      "code": "29"
+    },
+    {
+      "id": "bpl-mattapan",
+      "library_id": "bpl",
+      "name": "Mattapan",
+      "code": "30"
+    },
+    {
+      "id": "bpl-north-end",
+      "library_id": "bpl",
+      "name": "North End",
+      "code": "31"
+    },
+    {
+      "id": "bpl-parker-hill",
+      "library_id": "bpl",
+      "name": "Parker Hill",
+      "code": "34"
+    },
+    {
+      "id": "bpl-roslindale",
+      "library_id": "bpl",
+      "name": "Roslindale",
+      "code": "35"
+    },
+    {
+      "id": "bpl-shaw-roxbury",
+      "library_id": "bpl",
+      "name": "Shaw-Roxbury",
+      "code": "19"
+    },
+    {
+      "id": "bpl-south-boston",
+      "library_id": "bpl",
+      "name": "South Boston",
+      "code": "36"
+    },
+    {
+      "id": "bpl-uphams-corner",
+      "library_id": "bpl",
+      "name": "Uphams Corner",
+      "code": "38"
+    },
+    {
+      "id": "bpl-west-end",
+      "library_id": "bpl",
+      "name": "West End",
+      "code": "39"
+    },
+    {
+      "id": "bpl-west-roxbury",
+      "library_id": "bpl",
+      "name": "West Roxbury",
+      "code": "40"
+    }
+  ]
+}
