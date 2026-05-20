@@ -3,14 +3,14 @@
   "extracted": {
     "hours": {
       "monday": "closed",
-      "tuesday": "09:00-16:30",
-      "wednesday": "09:00-16:30",
-      "thursday": "09:00-16:30",
-      "friday": "09:00-16:30",
-      "saturday": "09:00-16:30",
-      "sunday": "09:00-16:30"
+      "tuesday": "unknown",
+      "wednesday": "unknown",
+      "thursday": "unknown",
+      "friday": "unknown",
+      "saturday": "unknown",
+      "sunday": "unknown"
     },
     "seasonal": null,
-    "source_phrase": "Monday : Closed"
+    "source_phrase": null
   }
 }

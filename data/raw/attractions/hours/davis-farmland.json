@@ -2,16 +2,15 @@
   "status": "ok",
   "extracted": {
     "hours": {
-      "monday": "09:30-16:00",
-      "tuesday": "09:30-16:00",
-      "wednesday": "09:30-16:00",
-      "thursday": "09:30-16:00",
-      "friday": "09:30-16:00",
-      "saturday": "09:30-17:00",
-      "sunday": "09:30-17:00"
+      "monday": "unknown",
+      "tuesday": "unknown",
+      "wednesday": "unknown",
+      "thursday": "unknown",
+      "friday": "unknown",
+      "saturday": "unknown",
+      "sunday": "unknown"
     },
     "seasonal": null,
-    "source_phrase": "Our Spring Schedule: Open Monday – Friday from 9:30-4, Saturdays and Sundays from 9:30-5.",
-    "note": "Seasonal/weather-dependent operation."
+    "source_phrase": null
   }
 }

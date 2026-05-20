@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -9,15 +9,26 @@
       },
       "audience_policies": [
         {
-          "audience": "Everyone",
-          "form": "free",
-          "value": 0,
-          "count": 1,
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 14,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "PLEASE NOTE: You must pick up the pass from the library before going. Pass admits 1 person free. Hours of Operation: 10:00 AM - 4:00 PM, from Valentine’s Day through Columbus Day. Ticket sales end at 3:30 PM, and no new customers will be admitted into the exhibits after 3:30 PM. "
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 12,
+          "count": null,
           "age_range": null,
           "source_phrase": "PLEASE NOTE: You must pick up the pass from the library before going. Pass admits 1 person free. Hours of Operation: 10:00 AM - 4:00 PM, from Valentine’s Day through Columbus Day. Ticket sales end at 3:30 PM, and no new customers will be admitted into the exhibits after 3:30 PM. "
         }
       ],
-      "summary": "FREE",
+      "summary": "$14/person",
       "source_phrase_block": "PLEASE NOTE: You must pick up the pass from the library before going. Pass admits 1 person free. Hours of Operation: 10:00 AM - 4:00 PM, from Valentine’s Day through Columbus Day. Ticket sales end at 3:30 PM, and no new customers will be admitted into the exhibits after 3:30 PM. We suggest you arrive no later than 3:00 PM. Check our Facebook page for last-minute updates. To really enjoy our butterflies, plan to spend at least an hour."
     },
     "restrictions": null

@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -20,13 +20,6 @@
       "summary": "50% off",
       "source_phrase_block": "This pass discount provides half priced admission for up to 4 individuals including children. Timed ticket reservations must be made in advance of visit with library e-voucher code on the museum's website. Directions and information regarding e-voucher use will be provided in your confirmation email."
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": true,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

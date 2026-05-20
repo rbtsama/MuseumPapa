@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "Pass will provide 50% off general admission for up to 2 adults (18 years and over). All youth family members (ages 13-17) and children 12 years and under are free with accompanying adults. During their visit, pass holders may participate in any programs which are offered free wit"
         }

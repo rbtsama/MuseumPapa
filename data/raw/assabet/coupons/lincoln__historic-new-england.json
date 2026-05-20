@@ -10,14 +10,14 @@
       "audience_policies": [
         {
           "audience": "Everyone",
-          "form": "discount",
-          "value": null,
+          "form": "per-person-price",
+          "value": 10,
           "count": 2,
           "age_range": null,
           "source_phrase": "This pass discount provides $10 admission for up to 2 individuals. Advanced ticket reservations made in advance of visit are strongly encouraged on the museum's website. Directions and information regarding the digital pass use will be provided in your confirmation email. A remin"
         }
       ],
-      "summary": "Discount",
+      "summary": "$10/person",
       "source_phrase_block": "This pass discount provides $10 admission for up to 2 individuals. Advanced ticket reservations made in advance of visit are strongly encouraged on the museum's website. Directions and information regarding the digital pass use will be provided in your confirmation email. A reminder that the address of the ICA is 25 Harbor Shore Drive, Boston, MA 02210. More information on library membership, exhibitions, and programs can be found on our website at www.icaboston.org . For ticketing or general inquiries, please contact our Visitor Services team at visitorservices@icaboston.org. or by calling 617-478-3100. Children under 17 are always free. Free Thursday nights 5:00 - 9:00 pm. Tickets for free Thursday nights are available online starting at 10 am on the day of the event. Library Passes are not valid for performances, events, or films."
     },
     "restrictions": null

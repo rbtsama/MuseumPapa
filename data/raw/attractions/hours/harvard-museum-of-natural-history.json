@@ -2,15 +2,15 @@
   "status": "ok",
   "extracted": {
     "hours": {
-      "monday": "09:00-17:00",
-      "tuesday": "09:00-17:00",
-      "wednesday": "09:00-17:00",
-      "thursday": "09:00-17:00",
-      "friday": "09:00-17:00",
-      "saturday": "09:00-17:00",
-      "sunday": "09:00-17:00"
+      "monday": "unknown",
+      "tuesday": "unknown",
+      "wednesday": "unknown",
+      "thursday": "unknown",
+      "friday": "unknown",
+      "saturday": "unknown",
+      "sunday": "unknown"
     },
     "seasonal": null,
-    "source_phrase": "Open: Monday–Sunday Hours: 9:00 am–5:00 pm"
+    "source_phrase": null
   }
 }

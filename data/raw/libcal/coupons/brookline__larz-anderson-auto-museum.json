@@ -1,25 +1,4 @@
 {
-  "status": "ok",
-  "extracted": {
-    "pass_form": "physical_circ",
-    "coupon": {
-      "capacity": {
-        "kind": "people",
-        "n": 4
-      },
-      "audience_policies": [
-        {
-          "audience": "Everyone",
-          "form": "free",
-          "value": 0,
-          "count": 4,
-          "age_range": null,
-          "source_phrase": "Free admission"
-        }
-      ],
-      "summary": "FREE",
-      "source_phrase_block": "15 Newton Street, Brookline, MA, 02445\n                                                            \n    Map\n(617) 522-6547\nThe Larz Anderson Auto Museum in the 64-acre Larz Anderson Park showcases &quot;America&rsquo;s Oldest Car Collection&quot; in the historic Carriage House. The museum offers engaging attractions, including Lawn Events, family-friendly gatherings, and car history lectures. A visit promises a day of exploration and enjoyment, creating lasting memories.\nThis pass must be reserved through the library&#39;s&nbsp;online catalog. The pass must be picked up and returned to the library&#39;s&nbsp;Brookline Village&nbsp;location.&nbsp;\nPass benefits:&nbsp;Free admission for up to 4 visitors.&nbsp;\nNo passes are available at this time."
-    },
-    "restrictions": null
-  }
+  "status": "failed",
+  "error": "unparsed benefit"
 }

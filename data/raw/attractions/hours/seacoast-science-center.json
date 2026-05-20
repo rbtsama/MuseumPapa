@@ -2,16 +2,15 @@
   "status": "ok",
   "extracted": {
     "hours": {
-      "monday": "10:00-16:00",
-      "tuesday": "10:00-16:00",
-      "wednesday": "10:00-16:00",
-      "thursday": "10:00-16:00",
-      "friday": "10:00-16:00",
-      "saturday": "10:00-16:00",
-      "sunday": "10:00-16:00"
+      "monday": "closed",
+      "tuesday": "unknown",
+      "wednesday": "unknown",
+      "thursday": "unknown",
+      "friday": "unknown",
+      "saturday": "unknown",
+      "sunday": "unknown"
     },
     "seasonal": null,
-    "source_phrase": "Open Today 10am – 4pm",
-    "note": "Landing page only shows today's hours; assumed daily."
+    "source_phrase": null
   }
 }

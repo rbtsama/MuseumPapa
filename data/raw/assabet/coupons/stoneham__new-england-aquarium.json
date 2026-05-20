@@ -1,4 +1,37 @@
 {
-  "status": "failed",
-  "error": "unparsed benefit"
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This is a physical pass and must be picked up from and returned to the library . This pass is valid for regular on-site rentals at all locations during regular hours of operation during the boating season (the first weekend in May through mid-October, weather permitting). This pa"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "This is a physical pass and must be picked up from and returned to the library . This pass is valid for regular on-site rentals at all locations during regular hours of operation during the boating season (the first weekend in May through mid-October, weather permitting). This pass is not valid for Fourth of July Fireworks Rentals or any other special event or activity . Hours of Operation and Directions: Stoneham: Spot Pond (closed weekdays after Labor Day) Boston: Allston/Brighton"
+    },
+    "restrictions": {
+      "blackout": [
+        {
+          "month": 7,
+          "day": null
+        }
+      ],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null
+    }
+  }
 }

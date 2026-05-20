@@ -6,31 +6,31 @@
         "audience": "adult",
         "price": 7.0,
         "age_range": null,
-        "source_phrase": "Adults: $7.00"
-      },
-      {
-        "audience": "senior",
-        "price": 6.0,
-        "age_range": null,
-        "source_phrase": "Seniors (65+)+FSU Alum: $6.00"
+        "source_phrase": "on January 2, unless it is a Monday. admission fees Adults: $7.00 Seniors (65+)+FSU Alum: $6.00 Children (through 13): Free F"
       },
       {
         "audience": "child",
-        "price": 0.0,
+        "price": 6.0,
         "age_range": null,
-        "source_phrase": "Children (through 13): Free"
+        "source_phrase": "onday. admission fees Adults: $7.00 Seniors (65+)+FSU Alum: $6.00 Children (through 13): Free Framingham residents: $6.00 Stu"
+      },
+      {
+        "audience": "student",
+        "price": 6.0,
+        "age_range": null,
+        "source_phrase": "um: $6.00 Children (through 13): Free Framingham residents: $6.00 Students High School + College: $5.00 Danforth Members, NAR"
       },
       {
         "audience": "student",
         "price": 5.0,
         "age_range": null,
-        "source_phrase": "Students High School + College: $5.00"
+        "source_phrase": "Framingham residents: $6.00 Students High School + College: $5.00 Danforth Members, NARM Members, FSU students, faculty and s"
       },
       {
-        "audience": "student",
-        "price": 0.0,
+        "audience": "senior",
+        "price": 6.0,
         "age_range": null,
-        "source_phrase": "Danforth Members, NARM Members, FSU students, faculty and staff: Free"
+        "source_phrase": "th Museum Admission Adults: $7.00 Seniors (65+) + FSU Alum: $6.00 Framingham residents: $6.00 High school + college students:"
       }
     ]
   }

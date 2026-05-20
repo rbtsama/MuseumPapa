@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "unspecified",
@@ -14,11 +14,11 @@
           "value": 50,
           "count": null,
           "age_range": null,
-          "source_phrase": "THERE IS NO PASS TO RESERVE FOR THE JFK LIBRARY &amp; MUSEUM Starting July 10, 2024 ALL MASSACHUSETTS LIBRARY CARD HOLDERS CAN RECEIVE A 50% DISCOUNT BY SHOWING THEIR MA LIBRARY CARD Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 5"
+          "source_phrase": "THERE IS NO PASS TO RESERVE FOR THE JFK LIBRARY & MUSEUM Starting July 10, 2024 ALL MASSACHUSETTS LIBRARY CARD HOLDERS CAN RECEIVE A 50% DISCOUNT BY SHOWING THEIR MA LIBRARY CARD Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% d"
         }
       ],
       "summary": "50% off",
-      "source_phrase_block": "THERE IS NO PASS TO RESERVE FOR THE JFK LIBRARY &amp; MUSEUM Starting July 10, 2024 ALL MASSACHUSETTS LIBRARY CARD HOLDERS CAN RECEIVE A 50% DISCOUNT BY SHOWING THEIR MA LIBRARY CARD Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card to receive the discount. No pass is needed. Visitors aged 12 and under receive free admission. Please reach out to the JFK Library Visitor Services Department with questions at kennedy.groupvisits@nara.gov or 617-514-1600"
+      "source_phrase_block": "THERE IS NO PASS TO RESERVE FOR THE JFK LIBRARY & MUSEUM Starting July 10, 2024 ALL MASSACHUSETTS LIBRARY CARD HOLDERS CAN RECEIVE A 50% DISCOUNT BY SHOWING THEIR MA LIBRARY CARD Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card to receive the discount. No pass is needed. Visitors aged 12 and under receive free admission. Please reach out to the JFK Library Visitor Services Department with questions at kennedy.groupvisits@nara.gov or 617-514-1600"
     },
     "restrictions": null
   }

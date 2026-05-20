@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "digital_email",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -11,14 +11,14 @@
         {
           "audience": "Everyone",
           "form": "per-person-price",
-          "value": 15,
+          "value": 10,
           "count": 2,
           "age_range": null,
-          "source_phrase": "The MFA is currently open Wednesday to Monday, 10am-5pm (closed Tuesday). The library’s pass admits 2 adults, and up to 4 children (ages 7 – 17) for $10 each (general admission &amp; special exhibition). Children 6 and under are free. Please Note: Starting 1/20/26 ticket prices w"
+          "source_phrase": "The MFA is currently open Wednesday to Monday, 10am-5pm (closed Tuesday). The library’s pass admits 2 adults, and up to 4 children (ages 7 – 17) for $10 each (general admission & special exhibition). Children 6 and under are free. Please Note: Starting 1/20/26 ticket prices will "
         }
       ],
-      "summary": "$15/person",
-      "source_phrase_block": "The MFA is currently open Wednesday to Monday, 10am-5pm (closed Tuesday). The library’s pass admits 2 adults, and up to 4 children (ages 7 – 17) for $10 each (general admission &amp; special exhibition). Children 6 and under are free. Please Note: Starting 1/20/26 ticket prices will change to admit up to 2 adults at $15 per person, and up to 4 children (ages 7 – 17) for $10 each (general admission &amp; special exhibition). Children 6 and under are free. Reserve your Melrose Public Library pass for desired date. You will receive a confirmation email with an \"Access Pass\" link (if you do not have an email account, a printed confirmation may be picked up at the Main Desk of the library). Many additional discounts are available for the MFA, check their website for details. Some discounts include active military, college students, MA teachers, first year US citizens, EBT card holders and the Bank of America Museums on Us program and MFA Free Open House Days. Museum current hours, admission"
+      "summary": "$10/person",
+      "source_phrase_block": "The MFA is currently open Wednesday to Monday, 10am-5pm (closed Tuesday). The library’s pass admits 2 adults, and up to 4 children (ages 7 – 17) for $10 each (general admission & special exhibition). Children 6 and under are free. Please Note: Starting 1/20/26 ticket prices will change to admit up to 2 adults at $15 per person, and up to 4 children (ages 7 – 17) for $10 each (general admission & special exhibition). Children 6 and under are free. Reserve your Melrose Public Library pass for desired date. You will receive a confirmation email with an \"Access Pass\" link (if you do not have an email account, a printed confirmation may be picked up at the Main Desk of the library). Many additional discounts are available for the MFA, check their website for details. Some discounts include active military, college students, MA teachers, first year US citizens, EBT card holders and the Bank of America Museums on Us program and MFA Free Open House Days. Museum current hours, admission prices and discounts . Funded by the Donation Account."
     },
     "restrictions": null
   }

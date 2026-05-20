@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "unspecified",
-        "n": null
+        "kind": "ticket",
+        "n": 2
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 10,
-          "count": null,
+          "count": 2,
           "age_range": null,
           "source_phrase": "This is an e-voucher . Pass is e-mailed to the patron. This library pass entitles you to up to two tickets for Gallery Admission at the discounted Library Pass price of $10 per ticket. Library Passes are not valid for performances, events, or films. This library pass is not a mus"
         }

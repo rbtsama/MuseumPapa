@@ -20,13 +20,6 @@
       "summary": "50% off",
       "source_phrase_block": "PLEASE NOTE: This is a returnable pass that must be picked up at and returned to the library. You will receive a code on the reservation confirmation screen, and in your confirmation email that you will need if you prefer to purchase timed tickets online. (Timed tickets are now optional.) In either case you will need to show the physical pass at the Garden. The pass admits 2 people at half price. Children 3 and under are free."
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": true,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

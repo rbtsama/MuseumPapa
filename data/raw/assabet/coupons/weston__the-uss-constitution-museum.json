@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "A pass provides 50% off the admission fee. Each of the (4) cards may be used for up to 2 adults and/or children. Children 17 and under are free. Pass card holders may enjoy use of the Museum's Library as a resource free of charge. Passes are not valid for any other applicable dis"
         }

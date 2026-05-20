@@ -2,15 +2,15 @@
   "status": "ok",
   "extracted": {
     "hours": {
-      "monday": "09:00-18:00",
-      "tuesday": "09:00-18:00",
-      "wednesday": "09:00-18:00",
-      "thursday": "09:00-18:00",
-      "friday": "09:00-18:00",
-      "saturday": "09:00-18:00",
-      "sunday": "09:00-18:00"
+      "monday": "unknown",
+      "tuesday": "unknown",
+      "wednesday": "unknown",
+      "thursday": "unknown",
+      "friday": "unknown",
+      "saturday": "unknown",
+      "sunday": "unknown"
     },
     "seasonal": null,
-    "source_phrase": "Monday - Sunday: 9am to 6pm"
+    "source_phrase": null
   }
 }

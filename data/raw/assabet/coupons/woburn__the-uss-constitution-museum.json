@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -17,7 +17,7 @@
             "min": 18,
             "max": 200
           },
-          "source_phrase": "Pass admits 6 people at $9.00 per adult, $6.00 per child, to Franklin Park Zoo or to the Stone Zoo. HOURS: Summer hours (April 1st – September 30th): 9 AM – 5 PM weekdays; 9 AM – 6 PM weekends &amp; holidays Winter hours (October 1st - March 31st): 9 AM – 4 PM daily Franklin Park"
+          "source_phrase": "Pass admits 6 people at $9.00 per adult, $6.00 per child, to Franklin Park Zoo or to the Stone Zoo. HOURS: Summer hours (April 1st – September 30th): 9 AM – 5 PM weekdays; 9 AM – 6 PM weekends & holidays Winter hours (October 1st - March 31st): 9 AM – 4 PM daily Franklin Park Zoo"
         },
         {
           "audience": "children",
@@ -25,11 +25,11 @@
           "value": 6,
           "count": null,
           "age_range": null,
-          "source_phrase": "Pass admits 6 people at $9.00 per adult, $6.00 per child, to Franklin Park Zoo or to the Stone Zoo. HOURS: Summer hours (April 1st – September 30th): 9 AM – 5 PM weekdays; 9 AM – 6 PM weekends &amp; holidays Winter hours (October 1st - March 31st): 9 AM – 4 PM daily Franklin Park"
+          "source_phrase": "Pass admits 6 people at $9.00 per adult, $6.00 per child, to Franklin Park Zoo or to the Stone Zoo. HOURS: Summer hours (April 1st – September 30th): 9 AM – 5 PM weekdays; 9 AM – 6 PM weekends & holidays Winter hours (October 1st - March 31st): 9 AM – 4 PM daily Franklin Park Zoo"
         }
       ],
       "summary": "$9/person",
-      "source_phrase_block": "Pass admits 6 people at $9.00 per adult, $6.00 per child, to Franklin Park Zoo or to the Stone Zoo. HOURS: Summer hours (April 1st – September 30th): 9 AM – 5 PM weekdays; 9 AM – 6 PM weekends &amp; holidays Winter hours (October 1st - March 31st): 9 AM – 4 PM daily Franklin Park Zoo One Franklin Park Road"
+      "source_phrase_block": "Pass admits 6 people at $9.00 per adult, $6.00 per child, to Franklin Park Zoo or to the Stone Zoo. HOURS: Summer hours (April 1st – September 30th): 9 AM – 5 PM weekdays; 9 AM – 6 PM weekends & holidays Winter hours (October 1st - March 31st): 9 AM – 4 PM daily Franklin Park Zoo One Franklin Park Road"
     },
     "restrictions": null
   }

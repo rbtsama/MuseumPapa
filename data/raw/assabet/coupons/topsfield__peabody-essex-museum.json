@@ -4,22 +4,34 @@
     "pass_form": "physical_circ",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 6
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "discount",
           "value": null,
-          "count": 6,
+          "count": null,
           "age_range": null,
           "source_phrase": "Please note, this pass is not valid in the month of October. Pass allows for a discounted admission rate for six visitors . After reserving this pass, it must be picked up at the Topsfield Library Circulation Desk during our hours of operation on the day of your reservation (or t"
         }
       ],
-      "summary": "Discount",
+      "summary": "discount",
       "source_phrase_block": "Please note, this pass is not valid in the month of October. Pass allows for a discounted admission rate for six visitors . After reserving this pass, it must be picked up at the Topsfield Library Circulation Desk during our hours of operation on the day of your reservation (or the business day before, if the library is closed the day of your reservation). The physical pass includes a special discount code. Purchase tickets for the Salem Witch Museum online using the discount code to receive discount. Present the physical pass upon arrival to the museum. Without the pass, you will be charged the full admission fee. This pass must be returned to the library by 10am the day after use."
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [
+        {
+          "month": 10,
+          "day": null
+        }
+      ],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null
+    }
   }
 }

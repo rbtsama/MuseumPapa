@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 4
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 5,
-          "count": 4,
+          "count": null,
           "age_range": null,
           "source_phrase": "PLEASE NOTE: This is an electronic pass that you will receive in your email. You may then use the code on the pass to purchase advance tickets online. The library’s pass allows general admission for 4 people at $5.00 each. (Regular admission prices: Adult $20, Senior $18, Student"
         }

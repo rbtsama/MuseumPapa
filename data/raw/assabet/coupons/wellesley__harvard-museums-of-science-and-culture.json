@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 10,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "Each Library Pass is valid for up to two (2) museum admission tickets at the discounted Library Pass price of $10 per ticket . Library Passes are not valid for performances, events, or films . For more details, visit the ICA website: https://www.icaboston.org/visit"
         }

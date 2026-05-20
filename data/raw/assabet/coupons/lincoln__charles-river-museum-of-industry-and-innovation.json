@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 4
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "dollar-off",
           "value": 5,
-          "count": 4,
+          "count": null,
           "age_range": null,
           "source_phrase": "This pass is an e-voucher. Admits up to 4 at $5-off each (Not to be combined with other discounts; not valid for member pricing). Expires 11/30/26 For general information about the museum, please call 978-369-9763 or visit https://concordmuseum.org/. The museum is open Tuesday - "
         }

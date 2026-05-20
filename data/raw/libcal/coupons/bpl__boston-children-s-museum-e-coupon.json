@@ -10,23 +10,15 @@
       "audience_policies": [
         {
           "audience": "Everyone",
-          "form": "per-person-price",
-          "value": 12.0,
+          "form": "percent-off",
+          "value": 50,
           "count": 4,
           "age_range": null,
-          "source_phrase": "$12 admission per person"
-        },
-        {
-          "audience": "children",
-          "form": "free",
-          "value": 0,
-          "count": null,
-          "age_range": null,
-          "source_phrase": "Children under 1 year old get in for free"
+          "source_phrase": "308 Congress Street, Boston, Massachusetts, 02210 Map $12 admission per person (\"Half Price Library Ticket\") for up to 4 visitors. Children under 1 year old get in for free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar be"
         }
       ],
-      "summary": "$12/person",
-      "source_phrase_block": "308 Congress Street, Boston, Massachusetts, 02210\n                                                            \n    Map\n$12 admission per person (&quot;Half Price Library Ticket&quot;) for up to 4 visitors. Children under 1 year old get in for free.&nbsp;\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below.\nTo use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+      "summary": "50% off",
+      "source_phrase_block": "308 Congress Street, Boston, Massachusetts, 02210 Map $12 admission per person (\"Half Price Library Ticket\") for up to 4 visitors. Children under 1 year old get in for free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below. To use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
     },
     "restrictions": null
   }

@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -20,13 +20,6 @@
       "summary": "$5/person",
       "source_phrase_block": "Each pass provides up to four (4) people with $5 admission per person—children under the age of 18 are always admitted free. Timed ticket reservations must be made in advance of visit with library e-voucher on the museum's website. Directions and information regarding e-voucher use will be provided in your confirmation email."
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": true,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

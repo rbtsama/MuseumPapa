@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "digital_email",
+    "pass_form": "physical_circ",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -9,21 +9,10 @@
       },
       "audience_policies": [
         {
-          "audience": "adults",
+          "audience": "Everyone",
           "form": "per-person-price",
           "value": 9,
-          "count": null,
-          "age_range": {
-            "min": 18,
-            "max": 200
-          },
-          "source_phrase": "This pass discount provides $9 admission fee for adults and $6 admission fee for children up to 6 individuals including children. This coupon pass must be picked up in person at the Library's Circulation desk. An email will not suffice for admission into the park. Directions and "
-        },
-        {
-          "audience": "children",
-          "form": "per-person-price",
-          "value": 6,
-          "count": null,
+          "count": 6,
           "age_range": null,
           "source_phrase": "This pass discount provides $9 admission fee for adults and $6 admission fee for children up to 6 individuals including children. This coupon pass must be picked up in person at the Library's Circulation desk. An email will not suffice for admission into the park. Directions and "
         }

@@ -20,13 +20,6 @@
       "summary": "$5 off",
       "source_phrase_block": "This pass is a laminated pass that is checked out and must be returned. Once reserved, you may pick up the pass either the day of use or the day before if the library is open. Check with the museum for any additional information about your visit including safety guidelines and timed ticketing requirements. Each pass admits up to 4 people at $5 off per person from the regular admission price. Cannot be combined with other discounts. Not valid for member pricing."
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": true,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

@@ -4,21 +4,21 @@
     "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 1
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "free",
           "value": 0,
-          "count": 1,
+          "count": null,
           "age_range": null,
-          "source_phrase": "admits up to 1 adult or 1 child for free"
+          "source_phrase": "87 Mount Vernon Street, Boston, MA, 02108 Map 617-367-2345 SEASONAL PASS - Each pass admits up to 1 adult or 1 child for free. Visit www.bostonbyfoot.org to browse Boston By Foot's extensive public tour calendar. Passes are valid for all public walking tours; they are not valid f"
         }
       ],
       "summary": "FREE",
-      "source_phrase_block": "87 Mount Vernon Street, Boston, MA, 02108\n                                                            \n    Map\n617-367-2345\nSEASONAL PASS - Each pass admits up to 1 adult or 1 child for free.\nVisit www.bostonbyfoot.org to browse Boston By Foot&#39;s extensive public tour calendar.&nbsp;Passes are valid for all public walking tours; they are not valid for private tours, water-based tours, or annual celebration tours (Beacon Hill with a BOO! &amp; Footloose on the Freedom Trail).\nNo passes are available at this time."
+      "source_phrase_block": "87 Mount Vernon Street, Boston, MA, 02108 Map 617-367-2345 SEASONAL PASS - Each pass admits up to 1 adult or 1 child for free. Visit www.bostonbyfoot.org to browse Boston By Foot's extensive public tour calendar. Passes are valid for all public walking tours; they are not valid for private tours, water-based tours, or annual celebration tours (Beacon Hill with a BOO! & Footloose on the Freedom Trail). No passes are available at this time."
     },
     "restrictions": null
   }

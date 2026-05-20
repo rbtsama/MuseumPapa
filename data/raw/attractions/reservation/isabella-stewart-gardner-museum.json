@@ -1,12 +1,12 @@
 {
   "status": "ok",
   "extracted": {
-    "required": "walk_in_ok",
-    "booking_url": "https://www.gardnermuseum.org/visit",
-    "lead_time_hours": 0,
+    "required": "timed_entry",
+    "booking_url": "/visit/while-youre-here",
+    "lead_time_hours": null,
     "pass_holder_path": "unknown",
     "pass_holder_url": null,
-    "notes": "no explicit reservation language; defaulted to walk_in_ok",
-    "source_phrase": null
+    "notes": "timed-entry cue found",
+    "source_phrase": "sses (either digital or print) from their library and purchase Museum admission timed-entry tickets using the unique promo code given with each pass. Should you have troub"
   }
 }

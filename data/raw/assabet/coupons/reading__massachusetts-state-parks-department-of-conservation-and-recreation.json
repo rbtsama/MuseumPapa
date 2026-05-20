@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "This pass uses a discount code. You will receive the discount code via email after booking this pass. Children 6 and under are admitted free. The pass allows admission for 2 adults at $15 each and up to 4 children ages 7–17 at $10 each. Tickets to the MFA are always free for visi"
         }

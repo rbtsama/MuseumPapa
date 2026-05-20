@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -10,14 +10,14 @@
       "audience_policies": [
         {
           "audience": "Everyone",
-          "form": "free",
-          "value": 0,
+          "form": "per-person-price",
+          "value": 10,
           "count": 2,
           "age_range": null,
           "source_phrase": "Pass admits up to 2 visitors at the discounted price of $10 per admission. Admission is free to anyone 18 and under. The ICA is free to all on Thursday nights from 5:00-9:00pm. Please note that Museum hours and admission are subject to change. Current information can be found on "
         }
       ],
-      "summary": "FREE",
+      "summary": "$10/person",
       "source_phrase_block": "Pass admits up to 2 visitors at the discounted price of $10 per admission. Admission is free to anyone 18 and under. The ICA is free to all on Thursday nights from 5:00-9:00pm. Please note that Museum hours and admission are subject to change. Current information can be found on their website: https://www.icaboston.org/visit Advance reservation strongly recommended. Cannot be used for performances or special events. Does not guarantee admittance to special exhibitions with timed entry."
     },
     "restrictions": {

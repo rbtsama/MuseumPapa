@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "unspecified",
-        "n": null
+        "kind": "ticket",
+        "n": 2
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 12,
-          "count": null,
+          "count": 2,
           "age_range": null,
           "source_phrase": "Pass allows you to purchase up to two tickets at the reduced rate of $12 each. The code you'll receive is for one time use only and is not combinable with any other discount."
         }

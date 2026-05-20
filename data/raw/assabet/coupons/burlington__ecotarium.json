@@ -1,25 +1,4 @@
 {
-  "status": "ok",
-  "extracted": {
-    "pass_form": "physical_circ",
-    "coupon": {
-      "capacity": {
-        "kind": "unspecified",
-        "n": null
-      },
-      "audience_policies": [
-        {
-          "audience": "Everyone",
-          "form": "discount",
-          "value": null,
-          "count": null,
-          "age_range": null,
-          "source_phrase": "With this pass: No discounts on classes, tours, or retail items Check website for dates &amp; hours before visiting https://www.nativeplanttrust.org/visit/garden-woods/"
-        }
-      ],
-      "summary": "Discount",
-      "source_phrase_block": "With this pass: No discounts on classes, tours, or retail items Check website for dates &amp; hours before visiting https://www.nativeplanttrust.org/visit/garden-woods/"
-    },
-    "restrictions": null
-  }
+  "status": "failed",
+  "error": "unparsed benefit"
 }

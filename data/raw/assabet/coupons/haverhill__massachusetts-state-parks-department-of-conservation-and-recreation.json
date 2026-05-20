@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "Each pass may be redeemed for up to two adult tickets ($15 each) and four youth tickets ($10 each). Children 6 and under are admitted free. You can purchase timed tickets before your visit using a promo code, or show the pass confirmation email from the library at time of visit. "
         }
@@ -20,13 +20,6 @@
       "summary": "$15/person",
       "source_phrase_block": "Each pass may be redeemed for up to two adult tickets ($15 each) and four youth tickets ($10 each). Children 6 and under are admitted free. You can purchase timed tickets before your visit using a promo code, or show the pass confirmation email from the library at time of visit. This pass is emailed to you - you will not need to come in to the library to pick it up. Please make sure you enter your current email address when making your reservation."
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": true,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

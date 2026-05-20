@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -11,13 +11,13 @@
         {
           "audience": "Everyone",
           "form": "per-person-price",
-          "value": 20,
+          "value": 10,
           "count": 2,
           "age_range": null,
           "source_phrase": "Admits up to two (2) visitors at a discounted price of $10 per admission ticket. (discounted from the regular fee of $20 per ticket)."
         }
       ],
-      "summary": "$20/person",
+      "summary": "$10/person",
       "source_phrase_block": "Admits up to two (2) visitors at a discounted price of $10 per admission ticket. (discounted from the regular fee of $20 per ticket)."
     },
     "restrictions": null

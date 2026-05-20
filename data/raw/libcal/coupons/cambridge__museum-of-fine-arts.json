@@ -4,21 +4,21 @@
     "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
-          "audience": "adults",
+          "audience": "Everyone",
           "form": "per-person-price",
-          "value": 15.0,
-          "count": 2,
+          "value": 15,
+          "count": null,
           "age_range": null,
-          "source_phrase": "2 adult tickets at $15 each"
+          "source_phrase": "465 Huntington Avenue, Boston, MA, 02115 Map 800-440-6975 Each promo code may be redeemed for up to 2 adult tickets at $15 each (general admission and special exhibition) and up to 4 youth ages 7-17 at $10 each (special exhibition only). There is no discount for children 7-17 for"
         }
       ],
       "summary": "$15/person",
-      "source_phrase_block": "465 Huntington Avenue, Boston, MA, 02115\n                                                            \n    Map\n800-440-6975\nEach promo code may be redeemed for up to 2 adult tickets at $15 each (general admission and special exhibition) and up to 4 youth ages 7&ndash;17 at $10 each (special exhibition only). There is no discount for children 7&ndash;17 for general admission, currently $10.&nbsp;Children 6 and under are admitted free.&nbsp;&nbsp;\nPass instructions:\nThis pass is not date specific. It can be redeemed for discounted admission on any date.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+      "source_phrase_block": "465 Huntington Avenue, Boston, MA, 02115 Map 800-440-6975 Each promo code may be redeemed for up to 2 adult tickets at $15 each (general admission and special exhibition) and up to 4 youth ages 7-17 at $10 each (special exhibition only). There is no discount for children 7-17 for general admission, currently $10. Children 6 and under are admitted free. Pass instructions: This pass is not date specific. It can be redeemed for discounted admission on any date. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
     },
     "restrictions": null
   }

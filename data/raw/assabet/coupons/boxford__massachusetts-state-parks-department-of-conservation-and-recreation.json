@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "digital_email",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have made a reservation. Each pass allows admission for 2 adults at $15 each (applicable to general admission and special exhibition tickets) and up to 4 children age"
         }

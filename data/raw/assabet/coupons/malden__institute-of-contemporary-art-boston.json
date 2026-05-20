@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -20,15 +20,6 @@
       "summary": "$5/person",
       "source_phrase_block": "Each pass provides up to four (4) people with $5 admission per person. Children under the age of 18 are always admitted for free. MUSEUM HOURS: WEEKDAYS 11 AM – 5 PM | WEEKENDS 10 AM – 5 PM | THURSDAYS 11 AM – 9 PM | CLOSED TUESDAYS"
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [
-        "tuesdays"
-      ],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": false,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

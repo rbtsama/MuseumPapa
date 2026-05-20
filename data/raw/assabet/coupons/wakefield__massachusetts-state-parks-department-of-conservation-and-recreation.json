@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "vehicle",
@@ -20,6 +20,18 @@
       "summary": "$10/person",
       "source_phrase_block": "Pass admits 2 adults at $10 a person (general admission and special exhibition) and up to 4 children ages 7-17 at $10 each (general and special exhibition). There is no discount for children 7-17 for general admisson, currently $10. Children under 6 are admitted free. Please note, as of January 20, 2026, there is a ticket price increase. Pass for two adult tickets will be ($15 each) and four youth tickets ($10 each). Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Year’s Day, Patriots’ Day, Fourth of July, Thanksgiving, and Christmas."
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [
+        {
+          "month": 7,
+          "day": null
+        }
+      ],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null
+    }
   }
 }

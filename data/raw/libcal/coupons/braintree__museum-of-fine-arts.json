@@ -4,22 +4,34 @@
     "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "unspecified",
-        "n": null
+        "kind": "vehicle",
+        "n": 1
       },
       "audience_policies": [
         {
           "audience": "Everyone",
-          "form": "discount",
-          "value": null,
-          "count": null,
+          "form": "per-person-price",
+          "value": 15,
+          "count": 1,
           "age_range": null,
-          "source_phrase": "discount"
+          "source_phrase": "465 Huntington Ave., Boston, MA, 02115-5523 Map 617-267-9300 Each pass is good for up to two adult tickets ($15 each) and four youth tickets ($10 each). After making your reservation you will receive a confirmation email containing a Promo Code which is redeemable online, over th"
         }
       ],
-      "summary": "discount",
-      "source_phrase_block": "465 Huntington Ave., Boston, MA, 02115-5523\n                                                            \n    Map\n617-267-9300\nEach pass is good &nbsp;for up to two adult tickets ($15 each) and four youth tickets ($10 each). After making your reservation you will receive a confirmation email containing a Promo Code which is&nbsp;redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Year&rsquo;s Day, Patriots&rsquo; Day, Fourth of July, Thanksgiving, and Christmas.\nAnnual Double Pass cost of $800.00 is provided by the Friends of Thayer Public Library.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+      "summary": "$15/person",
+      "source_phrase_block": "465 Huntington Ave., Boston, MA, 02115-5523 Map 617-267-9300 Each pass is good for up to two adult tickets ($15 each) and four youth tickets ($10 each). After making your reservation you will receive a confirmation email containing a Promo Code which is redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shopping, parking, dining, films, concerts, lectures, courses, or any other public programs. All prices are subject to change. Discount admission may not be combined with other offers. When planning your visit, please check www.mfa.org/visit for current Museum hours and early closings. The Museum is closed on New Year's Day, Patriots' Day, Fourth of July, Thanksgiving, and Christmas. Annual Double Pass cost of $800.00 is provided by the Friends of Thayer Public Library. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [
+        {
+          "month": 7,
+          "day": null
+        }
+      ],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null
+    }
   }
 }

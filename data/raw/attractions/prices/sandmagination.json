@@ -6,13 +6,19 @@
         "audience": "adult",
         "price": 5.0,
         "age_range": null,
-        "source_phrase": "1 Year) 90 Minutes $0.00 Little Starfish - No Sibling (&lt; 1 Year) 90 Minutes $5.00 First Adult in a Party 90 Minutes Free Additional Adults 90 Minutes $4.00 Addit"
+        "source_phrase": "$0.00 Little Starfish - No Sibling (&lt; 1 Year) 90 Minutes $5.00 First Adult in a Party 90 Minutes Free Additional Adults 90"
       },
       {
         "audience": "adult",
         "price": 4.0,
         "age_range": null,
-        "source_phrase": "nutes $5.00 First Adult in a Party 90 Minutes Free Additional Adults 90 Minutes $4.00 Additional Hour 60 Minutes $5.00 Therapists (attending with family) 90 Minutes"
+        "source_phrase": "ult in a Party 90 Minutes Free Additional Adults 90 Minutes $4.00 Additional Hour 60 Minutes $5.00 Therapists (attending with"
+      },
+      {
+        "audience": "family",
+        "price": 5.0,
+        "age_range": null,
+        "source_phrase": "ditional Adults 90 Minutes $4.00 Additional Hour 60 Minutes $5.00 Therapists (attending with family) 90 Minutes Free * Every"
       }
     ]
   }

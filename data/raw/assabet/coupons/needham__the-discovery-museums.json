@@ -1,25 +1,4 @@
 {
-  "status": "ok",
-  "extracted": {
-    "pass_form": "physical_circ",
-    "coupon": {
-      "capacity": {
-        "kind": "unspecified",
-        "n": null
-      },
-      "audience_policies": [
-        {
-          "audience": "Everyone",
-          "form": "free",
-          "value": 0,
-          "count": null,
-          "age_range": null,
-          "source_phrase": "(RETURNABLE) Pass admits 1 adult. Children under 5 are free. Garden is open mid-April to mid-November. Pass is for NEEDHAM RESIDENTS ONLY."
-        }
-      ],
-      "summary": "FREE",
-      "source_phrase_block": "(RETURNABLE) Pass admits 1 adult. Children under 5 are free. Garden is open mid-April to mid-November. Pass is for NEEDHAM RESIDENTS ONLY."
-    },
-    "restrictions": null
-  }
+  "status": "failed",
+  "error": "unparsed benefit"
 }

@@ -4,7 +4,7 @@
     "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "people",
+        "kind": "ticket",
         "n": 2
       },
       "audience_policies": [
@@ -14,11 +14,11 @@
           "value": null,
           "count": 2,
           "age_range": null,
-          "source_phrase": "discounted Library Pass rate"
+          "source_phrase": "25 Harbor Shore Drive, Boston, MA, 02120 Map This library membership pass entitles you to up to two tickets for Gallery Admission at the discounted Library Pass rate. Pass is valid through 12/31/2026 Digital (downloadable via email) passes are available. Select your desired visit"
         }
       ],
-      "summary": "discount",
-      "source_phrase_block": "25 Harbor Shore Drive, Boston, MA, 02120\n                                                            \n    Map\nThis library membership pass entitles you to\n\nup to two tickets for Gallery Admission at the discounted Library Pass rate.\nPass is valid through 12/31/2026\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below.\nTo use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+      "summary": "Discount",
+      "source_phrase_block": "25 Harbor Shore Drive, Boston, MA, 02120 Map This library membership pass entitles you to up to two tickets for Gallery Admission at the discounted Library Pass rate. Pass is valid through 12/31/2026 Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below. To use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
     },
     "restrictions": null
   }

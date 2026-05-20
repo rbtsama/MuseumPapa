@@ -1,12 +1,12 @@
 {
   "status": "ok",
   "extracted": {
-    "required": "timed_entry",
-    "booking_url": "https://tickets.mos.org/events",
+    "required": "walk_in_ok",
+    "booking_url": "https://tickets.mos.org/events/7d164ead-0efd-ecae-8389-1627a51d4b31",
     "lead_time_hours": 0,
     "pass_holder_path": "unknown",
     "pass_holder_url": null,
-    "notes": null,
-    "source_phrase": "art, and music in a whole new way. Explore Events Image Exhibit Halls Open Daily, 9 am ‑ 5 pm To purchase tickets to the Museum Exhibit Halls, use the \"Buy Tickets\" button below. Timed tickets are no longer required – just select the date you will be visiting. Buy Exhibit Tickets View Today's Schedule Experience the Museum Image Adventure Awaits Plan Your Trip Explore."
+    "notes": "no explicit reservation language; defaulted to walk_in_ok",
+    "source_phrase": null
   }
 }

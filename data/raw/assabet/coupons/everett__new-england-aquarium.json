@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 12,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "The PEM Library Pass allows admission for up to two (2) adult visitors with the reduced admission rate of $12 per person. Children age 16 and under are always admitted free. Patrons must use their unique discount code to reserve tickets at the discounted rate. The Library Pass do"
         }

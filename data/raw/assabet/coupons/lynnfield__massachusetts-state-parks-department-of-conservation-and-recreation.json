@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 10,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "Pass allows admission for 2 adults at $10.00 each for both general admission and special exhibitions, and up to 4 children ages 7-17 at $10 each for special exhibition only. There is no discount for children 7-17 for general admission, currently $10. Children 6 and under are free"
         }

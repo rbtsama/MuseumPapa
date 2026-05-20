@@ -6,25 +6,31 @@
         "audience": "adult",
         "price": 11.0,
         "age_range": null,
-        "source_phrase": "erience with our digital guide on Bloomberg Connects. Visitors (ages 14 and up) $11 Visitors (ages 13 and under accompanied by an adult) $5 Students/Educators/Mili"
+        "source_phrase": "ital guide on Bloomberg Connects. Visitors (ages 14 and up) $11 Visitors (ages 13 and under accompanied by an adult) $5 Stu"
       },
       {
         "audience": "adult",
         "price": 5.0,
         "age_range": null,
-        "source_phrase": "itors (ages 14 and up) $11 Visitors (ages 13 and under accompanied by an adult) $5 Students/Educators/Military (with a valid ID) $8 Card to Culture $2 (details be"
+        "source_phrase": "p) $11 Visitors (ages 13 and under accompanied by an adult) $5 Students/Educators/Military (with a valid ID) $8 Card to Cu"
       },
       {
-        "audience": "adult",
+        "audience": "military",
         "price": 8.0,
         "age_range": null,
-        "source_phrase": "under accompanied by an adult) $5 Students/Educators/Military (with a valid ID) $8 Card to Culture $2 (details below) NARM/ROAM No charge with proof of active mem"
+        "source_phrase": "an adult) $5 Students/Educators/Military (with a valid ID) $8 Card to Culture $2 (details below) NARM/ROAM No charge with"
+      },
+      {
+        "audience": "military",
+        "price": 2.0,
+        "age_range": null,
+        "source_phrase": "nts/Educators/Military (with a valid ID) $8 Card to Culture $2 (details below) NARM/ROAM No charge with proof of active me"
       },
       {
         "audience": "adult",
         "price": 2.0,
         "age_range": null,
-        "source_phrase": "y an adult) $5 Students/Educators/Military (with a valid ID) $8 Card to Culture $2 (details below) NARM/ROAM No charge with proof of active membership Art & Archi"
+        "source_phrase": "amming. General admission to the Athenaeum’s first floor is $2 per adult with EBT, WIC, or ConnectorCare card; children 12"
       }
     ]
   }

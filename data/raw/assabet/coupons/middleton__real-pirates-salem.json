@@ -1,10 +1,10 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
+        "kind": "ticket",
         "n": 4
       },
       "audience_policies": [

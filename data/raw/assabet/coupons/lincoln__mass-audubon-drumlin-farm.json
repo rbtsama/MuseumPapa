@@ -4,15 +4,15 @@
     "pass_form": "physical_circ",
     "coupon": {
       "capacity": {
-        "kind": "unspecified",
-        "n": null
+        "kind": "vehicle",
+        "n": 1
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "free",
           "value": 0,
-          "count": null,
+          "count": 1,
           "age_range": null,
           "source_phrase": "Each pass admits 1 vehicle for free. Please note that reserving a library pass does not guarantee that space will be available on your preferred date. Passes may be checked out for 1 day and are due back before library opens the day following use. This is a physical pass that mus"
         }

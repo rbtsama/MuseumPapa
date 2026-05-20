@@ -6,19 +6,25 @@
         "audience": "adult",
         "price": 15.0,
         "age_range": null,
-        "source_phrase": ", and admission to one museum admits you to both during regular hours. Adults: $15.00 Seniors (65+): $13.00 Harvard ID Holders: Free +1 guest Non-Harvard students wi"
+        "source_phrase": "one museum admits you to both during regular hours. Adults: $15.00 Seniors (65+): $13.00 Harvard ID Holders: Free +1 guest Non"
       },
       {
-        "audience": "adult",
+        "audience": "senior",
         "price": 13.0,
         "age_range": null,
-        "source_phrase": "e museum admits you to both during regular hours. Adults: $15.00 Seniors (65+): $13.00 Harvard ID Holders: Free +1 guest Non-Harvard students with ID: $10.00 Youth ag"
+        "source_phrase": "to both during regular hours. Adults: $15.00 Seniors (65+): $13.00 Harvard ID Holders: Free +1 guest Non-Harvard students with"
       },
       {
-        "audience": "child",
+        "audience": "student",
         "price": 10.0,
         "age_range": null,
-        "source_phrase": "s (65+): $13.00 Harvard ID Holders: Free +1 guest Non-Harvard students with ID: $10.00 Youth ages 3–18: $10.00 Youth under 3: Free Free for members Directions and Par"
+        "source_phrase": "ard ID Holders: Free +1 guest Non-Harvard students with ID: $10.00 Youth ages 3–18: $10.00 Youth under 3: Free Free for member"
+      },
+      {
+        "audience": "youth",
+        "price": 10.0,
+        "age_range": null,
+        "source_phrase": "guest Non-Harvard students with ID: $10.00 Youth ages 3–18: $10.00 Youth under 3: Free Free for members Directions and Parking"
       }
     ]
   }

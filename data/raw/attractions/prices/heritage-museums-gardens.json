@@ -5,14 +5,20 @@
       {
         "audience": "adult",
         "price": 26.0,
-        "age_range": null,
-        "source_phrase": "g Heritage Museums & Gardens is Open Daily 10 am-5 pm, until October 18 Adults: $26 Youth (3-17): $16 Child (0-2): $0 Members: Free _______________________________"
+        "age_range": {
+          "min": 3,
+          "max": 17
+        },
+        "source_phrase": "Gardens is Open Daily 10 am-5 pm, until October 18 Adults: $26 Youth (3-17): $16 Child (0-2): $0 Members: Free ___________"
       },
       {
-        "audience": "adult",
+        "audience": "youth",
         "price": 16.0,
-        "age_range": null,
-        "source_phrase": "& Gardens is Open Daily 10 am-5 pm, until October 18 Adults: $26 Youth (3-17): $16 Child (0-2): $0 Members: Free _________________________________ Visitor Policie"
+        "age_range": {
+          "min": 3,
+          "max": 17
+        },
+        "source_phrase": "aily 10 am-5 pm, until October 18 Adults: $26 Youth (3-17): $16 Child (0-2): $0 Members: Free _____________________________"
       }
     ]
   }

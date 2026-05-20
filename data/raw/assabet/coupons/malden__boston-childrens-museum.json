@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "ticket",
@@ -14,7 +14,7 @@
           "value": 50,
           "count": 4,
           "age_range": null,
-          "source_phrase": "50% off up to 4 tickets for the Georges Island Ferry, Spectacle Island Ferry, or Peddocks Island Ferry. 2026 Season Availability: Georges Island May 15 - June 14: Thursdays through Sundays June 16 - September 1: every day Spectacle Island"
+          "source_phrase": "50% off up to 4 tickets for the Georges Island Ferry, Spectacle Island Ferry, or Peddocks Island Ferry. 2026 Season Availability: Georges Island May 15 - June 14: Thursdays through Sundays June 16 - September 1: every day Spectacle Island July 15 - September 1: every day Septembe"
         }
       ],
       "summary": "50% off",

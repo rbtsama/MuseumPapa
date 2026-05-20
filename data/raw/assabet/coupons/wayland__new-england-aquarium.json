@@ -4,15 +4,15 @@
     "pass_form": "physical_circ",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "This is a laminated pass that must be picked up and returned to Wayland. Patrons may pick up their pass during the Library's open hours on the day before or the day of their visit. The pass must be returned by the day after its use. Each pass offers 2 people half price general ad"
         }

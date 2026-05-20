@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 3
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 3,
+          "count": null,
           "age_range": null,
           "source_phrase": "Patrons using library passes will pay 1/2 price admission per person (for each of the three people) which still allows access to the Discovery Museum, as well as Discovery Woods. Any people accompanying the 3 pass users will still pay the regular admission fee."
         }

@@ -4,15 +4,15 @@
     "pass_form": "physical_circ",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Reduced admission for up to 2 adults at 50% off per person, plus $1 each per child ages 6-17 (children under 5 always free). Additional instructions: -Special"
         }

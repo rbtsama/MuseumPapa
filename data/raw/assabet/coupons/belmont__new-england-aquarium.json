@@ -1,25 +1,37 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "Each New England Botanic Garden Membership Card entitles the bearer to half-price admission for up to two library patrons. Admission information is available online at https://nebg.org/plan-your-visit/ Make sure you check with the museum if there is inclement weather . Open daily"
         }
       ],
       "summary": "50% off",
-      "source_phrase_block": "Each New England Botanic Garden Membership Card entitles the bearer to half-price admission for up to two library patrons. Admission information is available online at https://nebg.org/plan-your-visit/ Make sure you check with the museum if there is inclement weather . Open daily: 10 a.m.–5 p.m. Last admission: 4:30 p.m. Please note: The Garden will be closed on January 1, November 27, and December 24, 25, &amp; 31 for general daytime admission. For the safety of our guests, the Garden may close due to severe weather. Please check the website, Facebook and Instagram or call 508-869-6111 for updates."
+      "source_phrase_block": "Each New England Botanic Garden Membership Card entitles the bearer to half-price admission for up to two library patrons. Admission information is available online at https://nebg.org/plan-your-visit/ Make sure you check with the museum if there is inclement weather . Open daily: 10 a.m.–5 p.m. Last admission: 4:30 p.m. Please note: The Garden will be closed on January 1, November 27, and December 24, 25, & 31 for general daytime admission. For the safety of our guests, the Garden may close due to severe weather. Please check the website, Facebook and Instagram or call 508-869-6111 for updates."
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [
+        {
+          "month": 12,
+          "day": null
+        }
+      ],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null
+    }
   }
 }

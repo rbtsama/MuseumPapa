@@ -1,25 +1,4 @@
 {
-  "status": "ok",
-  "extracted": {
-    "pass_form": "physical_coupon",
-    "coupon": {
-      "capacity": {
-        "kind": "unspecified",
-        "n": null
-      },
-      "audience_policies": [
-        {
-          "audience": "Everyone",
-          "form": "discount",
-          "value": null,
-          "count": null,
-          "age_range": null,
-          "source_phrase": "Family membership rates"
-        }
-      ],
-      "summary": "discount",
-      "source_phrase_block": "Coupon allows two adults and children under 18 entry at Family membership rates. Pass is valid for one-time use at any of 116 properties that collect an admission fee. Pass holder will pay an admission fee equivalent to that of a Trustees Family level membership. Pass is not valid for use at Trustees parking kiosks, stores, cafes, Inns, campgrounds, at special events and programs or in place of any permits or passes. To use GO passes at Fruitlands, deCordova, or Castle Hill, please enter the promo code &quot;GOPASS&quot; when securing a time ticket. For all other properties, please book a Trustees GO Pass.\nTHIS IS A DISPOSABLE PASS\nThis pass may be picked up at any time after you make your reservation.\nIt must be picked up at the location you made the reservation.\nIt does not need to be returned.\nConsult branch operating hours before you pick up the pass.\nThe email reservation confirmation is NOT a valid coupon.\nNote: This pass is limited to one booking per month per person."
-    },
-    "restrictions": null
-  }
+  "status": "failed",
+  "error": "unparsed benefit"
 }

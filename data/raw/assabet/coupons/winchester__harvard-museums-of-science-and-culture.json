@@ -5,14 +5,14 @@
     "coupon": {
       "capacity": {
         "kind": "people",
-        "n": 2
+        "n": 10
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 10,
-          "count": 2,
+          "count": 10,
           "age_range": null,
           "source_phrase": "Each pass provides two (2) people with $10 admission per person—children under the age of 18 are always admitted free. Advance museum tickets can be purchased online ( https://www.icaboston.org ) using the \"Library Pass Coupon\" option. These advance tickets are recommended, but n"
         }

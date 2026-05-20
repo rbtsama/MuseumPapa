@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 10,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "Each pass provides admission for 2 people, for an admission of $10.00 per person. Admission is always free for anyone 18 or under. The ICA is closed Mondays, except for Monday holidays."
         }
@@ -20,15 +20,6 @@
       "summary": "$10/person",
       "source_phrase_block": "Each pass provides admission for 2 people, for an admission of $10.00 per person. Admission is always free for anyone 18 or under. The ICA is closed Mondays, except for Monday holidays."
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [
-        "mondays"
-      ],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": false,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

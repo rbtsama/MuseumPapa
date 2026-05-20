@@ -6,19 +6,25 @@
         "audience": "adult",
         "price": 15.0,
         "age_range": null,
-        "source_phrase": "ersons) can reserve Timed-Entry Admission online Current Admission Rates Adults $15 Older Adults / College Students $12 62+ years / 18+ years with ID Youths $8 Age"
+        "source_phrase": "Timed-Entry Admission online Current Admission Rates Adults $15 Older Adults / College Students $12 62+ years / 18+ years w"
       },
       {
-        "audience": "adult",
+        "audience": "student",
         "price": 12.0,
         "age_range": null,
-        "source_phrase": "ssion online Current Admission Rates Adults $15 Older Adults / College Students $12 62+ years / 18+ years with ID Youths $8 Ages 6 - 17 Please note: Youths must be"
+        "source_phrase": "Admission Rates Adults $15 Older Adults / College Students $12 62+ years / 18+ years with ID Youths $8 Ages 6 - 17 Please"
       },
       {
-        "audience": "adult",
+        "audience": "youth",
         "price": 8.0,
         "age_range": null,
-        "source_phrase": "ts $15 Older Adults / College Students $12 62+ years / 18+ years with ID Youths $8 Ages 6 - 17 Please note: Youths must be accompanied by an Adult, Senior, or Col"
+        "source_phrase": "/ College Students $12 62+ years / 18+ years with ID Youths $8 Ages 6 - 17 Please note: Youths must be accompanied by an A"
+      },
+      {
+        "audience": "educator",
+        "price": 3.0,
+        "age_range": null,
+        "source_phrase": "EBT/WIC/Connector Care Card to Culture & Museums for All ( $3 per ticket; four max ) MTA ( 1/2-price ) & Other Teachers ("
       }
     ]
   }

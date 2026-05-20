@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 4
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 4,
+          "count": null,
           "age_range": null,
           "source_phrase": "Admits up to 4 (adults or children) at half price per person. Boston Children's Museum is open Wednesday-Sunday, from 9:00am-4:00pm. Advance/online sales are highly recommended."
         }

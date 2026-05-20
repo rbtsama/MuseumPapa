@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -10,14 +10,14 @@
       "audience_policies": [
         {
           "audience": "Everyone",
-          "form": "discount",
-          "value": null,
+          "form": "per-person-price",
+          "value": 2,
           "count": 4,
           "age_range": null,
           "source_phrase": "This pass discount provides $2 admission for up to 4 individuals. Directions and information regarding e-voucher use will be provided in your confirmation email."
         }
       ],
-      "summary": "Discount",
+      "summary": "$2/person",
       "source_phrase_block": "This pass discount provides $2 admission for up to 4 individuals. Directions and information regarding e-voucher use will be provided in your confirmation email."
     },
     "restrictions": null

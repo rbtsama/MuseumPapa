@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "digital_email",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "This is a virtual pass that does not need to be picked up at the Library. Each pass now allows admission for 2 adults at $15 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–1"
         }

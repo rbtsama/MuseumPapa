@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 12,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "Each pass allows admission for 2 people for $12.00 per person Thursday through Mondays."
         }

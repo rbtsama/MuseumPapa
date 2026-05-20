@@ -2,16 +2,15 @@
   "status": "ok",
   "extracted": {
     "hours": {
-      "monday": "closed",
-      "tuesday": "12:00-17:00",
-      "wednesday": "12:00-17:00",
-      "thursday": "12:00-17:00",
-      "friday": "12:00-17:00",
-      "saturday": "12:00-17:00",
-      "sunday": "12:00-17:00"
+      "monday": "unknown",
+      "tuesday": "closed",
+      "wednesday": "unknown",
+      "thursday": "unknown",
+      "friday": "unknown",
+      "saturday": "unknown",
+      "sunday": "unknown"
     },
     "seasonal": null,
-    "source_phrase": "Monday Closed Tuesday — Sunday 12:00pm — 5:00pm",
-    "note": "Closed all Mondays, exhibition rotations, and major holidays."
+    "source_phrase": null
   }
 }

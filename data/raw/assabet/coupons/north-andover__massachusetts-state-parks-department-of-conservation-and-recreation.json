@@ -1,24 +1,24 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "vehicle",
+        "n": 1
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 2,
+          "count": 1,
           "age_range": null,
-          "source_phrase": "Reserving this pass gives you access to a promo code which can be used for discounted admission. Each promo code provides a discount for: 2 adults at $15 each (general admission &amp; special exhibition) up to 4 children ages 7–17 at $10 each (special exhibition only). There is n"
+          "source_phrase": "Reserving this pass gives you access to a promo code which can be used for discounted admission. Each promo code provides a discount for: 2 adults at $15 each (general admission & special exhibition) up to 4 children ages 7–17 at $10 each (special exhibition only). There is no di"
         }
       ],
       "summary": "$15/person",
-      "source_phrase_block": "Reserving this pass gives you access to a promo code which can be used for discounted admission. Each promo code provides a discount for: 2 adults at $15 each (general admission &amp; special exhibition) up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10. Children age six and younger are free Patrons who reserve tickets in advance online with the promo code will receive an e-mail with their admission ticket(s) attached and need to present their ticket(s) when they arrive at the Museum, preferably on a phone or device, but tickets printed on paper are accepted."
+      "source_phrase_block": "Reserving this pass gives you access to a promo code which can be used for discounted admission. Each promo code provides a discount for: 2 adults at $15 each (general admission & special exhibition) up to 4 children ages 7–17 at $10 each (special exhibition only). There is no discount for children 7–17 for general admission, currently $10. Children age six and younger are free Patrons who reserve tickets in advance online with the promo code will receive an e-mail with their admission ticket(s) attached and need to present their ticket(s) when they arrive at the Museum, preferably on a phone or device, but tickets printed on paper are accepted."
     },
     "restrictions": null
   }

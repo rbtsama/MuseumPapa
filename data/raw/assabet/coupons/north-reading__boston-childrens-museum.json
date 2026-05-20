@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "unspecified",
-        "n": null
+        "kind": "people",
+        "n": 1
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "free",
           "value": 0,
-          "count": null,
+          "count": 1,
           "age_range": null,
           "source_phrase": "Paper pass grants one free admission. You do not need to purchase tickets ahead of time or make a reservation unless you have 15 or more people and ticket sales end at 3:30 PM."
         }

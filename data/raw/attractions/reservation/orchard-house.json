@@ -2,11 +2,11 @@
   "status": "ok",
   "extracted": {
     "required": "timed_entry",
-    "booking_url": "https://louisamayalcott.org/visit",
-    "lead_time_hours": 0,
+    "booking_url": null,
+    "lead_time_hours": null,
     "pass_holder_path": "unknown",
     "pass_holder_url": null,
-    "notes": null,
-    "source_phrase": "Home OPEN: M-Sat 10-5 & Sun 11-5 Click for Timed-Entry Louisa May Alcott's Orchard House Louisa May Alcott's Orchard House Louisa May Alcott's Orchard House Louisa May Alcott's Orchard House Home FAQs Visit About Events Summer Adult E"
+    "notes": "timed-entry cue found",
+    "source_phrase": "Home OPEN: M-Sat 10-5 & Sun 11-5 Click for Timed-Entry Louisa May Alcott&#39;s Orchard House Louisa May Alcott&#x27;s Orchard House Lo"
   }
 }

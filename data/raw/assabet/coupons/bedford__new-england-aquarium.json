@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "The Library Pass to New England Botanic Garden at Tower Hill allows a 50% admission discount for two people. Advance reservations are no longer required but are still available for those who would like to purchase tickets in advance. Once you reserve the New England Botanic Garde"
         }

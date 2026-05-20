@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "digital_email",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -20,13 +20,6 @@
       "summary": "$12/person",
       "source_phrase_block": "This is a printable pass. You will receive the pass in your email or library staff can print it for you after you have made a reservation. Pass admits 2 people for $12 per person for general admission only. Children age 16 and under are always admitted free. Reservations for your ticket may be made in advance by calling the museum or by going to pem.org/tickets Timed tickets to Yin Yu Tang Chinese House are included with the museum admission and may be selected as part of the online checkout process."
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": true,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

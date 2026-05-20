@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -10,25 +10,16 @@
       "audience_policies": [
         {
           "audience": "Everyone",
-          "form": "dollar-off",
-          "value": 5,
+          "form": "discount",
+          "value": null,
           "count": 4,
           "age_range": null,
           "source_phrase": "Each pass provides up to four (4) people with a $5 discount per person—children under the age of 18 are always admitted free. Timed ticket reservations must be made in advance of visit with library e-voucher on the museum's website. Directions and information regarding e-voucher "
         }
       ],
-      "summary": "$5 off",
+      "summary": "Discount",
       "source_phrase_block": "Each pass provides up to four (4) people with a $5 discount per person—children under the age of 18 are always admitted free. Timed ticket reservations must be made in advance of visit with library e-voucher on the museum's website. Directions and information regarding e-voucher use will be provided in your confirmation email. For more information about the museum, please visit https://www.gardnermuseum.org/visit. MUSEUM HOURS: WEEKDAYS 11 AM – 5 PM | WEEKENDS 10 AM – 5 PM | THURSDAYS 11 AM – 9 PM | CLOSED TUESDAYS Please note that reserving a library pass does not guarantee that space will be available on your preferred date."
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [
-        "tuesdays"
-      ],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": true,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

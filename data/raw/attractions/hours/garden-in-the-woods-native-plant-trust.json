@@ -2,19 +2,15 @@
   "status": "ok",
   "extracted": {
     "hours": {
-      "monday": "10:00-17:00",
-      "tuesday": "10:00-17:00",
-      "wednesday": "10:00-17:00",
-      "thursday": "10:00-17:00",
-      "friday": "10:00-17:00",
-      "saturday": "10:00-17:00",
-      "sunday": "10:00-17:00"
+      "monday": "unknown",
+      "tuesday": "unknown",
+      "wednesday": "unknown",
+      "thursday": "unknown",
+      "friday": "unknown",
+      "saturday": "unknown",
+      "sunday": "unknown"
     },
-    "seasonal": {
-      "start_month": 4,
-      "end_month": 10,
-      "note": "Open through October 18; closed in winter."
-    },
-    "source_phrase": "The Garden is open daily, 10 AM–5 PM, through October 18."
+    "seasonal": null,
+    "source_phrase": null
   }
 }

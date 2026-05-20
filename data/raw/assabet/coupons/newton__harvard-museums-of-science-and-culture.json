@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -14,11 +14,11 @@
           "value": 0,
           "count": 4,
           "age_range": null,
-          "source_phrase": "Admits 4 adults and any children for free to the Jackson Homestead or the Durant-Kenrick House &amp; Grounds."
+          "source_phrase": "Admits 4 adults and any children for free to the Jackson Homestead or the Durant-Kenrick House & Grounds."
         }
       ],
       "summary": "FREE",
-      "source_phrase_block": "Admits 4 adults and any children for free to the Jackson Homestead or the Durant-Kenrick House &amp; Grounds."
+      "source_phrase_block": "Admits 4 adults and any children for free to the Jackson Homestead or the Durant-Kenrick House & Grounds."
     },
     "restrictions": null
   }

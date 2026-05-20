@@ -9,15 +9,26 @@
       },
       "audience_policies": [
         {
-          "audience": "Everyone",
-          "form": "free",
-          "value": 0,
-          "count": 4,
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 9,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This digital pass is valid for up to four people at one time (adults, seniors or children age two or older; children under two are admitted free) at any Mass Audubon wildlife sanctuary. Each person will be charged a $2.00 admission fee. There are over sixty beautiful sanctuaries "
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 6,
+          "count": null,
           "age_range": null,
           "source_phrase": "This digital pass is valid for up to four people at one time (adults, seniors or children age two or older; children under two are admitted free) at any Mass Audubon wildlife sanctuary. Each person will be charged a $2.00 admission fee. There are over sixty beautiful sanctuaries "
         }
       ],
-      "summary": "FREE",
+      "summary": "$9/person",
       "source_phrase_block": "This digital pass is valid for up to four people at one time (adults, seniors or children age two or older; children under two are admitted free) at any Mass Audubon wildlife sanctuary. Each person will be charged a $2.00 admission fee. There are over sixty beautiful sanctuaries located across Massachusetts. Please see the full listing of wildlife sanctuaries at the official Mass Audubon website by clicking this link: massaudubon.org/get-outdoors/our-wildlife-sanctuaries . Without the library pass discount the regular admission cost for the popular Drumlin Farm location is $9 for adults and $6 for children 2-12 and seniors (65+). This pass is generously sponsored by the Family Friends of the Billerica Public Library."
     },
     "restrictions": null

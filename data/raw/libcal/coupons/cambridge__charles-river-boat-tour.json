@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_coupon",
+    "pass_form": "physical_circ",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -14,11 +14,11 @@
           "value": 0,
           "count": 1,
           "age_range": null,
-          "source_phrase": "admits 1 person for free"
+          "source_phrase": "100 Cambridgeside Pl, Cambridge, MA, 02141 Map 617-621-3001 SEASONAL PASS - Each pass admits 1 person for free. You must pick up your pass at the Main Library. 2026 Season Cruises daily May 22-September 7 Mon-Thurs at 12pm, 1:30pm and 3pm Fri-Sun at 12pm, 1:30pm, 3pm, and 4:30pm "
         }
       ],
       "summary": "FREE",
-      "source_phrase_block": "100 Cambridgeside Pl, Cambridge, MA, 02141\n                                                            \n    Map\n617-621-3001\nSEASONAL PASS - Each pass admits 1 person for free. You must pick up your pass at the Main Library.\n2026 Season&nbsp;\nCruises daily May 22-September 7\nMon-Thurs at 12pm, 1:30pm and 3pm\nFri-Sun at 12pm, 1:30pm, 3pm, and 4:30pm\nCruises September 9-27"
+      "source_phrase_block": "100 Cambridgeside Pl, Cambridge, MA, 02141 Map 617-621-3001 SEASONAL PASS - Each pass admits 1 person for free. You must pick up your pass at the Main Library. 2026 Season Cruises daily May 22-September 7 Mon-Thurs at 12pm, 1:30pm and 3pm Fri-Sun at 12pm, 1:30pm, 3pm, and 4:30pm Cruises September 9-27"
     },
     "restrictions": null
   }

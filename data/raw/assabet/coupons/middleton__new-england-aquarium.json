@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -20,6 +20,13 @@
       "summary": "50% off",
       "source_phrase_block": "Library passes for North Shore Children's Museum admit up to 5 people (adults and children over 12 months) at 50% admission price. As of January 1, 2024, this is an ePass that can either be presented on a mobile device or as a print-out to receive the discounted admission rate in-person. Advanced ticket purchase is strongly recommended but not required. The discounted admission rate can be accessed on our website by selecting Library Museum Pass on the ticketing page . Your library pass will only be honored on the date you reserve. If the museum reaches capacity, visitors will be let in on a one in, one out basis. If you have any questions or issues when reserving tickets, reach out to us at nscminfo@peabody-ma.gov or 978-538-5765. Hours of operation: Wednesday, 1:00 pm – 4:00 pm Thursday, 9:00 am – 12:00 pm, 1:00 pm – 4:00 pm"
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
   }
 }

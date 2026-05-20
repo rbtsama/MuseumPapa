@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "digital_email",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -10,14 +10,14 @@
       "audience_policies": [
         {
           "audience": "Everyone",
-          "form": "free",
-          "value": 0,
+          "form": "per-person-price",
+          "value": 10,
           "count": 2,
           "age_range": null,
           "source_phrase": "Children 6 and under are admitted free. This pass admits 2 adults at a discounted rate of $10 per person (general admission and special exhibition) and up to 4 children 7-17 at $10 per person (special exhibition) . There is no discount for children 7-17 for general admission, cur"
         }
       ],
-      "summary": "FREE",
+      "summary": "$10/person",
       "source_phrase_block": "Children 6 and under are admitted free. This pass admits 2 adults at a discounted rate of $10 per person (general admission and special exhibition) and up to 4 children 7-17 at $10 per person (special exhibition) . There is no discount for children 7-17 for general admission, currently $10. This is an e-voucher that does not need to be picked up at the library . You will receive the pass in an email once you have placed your reservation. Follow the instructions in the email."
     },
     "restrictions": null

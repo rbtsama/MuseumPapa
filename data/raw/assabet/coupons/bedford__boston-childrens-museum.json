@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "unspecified",
@@ -20,18 +20,6 @@
       "summary": "50% off",
       "source_phrase_block": "The pass provides 50% off up to 4 ferry tickets from Boston to Spectacle Island and Georges Island or from Hingham to Peddocks Island. This is a SEASONAL pass available mid-May through early October. Spring Schedule *May 15 - June 14: Thursdays through Sundays - Georges Island Summer Schedule *June 16 - September 1: Daily - Georges Island *June 15 - September 7: Daily (Except Tuesdays) - Peddocks Island from Hingham *July 15 - September 1: Daily Spectacle Island"
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [
-        "tuesdays"
-      ],
-      "weekdays_only": false,
-      "seasonal": {
-        "start_month": 5,
-        "end_month": 10
-      },
-      "advance_booking_required": false,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

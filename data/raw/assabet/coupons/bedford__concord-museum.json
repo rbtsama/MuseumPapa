@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 3
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 3,
+          "count": null,
           "age_range": null,
           "source_phrase": "This discount pass allows a ONE TIME USE admitting 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. Your confirmation e-mail will allow you to print the pass or show it on your phone. Discount is only valid for the date p"
         }

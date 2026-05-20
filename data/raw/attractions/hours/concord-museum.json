@@ -2,16 +2,15 @@
   "status": "ok",
   "extracted": {
     "hours": {
-      "monday": "closed",
-      "tuesday": "10:00-16:00",
-      "wednesday": "10:00-16:00",
-      "thursday": "10:00-16:00",
-      "friday": "10:00-16:00",
-      "saturday": "10:00-16:00",
+      "monday": "unknown",
+      "tuesday": "unknown",
+      "wednesday": "unknown",
+      "thursday": "unknown",
+      "friday": "unknown",
+      "saturday": "unknown",
       "sunday": "10:00-16:00"
     },
     "seasonal": null,
-    "source_phrase": "Spring Hours Open Tuesday – Sunday 10am to 4pm Open Monday holidays",
-    "note": "Open Monday holidays."
+    "source_phrase": "Sunday 10am to 4pm"
   }
 }

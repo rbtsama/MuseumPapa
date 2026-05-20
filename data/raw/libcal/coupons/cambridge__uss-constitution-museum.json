@@ -14,21 +14,12 @@
           "value": 0,
           "count": 5,
           "age_range": null,
-          "source_phrase": "free admission"
+          "source_phrase": "88 Constitution Road, Boston, MA, 02129 Map 617-426-1812 Each pass allows free admission for up to 5 visitors per day. Limit one pass per party. Admission is first come first served, no advance tickets or reservations. Present printed pass or digital pass to Admissions. Valid onl"
         }
       ],
       "summary": "FREE",
-      "source_phrase_block": "88 Constitution Road, Boston, MA, 02129\n                                                            \n    Map\n617-426-1812\nEach pass allows free admission for up to 5 visitors per day.\nLimit one pass per party. &nbsp;Admission is&nbsp;first come&nbsp;first served, no advance tickets or reservations.&nbsp;Present printed&nbsp;pass or digital pass to Admissions.\nValid only for the reserved date of visit. Ship is open Wednesday-Sunday 10am-4pm and closed Mondays and Tuesdays. Museum is open daily 10am-5pm.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+      "source_phrase_block": "88 Constitution Road, Boston, MA, 02129 Map 617-426-1812 Each pass allows free admission for up to 5 visitors per day. Limit one pass per party. Admission is first come first served, no advance tickets or reservations. Present printed pass or digital pass to Admissions. Valid only for the reserved date of visit. Ship is open Wednesday-Sunday 10am-4pm and closed Mondays and Tuesdays. Museum is open daily 10am-5pm. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [
-        "mondays"
-      ],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": false,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

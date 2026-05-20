@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "unspecified",
-        "n": null
+        "kind": "ticket",
+        "n": 4
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 5,
-          "count": null,
+          "count": 4,
           "age_range": null,
           "source_phrase": "THIS IS AN ONLINE PASS. IT WILL BE E-MAILED TO YOU UPON RESERVING IT. This library pass does not guarantee a reservation to the Museum. If you have any issues reserving your tickets, you can call the Gardner Museum's Box Office at 617 278 5156. The library pass allows you to get "
         }

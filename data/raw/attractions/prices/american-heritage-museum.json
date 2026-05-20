@@ -6,37 +6,37 @@
         "audience": "adult",
         "price": 23.0,
         "age_range": null,
-        "source_phrase": "ve, Christmas Day, and New Years Day. GENERAL ADMISSIONS PRICING AT DESK Adults $23.00 Children (16 and Under) $12.00 Seniors (62 plus) $20.00 Active Duty Military (W"
+        "source_phrase": "nd New Years Day. GENERAL ADMISSIONS PRICING AT DESK Adults $23.00 Children (16 and Under) $12.00 Seniors (62 plus) $20.00 Act"
       },
       {
-        "audience": "adult",
+        "audience": "senior",
         "price": 12.0,
         "age_range": null,
-        "source_phrase": "s Day. GENERAL ADMISSIONS PRICING AT DESK Adults $23.00 Children (16 and Under) $12.00 Seniors (62 plus) $20.00 Active Duty Military (With ID) and Veterans $20.00 Chi"
+        "source_phrase": "SIONS PRICING AT DESK Adults $23.00 Children (16 and Under) $12.00 Seniors (62 plus) $20.00 Active Duty Military (With ID) and"
       },
       {
-        "audience": "adult",
+        "audience": "senior",
         "price": 20.0,
         "age_range": null,
-        "source_phrase": "PRICING AT DESK Adults $23.00 Children (16 and Under) $12.00 Seniors (62 plus) $20.00 Active Duty Military (With ID) and Veterans $20.00 Children 3 and Under FREE Am"
-      },
-      {
-        "audience": "child",
-        "price": 20.0,
-        "age_range": null,
-        "source_phrase": "er) $12.00 Seniors (62 plus) $20.00 Active Duty Military (With ID) and Veterans $20.00 Children 3 and Under FREE American Heritage Museum Members ( click here to beco"
+        "source_phrase": "lts $23.00 Children (16 and Under) $12.00 Seniors (62 plus) $20.00 Active Duty Military (With ID) and Veterans $20.00 Children"
       },
       {
         "audience": "military",
+        "price": 20.0,
+        "age_range": null,
+        "source_phrase": "62 plus) $20.00 Active Duty Military (With ID) and Veterans $20.00 Children 3 and Under FREE American Heritage Museum Members"
+      },
+      {
+        "audience": "educator",
         "price": 2.0,
         "age_range": null,
-        "source_phrase": "orean War Veterans FREE MA Teachers Association (MTA) (with MTA Card) FREE SAVE $2 PER TICKET BY PURCHASING ADMISSION ONLINE! Massachusetts EBT, WIC, and Connecto"
+        "source_phrase": "REE MA Teachers Association (MTA) (with MTA Card) FREE SAVE $2 PER TICKET BY PURCHASING ADMISSION ONLINE! Massachusetts EB"
       },
       {
         "audience": "adult",
         "price": 3.0,
         "age_range": null,
-        "source_phrase": "to cultural programming. Massachusetts EBT, WIC, and ConnectorCare Cardholders $3 Adult Admission and Free admission for up to four (4) children under the age of"
+        "source_phrase": "ming. Massachusetts EBT, WIC, and ConnectorCare Cardholders $3 Adult Admission and Free admission for up to four (4) child"
       }
     ]
   }

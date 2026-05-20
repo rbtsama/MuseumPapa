@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -20,15 +20,6 @@
       "summary": "50% off",
       "source_phrase_block": "This pass admits up to 2 people at $10 (a 50% discount). It is not valid toward performances or special events. Open Tuesdays through Sundays, closed Mondays: Exhibits include:"
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [
-        "mondays"
-      ],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": false,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

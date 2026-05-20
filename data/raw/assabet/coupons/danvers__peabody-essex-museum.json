@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -31,6 +31,18 @@
       "summary": "$13.5/person",
       "source_phrase_block": "This pass allows the bearer a discounted admission rate ($13.50 for adults and seniors, $11.25 for children ages 3-14) for up to six visitors. Please visit www.salemwitchmuseum.com to purchase tickets, using the code on the physical museum pass. Discount cannot be applied after, nor can a refund be administered upon visiting the museum for tickets purchased without the discount. Pass must be presented to receive tickets. If you can not provide the library pass, you will be charged full admission fee. This is a physical pass that you must pick up from and return to the library. Please return by 9 am the day after the Museum Pass is used. The pass may be returned via the book drop. The pass is not valid the month of October."
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [
+        {
+          "month": 10,
+          "day": null
+        }
+      ],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null
+    }
   }
 }

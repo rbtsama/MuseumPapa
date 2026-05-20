@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "digital_email",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -20,13 +20,6 @@
       "summary": "50% off",
       "source_phrase_block": "Each pass admits 2 guests at half-price. Restrictions may apply for special or ticketed events. Please visit the page here for up-to-date information and to reserve tickets in advance if preferred. Timed tickets purchased in advance are no longer required for entry to New England Botanic Garden, but may be reserved if preferred. Click here to book your tickets online. Promo code to use to receive the library discount when booking online provided in confirmation email. You must present both your ticket AND the physical library pass when you arrive. Walk-ins are permitted so it is not necessary to get your tickets in advance, but you must always present the physical library pass in order to receive the discount. Please note that pass only applies to General Admission and cannot be used for Night Lights tickets."
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": true,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

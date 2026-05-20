@@ -4,15 +4,15 @@
     "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "(PRINTABLE) Each pass allows admission for 2 adults at $15 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each. Children 6 and under are admitted free. Use PROMO CODE IP-1635430 to reserve discounted tickets online, or on site to reserve sam"
         }

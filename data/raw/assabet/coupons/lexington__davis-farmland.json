@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "digital_email",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 3
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 3,
+          "count": null,
           "age_range": null,
           "source_phrase": "Redeem this pass for admission to the Discovery Musuem for three (3) people at half price off regular admission. Children under age one are free. THIS IS A PRINTABLE PASS"
         }

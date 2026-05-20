@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -20,13 +20,6 @@
       "summary": "50% off",
       "source_phrase_block": "Two passes per day. Each pass admits one person. 50% discount on admission, $1 fee for children. Timed tickets are not necessary, but if purchasing in advance is preferred tickets can be purchased online at https://www.nativeplanttrust.org/visit/garden-woods/ If purchasing tickets in advance, choose the Library Pass option and bring the library pass with you to Garden in the Woods. No discounts on classes, tours, or retail items. Please note that schedule is subject to change and that hours will be reduced after October 18. Please be sure to check the website for exact dates and hours before planning your visit."
     },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": true,
-      "advance_booking_hours": null
-    }
+    "restrictions": null
   }
 }

@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -14,11 +14,11 @@
           "value": 2,
           "count": 4,
           "age_range": null,
-          "source_phrase": "This one-day Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary. With this pass, admission is discounted to $2 per visitor over the age of 2. For a list of Wildlife Sanctuaries &amp; Properties, please visit https://www.massaudubon.org/place"
+          "source_phrase": "This one-day Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary. With this pass, admission is discounted to $2 per visitor over the age of 2. For a list of Wildlife Sanctuaries & Properties, please visit https://www.massaudubon.org/places-to"
         }
       ],
       "summary": "$2/person",
-      "source_phrase_block": "This one-day Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary. With this pass, admission is discounted to $2 per visitor over the age of 2. For a list of Wildlife Sanctuaries &amp; Properties, please visit https://www.massaudubon.org/places-to-explore/wildlife-sanctuaries Please visit https://www.massaudubon.org/get-outdoors/wildlife-sanctuaries/trails for the latest information, including safety guidelines."
+      "source_phrase_block": "This one-day Library Partner Admission Pass admits up to 4 people to a Mass Audubon wildlife sanctuary. With this pass, admission is discounted to $2 per visitor over the age of 2. For a list of Wildlife Sanctuaries & Properties, please visit https://www.massaudubon.org/places-to-explore/wildlife-sanctuaries Please visit https://www.massaudubon.org/get-outdoors/wildlife-sanctuaries/trails for the latest information, including safety guidelines."
     },
     "restrictions": null
   }

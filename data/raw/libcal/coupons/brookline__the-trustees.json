@@ -1,25 +1,4 @@
 {
-  "status": "ok",
-  "extracted": {
-    "pass_form": "physical_circ",
-    "coupon": {
-      "capacity": {
-        "kind": "people",
-        "n": 2
-      },
-      "audience_policies": [
-        {
-          "audience": "Everyone",
-          "form": "free",
-          "value": 0,
-          "count": 2,
-          "age_range": null,
-          "source_phrase": "Admits up to 2 adults and children (under 18) at free"
-        }
-      ],
-      "summary": "FREE",
-      "source_phrase_block": "200 High Street, Boston, MA, 02110\n                                                            \n    Map\n(617) 542-7696\nAs a steward of distinctive and dynamic places of both historic and cultural value, The Trustees is the nation&rsquo;s first and Massachusetts&rsquo; largest preservation and conservation nonprofit, and its landscapes and landmarks continue to inspire discussion, innovation, and action today as they did in the past. Supported by members, friends and donors, The Trustees&rsquo; more than 100 reservations are destinations for residents, members, and visitors alike, welcoming millions of guests annually.\nPass benefits: Admits up to 2 adults and children (under 18) at free or reduced admission at Trustees sites that charge admission.&nbsp;Visit the The Trustees&#39;s website.\nPhysical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below."
-    },
-    "restrictions": null
-  }
+  "status": "failed",
+  "error": "unparsed benefit"
 }

@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "free",
           "value": 0,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "This pass offers free admission for two adults and children under 18 to 38 historic sites and the Library and Archives of Historic New England. Please go to historicnewengland.org for a full listing of historic sites to visit and to verify hours of operation. This pass needs to b"
         }

@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "free",
           "value": 0,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "Free admission for 2 adults and children under the age of 18 for 38 historic New England houses. Each home has different hours so please check their website at https://www.historicnewengland.org/ for the hours to each home."
         }

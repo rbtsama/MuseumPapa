@@ -5,14 +5,14 @@
     "coupon": {
       "capacity": {
         "kind": "people",
-        "n": 2
+        "n": 15
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 2,
+          "count": 15,
           "age_range": null,
           "source_phrase": "Each promo code provides up to two adults with $15 admission per person and four youths (ages 7–17) with $10 admission per person. Tickets to the MFA are always free for visitors under seven years old. Valid only for the date listed on this pass. This is a coupon pass that will b"
         }

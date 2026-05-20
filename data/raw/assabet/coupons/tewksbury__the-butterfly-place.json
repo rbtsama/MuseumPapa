@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -9,23 +9,26 @@
       },
       "audience_policies": [
         {
-          "audience": "Everyone",
-          "form": "percent-off",
-          "value": 50,
-          "count": 3,
-          "age_range": null,
-          "source_phrase": "This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. You save by using this pass! Admission without this pass is: Adult: $19.00 Senior (60+): $18.00 Child: $19.00 Under 1 year old: FREE"
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 19,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. You save by using this pass! Admission without this pass is: Adult: $19.00 Senior (60+): $18.00 Child: $19.00 Under 1 year old: FREE Teachers are always FR"
         },
         {
           "audience": "children",
           "form": "per-person-price",
-          "value": 19,
+          "value": 18,
           "count": null,
           "age_range": null,
-          "source_phrase": "This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. You save by using this pass! Admission without this pass is: Adult: $19.00 Senior (60+): $18.00 Child: $19.00 Under 1 year old: FREE"
+          "source_phrase": "This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. You save by using this pass! Admission without this pass is: Adult: $19.00 Senior (60+): $18.00 Child: $19.00 Under 1 year old: FREE Teachers are always FR"
         }
       ],
-      "summary": "50% off",
+      "summary": "$19/person",
       "source_phrase_block": "This pass admits 3 visitors at 1/2 price admission per person; any additional visitors must pay the regular admission price. You save by using this pass! Admission without this pass is: Adult: $19.00 Senior (60+): $18.00 Child: $19.00 Under 1 year old: FREE"
     },
     "restrictions": null

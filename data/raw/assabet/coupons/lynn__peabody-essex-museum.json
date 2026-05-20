@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -9,17 +9,40 @@
       },
       "audience_policies": [
         {
-          "audience": "Everyone",
-          "form": "percent-off",
-          "value": 50,
-          "count": 6,
+          "audience": "adults",
+          "form": "per-person-price",
+          "value": 13.25,
+          "count": null,
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "*** Not Valid in October *** Discount : Half-priced admission for up to 6 people ($13.25 for adults, $10.75 for children ages 3-14). Children under the age of 3 are always free at this museum. Visit the main desk at the library to pick up your discount pass. Discount passes for t"
+        },
+        {
+          "audience": "children",
+          "form": "per-person-price",
+          "value": 10.75,
+          "count": null,
           "age_range": null,
           "source_phrase": "*** Not Valid in October *** Discount : Half-priced admission for up to 6 people ($13.25 for adults, $10.75 for children ages 3-14). Children under the age of 3 are always free at this museum. Visit the main desk at the library to pick up your discount pass. Discount passes for t"
         }
       ],
-      "summary": "50% off",
-      "source_phrase_block": "*** Not Valid in October *** Discount : Half-priced admission for up to 6 people ($13.25 for adults, $10.75 for children ages 3-14). Children under the age of 3 are always free at this museum. Visit the main desk at the library to pick up your discount pass. Discount passes for this museum can be picked up the day before (after 11am) or the day of your planned visit. A $5 CASH DEPOSIT is required. This deposit will be refunded if/when the discount pass is returned on time (by 11am the first business day after your museum visit). To use : Tickets must be purchased in advance on museum's website with the discount code provided on the card. Present discount card upon arrival to receive tickets. If the card is not provided, the full admission fee will be charged. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reserv"
+      "summary": "$13.25/person",
+      "source_phrase_block": "*** Not Valid in October *** Discount : Half-priced admission for up to 6 people ($13.25 for adults, $10.75 for children ages 3-14). Children under the age of 3 are always free at this museum. Visit the main desk at the library to pick up your discount pass. Discount passes for this museum can be picked up the day before (after 11am) or the day of your planned visit. A $5 CASH DEPOSIT is required. This deposit will be refunded if/when the discount pass is returned on time (by 11am the first business day after your museum visit). To use : Tickets must be purchased in advance on museum's website with the discount code provided on the card. Present discount card upon arrival to receive tickets. If the card is not provided, the full admission fee will be charged. ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out your discount pass, you must contact the library in advance. If booking a pass with an e-card , patrons must also provide proof of address when they arrive at the library to pick-up their pass and will be switched over to a physical library card."
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [
+        {
+          "month": 10,
+          "day": null
+        }
+      ],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null
+    }
   }
 }

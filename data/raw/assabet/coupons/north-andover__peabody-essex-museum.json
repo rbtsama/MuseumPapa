@@ -1,32 +1,4 @@
 {
-  "status": "ok",
-  "extracted": {
-    "pass_form": "physical_circ",
-    "coupon": {
-      "capacity": {
-        "kind": "vehicle",
-        "n": 1
-      },
-      "audience_policies": [
-        {
-          "audience": "Everyone",
-          "form": "discount",
-          "value": null,
-          "count": 1,
-          "age_range": null,
-          "source_phrase": "This pass must be picked up at the library. The Trustees GO Pass: is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, on any equipment rental, or in place of any other permits or passes allow"
-        }
-      ],
-      "summary": "Discount",
-      "source_phrase_block": "This pass must be picked up at the library. The Trustees GO Pass: is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, on any equipment rental, or in place of any other permits or passes allows free or reduced admission at the Family Level Membership price at Trustees properties that charge an admission fee To use with a site that requires timed passes, please enter the promo code (printed on coupon) when securing a timed ticket. See www.thetrustees.org/passes for more details. Please note: Not every Trustees property charges an admission fee, and some locations require advanced ticketing. For information about the admission at each property, please visit TheTrustees.Org."
-    },
-    "restrictions": {
-      "blackout": [],
-      "blackout_recurring": [],
-      "weekdays_only": false,
-      "seasonal": null,
-      "advance_booking_required": true,
-      "advance_booking_hours": null
-    }
-  }
+  "status": "failed",
+  "error": "unparsed benefit"
 }

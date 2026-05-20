@@ -1,10 +1,10 @@
 {
   "status": "ok",
   "extracted": {
-    "residency": "none",
+    "residency": "unknown",
     "scope": null,
     "locals_free": false,
-    "note": "Open to all visitors. Framingham residents get a discounted price tier ($6.00) but admission is not restricted by residency.",
-    "source_phrase": "Framingham residents: $6.00"
+    "note": "ambiguous residency mention, no free-admission association",
+    "source_phrase": "ugh 13): Free Framingham residents: $6."
   }
 }

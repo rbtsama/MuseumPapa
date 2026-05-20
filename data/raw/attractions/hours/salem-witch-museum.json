@@ -2,19 +2,15 @@
   "status": "ok",
   "extracted": {
     "hours": {
-      "monday": "10:00-17:00",
-      "tuesday": "10:00-17:00",
-      "wednesday": "10:00-17:00",
-      "thursday": "10:00-17:00",
-      "friday": "10:00-17:00",
-      "saturday": "10:00-17:00",
-      "sunday": "10:00-17:00"
+      "monday": "unknown",
+      "tuesday": "unknown",
+      "wednesday": "unknown",
+      "thursday": "unknown",
+      "friday": "unknown",
+      "saturday": "unknown",
+      "sunday": "unknown"
     },
-    "seasonal": {
-      "start_month": 7,
-      "end_month": 8,
-      "note": "July and August: 10am-7pm. October also has extended hours."
-    },
-    "source_phrase": "Year-Round: 10AM-5PM  July and August: 10AM-7PM  October: Extended Hours"
+    "seasonal": null,
+    "source_phrase": null
   }
 }

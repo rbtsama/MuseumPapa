@@ -4,15 +4,15 @@
     "pass_form": "physical_circ",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 4
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "dollar-off",
           "value": 5,
-          "count": 4,
+          "count": null,
           "age_range": null,
           "source_phrase": "This pass admits up to 4 at $5-off each. Pickup the pass the day before or the day of the reservation date. This pass MUST be returned to Acton Memorial Library before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue"
         }

@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_coupon",
+    "pass_form": "physical_circ",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "free",
           "value": 0,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "Free admission for up to 2 adults and their children or grandchildren (under 18) to one Historic New England site. *This is a physical, coupon pass which must be picked up at the Ground Floor Circulation Desk. This pass has an expiration date and does NOT need to be used on the d"
         }

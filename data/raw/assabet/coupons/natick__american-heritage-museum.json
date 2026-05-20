@@ -4,15 +4,15 @@
     "pass_form": "physical_circ",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 3,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Reduced general admission for up to 2 adults and 3 children at $3 per person. Additional instructions: -Present pass upon arrival to receive discount. THIS PA"
         }

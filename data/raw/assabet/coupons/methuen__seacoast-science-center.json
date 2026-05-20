@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 5
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "free",
           "value": 0,
-          "count": 5,
+          "count": null,
           "age_range": null,
           "source_phrase": "Pass holders will receive free admission to the Museum. Each pass may only be used by one party per day. Parties are limited to five (5) or fewer guests. Appropriate for ages 2-99!"
         }

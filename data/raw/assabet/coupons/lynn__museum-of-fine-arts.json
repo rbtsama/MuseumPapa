@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -18,7 +18,7 @@
         }
       ],
       "summary": "50% off",
-      "source_phrase_block": "Discount : Half-priced admission for up to 4 people. Children under the age of 3 are always free. Visit the main desk at the library to pick up your discount coupon. The discount coupon must be used on the date printed on the coupon. Discount coupons can be picked up from the library up to 1 week in advance. To use : Present the discount pass at the New England Aquarium box office when purchasing your tickets ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out your discount pass, you must contact the library in advance. If booking a pass with an e-card , patrons must also provide proof of address when they arrive at the library to pick-up their pass and will be switched over to a physical library card. Unwanted passes MUST BE CANCELLED. Failure to"
+      "source_phrase_block": "Discount : Half-priced admission for up to 4 people. Children under the age of 3 are always free. Visit the main desk at the library to pick up your discount coupon. The discount coupon must be used on the date printed on the coupon. Discount coupons can be picked up from the library up to 1 week in advance. To use : Present the discount pass at the New England Aquarium box office when purchasing your tickets ATTENTION : Patrons must be at least 18 YEARS OF AGE to book discount passes. Reservations made using a child's card will be DENIED . Patron's must reserve passes using their own library card, do not change the name on your reservation . If another member of your household will be checking out your discount pass, you must contact the library in advance. If booking a pass with an e-card , patrons must also provide proof of address when they arrive at the library to pick-up their pass and will be switched over to a physical library card. Unwanted passes MUST BE CANCELLED. Failure to cancel an unwanted pass will result in a 30 day ban on reserving discount passes."
     },
     "restrictions": null
   }

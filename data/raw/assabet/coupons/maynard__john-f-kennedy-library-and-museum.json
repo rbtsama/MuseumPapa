@@ -4,15 +4,15 @@
     "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 4
+        "kind": "vehicle",
+        "n": 1
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 2,
-          "count": 4,
+          "count": 1,
           "age_range": null,
           "source_phrase": "This pass admits one 1 vehicle OR up to 4 people to Drumlin Farm and other Mass Audubon wildlife sanctuaries for $2 per visitor over the age of 2. This pass is a coupon and does not need to be returned to the library."
         }

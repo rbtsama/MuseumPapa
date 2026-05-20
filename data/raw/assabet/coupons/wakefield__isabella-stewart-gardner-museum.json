@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "unspecified",
-        "n": null
+        "kind": "people",
+        "n": 1
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": null,
+          "count": 1,
           "age_range": null,
           "source_phrase": "Passes are no longer required—the presentation of a valid library card grants the cardholder 50% off of one admission ticket—but please place a reservation for the desired date of your visit. Visitors aged 12 and under receive free admission. Please visit JFK Museum's website for"
         }

@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -13,14 +13,6 @@
           "form": "percent-off",
           "value": 50,
           "count": 2,
-          "age_range": null,
-          "source_phrase": "Admits 2 persons; adults at 1/2 price, children (5-17) $1.00"
-        },
-        {
-          "audience": "children",
-          "form": "per-person-price",
-          "value": 1,
-          "count": null,
           "age_range": null,
           "source_phrase": "Admits 2 persons; adults at 1/2 price, children (5-17) $1.00"
         }

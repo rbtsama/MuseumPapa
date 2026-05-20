@@ -4,21 +4,21 @@
     "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
-          "form": "free",
-          "value": 0,
-          "count": 2,
+          "form": "per-person-price",
+          "value": 12,
+          "count": null,
           "age_range": null,
-          "source_phrase": "No charge"
+          "source_phrase": "150 Foundry Street, South Easton, MA, 02375 Map 508-238-2387 Admits up to 2 children for $12 each. Not valid on Saturdays. Valid for either a Morning (9:30 am-12:00 pm) or an Afternoon session (1:30 - 5:00 pm) To use the facility you must complete an online waiver. Maplewood Indo"
         }
       ],
-      "summary": "FREE",
-      "source_phrase_block": "150 Foundry Street, South Easton, MA, 02375\n                                                            \n    Map\n508-238-2387\n&nbsp;Admits up to 2 children for $12 each. Not valid on Saturdays.\n\n&nbsp;Valid for either a Morning (9:30 am-12:00 pm)\n\n&nbsp;or an Afternoon session (1:30 - 5:00 pm)\n\nTo use the facility you must complete an online waiver.\n&nbsp;Maplewood Indoor/outdoor playground is open during school-year months for children 6 years old and younger.\n\nAll children must be accompanied by an adult.\n\nNo charge for infants (under 1 year of age.)\n\nAll children and adults are required to wear grip socks to enter the playground space.\nAttendees are welcome to bring their own or purchase them at Maplewood.\nContact Maplewood Country Day Camp &amp; Enrichment Center on 150 Foundry Street, South Easton, MA, 02375 at 508-238-2387 to confirm your reservation and time.\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+      "summary": "$12/person",
+      "source_phrase_block": "150 Foundry Street, South Easton, MA, 02375 Map 508-238-2387 Admits up to 2 children for $12 each. Not valid on Saturdays. Valid for either a Morning (9:30 am-12:00 pm) or an Afternoon session (1:30 - 5:00 pm) To use the facility you must complete an online waiver. Maplewood Indoor/outdoor playground is open during school-year months for children 6 years old and younger. All children must be accompanied by an adult. No charge for infants (under 1 year of age.) All children and adults are required to wear grip socks to enter the playground space. Attendees are welcome to bring their own or purchase them at Maplewood. Contact Maplewood Country Day Camp & Enrichment Center on 150 Foundry Street, South Easton, MA, 02375 at 508-238-2387 to confirm your reservation and time. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
     },
     "restrictions": null
   }

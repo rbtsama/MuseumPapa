@@ -6,22 +6,19 @@
         "audience": "adult",
         "price": 19.0,
         "age_range": null,
-        "source_phrase": "Adults: $19.00"
+        "source_phrase": "August: 10AM-7PM October: Extended Hours Admission Adults: $19.00 Seniors (62+): $17.50 Children (Ages 6-14): $16.00 Plan to"
       },
       {
         "audience": "senior",
         "price": 17.5,
         "age_range": null,
-        "source_phrase": "Seniors (62+): $17.50"
+        "source_phrase": "ber: Extended Hours Admission Adults: $19.00 Seniors (62+): $17.50 Children (Ages 6-14): $16.00 Plan to Visit Salem Witch Muse"
       },
       {
         "audience": "child",
         "price": 16.0,
-        "age_range": {
-          "min": 6,
-          "max": 14
-        },
-        "source_phrase": "Children (Ages 6-14): $16.00"
+        "age_range": null,
+        "source_phrase": "Adults: $19.00 Seniors (62+): $17.50 Children (Ages 6-14): $16.00 Plan to Visit Salem Witch Museum 19 1/2 Washington Square N"
       }
     ]
   }

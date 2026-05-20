@@ -2,16 +2,15 @@
   "status": "ok",
   "extracted": {
     "hours": {
-      "monday": "closed",
-      "tuesday": "closed",
-      "wednesday": "09:00-16:00",
-      "thursday": "09:00-16:00",
-      "friday": "09:00-16:00",
-      "saturday": "09:00-16:00",
-      "sunday": "12:00-16:00"
+      "monday": "unknown",
+      "tuesday": "unknown",
+      "wednesday": "unknown",
+      "thursday": "unknown",
+      "friday": "unknown",
+      "saturday": "unknown",
+      "sunday": "unknown"
     },
     "seasonal": null,
-    "source_phrase": "Wed/Thur/Fri: 9:00 am – 12:00 pm & 1:00 pm – 4:00 pm; Sat: 9:00 am – 4:00 pm; Sun: 12:00 pm – 4:00 pm",
-    "note": "Wed-Fri closed for lunch 12-1pm. Currently closed week of May 18-23 for spring cleaning."
+    "source_phrase": null
   }
 }

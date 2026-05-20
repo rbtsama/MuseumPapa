@@ -1,12 +1,12 @@
 {
   "status": "ok",
   "extracted": {
-    "required": "walk_in_ok",
-    "booking_url": "https://www.worcesterart.org/visit/#admission",
-    "lead_time_hours": 0,
+    "required": "timed_entry",
+    "booking_url": "https://www.worcesterart.org/visit/",
+    "lead_time_hours": null,
     "pass_holder_path": "unknown",
     "pass_holder_url": null,
-    "notes": "no explicit reservation language; defaulted to walk_in_ok",
-    "source_phrase": null
+    "notes": "timed-entry cue found",
+    "source_phrase": "to the Arms and Armor Galleries is included with your General Admission ticket. Timed-entry reservations are no longer required. Questions about the Arms and Armor Galleri"
   }
 }

@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_coupon",
+    "pass_form": "physical_circ",
     "coupon": {
       "capacity": {
-        "kind": "unspecified",
-        "n": null
+        "kind": "people",
+        "n": 1
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "free",
           "value": 0,
-          "count": null,
+          "count": 1,
           "age_range": null,
           "source_phrase": "This coupon pass admits one visitor to The Butterfly Place free of charge. This coupon pass must be picked up at the Billerica Public Library and brought to the Butterfly Place in order to receive the free admission. You do not have to return this pass. Regular admission rates fo"
         }

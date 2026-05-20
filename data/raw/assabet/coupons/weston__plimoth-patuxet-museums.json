@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "unspecified",
@@ -9,7 +9,7 @@
       },
       "audience_policies": [
         {
-          "audience": "children",
+          "audience": "Everyone",
           "form": "per-person-price",
           "value": 14,
           "count": null,

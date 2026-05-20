@@ -1,7 +1,7 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
@@ -20,6 +20,18 @@
       "summary": "Discount",
       "source_phrase_block": "Pick up and return pass to library. Pass admits up to 6 people discounted admission. Advanced ticket purchase is required. Please visit the website www.salemwitchmuseum.com to purchase your tickets and enter the code from the pass into the coupon code box to receive discount. Pass MUST be presented at time of admission or full price will be charged. Open Daily 10 am to 5 pm July and August open daily 10 am to 7 pm"
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [
+        {
+          "month": 10,
+          "day": null
+        }
+      ],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": true,
+      "advance_booking_hours": null
+    }
   }
 }

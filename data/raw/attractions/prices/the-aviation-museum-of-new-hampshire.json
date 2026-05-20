@@ -3,28 +3,28 @@
   "extracted": {
     "prices": [
       {
-        "audience": "adult",
+        "audience": "youth",
         "price": 15.0,
         "age_range": null,
-        "source_phrase": "prices will be in effect at the Aviation Museum of N.H: • Adults 13 and above, $15 • Youth age 6 to 12, $7.50 • Children 5 and under, FREE! • Seniors (65+), veter"
-      },
-      {
-        "audience": "adult",
-        "price": 7.5,
-        "age_range": null,
-        "source_phrase": "at the Aviation Museum of N.H: • Adults 13 and above, $15 • Youth age 6 to 12, $7.50 • Children 5 and under, FREE! • Seniors (65+), veterans, active military, $7.50"
+        "source_phrase": "ffect at the Aviation Museum of N.H: • Adults 13 and above, $15 • Youth age 6 to 12, $7.50 • Children 5 and under, FREE! •"
       },
       {
         "audience": "child",
         "price": 7.5,
         "age_range": null,
-        "source_phrase": "$7.50 • Children 5 and under, FREE! • Seniors (65+), veterans, active military, $7.50 • Aviation Museum members, FREE! • Library Pass: Maximum of four people on one"
+        "source_phrase": "eum of N.H: • Adults 13 and above, $15 • Youth age 6 to 12, $7.50 • Children 5 and under, FREE! • Seniors (65+), veterans, ac"
       },
       {
-        "audience": "member",
+        "audience": "military",
+        "price": 7.5,
+        "age_range": null,
+        "source_phrase": "nd under, FREE! • Seniors (65+), veterans, active military, $7.50 • Aviation Museum members, FREE! • Library Pass: Maximum of"
+      },
+      {
+        "audience": "family",
         "price": 5.0,
         "age_range": null,
-        "source_phrase": "y must pay appropriate admission fee. • &#8216;Museums for All &#8216;discount: $5 for all members of a family (up to four people total) presenting a valid federa"
+        "source_phrase": "te admission fee. • &#8216;Museums for All &#8216;discount: $5 for all members of a family (up to four people total) prese"
       }
     ]
   }

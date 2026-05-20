@@ -1,23 +1,23 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
         "kind": "people",
-        "n": 4
+        "n": 5
       },
       "audience_policies": [
         {
           "audience": "Everyone",
-          "form": "free",
-          "value": 0,
-          "count": 4,
+          "form": "per-person-price",
+          "value": 5,
+          "count": 5,
           "age_range": null,
           "source_phrase": "This pass offers discounted $5 admission for up to 4 adults. Admission is free for children under age 18. Patrons must present both this library pass and their timed admission ticket for entry into the museum. For more information, including health and safety requirements, please"
         }
       ],
-      "summary": "FREE",
+      "summary": "$5/person",
       "source_phrase_block": "This pass offers discounted $5 admission for up to 4 adults. Admission is free for children under age 18. Patrons must present both this library pass and their timed admission ticket for entry into the museum. For more information, including health and safety requirements, please visit the ISGM's Know Before You Go page . try {var w = document.getElementsByClassName(\"warn\"); for( i=0;i"
     },
     "restrictions": null

@@ -11,15 +11,22 @@
         {
           "audience": "Everyone",
           "form": "percent-off",
-          "value": 50.0,
+          "value": 50,
           "count": null,
           "age_range": null,
-          "source_phrase": "50% off"
+          "source_phrase": "Long Wharf North 66 Long Wharf, Boston, MA, 02110 Map 617-227-4321 Boston Harbor Islands National and State Park is for everyone! The Boston Harbor Islands Partnership is committed to providing free and reduced-fare opportunities for groups and individuals. Library pass provides "
         }
       ],
       "summary": "50% off",
-      "source_phrase_block": "Long Wharf North 66 Long Wharf, Boston, MA, 02110\n                                                            \n    Map\n617-227-4321\nBoston Harbor Islands National and State Park is for everyone! The Boston Harbor Islands Partnership is committed to providing free and reduced-fare opportunities for groups and individuals.\nLibrary pass provides 50% off all Boston Harbor Islands Ferry tickets from Long Wharf. Based on availability; reservations are recommended. Use the promo code&nbsp;from your confirmation email&nbsp;on the Boston Harbor City Cruises website for the library discount.\nPublic ferries from Long Wharf to the Boston Harbor Islands operate from May &ndash; October.\n2025 Season Schedule\nSpectacle Island\n&middot;&nbsp; May 16 - June 15: Thursdays through Sundays"
+      "source_phrase_block": "Long Wharf North 66 Long Wharf, Boston, MA, 02110 Map 617-227-4321 Boston Harbor Islands National and State Park is for everyone! The Boston Harbor Islands Partnership is committed to providing free and reduced-fare opportunities for groups and individuals. Library pass provides 50% off all Boston Harbor Islands Ferry tickets from Long Wharf. Based on availability; reservations are recommended. Use the promo code from your confirmation email on the Boston Harbor City Cruises website for the library discount. Public ferries from Long Wharf to the Boston Harbor Islands operate from May - October. 2025 Season Schedule Spectacle Island &middot; May 16 - June 15: Thursdays through Sundays"
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": true,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null
+    }
   }
 }

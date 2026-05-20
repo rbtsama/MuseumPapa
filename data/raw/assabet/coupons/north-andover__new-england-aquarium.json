@@ -4,15 +4,15 @@
     "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 5
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 5,
+          "count": null,
           "age_range": null,
           "source_phrase": "E-coupon Pass admits up to five at 50% off Printed or digital pass MUST be presented at the museum to receive the discount, even if purchased online."
         }

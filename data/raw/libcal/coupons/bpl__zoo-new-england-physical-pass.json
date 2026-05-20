@@ -11,22 +11,25 @@
         {
           "audience": "adults",
           "form": "per-person-price",
-          "value": 9.0,
+          "value": 9,
           "count": null,
-          "age_range": null,
-          "source_phrase": "$9 per adult"
+          "age_range": {
+            "min": 18,
+            "max": 200
+          },
+          "source_phrase": "Coupon admits 6 people at $9 per adult and $6 per child. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability ca"
         },
         {
           "audience": "children",
           "form": "per-person-price",
-          "value": 6.0,
+          "value": 6,
           "count": null,
           "age_range": null,
-          "source_phrase": "$6 per child"
+          "source_phrase": "Coupon admits 6 people at $9 per adult and $6 per child. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability ca"
         }
       ],
       "summary": "$9/person",
-      "source_phrase_block": "Coupon admits 6 people at $9 per adult and $6 per child.\nNote: This pass is limited to one booking per month per person.\nPhysical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.\nTo use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+      "source_phrase_block": "Coupon admits 6 people at $9 per adult and $6 per child. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar. To use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
     },
     "restrictions": null
   }

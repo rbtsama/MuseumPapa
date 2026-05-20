@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_circ",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "free",
           "value": 0,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "Pass admits up to 4 children accompanied by 1 or 2 adults for free play in the STEAM Play Space during Drop-in hours. All children must be supervised by an accompanying adult during the entire visit. Check the website before you visit because the museum is closed several weekends"
         }

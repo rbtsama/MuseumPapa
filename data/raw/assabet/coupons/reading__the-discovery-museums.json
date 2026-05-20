@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "physical_coupon",
+    "pass_form": "physical_circ",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 2
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 2,
+          "count": null,
           "age_range": null,
           "source_phrase": "This pass provides a 50% discount for up to 2 adults and 2 children. Children under 2 free. It is not to be combined with other offers, group rates or special event prices. Please fill out the reverse side of the coupon pass prior to using. *This is a coupon pass that must be pic"
         }

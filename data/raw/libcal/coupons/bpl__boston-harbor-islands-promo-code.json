@@ -4,21 +4,21 @@
     "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "ticket",
-        "n": 4
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
-          "value": 50.0,
-          "count": 4,
+          "value": 50,
+          "count": null,
           "age_range": null,
-          "source_phrase": "50% off"
+          "source_phrase": "191W Atlantic Avenue, Boston, Massachusetts, 02110 Map The code can be used to purchase up to 4 50% off tickets for the following dates: Georges Island Spectacle Island Peddocks Island from Hingham Digital (downloadable via email) passes are available. Select your desired visit d"
         }
       ],
       "summary": "50% off",
-      "source_phrase_block": "191W Atlantic Avenue, Boston, Massachusetts, 02110\n                                                            \n    Map\nThe code can be used to purchase up to 4 50% off tickets for the following dates:\nGeorges Island\nSpectacle Island\nPeddocks Island from Hingham\nDigital (downloadable via email) passes are available. Select your desired visit date from the calendar below.\nTo use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+      "source_phrase_block": "191W Atlantic Avenue, Boston, Massachusetts, 02110 Map The code can be used to purchase up to 4 50% off tickets for the following dates: Georges Island Spectacle Island Peddocks Island from Hingham Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below. To use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
     },
     "restrictions": null
   }

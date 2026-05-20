@@ -1,18 +1,18 @@
 {
   "status": "ok",
   "extracted": {
-    "pass_form": "digital_email",
+    "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "people",
-        "n": 3
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 3,
+          "count": null,
           "age_range": null,
           "source_phrase": "This is an e-voucher . Pass is emailed to the patron. Only Valid for the Reserved Date of Visit. Each coupon allows for admission of three people to the Museum at half price off regular admission. Children under age one are free. A library coupon is NOT a museum entry reservation"
         }

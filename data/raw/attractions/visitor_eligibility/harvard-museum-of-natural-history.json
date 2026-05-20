@@ -1,10 +1,10 @@
 {
   "status": "ok",
   "extracted": {
-    "residency": "unknown",
-    "scope": null,
+    "residency": "ma_resident",
+    "scope": "MA",
     "locals_free": false,
-    "note": "Only 'President and Fellows of Harvard College' copyright; no residency policy.",
-    "source_phrase": null
+    "note": "MA residents mentioned",
+    "source_phrase": "useums of Science & Culture members , and Harvard Art Museums members . Free to Massachusetts residents every Sunday morning from 9:00 am to 12:00 pm and on Wednesdays from 3:00 pm"
   }
 }
