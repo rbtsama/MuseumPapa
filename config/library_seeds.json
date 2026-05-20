@@ -32,7 +32,7 @@
       "network": "NOBLE",
       "platform": "assabet",
       "domain": "readingpl.assabetinteractive.com",
-      "card_page": "https://www.readingpl.org/services/get-a-library-card/",
+      "card_page": "https://www.readingpl.org/get-a-library-card/",
       "non_resident_policy_initial": "open_ma_resident",
       "supports_availability": true,
       "pass_page": "https://readingpl.assabetinteractive.com/museum-passes/by-museum/"
@@ -44,7 +44,7 @@
       "network": "NOBLE",
       "platform": "assabet",
       "domain": "woburnpubliclibrary.assabetinteractive.com",
-      "card_page": "https://www.woburnpubliclibrary.org/borrow/get-a-library-card/",
+      "card_page": "https://woburnpubliclibrary.org/services/how-to-get-a-library-card/",
       "non_resident_policy_initial": "residents_only",
       "supports_availability": true,
       "pass_page": "https://woburnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
@@ -92,7 +92,7 @@
       "network": "NOBLE",
       "platform": "assabet",
       "domain": "sauguspubliclibrary.assabetinteractive.com",
-      "card_page": "https://sauguspubliclibrary.org/borrowing/library-cards/",
+      "card_page": "https://www.sauguspubliclibrary.org/explore/library-card/",
       "non_resident_policy_initial": "open_ma_resident",
       "supports_availability": true,
       "pass_page": "https://sauguspubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
@@ -104,7 +104,7 @@
       "network": "NOBLE",
       "platform": "assabet",
       "domain": "maldenpubliclibrary.assabetinteractive.com",
-      "card_page": "https://maldenpubliclibrary.org/services/library-card/",
+      "card_page": "https://maldenpubliclibrary.org/about/policies/library-cards/",
       "non_resident_policy_initial": "residents_only",
       "supports_availability": true,
       "pass_page": "https://maldenpubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
@@ -140,7 +140,7 @@
       "network": "NOBLE",
       "platform": "assabet",
       "domain": "flintmemoriallibrary.assabetinteractive.com",
-      "card_page": "https://www.flintmemoriallibrary.org/services/get-a-card/",
+      "card_page": "https://flintmemoriallibrary.org/home/borrow-materials/",
       "non_resident_policy_initial": "open_ma_resident",
       "supports_availability": true,
       "pass_page": "https://flintmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/"
@@ -152,7 +152,7 @@
       "network": "MVLC",
       "platform": "assabet",
       "domain": "wilmlibrary.assabetinteractive.com",
-      "card_page": "https://wilmlibrary.org/get-a-library-card/",
+      "card_page": "https://wilmlibrary.org/library-card/",
       "non_resident_policy_initial": "network_only",
       "supports_availability": true,
       "pass_page": "https://wilmlibrary.assabetinteractive.com/museum-passes/by-museum/"
@@ -165,7 +165,7 @@
       "platform": "assabet",
       "domain": "winpublib.assabetinteractive.com",
       "pass_page": "https://www.winpublib.org/museumpasses/",
-      "card_page": "https://www.winpublib.org/library-card/",
+      "card_page": "https://www.winpublib.org/librarycard/",
       "non_resident_policy_initial": "residents_only",
       "supports_availability": true
     },
@@ -298,7 +298,7 @@
       "network": "MVLC",
       "platform": "assabet",
       "domain": "tewksburypl.assabetinteractive.com",
-      "card_page": "https://www.tewksburypl.org/",
+      "card_page": null,
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "pass_page": "https://tewksburypl.assabetinteractive.com/museum-passes/by-museum/"
@@ -394,7 +394,7 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "robbinslibrary.assabetinteractive.com",
-      "card_page": "https://www.robbinslibrary.org/",
+      "card_page": null,
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "pass_page": "https://robbinslibrary.assabetinteractive.com/museum-passes/by-museum/"
