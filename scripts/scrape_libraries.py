@@ -14,6 +14,8 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def main():
     seeds = json.loads((ROOT/"config/library_seeds.json").read_text(encoding="utf-8"))
+    if isinstance(seeds, dict):
+        seeds = seeds["libraries"]
     raw = ROOT/"data/raw"
     summary = {"ok":0,"failed":0,"per_lib":[]}
     for s in seeds:

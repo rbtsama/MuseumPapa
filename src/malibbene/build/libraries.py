@@ -6,6 +6,8 @@ from malibbene.common.audit_overrides import load_overrides, apply_overrides
 
 def build_libraries(seed_path: Path, raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
     seeds = json.loads(seed_path.read_text())
+    if isinstance(seeds, dict):
+        seeds = seeds["libraries"]
     overrides = load_overrides(overrides_root)
     libs = []
     for s in seeds:
