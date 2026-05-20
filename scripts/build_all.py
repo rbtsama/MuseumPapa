@@ -1,12 +1,16 @@
 """Run all build/*.py, write data/structured/*, print validate report."""
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "src"))
+
 from malibbene.build.libraries import build_libraries
 from malibbene.build.attractions import build_attractions
 from malibbene.build.branches import build_branches
 from malibbene.build.passes import build_passes
 from malibbene.build.validate import validate_build
 
-ROOT = Path(__file__).resolve().parent.parent
 
 def main():
     raw = ROOT/"data/raw"; over = ROOT/"data/overrides"; out = ROOT/"data/structured"

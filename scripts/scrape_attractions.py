@@ -4,14 +4,18 @@
 """
 from __future__ import annotations
 import json
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "src"))
+
 from malibbene.sources_v2.attractions.pages import fetch_attraction_page
 from malibbene.sources_v2.attractions.visitor_eligibility import enqueue as enq_visitor
 from malibbene.sources_v2.attractions.reservation import enqueue as enq_reserv
 from malibbene.sources_v2.attractions.prices import enqueue as enq_prices
 from malibbene.sources_v2.attractions.hours import enqueue as enq_hours
 
-ROOT = Path(__file__).resolve().parent.parent
 
 def main():
     catalogs = list((ROOT/"data/raw").glob("*/catalog/*.json"))

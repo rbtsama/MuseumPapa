@@ -8,9 +8,11 @@ Per-library output:
 """
 from __future__ import annotations
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "src"))
 
 def main():
     seeds = json.loads((ROOT/"config/library_seeds.json").read_text(encoding="utf-8"))
