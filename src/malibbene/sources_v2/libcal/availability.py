@@ -1,10 +1,36 @@
-"""LibCal availability — calls /pass/availability/institution JSON endpoint."""
+"""LibCal availability scraper.
+
+The LibCal "institution" calendar endpoint at
+``https://<sub>.libcal.com/pass/availability/institution?museum=<pass_id>&date=<YYYY-MM-DD>``
+returns an HTML fragment (NOT JSON, despite earlier guesses). Each day is
+rendered as::
+
+    <div class="day day-Mon day-2026-05-25 [day-past] [day-other-month]">
+      <div class="day-number">
+        <span class="s-lc-pass-availability s-lc-pass-<status>">N</span>
+      </div>
+    </div>
+
+Where ``<status>`` is one of ``available | unavailable | closed | not-yet-available``.
+``day-other-month`` cells pad the calendar grid for the previous / next month
+(we drop them so we only emit days that actually belong to the requested month).
+"""
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 from malibbene.common.http import fetch
+
+# Each day cell. Capture the full class string (so we can detect other-month
+# padding) and the inner block (so we can pull the s-lc-pass-* status).
+_DAY_RE = re.compile(
+    r'<div class="(?P<cls>day\s+day-(?:Sun|Mon|Tue|Wed|Thu|Fri|Sat)\s+day-(?P<date>\d{4}-\d{2}-\d{2})[^"]*)">'
+    r'(?P<body>.*?)</div>\s*</div>',
+    re.S,
+)
+_STATUS_RE = re.compile(r"s-lc-pass-(available|unavailable|closed|not-yet-available)")
 
 
 def build_availability_url(libcal_subdomain: str, pass_id: str, date: str) -> str:
@@ -14,11 +40,35 @@ def build_availability_url(libcal_subdomain: str, pass_id: str, date: str) -> st
     )
 
 
-def parse_availability_json(data: dict) -> list[dict]:
+def _classify(status_token: str) -> str:
+    # Normalize to the same vocabulary the Assabet scraper uses so downstream
+    # consumers (build/passes.py) see one shape.
+    if status_token == "available":
+        return "available"
+    if status_token == "unavailable":
+        return "booked"
+    if status_token == "closed":
+        return "closed"
+    if status_token == "not-yet-available":
+        return "unavailable"
+    return "unavailable"
+
+
+def parse_availability_html(html: str) -> list[dict]:
     out: list[dict] = []
-    for status in ("available", "booked", "unavailable"):
-        for entry in data.get(status, []) or []:
-            out.append({"date": entry["date"], "status": status})
+    seen: set[str] = set()
+    for m in _DAY_RE.finditer(html):
+        cls = m.group("cls")
+        if "day-other-month" in cls.split():
+            continue
+        date = m.group("date")
+        if date in seen:
+            continue
+        sm = _STATUS_RE.search(m.group("body"))
+        status = _classify(sm.group(1)) if sm else "unavailable"
+        seen.add(date)
+        out.append({"date": date, "status": status})
+    out.sort(key=lambda d: d["date"])
     return out
 
 
@@ -31,21 +81,34 @@ def scrape_availability(
     raw_root: Path,
 ) -> dict:
     url = build_availability_url(libcal_subdomain, pass_id, start_date)
-    body = fetch(url)
-    data = json.loads(body)
-    days = parse_availability_json(data)
+    # XHR-style hints — libcal returns the same HTML either way, but this is
+    # how the real browser asks for the fragment.
+    body = fetch(
+        url,
+        headers={
+            "Accept": "text/html, */*; q=0.01",
+            "X-Requested-With": "XMLHttpRequest",
+            "Referer": f"https://{libcal_subdomain}.libcal.com/passes/{pass_id}",
+        },
+    )
+    days = parse_availability_html(body)
     out = raw_root / "libcal" / "availability" / library_id / f"{attraction_slug}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(
         json.dumps(
             {
                 "library_id": library_id,
-                "pass_id": pass_id,
                 "attraction_slug": attraction_slug,
+                "pass_id": pass_id,
+                "pass_url": url,
                 "days": days,
             },
             indent=2,
         ),
         encoding="utf-8",
     )
-    return {"n_days": len(days)}
+    return {
+        "library_id": library_id,
+        "attraction_slug": attraction_slug,
+        "n_days": len(days),
+    }
