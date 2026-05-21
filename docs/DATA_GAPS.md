@@ -16,24 +16,32 @@
 
 ---
 
-## 1. 图书馆 card_eligibility(办卡资格)— 43/59 仍 unknown
+## 1. 图书馆 card_eligibility(办卡资格)— 19/59 仍 unknown
 
-**当前**:16/59 已分类(全部有真实 source phrase 佐证),43 仍 unknown。
+**当前**:40/59 已分类(全部有真实 rendered source phrase 佐证),19 仍 unknown(72.9% → 32.2% unknown)。
+
+本轮(seed-driven recovery)做法:`scrape_rendered.py policies` 现在按 seed 的 `requires_render_js:true` 标志逐馆用 Playwright 渲染 `card_page`,只有 `_has_eligibility_cue()` 通过 + 分类器产出非 unknown 时才采信,并持久化完整 rendered `policy_text`(reclassify 不会回退)。新增 26 个 seed 的真实 get-a-card URL(WebSearch 找到 + 渲染验证)。其中 24 个分类成功(见下),lynnfield/sudbury 渲染到了页面但正文无可分类资格句,arlington 仍被 WAF 拦。
+
+**本轮真正救回(24 个,均有真实 rendered source phrase)**:
+`woburn, medford, burlington, bpl, danvers, marblehead, chelsea, billerica, topsfield, lawrence, methuen, andover, middleton, newton, framingham, maynard, wayland, wellesley, waltham, watertown, concord, somerville, quincy, cambridge`(tewksbury 上一轮已救回)。
 
 ### 1A. 拿不到 — WAF 阻挡
 | lib | 现象 | 状态 |
 |---|---|---|
-| `arlington` (robbinslibrary.org) | WAF「Access Denied」,Playwright headless 也被指纹识别拦截 | **拿不到**。需非 headless 浏览器 / 住宅 IP / 人工录入 |
+| `arlington` (robbinslibrary.org) | seed `card_page` 已设 `/about/library-card/` 且标 `requires_render_js:true`;Playwright headless 渲染到页面但被指纹识别,正文无资格句通过 cue | **拿不到**。需非 headless 浏览器 / 住宅 IP / 人工录入 |
 
-`tewksbury` 曾同类(WAF),已用 Playwright (`scripts/scrape_rendered.py policies`) 拿下 → `ma_resident`。该 seed 已标 `requires_render_js:true`,主管线会自动用渲染抓取。
+### 1B. 拿不到 — get-a-card 页是 JS 渲染(渲染后正文仍只有导航壳/未水合资格块)
+这些馆已找到候选 URL,但 Playwright 渲染后正文里没有可分类的资格句(JS 客户端渲染只吐了导航壳,或资格块未及时水合):
+`stoneham, reading, lynnfield(已标 requires_render_js,渲染到页但正文无资格句), beverly, lynn, everett, boxford, chelmsford, acton(只渲染出证件清单,无"住 MA/在本镇工作"那句), weston(首页只 ~1k 字壳), belmont, natick(morseinstitute.org 直接 ERR_CONNECTION_CLOSED), braintree, milton`。
+**处理方向**:这些需要更强的渲染(non-headless / 等待具体资格 selector 出现 / 抓具体子页 JSON 端点),或人工 override。**严禁**为凑数放宽 `_has_eligibility_cue` 或分类器。
 
-### 1B. 拿不到 — get-a-card 页是 JS 渲染(静态抓只得导航文本)
-这些馆的办卡页用客户端渲染,`fetch()` 拿到的是导航壳,无资格正文:
-`bpl, stoneham, reading, woburn, lynnfield, acton, lynn, everett, billerica, topsfield, andover, newton, framingham, wayland, waltham, braintree, methuen, belmont` 等约 18 个。
-**处理方向**:给这些 seed 加 `requires_render_js:true`(同 tewksbury),重跑 `scripts/scrape_rendered.py policies` 扩展覆盖。当前 `scrape_rendered.py` 的 `WAF_CARD_PAGES` 只配了 tewksbury/arlington,需补名单 + 各馆真实 card URL。
+### 1C. 无预期结构 / 联盟入口 — 自家页无资格正文
+| lib | 现象 | 状态 |
+|---|---|---|
+| `sudbury` (goodnowlibrary.org) | 首页 cue 命中的是 "Sudbury residents only" 但那是 Kanopy 流媒体限制句(分类器正确判为 unknown,见 `test_card_streaming_residents_only_does_not_match`) | unknown(诚实) |
+| `lincoln` | `lincolnpubliclibrary.org` 实为 **别州的 "Lincoln Public Library District"**,非 Lincoln, MA — 故意不采信,避免张冠李戴 | unknown(诚实);MA Lincoln 的真实办卡页待人工确认 |
+| `cohasset`/`hingham` (OCLN/museumkey) | hingham 渲染正文有 "issued free of charge to residents of towns participating in OCLN" —— 是真实 network 资格句,但 cue gate + `_NETWORK` 分类器措辞不匹配;不为单馆放宽两处规则 | unknown(诚实);可后续扩 `_NETWORK` 措辞或人工 override |
 
-### 1C. 无预期结构 — 无自有办卡页
-部分馆办卡只走联盟统一入口(如 `minlib.net/ecard`、Minuteman/NOBLE/MVLC 网络站),自家网站没有资格正文页。
 **处理方向**:从联盟站抓一次通用资格文本,或人工写 `data/overrides/libraries/<id>/card_eligibility.json`。
 
 > **注**:`pass_pickup_default` 96.6% unknown 是**诚实的**数字 —— 旧分类器把「work」「博物馆周日免费」等误判,新分类器(Phase H)清掉了假阳性。真实的 pass-pickup 政策极少写在公开页面上。
@@ -117,7 +125,7 @@ wakefield__salem-witch-museum                        weston__boston-harbor-islan
 | 指标 | 数值 |
 |---|---|
 | libraries | 59(catalog 59/59, policy 57/59) |
-| card_eligibility known | 16/59(其余见 §1) |
+| card_eligibility known | 40/59(unknown 32.2%;其余 19 见 §1) |
 | attractions | 48 |
 | attractions w/ prices | 33/48(其余见 §3) |
 | attractions w/ hours | 36/48(其余见 §4) |
@@ -152,4 +160,4 @@ python scripts/build_all.py
 # 3) 把变化更新进本文件,并改「最后更新」日期
 ```
 
-> 复核优先级建议:**§1B(给 JS 办卡页加 requires_render_js)** 收益最大(能把 ~18 个馆的 card_eligibility 从 unknown 救回);其次 **§3A/§4A(景点子页/ticketing 端点)**。§C 类无需处理。
+> 复核优先级建议:**§1B(给 JS 办卡页加 requires_render_js)** 本轮已把 24 个馆从 unknown 救回(72.9%→32.2%);剩 19 个多数是渲染后正文仍是壳或措辞不匹配,收益递减。其次 **§3A/§4A(景点子页/ticketing 端点)**。§C 类无需处理。
