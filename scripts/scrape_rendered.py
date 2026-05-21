@@ -63,6 +63,10 @@ def _eligibility_source_phrase(text: str) -> str | None:
         r"|residents?\s+of\s+(?:the\s+)?commonwealth"
         r"|resident\s+of\s+(?:the\s+)?commonwealth\s+of\s+massachusetts"
         r"|eligible\s+for\s+a\s+library\s+card\s+if"
+        r"|lives?\s+(?:anywhere\s+)?in\s+massachusetts"
+        r"|(?:have|with)\s+a\s+massachusetts\s+address"
+        r"|[A-Z][a-zA-Z]+\s+residents?\s+(?:is|are)\s+eligible"
+        r"|anyone\s+can\s+get\s+one"
         r"|residents?\s+only|live[,\s].{0,40}work|attend\s+school)",
         text,
         re.I,
@@ -144,21 +148,45 @@ def _candidate_urls(seed: dict) -> list[str]:
 _RENDER_RETRIES = 4
 
 
-def _has_eligibility_cue(html: str) -> bool:
-    """True only if the rendered page contains an actual card-eligibility
-    statement we can classify — not just the words 'library card' in a nav."""
+def _is_bad_page(html: str) -> bool:
+    """True if the rendered HTML is a 404 / WAF-block / bot-challenge shell
+    rather than a real content page."""
     low = html.lower()
     bad = ("page not found", "404 not found", "access denied", "just a moment",
            "checking your browser", "attention required",
-           "your access to this page has been blocked")
-    if any(b in low for b in bad):
+           "your access to this page has been blocked", "custom404")
+    return any(b in low for b in bad)
+
+
+def _has_eligibility_cue(html: str) -> bool:
+    """True only if the rendered page contains an actual card-eligibility
+    statement we can classify — not just the words 'library card' in a nav.
+
+    A page passes when (a) it is not a 404/WAF shell AND (b) the deterministic
+    classifier finds a genuine eligibility statement in the flattened body text.
+    Anchoring the gate on the classifier (rather than a hand-kept keyword list)
+    keeps the gate honest and in lock-step with the only thing that ever sets a
+    non-unknown value — if the classifier won't classify it, we don't accept it.
+    A few coarse keyword cues are still accepted as a fast path for the common
+    idioms so the gate doesn't depend on classifier import ordering.
+    """
+    if _is_bad_page(html):
         return False
+    low = html.lower()
     cues = (
         "resident of massachusetts", "massachusetts resident",
         "residents only", "must present", "eligible to apply",
         "live, work", "live or work", "attend school",
+        "live in massachusetts", "lives in massachusetts",
+        "live anywhere in massachusetts", "massachusetts address",
+        "resident is eligible", "anyone can get one",
+        "regardless of where you live in massachusetts",
     )
-    return any(c in low for c in cues)
+    if any(c in low for c in cues):
+        return True
+    # Fall back to the real classifier on the flattened body text.
+    text = html_to_text(html)
+    return classify_card_eligibility(text).value != "unknown"
 
 
 def recover_policies() -> list[dict]:

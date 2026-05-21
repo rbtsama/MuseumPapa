@@ -21,7 +21,20 @@ _MA_RESIDENT = re.compile(
     # NOBLE/Minuteman eCard idiom: "if you live in a Massachusetts town/city"
     r"|\blive\s+in\s+(?:a\s+)?(?:massachusetts|mass\.?)\s+(?:town|city|community)\b"
     # "residents of any Massachusetts community/town/city"
-    r"|\bresidents?\s+of\s+any\s+(?:massachusetts|mass\.?)\s+(?:community|town|city)\b",
+    r"|\bresidents?\s+of\s+any\s+(?:massachusetts|mass\.?)\s+(?:community|town|city)\b"
+    # "available regardless of where you live in Massachusetts" /
+    # "anyone who lives in Massachusetts" / "live anywhere in Massachusetts" —
+    # a direct live-in-MA eligibility statement (predicate reside/live, object
+    # Massachusetts; an optional adverb like "anywhere" may sit between). The
+    # negative lookbehind drops negated FAQ headings like "I don't live in
+    # Massachusetts / I'm just visiting" (the opposite of an eligibility claim).
+    r"|(?<!not )(?<!n't )(?<!don't )(?<!do not )(?<!doesn't )(?<!don’t )"
+    r"\b(?:lives?|reside|residing|living)\s+(?:anywhere\s+)?in\s+"
+    r"(?:the\s+state\s+of\s+)?(?:massachusetts|mass\.?)\b"
+    # "If you have a Massachusetts address" (Weston) / "ID with your current
+    # Massachusetts address" (Concord) — having a MA address is the eligibility.
+    r"|\b(?:have|with|provide)\s+(?:a\s+|your\s+|an\s+)?(?:current\s+)?"
+    r"(?:massachusetts|mass\.?)\s+address\b",
     re.I,
 )
 
@@ -30,7 +43,12 @@ _MA_RESIDENT = re.compile(
 _OPEN_ANYONE = re.compile(
     r"\banyone\s+(?:is\s+eligible|can\s+(?:get|apply|register)|may\s+(?:apply|register|get))"
     r"[^.]{0,60}(?:card|library)"
-    r"|\b(?:any|all)\s+residents?\s+(?:may|can)\s+(?:register|apply|use\s+(?:any|the))",
+    r"|\b(?:any|all)\s+residents?\s+(?:may|can)\s+(?:register|apply|use\s+(?:any|the))"
+    # "A library card is totally free, and anyone can get one!" (Everett) — the
+    # "anyone can get one" idiom with an explicit "library card" antecedent in the
+    # same sentence. The "library card" anchor keeps a bare "anyone can get one"
+    # elsewhere (event prose) from matching.
+    r"|\blibrary\s+card\b[^.!?]{0,80}\banyone\s+can\s+get\s+one\b",
     re.I,
 )
 
@@ -64,6 +82,12 @@ _TOWN_RESIDENT = re.compile(
     r"(?:[A-Z][a-zA-Z]+\s+){1,2}residents?\b"
     r"|\bresidents?\s+of\s+[A-Z][a-zA-Z]+\s+(?:proper\b|may\s+(?:register|apply|borrow)\b)"
     r"|\bmust\s+(?:be\s+a\s+resident\s+of|reside\s+in|live\s+in)\s+[A-Z][a-zA-Z]+"
+    # "Any <Town> Resident is eligible to obtain a ... Library ... Card" (Boxford)
+    # — a town-scoped eligibility statement that names the town and carries a card
+    # cue within the same sentence (so a stray "X residents are eligible for the
+    # raffle" cannot match).
+    r"|\b(?:any\s+)?[A-Z][a-zA-Z]+\s+residents?\s+(?:is|are)\s+eligible\b"
+    r"[^.!?]{0,80}\b(?:card|library)\b"
     # "proof of (current) local address" — requires being a local resident, with
     # no broader MA/anyone statement (those match _MA_RESIDENT first via order).
     r"|\bproof\s+of\s+(?:current\s+)?local\s+(?:address|residen)",

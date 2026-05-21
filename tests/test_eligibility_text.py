@@ -107,6 +107,69 @@ def test_card_id_and_address_no_scope_stays_unknown():
     assert classify_card_eligibility(text) == CardEligibility.UNKNOWN
 
 
+# --- patterns from JS-rendered card pages (Phase O round 2) --------------------
+
+def test_card_regardless_of_where_you_live_in_ma():
+    # Lynnfield (lynnfieldlibrary.org/about/get-a-library-card/) — full-access card.
+    text = ("Library cards are free and available regardless of where you live in "
+            "Massachusetts. In addition to the above information, proof of current "
+            "mailing address (license, checkbook, utility bill, etc.) is needed.")
+    assert classify_card_eligibility(text) == CardEligibility.MA_RESIDENT
+
+
+def test_card_anyone_who_lives_in_ma_or_works_in_town():
+    # Acton Memorial Library (actonmemoriallibrary.org/services/library-cards/).
+    text = ("Library cards are available to anyone 4 years and older who lives in "
+            "Massachusetts or works in Acton. Anyone who would like a full service "
+            "library card must apply in person at the Circulation Desk.")
+    assert classify_card_eligibility(text) == CardEligibility.MA_RESIDENT
+
+
+def test_card_any_town_resident_is_eligible():
+    # Boxford Town Library (boxfordma.gov/210/Get-a-Library-Card).
+    text = ("Any Boxford Resident is eligible to obtain a Boxford Town Library Account "
+            "and Card. To obtain an account please follow the steps outlined below.")
+    assert classify_card_eligibility(text) == CardEligibility.TOWN_RESIDENT
+
+
+def test_card_library_card_anyone_can_get_one():
+    # Everett Public Libraries (everettpubliclibraries.org/get-a-library-card/).
+    text = ("A library card is totally free, and anyone can get one! All you need is "
+            "a form of photo I.D. and proof of address.")
+    assert classify_card_eligibility(text) == CardEligibility.MA_RESIDENT
+
+
+def test_card_live_anywhere_in_massachusetts():
+    # Chelmsford Public Library (chelmsfordlibrary.org/about/get-a-library-card).
+    text = ("If you live anywhere in Massachusetts (including Chelmsford) and do not "
+            "already have a card from an MVLC Library, you may apply for a library "
+            "card online.")
+    assert classify_card_eligibility(text) == CardEligibility.MA_RESIDENT
+
+
+def test_card_have_a_massachusetts_address():
+    # Weston Public Library (official "least exclusive club in Weston" statement).
+    text = ("If you have a Massachusetts address, you make the cut. If you don't have "
+            "a library card, just visit our Circulation Desk.")
+    assert classify_card_eligibility(text) == CardEligibility.MA_RESIDENT
+
+
+def test_card_current_massachusetts_address_required():
+    # Concord Free Public Library — must provide ID with a current MA address.
+    text = ("To open a library account, please visit the Circulation Desk and provide "
+            "a valid ID with your current Massachusetts address.")
+    assert classify_card_eligibility(text) == CardEligibility.MA_RESIDENT
+
+
+def test_card_negated_live_in_ma_does_not_match_via_that_clause():
+    # Concord FAQ heading "I don't live in Massachusetts / I'm just visiting" must
+    # NOT, on its own, be read as a live-in-MA eligibility statement (it is the
+    # opposite). With no other MA cue this stays UNKNOWN.
+    text = ("Out-of-State Cards. I don't live in Massachusetts / I'm just visiting. "
+            "Can I still get a card? Out-of-state residents pay an annual fee.")
+    assert classify_card_eligibility(text) == CardEligibility.UNKNOWN
+
+
 # --- honesty guards: real noise that must NOT classify -------------------------
 
 def test_card_service_announcement_does_not_match_town():
