@@ -2,15 +2,15 @@
   "status": "ok",
   "extracted": {
     "hours": {
-      "monday": "unknown",
-      "tuesday": "unknown",
-      "wednesday": "unknown",
-      "thursday": "unknown",
-      "friday": "unknown",
-      "saturday": "unknown",
-      "sunday": "unknown"
+      "monday": "09:30-17:00",
+      "tuesday": "closed",
+      "wednesday": "closed",
+      "thursday": "10:00-18:00",
+      "friday": "10:00-18:00",
+      "saturday": "10:00-18:00",
+      "sunday": "10:00-18:00"
     },
     "seasonal": null,
-    "source_phrase": null
+    "source_phrase": "Wednesday 10 AM - 6 PM"
   }
 }
