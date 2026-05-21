@@ -87,14 +87,24 @@ def probe_card(reservation_url: str, card_number: str, timeout: int = 30) -> dic
     body = resp.read().decode("utf-8", "replace")
     status = getattr(resp, "status", 200)
 
-    if _BOOKED.search(body):
-        verdict = "booked_unexpectedly"
+    # Order matters. The presence of the step-2 reserver-info form
+    # (reservationfirstname/email) PROVES we only validated the card and are
+    # still inside the wizard — no booking was finalized — even if the page
+    # also shows static "Pass Usage Instructions" prose like "Your pass
+    # reservation is complete, use code IP-XXXX" (some libraries, e.g. Stoneham,
+    # render their fixed digital-coupon code there; verified identical across
+    # repeat probes, so it is template text, not a per-reservation receipt).
+    advanced = bool(_ADVANCED.search(body))
+    if advanced:
+        verdict = "accepted"
     elif _REJECT_RESIDENT.search(body):
         verdict = "rejected_resident"
     elif _FORMAT_ERROR.search(body):
         verdict = "format_error"
-    elif _ADVANCED.search(body):
-        verdict = "accepted"
+    elif _BOOKED.search(body):
+        # Booked markers WITHOUT the reserver form still present -> the wizard
+        # advanced past data entry on its own, which we never intend. Flag it.
+        verdict = "booked_unexpectedly"
     else:
         verdict = "unknown"
     return {"verdict": verdict, "http_status": status}

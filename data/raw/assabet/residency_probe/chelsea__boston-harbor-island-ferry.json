@@ -1,0 +1,11 @@
+{
+  "library_id": "chelsea",
+  "attraction_slug": "boston-harbor-island-ferry",
+  "prober_card": "wakefield",
+  "probed_date": "2026-may/22",
+  "verdict": "rejected_resident",
+  "restricted": "yes",
+  "scope": "town",
+  "evidence": "non-resident wakefield card (same NOBLE network) blocked at card-validation",
+  "source": "booking_probe"
+}

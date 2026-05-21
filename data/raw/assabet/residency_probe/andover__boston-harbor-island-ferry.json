@@ -1,0 +1,11 @@
+{
+  "library_id": "andover",
+  "attraction_slug": "boston-harbor-island-ferry",
+  "prober_card": "wilmington",
+  "probed_date": "2026-may/22",
+  "verdict": "accepted",
+  "restricted": "no",
+  "scope": null,
+  "evidence": "non-resident wilmington card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)",
+  "source": "booking_probe"
+}

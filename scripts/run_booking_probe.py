@@ -37,11 +37,27 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from malibbene.sources_v2.assabet.booking_probe import probe_card, _date_path
 
-# target library -> (env var of a same-network NON-resident card, that card's label)
-CROSS_PROBE = {
-    "reading":  ("WAKEFIELD_BARCODE", "wakefield"),
-    "wakefield": ("READING_BARCODE", "reading"),
+# A card is a valid non-resident prober for a target library when it is on the
+# SAME network but issued by a DIFFERENT town (the operator lives in Wakefield,
+# so every owned card carries a Wakefield ZIP -> genuine non-resident at every
+# town except Wakefield). We hold one card per network:
+#   NOBLE     -> wakefield (and reading, used to probe wakefield itself)
+#   MVLC      -> wilmington
+#   Minuteman -> somerville
+# So we can cleanly probe every same-network town EXCEPT the issuing town of the
+# only card we hold on that network (wilmington, somerville) — those stay
+# untested. Within NOBLE we hold two cards, so wakefield is covered by reading.
+NETWORK_CARD = {
+    "NOBLE": ("WAKEFIELD_BARCODE", "wakefield"),
+    "MVLC": ("WILMINGTON_BARCODE", "wilmington"),
+    "Minuteman": ("SOMERVILLE_BARCODE", "somerville"),
 }
+# Override prober for libraries that ARE the issuing town of the network card.
+PROBER_OVERRIDE = {
+    "wakefield": ("READING_BARCODE", "reading"),  # NOBLE, different town
+    # wilmington (MVLC) and somerville (Minuteman): no second same-network card -> untested
+}
+UNTESTABLE = {"wilmington", "somerville"}
 _ENV = None
 _MONTHS = ["january", "february", "march", "april", "may", "june", "july",
            "august", "september", "october", "november", "december"]
@@ -75,35 +91,62 @@ def _available_dates(lib: str, slug: str, limit: int = 4):
                 return
 
 
+def _prober_for(lib: str, network: str):
+    """Return (env_var, card_label) of a same-network non-resident card, or None."""
+    if lib in UNTESTABLE:
+        return None
+    if lib in PROBER_OVERRIDE:
+        return PROBER_OVERRIDE[lib]
+    return NETWORK_CARD.get(network)
+
+
 def main():
     cards = _load_env()
     seeds = {s["id"]: s for s in json.loads((ROOT / "config/library_seeds.json").read_text(encoding="utf-8"))["libraries"]}
     out_dir = ROOT / "data/raw/assabet/residency_probe"
     out_dir.mkdir(parents=True, exist_ok=True)
     summary = {"probed": 0, "resident_only": 0, "open": 0,
-               "no_conclusive_date": 0, "errors": 0, "booked_unexpectedly": 0}
+               "no_conclusive_date": 0, "untested_libs": 0, "errors": 0, "booked_unexpectedly": 0}
 
-    targets = sys.argv[1:] or list(CROSS_PROBE)
+    # Default: every Assabet library on a network we hold a card for.
+    if sys.argv[1:]:
+        targets = sys.argv[1:]
+    else:
+        targets = [s["id"] for s in seeds.values()
+                   if s.get("platform") == "assabet" and s.get("network") in NETWORK_CARD]
     for lib in targets:
-        if lib not in CROSS_PROBE:
-            print(f"SKIP {lib}: no same-network non-resident card available — residency untested")
+        network = seeds[lib].get("network")
+        prober = _prober_for(lib, network)
+        if not prober:
+            summary["untested_libs"] += 1
+            print(f"SKIP {lib} ({network}): no same-network non-resident card — residency untested")
             continue
-        env_var, card_label = CROSS_PROBE[lib]
+        env_var, card_label = prober
         card = cards[env_var]
         base = f"https://{seeds[lib]['domain']}"
-        passes = json.loads((ROOT / f"data/raw/assabet/catalog/{lib}.json").read_text(encoding="utf-8")).get("passes", [])
+        cat_f = ROOT / f"data/raw/assabet/catalog/{lib}.json"
+        if not cat_f.exists():
+            print(f"SKIP {lib}: no catalog")
+            continue
+        passes = json.loads(cat_f.read_text(encoding="utf-8")).get("passes", [])
+        print(f"== {lib} ({network}) via {card_label} card — {len(passes)} passes")
         for p in passes:
             slug = p["attraction_slug"]
             verdict = None
             probed_date = None
             for ym, day in _available_dates(lib, slug):
                 url = _date_path(base, slug, ym, day)
-                try:
-                    res = probe_card(url, card)
-                except Exception as e:
-                    summary["errors"] += 1
-                    print(f"  ! {lib}/{slug}: {type(e).__name__}: {str(e)[:50]}")
-                    time.sleep(1.0)
+                res = None
+                for attempt in range(3):  # connection resets are common; retry
+                    try:
+                        res = probe_card(url, card)
+                        break
+                    except Exception as e:
+                        if attempt == 2:
+                            summary["errors"] += 1
+                            print(f"  ! {lib}/{slug}: {type(e).__name__}: {str(e)[:50]}")
+                        time.sleep(2.0 * (attempt + 1))
+                if res is None:
                     continue
                 v = res["verdict"]
                 if v == "booked_unexpectedly":

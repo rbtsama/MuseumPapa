@@ -1,0 +1,11 @@
+{
+  "library_id": "carlisle",
+  "attraction_slug": "boston-childrens-museum",
+  "prober_card": "somerville",
+  "probed_date": "2026-may/22",
+  "verdict": "rejected_resident",
+  "restricted": "yes",
+  "scope": "town",
+  "evidence": "non-resident somerville card (same NOBLE network) blocked at card-validation",
+  "source": "booking_probe"
+}

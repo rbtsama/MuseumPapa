@@ -1,0 +1,11 @@
+{
+  "library_id": "needham",
+  "attraction_slug": "zoo-new-england",
+  "prober_card": "somerville",
+  "probed_date": "2026-may/26",
+  "verdict": "rejected_resident",
+  "restricted": "yes",
+  "scope": "town",
+  "evidence": "non-resident somerville card (same NOBLE network) blocked at card-validation",
+  "source": "booking_probe"
+}
