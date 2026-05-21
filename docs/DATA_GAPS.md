@@ -135,7 +135,28 @@ wakefield__salem-witch-museum                        weston__boston-harbor-islan
 
 ---
 
-## 5. 平台级限制(结构性,非本期可解)
+## 5. Pass 居住限制 residency_restriction(真正的预订筛选)— 987/1033 仍 unknown
+
+这是 pass 能不能订的**真正筛选维度**(用户持哪张卡 + home ZIP)。绝大多数不写在 catalog 文本里,系统在预订时按办卡 ZIP 判定(见运营方截图)。`restricted` 三态:yes/no/unknown,默认 **unknown**(文本沉默 ≠ 开放)。
+
+**已确定(46 个):** 4 个来自文本明写 + 42 个来自 booking probe(Phase P3)。
+- **booking probe 实证规律**(用「同网络跨镇卡」试订到 card-validation 步,绝不完成预订):
+  - **Wakefield 全部 17 个 pass = resident-only**:Reading(NOBLE 同网络非本镇)卡在每个 pass 都被挡(与运营方截图一致 —— 非本地居民订 Wakefield 的 Boston Children's Museum 被拒)。
+  - **Reading 全部 25 个 pass = open**:Wakefield(NOBLE 非本镇)卡全部被接受,非本镇 NOBLE 居民可订。
+  - 结论:**同属 NOBLE,但 Wakefield 限本镇、Reading 开放** —— 两馆策略相反,实证可复现。
+
+### 5A. 拿不到 — 缺「同网络非本镇卡」无法 probe(剩余 ~40 馆 + wilmington/somerville/bpl)
+booking probe 需要一张**目标馆同网络、但持卡人非本镇**的卡。运营方手上 5 张卡只有 Wakefield+Reading 同属 NOBLE 且互为异镇,所以只能 probe 这两馆。
+- `wilmington`(MVLC)、`somerville`(Minuteman)、`bpl`(libcal):运营方在各自网络只有「本镇那一张卡」,没有同网络异镇卡 → **residency 测不了**,保持 unknown(诚实)。
+- 其余 ~50 个 assabet 馆:没有它们网络的卡 → 同理 unknown。
+**处理方向**:① 再办几张关键馆同网络异镇卡;② 或运营方提供已知的 resident-only 馆清单写 override;③ libcal/museumkey 的 probe 流程待实现(当前 probe 仅 Assabet)。
+
+### 5C. 注意:unknown ≠ 开放
+987 个 unknown **不代表**这些 pass 对非本地居民开放 —— 只代表我们还没实证。App 端筛选遇到 unknown 应**保守提示**「可能限本地居民,以预订页为准」,不能默认可订。
+
+---
+
+## 6. 平台级限制(结构性,非本期可解)
 
 | 项 | 限制 | 类型 |
 |---|---|---|
