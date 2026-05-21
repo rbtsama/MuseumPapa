@@ -35,7 +35,8 @@
       "card_page": "https://www.readingpl.org/get-a-library-card/",
       "non_resident_policy_initial": "open_ma_resident",
       "supports_availability": true,
-      "pass_page": "https://readingpl.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://readingpl.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "woburn",
@@ -195,7 +196,7 @@
       "network": "NOBLE",
       "platform": "assabet",
       "domain": "beverlypubliclibrary.assabetinteractive.com",
-      "card_page": "https://beverlypubliclibrary.org/",
+      "card_page": "https://beverlypubliclibrary.org/services/borrowing/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "pass_page": "https://beverlypubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
@@ -245,10 +246,11 @@
       "network": "NOBLE",
       "platform": "assabet",
       "domain": "everettpubliclibraries.assabetinteractive.com",
-      "card_page": "https://www.everettpubliclibraries.org/",
+      "card_page": "https://www.everettpubliclibraries.org/get-a-library-card/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://everettpubliclibraries.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://everettpubliclibraries.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "chelsea",
@@ -296,10 +298,11 @@
       "network": "MVLC",
       "platform": "assabet",
       "domain": "boxfordlibrary.assabetinteractive.com",
-      "card_page": "https://boxfordlibrary.org/",
+      "card_page": "https://www.boxfordma.gov/210/Get-a-Library-Card",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://boxfordlibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://boxfordlibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "tewksbury",
@@ -321,10 +324,11 @@
       "network": "MVLC",
       "platform": "assabet",
       "domain": "chelmsfordlibrary.assabetinteractive.com",
-      "card_page": "https://chelmsfordlibrary.org/",
+      "card_page": "https://www.chelmsfordlibrary.org/about/get-a-library-card",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://chelmsfordlibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://chelmsfordlibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "haverhill",
@@ -450,7 +454,8 @@
       "card_page": "https://www.actonmemoriallibrary.org/services/library-cards/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://actonmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://actonmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "framingham",
@@ -510,10 +515,11 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "westonlibrary.assabetinteractive.com",
-      "card_page": "https://www.westonlibrary.org/",
+      "card_page": "https://www.westonma.gov/CivicSend/ViewMessage/message/165250",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://westonlibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "sudbury",

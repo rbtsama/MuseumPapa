@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-21T15:48:26.183329+00:00",
+    "built_at": "2026-05-21T16:38:33.268725+00:00",
     "n_libraries": 59
   },
   "libraries": [
@@ -41,9 +41,9 @@
       "card_page": "https://www.readingpl.org/get-a-library-card/",
       "address": null,
       "geo": null,
-      "card_eligibility": "unknown",
+      "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
-      "eligibility_source_phrase": "Skip Search widget in header widget Search Catalog Website Submit\n$(function(){ $('.burger-button').on('keyup', function(event) { event.preventDefault(); var isSpace = event.type === 'keyup' && (event.which === 32 || event.keyCode === 32 || event.key === ' '); var isEnter = event.type === 'keyup' && (event.which === 13 || event.keyCode === 13 || event.key === 'Enter'); if (isSpace || isEnter) { var nav = $('.navbar-collapse'); nav.toggleClass('in'); var isExpanded = nav.hasClass('in'); $(this).a",
+      "eligibility_source_phrase": "Get a Library Card - Reading Public Library Skip to main content Skip Connect app banner widget The library will be closed for Memorial Day Weekend, Saturday, May 23 through Monday, May 25. 1:00 PM - 9:00 PM ﻿Account Login Get a Library Card Skip Search widget in header widget Search Catalog Website Submit Menu Hompage Browse & Borrow Collections What's New Downloads & Streaming Library of Things Museum Passes Recommendations What to Read Book Detectives - Adult/Teen Suggest a Purchase Borrowing",
       "pickup_source_phrase": "To limit museum types being displayed, check the corresponding categories:\nTo select a museum, click “Details/Reserve”, then select which Pass to reserve.\n{\"@context\": \"http://schema.org\",\"@type\": \"CivicStructure\",\"address\": \"87 Mount Vernon Street, Boston, MA 02108\",\"logo\": \"https://s3.amazonaws.com/ai-assets/museum-logos/ma-boston-by-foot_50_md.jpg\",\"telephone\": \"617-367-2345\",\"name\": \"Boston by Foot \",\"url\": \"\",\"description\": \"Boston By Foot has presented walking tours of Boston since 1976. D"
     },
     {
@@ -69,7 +69,7 @@
       "card_page": "https://lynnfieldlibrary.org/about/get-a-library-card/",
       "address": null,
       "geo": null,
-      "card_eligibility": "unknown",
+      "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "eligibility_source_phrase": "Get a Library Card - Lynnfield Public Library Skip to content Open now 9:00 am - 9:00 pm View Hours Close Search Select Language Arabic Chinese (Simplified) Dutch English French German Italian Portuguese Russian Spanish What Can We Help You Find? Go Catalog Website The official website of the Lynnfield Public Library My Account About The Library Hours & Directions About Us Get a Library Card Latest News Policies Land Acknowledgment Library Board of Trustees Strategic Plan 2024-2028 Accessibility",
       "pickup_source_phrase": "To limit museum types being displayed, check the corresponding categories:\nTo select a museum, click “Details/Reserve”, then select which Pass to reserve.\n{\"@context\": \"http://schema.org\",\"@type\": \"CivicStructure\",\"address\": \"308 Congress Street, Boston, MA 02210\",\"logo\": \"https://s3.amazonaws.com/ai-assets/museum-logos/ma-boston-childrens-museum_3_md.jpg\",\"telephone\": \"617-426-6500\",\"name\": \"Boston Children&amp;apos;s Museum\",\"url\": \"\",\"description\": \"Founded in 1913 by the Science Teachers&amp"
@@ -211,7 +211,7 @@
       "geo": null,
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
-      "eligibility_source_phrase": "Eligibility | Frequently Asked Questions | Boston Public Library Skip to main navigation Skip to main navigation Skip to search Skip to search Skip to content Powered by Translate Hours & Location, opens an overlay Help Help, opens an overlay Hours & Locations Hours & Locations Find by address or ZIP code Search Use current location See all locations Help Help Search FAQs Search Browse all FAQs Admin Admin settings Log In / My BPL User Log In / My BPL. Log In / Register My Library Dashboard My B",
+      "eligibility_source_phrase": "Eligibility | Frequently Asked Questions | Boston Public Library Skip to main navigation Skip to main navigation Skip to search Skip to search Skip to content Select Language Arabic Chinese (Simplified) Chinese (Traditional) French Greek Haitian Creole Hindi Italian Japanese Korean Portuguese (Brazil) Russian Somali Spanish Vietnamese Powered by Translate Hours & Location, opens an overlay Help Help, opens an overlay Hours & Locations Hours & Locations Find by address or ZIP code Search Use curr",
       "pickup_source_phrase": "springSpace.dateFormat = \"dddd, MMMM D, YYYY\"; springSpace.dateShortFormat = \"dddd, MMMM D, YYYY\"; springSpace.timeFormat = \"h:mma\"; springSpace.timezone = 'America/New_York'; springSpace.currency = \"USD\"; springSpace.language = 'en'; // en springSpace.locale = 'en-US'; // en-US springSpace.phpTimeFormat = 'g:ia'; springSpace.bootstrapAsset = 'https://static-assets-us.libcal.com/bootstrap_16/bootstrap3_16.min.css'; springSpace.publicCssAsset = 'https://static-assets-us.libcal.com/css_976/LibCal_"
     },
     {
@@ -220,7 +220,7 @@
       "town": "Beverly",
       "network": "NOBLE",
       "platform": "assabet",
-      "card_page": "https://beverlypubliclibrary.org/",
+      "card_page": "https://beverlypubliclibrary.org/services/borrowing/",
       "address": null,
       "geo": null,
       "card_eligibility": "unknown",
@@ -276,12 +276,12 @@
       "town": "Everett",
       "network": "NOBLE",
       "platform": "assabet",
-      "card_page": "https://www.everettpubliclibraries.org/",
+      "card_page": "https://www.everettpubliclibraries.org/get-a-library-card/",
       "address": null,
       "geo": null,
-      "card_eligibility": "unknown",
+      "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
-      "eligibility_source_phrase": "function post_search1() { var text = document.getElementById('search_term').value; //var text_encoded = encodeURI(text); var text_encoded = encodeURIComponent(text.trim()); if (document.getElementById('search_catalog').checked) { var redirect_url = 'https://everett.noblenet.org/Union/Search?view=list&lookfor=[search_term]&searchIndex=Keyword&searchSource=local'; redirect_url = redirect_url.replace('[search_term]', text_encoded); console.log(redirect_url); window.open(redirect_url,'_blank') } els",
+      "eligibility_source_phrase": "Books & More | Get a Library Card | Everett Public Libraries My Account Newsletter Search by keyword Search scope Website Search scope Catalog Parlin: Open | Shute: Open English Haitian Creole Portuguese Spanish Arabic Chinese (Simplified) Dutch French German Italian Russian en Books & More Catalog Online Resources Online Learning Download & Streaming Services Museum Discount Options Community Resources Services Get a Library Card Computers, Printing & More Meeting Rooms & Study Rooms Reference ",
       "pickup_source_phrase": "To limit museum types being displayed, check the corresponding categories:\nTo limit the museum pass availability by location available, check the corresponding branches or places:\nParlin Memorial Library\nShute Memorial Library\nTo select a museum, click “Details/Reserve”, then select which Pass to reserve.\n{\"@context\": \"http://schema.org\",\"@type\": \"CivicStructure\",\"address\": \"308 Congress Street, Boston, MA 02210\",\"logo\": \"https://s3.amazonaws.com/ai-assets/museum-logos/ma-boston-childrens-museum"
     },
     {
@@ -309,7 +309,7 @@
       "geo": null,
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
-      "eligibility_source_phrase": "Library Cards – Billerica Public Library Please ensure Javascript is enabled for purposes of website accessibility Skip to content Menu Close Official Website of the Billerica Public Library Hours Mon-Thurs: 9 A.M. – 9 P.M Fri-Sat: 9 A.M. – 5 P.M. Sunday: 1 P.M. – 5 P.M. 15 Concord Road, Billerica MA 01821 Catalog Libby My Account Search for: Menu Home About About About the Library Accessibility Board of Trustees FAQs Policies Strategic Plan, FY23-FY27 History MVLC Network Get Involved Library F",
+      "eligibility_source_phrase": "Library Cards – Billerica Public Library Skip to main content Enable accessibility for low vision Open the accessibility menu Please ensure Javascript is enabled for purposes of website accessibility Skip to content Menu Close Official Website of the Billerica Public Library Hours Mon-Thurs: 9 A.M. – 9 P.M Fri-Sat: 9 A.M. – 5 P.M. Sunday: 1 P.M. – 5 P.M. 15 Concord Road, Billerica MA 01821 Catalog Libby My Account Search for: Menu Home About About About the Library Accessibility Board of Trustee",
       "pickup_source_phrase": "To limit museum types being displayed, check the corresponding categories:\nTo select a museum, click “Details/Reserve”, then select which Pass to reserve.\n{\"@context\": \"http://schema.org\",\"@type\": \"CivicStructure\",\"address\": \"568 Main Street, Hudson, MA 01749\",\"logo\": \"https://s3.amazonaws.com/ai-assets/museum-logos/ma-american-heritage-museum_150_md.jpg\",\"telephone\": \"978-562-9182\",\"name\": \"American Heritage Museum\",\"url\": \"\",\"description\": \"The American Heritage Museum, located in Hudson, MA, "
     },
     {
@@ -332,12 +332,12 @@
       "town": "Boxford",
       "network": "MVLC",
       "platform": "assabet",
-      "card_page": "https://boxfordlibrary.org/",
+      "card_page": "https://www.boxfordma.gov/210/Get-a-Library-Card",
       "address": null,
       "geo": null,
-      "card_eligibility": "unknown",
+      "card_eligibility": "town_resident",
       "pass_pickup_default": "unknown",
-      "eligibility_source_phrase": "Create a Website Account - Manage notification subscriptions, save form progress and more. &nbsp;&nbsp;\nRead, Learn &amp; Explore\nResearch &amp; Resources\nSearch the Catalog/ Sign-in to your Online Account\n$('#breadCrumbs').hide();\nHoopla Digital is Now Available to Boxford Residents! Boxford Town Library card holders can now access the Hoopla Digital streaming service. Read on...\nLibby, the Library Reading App Would you like to read or listen to books from your phone or tablet. Get the Libby ap",
+      "eligibility_source_phrase": "Get a Library Card | Boxford, MA Loading Skip to Main Content Create a Website Account - Manage notification subscriptions, save form progress and more. Website Sign In Catalog Catalog Tab Name About the Library Kids & Teens Read, Learn & Explore Research & Resources Home Departments Library About the Library How Do I… Get a Library Card Get a Library Card Any Boxford Resident is eligible to obtain a Boxford Town Library Account and Card. To obtain an account please follow the steps outlined bel",
       "pickup_source_phrase": "To limit museum types being displayed, check the corresponding categories:\nTo select a museum, click “Details/Reserve”, then select which Pass to reserve.\n{\"@context\": \"http://schema.org\",\"@type\": \"CivicStructure\",\"address\": \"25 Evans Way, Boston, MA 02115\",\"logo\": \"https://s3.amazonaws.com/ai-assets/museum-logos/ma-gardner-museum_14_md.jpg\",\"telephone\": \"617-566-1401\",\"name\": \"Isabella Stewart Gardner Museum\",\"url\": \"\",\"description\": \"The Gardner Museum houses the collection of Isabella Stewart"
     },
     {
@@ -360,12 +360,12 @@
       "town": "Chelmsford",
       "network": "MVLC",
       "platform": "assabet",
-      "card_page": "https://chelmsfordlibrary.org/",
+      "card_page": "https://www.chelmsfordlibrary.org/about/get-a-library-card",
       "address": null,
       "geo": null,
-      "card_eligibility": "unknown",
+      "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
-      "eligibility_source_phrase": "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-1CNJ2WQNRT'); Skip to Content phone 978-256-5521\nclock 670 isOpen: yes --> Main: 9:30-8:30 / Open Now 670 isOpen: no --> &nbsp;MacKay Branch: 12:30-8:30 / Closed Now\nFull Hours chevron-right\nphone 978-256-5521 menu close navbar toggler search close search toggler\nhelp_outline My Account\nhelp_outline Ask a Librarian\nsearch search search btn\nmap-marker Hours &amp; Direct",
+      "eligibility_source_phrase": "Get a Library Card - Chelmsford Public Library Skip to Content phone 978-256-5521 Contact Us Directions clock 746 isOpen: yes --> Main: 9:30-8:30 / Open Now 746 isOpen: no --> MacKay Branch: Closed Today Full Hours chevron-right phone 978-256-5521 menu close navbar toggler search close search toggler help_outline My Account help_outline Ask a Librarian Catalog Website search search search btn Catalog Website search search search btn map-marker Hours & Directions About Get a Library Card Contact ",
       "pickup_source_phrase": "To limit museum types being displayed, check the corresponding categories:\nTo select a museum, click “Details/Reserve”, then select which Pass to reserve.\n{\"@context\": \"http://schema.org\",\"@type\": \"CivicStructure\",\"address\": \"308 Congress Street, Boston, MA 02210\",\"logo\": \"https://s3.amazonaws.com/ai-assets/museum-logos/ma-boston-childrens-museum_3_md.jpg\",\"telephone\": \"617-426-6500\",\"name\": \"Boston Children&amp;apos;s Museum\",\"url\": \"\",\"description\": \"Founded in 1913 by the Science Teachers&amp"
     },
     {
@@ -474,7 +474,7 @@
       "card_page": "https://newtonfreelibrary.net/about/our-library/library-card-borrowing/",
       "address": null,
       "geo": null,
-      "card_eligibility": "town_or_works",
+      "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "eligibility_source_phrase": "Library Cards & Borrowing – Newton Free Library The Library is closed on Sunday, May 24 and Monday, May 25 in observation of Memorial Day. CLOSE 9:00 am - 9:00 pm | Open now Catalog Account Translate Select Language Abkhaz Acehnese Acholi Afar Afrikaans Albanian Alur Amharic Arabic Armenian Assamese Avar Awadhi Aymara Azerbaijani Balinese Baluchi Bambara Baoulé Bashkir Basque Batak Karo Batak Simalungun Batak Toba Belarusian Bemba Bengali Betawi Bhojpuri Bikol Bosnian Breton Bulgarian Buryat Can",
       "pickup_source_phrase": "To limit museum types being displayed, check the corresponding categories:\nTo select a museum, click “Details/Reserve”, then select which Pass to reserve.\n{\"@context\": \"http://schema.org\",\"@type\": \"CivicStructure\",\"address\": \"308 Congress Street, Boston, MA 02210\",\"logo\": \"https://s3.amazonaws.com/ai-assets/museum-logos/ma-boston-childrens-museum_3_md.jpg\",\"telephone\": \"617-426-6500\",\"name\": \"Boston Children&amp;apos;s Museum\",\"url\": \"\",\"description\": \"Founded in 1913 by the Science Teachers&amp"
@@ -502,9 +502,9 @@
       "card_page": "https://www.actonmemoriallibrary.org/services/library-cards/",
       "address": null,
       "geo": null,
-      "card_eligibility": "unknown",
+      "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
-      "eligibility_source_phrase": "Acton Memorial Library\nWest Acton Citizens&#8217; Library\nAbout Us The Library Locations &#038; Hours\nMission and Strategic Plan\nActon Memorial Library Redesign\nHistory of Acton’s Libraries\nThe Community AML Foundation\nFriends of the Acton Libraries\nConnect with Us Ask a Librarian\nAt the Library Services Library Cards\nMeeting and Study Rooms\nComputers and Technology\nEnglish as a Second Language (ESL)\nForeign Language Resources\nLocal History Town Archives\nHistorical Images of Acton\nHigh School Ye",
+      "eligibility_source_phrase": "Library Cards - Acton Memorial Library Skip to content Acton Memorial Library will be CLOSED on Sunday, May 24, for carpet cleaning and Monday, May 25, for Memorial Day. The library will reopen at 9 a.m. on Tuesday, May 26. Select Language Arabic Chinese (Simplified) Dutch English French German Italian Portuguese Russian Spanish Acton Memorial Library Open now West Acton Citizens’ Library Open now Catalog Account How Do I.. About Us The Library Locations & Hours Mission and Strategic Plan Acton ",
       "pickup_source_phrase": "To limit museum types being displayed, check the corresponding categories:\nTo limit the museum pass availability by location available, check the corresponding branches or places:\nActon Memorial Library\nWest Acton Citizens' Library\nTo select a museum, click “Details/Reserve”, then select which Pass to reserve.\n{\"@context\": \"http://schema.org\",\"@type\": \"CivicStructure\",\"address\": \"308 Congress Street, Boston, MA 02210\",\"logo\": \"https://s3.amazonaws.com/ai-assets/museum-logos/ma-boston-childrens-m"
     },
     {
@@ -569,12 +569,12 @@
       "town": "Weston",
       "network": "Minuteman",
       "platform": "assabet",
-      "card_page": "https://www.westonlibrary.org/",
+      "card_page": "https://www.westonma.gov/CivicSend/ViewMessage/message/165250",
       "address": null,
       "geo": null,
-      "card_eligibility": "unknown",
+      "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
-      "eligibility_source_phrase": "$(document).ready(function () { try { $(\".widgetSearchButton.widgetSearchButton49e3af42-f028-48b5-9e82-381575a15b43\").click(function (e) { e.preventDefault(); if (false||$(\"#ysnSearchOnlyDept49e3af42-f028-48b5-9e82-381575a15b43\").is(':checked')) { doWidgetSearch($(this).siblings(\".widgetSearchBox\").val(), Number(0)); } else { doWidgetSearch($(this).siblings(\".widgetSearchBox\").val(), 0); } }); $(\"#searchField49e3af42-f028-48b5-9e82-381575a15b43\").keypress(function (e) { if (window.clipboardData)",
+      "eligibility_source_phrase": "Weston Public Library: welcome to the least exclusive club in Weston. Are you looking for a private club with an exclusive, carefully curated member list? How about an institution where only the cream of the crop gets past the bouncers? Better yet, an invitation-only association where you need to pay a small fortune and your firstborn child in membership dues? Yeah, so we're NOT that. Exclusive membership? Nah. If you have a Massachusetts address, you make the cut. If you don't have a library ca",
       "pickup_source_phrase": "To limit museum types being displayed, check the corresponding categories:\nTo select a museum, click “Details/Reserve”, then select which Pass to reserve.\n{\"@context\": \"http://schema.org\",\"@type\": \"CivicStructure\",\"address\": \"308 Congress Street, Boston, MA 02210\",\"logo\": \"https://s3.amazonaws.com/ai-assets/museum-logos/ma-boston-childrens-museum_3_md.jpg\",\"telephone\": \"617-426-6500\",\"name\": \"Boston Children&amp;apos;s Museum\",\"url\": \"\",\"description\": \"Founded in 1913 by the Science Teachers&amp"
     },
     {
@@ -588,7 +588,7 @@
       "geo": null,
       "card_eligibility": "unknown",
       "pass_pickup_default": "unknown",
-      "eligibility_source_phrase": "Home - Goodnow Library Open now 9:00 am - 9:00 pm View Hours MENU MENU Calendar Account Catalog search close search WHAT CAN WE HELP YOU FIND? SEARCH Catalog Website menu close MENU MENU Calendar Account Catalog search About Our Library About DEI Statement & Land Acknowledgement Hours & Directions Ask a Librarian Policies Borrowing Strategic Plan Annual Reports Program Feedback Our People Staff Directory Board of Trustees Foundation Our Community Employment Opportunities Volunteering Giving Book",
+      "eligibility_source_phrase": "Home - Goodnow Library Skip to main content Enable accessibility for low vision Open the accessibility menu Open now 9:00 am - 9:00 pm View Hours MENU MENU Calendar Account Catalog search close search WHAT CAN WE HELP YOU FIND? SEARCH Catalog Website menu close MENU MENU Calendar Account Catalog search About Our Library About DEI Statement & Land Acknowledgement Hours & Directions Ask a Librarian Policies Borrowing Strategic Plan Annual Reports Program Feedback Our People Staff Directory Board o",
       "pickup_source_phrase": "To limit museum types being displayed, check the corresponding categories:\nTo limit the museum pass availability by location available, check the corresponding branches or places:\nTo select a museum, click “Details/Reserve”, then select which Pass to reserve.\n{\"@context\": \"http://schema.org\",\"@type\": \"CivicStructure\",\"address\": \"568 Main Street, Hudson, MA 01749\",\"logo\": \"https://s3.amazonaws.com/ai-assets/museum-logos/ma-american-heritage-museum_150_md.jpg\",\"telephone\": \"978-562-9182\",\"name\": \""
     },
     {
@@ -642,7 +642,7 @@
       "card_page": "https://waltham.lib.ma.us/policies/library-cards/",
       "address": null,
       "geo": null,
-      "card_eligibility": "town_or_works",
+      "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "eligibility_source_phrase": "Library Cards and Patron Privacy : Waltham Public Library Skip to content Open toolbar Accessibility Tools Accessibility Tools Increase Text Increase Text Decrease Text Decrease Text Grayscale Grayscale High Contrast High Contrast Negative Contrast Negative Contrast Light Background Light Background Links Underline Links Underline Readable Font Readable Font Reset Reset Skip to content Skip to content Search Catalog My Account Hours and Location Search Search Programs Instagram Facebook Youtube ",
       "pickup_source_phrase": "To limit museum types being displayed, check the corresponding categories:\nTo select a museum, click “Details/Reserve”, then select which Pass to reserve.\n{\"@context\": \"http://schema.org\",\"@type\": \"CivicStructure\",\"address\": \"308 Congress Street, Boston, MA 02210\",\"logo\": \"https://s3.amazonaws.com/ai-assets/museum-logos/ma-boston-childrens-museum_3_md.jpg\",\"telephone\": \"617-426-6500\",\"name\": \"Boston Children&amp;apos;s Museum\",\"url\": \"\",\"description\": \"Founded in 1913 by the Science Teachers&amp"
@@ -656,7 +656,7 @@
       "card_page": "https://www.watertownlib.org/217/Library-Cards-Borrowing",
       "address": null,
       "geo": null,
-      "card_eligibility": "town_or_works",
+      "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "eligibility_source_phrase": "Library Cards | Watertown Library, MA - Official Website Skip to Main Content Contact Get Email Updates Get a Card My Account Free and open to all. Watertown, Massachusetts. Catalog Search Website Search Catalog Search Website Search Catalog Search Website Search Search the Website Type 3 or more characters to see suggestions Use up/down arrow keys to navigate suggestions, Enter to select, Esc to close. About Expand About Submenu Collections Expand Collections Submenu Services Expand Services Su",
       "pickup_source_phrase": "To limit museum types being displayed, check the corresponding categories:\nTo select a museum, click “Details/Reserve”, then select which Pass to reserve.\n{\"@context\": \"http://schema.org\",\"@type\": \"CivicStructure\",\"address\": \"65 Main Street, Watertown, MA 02472\",\"logo\": \"https://s3.amazonaws.com/ai-assets/museum-logos/ma-armenian-museum-of-america_452_md.png\",\"telephone\": \"617-926-2562\",\"name\": \"Armenian Museum of America\",\"url\": \"\",\"description\": \"With roots going back to the early 1970s, The A"
@@ -670,7 +670,7 @@
       "card_page": "https://concordlibrary.org/borrow/library-cards-and-borrowing",
       "address": null,
       "geo": null,
-      "card_eligibility": "town_or_works",
+      "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "eligibility_source_phrase": "Get a Library Card | Borrow | Concord Free Public Library × All Concord libraries will be closed Sunday to Monday, May 24-25 for Memorial Day. Contact Us Catalog My Account How do I? Borrow eBooks Borrow Museum Passes Donate Get a Library Card Get the Newsletter Get Notary Services Host a Public Meeting Print from my phone or laptop Reserve a Study Room Volunteer Support the Library Give to the Annual Fund Donate Books Join the Friends Volunteer Main navigation Learn About Us Director's Report H",
       "pickup_source_phrase": "To limit museum types being displayed, check the corresponding categories:\nTo limit the museum pass availability by location available, check the corresponding branches or places:\nTo select a museum, click “Details/Reserve”, then select which Pass to reserve.\n{\"@context\": \"http://schema.org\",\"@type\": \"CivicStructure\",\"address\": \"568 Main Street, Hudson, MA 01749\",\"logo\": \"https://s3.amazonaws.com/ai-assets/museum-logos/ma-american-heritage-museum_150_md.jpg\",\"telephone\": \"978-562-9182\",\"name\": \""

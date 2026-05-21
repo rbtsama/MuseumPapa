@@ -2,7 +2,7 @@
 
 > **用途**：清晰记录所有「拿不到 / 无法解析 / 无法得到预期结构」的数据项,供人工复核。
 > **持续更新**：每次重跑数据后,按下面的「如何刷新本文档」重新生成统计并更新条目。
-> **最后更新**：2026-05-21(全量重建 + Recovery + Phase H/I/J/K/M 之后)
+> **最后更新**：2026-05-22(Phase O round 2 — JS 办卡页二次救回之后)
 
 ## 总则:三种空缺的区别
 
@@ -16,24 +16,49 @@
 
 ---
 
-## 1. 图书馆 card_eligibility(办卡资格)— 19/59 仍 unknown
+## 1. 图书馆 card_eligibility(办卡资格)— 12/59 仍 unknown
 
-**当前**:40/59 已分类(全部有真实 rendered source phrase 佐证),19 仍 unknown(72.9% → 32.2% unknown)。
+**当前**:47/59 已分类(全部有真实 rendered source phrase 佐证),12 仍 unknown(32.2% → **20.3%** unknown)。
 
-本轮(seed-driven recovery)做法:`scrape_rendered.py policies` 现在按 seed 的 `requires_render_js:true` 标志逐馆用 Playwright 渲染 `card_page`,只有 `_has_eligibility_cue()` 通过 + 分类器产出非 unknown 时才采信,并持久化完整 rendered `policy_text`(reclassify 不会回退)。新增 26 个 seed 的真实 get-a-card URL(WebSearch 找到 + 渲染验证)。其中 24 个分类成功(见下),lynnfield/sudbury 渲染到了页面但正文无可分类资格句,arlington 仍被 WAF 拦。
+本轮(Phase O round 2)做法:针对上一轮剩下、被认作「JS 办卡页拿不到」的 14 馆,逐馆用 Playwright 抓 `page.inner_text("body")` 全文(swallow nav timeout + 4× scroll),WebSearch 找首页型 seed 的真实 get-a-card URL,只采信「全文里有真实资格句 + 确定性分类器命中」的馆。新增/修正 7 馆 seed 的真实 card_page URL 并标 `requires_render_js:true`。同时把 `_has_eligibility_cue` 的 gate 改为「非 404/WAF 壳 AND 分类器对全文产出非 unknown」(关键词只是 fast-path),与分类器锁步,避免漏接新 idiom。
 
-**本轮真正救回(24 个,均有真实 rendered source phrase)**:
-`woburn, medford, burlington, bpl, danvers, marblehead, chelsea, billerica, topsfield, lawrence, methuen, andover, middleton, newton, framingham, maynard, wayland, wellesley, waltham, watertown, concord, somerville, quincy, cambridge`(tewksbury 上一轮已救回)。
+**本轮真正救回(7 个,均有真实 rendered source phrase verbatim)**:
+| lib | 真实 card URL | 资格原句(verbatim) | 分类 |
+|---|---|---|---|
+| `lynnfield` | lynnfieldlibrary.org/about/get-a-library-card/ | "Library cards are free and available **regardless of where you live in Massachusetts**." | ma_resident |
+| `acton` | actonmemoriallibrary.org/services/library-cards/ | "Library cards are available to anyone 4 years and older **who lives in Massachusetts** or works in Acton." | ma_resident |
+| `reading` | readingpl.org/get-a-library-card/ | NOBLE eCard "Eligibility: **Massachusetts residency**" | ma_resident |
+| `chelmsford` | chelmsfordlibrary.org/about/get-a-library-card | "If you **live anywhere in Massachusetts** (including Chelmsford) … you may apply for a library card online." | ma_resident |
+| `everett` | everettpubliclibraries.org/get-a-library-card/ | "A library card is totally free, and **anyone can get one!**" | ma_resident |
+| `weston` | westonma.gov/CivicSend/ViewMessage/message/165250(官方 WPL 通告) | "**If you have a Massachusetts address, you make the cut.**" | ma_resident |
+| `boxford` | boxfordma.gov/210/Get-a-Library-Card | "**Any Boxford Resident is eligible** to obtain a Boxford Town Library … Card." | town_resident |
+
+**附带修正(更准确,非回退)**:`newton/waltham/watertown/concord` 上一轮被判 `town_or_works`,但它们的办卡页明确写「任何在 MA 有地址 / 住在 MA 的人都能办卡」(newton: "Anyone with a current address in Massachusetts is eligible";watertown: "Anyone who lives in Massachusetts can get a library card";concord: "provide a valid ID with your current Massachusetts address";waltham: "…or are temporarily living in Massachusetts…you may be issued a Library card"),故升级为更准确的 `ma_resident`。分类器加了否定守卫,concord 的 source phrase 不再误命中 FAQ 反问句「I don't live in Massachusetts」,而是命中真正的「current Massachusetts address」要求。
+
+**本轮新增/修改分类器 pattern(均有真实 snippet 进 `tests/test_eligibility_text.py`)**:
+- ma_resident:`live(s)/reside (anywhere) in Massachusetts`(带否定守卫,排除 "don't/do not live in Massachusetts")、`have/with/provide (your/current) Massachusetts address`、`library card … anyone can get one`
+- town_resident:`Any <Town> Resident is eligible … card`
+- 诚实守卫全绿(stoneham/boxford-Hoopla/Sudbury-streaming 等 must-NOT-match 测试不变)。
 
 ### 1A. 拿不到 — WAF 阻挡
 | lib | 现象 | 状态 |
 |---|---|---|
-| `arlington` (robbinslibrary.org) | seed `card_page` 已设 `/about/library-card/` 且标 `requires_render_js:true`;Playwright headless 渲染到页面但被指纹识别,正文无资格句通过 cue | **拿不到**。需非 headless 浏览器 / 住宅 IP / 人工录入 |
+| `arlington` (robbinslibrary.org) | seed `card_page` 已设 `/about/library-card/` 且标 `requires_render_js:true`;Playwright headless 渲染到页面但被指纹识别,正文无资格句 | **拿不到**。需非 headless 浏览器 / 住宅 IP / 人工录入 |
 
-### 1B. 拿不到 — get-a-card 页是 JS 渲染(渲染后正文仍只有导航壳/未水合资格块)
-这些馆已找到候选 URL,但 Playwright 渲染后正文里没有可分类的资格句(JS 客户端渲染只吐了导航壳,或资格块未及时水合):
-`stoneham, reading, lynnfield(已标 requires_render_js,渲染到页但正文无资格句), beverly, lynn, everett, boxford, chelmsford, acton(只渲染出证件清单,无"住 MA/在本镇工作"那句), weston(首页只 ~1k 字壳), belmont, natick(morseinstitute.org 直接 ERR_CONNECTION_CLOSED), braintree, milton`。
-**处理方向**:这些需要更强的渲染(non-headless / 等待具体资格 selector 出现 / 抓具体子页 JSON 端点),或人工 override。**严禁**为凑数放宽 `_has_eligibility_cue` 或分类器。
+### 1B. 渲染到了真实办卡页,但页面本身没写居住范围 → 诚实 unknown(7)
+这些馆本轮都已找到并 Playwright 渲染了**真实的 get-a-card 页全文**,但页面只列「带 ID + 当前地址证明即可办卡」,**没有任何「住 MA / 本镇居民」的范围句**——按铁律保持 unknown(绝不为凑数臆造范围):
+
+| lib | 真实 card URL(已渲染) | 页面原句 | 为何 unknown |
+|---|---|---|---|
+| `stoneham` | stonehamlibrary.org/get-a-library-card/ | "you must bring a form of ID and/or another document with your current address" | 无范围 |
+| `lynn` | lynnpubliclibrary.org/get-a-library-card/ | "bring in some form of identification that shows both your name and current address … and we will issue you a card" | 无范围 |
+| `beverly` | beverlypubliclibrary.org/services/borrowing/ | "Present photo identification with name and proof of current address" | 无范围(seed URL 已更正) |
+| `braintree` | thayerpubliclibrary.org/get-a-library-card/ | "photo identification … and proof of current address … is required in order to receive a card" | 无范围 |
+| `milton` | miltonlibrary.org/about/faq/ | "Bring a picture ID and something with proof of your current address" | 无范围 |
+| `natick` | morseinstitute.libguides.com/get-started | "To get a library card, visit any Minuteman library with ID and proof of current address"(morseinstitute.org 主站 ERR_CONNECTION_CLOSED,改用 libguides 子站全文) | 无范围 |
+| `belmont` | belmontpubliclibrary.net/borrow/library-cards/ | "We follow the Minuteman Library Card Registration Policy, which outlines eligibility" | 只甩给 Minuteman 政策,自家页无范围句 |
+
+**处理方向**:这 7 个要么从联盟(Minuteman/NOBLE/OCLN)政策站抓一次通用居住范围(Minuteman/NOBLE 实际都是「住 MA 即可」),要么人工 `data/overrides/libraries/<id>/card_eligibility.json`。**严禁**为凑数放宽分类器或 cue gate。
 
 ### 1C. 无预期结构 / 联盟入口 — 自家页无资格正文
 | lib | 现象 | 状态 |
@@ -120,12 +145,12 @@ wakefield__salem-witch-museum                        weston__boston-harbor-islan
 
 ---
 
-## 当前覆盖率快照(2026-05-21)
+## 当前覆盖率快照(2026-05-22)
 
 | 指标 | 数值 |
 |---|---|
 | libraries | 59(catalog 59/59, policy 57/59) |
-| card_eligibility known | 40/59(unknown 32.2%;其余 19 见 §1) |
+| card_eligibility known | 47/59(unknown 20.3%;其余 12 见 §1) |
 | attractions | 48 |
 | attractions w/ prices | 33/48(其余见 §3) |
 | attractions w/ hours | 36/48(其余见 §4) |
@@ -160,4 +185,4 @@ python scripts/build_all.py
 # 3) 把变化更新进本文件,并改「最后更新」日期
 ```
 
-> 复核优先级建议:**§1B(给 JS 办卡页加 requires_render_js)** 本轮已把 24 个馆从 unknown 救回(72.9%→32.2%);剩 19 个多数是渲染后正文仍是壳或措辞不匹配,收益递减。其次 **§3A/§4A(景点子页/ticketing 端点)**。§C 类无需处理。
+> 复核优先级建议:card_eligibility 已从上一轮 32.2% 再降到 **20.3%**(本轮又救回 7 馆)。剩 12 个里 §1B 的 7 馆是「真办卡页但页面本身没写居住范围」——只能从联盟政策站抓通用范围或人工 override,**不是 extractor 问题**;另 5 馆见 §1A/§1C(WAF / 张冠李戴 / OCLN 措辞)。收益已明显递减,建议优先转 **§3A/§4A(景点子页/ticketing 端点)**。
