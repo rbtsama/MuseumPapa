@@ -1,0 +1,288 @@
+{
+  "generated_at": "2026-05-21",
+  "method": "Each verdict is based solely on the saved HTML in data/raw/attractions/pages/<slug>.html and subpages/<slug>__*.html. Text was stripped of <script>/<style>/tags and searched for price ($) and hours signals. No network fetch was performed. 'extractor_miss' means the data IS present in the saved HTML but our prices/hours extractor failed to capture it (it produced empty/all-unknown). Note: 'the-uss-constitution-museum' and 'uss-constitution-museum' are duplicate slugs for the same site; 'mass-audubon' and 'mass-audubon-drumlin-farm' share the same saved org-level HTML.",
+  "prices": {
+    "boston-by-foot": {
+      "verdict": "no_ticketed_admission",
+      "evidence": "Boston By Foot is a walking-tour nonprofit, not a fixed-admission museum. Landing page only offers 'Become a member, Book a private tour, or make a donation'; membership 'comes with benefits including admission to most walking tours'. Tours are individually priced per event; the captured /tickets, /admission, /visit subpages are nav-only shells with no admission price. No general admission fee exists.",
+      "source": "pages/boston-by-foot.html + subpages/boston-by-foot__tickets.html"
+    },
+    "boston-harbor-island-ferry": {
+      "verdict": "price_exists_but_not_in_saved_html",
+      "evidence": "Saved HTML is the Boston Harbor Islands org page (bostonharborislands.org); only $ hit is an unrelated '$5,000' Innovation Islands grant. Ferry fares exist but are sold via the operator (City Cruises / Boston Harbor City Cruises), a page we did not capture. No fare table in saved HTML. Likely source: cityexperiences.com / bostonharborislands.org ferry schedule page.",
+      "source": "pages/boston-harbor-island-ferry.html"
+    },
+    "boston-harbor-islands": {
+      "verdict": "no_ticketed_admission",
+      "evidence": "Boston Harbor Islands is a national/state park; the islands themselves are free to visit (no admission ticket) - only the optional ferry has a fare. Saved HTML (same org page as ferry) has no admission price; sole $ hit is an unrelated '$5,000' grant.",
+      "source": "pages/boston-harbor-islands.html"
+    },
+    "concord-museum": {
+      "verdict": "js_rendered",
+      "evidence": "Page is a JS app: text shows 'Loading schedule / We're open today / It's --:--am ET' placeholders. No $ amounts in saved HTML for either landing or /visit subpage. Admission pricing is rendered client-side.",
+      "source": "pages/concord-museum.html + subpages/concord-museum__visit.html"
+    },
+    "garden-in-the-woods-native-plant-trust": {
+      "verdict": "price_exists_but_not_in_saved_html",
+      "evidence": "Saved HTML mentions paid admission ('discounts on Garden admission', 'free with Garden admission') confirming a ticket price exists, but no $ figure is present in landing or /visit subpage. The actual admission price table is on a hours/admission page we did not capture (nativeplanttrust.org garden-in-the-woods visit/admission).",
+      "source": "pages/garden-in-the-woods-native-plant-trust.html"
+    },
+    "gore-place": {
+      "verdict": "price_exists_but_not_in_saved_html",
+      "evidence": "Mansion is admission-by-guided-tour: /visit subpage says 'visit the Gores' 1806 Mansion by guided tour. View tour schedules and admission fees at Mansion Tours.' Only $ figures in saved HTML are concert event prices ('$25 general admission, $20 members, $15 Card to Culture'), not the mansion tour fee. The Mansion Tours page with the fee was not captured.",
+      "source": "pages/gore-place.html + subpages/gore-place__visit.html"
+    },
+    "greater-boston-stage-company": {
+      "verdict": "no_ticketed_admission",
+      "evidence": "A theater with per-show ticket pricing, not a fixed-admission museum. Captured pages reference 'BOX OFFICE / Pricing / Student Matinees / Subscriptions' but contain no $ amounts (prices are per production via a ticketing system). No general admission fee.",
+      "source": "pages/greater-boston-stage-company.html + subpages/greater-boston-stage-company__plan-your-visit.html"
+    },
+    "griffin-museum-of-photography": {
+      "verdict": "js_rendered",
+      "evidence": "Museum charges admission ('Purchase Museum Admission', 'Hours: Tues-Sun Noon-4pm') but the captured /tickets subpage is a 310KB JS checkout/cart widget with zero $ amounts in the static HTML. Admission price is loaded by the ticketing JS.",
+      "source": "subpages/griffin-museum-of-photography__tickets.html"
+    },
+    "museum-of-science": {
+      "verdict": "js_rendered",
+      "evidence": "Large 179KB landing page with 'Buy Tickets' / 'Get Tickets' CTAs but no $ amounts anywhere in the static text. Exhibit-hall admission pricing is rendered by the ticketing JS / on a purchase page not captured statically.",
+      "source": "pages/museum-of-science.html + subpages/museum-of-science__visit-us.html"
+    },
+    "north-shore-childrens-museum": {
+      "verdict": "js_rendered",
+      "evidence": "342KB landing page; copy describes free-resident-days and 'included with admission' but contains no $ admission price in static text. The /admission, /tickets etc. subpages are byte-identical fallbacks to the landing page (fetcher returned the same SPA shell), so admission price is behind a JS ticketing widget.",
+      "source": "pages/north-shore-childrens-museum.html"
+    },
+    "paddle-boston": {
+      "verdict": "no_ticketed_admission",
+      "evidence": "A kayak/canoe rental & sailing-lessons outfitter, not an admission attraction. Only $ figures are retail boat sale prices ('Rental Kayaks - $549, Paddleboards - $499, Canoes - $599' = boats for sale). No admission fee; rental/lesson rates are not a fixed admission price.",
+      "source": "pages/paddle-boston.html"
+    },
+    "plimoth-patuxet": {
+      "verdict": "js_rendered",
+      "evidence": "142KB landing + 135KB /plan-your-visit subpage, both with zero $ amounts in static text; only phrase is 'supported by admissions, grants, members'. Admission pricing is rendered client-side / on a ticketing page not statically captured.",
+      "source": "pages/plimoth-patuxet.html + subpages/plimoth-patuxet__plan-your-visit.html"
+    },
+    "the-childrens-piazza": {
+      "verdict": "js_rendered",
+      "evidence": "Square Online site: landing renders as a 'loading-view' spinner (text-stripped landing is 34 chars; raw 99KB is the SPA shell). All content including any admission/play pass price is client-side rendered.",
+      "source": "pages/the-childrens-piazza.html"
+    },
+    "the-spellman-museum-of-stamps-and-postal-history": {
+      "verdict": "js_rendered",
+      "evidence": "546KB raw HTML (Square-style site) with no admission $ amount in static text; only relevant phrase is event-shuttle copy 'Museum admission is included in the ticket cost'. General museum admission price is rendered client-side / not in the captured static HTML.",
+      "source": "pages/the-spellman-museum-of-stamps-and-postal-history.html"
+    },
+    "the-uss-constitution-museum": {
+      "verdict": "extractor_miss",
+      "evidence": "Pricing IS in the saved HTML but our extractor returned empty. /hours and /plan-your-visit subpages state: 'Museum Admission: The Museum has suggested admission tiers of: Pay it Forward: $25 per person; Standard: $15 per person; Reduced: Free - $10 per person.' (Ship admission is free.) This is a pay-what-you-wish suggested-donation model the extractor failed to parse. RECOVERABLE from saved HTML.",
+      "source": "subpages/the-uss-constitution-museum__hours.html + the-uss-constitution-museum__plan-your-visit.html"
+    },
+    "uss-constitution-museum": {
+      "verdict": "extractor_miss",
+      "evidence": "Duplicate slug of the-uss-constitution-museum (same captured site). Pricing IS in saved HTML, extractor returned empty: 'Pay it Forward: $25 per person; Standard: $15 per person; Reduced: Free - $10 per person'. RECOVERABLE from saved HTML.",
+      "source": "subpages/uss-constitution-museum__hours.html + uss-constitution-museum__plan-your-visit.html"
+    },
+    "zoo-new-england": {
+      "verdict": "js_rendered",
+      "evidence": "15KB landing notes 'Our ticketing system is temporarily offline. Tickets are still available at the gates' - admission price comes from the JS ticketing system, none in static HTML. /visit subpage also has no $ amount.",
+      "source": "pages/zoo-new-england.html + subpages/zoo-new-england__visit.html"
+    }
+  },
+  "hours": {
+    "boston-athenaeum": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; stored hours are all-unknown except Mon=closed. Landing: 'Hours Monday-Thursday: 9 am - 8 pm; Friday and Saturday: 9 am - 5 pm; Sunday: Closed'. RECOVERABLE.",
+      "source": "pages/boston-athenaeum.html"
+    },
+    "boston-by-foot": {
+      "verdict": "genuinely_no_fixed_hours",
+      "evidence": "Walking-tour operator with no fixed venue hours; visiting is per-scheduled-tour. Captured /hours subpage is a nav-only shell with no day/time table. Not a gap.",
+      "source": "subpages/boston-by-foot__hours.html"
+    },
+    "boston-harbor-island-ferry": {
+      "verdict": "hours_exist_not_captured",
+      "evidence": "Saved HTML is the org page with no ferry schedule. Ferry runs seasonal departure times set by the operator (City Cruises) on a page not captured. Schedule exists but not in saved HTML.",
+      "source": "pages/boston-harbor-island-ferry.html"
+    },
+    "boston-harbor-islands": {
+      "verdict": "genuinely_no_fixed_hours",
+      "evidence": "Outdoor national/state park islands; no fixed building hours (access governed by daylight + ferry schedule). Saved org HTML has no hours table. Not a gap.",
+      "source": "pages/boston-harbor-islands.html"
+    },
+    "christian-science-plaza": {
+      "verdict": "hours_exist_not_captured",
+      "evidence": "Stored hours all-unknown, but the /tickets subpage clearly lists the Mapparium/exhibit hours: 'Monday: 10 a.m.-5 p.m. ... Saturday: 10 a.m.-5 p.m. Sunday: 11 a.m.-5 p.m.' This is an extractor miss - data IS in saved HTML. RECOVERABLE.",
+      "source": "subpages/christian-science-plaza__tickets.html"
+    },
+    "davis-farmland": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; /hours subpage: 'Early Spring Schedule Monday - Friday Open 9:30-4 PM ... Saturday, Sunday & Memorial Day Open 9:30-5 PM'; landing: 'Open Monday-Friday 9:30-4, Saturdays and Sundays 9:30-5'. Seasonal but explicit. RECOVERABLE.",
+      "source": "subpages/davis-farmland__hours.html + pages/davis-farmland.html"
+    },
+    "ecotarium": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; landing and /visit subpage: 'Monday: Closed; Tuesday-Sunday: 10:00 am - 5:00 pm'. Stored hours all-unknown/closed. RECOVERABLE.",
+      "source": "pages/ecotarium.html + subpages/ecotarium__visit.html"
+    },
+    "garden-in-the-woods-native-plant-trust": {
+      "verdict": "hours_exist_not_captured",
+      "evidence": "Seasonal garden with set hours, but the captured landing + /visit subpage do not contain a day/time table (only 'free with Garden admission' references). The hours page was not captured. Hours exist but not in saved HTML.",
+      "source": "pages/garden-in-the-woods-native-plant-trust.html"
+    },
+    "gore-place": {
+      "verdict": "hours_exist_not_captured",
+      "evidence": "Grounds + mansion-by-tour. Captured pages list concert event times but no regular venue/grounds hours table; mansion tour schedule is on the un-captured Mansion Tours page. Hours exist but not in saved HTML.",
+      "source": "pages/gore-place.html + subpages/gore-place__visit.html"
+    },
+    "greater-boston-stage-company": {
+      "verdict": "genuinely_no_fixed_hours",
+      "evidence": "A theater; no fixed daily admission hours - access is by showtime per production. Captured pages have no hours table. Not a gap.",
+      "source": "pages/greater-boston-stage-company.html + subpages/greater-boston-stage-company__plan-your-visit.html"
+    },
+    "griffin-museum-of-photography": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; landing footer: 'Museum Admission Hours: Tues-Sun Noon-4pm'. Stored hours all-unknown. RECOVERABLE.",
+      "source": "pages/griffin-museum-of-photography.html"
+    },
+    "harvard-museum-of-natural-history": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; /plan-your-visit subpage: 'Hours Open daily from 9:00 am to 5:00 pm' (plus holiday closures). Stored hours all-unknown. RECOVERABLE.",
+      "source": "subpages/harvard-museum-of-natural-history__plan-your-visit.html"
+    },
+    "harvard-museums-of-science-and-culture": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML (per-museum); /visit subpage lists each: HMNH & Peabody 'Open daily from 9:00 am to 5:00 pm'; the two Ancient/Instruments museums 'Open Sunday-Friday from 11:00 am to 4:00 pm, closed Saturdays'. Stored hours all-unknown. RECOVERABLE (note: multi-venue umbrella entity).",
+      "source": "subpages/harvard-museums-of-science-and-culture__visit.html + pages/harvard-museums-of-science-and-culture.html"
+    },
+    "heritage-museums-gardens": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; /hours subpage and landing: 'Open Daily 10 am-5 pm, until October 18' (seasonal). Stored hours all-unknown. RECOVERABLE.",
+      "source": "subpages/heritage-museums-gardens__hours.html + pages/heritage-museums-gardens.html"
+    },
+    "isabella-stewart-gardner-museum": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; landing + /visit subpage: 'Monday: 11:00am-5:00pm; Tuesday: Closed; Wednesday: 11:00am-5:00pm; Thursday: 11:00am-9:00pm; Friday: 11:00am-5:00pm; Saturday: 10:00am-5:00pm; Sunday: 10:00am-5:00pm'. Stored hours only captured Wed=closed (wrong) and rest unknown. RECOVERABLE.",
+      "source": "pages/isabella-stewart-gardner-museum.html + subpages/isabella-stewart-gardner-museum__visit.html"
+    },
+    "larz-anderson-auto-museum": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; landing + /plan-your-visit: 'The Museum is open 10AM - 3PM | Tuesday - Sunday' (Monday closed). Stored hours all-unknown. RECOVERABLE.",
+      "source": "pages/larz-anderson-auto-museum.html + subpages/larz-anderson-auto-museum__plan-your-visit.html"
+    },
+    "mass-audubon-drumlin-farm": {
+      "verdict": "hours_exist_not_captured",
+      "evidence": "Captured HTML is the org-wide Mass Audubon events calendar + a generic /admission page; neither contains Drumlin Farm sanctuary's specific open hours. Drumlin Farm has set hours but they are on the per-sanctuary page (massaudubon.org/.../drumlin-farm) we did not capture.",
+      "source": "pages/mass-audubon-drumlin-farm.html + subpages/mass-audubon-drumlin-farm__admission.html"
+    },
+    "mass-audubon": {
+      "verdict": "hours_exist_not_captured",
+      "evidence": "Same captured org-wide events/admission HTML as drumlin-farm. 'Mass Audubon' is an umbrella org spanning many sanctuaries (each with its own hours), so a single hours value is ambiguous; the captured pages have no hours table regardless. Per-sanctuary hours exist but not in saved HTML.",
+      "source": "pages/mass-audubon.html + subpages/mass-audubon__admission.html"
+    },
+    "museum-of-science": {
+      "verdict": "hours_exist_not_captured",
+      "evidence": "179KB landing has 'Buy Tickets' / timed-entry copy but no day/time hours table in static text; /visit subpages also lack hours. MoS publishes daily hours (typically 9am-5pm), but they are JS-rendered / on a page not statically captured.",
+      "source": "pages/museum-of-science.html + subpages/museum-of-science__visit-us.html"
+    },
+    "naismith-memorial-basketball-hall-of-fame": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; banner and /visit subpage: 'MUSEUM OPEN DAILY, 10AM-4PM' / 'Museum Hours 10am - 4pm Open Daily'. Stored hours all-unknown. RECOVERABLE.",
+      "source": "pages/naismith-memorial-basketball-hall-of-fame.html + subpages/naismith-memorial-basketball-hall-of-fame__visit.html"
+    },
+    "new-england-aquarium": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; landing + /visit subpage: 'HOURS OF OPERATION Mon.-Fri.: 9:00 a.m.-5:00 p.m.; Weekends: 9:00 a.m.-6:00 p.m.' Stored hours all-unknown. RECOVERABLE.",
+      "source": "pages/new-england-aquarium.html + subpages/new-england-aquarium__visit.html"
+    },
+    "new-england-botanic-garden-at-tower-hill": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; /plan-your-visit subpage: 'GENERAL ADMISSION HOURS Open daily: 10 a.m.-5 p.m. Last admission: 4:30 p.m.' Stored hours all-unknown. RECOVERABLE.",
+      "source": "subpages/new-england-botanic-garden-at-tower-hill__plan-your-visit.html"
+    },
+    "north-shore-childrens-museum": {
+      "verdict": "hours_exist_not_captured",
+      "evidence": "342KB SPA shell + byte-identical fallback subpages; no day/time hours table in static text. The museum has set hours but they are behind a JS ticketing/info widget not statically captured.",
+      "source": "pages/north-shore-childrens-museum.html"
+    },
+    "old-sturbridge-village": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; landing + /plan-your-visit + /visit: 'Currently open Wednesday - Sunday 9:30 a.m. - 5:00 p.m.' (with detailed seasonal schedule). Stored hours all-unknown/closed. RECOVERABLE.",
+      "source": "pages/old-sturbridge-village.html + subpages/old-sturbridge-village__visit.html"
+    },
+    "paddle-boston": {
+      "verdict": "genuinely_no_fixed_hours",
+      "evidence": "Kayak/canoe rental outfitter (seasonal, multiple locations); rental availability is by season/location, not fixed museum hours. /hours subpage has no standard day/time table for an admission venue. Not a gap in the museum-hours sense.",
+      "source": "subpages/paddle-boston__hours.html"
+    },
+    "plimoth-patuxet": {
+      "verdict": "hours_exist_not_captured",
+      "evidence": "142KB landing + 135KB /plan-your-visit, neither with a day/time hours table in static text. Plimoth Patuxet has set seasonal hours but they are JS-rendered / on a page not statically captured.",
+      "source": "pages/plimoth-patuxet.html + subpages/plimoth-patuxet__plan-your-visit.html"
+    },
+    "salem-witch-museum": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; landing + /hours subpage: 'Hours Year-Round: 10AM-5PM; July and August: 10AM-7PM; October: Extended Hours'. /visit adds 'open year-round, every day except Thanksgiving, Christmas, New Year's Day'. Stored hours all-unknown. RECOVERABLE.",
+      "source": "subpages/salem-witch-museum__hours.html + pages/salem-witch-museum.html"
+    },
+    "sandmagination": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; landing: 'Monday - Sunday: 9am to 6pm'; /plan-your-visit subpage: 'Hours 7 Days per Week: 9:00 AM - 6:00PM'. Stored hours all-unknown. RECOVERABLE.",
+      "source": "pages/sandmagination.html + subpages/sandmagination__plan-your-visit.html"
+    },
+    "seacoast-science-center": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; /admission subpage: 'Hours Open Tuesday-Sunday, 10am-4pm (closed Monday)'; landing: 'Open Today 10am - 4pm'. Stored hours all-unknown/closed. RECOVERABLE.",
+      "source": "subpages/seacoast-science-center__admission.html + pages/seacoast-science-center.html"
+    },
+    "the-childrens-piazza": {
+      "verdict": "js_rendered",
+      "evidence": "Square Online SPA: landing renders as a loading spinner (34 chars of static text). Any open hours are client-side rendered, none in saved HTML.",
+      "source": "pages/the-childrens-piazza.html"
+    },
+    "the-danforth": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; landing + /visit subpage: 'Museum open today 12:00pm - 5:00pm; Monday Closed; Tuesday - Sunday 12:00pm - 5:00pm'. Stored hours all-unknown/closed. RECOVERABLE.",
+      "source": "pages/the-danforth.html + subpages/the-danforth__visit.html"
+    },
+    "the-discovery-museums": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; /plan-your-visit subpage: 'Monday: Closed (select Mondays open); Tuesday - Sunday: 9:00am to 4:30pm' (plus First Friday nights and full seasonal/holiday schedule). Stored hours all-unknown/closed. RECOVERABLE.",
+      "source": "subpages/the-discovery-museums__plan-your-visit.html + pages/the-discovery-museums.html"
+    },
+    "the-house-of-seven-gables": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; landing + /tickets + /visit banner: 'Open daily, 10 A.M.-5 P.M.' Stored hours all-unknown. RECOVERABLE.",
+      "source": "pages/the-house-of-seven-gables.html + subpages/the-house-of-seven-gables__visit.html"
+    },
+    "the-icon-museum-and-study-center": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; landing: 'Visit Us Thursday - Sunday 10:00 AM - 4:00 PM'; /plan-your-visit subpage: 'HOURS Thursday - Sunday, 10:00am - 4:00pm'. Stored hours all-unknown. RECOVERABLE.",
+      "source": "pages/the-icon-museum-and-study-center.html + subpages/the-icon-museum-and-study-center__plan-your-visit.html"
+    },
+    "the-spellman-museum-of-stamps-and-postal-history": {
+      "verdict": "js_rendered",
+      "evidence": "546KB Square-style site; no day/time hours table in static text. Museum hours are client-side rendered / not in saved HTML.",
+      "source": "pages/the-spellman-museum-of-stamps-and-postal-history.html"
+    },
+    "the-uss-constitution-museum": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; /plan-your-visit: 'Museum Hours Regular Hours: Open Daily | 9:30 am - 5:00 pm' (Ship: 'Wednesday-Sunday | 10:00 am - 6:00 pm'). Stored hours all-unknown. RECOVERABLE.",
+      "source": "subpages/the-uss-constitution-museum__plan-your-visit.html"
+    },
+    "uss-constitution-museum": {
+      "verdict": "extractor_miss",
+      "evidence": "Duplicate slug of the-uss-constitution-museum. Hours ARE in saved HTML: 'Museum Hours Regular Hours: Open Daily | 9:30 am - 5:00 pm'. RECOVERABLE.",
+      "source": "subpages/uss-constitution-museum__plan-your-visit.html"
+    },
+    "wenham-museum": {
+      "verdict": "extractor_miss",
+      "evidence": "Hours ARE in saved HTML; landing + /visit subpage: 'Wednesday - Saturday: 9:00 a.m. - 4:00 p.m.; Sunday - Tuesday: CLOSED; Extended hours the first Wednesday of the month: 9:00 a.m. - 6:00 p.m.' Stored hours captured only Mon/Tue/Wed=closed (Wed wrong). RECOVERABLE.",
+      "source": "pages/wenham-museum.html + subpages/wenham-museum__visit.html"
+    },
+    "zoo-new-england": {
+      "verdict": "hours_exist_not_captured",
+      "evidence": "15KB landing has a ticketing-offline notice but no day/time hours table in static text; /visit subpage also lacks hours. Zoo hours (and the two locations Franklin Park / Stone Zoo) are JS-rendered / on a page not statically captured.",
+      "source": "pages/zoo-new-england.html + subpages/zoo-new-england__visit.html"
+    }
+  }
+}
