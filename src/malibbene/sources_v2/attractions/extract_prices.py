@@ -45,9 +45,18 @@ _NEG_CTX = re.compile(
     r"fine|per\s+day|admission\s+per\s+day|extra\s+fee|gift\s+shop|"
     r"benefit|annual\s+pass|fundraiser|gala|membership\s+level|"
     r"book\s+(?:fair|sale)|workshop|summer\s+camp|registration|"
-    r"online\s+only\s+rate|service\s+fee)\b",
+    r"online\s+only\s+rate|service\s+fee|"
+    # Donation widgets (USS Constitution "Give Amount $2,500 ...").
+    r"give\s+amount|ways?\s+to\s+support|pledge)\b",
     re.I,
 )
+
+# Suggested-donation admission tiers (e.g. USS Constitution Museum). The label
+# immediately preceding the price selects intent: only the baseline "Standard"
+# (or "Suggested"/"General") tier is a usable admission price; "Pay it Forward"
+# and "Reduced" are optional above/below tiers we do NOT record.
+_TIER_KEEP = re.compile(r"\b(standard|suggested)\b", re.I)
+_TIER_DROP = re.compile(r"\b(pay\s+it\s+forward|reduced|donat)\b", re.I)
 
 _PRICE_TOKEN = re.compile(r"\$\s*(\d+(?:\.\d{1,2})?)")
 _AGE_RANGE = re.compile(r"\(\s*(\d+)\s*[-–]\s*(\d+)\s*\)", re.I)
@@ -73,23 +82,63 @@ def extract_prices(slug: str, raw_root: Path) -> dict[str, Any]:
         if _NEG_CTX.search(neg_ctx):
             continue
 
+        # Suggested-donation tier handling: the label directly preceding the
+        # price ("Pay it Forward:" / "Standard:" / "Reduced:") is decisive.
+        preface = text[max(0, m.start() - 20): m.start()]
+        if _TIER_DROP.search(preface):
+            # Optional above/below suggested tier -> not a recorded price.
+            continue
+        forced_label: str | None = None
+        if _TIER_KEEP.search(preface):
+            forced_label = "adult"
+
         ctx = text[max(0, m.start() - 60): m.end() + 60]
         rel_start = min(m.start(), 60)
 
-        # Find the audience keyword *nearest* to the price token.
-        best: tuple[int, str, "re.Match[str]"] | None = None
-        for label, pat in _AUDIENCE_KEYWORDS:
-            for am in pat.finditer(ctx):
-                # Distance from price token in ctx coordinates
-                dist = min(
-                    abs(am.start() - rel_start),
-                    abs(am.end() - rel_start),
-                )
-                if best is None or dist < best[0]:
-                    best = (dist, label, am)
-        if best is None:
+        if forced_label is not None:
+            if (forced_label, price) not in seen:
+                age_m0 = _AGE_RANGE.search(ctx)
+                out_rows.append({
+                    "audience": forced_label,
+                    "price": price,
+                    "age_range": (
+                        {"min": int(age_m0.group(1)), "max": int(age_m0.group(2))}
+                        if age_m0 else None
+                    ),
+                    "source_phrase": ctx.strip()[:200],
+                })
+                seen.add((forced_label, price))
             continue
-        label = best[1]
+
+        # Strong bind: a label that immediately FOLLOWS the price across a
+        # dash/colon separator — "$10.00 – Seniors", "$15: Adults". This list
+        # format puts the audience after its own price, so the following label
+        # is authoritative and beats the generic nearest-keyword search (which
+        # would otherwise grab the *previous* row's trailing label).
+        label: str | None = None
+        tail = text[m.end(): m.end() + 22]
+        bind = re.match(r"\s*[-–—:]\s*([A-Za-z][\w '()/+]*)", tail)
+        if bind:
+            seg = bind.group(0)
+            for lab, pat in _AUDIENCE_KEYWORDS:
+                if pat.search(seg):
+                    label = lab
+                    break
+
+        # Otherwise: the audience keyword *nearest* to the price token.
+        if label is None:
+            best: tuple[int, str, "re.Match[str]"] | None = None
+            for lab, pat in _AUDIENCE_KEYWORDS:
+                for am in pat.finditer(ctx):
+                    dist = min(
+                        abs(am.start() - rel_start),
+                        abs(am.end() - rel_start),
+                    )
+                    if best is None or dist < best[0]:
+                        best = (dist, lab, am)
+            if best is None:
+                continue
+            label = best[1]
         if (label, price) in seen:
             continue
 

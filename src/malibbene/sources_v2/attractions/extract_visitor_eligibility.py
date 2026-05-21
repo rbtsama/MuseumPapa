@@ -29,6 +29,7 @@ than fabricating data.
 """
 from __future__ import annotations
 
+import html as _html
 import re
 from pathlib import Path
 from typing import Any
@@ -77,7 +78,13 @@ def html_to_text(html: str) -> str:
     # Remove script/style blocks entirely
     html = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", html, flags=re.I | re.S)
     text = _TAG.sub(" ", html)
-    text = text.replace("&nbsp;", " ").replace("&amp;", "&")
+    # Decode HTML entities (numeric + named): &#8211; -> en-dash, &mdash; -> em-dash,
+    # &#038; -> &, &#8217; -> ', &nbsp; -> non-breaking space, etc. Critical for
+    # hours/price markup that uses entity-encoded dashes between days/times.
+    text = _html.unescape(text)
+    # Normalise the non-breaking space that unescape leaves as U+00A0 so the
+    # whitespace collapse below treats it like a regular space.
+    text = text.replace(" ", " ")
     text = _WS.sub(" ", text).strip()
     return text
 
