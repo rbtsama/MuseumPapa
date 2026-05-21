@@ -77,6 +77,36 @@ def test_card_residents_of_commonwealth():
     assert classify_card_eligibility(text) == CardEligibility.MA_RESIDENT
 
 
+# --- patterns from JS-rendered card pages (Phase O) ----------------------------
+
+def test_card_live_in_a_massachusetts_town():
+    # Lynnfield (NOBLE eCard) — "live in a Massachusetts town" must be ma_resident.
+    text = ("You are eligible to apply for a NOBLE eCard if you live in a Massachusetts "
+            "town and do not currently have a library card from a NOBLE member library.")
+    assert classify_card_eligibility(text) == CardEligibility.MA_RESIDENT
+
+
+def test_card_residents_of_any_ma_community():
+    # NOBLE/network phrasing: residents of any Massachusetts community.
+    text = "An eCard is available to residents of any Massachusetts community without a NOBLE card."
+    assert classify_card_eligibility(text) == CardEligibility.MA_RESIDENT
+
+
+def test_card_proof_of_local_address_is_town_resident():
+    # Acton Memorial Library — requires proof of current local address.
+    text = ("To get a library card you must show photo identification and proof of current "
+            "local address. If an applicant is under 13 years old, a parent must be present.")
+    assert classify_card_eligibility(text) == CardEligibility.TOWN_RESIDENT
+
+
+def test_card_id_and_address_no_scope_stays_unknown():
+    # Stoneham — only "ID and a document with your current address", no residency
+    # scope stated. Honest outcome: UNKNOWN (we do not invent a scope).
+    text = ("In order to register for a Stoneham Public Library card in person, you must "
+            "bring a form of ID and/or another document with your current address to the desk.")
+    assert classify_card_eligibility(text) == CardEligibility.UNKNOWN
+
+
 # --- honesty guards: real noise that must NOT classify -------------------------
 
 def test_card_service_announcement_does_not_match_town():

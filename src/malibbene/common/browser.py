@@ -58,6 +58,7 @@ def fetch_rendered(
     """
     try:
         from playwright.sync_api import sync_playwright
+        from playwright.sync_api import TimeoutError as PWTimeout
     except ImportError as e:
         raise RuntimeError(INSTALL_HINT) from e
 
@@ -69,13 +70,31 @@ def fetch_rendered(
         try:
             context = browser.new_context(
                 user_agent=user_agent or _RENDER_UA,
-                viewport={"width": 1366, "height": 900},
+                viewport={"width": 1366, "height": 2200},
                 locale="en-US",
             )
             page = context.new_page()
-            page.goto(url, timeout=timeout * 1000, wait_until=wait_until)
+            # A goto timeout does NOT mean we have no content — many sites keep a
+            # socket open so the requested wait_until never fires even though the
+            # DOM is fully populated. So we swallow the nav timeout and still
+            # snapshot whatever rendered. We only fail hard if nothing loaded.
+            try:
+                page.goto(url, timeout=timeout * 1000, wait_until=wait_until)
+            except PWTimeout:
+                pass
+            # Scroll the page in steps to trigger lazy-loaded / intersection-
+            # observer content (eligibility blurbs, hours tables) to hydrate.
+            try:
+                for _ in range(4):
+                    page.mouse.wheel(0, 4000)
+                    page.wait_for_timeout(600)
+            except Exception:
+                pass
             if settle_ms:
                 page.wait_for_timeout(settle_ms)
-            return page.content()
+            html = page.content()
+            if not html or len(html) < 200:
+                raise RuntimeError(f"rendered page empty for {url}")
+            return html
         finally:
             browser.close()

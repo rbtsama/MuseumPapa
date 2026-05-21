@@ -17,7 +17,11 @@ from malibbene.schema.library import CardEligibility, PassPickupPolicy
 _MA_RESIDENT = re.compile(
     r"\b(?:massachusetts|mass\.?)\s+residen"                        # MA resident / residency
     r"|\bresidents?\s+of\s+(?:the\s+)?(?:commonwealth|massachusetts)\b"
-    r"|\bresident\s+of\s+(?:the\s+state\s+of\s+)?massachusetts\b",
+    r"|\bresident\s+of\s+(?:the\s+state\s+of\s+)?massachusetts\b"
+    # NOBLE/Minuteman eCard idiom: "if you live in a Massachusetts town/city"
+    r"|\blive\s+in\s+(?:a\s+)?(?:massachusetts|mass\.?)\s+(?:town|city|community)\b"
+    # "residents of any Massachusetts community/town/city"
+    r"|\bresidents?\s+of\s+any\s+(?:massachusetts|mass\.?)\s+(?:community|town|city)\b",
     re.I,
 )
 
@@ -59,7 +63,10 @@ _TOWN_RESIDENT = re.compile(
     r"|\b(?:library\s+)?card\s+(?:is\s+)?available\s+(?:only\s+)?to\s+(?:all\s+)?"
     r"(?:[A-Z][a-zA-Z]+\s+){1,2}residents?\b"
     r"|\bresidents?\s+of\s+[A-Z][a-zA-Z]+\s+(?:proper\b|may\s+(?:register|apply|borrow)\b)"
-    r"|\bmust\s+(?:be\s+a\s+resident\s+of|reside\s+in|live\s+in)\s+[A-Z][a-zA-Z]+",
+    r"|\bmust\s+(?:be\s+a\s+resident\s+of|reside\s+in|live\s+in)\s+[A-Z][a-zA-Z]+"
+    # "proof of (current) local address" — requires being a local resident, with
+    # no broader MA/anyone statement (those match _MA_RESIDENT first via order).
+    r"|\bproof\s+of\s+(?:current\s+)?local\s+(?:address|residen)",
     re.I,
 )
 
