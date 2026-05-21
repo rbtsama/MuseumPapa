@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-21T18:35:21.095511+00:00",
+    "built_at": "2026-05-21T18:55:03.594007+00:00",
     "n_passes": 1033
   },
   "passes": [
@@ -42966,10 +42966,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43036,10 +43036,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43107,10 +43107,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43176,10 +43176,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43246,10 +43246,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43316,10 +43316,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43390,10 +43390,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43464,8 +43464,8 @@
       "residency_restriction": {
         "restricted": "yes",
         "scope": "ma",
-        "source": "catalog_text",
-        "evidence": "ng the museum. Only one member of the party must be a MA resident. *This is a coupon pass that must be pi"
+        "source": "catalog_text+booking_probe",
+        "evidence": "ng the museum. Only one member of the party must be a MA resident. *This is a coupon pass that must be pi | booking probe: town-open (non-town same-network card accepted)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43532,10 +43532,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43603,10 +43603,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43673,10 +43673,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43742,10 +43742,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43812,10 +43812,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43882,10 +43882,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -43955,10 +43955,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -44028,10 +44028,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -44098,10 +44098,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -44154,10 +44154,10 @@
       "coupon": null,
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -44224,10 +44224,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -44305,10 +44305,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -44388,10 +44388,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -44438,10 +44438,10 @@
       "coupon": null,
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -44510,10 +44510,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -44593,10 +44593,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -44643,10 +44643,10 @@
       "coupon": null,
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
+        "restricted": "no",
         "scope": null,
-        "source": null,
-        "evidence": null
+        "source": "booking_probe",
+        "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -50773,10 +50773,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -50842,10 +50842,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -50922,10 +50922,10 @@
         "advance_booking_hours": null
       },
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -50992,10 +50992,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -51061,10 +51061,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -51199,10 +51199,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -51281,10 +51281,10 @@
         "advance_booking_hours": null
       },
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -51354,10 +51354,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -51404,10 +51404,10 @@
       "coupon": null,
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -51475,10 +51475,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -51544,10 +51544,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -51594,10 +51594,10 @@
       "coupon": null,
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -51674,10 +51674,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -51726,10 +51726,10 @@
       "coupon": null,
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -51795,10 +51795,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -51875,10 +51875,10 @@
       },
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",
@@ -51925,10 +51925,10 @@
       "coupon": null,
       "restrictions": null,
       "residency_restriction": {
-        "restricted": "unknown",
-        "scope": null,
-        "source": null,
-        "evidence": null
+        "restricted": "yes",
+        "scope": "town",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation"
       },
       "availability": {
         "2026-05-01": "closed",

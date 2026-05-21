@@ -1,0 +1,11 @@
+{
+  "library_id": "wakefield",
+  "attraction_slug": "peabody-essex-museum",
+  "prober_card": "reading",
+  "probed_date": "2026-may/22",
+  "verdict": "rejected_resident",
+  "restricted": "yes",
+  "scope": "town",
+  "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation",
+  "source": "booking_probe"
+}

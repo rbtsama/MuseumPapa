@@ -45,16 +45,32 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                     row["restrictions"] = e.get("restrictions")
                     if e.get("residency_restriction"):
                         row["residency_restriction"] = e["residency_restriction"]
-                # A booking-probe result (Phase P3) takes precedence over text:
-                # data/raw/<platform>/residency_probe/<lib>__<slug>.json
+                # A booking-probe result (Phase P3) tests the TOWN-residency axis
+                # (can a same-network non-resident book it). It takes precedence,
+                # EXCEPT it must not erase a text-derived MA-resident requirement
+                # (a different axis the probe can't test, since the prober is
+                # itself a MA resident).
                 probe = _read(raw_root/platform/"residency_probe"/f"{lib}__{slug}.json")
-                if probe and probe.get("restricted") in ("yes","no"):
-                    row["residency_restriction"] = {
-                        "restricted": probe["restricted"],
-                        "scope": probe.get("scope"),
-                        "source": "booking_probe",
-                        "evidence": probe.get("evidence"),
-                    }
+                if probe and probe.get("restricted") in ("yes", "no"):
+                    text_rr = row.get("residency_restriction") or {}
+                    text_is_ma = (text_rr.get("restricted") == "yes"
+                                  and text_rr.get("scope") == "ma")
+                    if probe["restricted"] == "no" and text_is_ma:
+                        # Town-open confirmed by probe, but the catalog text still
+                        # requires a MA resident in the party — keep that, annotate.
+                        row["residency_restriction"] = {
+                            "restricted": "yes", "scope": "ma",
+                            "source": "catalog_text+booking_probe",
+                            "evidence": (text_rr.get("evidence") or "")
+                            + " | booking probe: town-open (non-town same-network card accepted)",
+                        }
+                    else:
+                        row["residency_restriction"] = {
+                            "restricted": probe["restricted"],
+                            "scope": probe.get("scope"),
+                            "source": "booking_probe",
+                            "evidence": probe.get("evidence"),
+                        }
                 avail = _read(raw_root/platform/"availability"/lib/f"{slug}.json")
                 if avail:
                     row["availability"] = {d["date"]:d["status"] for d in avail.get("days",[])}
