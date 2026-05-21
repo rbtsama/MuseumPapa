@@ -1,4 +1,25 @@
 {
-  "status": "failed",
-  "error": "unparsed benefit"
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "200 High Street, Boston, MA, 02110 Map 978-921-1944 SEASONAL PASS - Each pass admits 2 adults & children under 18 at the Family Level admission rate. Passes are not date specific and can be used once until the expiration date printed on the pass. Valid at more than 100 Trustees p"
+        }
+      ],
+      "summary": "Discount",
+      "source_phrase_block": "200 High Street, Boston, MA, 02110 Map 978-921-1944 SEASONAL PASS - Each pass admits 2 adults & children under 18 at the Family Level admission rate. Passes are not date specific and can be used once until the expiration date printed on the pass. Valid at more than 100 Trustees properties that collect an admission fee (including Fruitlands, deCordova and The Old Manse). Please note that some properties require pre-registration. Information about properties and advance registration available here: https://thetrustees.org/content/passes/ Physical passes must be picked up from one of the library locations listed in the dropdown menu below. Select your location preference and then pick the dates from the availability calendar."
+    },
+    "restrictions": null
+  }
 }

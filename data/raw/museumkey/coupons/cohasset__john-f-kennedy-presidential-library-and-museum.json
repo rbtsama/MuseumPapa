@@ -4,15 +4,15 @@
     "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "vehicle",
-        "n": 1
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 1,
+          "count": null,
           "age_range": null,
           "source_phrase": "Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card to receive the discount. "
         }

@@ -4,15 +4,15 @@
     "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "vehicle",
-        "n": 1
+        "kind": "people",
+        "n": 2
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 10,
-          "count": 1,
+          "count": 2,
           "age_range": null,
           "source_phrase": "ADMISSION INCREASE: Starting January 20, 2026 the adult admission price for MFA with a library discount will increase from $10 each to $15 each (youth prices will remain at $10 each) The Library Discount Pass admits 2 adults for $10 each (this includes general admission and speci"
         }

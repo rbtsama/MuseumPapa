@@ -4,15 +4,15 @@
     "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "vehicle",
-        "n": 1
+        "kind": "people",
+        "n": 2
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 1,
+          "count": 2,
           "age_range": null,
           "source_phrase": "Each pass allows admission for 2 adults at $15 each and up to 4 children, ages 7-17, at $10 each (general and special exhibition) . There is no discount for children 7-17 for general admission, currently $10. Youths 0 - 6 are admitted to the museum free of charge. The library mak"
         }

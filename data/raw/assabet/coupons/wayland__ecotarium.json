@@ -4,15 +4,15 @@
     "pass_form": "physical_circ",
     "coupon": {
       "capacity": {
-        "kind": "vehicle",
-        "n": 1
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "percent-off",
           "value": 50,
-          "count": 1,
+          "count": null,
           "age_range": null,
           "source_phrase": "This is a SET OF 2 laminated passes, each pass offers discount to ONE person: Adults (age 18 and over) receive 50% the regular admission price. Children (age 6 to 17) are admitted for $1. Children (age 5 and younger) are admitted for free. Patrons may pick up their passes the day"
         }

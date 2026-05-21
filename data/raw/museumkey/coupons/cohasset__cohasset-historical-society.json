@@ -1,4 +1,25 @@
 {
-  "status": "failed",
-  "error": "unparsed benefit"
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Free Lecture Series Pass. Check this pass out from the library and present it upon entrance to the Historical Society's Event. Pass does not need to be returned. Visit museum website for more information. Isabella Stewart Gardner Museum"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "Free Lecture Series Pass. Check this pass out from the library and present it upon entrance to the Historical Society's Event. Pass does not need to be returned. Visit museum website for more information. Isabella Stewart Gardner Museum"
+    },
+    "restrictions": null
+  }
 }

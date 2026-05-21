@@ -1,4 +1,25 @@
 {
-  "status": "failed",
-  "error": "unparsed benefit"
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "per-person-price",
+          "value": 5,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This pass will provide reduced general admission of $5 for four (4) adults (18 years and over). Youths 17 and under are always free and should be reserved as child tickets. This pass is emailed to you - you will not need to come in to the library to pick it up. Please make sure y"
+        }
+      ],
+      "summary": "$5/person",
+      "source_phrase_block": "This pass will provide reduced general admission of $5 for four (4) adults (18 years and over). Youths 17 and under are always free and should be reserved as child tickets. This pass is emailed to you - you will not need to come in to the library to pick it up. Please make sure you enter your current email address when making your reservation."
+    },
+    "restrictions": null
+  }
 }

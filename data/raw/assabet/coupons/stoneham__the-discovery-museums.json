@@ -1,4 +1,25 @@
 {
-  "status": "failed",
-  "error": "unparsed benefit"
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "ticket",
+        "n": 12
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "free",
+          "value": 0,
+          "count": 12,
+          "age_range": null,
+          "source_phrase": "The coupon code covers the cost of up to 12 tickets per mainstage show. There is a limit of 2 tickets per person. This pass is NOT a reservation and does not need to be picked up at the library. You must reserve a ticket for a specific day and time prior to the performance you wi"
+        }
+      ],
+      "summary": "FREE",
+      "source_phrase_block": "The coupon code covers the cost of up to 12 tickets per mainstage show. There is a limit of 2 tickets per person. This pass is NOT a reservation and does not need to be picked up at the library. You must reserve a ticket for a specific day and time prior to the performance you wish to attend. Tickets must be reserved by calling the Greater Boston Stage Company at (781) 279-2200. The GBSC Box Office is open noon to 4 pm Tuesday through Friday. Your tickets are only valid for the date and time you reserve. This season's Main Stage shows: Featherbaby opens on Friday, September 12th and runs through Sunday, December 28th. Murder for Two opens on Friday, October 5th and runs through Sunday, November 9th. An Irish Carol opens on Friday, December 5th and runs through Sunday, December 21st."
+    },
+    "restrictions": null
+  }
 }

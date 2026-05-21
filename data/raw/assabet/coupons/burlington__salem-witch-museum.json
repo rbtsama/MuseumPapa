@@ -1,4 +1,25 @@
 {
-  "status": "failed",
-  "error": "unparsed benefit"
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_coupon",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Pass admission is equivalent to the admission benefit of a Trustees Family Level Membership for two adults and children under 18. Pass is valid at any Trustees property that charges admission, including (but not limited to): deCordova Sculpture Park , Fruitlands , the Old Manse ,"
+        }
+      ],
+      "summary": "discount",
+      "source_phrase_block": "Pass admission is equivalent to the admission benefit of a Trustees Family Level Membership for two adults and children under 18. Pass is valid at any Trustees property that charges admission, including (but not limited to): deCordova Sculpture Park , Fruitlands , the Old Manse , and Castle Hill on the Crane Estate . Please check the Trustees' website for information on properties, admission rates, parking, and other regulations: https://thetrustees.org/ The Trustees passes are valid for admission only ; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, equipment rental, or in place of any other permits or passes. This pass can be picked up one week in advance."
+    },
+    "restrictions": null
+  }
 }

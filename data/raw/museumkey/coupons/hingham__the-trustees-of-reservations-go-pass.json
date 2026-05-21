@@ -1,4 +1,25 @@
 {
-  "status": "failed",
-  "error": "unparsed benefit"
+  "status": "ok",
+  "extracted": {
+    "pass_form": "physical_circ",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. Pass provides free or reduced admission for 2 Adults and children under 18 to Trustees properties acros"
+        }
+      ],
+      "summary": "discount",
+      "source_phrase_block": "This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. Pass provides free or reduced admission for 2 Adults and children under 18 to Trustees properties across the state, including World's End in Hingham."
+    },
+    "restrictions": null
+  }
 }

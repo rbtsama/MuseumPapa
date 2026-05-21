@@ -4,15 +4,15 @@
     "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "vehicle",
-        "n": 1
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 1,
+          "count": null,
           "age_range": null,
           "source_phrase": "Each pass allows admission for 2 adults at $15 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each. Children 0-6 years of age are admitted free. Promo codes and library passes are not applicable toward discounts on shopping, parking, dining,"
         }

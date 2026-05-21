@@ -4,15 +4,15 @@
     "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "vehicle",
-        "n": 1
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 1,
+          "count": null,
           "age_range": null,
           "source_phrase": "Each promo code may be redeemed for up to two adult tickets ($15 each) and four youth tickets ($10 each). Children 6 and under are admitted for free. Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shoppi"
         }

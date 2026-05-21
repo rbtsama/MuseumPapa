@@ -4,15 +4,15 @@
     "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "vehicle",
-        "n": 1
+        "kind": "people",
+        "n": 2
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "discount",
           "value": null,
-          "count": 1,
+          "count": 2,
           "age_range": null,
           "source_phrase": "GO Pass coupon admits 2 adults and children under 18 to Trustees properties. Some Trustees locations require that visitors go online to reserve a timed-entry. Visit the Trustees website for up-to-date information: www.thetrustees.org/ GO Passes are valid for admission only. They "
         }

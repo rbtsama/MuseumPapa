@@ -4,15 +4,15 @@
     "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "vehicle",
-        "n": 1
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "free",
           "value": 0,
-          "count": 1,
+          "count": null,
           "age_range": null,
           "source_phrase": "MELROSE PUBLIC LIBRARY - PADDLE BOSTON SPOT POND PASS: This pass is valid for online reservations and walk-up rentals at Spot Pond , in Stoneham, MA ( valid only for date printed on the pass ) . This pass allows 1 boat rental free of charge at Spot Pond (there are options for boa"
         }

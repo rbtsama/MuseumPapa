@@ -4,15 +4,15 @@
     "pass_form": "physical_coupon",
     "coupon": {
       "capacity": {
-        "kind": "vehicle",
-        "n": 1
+        "kind": "people",
+        "n": 2
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 10,
-          "count": 1,
+          "count": 2,
           "age_range": null,
           "source_phrase": "Pass admits 2 adults at $10 a person (general admission and special exhibition) and up to 4 children ages 7-17 at $10 each (general and special exhibition). There is no discount for children 7-17 for general admisson, currently $10. Children under 6 are admitted free. Please note"
         }

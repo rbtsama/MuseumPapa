@@ -4,15 +4,15 @@
     "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "vehicle",
-        "n": 1
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 1,
+          "count": null,
           "age_range": null,
           "source_phrase": "For visit dates beginning January 20, 2026, each promo code may be redeemed for up to 2 adult tickets for $15 each and 4 youth tickets for $10 each. Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shoppin"
         }

@@ -1,4 +1,25 @@
 {
-  "status": "failed",
-  "error": "unparsed benefit"
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "unspecified",
+        "n": null
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "discount",
+          "value": null,
+          "count": null,
+          "age_range": null,
+          "source_phrase": "Go Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. Go Pass admission is equivalent to a Trustees Family Membership admissio"
+        }
+      ],
+      "summary": "discount",
+      "source_phrase_block": "Go Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. Go Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. To use Go Passes with a site that requires timed passes, please enter the promo code \"GOPASS\" when securing a timed ticket. GoPass is good for admission of two adults and all children under the age of 18. Visit museum website for more information. USS Constitution Museum"
+    },
+    "restrictions": null
+  }
 }

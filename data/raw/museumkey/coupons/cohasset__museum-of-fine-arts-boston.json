@@ -4,15 +4,15 @@
     "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "vehicle",
-        "n": 1
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 1,
+          "count": null,
           "age_range": null,
           "source_phrase": "Updated 03/26/2026 Use promo code IP-1636144 to receive a discount on MFA tickets. Visit mfa.org/tickets . Use promo code IP-1636144 to receive a discount and select Library Pass Ticket. The ticket will be emailed to the patron. For visit dates beginning January 20, 2026, each pr"
         }

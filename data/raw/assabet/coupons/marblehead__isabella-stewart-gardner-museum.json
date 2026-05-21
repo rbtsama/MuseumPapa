@@ -4,15 +4,15 @@
     "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "vehicle",
-        "n": 1
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 1,
+          "count": null,
           "age_range": null,
           "source_phrase": "Children 6 and under are admitted free. Each pass allows admission for 2 adults at $15 each and up to 4 children ages 7–17 at $10 each. A library pass will not be accepted for admission into the Museum. Patrons can use the promo code (given when you reserve your pass) to reserve "
         }

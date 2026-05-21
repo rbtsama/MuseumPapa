@@ -1,4 +1,25 @@
 {
-  "status": "failed",
-  "error": "unparsed benefit"
+  "status": "ok",
+  "extracted": {
+    "pass_form": "digital_email",
+    "coupon": {
+      "capacity": {
+        "kind": "people",
+        "n": 2
+      },
+      "audience_policies": [
+        {
+          "audience": "Everyone",
+          "form": "dollar-off",
+          "value": 50,
+          "count": 2,
+          "age_range": null,
+          "source_phrase": "2 Rolling Mill Way, Canton, MA, 02021 Map 781-828-1845 Each pass admits 2 people at 50$ off regular admission. Special events are not included. The pass is a physical coupon and you need to pick it up at the Milton Public Library before going to the museum. PLEASE BRING YOUR CONF"
+        }
+      ],
+      "summary": "$50 off",
+      "source_phrase_block": "2 Rolling Mill Way, Canton, MA, 02021 Map 781-828-1845 Each pass admits 2 people at 50$ off regular admission. Special events are not included. The pass is a physical coupon and you need to pick it up at the Milton Public Library before going to the museum. PLEASE BRING YOUR CONFIRMATION EMAIL TO THE MPL TO PICK UP YOUR PASS BEFORE GOING TO THE MUSEUM. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+    },
+    "restrictions": null
+  }
 }

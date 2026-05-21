@@ -4,15 +4,15 @@
     "pass_form": "digital_email",
     "coupon": {
       "capacity": {
-        "kind": "vehicle",
-        "n": 1
+        "kind": "unspecified",
+        "n": null
       },
       "audience_policies": [
         {
           "audience": "Everyone",
           "form": "per-person-price",
           "value": 15,
-          "count": 1,
+          "count": null,
           "age_range": null,
           "source_phrase": "465 Huntington Ave., Boston, MA, 02115-5523 Map 617-267-9300 Each pass is good for up to two adult tickets ($15 each) and four youth tickets ($10 each). After making your reservation you will receive a confirmation email containing a Promo Code which is redeemable online, over th"
         }
