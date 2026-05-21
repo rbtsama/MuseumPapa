@@ -4,11 +4,21 @@ from pathlib import Path
 from datetime import datetime, timezone
 from malibbene.common.audit_overrides import load_overrides, apply_overrides
 
+def _load_town_zips(seed_path: Path) -> dict:
+    """Load config/town_zips.json (sibling of the seed file). Returns town->[zip5]."""
+    zips_path = seed_path.parent / "town_zips.json"
+    if not zips_path.exists():
+        print(f"WARNING: {zips_path} not found — resident_zips will be empty for all libraries")
+        return {}
+    return json.loads(zips_path.read_text(encoding="utf-8")).get("towns", {})
+
+
 def build_libraries(seed_path: Path, raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
     seeds = json.loads(seed_path.read_text())
     if isinstance(seeds, dict):
         seeds = seeds["libraries"]
     overrides = load_overrides(overrides_root)
+    town_zips = _load_town_zips(seed_path)
     libs = []
     for s in seeds:
         lib = {
@@ -19,6 +29,10 @@ def build_libraries(seed_path: Path, raw_root: Path, overrides_root: Path, out_p
             "card_eligibility": "unknown",
             "pass_pickup_default": "unknown",
         }
+        zips = town_zips.get(s["town"])
+        if not zips:
+            print(f"WARNING: no resident_zips for town {s['town']!r} (library {s['id']})")
+        lib["resident_zips"] = list(zips or [])
         policies_path = raw_root / s["platform"] / "policies" / f"{s['id']}.json"
         if policies_path.exists():
             pol = json.loads(policies_path.read_text())

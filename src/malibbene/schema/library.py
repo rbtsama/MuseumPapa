@@ -48,5 +48,6 @@ class Library:
     pass_page: Optional[str] = None
     hours: Optional[dict] = None
     branch_ids: list[str] = field(default_factory=list)
+    resident_zips: list[str] = field(default_factory=list)
     eligibility_source_phrase: Optional[str] = None
     pickup_source_phrase: Optional[str] = None
