@@ -322,7 +322,7 @@
       "network": "MVLC",
       "platform": "assabet",
       "domain": "haverhillpl.assabetinteractive.com",
-      "card_page": "https://www.haverhillpl.org/",
+      "card_page": "https://www.haverhillpl.org/library-card",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "pass_page": "https://haverhillpl.assabetinteractive.com/museum-passes/by-museum/"
@@ -370,7 +370,7 @@
       "network": "MVLC",
       "platform": "assabet",
       "domain": "stevensmemlib.assabetinteractive.com",
-      "card_page": "https://www.stevensmemlib.org/",
+      "card_page": "https://www.stevensmemlib.org/library-card",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "pass_page": "https://stevensmemlib.assabetinteractive.com/museum-passes/by-museum/"
@@ -466,7 +466,7 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "gleasonlibrary.assabetinteractive.com",
-      "card_page": "https://gleasonlibrary.org/",
+      "card_page": "https://gleasonlibrary.org/get-a-library-card",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "pass_page": "https://gleasonlibrary.assabetinteractive.com/museum-passes/by-museum/"
@@ -526,7 +526,7 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "carylibrary.assabetinteractive.com",
-      "card_page": "https://www.carylibrary.org/",
+      "card_page": "https://www.carylibrary.org/library-cards",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "pass_page": "https://carylibrary.assabetinteractive.com/museum-passes/by-museum/"
@@ -586,7 +586,7 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "bedfordlibrary.assabetinteractive.com",
-      "card_page": "https://bedfordlibrary.net/",
+      "card_page": "https://bedfordlibrary.net/library-card",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "pass_page": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/"
@@ -598,7 +598,7 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "needhamma.assabetinteractive.com",
-      "card_page": "https://needhamlibrary.org/",
+      "card_page": "https://needhamlibrary.org/get-a-library-card",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "pass_page": "https://needhamma.assabetinteractive.com/museum-passes/by-museum/"
@@ -661,7 +661,7 @@
       "platform": "libcal",
       "domain": "brooklinelibrary.libcal.com",
       "pass_page": "https://brooklinelibrary.libcal.com/passes",
-      "card_page": "https://brooklinelibrary.org/",
+      "card_page": "https://brooklinelibrary.org/library-card",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "libcal_base": "https://brooklinelibrary.libcal.com",
