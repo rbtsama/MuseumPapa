@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-20T18:44:48.726825+00:00",
+    "built_at": "2026-05-21T10:23:29.137789+00:00",
     "n_attractions": 48
   },
   "attractions": [
@@ -69,12 +69,12 @@
       },
       "hours": {
         "monday": "10:00-17:00",
-        "tuesday": "unknown",
-        "wednesday": "closed",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
         "thursday": "10:00-17:00",
         "friday": "10:00-17:00",
-        "saturday": "09:00-17:00",
-        "sunday": "09:00-17:00"
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
       }
     },
     {
@@ -135,13 +135,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "closed",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "09:00-20:00",
+        "tuesday": "09:00-20:00",
+        "wednesday": "09:00-20:00",
+        "thursday": "09:00-20:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "closed"
       }
     },
     {
@@ -189,14 +189,20 @@
         {
           "audience": "adult",
           "price": 24.0,
-          "age_range": null,
-          "source_phrase": "each month, the Museum opens at 10:00am. Admission adults: $24 children (1 &ndash; 15): $24 infants (under 12 months): FRE"
+          "age_range": {
+            "min": 1,
+            "max": 15
+          },
+          "source_phrase": "each month, the Museum opens at 10:00am. Admission adults: $24 children (1 – 15): $24 infants (under 12 months): FREE memb"
         },
         {
           "audience": "child",
           "price": 24.0,
-          "age_range": null,
-          "source_phrase": "at 10:00am. Admission adults: $24 children (1 &ndash; 15): $24 infants (under 12 months): FREE members: FREE Get Tickets!"
+          "age_range": {
+            "min": 1,
+            "max": 15
+          },
+          "source_phrase": "opens at 10:00am. Admission adults: $24 children (1 – 15): $24 infants (under 12 months): FREE members: FREE Get Tickets!"
         }
       ],
       "categories": [],
@@ -353,13 +359,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "11:00-17:00"
       }
     },
     {
@@ -390,11 +396,11 @@
       },
       "hours": {
         "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
         "sunday": "10:00-16:00"
       }
     },
@@ -420,13 +426,13 @@
           "audience": "senior",
           "price": 31.95,
           "age_range": null,
-          "source_phrase": "30-5 PM last admission at 4 PM General Admission (age 2-59) $31.95 Seniors (60+) $28.95 SAVE $4 PER TICKET &#8211; BUY ONLINE"
+          "source_phrase": "30-5 PM last admission at 4 PM General Admission (age 2-59) $31.95 Seniors (60+) $28.95 SAVE $4 PER TICKET – BUY ONLINE DISCOU"
         },
         {
           "audience": "senior",
           "price": 4.0,
           "age_range": null,
-          "source_phrase": "neral Admission (age 2-59) $31.95 Seniors (60+) $28.95 SAVE $4 PER TICKET &#8211; BUY ONLINE DISCOUNT TICKETS! There&#8217"
+          "source_phrase": "neral Admission (age 2-59) $31.95 Seniors (60+) $28.95 SAVE $4 PER TICKET – BUY ONLINE DISCOUNT TICKETS! There’s a limited"
         }
       ],
       "categories": [],
@@ -450,13 +456,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "09:30-16:00",
+        "tuesday": "09:30-16:00",
+        "wednesday": "09:30-16:00",
+        "thursday": "09:30-16:00",
+        "friday": "09:30-16:00",
+        "saturday": "09:30-17:00",
+        "sunday": "09:30-17:00"
       }
     },
     {
@@ -505,13 +511,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "closed",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "closed",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
       }
     },
     {
@@ -541,13 +547,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
       }
     },
     {
@@ -650,17 +656,17 @@
       },
       "hours": {
         "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "tuesday": "12:00-16:00",
+        "wednesday": "12:00-16:00",
+        "thursday": "12:00-16:00",
+        "friday": "12:00-16:00",
+        "saturday": "12:00-16:00",
+        "sunday": "12:00-16:00"
       }
     },
     {
       "slug": "harvard-museum-of-natural-history",
-      "name": "Harvard Museum of Natural History",
+      "name": null,
       "website": "https://hmnh.harvard.edu/",
       "hero_image": null,
       "prices": [
@@ -710,13 +716,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "09:00-17:00"
       }
     },
     {
@@ -765,13 +771,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "09:00-17:00"
       }
     },
     {
@@ -820,13 +826,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
       }
     },
     {
@@ -881,13 +887,13 @@
         "source_phrase": "sses (either digital or print) from their library and purchase Museum admission timed-entry tickets using the unique promo code given with each pass. Should you have troub"
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "closed",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "11:00-17:00",
+        "tuesday": "closed",
+        "wednesday": "11:00-17:00",
+        "thursday": "11:00-21:00",
+        "friday": "11:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
       }
     },
     {
@@ -931,12 +937,12 @@
       },
       "hours": {
         "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "tuesday": "10:00-15:00",
+        "wednesday": "10:00-15:00",
+        "thursday": "10:00-15:00",
+        "friday": "10:00-15:00",
+        "saturday": "10:00-15:00",
+        "sunday": "10:00-15:00"
       }
     },
     {
@@ -1156,7 +1162,7 @@
       },
       "hours": {
         "monday": "unknown",
-        "tuesday": "unknown",
+        "tuesday": "11:00-16:00",
         "wednesday": "unknown",
         "thursday": "unknown",
         "friday": "unknown",
@@ -1191,13 +1197,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "09:00-17:00"
       }
     },
     {
@@ -1282,13 +1288,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "10:00-16:00",
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "10:00-16:00"
       }
     },
     {
@@ -1400,13 +1406,13 @@
         "source_phrase": ". Today’s hours: 9:00 a.m. - 5:00 p.m. Today’s hours: 9:00 a.m. - 6:00 p.m. Buy timed entry tickets → Learn about discounts and offers → Daily Presentations and Map → Save"
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-18:00",
+        "sunday": "09:00-18:00"
       }
     },
     {
@@ -1479,13 +1485,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
       }
     },
     {
@@ -1560,11 +1566,11 @@
       "hours": {
         "monday": "unknown",
         "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "wednesday": "09:00-12:00",
+        "thursday": "09:00-12:00",
+        "friday": "09:00-12:00",
+        "saturday": "09:00-12:00",
+        "sunday": "12:00-14:00"
       }
     },
     {
@@ -1675,11 +1681,11 @@
       "hours": {
         "monday": "unknown",
         "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "closed",
-        "sunday": "unknown"
+        "wednesday": "09:30-17:00",
+        "thursday": "09:30-17:00",
+        "friday": "09:30-17:00",
+        "saturday": "09:30-17:00",
+        "sunday": "09:30-17:00"
       }
     },
     {
@@ -1734,13 +1740,13 @@
         "source_phrase": "Home OPEN: M-Sat 10-5 & Sun 11-5 Click for Timed-Entry Louisa May Alcott&#39;s Orchard House Louisa May Alcott&#x27;s Orchard House Lo"
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "10:00-05:00",
-        "sunday": "11:00-05:00"
+        "monday": "11:00-15:30",
+        "tuesday": "11:00-15:30",
+        "wednesday": "11:00-15:30",
+        "thursday": "11:00-15:30",
+        "friday": "11:00-15:30",
+        "saturday": "10:00-17:00",
+        "sunday": "11:00-17:00"
       }
     },
     {
@@ -1825,10 +1831,10 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "closed",
-        "tuesday": "unknown",
+        "monday": "10:00-17:00",
+        "tuesday": "closed",
         "wednesday": "closed",
-        "thursday": "closed",
+        "thursday": "10:00-17:00",
         "friday": "10:00-17:00",
         "saturday": "10:00-17:00",
         "sunday": "10:00-17:00"
@@ -1916,13 +1922,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
       }
     },
     {
@@ -1935,7 +1941,7 @@
           "audience": "adult",
           "price": 5.0,
           "age_range": null,
-          "source_phrase": "$0.00 Little Starfish - No Sibling (&lt; 1 Year) 90 Minutes $5.00 First Adult in a Party 90 Minutes Free Additional Adults 90"
+          "source_phrase": "es $0.00 Little Starfish - No Sibling (< 1 Year) 90 Minutes $5.00 First Adult in a Party 90 Minutes Free Additional Adults 90"
         },
         {
           "audience": "adult",
@@ -1971,13 +1977,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "09:00-18:00",
+        "tuesday": "09:00-18:00",
+        "wednesday": "09:00-18:00",
+        "thursday": "09:00-18:00",
+        "friday": "09:00-18:00",
+        "saturday": "09:00-18:00",
+        "sunday": "09:00-18:00"
       }
     },
     {
@@ -2069,12 +2075,12 @@
       },
       "hours": {
         "monday": "closed",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "10:00-16:00"
       }
     },
     {
@@ -2105,7 +2111,7 @@
           "audience": "family",
           "price": 5.0,
           "age_range": null,
-          "source_phrase": "te admission fee. • &#8216;Museums for All &#8216;discount: $5 for all members of a family (up to four people total) prese"
+          "source_phrase": "ay appropriate admission fee. • ‘Museums for All ‘discount: $5 for all members of a family (up to four people total) prese"
         }
       ],
       "categories": [],
@@ -2131,11 +2137,11 @@
       "hours": {
         "monday": "unknown",
         "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "01:00-04:00"
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "13:00-16:00"
       }
     },
     {
@@ -2232,13 +2238,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "closed",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "closed",
+        "tuesday": "12:00-17:00",
+        "wednesday": "12:00-17:00",
+        "thursday": "12:00-17:00",
+        "friday": "12:00-17:00",
+        "saturday": "12:00-17:00",
+        "sunday": "12:00-17:00"
       }
     },
     {
@@ -2293,13 +2299,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "closed",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "09:00-16:30",
+        "tuesday": "09:00-16:30",
+        "wednesday": "09:00-16:30",
+        "thursday": "09:00-16:30",
+        "friday": "09:00-16:30",
+        "saturday": "09:00-16:30",
+        "sunday": "09:00-16:30"
       }
     },
     {
@@ -2321,37 +2327,37 @@
           "source_phrase": "Mansion Tour - Ages 5-12 $18 Grounds Pass (May 1-Sept 30)* $13 Children Under 5 FREE - accompanied by an adult Gables Memb"
         },
         {
-          "audience": "child",
+          "audience": "adult",
           "price": 26.0,
           "age_range": null,
-          "source_phrase": "LED PRICING - MANSION TOUR PACKAGE (NOV-SEPT) Adult &#8211; $26.00 Child (Age 5-12) &#8211; $18.00 Child Under 5 &#8211; FREE"
+          "source_phrase": "DETAILED PRICING - MANSION TOUR PACKAGE (NOV-SEPT) Adult – $26.00 Child (Age 5-12) – $18.00 Child Under 5 – FREE Senior (65+)"
         },
         {
           "audience": "senior",
           "price": 21.0,
           "age_range": null,
-          "source_phrase": "211; $18.00 Child Under 5 &#8211; FREE Senior (65+) &#8211; $21.00 First Responder/Teacher &#8211; $21.00 College Student &#82"
+          "source_phrase": "ild (Age 5-12) – $18.00 Child Under 5 – FREE Senior (65+) – $21.00 First Responder/Teacher – $21.00 College Student – $21.00 M"
         },
         {
           "audience": "educator",
           "price": 21.0,
           "age_range": null,
-          "source_phrase": "Senior (65+) &#8211; $21.00 First Responder/Teacher &#8211; $21.00 College Student &#8211; $21.00 MA Public College Student &#"
+          "source_phrase": "er 5 – FREE Senior (65+) – $21.00 First Responder/Teacher – $21.00 College Student – $21.00 MA Public College Student – Free M"
         },
         {
           "audience": "student",
           "price": 21.0,
           "age_range": null,
-          "source_phrase": "st Responder/Teacher &#8211; $21.00 College Student &#8211; $21.00 MA Public College Student &#8211; Free Military &#8211; Adu"
+          "source_phrase": "– $21.00 First Responder/Teacher – $21.00 College Student – $21.00 MA Public College Student – Free Military – Adult – $21.00"
         },
         {
-          "audience": "military",
+          "audience": "adult",
           "price": 21.0,
           "age_range": {
             "min": 5,
             "max": 12
           },
-          "source_phrase": "College Student &#8211; Free Military &#8211; Adult &#8211; $21.00 Military &#8211; Child (5-12) &#8211; $16.00 Salem Resident"
+          "source_phrase": "$21.00 MA Public College Student – Free Military – Adult – $21.00 Military – Child (5-12) – $16.00 Salem Resident – FREE, pro"
         },
         {
           "audience": "child",
@@ -2360,7 +2366,7 @@
             "min": 5,
             "max": 12
           },
-          "source_phrase": "Adult &#8211; $21.00 Military &#8211; Child (5-12) &#8211; $16.00 Salem Resident &#8211; FREE, proof of residency required NA"
+          "source_phrase": "– Free Military – Adult – $21.00 Military – Child (5-12) – $16.00 Salem Resident – FREE, proof of residency required NARM/Mus"
         }
       ],
       "categories": [],
@@ -2384,13 +2390,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
       }
     },
     {
@@ -2439,10 +2445,10 @@
         "monday": "unknown",
         "tuesday": "unknown",
         "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "10:00-16:00"
       }
     },
     {
@@ -2486,7 +2492,14 @@
       "name": "Home - USS Constitution Museum",
       "website": "https://ussconstitutionmuseum.org/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "dmission tiers of: Pay it Forward: $25 per person Standard: $15 per person Reduced: Free – $10 per person Please help us ke"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://ussconstitutionmuseum.org/"
@@ -2508,13 +2521,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "09:30-17:00",
+        "tuesday": "09:30-17:00",
+        "wednesday": "09:30-17:00",
+        "thursday": "09:30-17:00",
+        "friday": "09:30-17:00",
+        "saturday": "09:30-17:00",
+        "sunday": "09:30-17:00"
       }
     },
     {
@@ -2522,7 +2535,14 @@
       "name": "Home - USS Constitution Museum",
       "website": "https://ussconstitutionmuseum.org/",
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "dmission tiers of: Pay it Forward: $25 per person Standard: $15 per person Reduced: Free – $10 per person Please help us ke"
+        }
+      ],
       "categories": [],
       "sources": [
         "https://ussconstitutionmuseum.org/"
@@ -2544,13 +2564,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "09:30-17:00",
+        "tuesday": "09:30-17:00",
+        "wednesday": "09:30-17:00",
+        "thursday": "09:30-17:00",
+        "friday": "09:30-17:00",
+        "saturday": "09:30-17:00",
+        "sunday": "09:30-17:00"
       }
     },
     {
@@ -2563,19 +2583,19 @@
           "audience": "adult",
           "price": 15.0,
           "age_range": null,
-          "source_phrase": "| Yelp | Trip Advisor Rates 2025 Individual Admission Rates $15.00 &#8211; Adults $10.00 &#8211; Seniors (ages 65+) $10.00 &#8"
-        },
-        {
-          "audience": "adult",
-          "price": 10.0,
-          "age_range": null,
-          "source_phrase": "Rates 2025 Individual Admission Rates $15.00 &#8211; Adults $10.00 &#8211; Seniors (ages 65+) $10.00 &#8211; Children ages 2 &"
+          "source_phrase": "| Yelp | Trip Advisor Rates 2025 Individual Admission Rates $15.00 – Adults $10.00 – Seniors (ages 65+) $10.00 – Children ages"
         },
         {
           "audience": "senior",
           "price": 10.0,
           "age_range": null,
-          "source_phrase": "tes $15.00 &#8211; Adults $10.00 &#8211; Seniors (ages 65+) $10.00 &#8211; Children ages 2 &#8211; 18; babies aged 0-23 months"
+          "source_phrase": "visor Rates 2025 Individual Admission Rates $15.00 – Adults $10.00 – Seniors (ages 65+) $10.00 – Children ages 2 – 18; babies"
+        },
+        {
+          "audience": "child",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "Admission Rates $15.00 – Adults $10.00 – Seniors (ages 65+) $10.00 – Children ages 2 – 18; babies aged 0-23 months are free. W"
         }
       ],
       "categories": [],
@@ -2601,11 +2621,11 @@
       "hours": {
         "monday": "closed",
         "tuesday": "closed",
-        "wednesday": "closed",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "wednesday": "09:00-16:00",
+        "thursday": "09:00-16:00",
+        "friday": "09:00-16:00",
+        "saturday": "09:00-16:00",
+        "sunday": "closed"
       }
     },
     {
@@ -2654,9 +2674,9 @@
         "source_phrase": "to the Arms and Armor Galleries is included with your General Admission ticket. Timed-entry reservations are no longer required. Questions about the Arms and Armor Galleri"
       },
       "hours": {
-        "monday": "unknown",
+        "monday": "closed",
         "tuesday": "closed",
-        "wednesday": "closed",
+        "wednesday": "10:00-16:00",
         "thursday": "10:00-16:00",
         "friday": "10:00-16:00",
         "saturday": "10:00-16:00",

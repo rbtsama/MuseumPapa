@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-20T18:44:48.830833+00:00",
+    "built_at": "2026-05-21T10:23:29.252696+00:00",
     "n_passes": 1033
   },
   "passes": [
@@ -3998,15 +3998,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "people",
+          "n": 2
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "per-person-price",
             "value": 10,
-            "count": 1,
+            "count": 2,
             "age_range": null,
             "source_phrase": "ADMISSION INCREASE: Starting January 20, 2026 the adult admission price for MFA with a library discount will increase from $10 each to $15 each (youth prices will remain at $10 each) The Library Discount Pass admits 2 adults for $10 each (this includes general admission and speci"
           }
@@ -6946,15 +6946,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "per-person-price",
             "value": 10,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "Digital discount code allows admission for 2 adults at $10 each (general admission and special exhibition) and up to four children ages 7-17 at $10 dollars each (special exhibition only). There is no discount for children 7-17 years old for general admission, which is $10. Childr"
           }
@@ -9444,7 +9444,24 @@
         "The Trustees passes are valid for admission only ; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, equipment rental, or in place of any other permits or passes.&nbsp;",
         "This pass can be picked up one week in advance."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "unspecified",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "discount",
+            "value": null,
+            "count": null,
+            "age_range": null,
+            "source_phrase": "Pass admission is equivalent to the admission benefit of a Trustees Family Level Membership for two adults and children under 18. Pass is valid at any Trustees property that charges admission, including (but not limited to): deCordova Sculpture Park , Fruitlands , the Old Manse ,"
+          }
+        ],
+        "summary": "discount",
+        "source_phrase_block": "Pass admission is equivalent to the admission benefit of a Trustees Family Level Membership for two adults and children under 18. Pass is valid at any Trustees property that charges admission, including (but not limited to): deCordova Sculpture Park , Fruitlands , the Old Manse , and Castle Hill on the Crane Estate . Please check the Trustees' website for information on properties, admission rates, parking, and other regulations: https://thetrustees.org/ The Trustees passes are valid for admission only ; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, equipment rental, or in place of any other permits or passes. This pass can be picked up one week in advance."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "closed",
@@ -10833,15 +10850,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "people",
+          "n": 2
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "discount",
             "value": null,
-            "count": 1,
+            "count": 2,
             "age_range": null,
             "source_phrase": "GO Pass coupon admits 2 adults and children under 18 to Trustees properties. Some Trustees locations require that visitors go online to reserve a timed-entry. Visit the Trustees website for up-to-date information: www.thetrustees.org/ GO Passes are valid for admission only. They "
           }
@@ -12530,15 +12547,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "per-person-price",
             "value": 15,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "Each promo code may be redeemed for up to two adult tickets ($15 each) and four youth tickets ($10 each). Children 6 and under are admitted for free. Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shoppi"
           }
@@ -13441,15 +13458,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "per-person-price",
             "value": 15,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "Each pass allows admission for 2 adults at $15 each (general admission and special exhibition) and up to 4 children ages 7–17 at $10 each. Children 0-6 years of age are admitted free. Promo codes and library passes are not applicable toward discounts on shopping, parking, dining,"
           }
@@ -15566,7 +15583,7 @@
     {
       "library_id": "everett",
       "attraction_slug": "peabody-essex-museum",
-      "pass_form": "physical_coupon",
+      "pass_form": "digital_email",
       "available_at_branches": "all",
       "source_url": "https://everettpubliclibraries.assabetinteractive.com/museum-passes/by-museum/peabody-essex-museum/",
       "source_phrases": [
@@ -15574,7 +15591,24 @@
         "GO Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, Inns, Campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes.",
         "To use GO Passes with a Trustees site that requires timed entry, you will need to enter the promo code listed on the physical pass. Passes are available at www.thetrustees.org/passes"
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "unspecified",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "discount",
+            "value": null,
+            "count": null,
+            "age_range": null,
+            "source_phrase": "GO Passes allow for one-time use as admission for two adults and children under 18 to any of the 100+ Trustees properties. GO Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. GO Passes are valid for "
+          }
+        ],
+        "summary": "discount",
+        "source_phrase_block": "GO Passes allow for one-time use as admission for two adults and children under 18 to any of the 100+ Trustees properties. GO Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. GO Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, Inns, Campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. To use GO Passes with a Trustees site that requires timed entry, you will need to enter the promo code listed on the physical pass. Passes are available at www.thetrustees.org/passes"
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "closed",
@@ -17152,7 +17186,24 @@
       "source_phrases": [
         "This pass will provide reduced general admission of $5 for four (4) adults (18 years and over).&nbsp; Youths 17 and under are always free and should be reserved as child tickets.&nbsp; This pass is emailed to you - you will not need to come in to the library to pick it up. Please make sure you enter your current email address when making your reservation."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "unspecified",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "per-person-price",
+            "value": 5,
+            "count": null,
+            "age_range": null,
+            "source_phrase": "This pass will provide reduced general admission of $5 for four (4) adults (18 years and over). Youths 17 and under are always free and should be reserved as child tickets. This pass is emailed to you - you will not need to come in to the library to pick it up. Please make sure y"
+          }
+        ],
+        "summary": "$5/person",
+        "source_phrase_block": "This pass will provide reduced general admission of $5 for four (4) adults (18 years and over). Youths 17 and under are always free and should be reserved as child tickets. This pass is emailed to you - you will not need to come in to the library to pick it up. Please make sure you enter your current email address when making your reservation."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "closed",
@@ -24152,15 +24203,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "per-person-price",
             "value": 15,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "Children 6 and under are admitted free. Each pass allows admission for 2 adults at $15 each and up to 4 children ages 7–17 at $10 each. A library pass will not be accepted for admission into the Museum. Patrons can use the promo code (given when you reserve your pass) to reserve "
           }
@@ -28068,15 +28119,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "free",
             "value": 0,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "MELROSE PUBLIC LIBRARY - PADDLE BOSTON SPOT POND PASS: This pass is valid for online reservations and walk-up rentals at Spot Pond , in Stoneham, MA ( valid only for date printed on the pass ) . This pass allows 1 boat rental free of charge at Spot Pond (there are options for boa"
           }
@@ -30457,15 +30508,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "people",
+          "n": 2
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "percent-off",
             "value": 50,
-            "count": 1,
+            "count": 2,
             "age_range": null,
             "source_phrase": "This pass allows two adults and up to 4 children at 50% off the cost of regular admission. Library pass holders are still required to pay the NH State Parks use fee for Odiorne Point State Park. This pass must be picked up at the library."
           }
@@ -35467,15 +35518,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "per-person-price",
             "value": 15,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "Reserving this pass gives you access to a promo code which can be used for discounted admission. Each promo code provides a discount for: 2 adults at $15 each (general admission & special exhibition) up to 4 children ages 7–17 at $10 each (special exhibition only). There is no di"
           }
@@ -35792,7 +35843,7 @@
     {
       "library_id": "north-andover",
       "attraction_slug": "peabody-essex-museum",
-      "pass_form": "physical_coupon",
+      "pass_form": "digital_email",
       "available_at_branches": "all",
       "source_url": "https://stevensmemlib.assabetinteractive.com/museum-passes/by-museum/peabody-essex-museum/",
       "source_phrases": [
@@ -35803,7 +35854,24 @@
         "To use with a site that requires timed passes, please enter the promo code (printed on coupon) when securing a timed ticket. See www.thetrustees.org/passes for more details.",
         "Please note: Not every Trustees property charges an admission fee, and some locations require advanced ticketing. For information about the admission at each property, please visit TheTrustees.Org."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "unspecified",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "discount",
+            "value": null,
+            "count": null,
+            "age_range": null,
+            "source_phrase": "This pass must be picked up at the library. The Trustees GO Pass: is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, on any equipment rental, or in place of any other permits or passes allow"
+          }
+        ],
+        "summary": "discount",
+        "source_phrase_block": "This pass must be picked up at the library. The Trustees GO Pass: is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events and programs, on any equipment rental, or in place of any other permits or passes allows free or reduced admission at the Family Level Membership price at Trustees properties that charge an admission fee To use with a site that requires timed passes, please enter the promo code (printed on coupon) when securing a timed ticket. See www.thetrustees.org/passes for more details. Please note: Not every Trustees property charges an admission fee, and some locations require advanced ticketing. For information about the admission at each property, please visit TheTrustees.Org."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "closed",
@@ -42200,7 +42268,24 @@
         "What the Constitution Means to Me opens on Friday, April 10th and runs through Sunday, April 26th.&nbsp;",
         "Annie opens on Friday, May 29th and runs through Sunday, June 28th."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "ticket",
+          "n": 12
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "free",
+            "value": 0,
+            "count": 12,
+            "age_range": null,
+            "source_phrase": "The coupon code covers the cost of up to 12 tickets per mainstage show. There is a limit of 2 tickets per person. This pass is NOT a reservation and does not need to be picked up at the library. You must reserve a ticket for a specific day and time prior to the performance you wi"
+          }
+        ],
+        "summary": "FREE",
+        "source_phrase_block": "The coupon code covers the cost of up to 12 tickets per mainstage show. There is a limit of 2 tickets per person. This pass is NOT a reservation and does not need to be picked up at the library. You must reserve a ticket for a specific day and time prior to the performance you wish to attend. Tickets must be reserved by calling the Greater Boston Stage Company at (781) 279-2200. The GBSC Box Office is open noon to 4 pm Tuesday through Friday. Your tickets are only valid for the date and time you reserve. This season's Main Stage shows: Featherbaby opens on Friday, September 12th and runs through Sunday, December 28th. Murder for Two opens on Friday, October 5th and runs through Sunday, November 9th. An Irish Carol opens on Friday, December 5th and runs through Sunday, December 21st."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "closed",
@@ -42907,7 +42992,7 @@
     {
       "library_id": "stoneham",
       "attraction_slug": "salem-witch-museum",
-      "pass_form": "physical_coupon",
+      "pass_form": "physical_circ",
       "available_at_branches": "all",
       "source_url": "https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/salem-witch-museum/",
       "source_phrases": [
@@ -42916,7 +43001,24 @@
         "This pass is not limited by date or time .&nbsp;",
         "This pass is valid at any of 100+ Trustees properties . Hours vary by location. To see a list of Trustees properties, click here. &nbsp;"
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": 2
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "discount",
+            "value": null,
+            "count": 2,
+            "age_range": null,
+            "source_phrase": "This pass admits up to 2 adults and 2 children under 18 at an equivalent to a Trustees Family Membership admission price at Trustees properties that charge and admission fee. This pass is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, in"
+          }
+        ],
+        "summary": "Discount",
+        "source_phrase_block": "This pass admits up to 2 adults and 2 children under 18 at an equivalent to a Trustees Family Membership admission price at Trustees properties that charge and admission fee. This pass is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. This is a physical pass that must be picked up at the library and can be discarded after use . This pass is not limited by date or time . This pass is valid at any of 100+ Trustees properties . Hours vary by location. To see a list of Trustees properties, click here."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "closed",
@@ -45017,20 +45119,20 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "discount",
             "value": null,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "This is a coupon pass that must be picked up at the Library. The Trustees GO Pass: is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events or programs, on any equipment rental, or in place of any other permits"
           }
         ],
-        "summary": "Discount",
+        "summary": "discount",
         "source_phrase_block": "This is a coupon pass that must be picked up at the Library. The Trustees GO Pass: is valid for admission only; it is not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, special events or programs, on any equipment rental, or in place of any other permits or passes allows free or reduced admission, for 2 adults and children under 18, at the Family Level Membership price at Trustees properties that charge an admission fee To use this pass at Fruitlands, deCordova, or Castle Hill, please enter the promo code GOPASS when securing a timed ticket. Tickets are available at www.thetrustees.org/passes. You must present the physical Library pass at the property in order to receive the discount. Please note: For a list of properties and information about the hours and admission requirements at each property, please visit www.thetrustees.org"
       },
       "restrictions": null,
@@ -45899,20 +46001,20 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "discount",
             "value": null,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "The pass is valid for one-time use at any of 128 properties that collect an admission fee. Pass holder will pay an admission fee equivalent to that of a Trustees Family level membership (under most circumstances, this is free). Pass is not valid for use at Trustees parking kiosks"
           }
         ],
-        "summary": "Discount",
+        "summary": "discount",
         "source_phrase_block": "The pass is valid for one-time use at any of 128 properties that collect an admission fee. Pass holder will pay an admission fee equivalent to that of a Trustees Family level membership (under most circumstances, this is free). Pass is not valid for use at Trustees parking kiosks, stores, cafes, Inns, campgrounds, at special events and programs, or in place of any permits or passes. View all Trustees properties here . After the pass is reserved, it must be picked up at the Topsfield Town Library Circulation Desk during our hours of operation. The pass does not need to be returned to the library. Due to high demand, advance admission passes to the most popular properties are either required or strongly encouraged . When reserving your pass, you will receive a promo code that you can use to receive the discounted rate."
       },
       "restrictions": null,
@@ -46643,15 +46745,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "people",
+          "n": 2
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "per-person-price",
             "value": 10,
-            "count": 1,
+            "count": 2,
             "age_range": null,
             "source_phrase": "Pass admits 2 adults at $10 a person (general admission and special exhibition) and up to 4 children ages 7-17 at $10 each (general and special exhibition). There is no discount for children 7-17 for general admisson, currently $10. Children under 6 are admitted free. Please note"
           }
@@ -47862,15 +47964,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "per-person-price",
             "value": 15,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "For visit dates beginning January 20, 2026, each promo code may be redeemed for up to 2 adult tickets for $15 each and 4 youth tickets for $10 each. Promo codes are redeemable online, over the phone, or at any MFA ticket desk. Passes are not applicable toward discounts on shoppin"
           }
@@ -49598,15 +49700,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "percent-off",
             "value": 50,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "This is a SET OF 2 laminated passes, each pass offers discount to ONE person: Adults (age 18 and over) receive 50% the regular admission price. Children (age 6 to 17) are admitted for $1. Children (age 5 and younger) are admitted for free. Patrons may pick up their passes the day"
           }
@@ -52440,15 +52542,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "people",
+          "n": 2
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "per-person-price",
             "value": 15,
-            "count": 1,
+            "count": 2,
             "age_range": null,
             "source_phrase": "Each pass allows admission for 2 adults at $15 each and up to 4 children, ages 7-17, at $10 each (general and special exhibition) . There is no discount for children 7-17 for general admission, currently $10. Youths 0 - 6 are admitted to the museum free of charge. The library mak"
           }
@@ -53840,15 +53942,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "people",
+          "n": 4
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "per-person-price",
             "value": 2,
-            "count": 1,
+            "count": 4,
             "age_range": null,
             "source_phrase": "Pass admits up to 4 people at $2 per person (children under two are admitted free) Hours of operation vary by sanctuary. Visitors must reserve their parking spot at Drumlin Farm to ensure access on weekends when they reach capacity. Check the their website for guidelines and upda"
           }
@@ -56596,15 +56698,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "per-person-price",
             "value": 10,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "Each Pass allows admission for 2 adults at $10 each and up to 4 children ages 7-17 at $10 each (general admission and special exhibition). Children 6 and under are free. The MFA encourages everyone to reserve tickets online in advance at mfa.org/tickets , although you will be abl"
           }
@@ -57897,7 +57999,7 @@
     {
       "library_id": "bpl",
       "attraction_slug": "mass-audubon-wildlife-sanctuary",
-      "pass_form": "physical_coupon",
+      "pass_form": "digital_email",
       "available_at_branches": "all",
       "source_url": "https://bpl.libcal.com/passes/76269f5073ed",
       "source_phrases": [
@@ -57905,7 +58007,24 @@
         "Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
         "To use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "unspecified",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "per-person-price",
+            "value": 2,
+            "count": null,
+            "age_range": null,
+            "source_phrase": "This pass allows up to four patrons per visit. Each visitor will be charged $2.00. Children under two are admitted free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below. To use this platform, the system writes one or m"
+          }
+        ],
+        "summary": "$2/person",
+        "source_phrase_block": "This pass allows up to four patrons per visit. Each visitor will be charged $2.00. Children under two are admitted free. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below. To use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "booked",
@@ -58374,7 +58493,7 @@
     {
       "library_id": "bpl",
       "attraction_slug": "the-greenway-carousel-e-coupon",
-      "pass_form": "physical_coupon",
+      "pass_form": "digital_email",
       "available_at_branches": "all",
       "source_url": "https://bpl.libcal.com/passes/85ce3124733e",
       "source_phrases": [
@@ -58382,7 +58501,24 @@
         "Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below.",
         "To use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": 4
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "free",
+            "value": 0,
+            "count": 4,
+            "age_range": null,
+            "source_phrase": "Free Greenway Carousel family admission (up to 4 individuals) for one ride (e-coupon). Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below. To use this platform, the system writes one or more cookies in your browser. These"
+          }
+        ],
+        "summary": "FREE",
+        "source_phrase_block": "Free Greenway Carousel family admission (up to 4 individuals) for one ride (e-coupon). Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below. To use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "booked",
@@ -58422,7 +58558,7 @@
     {
       "library_id": "bpl",
       "attraction_slug": "trustees-go-pass-physical-pass",
-      "pass_form": "physical_coupon",
+      "pass_form": "digital_email",
       "available_at_branches": "all",
       "source_url": "https://bpl.libcal.com/passes/eb6d133c0fb7",
       "source_phrases": [
@@ -58437,7 +58573,24 @@
         "Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.",
         "To use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": 2
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "discount",
+            "value": null,
+            "count": 2,
+            "age_range": null,
+            "source_phrase": "Coupon allows two adults and children under 18 entry at Family membership rates. Pass is valid for one-time use at any of 116 properties that collect an admission fee. Pass holder will pay an admission fee equivalent to that of a Trustees Family level membership. Pass is not vali"
+          }
+        ],
+        "summary": "Discount",
+        "source_phrase_block": "Coupon allows two adults and children under 18 entry at Family membership rates. Pass is valid for one-time use at any of 116 properties that collect an admission fee. Pass holder will pay an admission fee equivalent to that of a Trustees Family level membership. Pass is not valid for use at Trustees parking kiosks, stores, cafes, Inns, campgrounds, at special events and programs or in place of any permits or passes. To use GO passes at Fruitlands, deCordova, or Castle Hill, please enter the promo code \"GOPASS\" when securing a time ticket. For all other properties, please book a Trustees GO Pass. THIS IS A DISPOSABLE PASS This pass may be picked up at any time after you make your reservation. It must be picked up at the location you made the reservation. It does not need to be returned. Consult branch operating hours before you pick up the pass. The email reservation confirmation is NOT a valid coupon. Note: This pass is limited to one booking per month per person."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "booked",
@@ -59255,15 +59408,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "per-person-price",
             "value": 15,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "465 Huntington Ave., Boston, MA, 02115-5523 Map 617-267-9300 Each pass is good for up to two adult tickets ($15 each) and four youth tickets ($10 each). After making your reservation you will receive a confirmation email containing a Promo Code which is redeemable online, over th"
           }
@@ -60167,7 +60320,7 @@
     {
       "library_id": "brookline",
       "attraction_slug": "larz-anderson-auto-museum",
-      "pass_form": "physical_coupon",
+      "pass_form": "physical_circ",
       "available_at_branches": "all",
       "source_url": "https://brooklinelibrary.libcal.com/passes/larz",
       "source_phrases": [
@@ -60178,7 +60331,24 @@
         "Pass benefits:&nbsp;Free admission for up to 4 visitors.&nbsp;",
         "No passes are available at this time."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": 4
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "free",
+            "value": 0,
+            "count": 4,
+            "age_range": null,
+            "source_phrase": "15 Newton Street, Brookline, MA, 02445 Map (617) 522-6547 The Larz Anderson Auto Museum in the 64-acre Larz Anderson Park showcases \"America's Oldest Car Collection\" in the historic Carriage House. The museum offers engaging attractions, including Lawn Events, family-friendly gat"
+          }
+        ],
+        "summary": "FREE",
+        "source_phrase_block": "15 Newton Street, Brookline, MA, 02445 Map (617) 522-6547 The Larz Anderson Auto Museum in the 64-acre Larz Anderson Park showcases \"America's Oldest Car Collection\" in the historic Carriage House. The museum offers engaging attractions, including Lawn Events, family-friendly gatherings, and car history lectures. A visit promises a day of exploration and enjoyment, creating lasting memories. This pass must be reserved through the library's online catalog. The pass must be picked up and returned to the library's Brookline Village location. Pass benefits: Free admission for up to 4 visitors. No passes are available at this time."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "booked",
@@ -60230,7 +60400,24 @@
         "Pass benefits: Admits up to 4 for free. Children ages 12 and under receive free admission.&nbsp;Visit the Museum of African American History&#39;s website.",
         "No passes are available at this time."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "unspecified",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "free",
+            "value": 0,
+            "count": null,
+            "age_range": null,
+            "source_phrase": "46 Joy St., Boston, MA, 02114 Map (617) 725-0022 We understand the importance of filling in the missing pages of American history. Here, you will be connected to amazing and authentic representations of life in the 18th and 19th centuries, in the place where a free Black communit"
+          }
+        ],
+        "summary": "FREE",
+        "source_phrase_block": "46 Joy St., Boston, MA, 02114 Map (617) 725-0022 We understand the importance of filling in the missing pages of American history. Here, you will be connected to amazing and authentic representations of life in the 18th and 19th centuries, in the place where a free Black community changed the course of American history. As New England's largest museum dedicated to preserving, conserving and interpreting the contributions of African Americans, we invite you to explore the historic sites in our Boston and Nantucket locations, along with The Museum's Black Heritage Trails&reg;. Exhibits, programs, and education activities at the Museum showcase the powerful stories of black families who worshipped, educated their children, debated the issues of the day, organized politically and advanced the cause of freedom. Pass benefits: Admits up to 4 for free. Children ages 12 and under receive free admission. Visit the Museum of African American History's website. No passes are available at this time."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "booked",
@@ -60541,7 +60728,7 @@
     {
       "library_id": "brookline",
       "attraction_slug": "the-trustees",
-      "pass_form": "physical_coupon",
+      "pass_form": "physical_circ",
       "available_at_branches": "all",
       "source_url": "https://brooklinelibrary.libcal.com/passes/trustees",
       "source_phrases": [
@@ -60551,7 +60738,24 @@
         "Pass benefits: Admits up to 2 adults and children (under 18) at free or reduced admission at Trustees sites that charge admission.&nbsp;Visit the The Trustees&#39;s website.",
         "Physical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": 2
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "discount",
+            "value": null,
+            "count": 2,
+            "age_range": null,
+            "source_phrase": "200 High Street, Boston, MA, 02110 Map (617) 542-7696 As a steward of distinctive and dynamic places of both historic and cultural value, The Trustees is the nation's first and Massachusetts' largest preservation and conservation nonprofit, and its landscapes and landmarks contin"
+          }
+        ],
+        "summary": "Discount",
+        "source_phrase_block": "200 High Street, Boston, MA, 02110 Map (617) 542-7696 As a steward of distinctive and dynamic places of both historic and cultural value, The Trustees is the nation's first and Massachusetts' largest preservation and conservation nonprofit, and its landscapes and landmarks continue to inspire discussion, innovation, and action today as they did in the past. Supported by members, friends and donors, The Trustees' more than 100 reservations are destinations for residents, members, and visitors alike, welcoming millions of guests annually. Pass benefits: Admits up to 2 adults and children (under 18) at free or reduced admission at Trustees sites that charge admission. Visit the The Trustees's website. Physical (must be picked up at the library and returned) passes are available. Select your desired visit date from the calendar below."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "booked",
@@ -60591,7 +60795,7 @@
     {
       "library_id": "brookline",
       "attraction_slug": "uss-constitution-museum",
-      "pass_form": "physical_coupon",
+      "pass_form": "digital_email",
       "available_at_branches": "all",
       "source_url": "https://brooklinelibrary.libcal.com/passes/ussc",
       "source_phrases": [
@@ -60601,7 +60805,24 @@
         "Pass benefits: Admits up to 9 for free to the Museum.&nbsp; Admission to the Ship is free on a first-come, first-served basis and requires a security inspection and photo identification for visitors over 18.&nbsp;Visit the USS Constitution Museum&#39;s website.",
         "Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "unspecified",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "free",
+            "value": 0,
+            "count": null,
+            "age_range": null,
+            "source_phrase": "88 Constitution Road, Boston, MA, 02129 Map (617) 426-1812 The USS Constitution Museum is located in the Charlestown Navy Yard, which is part of the Boston National Historical Park in Boston, Massachusetts, United States. The museum is situated near the ship USS Constitution at t"
+          }
+        ],
+        "summary": "FREE",
+        "source_phrase_block": "88 Constitution Road, Boston, MA, 02129 Map (617) 426-1812 The USS Constitution Museum is located in the Charlestown Navy Yard, which is part of the Boston National Historical Park in Boston, Massachusetts, United States. The museum is situated near the ship USS Constitution at the end of Boston's Freedom Trail. It serves as the memory and educational voice of USS Constitution by collecting, preserving, and interpreting the stories of \"Old Ironsides\" and those associated with her. We seek to engage all ages in the story of Constitution to spark excitement about maritime culture, naval service, and the American experience. We will share \"Old Ironsides\"' contributions with a global audience, and we will strive to be the best museum possible based on scholarship and innovative ways of sharing Constitution's stories. Pass benefits: Admits up to 9 for free to the Museum. Admission to the Ship is free on a first-come, first-served basis and requires a security inspection and photo identification for visitors over 18. Visit the USS Constitution Museum's website. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "booked",
@@ -61689,7 +61910,7 @@
     {
       "library_id": "cambridge",
       "attraction_slug": "trustees-go-pass",
-      "pass_form": "physical_coupon",
+      "pass_form": "physical_circ",
       "available_at_branches": "all",
       "source_url": "https://cambridgepl.libcal.com/passes/trustees-go-pass",
       "source_phrases": [
@@ -61700,7 +61921,24 @@
         "Valid at more than 100 Trustees properties that collect an admission fee (including Fruitlands, deCordova and The Old Manse). Please note that some properties require pre-registration.&nbsp;Information about properties and advance registration available here:&nbsp;https://thetrustees.org/content/passes/",
         "Physical passes must be picked up from one of the library locations listed in the dropdown menu below. Select your location preference and then pick the dates from the availability calendar."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": 2
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "discount",
+            "value": null,
+            "count": 2,
+            "age_range": null,
+            "source_phrase": "200 High Street, Boston, MA, 02110 Map 978-921-1944 SEASONAL PASS - Each pass admits 2 adults & children under 18 at the Family Level admission rate. Passes are not date specific and can be used once until the expiration date printed on the pass. Valid at more than 100 Trustees p"
+          }
+        ],
+        "summary": "Discount",
+        "source_phrase_block": "200 High Street, Boston, MA, 02110 Map 978-921-1944 SEASONAL PASS - Each pass admits 2 adults & children under 18 at the Family Level admission rate. Passes are not date specific and can be used once until the expiration date printed on the pass. Valid at more than 100 Trustees properties that collect an admission fee (including Fruitlands, deCordova and The Old Manse). Please note that some properties require pre-registration. Information about properties and advance registration available here: https://thetrustees.org/content/passes/ Physical passes must be picked up from one of the library locations listed in the dropdown menu below. Select your location preference and then pick the dates from the availability calendar."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "booked",
@@ -62428,7 +62666,7 @@
     {
       "library_id": "milton",
       "attraction_slug": "paul-revere-heritage-site",
-      "pass_form": "physical_coupon",
+      "pass_form": "digital_email",
       "available_at_branches": "all",
       "source_url": "https://miltonlibrary.libcal.com/passes/89c55eda7c32",
       "source_phrases": [
@@ -62440,7 +62678,24 @@
         "PLEASE BRING YOUR CONFIRMATION EMAIL TO THE MPL TO PICK UP YOUR PASS BEFORE GOING TO THE MUSEUM.",
         "Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "people",
+          "n": 2
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "dollar-off",
+            "value": 50,
+            "count": 2,
+            "age_range": null,
+            "source_phrase": "2 Rolling Mill Way, Canton, MA, 02021 Map 781-828-1845 Each pass admits 2 people at 50$ off regular admission. Special events are not included. The pass is a physical coupon and you need to pick it up at the Milton Public Library before going to the museum. PLEASE BRING YOUR CONF"
+          }
+        ],
+        "summary": "$50 off",
+        "source_phrase_block": "2 Rolling Mill Way, Canton, MA, 02021 Map 781-828-1845 Each pass admits 2 people at 50$ off regular admission. Special events are not included. The pass is a physical coupon and you need to pick it up at the Milton Public Library before going to the museum. PLEASE BRING YOUR CONFIRMATION EMAIL TO THE MPL TO PICK UP YOUR PASS BEFORE GOING TO THE MUSEUM. Digital (downloadable via email) passes are available. Select your desired visit date from the calendar below."
+      },
       "restrictions": null,
       "availability": {
         "2026-05-01": "booked",
@@ -62671,7 +62926,24 @@
       "source_phrases": [
         "Free Lecture Series Pass. Check this pass out from the library and present it upon entrance to the Historical Society's Event. Pass does not need to be returned. Visit museum website for more information. Isabella Stewart Gardner Museum"
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "unspecified",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "free",
+            "value": 0,
+            "count": null,
+            "age_range": null,
+            "source_phrase": "Free Lecture Series Pass. Check this pass out from the library and present it upon entrance to the Historical Society's Event. Pass does not need to be returned. Visit museum website for more information. Isabella Stewart Gardner Museum"
+          }
+        ],
+        "summary": "FREE",
+        "source_phrase_block": "Free Lecture Series Pass. Check this pass out from the library and present it upon entrance to the Historical Society's Event. Pass does not need to be returned. Visit museum website for more information. Isabella Stewart Gardner Museum"
+      },
       "restrictions": null,
       "availability": {},
       "eligibility_override": null
@@ -62718,15 +62990,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "percent-off",
             "value": 50,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "Present your physical or digital Massachusetts library card at the Admissions Desk to receive a 50% discount on the cardholder's admission ticket. This offer is valid for visitors aged 13 and over and the visitor must present a Massachusetts library card to receive the discount. "
           }
@@ -62780,15 +63052,15 @@
       ],
       "coupon": {
         "capacity": {
-          "kind": "vehicle",
-          "n": 1
+          "kind": "unspecified",
+          "n": null
         },
         "audience_policies": [
           {
             "audience": "Everyone",
             "form": "per-person-price",
             "value": 15,
-            "count": 1,
+            "count": null,
             "age_range": null,
             "source_phrase": "Updated 03/26/2026 Use promo code IP-1636144 to receive a discount on MFA tickets. Visit mfa.org/tickets . Use promo code IP-1636144 to receive a discount and select Library Pass Ticket. The ticket will be emailed to the patron. For visit dates beginning January 20, 2026, each pr"
           }
@@ -62931,13 +63203,30 @@
     {
       "library_id": "cohasset",
       "attraction_slug": "the-trustees-of-reservations-go-pass",
-      "pass_form": "physical_coupon",
+      "pass_form": "digital_email",
       "available_at_branches": "all",
       "source_url": null,
       "source_phrases": [
         "Go Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. Go Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. To use Go Passes with a site that requires timed passes, please enter the promo code \"GOPASS\" when securing a timed ticket. GoPass is good for admission of two adults and all children under the age of 18. Visit museum website for more information. USS Constitution Museum"
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "unspecified",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "discount",
+            "value": null,
+            "count": null,
+            "age_range": null,
+            "source_phrase": "Go Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. Go Pass admission is equivalent to a Trustees Family Membership admissio"
+          }
+        ],
+        "summary": "discount",
+        "source_phrase_block": "Go Passes are valid for admission only; not valid for discounts at parking kiosks, stores, cafes, inns, campgrounds, at special events or programs, on equipment rentals, or in place of any permits or passes. Go Pass admission is equivalent to a Trustees Family Membership admission price at Trustees properties that charge an admission fee. To use Go Passes with a site that requires timed passes, please enter the promo code \"GOPASS\" when securing a timed ticket. GoPass is good for admission of two adults and all children under the age of 18. Visit museum website for more information. USS Constitution Museum"
+      },
       "restrictions": null,
       "availability": {},
       "eligibility_override": null
@@ -63463,13 +63752,30 @@
     {
       "library_id": "hingham",
       "attraction_slug": "the-trustees-of-reservations-go-pass",
-      "pass_form": "physical_coupon",
+      "pass_form": "physical_circ",
       "available_at_branches": "all",
       "source_url": null,
       "source_phrases": [
         "This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. Pass provides free or reduced admission for 2 Adults and children under 18 to Trustees properties across the state, including World's End in Hingham."
       ],
-      "coupon": null,
+      "coupon": {
+        "capacity": {
+          "kind": "unspecified",
+          "n": null
+        },
+        "audience_policies": [
+          {
+            "audience": "Everyone",
+            "form": "discount",
+            "value": null,
+            "count": null,
+            "age_range": null,
+            "source_phrase": "This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. Pass provides free or reduced admission for 2 Adults and children under 18 to Trustees properties acros"
+          }
+        ],
+        "summary": "discount",
+        "source_phrase_block": "This is a physical pass that must be picked up at the Reference Desk. Please remember we are closed on Fridays and Summer Sundays, so be sure to pick up your passes in advance. Pass provides free or reduced admission for 2 Adults and children under 18 to Trustees properties across the state, including World's End in Hingham."
+      },
       "restrictions": null,
       "availability": {},
       "eligibility_override": null
