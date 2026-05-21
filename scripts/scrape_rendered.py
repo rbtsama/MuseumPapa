@@ -40,6 +40,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
+SEEDS_PATH = ROOT / "config" / "library_seeds.json"
+
 from malibbene.common.http import fetch  # noqa: E402
 from malibbene.common.eligibility_text import (  # noqa: E402
     classify_card_eligibility,
@@ -75,9 +77,16 @@ RAW = ROOT / "data" / "raw"
 # Job 1 — WAF-blocked library card-eligibility pages
 # ---------------------------------------------------------------------------
 
-# lib_id -> (platform, candidate card-page URLs in priority order).
-# These are the real "get a library card / library card" pages that 403 to
-# plain urllib. We try each candidate with Playwright until one renders.
+# Seed-driven recovery (primary): every seed library flagged
+# ``requires_render_js: true`` is rendered with Playwright using its own
+# ``card_page`` (and, as a fallback candidate, its ``pass_page``). Flagging a
+# new lib = adding ``requires_render_js: true`` + a correct ``card_page`` to its
+# seed in config/library_seeds.json, then running this script.
+#
+# WAF_CARD_PAGES below is an EXTRA fallback candidate map: if a lib's seed
+# card_page doesn't render an eligibility cue, any extra candidate URLs listed
+# here for that lib_id are also tried. The seed flag is the primary driver — a
+# lib does NOT need a WAF_CARD_PAGES entry to be processed.
 WAF_CARD_PAGES: dict[str, dict] = {
     "tewksbury": {
         "platform": "assabet",
@@ -94,6 +103,36 @@ WAF_CARD_PAGES: dict[str, dict] = {
         ],
     },
 }
+
+
+def _load_render_seeds() -> list[dict]:
+    """Seed libraries flagged ``requires_render_js: true`` (the primary driver)."""
+    data = json.loads(SEEDS_PATH.read_text(encoding="utf-8"))
+    seeds = data["libraries"] if isinstance(data, dict) else data
+    return [s for s in seeds if s.get("requires_render_js")]
+
+
+def _candidate_urls(seed: dict) -> list[str]:
+    """Ordered, de-duplicated candidate URLs for one seed library.
+
+    Priority: seed ``card_page`` first (the real get-a-card page), then any
+    extra URLs from WAF_CARD_PAGES for this lib_id, then the seed ``pass_page``
+    as a last resort (some pass pages embed the residency rule).
+    """
+    out: list[str] = []
+    seen: set[str] = set()
+
+    def _add(u: str | None) -> None:
+        if u and u not in seen:
+            seen.add(u)
+            out.append(u)
+
+    _add(seed.get("card_page"))
+    extra = WAF_CARD_PAGES.get(seed["id"], {}).get("candidates", [])
+    for u in extra:
+        _add(u)
+    _add(seed.get("pass_page"))
+    return out
 
 
 # Number of render attempts per candidate URL — some municipal sites render
@@ -121,8 +160,13 @@ def _has_eligibility_cue(html: str) -> bool:
 
 def recover_policies() -> list[dict]:
     results: list[dict] = []
-    for lib_id, cfg in WAF_CARD_PAGES.items():
-        platform = cfg["platform"]
+    seeds = _load_render_seeds()
+    if not seeds:
+        print("[policies] no seed libraries flagged requires_render_js:true")
+    for seed in seeds:
+        lib_id = seed["id"]
+        platform = seed["platform"]
+        candidates = _candidate_urls(seed)
         out_path = RAW / platform / "policies" / f"{lib_id}.json"
         existing = (
             json.loads(out_path.read_text(encoding="utf-8"))
@@ -132,9 +176,9 @@ def recover_policies() -> list[dict]:
 
         recovered_url = None
         card_policy = None
-        last_error = None
+        last_error = "no candidate URLs in seed (card_page/pass_page both null)"
         html = None
-        for url in cfg["candidates"]:
+        for url in candidates:
             html = None
             for _ in range(_RENDER_RETRIES):
                 try:
@@ -188,7 +232,7 @@ def recover_policies() -> list[dict]:
                 "lib": lib_id,
                 "status": "blocked",
                 "reason": last_error,
-                "tried": cfg["candidates"],
+                "tried": candidates,
             })
             print(f"[policies] {lib_id}: STILL BLOCKED ({last_error})")
     return results
