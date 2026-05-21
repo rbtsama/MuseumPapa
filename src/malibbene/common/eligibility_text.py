@@ -104,6 +104,22 @@ def classify_card_eligibility(text: str) -> CardEligibility:
     return CardEligibility.UNKNOWN
 
 
+# A residency restriction only counts as a *pass-pickup* policy when it sits in
+# the same sentence as a pass / reservation cue. Pass-page text is dominated by
+# individual museum blurbs (e.g. "Harvard Museums ... are free to Massachusetts
+# residents every Sunday morning") that describe the MUSEUM's own admission rules,
+# not who at the library may reserve the pass — those must NOT classify pickup.
+_PASS_RESIDENCY_SENTENCE = re.compile(
+    r"[^.!?\n]*\b(?:pass|passes|reserve|reservation|check\s+out|pick\s+up|borrow)\b"
+    r"[^.!?\n]*\b(?:(?:massachusetts|mass\.?)\s+residents?|[A-Z][a-zA-Z]+\s+residents?\s+only|"
+    r"residents?\s+only|residents?\s+of\s+(?:the\s+)?(?:commonwealth|massachusetts|[A-Z][a-zA-Z]+))\b"
+    r"|[^.!?\n]*\b(?:(?:massachusetts|mass\.?)\s+residents?|[A-Z][a-zA-Z]+\s+residents?\s+only|"
+    r"residents?\s+only)\b"
+    r"[^.!?\n]*\b(?:pass|passes|reserve|reservation|check\s+out|pick\s+up|borrow)\b",
+    re.I,
+)
+
+
 def classify_pass_pickup(text: str) -> PassPickupPolicy:
     if not text:
         return PassPickupPolicy.UNKNOWN
@@ -111,10 +127,14 @@ def classify_pass_pickup(text: str) -> PassPickupPolicy:
         return PassPickupPolicy.WALKIN_FOR_NONRESIDENTS
     if _TOWN_CARDHOLDER.search(text):
         return PassPickupPolicy.TOWN_CARDHOLDER_ONLY
-    if _TOWN_RESIDENT.search(text):
-        return PassPickupPolicy.TOWN_RESIDENT
-    if _MA_RESIDENT.search(text):
-        return PassPickupPolicy.MA_RESIDENT
+    # Residency-scoped pickup only when tied to a pass/reservation cue.
+    sent = _PASS_RESIDENCY_SENTENCE.search(text)
+    if sent:
+        frag = sent.group(0)
+        if _MA_RESIDENT.search(frag):
+            return PassPickupPolicy.MA_RESIDENT
+        if _TOWN_RESIDENT.search(frag) or re.search(r"\bresidents?\s+only\b", frag, re.I):
+            return PassPickupPolicy.TOWN_RESIDENT
     if _NETWORK.search(text):
         return PassPickupPolicy.NETWORK
     return PassPickupPolicy.UNKNOWN
