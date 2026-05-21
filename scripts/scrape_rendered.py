@@ -150,12 +150,14 @@ def recover_policies() -> list[dict]:
                 continue
             # extract_policy_text keeps only the first 30 text blocks; on
             # nav-heavy municipal pages the eligibility sentence sits below
-            # that cut. So we classify against the FULL flattened page text
-            # (real content, not fabricated) and keep the blob for provenance.
-            blob = extract_policy_text(html)
+            # that cut. We classify against the FULL flattened page text (real
+            # content, not fabricated) AND persist that same full_text as
+            # policy_text — otherwise reclassify_policies.py (which re-derives
+            # from the persisted policy_text) would lose the eligibility cue and
+            # silently revert the lib to unknown on the next run.
             full_text = html_to_text(html)
             card_policy = {
-                "policy_text": blob["policy_text"],
+                "policy_text": full_text,
                 "card_eligibility": classify_card_eligibility(full_text).value,
                 "pass_pickup": classify_pass_pickup(full_text).value,
                 "eligibility_source_phrase": _eligibility_source_phrase(full_text),
