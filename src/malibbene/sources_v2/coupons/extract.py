@@ -535,6 +535,55 @@ def extract_restrictions(text: str) -> dict[str, Any] | None:
     return out if any_hit else None
 
 
+# --- residency restriction (the real booking filter) -------------------------
+# Mostly NOT stated in catalog text — the platform enforces it at reservation
+# time against the ZIP on the card. We only emit a restriction when the text
+# EXPLICITLY ties a residency requirement to reserving/using THIS pass. The
+# distinction from a museum's own admission policy ("residents of Salem are
+# admitted free") is the pass/reserve/use cue; without it we stay unknown.
+
+# Town-scope: "Only <Town> residents may reserve/use this pass".
+_RES_TOWN = re.compile(
+    r"\bonly\s+([A-Z][a-zA-Z]+)\s+residents?\s+(?:may|can)\s+"
+    r"(?:reserve|use|borrow|check\s*out|request)\b",
+    re.I,
+)
+# MA-scope tied to the pass: "must be a Massachusetts resident to use this pass",
+# "member/each of the party must be a MA resident", "visitors must be MA residents
+# to use this pass".
+_RES_MA = re.compile(
+    r"\b(?:must\s+be\s+(?:a\s+)?|each\s+of\s+the\s+party\s+must\s+be\s+(?:a\s+)?|"
+    r"(?:member|one\s+member)\s+of\s+the\s+(?:party|group)\s+must\s+be\s+(?:a\s+)?|"
+    r"visitors?\s+must\s+be\s+)"
+    r"(?:massachusetts|mass\.?|MA)\s+residents?\b",
+    re.I,
+)
+
+
+def extract_residency_restriction(text: str) -> dict[str, Any] | None:
+    """Detect an explicit pass-reservation residency requirement in the text.
+
+    Returns a dict with restricted/scope/source/evidence, or None when the text
+    states nothing (the caller then leaves it ``unknown`` — NOT ``no``, because
+    silence in catalog text does not mean the pass is open; the platform may
+    still enforce residency at booking time).
+    """
+    t = _clean(text)
+    m = _RES_TOWN.search(t)
+    if m:
+        a = max(0, m.start() - 10)
+        b = min(len(t), m.end() + 50)
+        return {"restricted": "yes", "scope": "town",
+                "source": "catalog_text", "evidence": t[a:b].strip()}
+    m = _RES_MA.search(t)
+    if m:
+        a = max(0, m.start() - 20)
+        b = min(len(t), m.end() + 40)
+        return {"restricted": "yes", "scope": "ma",
+                "source": "catalog_text", "evidence": t[a:b].strip()}
+    return None
+
+
 # ---------------------------------------------------------------------------
 # Main extractor
 # ---------------------------------------------------------------------------
@@ -547,12 +596,32 @@ def extract_coupon(
     source_phrases: list[str] | None = None,
     platform: str = "assabet",
 ) -> dict[str, Any]:
-    """Run the deterministic coupon extractor.
+    """Run the deterministic coupon extractor, then attach any explicit
+    residency restriction found in the same benefit text.
 
     Returns a dict with either ``status=ok`` + ``extracted`` or ``status=failed``.
-    The returned shape matches what the upstream LLM subagents wrote into
-    ``data/raw/<platform>/coupons/<lib>__<slug>.json``.
+    ``extracted.residency_restriction`` is included only when the text states an
+    explicit pass-reservation residency requirement; otherwise it is omitted and
+    the build leaves the pass at ``residency_restriction = unknown``.
     """
+    result = _extract_coupon_inner(
+        library_id, attraction_slug, benefit_text, source_phrases, platform
+    )
+    if result.get("status") == "ok":
+        joined = _join_source(source_phrases, (benefit_text or "").strip())
+        rr = extract_residency_restriction(joined)
+        if rr is not None:
+            result["extracted"]["residency_restriction"] = rr
+    return result
+
+
+def _extract_coupon_inner(
+    library_id: str,
+    attraction_slug: str,
+    benefit_text: str,
+    source_phrases: list[str] | None = None,
+    platform: str = "assabet",
+) -> dict[str, Any]:
     raw_text = (benefit_text or "").strip()
     if not raw_text:
         return {"status": "failed", "error": "no benefit text"}

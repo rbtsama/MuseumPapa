@@ -382,3 +382,35 @@ def test_boat_rental_no_cue_stays_failed():
         "double kayaks (2 adults)."
     )
     assert r["status"] == "failed"
+
+
+# --- residency restriction (the real booking filter; Phase P2) -----------------
+from malibbene.sources_v2.coupons.extract import extract_residency_restriction
+
+
+def test_residency_town_only():
+    # Andover ISGM: only the library's town residents may reserve.
+    rr = extract_residency_restriction("Only Andover residents may reserve and use this pass.")
+    assert rr["restricted"] == "yes" and rr["scope"] == "town"
+    assert rr["source"] == "catalog_text"
+
+
+def test_residency_ma_party_member():
+    rr = extract_residency_restriction("One member of the party must be a Massachusetts resident.")
+    assert rr["restricted"] == "yes" and rr["scope"] == "ma"
+
+
+def test_residency_ma_visitors_must_be():
+    rr = extract_residency_restriction("Visitors must be Massachusetts residents to use this pass.")
+    assert rr["restricted"] == "yes" and rr["scope"] == "ma"
+
+
+def test_residency_museum_admission_is_not_a_restriction():
+    # Museum's OWN admission policy is not a pass-reservation restriction.
+    rr = extract_residency_restriction("Children under 16 and all residents of Salem, MA are admitted free.")
+    assert rr is None
+
+
+def test_residency_silence_is_unknown_not_open():
+    rr = extract_residency_restriction("Pass admits 4 people for 50% off general admission.")
+    assert rr is None

@@ -26,6 +26,14 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                     "source_url": p.get("detail_url"),
                     "source_phrases": p.get("source_phrases",[]),
                     "coupon": None, "restrictions": None,
+                    # The real booking filter. Defaults to unknown — silence in
+                    # catalog text does NOT mean the pass is open to non-residents
+                    # (the platform may enforce residency at reservation time).
+                    # Filled from explicit text here, or from a booking probe.
+                    "residency_restriction": {
+                        "restricted": "unknown", "scope": None,
+                        "source": None, "evidence": None,
+                    },
                     "availability": {},
                     "eligibility_override": None,
                 }
@@ -35,6 +43,18 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                     row["pass_form"] = e.get("pass_form","physical_coupon")
                     row["coupon"] = e.get("coupon")
                     row["restrictions"] = e.get("restrictions")
+                    if e.get("residency_restriction"):
+                        row["residency_restriction"] = e["residency_restriction"]
+                # A booking-probe result (Phase P3) takes precedence over text:
+                # data/raw/<platform>/residency_probe/<lib>__<slug>.json
+                probe = _read(raw_root/platform/"residency_probe"/f"{lib}__{slug}.json")
+                if probe and probe.get("restricted") in ("yes","no"):
+                    row["residency_restriction"] = {
+                        "restricted": probe["restricted"],
+                        "scope": probe.get("scope"),
+                        "source": "booking_probe",
+                        "evidence": probe.get("evidence"),
+                    }
                 avail = _read(raw_root/platform/"availability"/lib/f"{slug}.json")
                 if avail:
                     row["availability"] = {d["date"]:d["status"] for d in avail.get("days",[])}

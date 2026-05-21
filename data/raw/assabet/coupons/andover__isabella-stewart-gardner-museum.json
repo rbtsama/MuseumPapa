@@ -20,6 +20,12 @@
       "summary": "FREE",
       "source_phrase_block": "Pick up and return pass to library. Pass may be picked up the day before use. Pass must be returned no later than the day after use. Pass allows 1 car and passengers into the state park or beach. Pass is for day use only and CANNOT be used for camping. Only Andover residents may reserve and use this pass."
     },
-    "restrictions": null
+    "restrictions": null,
+    "residency_restriction": {
+      "restricted": "yes",
+      "scope": "town",
+      "source": "catalog_text",
+      "evidence": "camping. Only Andover residents may reserve and use this pass."
+    }
   }
 }

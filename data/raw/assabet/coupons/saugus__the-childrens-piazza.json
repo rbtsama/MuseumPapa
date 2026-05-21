@@ -20,6 +20,12 @@
       "summary": "50% off",
       "source_phrase_block": "50% off admission price. Visitors must be Massachusetts residents to use this pass."
     },
-    "restrictions": null
+    "restrictions": null,
+    "residency_restriction": {
+      "restricted": "yes",
+      "scope": "ma",
+      "source": "catalog_text",
+      "evidence": "ff admission price. Visitors must be Massachusetts residents to use this pass."
+    }
   }
 }

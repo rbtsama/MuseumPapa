@@ -59,6 +59,33 @@ class Restrictions:
     advance_booking_required: bool = False
     advance_booking_hours: Optional[int] = None
 
+
+class ResidencyRestricted(str, Enum):
+    YES = "yes"          # confirmed resident-restricted (text or booking probe)
+    NO = "no"            # confirmed open to non-residents
+    UNKNOWN = "unknown"  # not stated in catalog text and not yet probed
+
+
+class ResidencyScope(str, Enum):
+    TOWN = "town"        # only residents of the issuing library's town (match home ZIP vs library.resident_zips)
+    MA = "ma"            # any Massachusetts resident (match home ZIP vs MA ZIP set)
+
+
+@dataclass
+class ResidencyRestriction:
+    """Whether a (library x attraction) pass may only be reserved by residents.
+
+    This is the REAL booking filter (the platform enforces it at reservation
+    time against the ZIP recorded on the card — see docs). It is mostly NOT
+    written in catalog benefit text, so ``restricted`` defaults to ``unknown``
+    and is filled either from an explicit textual statement or from an empirical
+    booking probe.
+    """
+    restricted: ResidencyRestricted = ResidencyRestricted.UNKNOWN
+    scope: Optional[ResidencyScope] = None      # only meaningful when restricted == yes
+    source: Optional[str] = None                 # "catalog_text" | "booking_probe"
+    evidence: Optional[str] = None               # verbatim phrase, or probe result detail
+
 @dataclass
 class Pass:
     library_id: str
@@ -68,4 +95,5 @@ class Pass:
     available_at_branches: Union[str, list[str]] = "all"
     eligibility_override: Optional[EligibilityOverride] = None
     restrictions: Optional[Restrictions] = None
+    residency_restriction: Optional[ResidencyRestriction] = None
     source_url: Optional[str] = None

@@ -20,6 +20,12 @@
       "summary": "50% off",
       "source_phrase_block": "Each pass admits up to 4 people at 50% off the regular admission. One member of the party must be a Massachusetts resident. May not be combined with other discounts. For Museum questions visit the HMSC website at hmsc.harvard.edu/visit or call 617-495-3045."
     },
-    "restrictions": null
+    "restrictions": null,
+    "residency_restriction": {
+      "restricted": "yes",
+      "scope": "ma",
+      "source": "catalog_text",
+      "evidence": "regular admission. One member of the party must be a Massachusetts resident. May not be combined with other discoun"
+    }
   }
 }
