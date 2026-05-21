@@ -45,9 +45,15 @@ def scrape_policies(
     card_page_url: str,
     pass_page_url: str | None,
     raw_root: Path,
+    render_js: bool = False,
 ) -> dict:
-    card_html = fetch(card_page_url) if card_page_url else ""
-    pass_html = fetch(pass_page_url) if pass_page_url else ""
+    # Some library card pages sit behind a WAF that serves a nav-only shell to
+    # plain urllib (e.g. Tewksbury). Those seeds carry requires_render_js=true,
+    # which the caller forwards here so we render the page with Playwright and
+    # actually get the eligibility text. Without this, a plain re-run silently
+    # reverts such libs to card_eligibility=unknown.
+    card_html = fetch(card_page_url, render_js=render_js) if card_page_url else ""
+    pass_html = fetch(pass_page_url, render_js=render_js) if pass_page_url else ""
     out = {
         "library_id": library_id,
         "card_page_url": card_page_url,

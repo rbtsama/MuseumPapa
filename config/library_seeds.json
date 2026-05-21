@@ -301,7 +301,8 @@
       "card_page": "https://www.tewksburypl.org/about-us/pages/get-library-card",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://tewksburypl.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://tewksburypl.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "chelmsford",

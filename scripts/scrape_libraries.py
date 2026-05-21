@@ -34,7 +34,8 @@ def _run_one(seed: dict, raw: Path, summary: dict):
             _stage("catalog", lib_id, lambda: catalog.scrape_library(lib_id, base, raw), summary)
         if seed.get("card_page"):
             _stage("policy", lib_id, lambda: policies.scrape_policies(
-                lib_id, seed["card_page"], seed.get("pass_page"), raw), summary)
+                lib_id, seed["card_page"], seed.get("pass_page"), raw,
+                render_js=seed.get("requires_render_js", False)), summary)
     elif platform == "libcal":
         from malibbene.sources_v2.libcal import catalog, policies, branches
         libcal_base = seed.get("libcal_base") or seed.get("base_url")
