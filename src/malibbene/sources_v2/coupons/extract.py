@@ -105,9 +105,32 @@ _CAP_PATTERNS = [
     ),
 ]
 
+# Vehicle / parking-pass capacity. Only treat as a *vehicle* benefit when the
+# pass itself is a parking / per-vehicle benefit — not when "parking" appears
+# inside an exclusion clause ("not valid at parking kiosks") or when "car"
+# is just part of a museum name ("America's Oldest Car Collection").
 _VEHICLE_HINT = re.compile(
-    r"\b(parking|vehicle|car|state parks|parkspass)\b", re.I,
+    r"\b("
+    r"per\s+vehicle"
+    r"|(?:one|1|\d+)\s+vehicles?\b"
+    r"|your\s+vehicle"
+    r"|in\s+(?:your|the)\s+(?:car|vehicle)"
+    r"|displayed\s+in\s+your\s+vehicle"
+    r"|parkspass"
+    r"|day-use\s+parking"
+    r"|free\s+(?:general\s+|daytime\s+)?parking"
+    r"|unlimited\s+parking"
+    r"|parking\s+(?:access|pass\b|fee|facilit)"
+    r"|admits?\s+\d+\s+cars?\b"
+    r"|\d+\s+cars?\s+(?:and\s+passengers|into|to)"
+    r"|one\s+carload|\d+\s+carloads?"
+    r")",
+    re.I,
 )
+# Exclusion clauses where "parking" / "state park" must NOT mean a vehicle
+# benefit: Trustees "not valid at parking kiosks", "does not include State
+# Park admission", "Park fees are $X".
+_VEHICLE_NEG = re.compile(r"parking\s+kiosks?|park\s+admission|park\s+fees?", re.I)
 
 # Patterns that mean ticket-capacity rather than people-count
 _TICKET_HINT = re.compile(r"\b(ticket|coupon code covers|tickets per)\b", re.I)
@@ -124,9 +147,13 @@ class Capacity:
 
 def extract_capacity(text: str) -> Capacity:
     t = _clean(text)
-    # Vehicle / parking pass takes precedence
-    if _VEHICLE_HINT.search(t):
-        return Capacity(kind="vehicle", n=1)
+    # Vehicle / parking pass takes precedence — but only if the "parking" hit
+    # is not solely the "not valid at parking kiosks" exclusion clause.
+    veh = _VEHICLE_HINT.search(t)
+    if veh:
+        hit = veh.group(0)
+        if not (_VEHICLE_NEG.search(hit) or "kiosk" in t[veh.start():veh.end() + 6].lower()):
+            return Capacity(kind="vehicle", n=1)
 
     for pat in _CAP_PATTERNS:
         m = pat.search(t)
@@ -307,6 +334,69 @@ _DISCOUNT_GENERIC = re.compile(
     r"discount(?:ed)?\s+library\s+price|go\s+pass\s+coupon|discount)\b",
     re.I,
 )
+
+# Trustees "GO Pass" / Family-Membership-equivalent benefit. The text never
+# states a flat dollar figure or percentage: the holder pays the reduced
+# Trustees *Family Level membership* admission price (free at some sites,
+# reduced at others). The honest mapping is a generic "discount" — we do NOT
+# fabricate "FREE" because the text says "free OR reduced" / "equivalent to a
+# Family Membership admission price".
+_TRUSTEES_GO_PASS = re.compile(
+    r"("
+    r"equivalent to (?:a |the )?(?:admission benefit of (?:a |the )?)?trustees? family (?:level )?membership"
+    r"|admission benefit of (?:a |the )?trustees? family (?:level )?membership"
+    r"|trustees? family (?:level )?membership admission (?:price|rate)"
+    r"|family (?:level )?(?:membership )?admission (?:price|rate)s?"
+    r"|at family membership rates?"
+    r"|entry at family membership rates?"
+    r"|free or reduced admission"
+    r"|go ?pass(?:es)? (?:are|is) (?:valid for admission|good for admission)"
+    r")",
+    re.I,
+)
+# "free or reduced admission" is explicitly ambiguous (NOT a guaranteed FREE);
+# it must route to the Trustees discount branch, never to the plain-FREE one.
+_FREE_OR_REDUCED = re.compile(r"\bfree\s+or\s+reduced\b", re.I)
+
+# "Pass benefits:" / "Pass provides ..." markers used by libcal entries that
+# bury the actual benefit clause after a long museum description + address.
+# We isolate the clause so FREE / discount detection isn't crowded out of the
+# 4-sentence headline window by the boilerplate prefix.
+_BENEFIT_MARKER = re.compile(
+    r"(?:pass\s+benefits?\s*:|this\s+pass\s+(?:will\s+)?provides?|pass\s+provides?|"
+    r"this\s+pass\s+(?:will\s+)?admits?|pass\s+admission\s+is|coupon\s+(?:code\s+)?(?:covers|good\s+for|allows))"
+    r"\s*",
+    re.I,
+)
+
+# "Free admission for up to 4", "Admits up to 9 for free", "Free <Name>
+# admission", "Free Lecture Series Pass", "Free ... family admission",
+# "covers the cost of N tickets" (== free), "free or reduced ... free".
+_FREE_BENEFIT = re.compile(
+    r"\b("
+    r"free\s+admission\s+for\s+(?:up\s+to\s+)?\d+"
+    r"|admits?\s+(?:up\s+to\s+)?\d+\s+(?:\([^)]*\)\s+)?for\s+free"
+    r"|free\s+(?:general\s+)?admission"
+    r"|free\s+(?:\w+\s+){0,3}admission"
+    r"|free\s+(?:lecture|admission|entry|family\s+admission|guest\s+admission)"
+    r"|free\s+(?:\w+\s+){0,3}pass\b"
+    r"|covers?\s+the\s+cost\s+of"
+    r")\b",
+    re.I,
+)
+
+# "$5 for four (4) adults" — reduced per-adult price stated as a lump for N.
+_PRICE_FOR_N_ADULTS = re.compile(
+    r"\$\s*(\d+(?:\.\d+)?)\s+for\s+(?:\w+\s+)?\(?(?:\d+|two|three|four|five|six)\)?\s+adults?",
+    re.I,
+)
+# "Each visitor will be charged $2.00" — per-person price, reversed phrasing.
+_CHARGED_PER_VISITOR = re.compile(
+    r"\beach\s+(?:visitor|person|guest|patron|adult)\s+(?:will\s+be\s+)?charged\s+\$\s*(\d+(?:\.\d+)?)",
+    re.I,
+)
+# Reversed-currency dollar-off, e.g. "50$ off regular admission".
+_DOLLAR_OFF_REV = re.compile(r"\b(\d+(?:\.\d+)?)\s*\$\s*off\b", re.I)
 
 
 @dataclass
@@ -508,6 +598,56 @@ def extract_coupon(
         return _ok(pass_form, capacity, [policy], summary,
                    source_phrase_block, extract_restrictions(text_joined))
 
+    # ---- Trustees GO Pass / Family-Membership-equivalent ----------------
+    # Honest mapping: the pass entitles the holder to the Trustees Family Level
+    # *admission price* (free at some sites, reduced at others). Because the
+    # text says "free OR reduced" / "equivalent to a Family Membership price"
+    # rather than a flat figure, we emit a generic "discount" with a count of
+    # admitted people, never a fabricated "FREE" / dollar / percent value.
+    if _TRUSTEES_GO_PASS.search(text_for_match):
+        policy = Policy(
+            audience="Everyone", form="discount", value=None,
+            count=capacity.n, age_range=None,
+            source_phrase=base_source,
+        )
+        has_count = capacity.n is not None
+        summary = _build_summary("discount", None, text_joined, has_count_only=has_count)
+        return _ok(pass_form, capacity, [policy], summary,
+                   source_phrase_block, extract_restrictions(text_joined))
+
+    # ---- FREE (benefit-clause, scanned anywhere in text) ----------------
+    # libcal entries bury "Pass benefits: Free admission for up to 4" after a
+    # long museum description; the 4-sentence headline window above misses it.
+    # Here we accept an explicit free-admission benefit phrase regardless of
+    # position, but only when no competing $ / % figure precedes it.
+    if _FREE_BENEFIT.search(text_for_match) and not (
+        _FREE_OR_REDUCED.search(text_for_match)
+        or _PERCENT.search(text_for_match)
+        or _HALF.search(text_for_match)
+        or _DOLLAR_OFF.search(text_for_match)
+        or _PER_PERSON.search(text_for_match)
+        or _DOLLAR_EACH.search(text_for_match)
+        or _PER_VISITOR.search(text_for_match)
+        or _CHARGED_PER_VISITOR.search(text_for_match)
+    ):
+        first = re.split(r"(?<=[.!?])\s+", text_joined.strip(), maxsplit=1)[0]
+        is_parking = bool(re.search(r"\bparking\b", first, re.I))
+        policy = Policy(
+            audience="Everyone", form="free", value=0,
+            count=capacity.n, age_range=None,
+            source_phrase=base_source,
+        )
+        summary = "FREE parking" if (is_parking and platform == "libcal") else "FREE"
+        return _ok(pass_form, capacity, [policy], summary,
+                   source_phrase_block, extract_restrictions(text_joined))
+
+    # NOTE: we intentionally do NOT auto-emit FREE for DCR / state-park parking
+    # passes that merely describe vehicle-display logistics (e.g. boxford ISGM:
+    # "displayed in your vehicle ... where daily parking fees are charged").
+    # The free-ness there is domain inference, not literal text, so per the
+    # honesty rule those stay failed unless the text says "free parking" /
+    # "1 vehicle for free" (handled by the FREE headline branch above).
+
     # ---- Adult + child two-tier per-person prices ----------------------
     adult_m = (
         _ADULT_PRICE.search(text_for_match)
@@ -561,7 +701,11 @@ def extract_coupon(
                    source_phrase_block, extract_restrictions(text_joined))
 
     # ---- Dollar-off ----------------------------------------------------
-    d_m = _DOLLAR_OFF.search(text_for_match) or _DOLLAR_OFF_ALT.search(text_for_match)
+    d_m = (
+        _DOLLAR_OFF.search(text_for_match)
+        or _DOLLAR_OFF_ALT.search(text_for_match)
+        or _DOLLAR_OFF_REV.search(text_for_match)
+    )
     if d_m:
         v = float(d_m.group(1))
         policy = Policy(
@@ -579,6 +723,8 @@ def extract_coupon(
         _PER_PERSON.search(text_for_match)
         or _DOLLAR_EACH.search(text_for_match)
         or _PER_VISITOR.search(text_for_match)
+        or _CHARGED_PER_VISITOR.search(text_for_match)
+        or _PRICE_FOR_N_ADULTS.search(text_for_match)
     )
     if pp_m:
         v = float(pp_m.group(1))
