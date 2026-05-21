@@ -15,37 +15,37 @@
         "source_phrase": "Mansion Tour - Ages 5-12 $18 Grounds Pass (May 1-Sept 30)* $13 Children Under 5 FREE - accompanied by an adult Gables Memb"
       },
       {
-        "audience": "child",
+        "audience": "adult",
         "price": 26.0,
         "age_range": null,
-        "source_phrase": "LED PRICING - MANSION TOUR PACKAGE (NOV-SEPT) Adult &#8211; $26.00 Child (Age 5-12) &#8211; $18.00 Child Under 5 &#8211; FREE"
+        "source_phrase": "DETAILED PRICING - MANSION TOUR PACKAGE (NOV-SEPT) Adult – $26.00 Child (Age 5-12) – $18.00 Child Under 5 – FREE Senior (65+)"
       },
       {
         "audience": "senior",
         "price": 21.0,
         "age_range": null,
-        "source_phrase": "211; $18.00 Child Under 5 &#8211; FREE Senior (65+) &#8211; $21.00 First Responder/Teacher &#8211; $21.00 College Student &#82"
+        "source_phrase": "ild (Age 5-12) – $18.00 Child Under 5 – FREE Senior (65+) – $21.00 First Responder/Teacher – $21.00 College Student – $21.00 M"
       },
       {
         "audience": "educator",
         "price": 21.0,
         "age_range": null,
-        "source_phrase": "Senior (65+) &#8211; $21.00 First Responder/Teacher &#8211; $21.00 College Student &#8211; $21.00 MA Public College Student &#"
+        "source_phrase": "er 5 – FREE Senior (65+) – $21.00 First Responder/Teacher – $21.00 College Student – $21.00 MA Public College Student – Free M"
       },
       {
         "audience": "student",
         "price": 21.0,
         "age_range": null,
-        "source_phrase": "st Responder/Teacher &#8211; $21.00 College Student &#8211; $21.00 MA Public College Student &#8211; Free Military &#8211; Adu"
+        "source_phrase": "– $21.00 First Responder/Teacher – $21.00 College Student – $21.00 MA Public College Student – Free Military – Adult – $21.00"
       },
       {
-        "audience": "military",
+        "audience": "adult",
         "price": 21.0,
         "age_range": {
           "min": 5,
           "max": 12
         },
-        "source_phrase": "College Student &#8211; Free Military &#8211; Adult &#8211; $21.00 Military &#8211; Child (5-12) &#8211; $16.00 Salem Resident"
+        "source_phrase": "$21.00 MA Public College Student – Free Military – Adult – $21.00 Military – Child (5-12) – $16.00 Salem Resident – FREE, pro"
       },
       {
         "audience": "child",
@@ -54,7 +54,7 @@
           "min": 5,
           "max": 12
         },
-        "source_phrase": "Adult &#8211; $21.00 Military &#8211; Child (5-12) &#8211; $16.00 Salem Resident &#8211; FREE, proof of residency required NA"
+        "source_phrase": "– Free Military – Adult – $21.00 Military – Child (5-12) – $16.00 Salem Resident – FREE, proof of residency required NARM/Mus"
       }
     ]
   }

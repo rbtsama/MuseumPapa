@@ -4,13 +4,13 @@
     "hours": {
       "monday": "unknown",
       "tuesday": "unknown",
-      "wednesday": "unknown",
-      "thursday": "unknown",
-      "friday": "unknown",
-      "saturday": "unknown",
-      "sunday": "unknown"
+      "wednesday": "09:00-12:00",
+      "thursday": "09:00-12:00",
+      "friday": "09:00-12:00",
+      "saturday": "09:00-12:00",
+      "sunday": "12:00-14:00"
     },
     "seasonal": null,
-    "source_phrase": null
+    "source_phrase": "Wed : 9:00 am - 12:00 pm"
   }
 }

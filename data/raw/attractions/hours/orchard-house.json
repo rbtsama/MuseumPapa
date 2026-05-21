@@ -2,15 +2,15 @@
   "status": "ok",
   "extracted": {
     "hours": {
-      "monday": "unknown",
-      "tuesday": "unknown",
-      "wednesday": "unknown",
-      "thursday": "unknown",
-      "friday": "unknown",
-      "saturday": "10:00-05:00",
-      "sunday": "11:00-05:00"
+      "monday": "11:00-15:30",
+      "tuesday": "11:00-15:30",
+      "wednesday": "11:00-15:30",
+      "thursday": "11:00-15:30",
+      "friday": "11:00-15:30",
+      "saturday": "10:00-17:00",
+      "sunday": "11:00-17:00"
     },
     "seasonal": null,
-    "source_phrase": "Sat 10-5 "
+    "source_phrase": "Weekdays 11 am - 3:30 pm"
   }
 }

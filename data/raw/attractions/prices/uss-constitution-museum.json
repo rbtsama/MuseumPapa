@@ -1,6 +1,13 @@
 {
   "status": "ok",
   "extracted": {
-    "prices": []
+    "prices": [
+      {
+        "audience": "adult",
+        "price": 15.0,
+        "age_range": null,
+        "source_phrase": "dmission tiers of: Pay it Forward: $25 per person Standard: $15 per person Reduced: Free – $10 per person Please help us ke"
+      }
+    ]
   }
 }

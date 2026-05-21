@@ -3,14 +3,14 @@
   "extracted": {
     "hours": {
       "monday": "closed",
-      "tuesday": "unknown",
-      "wednesday": "unknown",
-      "thursday": "unknown",
-      "friday": "unknown",
-      "saturday": "unknown",
-      "sunday": "unknown"
+      "tuesday": "10:00-16:00",
+      "wednesday": "10:00-16:00",
+      "thursday": "10:00-16:00",
+      "friday": "10:00-16:00",
+      "saturday": "10:00-16:00",
+      "sunday": "10:00-16:00"
     },
     "seasonal": null,
-    "source_phrase": null
+    "source_phrase": "Tuesday-Sunday, 10am-4pm"
   }
 }

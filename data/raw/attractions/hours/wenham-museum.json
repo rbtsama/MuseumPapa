@@ -4,13 +4,13 @@
     "hours": {
       "monday": "closed",
       "tuesday": "closed",
-      "wednesday": "closed",
-      "thursday": "unknown",
-      "friday": "unknown",
-      "saturday": "unknown",
-      "sunday": "unknown"
+      "wednesday": "09:00-16:00",
+      "thursday": "09:00-16:00",
+      "friday": "09:00-16:00",
+      "saturday": "09:00-16:00",
+      "sunday": "closed"
     },
     "seasonal": null,
-    "source_phrase": null
+    "source_phrase": "Wednesday - Saturday: 9:00 a.m. - 4:00 p.m."
   }
 }

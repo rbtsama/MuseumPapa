@@ -5,14 +5,20 @@
       {
         "audience": "adult",
         "price": 24.0,
-        "age_range": null,
-        "source_phrase": "each month, the Museum opens at 10:00am. Admission adults: $24 children (1 &ndash; 15): $24 infants (under 12 months): FRE"
+        "age_range": {
+          "min": 1,
+          "max": 15
+        },
+        "source_phrase": "each month, the Museum opens at 10:00am. Admission adults: $24 children (1 – 15): $24 infants (under 12 months): FREE memb"
       },
       {
         "audience": "child",
         "price": 24.0,
-        "age_range": null,
-        "source_phrase": "at 10:00am. Admission adults: $24 children (1 &ndash; 15): $24 infants (under 12 months): FREE members: FREE Get Tickets!"
+        "age_range": {
+          "min": 1,
+          "max": 15
+        },
+        "source_phrase": "opens at 10:00am. Admission adults: $24 children (1 – 15): $24 infants (under 12 months): FREE members: FREE Get Tickets!"
       }
     ]
   }

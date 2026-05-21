@@ -4,13 +4,13 @@
     "hours": {
       "monday": "unknown",
       "tuesday": "unknown",
-      "wednesday": "unknown",
-      "thursday": "unknown",
-      "friday": "unknown",
-      "saturday": "unknown",
-      "sunday": "01:00-04:00"
+      "wednesday": "10:00-16:00",
+      "thursday": "10:00-16:00",
+      "friday": "10:00-16:00",
+      "saturday": "10:00-16:00",
+      "sunday": "13:00-16:00"
     },
     "seasonal": null,
-    "source_phrase": "Sundays 1 to 4 "
+    "source_phrase": "Wednesdays through Saturdays 10 a.m. to 4 p.m."
   }
 }
