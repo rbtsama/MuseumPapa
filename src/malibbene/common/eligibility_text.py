@@ -89,19 +89,38 @@ _TOWN_CARDHOLDER = re.compile(
 )
 
 
-def classify_card_eligibility(text: str) -> CardEligibility:
+def _span_phrase(text: str, m: "re.Match") -> str:
+    """Return the matched eligibility statement with a little context, cleaned."""
+    a = max(0, m.start() - 30)
+    b = min(len(text), m.end() + 60)
+    return re.sub(r"\s+", " ", text[a:b]).strip()
+
+
+def classify_card_eligibility_with_phrase(text: str) -> tuple[CardEligibility, str | None]:
+    """Like classify_card_eligibility but also returns the verbatim matched
+    phrase (provenance). Every non-UNKNOWN value therefore carries the exact
+    text that justifies it — the honesty invariant the audit relies on. UNKNOWN
+    returns (UNKNOWN, None)."""
     if not text:
-        return CardEligibility.UNKNOWN
+        return CardEligibility.UNKNOWN, None
     # Order: broadest legitimate access first, then narrower scopes.
-    if _MA_RESIDENT.search(text) or _OPEN_ANYONE.search(text):
-        return CardEligibility.MA_RESIDENT
-    if _TOWN_OR_WORKS.search(text):
-        return CardEligibility.TOWN_OR_WORKS
-    if _TOWN_RESIDENT.search(text):
-        return CardEligibility.TOWN_RESIDENT
-    if _NETWORK.search(text):
-        return CardEligibility.NETWORK
-    return CardEligibility.UNKNOWN
+    m = _MA_RESIDENT.search(text) or _OPEN_ANYONE.search(text)
+    if m:
+        return CardEligibility.MA_RESIDENT, _span_phrase(text, m)
+    m = _TOWN_OR_WORKS.search(text)
+    if m:
+        return CardEligibility.TOWN_OR_WORKS, _span_phrase(text, m)
+    m = _TOWN_RESIDENT.search(text)
+    if m:
+        return CardEligibility.TOWN_RESIDENT, _span_phrase(text, m)
+    m = _NETWORK.search(text)
+    if m:
+        return CardEligibility.NETWORK, _span_phrase(text, m)
+    return CardEligibility.UNKNOWN, None
+
+
+def classify_card_eligibility(text: str) -> CardEligibility:
+    return classify_card_eligibility_with_phrase(text)[0]
 
 
 # A residency restriction only counts as a *pass-pickup* policy when it sits in

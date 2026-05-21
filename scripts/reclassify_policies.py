@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
 from malibbene.common.eligibility_text import (  # noqa: E402
-    classify_card_eligibility,
+    classify_card_eligibility_with_phrase,
     classify_pass_pickup,
 )
 
@@ -39,14 +39,24 @@ def _reclassify_page(page: dict | None) -> bool:
     field on every page block, so we keep both in sync here (the build only reads
     ``card_page.card_eligibility`` + ``pass_page.pass_pickup``, but re-deriving
     both avoids leaving a stale value behind after the source URL/text changes).
+
+    Honesty invariant: a non-``unknown`` card_eligibility MUST carry the verbatim
+    matched phrase in ``eligibility_source_phrase``. We always re-derive that
+    phrase from the current text; if the classifier returns ``unknown`` we clear
+    the phrase. This guarantees every classified value is auditable and that a
+    value can never outlive the text that justified it.
     """
     if page is None:
         return False
     text = page.get("policy_text", "")
     changed = False
-    new_card = classify_card_eligibility(text).value
-    if page.get("card_eligibility") != new_card:
-        page["card_eligibility"] = new_card
+    new_card, phrase = classify_card_eligibility_with_phrase(text)
+    if page.get("card_eligibility") != new_card.value:
+        page["card_eligibility"] = new_card.value
+        changed = True
+    new_phrase = phrase if new_card.value != "unknown" else None
+    if page.get("eligibility_source_phrase") != new_phrase:
+        page["eligibility_source_phrase"] = new_phrase
         changed = True
     new_pickup = classify_pass_pickup(text).value
     if page.get("pass_pickup") != new_pickup:
