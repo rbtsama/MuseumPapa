@@ -7,7 +7,11 @@ _WALKIN = re.compile(r"non.?residents?.*walk.?in", re.I)
 _TOWN_CARDHOLDER = re.compile(r"(holding|issued by|patrons of|patrons holding)\s+(a\s+)?([A-Z][a-z]+\s+)?(this library|our library|the [A-Z][a-z]+ library|[A-Z][a-z]+ library)\s*(card)?", re.I)
 _TOWN_ONLY = re.compile(r"\b([A-Z][a-z]+)\s+residents?\s+only\b|\bresidents?\s+only\b", re.I)
 _TOWN_OR_WORKS = re.compile(r"\b(live|work|attend school)\b", re.I)
-_MA_RESIDENT = re.compile(r"\bMassachusetts\s+resident", re.I)
+# Matches both word orders: "Massachusetts residents" and "resident(s) of Massachusetts"
+# (the latter appears verbatim on MVLC eCard eligibility pages, e.g. Tewksbury).
+_MA_RESIDENT = re.compile(
+    r"\bMassachusetts\s+residents?\b|\bresidents?\s+of\s+Massachusetts\b", re.I
+)
 _NETWORK = re.compile(r"\b(NOBLE|Minuteman|MVLC|OCLN|consortium|network)\s+card", re.I)
 
 def classify_card_eligibility(text: str) -> CardEligibility:

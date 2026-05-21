@@ -19,8 +19,40 @@ INSTALL_HINT = (
 )
 
 
-def fetch_rendered(url: str, *, timeout: int = 30) -> str:
-    """Render ``url`` in headless Chromium and return outerHTML.
+# Real desktop-Chrome UA. Playwright's default UA contains "HeadlessChrome",
+# which some WAFs (SiteDistrict, Cloudflare bot rules) sniff and block. We
+# override it with a plausible desktop string so we look like a normal browser.
+_RENDER_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+)
+
+
+def fetch_rendered(
+    url: str,
+    *,
+    timeout: int = 30,
+    wait_until: str = "domcontentloaded",
+    settle_ms: int = 2500,
+    user_agent: str | None = None,
+) -> str:
+    """Render ``url`` in headless Chromium and return the page's HTML.
+
+    Parameters
+    ----------
+    timeout:
+        Navigation timeout in seconds.
+    wait_until:
+        Playwright load state to wait for. Defaults to ``"domcontentloaded"``
+        rather than ``"networkidle"`` — many municipal/museum sites keep a
+        chat widget or analytics socket open forever, so ``networkidle`` never
+        fires and the nav times out even though the content is fully there.
+    settle_ms:
+        Extra wait after the load state, to let JS widgets (hours tables,
+        eligibility blurbs) hydrate before we snapshot ``page.content()``.
+    user_agent:
+        Override the UA string. Defaults to a real desktop-Chrome UA so we
+        don't advertise "HeadlessChrome" to bot filters.
 
     Raises :class:`RuntimeError` with install hint if Playwright is missing.
     """
@@ -30,10 +62,20 @@ def fetch_rendered(url: str, *, timeout: int = 30) -> str:
         raise RuntimeError(INSTALL_HINT) from e
 
     with sync_playwright() as pw:
-        browser = pw.chromium.launch(headless=True)
+        browser = pw.chromium.launch(
+            headless=True,
+            args=["--disable-blink-features=AutomationControlled"],
+        )
         try:
-            page = browser.new_page()
-            page.goto(url, timeout=timeout * 1000, wait_until="networkidle")
+            context = browser.new_context(
+                user_agent=user_agent or _RENDER_UA,
+                viewport={"width": 1366, "height": 900},
+                locale="en-US",
+            )
+            page = context.new_page()
+            page.goto(url, timeout=timeout * 1000, wait_until=wait_until)
+            if settle_ms:
+                page.wait_for_timeout(settle_ms)
             return page.content()
         finally:
             browser.close()
