@@ -60,6 +60,9 @@ def _eligibility_source_phrase(text: str) -> str | None:
 
     m = re.search(
         r"(massachusetts\s+residents?|residents?\s+of\s+massachusetts"
+        r"|residents?\s+of\s+(?:the\s+)?commonwealth"
+        r"|resident\s+of\s+(?:the\s+)?commonwealth\s+of\s+massachusetts"
+        r"|eligible\s+for\s+a\s+library\s+card\s+if"
         r"|residents?\s+only|live[,\s].{0,40}work|attend\s+school)",
         text,
         re.I,

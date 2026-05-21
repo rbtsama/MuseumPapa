@@ -47,7 +47,8 @@
       "card_page": "https://woburnpubliclibrary.org/services/how-to-get-a-library-card/",
       "non_resident_policy_initial": "residents_only",
       "supports_availability": true,
-      "pass_page": "https://woburnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://woburnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "lynnfield",
@@ -59,7 +60,8 @@
       "card_page": "https://lynnfieldlibrary.org/about/get-a-library-card/",
       "non_resident_policy_initial": "open_ma_resident",
       "supports_availability": true,
-      "pass_page": "https://lynnfieldlibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://lynnfieldlibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "peabody",
@@ -119,7 +121,8 @@
       "card_page": "https://medfordlibrary.org/about-us/policies/borrowing-policies/",
       "non_resident_policy_initial": "residents_only",
       "supports_availability": true,
-      "pass_page": "https://medfordlibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://medfordlibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "burlington",
@@ -128,10 +131,11 @@
       "network": "MVLC",
       "platform": "assabet",
       "domain": "burlington.assabetinteractive.com",
-      "card_page": "https://www.burlington.org/170/Library-Card",
+      "card_page": "https://www.burlingtonpubliclibrary.org/186/Get-a-Library-Card",
       "non_resident_policy_initial": "network_only",
       "supports_availability": true,
-      "pass_page": "https://burlington.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://burlington.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "north-reading",
@@ -177,11 +181,12 @@
       "platform": "libcal",
       "domain": "bpl.libcal.com",
       "pass_page": "https://bpl.libcal.com/passes",
-      "card_page": "https://www.bpl.org/borrowing/",
+      "card_page": "https://www.bpl.org/faq/eligibility/",
       "non_resident_policy_initial": "open_ma_resident",
       "supports_availability": true,
       "libcal_base": "https://bpl.libcal.com",
-      "locations_url": "https://gateway.bibliocommons.com/v2/libraries/bpl/branches"
+      "locations_url": "https://gateway.bibliocommons.com/v2/libraries/bpl/branches",
+      "requires_render_js": true
     },
     {
       "id": "beverly",
@@ -202,10 +207,11 @@
       "network": "NOBLE",
       "platform": "assabet",
       "domain": "danverslibrary.assabetinteractive.com",
-      "card_page": "https://danverslibrary.org/",
+      "card_page": "https://danverslibrary.org/library-policies-information/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://danverslibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://danverslibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "lynn",
@@ -226,10 +232,11 @@
       "network": "NOBLE",
       "platform": "assabet",
       "domain": "abbotlibrary.assabetinteractive.com",
-      "card_page": "https://www.abbotlibrary.org/",
+      "card_page": "https://abbotlibrary.org/about/general-info/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://abbotlibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://abbotlibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "everett",
@@ -253,7 +260,8 @@
       "card_page": "https://www.chelseama.gov/departments/library/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://chelseama.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://chelseama.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "billerica",
@@ -262,10 +270,11 @@
       "network": "MVLC",
       "platform": "assabet",
       "domain": "billericalibrary.assabetinteractive.com",
-      "card_page": "https://billericalibrary.org/",
+      "card_page": "https://billericalibrary.org/borrowing/library-cards/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://billericalibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://billericalibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "topsfield",
@@ -274,10 +283,11 @@
       "network": "MVLC",
       "platform": "assabet",
       "domain": "topsfieldlibrary.assabetinteractive.com",
-      "card_page": "https://www.topsfieldlibrary.org/",
+      "card_page": "https://topsfieldlibrary.org/borrow/get-a-library-card/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://topsfieldlibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://topsfieldlibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "boxford",
@@ -335,10 +345,11 @@
       "network": "MVLC",
       "platform": "assabet",
       "domain": "lawrencepl.assabetinteractive.com",
-      "card_page": "https://www.lawrencefreelibrary.org/",
+      "card_page": "https://www.lawrencepl.org/library-card",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "methuen",
@@ -347,10 +358,11 @@
       "network": "MVLC",
       "platform": "assabet",
       "domain": "nevinslibrary.assabetinteractive.com",
-      "card_page": "https://www.nevinslibrary.org/",
+      "card_page": "https://www.nevinslibrary.org/about-nevins-library/library-cards/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://nevinslibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://nevinslibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "andover",
@@ -359,10 +371,11 @@
       "network": "MVLC",
       "platform": "assabet",
       "domain": "mhl.assabetinteractive.com",
-      "card_page": "https://mhl.org/",
+      "card_page": "https://mhl.org/borrow/on-the-shelves/library-cards-and-borrowing-items",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://mhl.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://mhl.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "north-andover",
@@ -383,10 +396,11 @@
       "network": "MVLC",
       "platform": "assabet",
       "domain": "flintlibrary.assabetinteractive.com",
-      "card_page": "https://flintlibrary.org/",
+      "card_page": "https://flintlibrary.org/index.php/get-a-library-card/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "arlington",
@@ -395,10 +409,11 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "robbinslibrary.assabetinteractive.com",
-      "card_page": null,
+      "card_page": "https://www.robbinslibrary.org/about/library-card/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://robbinslibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://robbinslibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "newton",
@@ -407,10 +422,11 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "newtonfreelibrary.assabetinteractive.com",
-      "card_page": "https://www.newtonfreelibrary.net/",
+      "card_page": "https://newtonfreelibrary.net/about/our-library/library-card-borrowing/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://newtonfreelibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://newtonfreelibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "lincoln",
@@ -443,10 +459,11 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "framinghamlibrary.assabetinteractive.com",
-      "card_page": "https://framinghamlibrary.org/",
+      "card_page": "https://framinghamlibrary.org/services/cards-borrowing",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://framinghamlibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://framinghamlibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "maynard",
@@ -455,10 +472,11 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "maynardpubliclibrary.assabetinteractive.com",
-      "card_page": "https://www.maynardpubliclibrary.org/",
+      "card_page": "https://www.maynardpubliclibrary.org/get-library-card",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://maynardpubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://maynardpubliclibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "carlisle",
@@ -479,10 +497,11 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "waylandlibrary.assabetinteractive.com",
-      "card_page": "https://www.waylandlibrary.org/",
+      "card_page": "https://waylandlibrary.org/services/library-card/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://waylandlibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://waylandlibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "weston",
@@ -506,7 +525,8 @@
       "card_page": "https://goodnowlibrary.org/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://goodnowlibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://goodnowlibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "belmont",
@@ -539,10 +559,11 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "wellesleyfreelibrary.assabetinteractive.com",
-      "card_page": "https://www.wellesleyfreelibrary.org/",
+      "card_page": "https://www.wellesleyfreelibrary.org/library-info/policies/eligibility-and-use-of-library-cards-policy/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://wellesleyfreelibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://wellesleyfreelibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "waltham",
@@ -551,10 +572,11 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "waltham.assabetinteractive.com",
-      "card_page": "https://walthampubliclibrary.org/",
+      "card_page": "https://waltham.lib.ma.us/policies/library-cards/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://waltham.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://waltham.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "watertown",
@@ -563,10 +585,11 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "watertownlib.assabetinteractive.com",
-      "card_page": "https://www.watertownlib.org/",
+      "card_page": "https://www.watertownlib.org/217/Library-Cards-Borrowing",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://watertownlib.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://watertownlib.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "concord",
@@ -575,10 +598,11 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "concordlibrary.assabetinteractive.com",
-      "card_page": "https://concordlibrary.org/",
+      "card_page": "https://concordlibrary.org/borrow/library-cards-and-borrowing",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://concordlibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://concordlibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "bedford",
@@ -623,10 +647,11 @@
       "network": "Minuteman",
       "platform": "assabet",
       "domain": "somervillepubliclibrary.assabetinteractive.com",
-      "card_page": "https://www.somervillepubliclibrary.org/",
+      "card_page": "https://somervillepubliclibrary.org/how-do-i/get-library-card/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://somervillepubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://somervillepubliclibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "quincy",
@@ -635,10 +660,11 @@
       "network": "OCLN",
       "platform": "assabet",
       "domain": "thomascranelibrary.assabetinteractive.com",
-      "card_page": "https://thomascranelibrary.org/",
+      "card_page": "https://thomascranelibrary.org/library-cards-accounts/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://thomascranelibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://thomascranelibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "requires_render_js": true
     },
     {
       "id": "cambridge",
@@ -648,11 +674,12 @@
       "platform": "libcal",
       "domain": "cambridgepl.libcal.com",
       "pass_page": "https://cambridgepl.libcal.com/passes",
-      "card_page": "https://www.cambridgema.gov/cpl",
+      "card_page": "https://www.cambridgema.gov/iwantto/getalibrarycard",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "libcal_base": "https://cambridgepl.libcal.com",
-      "locations_url": "https://www.cambridgema.gov/Departments/cambridgepubliclibrary/Locations"
+      "locations_url": "https://www.cambridgema.gov/Departments/cambridgepubliclibrary/Locations",
+      "requires_render_js": true
     },
     {
       "id": "brookline",
