@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-22T16:40:44.877720+00:00",
+    "built_at": "2026-05-22T17:00:28.479707+00:00",
     "n_libraries": 59
   },
   "libraries": [
@@ -11,8 +11,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://wakefieldlibrary.org/get-a-library-card/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "345 Main Street",
+        "city": "Wakefield",
+        "state": "MA",
+        "zip": "01880"
+      },
+      "geo": {
+        "lat": 42.5045951,
+        "lon": -71.071918
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -28,8 +36,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://stonehamlibrary.org/get-a-library-card/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "431 Main Street",
+        "city": "Stoneham",
+        "state": "MA",
+        "zip": "02180"
+      },
+      "geo": {
+        "lat": 42.4779077,
+        "lon": -71.1006445
+      },
       "card_eligibility": "unknown",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -45,8 +61,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://www.readingpl.org/get-a-library-card/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "64 Middlesex Avenue",
+        "city": "Reading",
+        "state": "MA",
+        "zip": "01867"
+      },
+      "geo": {
+        "lat": 42.5260974,
+        "lon": -71.1101767
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -62,8 +86,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://woburnpubliclibrary.org/services/how-to-get-a-library-card/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "45 Pleasant Street",
+        "city": "Woburn",
+        "state": "MA",
+        "zip": "01801"
+      },
+      "geo": {
+        "lat": 42.4793008,
+        "lon": -71.1545179
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -79,8 +111,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://lynnfieldlibrary.org/about/get-a-library-card/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "18 Summer St",
+        "city": "Lynnfield",
+        "state": "MA",
+        "zip": "01940"
+      },
+      "geo": {
+        "lat": 42.5392872,
+        "lon": -71.0477596
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -96,8 +136,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://peabodylibrary.org/librarycard/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "82 Main Street",
+        "city": "Peabody",
+        "state": "MA",
+        "zip": "01960"
+      },
+      "geo": {
+        "lat": 42.5249222,
+        "lon": -70.9242115
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -113,8 +161,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://melrosepubliclibrary.org/services/borrow/library-cards/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "69 West Emerson Street",
+        "city": "Melrose",
+        "state": "MA",
+        "zip": "02176"
+      },
+      "geo": {
+        "lat": 42.4592463,
+        "lon": -71.0665931
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -130,8 +186,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://www.sauguspubliclibrary.org/explore/library-card/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "295 Central Street",
+        "city": "Saugus",
+        "state": "MA",
+        "zip": "01906"
+      },
+      "geo": {
+        "lat": 42.4653264,
+        "lon": -71.0101808
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "ma_resident",
       "resident_zips": [
@@ -147,8 +211,16 @@
       "network": "MBLN",
       "platform": "assabet",
       "card_page": "https://maldenpubliclibrary.org/about/policies/library-cards/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "36 Salem St.",
+        "city": "Malden",
+        "state": "MA",
+        "zip": "02148"
+      },
+      "geo": {
+        "lat": 42.4276751,
+        "lon": -71.0660775
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -164,8 +236,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://medfordlibrary.org/about-us/policies/borrowing-policies/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "111 High Street",
+        "city": "Medford",
+        "state": "MA",
+        "zip": "02155"
+      },
+      "geo": {
+        "lat": 42.4197301,
+        "lon": -71.1135494
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -181,8 +261,16 @@
       "network": "MVLC",
       "platform": "assabet",
       "card_page": "https://www.burlingtonpubliclibrary.org/186/Get-a-Library-Card",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "29 Center Street",
+        "city": "Burlington",
+        "state": "MA",
+        "zip": "01803"
+      },
+      "geo": {
+        "lat": 42.5061899,
+        "lon": -71.1938589
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -198,8 +286,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://flintmemoriallibrary.org/home/borrow-materials/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "147 Park Street",
+        "city": "North Reading",
+        "state": "MA",
+        "zip": "01864"
+      },
+      "geo": {
+        "lat": 42.5746953,
+        "lon": -71.07628
+      },
       "card_eligibility": "town_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -215,8 +311,16 @@
       "network": "MVLC",
       "platform": "assabet",
       "card_page": "https://wilmlibrary.org/library-card/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "175 Middlesex Ave.",
+        "city": "Wilmington",
+        "state": "MA",
+        "zip": "01887"
+      },
+      "geo": {
+        "lat": 42.5575285,
+        "lon": -71.1640026
+      },
       "card_eligibility": "town_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -232,8 +336,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://www.winpublib.org/librarycard/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "80 Washington Street",
+        "city": "Winchester",
+        "state": "MA",
+        "zip": "01890"
+      },
+      "geo": {
+        "lat": 42.4523015,
+        "lon": -71.1341417
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "town_resident",
       "resident_zips": [
@@ -249,8 +361,16 @@
       "network": "BPL",
       "platform": "libcal",
       "card_page": "https://www.bpl.org/faq/eligibility/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "700 Boylston St.",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02116"
+      },
+      "geo": {
+        "lat": 42.3493298,
+        "lon": -71.0786547
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -290,8 +410,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://beverlypubliclibrary.org/services/borrowing/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "32 Essex Street",
+        "city": "Beverly",
+        "state": "MA",
+        "zip": "01915"
+      },
+      "geo": {
+        "lat": 42.5509176,
+        "lon": -70.8766929
+      },
       "card_eligibility": "unknown",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -307,8 +435,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://danverslibrary.org/library-policies-information/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "15 Sylvan Street",
+        "city": "Danvers",
+        "state": "MA",
+        "zip": "01923"
+      },
+      "geo": {
+        "lat": 42.5616613,
+        "lon": -70.9410042
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -324,8 +460,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://lynnpubliclibrary.org/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "5 North Common St.",
+        "city": "Lynn",
+        "state": "MA",
+        "zip": "01902"
+      },
+      "geo": {
+        "lat": 42.4644621,
+        "lon": -70.9536275
+      },
       "card_eligibility": "unknown",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -344,8 +488,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://abbotlibrary.org/about/general-info/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "235 Pleasant Street",
+        "city": "Marblehead",
+        "state": "MA",
+        "zip": "01945"
+      },
+      "geo": {
+        "lat": 42.4964016,
+        "lon": -70.8632383
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -361,8 +513,16 @@
       "network": "NOBLE",
       "platform": "assabet",
       "card_page": "https://www.everettpubliclibraries.org/get-a-library-card/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "410 Broadway",
+        "city": "Everett",
+        "state": "MA",
+        "zip": "02149"
+      },
+      "geo": {
+        "lat": 42.4060155,
+        "lon": -71.0568179
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -378,8 +538,16 @@
       "network": "MBLN",
       "platform": "assabet",
       "card_page": "https://www.chelseama.gov/departments/library/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "569 Broadway",
+        "city": "Chelsea",
+        "state": "MA",
+        "zip": "02150"
+      },
+      "geo": {
+        "lat": 42.393559,
+        "lon": -71.0320598
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -395,8 +563,16 @@
       "network": "MVLC",
       "platform": "assabet",
       "card_page": "https://billericalibrary.org/borrowing/library-cards/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "15 Concord Road",
+        "city": "Billerica",
+        "state": "MA",
+        "zip": "01821"
+      },
+      "geo": {
+        "lat": 42.5583785,
+        "lon": -71.2699681
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -412,8 +588,16 @@
       "network": "MVLC",
       "platform": "assabet",
       "card_page": "https://topsfieldlibrary.org/borrow/get-a-library-card/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "1 South Common Street",
+        "city": "Topsfield",
+        "state": "MA",
+        "zip": "01983"
+      },
+      "geo": {
+        "lat": 42.6409094,
+        "lon": -70.949669
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -429,8 +613,16 @@
       "network": "MVLC",
       "platform": "assabet",
       "card_page": "https://www.boxfordma.gov/210/Get-a-Library-Card",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "7A Spofford Road",
+        "city": "Boxford",
+        "state": "MA",
+        "zip": "01921"
+      },
+      "geo": {
+        "lat": 42.6941048,
+        "lon": -71.0145511
+      },
       "card_eligibility": "town_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -446,8 +638,16 @@
       "network": "MVLC",
       "platform": "assabet",
       "card_page": "https://www.tewksburypl.org/about-us/pages/get-library-card",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "300 Chandler Street",
+        "city": "Tewksbury",
+        "state": "MA",
+        "zip": "01876"
+      },
+      "geo": {
+        "lat": 42.6067193,
+        "lon": -71.2252445
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -463,8 +663,16 @@
       "network": "MVLC",
       "platform": "assabet",
       "card_page": "https://www.chelmsfordlibrary.org/about/get-a-library-card",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "25 Boston Road",
+        "city": "Chelmsford",
+        "state": "MA",
+        "zip": "01824"
+      },
+      "geo": {
+        "lat": 42.5940049,
+        "lon": -71.3521057
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -481,8 +689,16 @@
       "network": "MVLC",
       "platform": "assabet",
       "card_page": "https://www.haverhillpl.org/library-card",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "99 Main Street",
+        "city": "Haverhill",
+        "state": "MA",
+        "zip": "01830"
+      },
+      "geo": {
+        "lat": 42.7772317,
+        "lon": -71.0767573
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -500,8 +716,16 @@
       "network": "MVLC",
       "platform": "assabet",
       "card_page": "https://www.lawrencepl.org/library-card",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "51 Lawrence Street",
+        "city": "Lawrence",
+        "state": "MA",
+        "zip": "01841"
+      },
+      "geo": {
+        "lat": 42.7107211,
+        "lon": -71.1622146
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -519,8 +743,16 @@
       "network": "MVLC",
       "platform": "assabet",
       "card_page": "https://www.nevinslibrary.org/about-nevins-library/library-cards/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "305 Broadway",
+        "city": "Methuen",
+        "state": "MA",
+        "zip": "01844"
+      },
+      "geo": {
+        "lat": 42.7303934,
+        "lon": -71.1890986
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -536,8 +768,16 @@
       "network": "MVLC",
       "platform": "assabet",
       "card_page": "https://mhl.org/borrow/on-the-shelves/library-cards-and-borrowing-items",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "2 North Main Street",
+        "city": "Andover",
+        "state": "MA",
+        "zip": "01810"
+      },
+      "geo": {
+        "lat": 42.656828,
+        "lon": -71.1414112
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -553,8 +793,16 @@
       "network": "MVLC",
       "platform": "assabet",
       "card_page": "https://www.stevensmemlib.org/library-card",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "345 Main Street",
+        "city": "North Andover",
+        "state": "MA",
+        "zip": "01845"
+      },
+      "geo": {
+        "lat": 42.6962001,
+        "lon": -71.1263051
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -570,8 +818,16 @@
       "network": "MVLC",
       "platform": "assabet",
       "card_page": "https://flintlibrary.org/index.php/get-a-library-card/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "1 South Main St.",
+        "city": "Middleton",
+        "state": "MA",
+        "zip": "01949"
+      },
+      "geo": {
+        "lat": 42.594723,
+        "lon": -71.0161341
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -587,8 +843,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://www.robbinslibrary.org/about/library-card/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "700 Massachusetts Avenue",
+        "city": "Arlington",
+        "state": "MA",
+        "zip": "02476"
+      },
+      "geo": {
+        "lat": 42.41623,
+        "lon": -71.157052
+      },
       "card_eligibility": "unknown",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -604,8 +868,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://newtonfreelibrary.net/about/our-library/library-card-borrowing/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "330 Homer Street",
+        "city": "Newton",
+        "state": "MA",
+        "zip": "02459"
+      },
+      "geo": {
+        "lat": 42.3359129,
+        "lon": -71.2078175
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -630,8 +902,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://lincolnpl.org/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "3 Bedford Road",
+        "city": "Lincoln",
+        "state": "MA",
+        "zip": "01773"
+      },
+      "geo": {
+        "lat": 42.4260627,
+        "lon": -71.3030615
+      },
       "card_eligibility": "unknown",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -647,8 +927,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://www.actonmemoriallibrary.org/services/library-cards/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "486 Main Street",
+        "city": "Acton",
+        "state": "MA",
+        "zip": "01720"
+      },
+      "geo": {
+        "lat": 42.4866602,
+        "lon": -71.43342
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -664,8 +952,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://framinghamlibrary.org/services/cards-borrowing",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "49 Lexington Street",
+        "city": "Framingham",
+        "state": "MA",
+        "zip": "01702"
+      },
+      "geo": {
+        "lat": 42.2819343,
+        "lon": -71.4167413
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -682,8 +978,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://www.maynardpubliclibrary.org/get-library-card",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "77 Nason Street",
+        "city": "Maynard",
+        "state": "MA",
+        "zip": "01754"
+      },
+      "geo": {
+        "lat": 42.4342628,
+        "lon": -71.4520731
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -699,8 +1003,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://gleasonlibrary.org/get-a-library-card",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "22 Bedford Road",
+        "city": "Carlisle",
+        "state": "MA",
+        "zip": "01741"
+      },
+      "geo": {
+        "lat": 42.528797,
+        "lon": -71.3481427
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -716,8 +1028,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://waylandlibrary.org/services/library-card/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "5 Concord Rd",
+        "city": "Wayland",
+        "state": "MA",
+        "zip": "01778"
+      },
+      "geo": {
+        "lat": 42.3651526,
+        "lon": -71.3608951
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -733,8 +1053,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://www.westonma.gov/CivicSend/ViewMessage/message/165250",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "87 School Street",
+        "city": "Weston",
+        "state": "MA",
+        "zip": "02493"
+      },
+      "geo": {
+        "lat": 42.3621029,
+        "lon": -71.294617
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -750,8 +1078,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://goodnowlibrary.org/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "21 Concord Road",
+        "city": "Sudbury",
+        "state": "MA",
+        "zip": "01776"
+      },
+      "geo": {
+        "lat": 42.3632821,
+        "lon": -71.4169226
+      },
       "card_eligibility": "unknown",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -767,8 +1103,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://www.belmontpubliclibrary.net/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "336 Concord Avenue",
+        "city": "Belmont",
+        "state": "MA",
+        "zip": "02478"
+      },
+      "geo": {
+        "lat": 42.3946196,
+        "lon": -71.1722221
+      },
       "card_eligibility": "unknown",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -784,8 +1128,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://www.carylibrary.org/library-cards",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "1874 Massachusetts Avenue",
+        "city": "Lexington",
+        "state": "MA",
+        "zip": "02420"
+      },
+      "geo": {
+        "lat": 42.4481135,
+        "lon": -71.2296888
+      },
       "card_eligibility": "network",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -802,8 +1154,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://www.wellesleyfreelibrary.org/library-info/policies/eligibility-and-use-of-library-cards-policy/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "530 Washington Street",
+        "city": "Wellesley",
+        "state": "MA",
+        "zip": "02482"
+      },
+      "geo": {
+        "lat": 42.2968319,
+        "lon": -71.2906479
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -820,8 +1180,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://waltham.lib.ma.us/policies/library-cards/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "735 Main Street",
+        "city": "Waltham",
+        "state": "MA",
+        "zip": "02451"
+      },
+      "geo": {
+        "lat": 42.3766045,
+        "lon": -71.2394861
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -839,8 +1207,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://www.watertownlib.org/217/Library-Cards-Borrowing",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "123 Main Street",
+        "city": "Watertown",
+        "state": "MA",
+        "zip": "02472"
+      },
+      "geo": {
+        "lat": 42.3675505,
+        "lon": -71.1867442
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -856,8 +1232,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://concordlibrary.org/borrow/library-cards-and-borrowing",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "129 Main Street",
+        "city": "Concord",
+        "state": "MA",
+        "zip": "01742"
+      },
+      "geo": {
+        "lat": 42.4588186,
+        "lon": -71.3534425
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -873,8 +1257,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://bedfordlibrary.net/library-card",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "7 Mudge Way",
+        "city": "Bedford",
+        "state": "MA",
+        "zip": "01730"
+      },
+      "geo": {
+        "lat": 42.4923139,
+        "lon": -71.2841881
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -890,8 +1282,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://needhamlibrary.org/get-a-library-card",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "1139 Highland Avenue",
+        "city": "Needham",
+        "state": "MA",
+        "zip": "02494"
+      },
+      "geo": {
+        "lat": 42.2882044,
+        "lon": -71.2350162
+      },
       "card_eligibility": "town_or_works",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -908,8 +1308,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://www.morseinstitute.org/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "14 East Central Street",
+        "city": "Natick",
+        "state": "MA",
+        "zip": "01760"
+      },
+      "geo": {
+        "lat": 42.2846114,
+        "lon": -71.345821
+      },
       "card_eligibility": "unknown",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -925,8 +1333,16 @@
       "network": "Minuteman",
       "platform": "assabet",
       "card_page": "https://somervillepubliclibrary.org/how-do-i/get-library-card/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "79 Highland Ave.",
+        "city": "Somerville",
+        "state": "MA",
+        "zip": "02143"
+      },
+      "geo": {
+        "lat": 42.3857881,
+        "lon": -71.0944054
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -944,8 +1360,16 @@
       "network": "OCLN",
       "platform": "assabet",
       "card_page": "https://thomascranelibrary.org/library-cards-accounts/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "40 Washington Street",
+        "city": "Quincy",
+        "state": "MA",
+        "zip": "02169"
+      },
+      "geo": {
+        "lat": 42.2515107,
+        "lon": -71.0008246
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -963,8 +1387,16 @@
       "network": "Minuteman",
       "platform": "libcal",
       "card_page": "https://www.cambridgema.gov/iwantto/getalibrarycard",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "795 Massachusetts Ave.",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02139"
+      },
+      "geo": {
+        "lat": 42.3671148,
+        "lon": -71.1056283
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -984,8 +1416,16 @@
       "network": "Minuteman",
       "platform": "libcal",
       "card_page": "https://brooklinelibrary.org/library-card",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "361 Washington Street",
+        "city": "Brookline",
+        "state": "MA",
+        "zip": "02445"
+      },
+      "geo": {
+        "lat": 42.3346378,
+        "lon": -71.1213843
+      },
       "card_eligibility": "ma_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -1003,8 +1443,16 @@
       "network": "OCLN",
       "platform": "libcal",
       "card_page": "https://www.thayerpubliclibrary.org/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "798 Washington Street",
+        "city": "Braintree",
+        "state": "MA",
+        "zip": "02184"
+      },
+      "geo": {
+        "lat": 42.2056618,
+        "lon": -71.0042666
+      },
       "card_eligibility": "unknown",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -1021,8 +1469,16 @@
       "network": "OCLN",
       "platform": "libcal",
       "card_page": "https://www.miltonlibrary.org/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "476 Canton Ave",
+        "city": "Milton",
+        "state": "MA",
+        "zip": "02186"
+      },
+      "geo": {
+        "lat": 42.2538412,
+        "lon": -71.0773573
+      },
       "card_eligibility": "unknown",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -1038,8 +1494,16 @@
       "network": "OCLN",
       "platform": "museumkey",
       "card_page": "https://www.cohassetlibrary.org/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "35 Ripley Road",
+        "city": "Cohasset",
+        "state": "MA",
+        "zip": "02025"
+      },
+      "geo": {
+        "lat": 42.242198,
+        "lon": -70.8090953
+      },
       "card_eligibility": "unknown",
       "pass_pickup_default": "unknown",
       "resident_zips": [
@@ -1055,8 +1519,16 @@
       "network": "OCLN",
       "platform": "museumkey",
       "card_page": "https://hinghamlibrary.org/",
-      "address": null,
-      "geo": null,
+      "address": {
+        "street": "66 Leavitt Street",
+        "city": "Hingham",
+        "state": "MA",
+        "zip": "02043"
+      },
+      "geo": {
+        "lat": 42.23504,
+        "lon": -70.8744034
+      },
       "card_eligibility": "unknown",
       "pass_pickup_default": "unknown",
       "resident_zips": [
