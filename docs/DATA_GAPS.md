@@ -2,7 +2,7 @@
 
 > **用途**：清晰记录所有「拿不到 / 无法解析 / 无法得到预期结构」的数据项,供人工复核。
 > **持续更新**：每次重跑数据后,按下面的「如何刷新本文档」重新生成统计并更新条目。
-> **最后更新**：2026-05-22(Phase P5 — MBLN 网络修正 + Malden/Chelsea 重测 + booking_frequency_limit/late_return_penalty 字段)
+> **最后更新**：2026-05-23(Phase Q — 数据扎实化:slug 规范化+legacy 详情回填+多月 availability,接前端前审计 0 FAIL)
 
 ## 总则:三种空缺的区别
 
@@ -206,18 +206,20 @@ wakefield__salem-witch-museum                        weston__boston-harbor-islan
 |---|---|
 | libraries | 59(catalog 59/59, policy 57/59) |
 | card_eligibility known | 47/59(unknown 20.3%;其余 12 见 §1) |
-| attractions | 48 |
-| attractions w/ prices | 33/48(其余见 §3) |
-| attractions w/ hours | 36/48(其余见 §4) |
-| attractions w/ visitor_eligibility | 48/48 |
-| attractions w/ reservation | 48/48 |
+| attractions | **96**(passes 引用的每个 canonical slug 都有记录;0 孤儿)|
+| attractions w/ prices | **71/96**(legacy 回填;其余见 §3)|
+| attractions w/ hours | **80/96**(legacy 回填;其余见 §4)|
+| attractions w/ visitor_eligibility | 48/96(仅抓取过的 48 个)|
+| attractions w/ reservation | 48/96(仅抓取过的 48 个)|
 | passes | 1033 |
 | passes w/ coupon | 836/1033(18 failed 见 §2) |
-| passes w/ availability | 1002/1033(31 museumkey 要登录) |
+| passes w/ availability | **992/1033**(92 天窗口 May–Jul,70 个未来日;31 museumkey 要登录)|
 | **passes w/ residency_restriction 已确定** | **816/1033**(241 resident-only + 575 open;217 unknown 见 §5) |
 | libraries w/ residency 实测 | 47/59(14 全限本地 + 33 全开放;everett 无可订日期 + wilmington/somerville/bpl 见 §5A) |
 | branches | 34(BPL 24 + Cambridge 7 + Brookline 3) |
-| calendar 天数 | 31,062 |
+| calendar 天数 | **91,173**(avg 91 天/pass)|
+| libraries geo/address | **59/59**(legacy 恢复)|
+| attractions geo/address/phone/description/categories | **91/84/85/89/77 of 96**(legacy 恢复)|
 
 ---
 
