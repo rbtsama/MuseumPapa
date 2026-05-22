@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Museum Pass — 预定交互沙盒 (testgame)</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --line:#e3e6ea; --ink:#1c2430; --muted:#6b7480; --accent:#2563eb; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.5 system-ui,"Segoe UI",sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding:18px 20px; background:#0f172a; color:#fff; }
+  header h1 { margin:0; font-size:18px; }
+  header p { margin:4px 0 0; font-size:13px; color:#9fb0c7; }
+  main { max-width:980px; margin:0 auto; padding:20px; }
+  .panel { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:20px; }
+  .panel h2 { margin:0 0 12px; font-size:15px; }
+  select { padding:8px 10px; border:1px solid var(--line); border-radius:8px; font:inherit; min-width:240px; }
+  #libraries { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; }
+  label.lib { display:flex; align-items:center; gap:8px; padding:8px; border:1px solid var(--line); border-radius:8px; }
+  label.lib > span { flex:1; }
+  .cardnum { width:120px; padding:5px 7px; border:1px solid var(--line); border-radius:6px; font:inherit; }
+  .cardnum:disabled { background:#f0f1f3; }
+  .badge { display:inline-block; font-size:11px; padding:1px 6px; border-radius:999px; background:#eef2ff; color:#3949ab; }
+  small { color:var(--muted); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
+  .card-head { display:flex; align-items:baseline; gap:12px; }
+  .card-head h3 { margin:0; font-size:16px; flex:1; }
+  .price { color:var(--muted); font-size:13px; }
+  .passes { margin:12px 0; border-top:1px dashed var(--line); }
+  .passrow { display:flex; align-items:center; gap:10px; padding:7px 0; border-bottom:1px dashed var(--line); font-size:14px; }
+  .passrow .sum { width:120px; font-weight:600; }
+  .passrow .lib2 { flex:1; }
+  .res { font-size:12px; padding:2px 8px; border-radius:999px; }
+  .res-yes { background:#fef2f2; color:#b91c1c; }
+  .res-open { background:#ecfdf5; color:#047857; }
+  .res-unknown { background:#f3f4f6; color:#6b7280; }
+  .card-foot { display:flex; align-items:center; gap:10px; }
+  .tags { flex:1; display:flex; gap:6px; }
+  .tag { font-size:12px; padding:3px 9px; border-radius:999px; font-weight:600; }
+  .tag-res { background:#fef2f2; color:#b91c1c; }
+  .tag-card { background:#fff7ed; color:#c2410c; }
+  button { font:inherit; cursor:pointer; border:1px solid var(--line); background:#fff; padding:8px 14px; border-radius:8px; }
+  button.book, button.primary { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
+  button:disabled { opacity:.5; cursor:not-allowed; }
+  .modal { position:fixed; inset:0; background:rgba(15,23,42,.5); display:flex; align-items:center; justify-content:center; padding:20px; }
+  .modal.hidden { display:none; }
+  .modal-box { background:#fff; border-radius:14px; padding:22px; max-width:460px; width:100%; position:relative; }
+  .modal-close { position:absolute; top:10px; right:12px; border:none; background:none; font-size:22px; line-height:1; }
+  .modal-box h2 { margin:0 0 12px; font-size:17px; }
+  .modal-box h4 { margin:14px 0 6px; font-size:13px; color:var(--muted); }
+  .warn { background:#fffbeb; border:1px solid #fde68a; color:#92400e; padding:9px 11px; border-radius:8px; margin:6px 0; font-size:13px; }
+  .cardline { display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line); font-size:14px; }
+  .cardline span { flex:1; }
+  .cardline code { background:#f3f4f6; padding:2px 6px; border-radius:5px; }
+  #modal-actions { margin-top:16px; display:flex; justify-content:flex-end; gap:8px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Museum Pass — 预定交互沙盒</h1>
+  <p>真实抽样数据 · 选 Home Town + 勾选你"持有"的图书馆卡 · 点 Book 看 4 态引导</p>
+</header>
+<main>
+  <div class="panel">
+    <h2>① 你的 Home Town</h2>
+    <select id="town"></select>
+  </div>
+  <div class="panel">
+    <h2>② 你持有的图书馆卡（多选，勾选后可手填卡号）</h2>
+    <div id="libraries"></div>
+  </div>
+  <div id="attractions"></div>
+</main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="close">&times;</button>
+    <h2 id="modal-title"></h2>
+    <div id="modal-body"></div>
+    <div id="modal-actions"></div>
+  </div>
+</div>
+
+<script>
+// 纯决策逻辑：无 DOM 依赖。构建时会被剥掉 `export` 内联进 HTML。
+function classifyAttraction(attractionSlug, data, heldLibIds, homeTown) {
+  const held = new Set(heldLibIds);
+  const enriched = data.passes
+    .filter((p) => p.attraction_slug === attractionSlug)
+    .map((p) => ({
+      ...p,
+      held: held.has(p.library_id),
+      residentOK: p.residency !== 'yes' || homeTown === p.library_town,
+    }));
+
+  const fullyUsable = enriched.filter((p) => p.held && p.residentOK);
+  const heldPasses = enriched.filter((p) => p.held);
+  const residentOKPasses = enriched.filter((p) => p.residentOK);
+
+  let state;
+  let tags;
+  if (fullyUsable.length > 0) { state = 1; tags = []; }
+  else if (heldPasses.length > 0) { state = 3; tags = ['resident_only']; }
+  else if (residentOKPasses.length > 0) { state = 2; tags = ['library_pass_needed']; }
+  else { state = 4; tags = ['resident_only', 'library_pass_needed']; }
+
+  const uniqLibs = (arr) => {
+    const seen = new Set();
+    const out = [];
+    for (const p of arr) {
+      if (seen.has(p.library_id)) continue;
+      seen.add(p.library_id);
+      out.push({ library_id: p.library_id, library_name: p.library_name, network: p.network, library_town: p.library_town });
+    }
+    return out;
+  };
+
+  return {
+    state,
+    tags,
+    passes: enriched,
+    // state 1: the fully-usable cards; state 3: the held-but-residency-blocked cards (caller gates display on `state`)
+    usableCards: uniqLibs(state === 1 ? fullyUsable : heldPasses),
+    recommendCards: uniqLibs(residentOKPasses),
+    offeringCards: uniqLibs(enriched),
+    residentOnlyTowns: [...new Set(heldPasses.filter((p) => p.residency === 'yes').map((p) => p.library_town))],
+  };
+}
+
+</script>
+<script>
+const TESTGAME_DATA = {
+  "towns": [
+    "Acton",
+    "Andover",
+    "Belmont",
+    "Chelmsford",
+    "Lexington",
+    "Lynn",
+    "Lynnfield",
+    "Malden",
+    "Quincy",
+    "Salem",
+    "Worcester"
+  ],
+  "libraries": [
+    {
+      "id": "lynn",
+      "name": "Lynn Public Library",
+      "town": "Lynn",
+      "network": "NOBLE"
+    },
+    {
+      "id": "lynnfield",
+      "name": "Lynnfield Public Library",
+      "town": "Lynnfield",
+      "network": "NOBLE"
+    },
+    {
+      "id": "belmont",
+      "name": "Belmont Public Library",
+      "town": "Belmont",
+      "network": "Minuteman"
+    },
+    {
+      "id": "acton",
+      "name": "Acton Memorial Library",
+      "town": "Acton",
+      "network": "Minuteman"
+    },
+    {
+      "id": "chelmsford",
+      "name": "Chelmsford Public Library",
+      "town": "Chelmsford",
+      "network": "MVLC"
+    },
+    {
+      "id": "andover",
+      "name": "Memorial Hall Library",
+      "town": "Andover",
+      "network": "MVLC"
+    },
+    {
+      "id": "malden",
+      "name": "Malden Public Library",
+      "town": "Malden",
+      "network": "MBLN"
+    },
+    {
+      "id": "quincy",
+      "name": "Thomas Crane Public Library",
+      "town": "Quincy",
+      "network": "OCLN"
+    },
+    {
+      "id": "lexington",
+      "name": "Cary Memorial Library",
+      "town": "Lexington",
+      "network": "Minuteman"
+    }
+  ],
+  "attractions": [
+    {
+      "slug": "new-england-aquarium",
+      "name": "New England Aquarium",
+      "website": "http://www.neaq.org/",
+      "booking_url": "http://www.neaq.org/",
+      "price_adult": 44.95
+    },
+    {
+      "slug": "museum-of-science",
+      "name": "Museum of Science",
+      "website": "http://www.mos.org/",
+      "booking_url": "https://tickets.mos.org/events/7d164ead-0efd-ecae-8389-1627a51d4b31",
+      "price_adult": 33.0
+    },
+    {
+      "slug": "isabella-stewart-gardner-museum",
+      "name": "Isabella Stewart Gardner Museum",
+      "website": "http://www.gardnermuseum.org/home/",
+      "booking_url": "http://www.gardnermuseum.org/home/",
+      "price_adult": 22.0
+    },
+    {
+      "slug": "zoo-new-england",
+      "name": "Zoo New England",
+      "website": "http://www.zoonewengland.org/",
+      "booking_url": "http://www.zoonewengland.org/",
+      "price_adult": null
+    },
+    {
+      "slug": "boston-childrens-museum",
+      "name": "Boston Children's Museum",
+      "website": "http://www.bostonchildrensmuseum.org/",
+      "booking_url": "https://bostonchildrensmuseum.org/visit/events-parties/",
+      "price_adult": 24.0
+    },
+    {
+      "slug": "peabody-essex-museum",
+      "name": "Peabody Essex Museum",
+      "website": "http://www.pem.org/",
+      "booking_url": "https://www.pem.org/visit/accessibility",
+      "price_adult": 25.0
+    },
+    {
+      "slug": "blithewold",
+      "name": "Blithewold",
+      "website": "https://www.blithewold.org/",
+      "booking_url": "https://www.blithewold.org/",
+      "price_adult": 22.0
+    }
+  ],
+  "passes": [
+    {
+      "library_id": "acton",
+      "attraction_slug": "boston-childrens-museum",
+      "network": "Minuteman",
+      "library_name": "Acton Memorial Library",
+      "library_town": "Acton",
+      "residency": "no",
+      "scope": null,
+      "summary": "$5 off"
+    },
+    {
+      "library_id": "acton",
+      "attraction_slug": "isabella-stewart-gardner-museum",
+      "network": "Minuteman",
+      "library_name": "Acton Memorial Library",
+      "library_town": "Acton",
+      "residency": "no",
+      "scope": null,
+      "summary": "50% off"
+    },
+    {
+      "library_id": "acton",
+      "attraction_slug": "museum-of-science",
+      "network": "Minuteman",
+      "library_name": "Acton Memorial Library",
+      "library_town": "Acton",
+      "residency": "no",
+      "scope": null,
+      "summary": null
+    },
+    {
+      "library_id": "acton",
+      "attraction_slug": "new-england-aquarium",
+      "network": "Minuteman",
+      "library_name": "Acton Memorial Library",
+      "library_town": "Acton",
+      "residency": "unknown",
+      "scope": null,
+      "summary": "50% off"
+    },
+    {
+      "library_id": "acton",
+      "attraction_slug": "peabody-essex-museum",
+      "network": "Minuteman",
+      "library_name": "Acton Memorial Library",
+      "library_town": "Acton",
+      "residency": "no",
+      "scope": null,
+      "summary": null
+    },
+    {
+      "library_id": "acton",
+      "attraction_slug": "zoo-new-england",
+      "network": "Minuteman",
+      "library_name": "Acton Memorial Library",
+      "library_town": "Acton",
+      "residency": "no",
+      "scope": null,
+      "summary": null
+    },
+    {
+      "library_id": "andover",
+      "attraction_slug": "boston-childrens-museum",
+      "network": "MVLC",
+      "library_name": "Memorial Hall Library",
+      "library_town": "Andover",
+      "residency": "no",
+      "scope": null,
+      "summary": "50% off"
+    },
+    {
+      "library_id": "andover",
+      "attraction_slug": "isabella-stewart-gardner-museum",
+      "network": "MVLC",
+      "library_name": "Memorial Hall Library",
+      "library_town": "Andover",
+      "residency": "no",
+      "scope": null,
+      "summary": "FREE"
+    },
+    {
+      "library_id": "andover",
+      "attraction_slug": "museum-of-science",
+      "network": "MVLC",
+      "library_name": "Memorial Hall Library",
+      "library_town": "Andover",
+      "residency": "no",
+      "scope": null,
+      "summary": "50% off"
+    },
+    {
+      "library_id": "andover",
+      "attraction_slug": "new-england-aquarium",
+      "network": "MVLC",
+      "library_name": "Memorial Hall Library",
+      "library_town": "Andover",
+      "residency": "unknown",
+      "scope": null,
+      "summary": "50% off"
+    },
+    {
+      "library_id": "andover",
+      "attraction_slug": "zoo-new-england",
+      "network": "MVLC",
+      "library_name": "Memorial Hall Library",
+      "library_town": "Andover",
+      "residency": "no",
+      "scope": null,
+      "summary": null
+    },
+    {
+      "library_id": "belmont",
+      "attraction_slug": "boston-childrens-museum",
+      "network": "Minuteman",
+      "library_name": "Belmont Public Library",
+      "library_town": "Belmont",
+      "residency": "yes",
+      "scope": "town",
+      "summary": null
+    },
+    {
+      "library_id": "belmont",
+      "attraction_slug": "isabella-stewart-gardner-museum",
+      "network": "Minuteman",
+      "library_name": "Belmont Public Library",
+      "library_town": "Belmont",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "50% off"
+    },
+    {
+      "library_id": "belmont",
+      "attraction_slug": "museum-of-science",
+      "network": "Minuteman",
+      "library_name": "Belmont Public Library",
+      "library_town": "Belmont",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "50% off"
+    },
+    {
+      "library_id": "belmont",
+      "attraction_slug": "new-england-aquarium",
+      "network": "Minuteman",
+      "library_name": "Belmont Public Library",
+      "library_town": "Belmont",
+      "residency": "unknown",
+      "scope": null,
+      "summary": "50% off"
+    },
+    {
+      "library_id": "belmont",
+      "attraction_slug": "peabody-essex-museum",
+      "network": "Minuteman",
+      "library_name": "Belmont Public Library",
+      "library_town": "Belmont",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "$18/person"
+    },
+    {
+      "library_id": "belmont",
+      "attraction_slug": "zoo-new-england",
+      "network": "Minuteman",
+      "library_name": "Belmont Public Library",
+      "library_town": "Belmont",
+      "residency": "yes",
+      "scope": "town",
+      "summary": null
+    },
+    {
+      "library_id": "chelmsford",
+      "attraction_slug": "boston-childrens-museum",
+      "network": "MVLC",
+      "library_name": "Chelmsford Public Library",
+      "library_town": "Chelmsford",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "50% off"
+    },
+    {
+      "library_id": "chelmsford",
+      "attraction_slug": "isabella-stewart-gardner-museum",
+      "network": "MVLC",
+      "library_name": "Chelmsford Public Library",
+      "library_town": "Chelmsford",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "$2/person"
+    },
+    {
+      "library_id": "chelmsford",
+      "attraction_slug": "museum-of-science",
+      "network": "MVLC",
+      "library_name": "Chelmsford Public Library",
+      "library_town": "Chelmsford",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "50% off"
+    },
+    {
+      "library_id": "chelmsford",
+      "attraction_slug": "new-england-aquarium",
+      "network": "MVLC",
+      "library_name": "Chelmsford Public Library",
+      "library_town": "Chelmsford",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "50% off"
+    },
+    {
+      "library_id": "chelmsford",
+      "attraction_slug": "peabody-essex-museum",
+      "network": "MVLC",
+      "library_name": "Chelmsford Public Library",
+      "library_town": "Chelmsford",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "$18/person"
+    },
+    {
+      "library_id": "chelmsford",
+      "attraction_slug": "zoo-new-england",
+      "network": "MVLC",
+      "library_name": "Chelmsford Public Library",
+      "library_town": "Chelmsford",
+      "residency": "yes",
+      "scope": "town",
+      "summary": null
+    },
+    {
+      "library_id": "lexington",
+      "attraction_slug": "blithewold",
+      "network": "Minuteman",
+      "library_name": "Cary Memorial Library",
+      "library_town": "Lexington",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "50% off"
+    },
+    {
+      "library_id": "lexington",
+      "attraction_slug": "boston-childrens-museum",
+      "network": "Minuteman",
+      "library_name": "Cary Memorial Library",
+      "library_town": "Lexington",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "50% off"
+    },
+    {
+      "library_id": "lexington",
+      "attraction_slug": "isabella-stewart-gardner-museum",
+      "network": "Minuteman",
+      "library_name": "Cary Memorial Library",
+      "library_town": "Lexington",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "$2/person"
+    },
+    {
+      "library_id": "lexington",
+      "attraction_slug": "museum-of-science",
+      "network": "Minuteman",
+      "library_name": "Cary Memorial Library",
+      "library_town": "Lexington",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "$20/person"
+    },
+    {
+      "library_id": "lexington",
+      "attraction_slug": "new-england-aquarium",
+      "network": "Minuteman",
+      "library_name": "Cary Memorial Library",
+      "library_town": "Lexington",
+      "residency": "unknown",
+      "scope": null,
+      "summary": "FREE"
+    },
+    {
+      "library_id": "lexington",
+      "attraction_slug": "peabody-essex-museum",
+      "network": "Minuteman",
+      "library_name": "Cary Memorial Library",
+      "library_town": "Lexington",
+      "residency": "yes",
+      "scope": "town",
+      "summary": null
+    },
+    {
+      "library_id": "lexington",
+      "attraction_slug": "zoo-new-england",
+      "network": "Minuteman",
+      "library_name": "Cary Memorial Library",
+      "library_town": "Lexington",
+      "residency": "yes",
+      "scope": "town",
+      "summary": null
+    },
+    {
+      "library_id": "lynn",
+      "attraction_slug": "boston-childrens-museum",
+      "network": "NOBLE",
+      "library_name": "Lynn Public Library",
+      "library_town": "Lynn",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "Discount"
+    },
+    {
+      "library_id": "lynn",
+      "attraction_slug": "isabella-stewart-gardner-museum",
+      "network": "NOBLE",
+      "library_name": "Lynn Public Library",
+      "library_town": "Lynn",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "$10/person"
+    },
+    {
+      "library_id": "lynn",
+      "attraction_slug": "new-england-aquarium",
+      "network": "NOBLE",
+      "library_name": "Lynn Public Library",
+      "library_town": "Lynn",
+      "residency": "unknown",
+      "scope": null,
+      "summary": "50% off"
+    },
+    {
+      "library_id": "lynn",
+      "attraction_slug": "peabody-essex-museum",
+      "network": "NOBLE",
+      "library_name": "Lynn Public Library",
+      "library_town": "Lynn",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "$13.25/person"
+    },
+    {
+      "library_id": "lynn",
+      "attraction_slug": "zoo-new-england",
+      "network": "NOBLE",
+      "library_name": "Lynn Public Library",
+      "library_town": "Lynn",
+      "residency": "yes",
+      "scope": "town",
+      "summary": null
+    },
+    {
+      "library_id": "lynnfield",
+      "attraction_slug": "boston-childrens-museum",
+      "network": "NOBLE",
+      "library_name": "Lynnfield Public Library",
+      "library_town": "Lynnfield",
+      "residency": "no",
+      "scope": null,
+      "summary": "50% off"
+    },
+    {
+      "library_id": "lynnfield",
+      "attraction_slug": "isabella-stewart-gardner-museum",
+      "network": "NOBLE",
+      "library_name": "Lynnfield Public Library",
+      "library_town": "Lynnfield",
+      "residency": "no",
+      "scope": null,
+      "summary": "FREE"
+    },
+    {
+      "library_id": "lynnfield",
+      "attraction_slug": "museum-of-science",
+      "network": "NOBLE",
+      "library_name": "Lynnfield Public Library",
+      "library_town": "Lynnfield",
+      "residency": "no",
+      "scope": null,
+      "summary": "50% off"
+    },
+    {
+      "library_id": "lynnfield",
+      "attraction_slug": "new-england-aquarium",
+      "network": "NOBLE",
+      "library_name": "Lynnfield Public Library",
+      "library_town": "Lynnfield",
+      "residency": "no",
+      "scope": null,
+      "summary": "50% off"
+    },
+    {
+      "library_id": "lynnfield",
+      "attraction_slug": "peabody-essex-museum",
+      "network": "NOBLE",
+      "library_name": "Lynnfield Public Library",
+      "library_town": "Lynnfield",
+      "residency": "no",
+      "scope": null,
+      "summary": null
+    },
+    {
+      "library_id": "lynnfield",
+      "attraction_slug": "zoo-new-england",
+      "network": "NOBLE",
+      "library_name": "Lynnfield Public Library",
+      "library_town": "Lynnfield",
+      "residency": "no",
+      "scope": null,
+      "summary": null
+    },
+    {
+      "library_id": "malden",
+      "attraction_slug": "boston-childrens-museum",
+      "network": "MBLN",
+      "library_name": "Malden Public Library",
+      "library_town": "Malden",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "50% off"
+    },
+    {
+      "library_id": "malden",
+      "attraction_slug": "isabella-stewart-gardner-museum",
+      "network": "MBLN",
+      "library_name": "Malden Public Library",
+      "library_town": "Malden",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "FREE"
+    },
+    {
+      "library_id": "malden",
+      "attraction_slug": "museum-of-science",
+      "network": "MBLN",
+      "library_name": "Malden Public Library",
+      "library_town": "Malden",
+      "residency": "yes",
+      "scope": "town",
+      "summary": "50% off"
+    },
+    {
+      "library_id": "malden",
+      "attraction_slug": "new-england-aquarium",
+      "network": "MBLN",
+      "library_name": "Malden Public Library",
+      "library_town": "Malden",
+      "residency": "yes",
+      "scope": "town",
+      "summary": null
+    },
+    {
+      "library_id": "malden",
+      "attraction_slug": "peabody-essex-museum",
+      "network": "MBLN",
+      "library_name": "Malden Public Library",
+      "library_town": "Malden",
+      "residency": "yes",
+      "scope": "town",
+      "summary": null
+    },
+    {
+      "library_id": "malden",
+      "attraction_slug": "zoo-new-england",
+      "network": "MBLN",
+      "library_name": "Malden Public Library",
+      "library_town": "Malden",
+      "residency": "yes",
+      "scope": "town",
+      "summary": null
+    },
+    {
+      "library_id": "quincy",
+      "attraction_slug": "boston-childrens-museum",
+      "network": "OCLN",
+      "library_name": "Thomas Crane Public Library",
+      "library_town": "Quincy",
+      "residency": "unknown",
+      "scope": null,
+      "summary": "50% off"
+    },
+    {
+      "library_id": "quincy",
+      "attraction_slug": "isabella-stewart-gardner-museum",
+      "network": "OCLN",
+      "library_name": "Thomas Crane Public Library",
+      "library_town": "Quincy",
+      "residency": "unknown",
+      "scope": null,
+      "summary": "FREE"
+    },
+    {
+      "library_id": "quincy",
+      "attraction_slug": "museum-of-science",
+      "network": "OCLN",
+      "library_name": "Thomas Crane Public Library",
+      "library_town": "Quincy",
+      "residency": "unknown",
+      "scope": null,
+      "summary": null
+    },
+    {
+      "library_id": "quincy",
+      "attraction_slug": "new-england-aquarium",
+      "network": "OCLN",
+      "library_name": "Thomas Crane Public Library",
+      "library_town": "Quincy",
+      "residency": "unknown",
+      "scope": null,
+      "summary": "$12/person"
+    },
+    {
+      "library_id": "quincy",
+      "attraction_slug": "peabody-essex-museum",
+      "network": "OCLN",
+      "library_name": "Thomas Crane Public Library",
+      "library_town": "Quincy",
+      "residency": "unknown",
+      "scope": null,
+      "summary": null
+    },
+    {
+      "library_id": "quincy",
+      "attraction_slug": "zoo-new-england",
+      "network": "OCLN",
+      "library_name": "Thomas Crane Public Library",
+      "library_town": "Quincy",
+      "residency": "unknown",
+      "scope": null,
+      "summary": null
+    }
+  ]
+};
+
+const state = { homeTown: '', held: new Set(), cardNumbers: {} };
+const $ = (sel) => document.querySelector(sel);
+
+const networkBadge = (net) => `<span class="badge">${net}</span>`;
+function residencyLabel(p) {
+  if (p.residency === 'yes') return `<span class="res res-yes">Resident Only · ${p.library_town}</span>`;
+  if (p.residency === 'no') return `<span class="res res-open">Open</span>`;
+  return `<span class="res res-unknown">Not stated</span>`;
+}
+const summaryText = (p) => (p.summary ? p.summary : '<em>无折扣信息</em>');
+
+function renderControls() {
+  const opts = ['<option value="">— 选择你的 Home Town —</option>']
+    .concat(TESTGAME_DATA.towns.map((t) => `<option value="${t}">${t}</option>`)).join('');
+  $('#town').innerHTML = opts;
+  $('#town').value = state.homeTown;
+  $('#libraries').innerHTML = TESTGAME_DATA.libraries.map((l) => `
+    <label class="lib">
+      <input type="checkbox" data-lib="${l.id}" ${state.held.has(l.id) ? 'checked' : ''}>
+      <span>${l.name} ${networkBadge(l.network)} <small>${l.town}</small></span>
+      <input type="text" class="cardnum" data-card="${l.id}" placeholder="卡号(可选)"
+        value="${state.cardNumbers[l.id] || ''}" ${state.held.has(l.id) ? '' : 'disabled'}>
+    </label>`).join('');
+}
+
+function renderAttractions() {
+  $('#attractions').innerHTML = TESTGAME_DATA.attractions.map((a) => {
+    const r = classifyAttraction(a.slug, TESTGAME_DATA, [...state.held], state.homeTown);
+    const rows = r.passes.map((p) => `
+      <div class="passrow">
+        <span class="sum">${summaryText(p)}</span>
+        <span class="lib2">${p.library_name} ${networkBadge(p.network)}</span>
+        ${residencyLabel(p)}
+      </div>`).join('') || '<div class="passrow"><em>样本馆均不提供此景点 pass</em></div>';
+    const tagHtml = r.tags.map((t) => (t === 'resident_only'
+      ? '<span class="tag tag-res">Resident Only</span>'
+      : '<span class="tag tag-card">Library Pass Needed</span>')).join('');
+    const price = a.price_adult != null ? `成人 $${a.price_adult}` : '价格未知';
+    return `
+      <div class="card">
+        <div class="card-head">
+          <h3>${a.name}</h3>
+          <a href="${a.website || '#'}" target="_blank" rel="noopener">官网</a>
+          <span class="price">${price}</span>
+        </div>
+        <div class="passes">${rows}</div>
+        <div class="card-foot">
+          <div class="tags">${tagHtml}</div>
+          <button class="book" data-slug="${a.slug}">Book</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function render() { renderControls(); renderAttractions(); }
+
+document.addEventListener('change', (e) => {
+  if (e.target.matches('#town')) { state.homeTown = e.target.value; render(); }
+  else if (e.target.matches('[data-lib]')) {
+    const id = e.target.dataset.lib;
+    if (e.target.checked) state.held.add(id); else state.held.delete(id);
+    render();
+  }
+});
+document.addEventListener('input', (e) => {
+  if (e.target.matches('[data-card]')) state.cardNumbers[e.target.dataset.card] = e.target.value;
+});
+document.addEventListener('click', (e) => {
+  if (e.target.matches('.book')) openModal(e.target.dataset.slug);
+  else if (e.target.matches('.modal-close') || e.target.matches('#modal')) closeModal();
+  else if (e.target.matches('[data-copy]')) {
+    const v = e.target.dataset.copy;
+    if (v && navigator.clipboard) navigator.clipboard.writeText(v);
+    e.target.textContent = 'Copied';
+  }
+});
+
+const go = (url) => window.open(url || '#', '_blank', 'noopener');
+
+function openModal(slug) {
+  const a = TESTGAME_DATA.attractions.find((x) => x.slug === slug);
+  const r = classifyAttraction(slug, TESTGAME_DATA, [...state.held], state.homeTown);
+  const url = a.booking_url || a.website || '#';
+
+  let warn = '';
+  if (r.tags.includes('library_pass_needed')) {
+    warn += '<p class="warn">⚠ 需要图书馆卡：你当前未持有可领取此 Pass 的图书馆卡。</p>';
+  }
+  if (r.tags.includes('resident_only')) {
+    const towns = r.state === 3 ? r.residentOnlyTowns : [...new Set(r.offeringCards.map((c) => c.library_town))];
+    warn += `<p class="warn">⚠ 仅限居民：此活动仅限 ${towns.join('、')} 的 Resident 参加。</p>`;
+  }
+
+  let cards = '';
+  if (r.usableCards.length) {
+    cards = '<h4>你持有的可用卡</h4>' + r.usableCards.map((c) => {
+      const num = state.cardNumbers[c.library_id] || '';
+      return `<div class="cardline"><span>${c.library_name} ${networkBadge(c.network)}</span>
+        <code>${num || '(未录入卡号)'}</code>
+        <button data-copy="${num}" ${num ? '' : 'disabled'}>Copy</button></div>`;
+    }).join('');
+  } else if (r.state === 2) {
+    cards = '<h4>需要以下任一图书馆的卡</h4>' + r.recommendCards.map((c) =>
+      `<div class="cardline"><span>${c.library_name} ${networkBadge(c.network)} <small>${c.library_town}</small></span></div>`).join('');
+  } else if (r.state === 4) {
+    cards = '<h4>提供此景点的馆（均限居民）</h4>' + r.offeringCards.map((c) =>
+      `<div class="cardline"><span>${c.library_name} ${networkBadge(c.network)} <small>${c.library_town}</small></span></div>`).join('');
+  }
+
+  const single = r.usableCards.length === 1 ? r.usableCards[0] : null;
+  const singleNum = single ? (state.cardNumbers[single.library_id] || '') : '';
+  let actions;
+  if (single && singleNum) actions = '<button class="primary" id="copygo">Copy and Go</button>';
+  else actions = `<button class="primary" id="goonly">${r.state === 1 ? 'Go' : 'Go anyway'}</button>`;
+
+  $('#modal-title').textContent = a.name + (r.state === 1 ? ' — 可预定' : ' — 请注意');
+  $('#modal-body').innerHTML = warn + cards;
+  $('#modal-actions').innerHTML = actions;
+  if ($('#copygo')) $('#copygo').onclick = () => { if (navigator.clipboard) navigator.clipboard.writeText(singleNum); go(url); };
+  if ($('#goonly')) $('#goonly').onclick = () => go(url);
+  $('#modal').classList.remove('hidden');
+}
+function closeModal() { $('#modal').classList.add('hidden'); }
+
+render();
+</script>
+</body>
+</html>
