@@ -95,6 +95,7 @@ def test_render_with_real_template_and_logic():
     logic = (pkg / "logic.mjs").read_text(encoding="utf-8")
     sample = select_sample(*_load())
     html = render_html(sample, logic, template)
-    assert "export" not in html.split("</script>")[0] or "export function" not in html
+    assert "export function" not in html
+    assert "export default" not in html.split("</script>")[0]
     assert "classifyAttraction" in html
     assert "TESTGAME_DATA" in html
