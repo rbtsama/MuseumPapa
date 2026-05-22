@@ -7,38 +7,49 @@
 <style>
   :root { --bg:#f6f7f9; --card:#fff; --line:#e3e6ea; --ink:#1c2430; --muted:#6b7480; --accent:#2563eb; }
   * { box-sizing:border-box; }
-  body { margin:0; font:15px/1.5 system-ui,"Segoe UI",sans-serif; background:var(--bg); color:var(--ink); }
-  header { padding:18px 20px; background:#0f172a; color:#fff; }
-  header h1 { margin:0; font-size:18px; }
-  header p { margin:4px 0 0; font-size:13px; color:#9fb0c7; }
-  main { max-width:980px; margin:0 auto; padding:20px; }
-  .panel { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:20px; }
-  .panel h2 { margin:0 0 12px; font-size:15px; }
-  select { padding:8px 10px; border:1px solid var(--line); border-radius:8px; font:inherit; min-width:240px; }
-  #libraries { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; }
-  label.lib { display:flex; align-items:center; gap:8px; padding:8px; border:1px solid var(--line); border-radius:8px; }
-  label.lib > span { flex:1; }
-  .cardnum { width:120px; padding:5px 7px; border:1px solid var(--line); border-radius:6px; font:inherit; }
+  body { margin:0; font:14px/1.45 system-ui,"Segoe UI",sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding:12px 16px; background:#0f172a; color:#fff; }
+  header h1 { margin:0; font-size:16px; }
+  header p { margin:3px 0 0; font-size:12px; color:#9fb0c7; }
+
+  /* 两栏：左 = 控制区(可固定)，右 = 景点列表 */
+  .layout { display:grid; grid-template-columns:300px 1fr; gap:14px; max-width:1180px; margin:0 auto; padding:14px; align-items:start; }
+  .col-left { position:sticky; top:14px; display:flex; flex-direction:column; gap:12px; }
+  .col-right { display:flex; flex-direction:column; gap:10px; }
+  .panel { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; }
+  .panel h2 { margin:0 0 8px; font-size:13px; color:var(--muted); }
+  select { width:100%; padding:7px 9px; border:1px solid var(--line); border-radius:7px; font:inherit; }
+
+  #libraries { display:flex; flex-direction:column; gap:6px; }
+  label.lib { display:flex; align-items:center; gap:7px; padding:6px 7px; border:1px solid var(--line); border-radius:7px; font-size:13px; }
+  label.lib.on { border-color:var(--accent); background:#f5f8ff; }
+  label.lib > span { flex:1; min-width:0; }
+  .cardnum { width:88px; padding:4px 6px; border:1px solid var(--line); border-radius:6px; font:inherit; font-size:12px; }
   .cardnum:disabled { background:#f0f1f3; }
-  .badge { display:inline-block; font-size:11px; padding:1px 6px; border-radius:999px; background:#eef2ff; color:#3949ab; }
+  .badge { display:inline-block; font-size:10px; padding:1px 5px; border-radius:999px; background:#eef2ff; color:#3949ab; }
   small { color:var(--muted); }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
-  .card-head { display:flex; align-items:baseline; gap:12px; }
-  .card-head h3 { margin:0; font-size:16px; flex:1; }
-  .price { color:var(--muted); font-size:13px; }
-  .passes { margin:12px 0; border-top:1px dashed var(--line); }
-  .passrow { display:flex; align-items:center; gap:10px; padding:7px 0; border-bottom:1px dashed var(--line); font-size:14px; }
-  .passrow .sum { width:120px; font-weight:600; }
+
+  /* 景点卡片：左边色条 + 顶部状态徽章随选择变化 */
+  .card { background:var(--card); border:1px solid var(--line); border-left-width:5px; border-radius:10px; padding:12px; }
+  .card.s1 { border-left-color:#16a34a; }
+  .card.s2 { border-left-color:#f59e0b; }
+  .card.s3, .card.s4 { border-left-color:#dc2626; }
+  .status { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; padding:3px 10px; border-radius:999px; margin-bottom:8px; }
+  .status.s1 { background:#dcfce7; color:#15803d; }
+  .status.s2 { background:#fff7ed; color:#c2410c; }
+  .status.s3, .status.s4 { background:#fef2f2; color:#b91c1c; }
+  .card-head { display:flex; align-items:baseline; gap:10px; }
+  .card-head h3 { margin:0; font-size:15px; flex:1; }
+  .price { color:var(--muted); font-size:12px; }
+  .passes { margin:8px 0; }
+  .passrow { display:flex; align-items:center; gap:10px; padding:5px 0; border-top:1px dashed var(--line); font-size:13px; }
+  .passrow .sum { width:96px; font-weight:600; }
   .passrow .lib2 { flex:1; }
-  .res { font-size:12px; padding:2px 8px; border-radius:999px; }
+  .res { font-size:11px; padding:2px 7px; border-radius:999px; white-space:nowrap; }
   .res-yes { background:#fef2f2; color:#b91c1c; }
   .res-open { background:#ecfdf5; color:#047857; }
-  .res-unknown { background:#f3f4f6; color:#6b7280; }
-  .card-foot { display:flex; align-items:center; gap:10px; }
-  .tags { flex:1; display:flex; gap:6px; }
-  .tag { font-size:12px; padding:3px 9px; border-radius:999px; font-weight:600; }
-  .tag-res { background:#fef2f2; color:#b91c1c; }
-  .tag-card { background:#fff7ed; color:#c2410c; }
+  .card-foot { display:flex; align-items:center; gap:10px; margin-top:8px; }
+  .card-foot .hint { flex:1; font-size:12px; color:var(--muted); }
   button { font:inherit; cursor:pointer; border:1px solid var(--line); background:#fff; padding:8px 14px; border-radius:8px; }
   button.book, button.primary { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
   button:disabled { opacity:.5; cursor:not-allowed; }
@@ -53,6 +64,7 @@
   .cardline span { flex:1; }
   .cardline code { background:#f3f4f6; padding:2px 6px; border-radius:5px; }
   #modal-actions { margin-top:16px; display:flex; justify-content:flex-end; gap:8px; }
+  @media (max-width:760px){ .layout{ grid-template-columns:1fr; } .col-left{ position:static; } }
 </style>
 </head>
 <body>
@@ -60,17 +72,19 @@
   <h1>Museum Pass — 预定交互沙盒</h1>
   <p>真实抽样数据 · 选 Home Town + 勾选你"持有"的图书馆卡 · 点 Book 看 4 态引导</p>
 </header>
-<main>
-  <div class="panel">
-    <h2>① 你的 Home Town</h2>
-    <select id="town"></select>
+<div class="layout">
+  <div class="col-left">
+    <div class="panel">
+      <h2>① 你的 Home Town（居民身份）</h2>
+      <select id="town"></select>
+    </div>
+    <div class="panel">
+      <h2>② 你持有的图书馆卡（勾选后可填卡号）</h2>
+      <div id="libraries"></div>
+    </div>
   </div>
-  <div class="panel">
-    <h2>② 你持有的图书馆卡（多选，勾选后可手填卡号）</h2>
-    <div id="libraries"></div>
-  </div>
-  <div id="attractions"></div>
-</main>
+  <div class="col-right" id="attractions"></div>
+</div>
 
 <div id="modal" class="modal hidden">
   <div class="modal-box">
@@ -789,11 +803,25 @@ const $ = (sel) => document.querySelector(sel);
 
 const networkBadge = (net) => `<span class="badge">${net}</span>`;
 function residencyLabel(p) {
-  if (p.residency === 'yes') return `<span class="res res-yes">Resident Only · ${p.library_town}</span>`;
-  if (p.residency === 'no') return `<span class="res res-open">Open</span>`;
-  return `<span class="res res-unknown">Not stated</span>`;
+  // 游戏中只区分两种：明确"仅限居民"，其余(no / unknown)一律按"无限制"处理
+  if (p.residency === 'yes') return `<span class="res res-yes">仅限居民 · ${p.library_town}</span>`;
+  return `<span class="res res-open">无限制</span>`;
 }
 const summaryText = (p) => (p.summary ? p.summary : '<em>无折扣信息</em>');
+
+// 列表页一眼可见的状态徽章（随 Home Town / 勾选的卡实时变化）
+const STATUS = {
+  1: { cls: 's1', text: '✅ 完全符合 · 可直接预定' },
+  2: { cls: 's2', text: '⚠️ 缺图书馆卡' },
+  3: { cls: 's3', text: '⛔ 仅限居民 · 你不符合' },
+  4: { cls: 's4', text: '⛔ 缺卡 且 仅限居民' },
+};
+const HINT = {
+  1: '你持有可用卡且满足居民要求',
+  2: '勾选弹窗里提示的任一图书馆卡即可',
+  3: '你持卡，但不是该镇居民',
+  4: '既没有可用卡，也不符合居民要求',
+};
 
 function renderControls() {
   const opts = ['<option value="">— 选择你的 Home Town —</option>']
@@ -801,7 +829,7 @@ function renderControls() {
   $('#town').innerHTML = opts;
   $('#town').value = state.homeTown;
   $('#libraries').innerHTML = TESTGAME_DATA.libraries.map((l) => `
-    <label class="lib">
+    <label class="lib ${state.held.has(l.id) ? 'on' : ''}">
       <input type="checkbox" data-lib="${l.id}" ${state.held.has(l.id) ? 'checked' : ''}>
       <span>${l.name} ${networkBadge(l.network)} <small>${l.town}</small></span>
       <input type="text" class="cardnum" data-card="${l.id}" placeholder="卡号(可选)"
@@ -818,12 +846,11 @@ function renderAttractions() {
         <span class="lib2">${p.library_name} ${networkBadge(p.network)}</span>
         ${residencyLabel(p)}
       </div>`).join('') || '<div class="passrow"><em>样本馆均不提供此景点 pass</em></div>';
-    const tagHtml = r.tags.map((t) => (t === 'resident_only'
-      ? '<span class="tag tag-res">Resident Only</span>'
-      : '<span class="tag tag-card">Library Pass Needed</span>')).join('');
+    const st = STATUS[r.state];
     const price = a.price_adult != null ? `成人 $${a.price_adult}` : '价格未知';
     return `
-      <div class="card">
+      <div class="card ${st.cls}">
+        <div class="status ${st.cls}">${st.text}</div>
         <div class="card-head">
           <h3>${a.name}</h3>
           <a href="${a.website || '#'}" target="_blank" rel="noopener">官网</a>
@@ -831,7 +858,7 @@ function renderAttractions() {
         </div>
         <div class="passes">${rows}</div>
         <div class="card-foot">
-          <div class="tags">${tagHtml}</div>
+          <span class="hint">${HINT[r.state]}</span>
           <button class="book" data-slug="${a.slug}">Book</button>
         </div>
       </div>`;
