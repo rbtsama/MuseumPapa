@@ -23,7 +23,7 @@
 
 ## 3. 抽样数据（全部真实）
 
-### 3.1 图书馆（8 家，跨 5 联盟，居民/开放混合）
+### 3.1 图书馆（9 家，跨 5 联盟，居民/开放混合）
 
 | lib_id | 馆名 | Town | 联盟 network | 居民政策画像 |
 |---|---|---|---|---|
@@ -35,15 +35,21 @@
 | andover | Memorial Hall Library (Andover) | Andover | MVLC | Open |
 | malden | Malden Public Library | Malden | MBLN | Resident Only |
 | quincy | Thomas Crane Public Library (Quincy) | Quincy | OCLN | 未标注 (按无限制处理) |
+| lexington | Cary Memorial Library | Lexington | Minuteman | Resident Only（blithewold 的唯一供应馆，状态 4 锚点） |
 
 > 馆名以 `libraries.json` 实际 `name` 字段为准。
 
-### 3.2 景点（6 个，均存在于 attractions.json，覆盖最广）
+### 3.2 景点（7 个，均存在于 attractions.json）
 
 new-england-aquarium、museum-of-science、isabella-stewart-gardner-museum、
-zoo-new-england、boston-childrens-museum、peabody-essex-museum。
+zoo-new-england、boston-childrens-museum、peabody-essex-museum、**blithewold**。
 
-### 3.3 实际 Pass 网格（8 馆 × 6 景点 = 46/48 cell 有真实 pass）
+> **blithewold** 在全数据集中**仅由 Lexington 一家馆**提供，且为 Resident Only。
+> 它是唯一"全 resident-only"的景点，用作**状态 4 的真实锚点**（见 §5）：
+> 选范围外镇（如 Salem）且不持 Lexington 卡时，无任何 residentOK 的 pass，触发状态 4。
+> `blithewold` 的 `reservation.booking_url` 为 null，Go 跳转回退到 `website`。
+
+### 3.3 实际 Pass 网格（核心 8 馆 × 6 景点 = 46/48 cell 有真实 pass）
 
 每个 cell 格式 `residency / coupon.summary`（`-` = 该馆不给该景点供 pass）：
 
@@ -60,18 +66,21 @@ zoo-new-england、boston-childrens-museum、peabody-essex-museum。
 
 > 该网格为当前 `data/structured/passes.json` 实测结果；抽取步骤须在构建时重新读取，
 > 若上游数据变化则以重新抽取为准（本表仅作设计期快照与覆盖性证明）。
+> 第 9 馆 **lexington** 给全 7 景点供 pass（new-england-aquarium=unknown/FREE、
+> museum-of-science=yes/$20·person、isabella=yes/$2·person、zoo=yes/null、
+> boston-childrens=yes/50% off、peabody=yes/null、**blithewold=yes/50% off**）。
 
 ### 3.4 Home Town 下拉
 
-选项 = 上述 8 个馆所在镇（Lynn / Lynnfield / Belmont / Acton / Chelmsford / Andover / Malden / Quincy）
+选项 = 上述 9 个馆所在镇（Lynn / Lynnfield / Belmont / Acton / Chelmsford / Andover / Malden / Quincy / Lexington）
 **+ 2 个抽样范围外的镇**（Salem、Worcester）。范围外镇用来触发"非居民"状态：
 选它时任何 Resident Only 的 pass 都不满足居民资格，而 Open 的 pass 照常可用。
 
 ## 4. UI 布局
 
 - **顶部控制区**
-  - `Home Town` 下拉（单选，10 个选项，默认未选或选第一个）。
-  - 8 个图书馆条目，每条 = 「勾选框（= 假设持有该馆卡）+ 一个可选的卡号输入框」。
+  - `Home Town` 下拉（单选，11 个选项，默认未选/占位项）。
+  - 9 个图书馆条目，每条 = 「勾选框（= 假设持有该馆卡）+ 一个可选的卡号输入框」。
 - **主体**：每个景点一张卡片。
   - 卡片头：景点真实 `name`、`website` 链接、价格摘要（取 `prices` 里 adult 等）。
   - 卡片内按"提供该景点 pass 的样本馆"逐行列出 **Pass 行**，每行如实展示：
@@ -95,6 +104,12 @@ zoo-new-england、boston-childrens-museum、peabody-essex-museum。
 | 2 缺卡 | 无 held 卡，但存在 residentOK 的 pass（居民资格 OK，只差卡） | `Library Pass Needed` | 警告需要某馆的卡，括号列出具体馆 + 联盟；可忽略 → `Go` |
 | 3 非居民 | 有 held 卡，但所有 held 的 pass 都是非本镇 Resident Only | `Resident Only` | 警告仅限 {馆所在镇} 居民；列出 held 卡供 Copy；想跳"自凭本事" → `Go` |
 | 4 都不符合 | 无 held 卡 **且** 无任何 residentOK 的 pass | `Resident Only` + `Library Pass Needed` | 两条警告并列；仍可忽略 → `Go` |
+
+> **状态可达性**：因每个景点几乎都有 open pass 兜底，状态 4 仅在"该景点全部样本 pass 都是
+> Resident Only"时出现。全数据集唯一满足者是 **blithewold**（仅 Lexington 提供）。因此：
+> blithewold 在 `Home Town=Salem/Worcester`（范围外）且未勾 Lexington 卡时 → 状态 4；
+> 勾 Lexington 卡 → 状态 3；`Home Town=Lexington` 未勾卡 → 状态 2；勾卡 → 状态 1。
+> 其余 6 景点用于演示状态 1/2/3。四态均由真实数据驱动，无任何编造或为凑状态而裁剪。
 
 **`Book` 按钮始终为正常颜色、可点击**（不置灰）。所有状态点击后都进入弹窗，
 且**所有状态都允许"忽略警告硬跳"**到 `booking_url`——
