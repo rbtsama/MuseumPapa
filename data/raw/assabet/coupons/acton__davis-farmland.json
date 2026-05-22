@@ -20,6 +20,15 @@
       "summary": "50% off",
       "source_phrase_block": "This pass admits up to three (3) people at half price. Pickup the pass up to six (6) days in advance of the reservation date. This pass MUST be returned to the library it was checked out from (either Acton Memorial Library or West Acton Citizens' Library) before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue passes are subject to a fine of $10 per day. This pass is provided by the Friends of the Acton Libraries."
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null,
+      "booking_frequency_limit": null,
+      "late_return_penalty": "Overdue passes are subject to a fine of $10 per day"
+    }
   }
 }

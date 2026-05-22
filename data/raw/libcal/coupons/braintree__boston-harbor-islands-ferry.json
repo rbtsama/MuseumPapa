@@ -26,7 +26,9 @@
       "weekdays_only": true,
       "seasonal": null,
       "advance_booking_required": false,
-      "advance_booking_hours": null
+      "advance_booking_hours": null,
+      "booking_frequency_limit": null,
+      "late_return_penalty": null
     }
   }
 }

@@ -20,6 +20,15 @@
       "summary": "FREE",
       "source_phrase_block": "Please Note: The Museum of Russian Icons is now the Icon Museum and Study Center. Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Free general admission for up to 6 people. Additional instructions: -Present pass upon arrival to receive discount. THIS PASS MUST BE RETURNED TO THE MORSE INSTITUTE LIBRARY BY 9:30AM THE DAY AFTER YOUR RESERVATION. OVERDUE FINES ARE $3/DAY. Passes can be returned at the circulation desk or the outside book drops."
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null,
+      "booking_frequency_limit": null,
+      "late_return_penalty": "OVERDUE FINES ARE $3/DAY"
+    }
   }
 }

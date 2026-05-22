@@ -20,6 +20,15 @@
       "summary": "50% off",
       "source_phrase_block": "This pass admits up to two (2) adults at 50% discounted admission, and up to two (2) children at $1 admission. Pickup the pass up to six (6) days in advance of the reservation date. This pass MUST be returned to Acton Memorial Library before the library opens the day after use. It can be placed in the outside book drop if the library is closed. Overdue passes are subject to a fine of $10 per day."
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null,
+      "booking_frequency_limit": null,
+      "late_return_penalty": "Overdue passes are subject to a fine of $10 per day"
+    }
   }
 }

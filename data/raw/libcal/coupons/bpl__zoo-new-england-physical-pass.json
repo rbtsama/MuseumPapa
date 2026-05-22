@@ -31,6 +31,15 @@
       "summary": "$9/person",
       "source_phrase_block": "Coupon admits 6 people at $9 per adult and $6 per child. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar. To use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null,
+      "booking_frequency_limit": "Note: This pass is limited to one booking per month per person",
+      "late_return_penalty": null
+    }
   }
 }

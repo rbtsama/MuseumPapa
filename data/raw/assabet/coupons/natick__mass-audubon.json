@@ -20,6 +20,15 @@
       "summary": "FREE",
       "source_phrase_block": "Type of pass: Returnable, must be picked up from the library the day before or the day of your reservation date. Pricing: Free parking for 1 car at a Massachusetts State Park. Additional instructions: -Pass is not eligible for use at the Gardens at Elm Bank; the Quabbin Reservoir; the Squantum Point, NorthPoint, or Draw Seven Commuter Lots; camping; or any on-street DCR location that charges an hourly rate. Please note that this pass must be returned to the library where you picked it up -- either the Bacon Free Library or the Morse Institute Library -- by 9:30am the day after your reservation. Overdue fines are $3/day. Passes can be returned at the circulation desk or the outside book drops."
     },
-    "restrictions": null
+    "restrictions": {
+      "blackout": [],
+      "blackout_recurring": [],
+      "weekdays_only": false,
+      "seasonal": null,
+      "advance_booking_required": false,
+      "advance_booking_hours": null,
+      "booking_frequency_limit": null,
+      "late_return_penalty": "Overdue fines are $3/day"
+    }
   }
 }
