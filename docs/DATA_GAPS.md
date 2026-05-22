@@ -135,13 +135,13 @@ wakefield__salem-witch-museum                        weston__boston-harbor-islan
 
 ---
 
-## 5. Pass 居住限制 residency_restriction(真正的预订筛选)— 213/1033 仍 unknown
+## 5. Pass 居住限制 residency_restriction(真正的预订筛选)— 217/1033 仍 unknown
 
 这是 pass 能不能订的**真正筛选维度**。法律根基:麻州 **M.G.L. c. 78** —— certified 图书馆必须给任何 MA 居民办卡(否则丢州拨款),所以办卡极松;真正受限的是 Museum Pass。系统在「输卡号」那步按**办卡 ZIP** 判定(见运营方截图 + 业务实测文档)。
 
 **简化模型(产品决定):** 1 用户 = 1 home ZIP,假设其所有卡都绑这个 ZIP。**不建模**「办了本镇卡但地址非本镇」的 loophole。`restricted` 三态:yes/no/unknown,默认 **unknown**(文本沉默 ≠ 开放)。walk-in(非居民当天借未预约 pass)**定义为「不能预订」**,不计入。
 
-**当前(820/1033 已确定):** 243 resident-only / 577 open / 213 unknown。
+**当前(816/1033 已确定):** 241 resident-only / 575 open / 217 unknown。
 
 ### 实证方法(booking probe,Phase P3/P5)
 用**目标馆同网络、但持卡人非本镇**的卡,试订到 Review Page(只验卡,**绝不完成预订**;已验证 Stoneham 那种「reservation complete + 固定码 IP-1519064」是静态模板——两次 probe 同码,非真预订)。运营方住 Wakefield,5 张卡都视作 Wakefield ZIP → 对所有非 Wakefield 馆都是「非本镇」。一张卡测**整个网络**:
@@ -151,7 +151,7 @@ wakefield__salem-witch-museum                        weston__boston-harbor-islan
 > **⚠ 网络归属易错(Phase P5 修正):** seeds 曾把 `malden`/`chelsea` 误标 NOBLE,实为 **MBLN**(Metro Boston:BPL+Malden+Chelsea,已 web 核实)。**用错网络的卡 probe 会把「卡不在该网络」误判成 resident-only。** 已修正,并用 BPL(MBLN)卡重测:**Chelsea 从「假 resident-only」纠正为 OPEN**;**Malden 实测 resident-only**(与业务文档举例1 一致)。`everett` 确认 NOBLE(其官网自述)。**所有 `open` 结论不受影响**(open 必须卡真在该网络才可能);只有 `resident-only` 可能被错网络污染,已排查仅 chelsea 一处。
 
 ### 实证规律:**residency 是 per-LIBRARY 策略**(每馆要么全 resident-only,要么全 open,无混合;每个 pass 都实测过)
-**全 RESIDENT-ONLY 的馆(16)**:
+**全 RESIDENT-ONLY 的馆(14)**:
 - NOBLE:`wakefield, woburn, north-reading, lynn`
 - MBLN:`malden`
 - MVLC:`chelmsford, north-andover`
@@ -169,7 +169,7 @@ wakefield__salem-witch-museum                        weston__boston-harbor-islan
 - `restrictions.booking_frequency_limit`:周期预订上限原文,如 BPL「limited to one booking per month per person」、carlisle「one pass per week」。**8 个 pass 命中**。只在部分热门/贵的馆有,UI 用于提醒用户。(已排除「one pass per party」这类**每次容量**误报。)
 - `restrictions.late_return_penalty`:circulating(Pik&Rtn)晚还罚金原文,如 acton「fine of $10 per day」、natick「$3/day」。**11 个 pass 命中**。UI 另对**所有 `physical_circ`** pass 全量提醒「注意归还政策」(无法算用户取/还日期)。
 
-### 5A. 拿不到 — 无法 probe 的来源(213 unknown 的构成)
+### 5A. 拿不到 — 无法 probe 的来源(217 unknown 的构成)
 - `wilmington`(MVLC 本馆,26)、`somerville`(Minuteman 本馆,11):各自网络只有「本镇那张卡」,无异镇卡测自己。需再办「非 Wilmington 的 MVLC 卡」+「非 Somerville 的 Minuteman 卡」。**(运营方:暂时办不下来)**
 - `bpl`(libcal,23):**LibCal 没有 Assabet 那种「只验卡、不下单」的安全中间步**(调研结论,见下)。
 - `cohasset`/`hingham`(museumkey,~31):平台不同 + 要登录态。
@@ -214,8 +214,8 @@ wakefield__salem-witch-museum                        weston__boston-harbor-islan
 | passes | 1033 |
 | passes w/ coupon | 836/1033(18 failed 见 §2) |
 | passes w/ availability | 1002/1033(31 museumkey 要登录) |
-| **passes w/ residency_restriction 已确定** | **820/1033**(243 resident-only + 577 open;213 unknown 见 §5) |
-| libraries w/ residency 实测 | 49/59(16 全限本地 + 33 全开放;everett 无可订日期+wilmington/somerville/bpl 见 §5A) |
+| **passes w/ residency_restriction 已确定** | **816/1033**(241 resident-only + 575 open;217 unknown 见 §5) |
+| libraries w/ residency 实测 | 47/59(14 全限本地 + 33 全开放;everett 无可订日期 + wilmington/somerville/bpl 见 §5A) |
 | branches | 34(BPL 24 + Cambridge 7 + Brookline 3) |
 | calendar 天数 | 31,062 |
 
