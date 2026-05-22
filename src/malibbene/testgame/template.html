@@ -55,9 +55,8 @@
   .passrow.s3,.passrow.s4{border-color:var(--r-line);background:var(--r-bg);}
   .passrow .sum{width:84px;font-weight:650;}
   .passrow .lib2{flex:1;min-width:0;}
-  .res{font-size:11px;padding:1px 7px;border-radius:6px;white-space:nowrap;}
-  .res-yes{background:#fbe2e2;color:var(--r-fg);}
-  .res-open{background:#d6f5e1;color:var(--g-fg);}
+  /* pass 的居民规则 = 馆名后的灰色小字(纯描述, 不是对你的判定); 仅在限居民时出现 */
+  .resnote{color:var(--muted);font-size:12px;white-space:nowrap;}
   .pstatus{font-size:11px;font-weight:700;white-space:nowrap;min-width:62px;text-align:right;}
   .pstatus.s1{color:var(--g-fg);}
   .pstatus.s2{color:var(--o-fg);}
@@ -129,18 +128,17 @@ const state = { homeTown: '', held: new Set(), cardNumbers: {} };
 const $ = (sel) => document.querySelector(sel);
 
 const networkBadge = (n) => `<span class="badge">${n}</span>`;
-function residencyLabel(p) {
-  if (p.residency === 'yes') return `<span class="res res-yes">仅限居民 · ${p.library_town}</span>`;
-  return `<span class="res res-open">无限制</span>`;
-}
+// pass 的居民规则：仅在限居民时显示一句灰色小字描述(不是对用户的判定)
+const residencyNote = (p) => (p.residency === 'yes' ? ` · <span class="resnote">限 ${p.library_town} 居民</span>` : '');
 const summaryText = (p) => (p.summary ? p.summary : '<em>无折扣信息</em>');
 
-// 列表页状态文案：pill = 每条 pass 的简短状态；head = 景点整体(最佳)状态
+// 每行只有一个判定 pill, 只描述"你的结果"(不再用"仅限居民"做状态名以免和 pass 规则重名)
+// head = 景点整体(最佳 pass)状态
 const STATUS = {
   1: { cls: 's1', pill: '✓ 完全符合', head: '✅ 有完全符合的 Pass · 可直接预定' },
   2: { cls: 's2', pill: '缺卡', head: '⚠️ 最佳为「缺卡」· 需对应图书馆卡' },
-  3: { cls: 's3', pill: '仅限居民', head: '⛔ 仅限居民' },
-  4: { cls: 's4', pill: '都不符合', head: '⛔ 都不符合' },
+  3: { cls: 's3', pill: '✗ 非本镇居民', head: '⛔ 你不符合居民要求' },
+  4: { cls: 's4', pill: '✗ 缺卡·非居民', head: '⛔ 缺卡且非居民' },
   5: { cls: 's2', pill: '', head: '无可用 Pass' },
 };
 
@@ -180,8 +178,7 @@ function renderAttractions() {
       return `
         <div class="passrow ${st.cls}">
           <span class="sum">${summaryText(p)}</span>
-          <span class="lib2">${p.library_name} ${networkBadge(p.network)}</span>
-          ${residencyLabel(p)}
+          <span class="lib2">${p.library_name} ${networkBadge(p.network)}${residencyNote(p)}</span>
           <span class="pstatus ${st.cls}">${st.pill}</span>
           <button class="book" data-slug="${a.slug}" data-libid="${p.library_id}">Book</button>
         </div>`;
