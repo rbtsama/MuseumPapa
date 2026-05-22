@@ -56,3 +56,21 @@ test('state 3: 持 resident-only 卡且非居民，open 馆未持有', () => {
   assert.equal(r.state, 3);
   assert.deepEqual(r.residentOnlyTowns, ['Lynn']);
 });
+
+test('edge: empty passes -> state 4 with empty card lists', () => {
+  const r = classifyAttraction('blithewold', { passes: [] }, [], 'Lexington');
+  assert.equal(r.state, 4);
+  assert.equal(r.offeringCards.length, 0);
+  assert.equal(r.residentOnlyTowns.length, 0);
+});
+
+test('edge: duplicate library_id rows dedupe in card lists', () => {
+  const dup = { passes: [
+    { library_id:'lynnfield', attraction_slug:'museum-of-science', network:'NOBLE', library_name:'Lynnfield Public Library', library_town:'Lynnfield', residency:'no', scope:null, summary:'50% off' },
+    { library_id:'lynnfield', attraction_slug:'museum-of-science', network:'NOBLE', library_name:'Lynnfield Public Library', library_town:'Lynnfield', residency:'no', scope:null, summary:'FREE' },
+  ]};
+  const r = classifyAttraction('museum-of-science', dup, ['lynnfield'], 'Salem');
+  assert.equal(r.state, 1);
+  assert.equal(r.usableCards.length, 1);
+  assert.equal(r.offeringCards.length, 1);
+});

@@ -35,6 +35,7 @@ export function classifyAttraction(attractionSlug, data, heldLibIds, homeTown) {
     state,
     tags,
     passes: enriched,
+    // state 1: the fully-usable cards; state 3: the held-but-residency-blocked cards (caller gates display on `state`)
     usableCards: uniqLibs(state === 1 ? fullyUsable : heldPasses),
     recommendCards: uniqLibs(residentOKPasses),
     offeringCards: uniqLibs(enriched),
