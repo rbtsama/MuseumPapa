@@ -3,6 +3,7 @@
 铁律：只搬运真实数据，绝不补值。coupon 缺失 -> summary=None；residency 原样透传。
 """
 from __future__ import annotations
+import urllib.parse
 
 # 9 馆，跨 NOBLE/Minuteman/MVLC/MBLN/OCLN 5 联盟，居民/开放/未标注混合
 SAMPLE_LIB_IDS = [
@@ -18,6 +19,13 @@ SAMPLE_ATTRACTION_SLUGS = [
 EXTRA_TOWNS = ["Salem", "Worcester"]
 
 
+def _abs_url(url, fallback):
+    """只接受带 scheme 的绝对 URL；相对路径/None 一律退回 fallback（景点官网）。"""
+    if url and urllib.parse.urlparse(url).scheme:
+        return url
+    return fallback
+
+
 def _adult_price(attraction: dict):
     for pr in attraction.get("prices") or []:
         if pr.get("audience") == "adult" and pr.get("price") is not None:
@@ -26,7 +34,7 @@ def _adult_price(attraction: dict):
 
 
 def select_sample(libraries: list[dict], attractions: list[dict], passes: list[dict]) -> dict:
-    lib_by_id = {l["id"]: l for l in libraries}
+    lib_by_id = {lib["id"]: lib for lib in libraries}
     attr_by_slug = {a["slug"]: a for a in attractions}
 
     missing_libs = [i for i in SAMPLE_LIB_IDS if i not in lib_by_id]
@@ -35,8 +43,8 @@ def select_sample(libraries: list[dict], attractions: list[dict], passes: list[d
         raise ValueError(f"样本不在数据集中: libs={missing_libs} attractions={missing_attrs}")
 
     out_libs = [
-        {"id": l["id"], "name": l["name"], "town": l["town"], "network": l["network"]}
-        for l in (lib_by_id[i] for i in SAMPLE_LIB_IDS)
+        {"id": lib["id"], "name": lib["name"], "town": lib["town"], "network": lib["network"]}
+        for lib in (lib_by_id[i] for i in SAMPLE_LIB_IDS)
     ]
     out_attrs = []
     for s in SAMPLE_ATTRACTION_SLUGS:
@@ -46,7 +54,7 @@ def select_sample(libraries: list[dict], attractions: list[dict], passes: list[d
             "slug": a["slug"],
             "name": a["name"],
             "website": a.get("website"),
-            "booking_url": booking or a.get("website"),
+            "booking_url": _abs_url(booking, a.get("website")),
             "price_adult": _adult_price(a),
         })
 
@@ -56,19 +64,19 @@ def select_sample(libraries: list[dict], attractions: list[dict], passes: list[d
     for p in passes:
         if p["library_id"] not in lib_set or p["attraction_slug"] not in attr_set:
             continue
-        l = lib_by_id[p["library_id"]]
+        lib = lib_by_id[p["library_id"]]
         rr = p.get("residency_restriction") or {}
         coupon = p.get("coupon") or {}
         out_passes.append({
             "library_id": p["library_id"],
             "attraction_slug": p["attraction_slug"],
-            "network": l["network"],
-            "library_name": l["name"],
-            "library_town": l["town"],
+            "network": lib["network"],
+            "library_name": lib["name"],
+            "library_town": lib["town"],
             "residency": rr.get("restricted", "unknown"),
             "scope": rr.get("scope"),
             "summary": coupon.get("summary"),  # 可能为 None，原样保留
         })
 
-    towns = sorted({l["town"] for l in out_libs}) + list(EXTRA_TOWNS)
+    towns = sorted({lib["town"] for lib in out_libs} | set(EXTRA_TOWNS))
     return {"towns": towns, "libraries": out_libs, "attractions": out_attrs, "passes": out_passes}

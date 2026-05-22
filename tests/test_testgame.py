@@ -45,8 +45,8 @@ def test_blithewold_is_state4_anchor():
     sample = select_sample(*_load())
     blith = [p for p in sample["passes"] if p["attraction_slug"] == "blithewold"]
     assert len(blith) == 1
-    assert blith[0]["library_id"] == "lexington"
-    assert blith[0]["residency"] == "yes"
+    assert any(p["library_id"] == "lexington" for p in blith)
+    assert any(p["residency"] == "yes" for p in blith)
 
 
 def test_no_fabrication_summary_passthrough():
@@ -64,3 +64,10 @@ def test_pass_records_have_required_fields():
             assert k in p
         assert p["library_id"] in SAMPLE_LIB_IDS
         assert p["attraction_slug"] in SAMPLE_ATTRACTION_SLUGS
+
+
+def test_booking_url_is_absolute_or_none():
+    sample = select_sample(*_load())
+    for a in sample["attractions"]:
+        url = a["booking_url"]
+        assert url is None or url.startswith("http"), f"{a['slug']} booking_url not absolute: {url!r}"
