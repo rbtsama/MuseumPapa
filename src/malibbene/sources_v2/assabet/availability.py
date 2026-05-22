@@ -15,9 +15,33 @@ from __future__ import annotations
 
 import json
 import re
+from datetime import date
 from pathlib import Path
 
 from malibbene.common.http import fetch
+
+_MONTH_NAMES = ["january", "february", "march", "april", "may", "june", "july",
+                "august", "september", "october", "november", "december"]
+
+
+def _month_urls(pass_url: str, months_ahead: int) -> list[str]:
+    """Base pass URL (current month) + the next `months_ahead` month URLs.
+
+    Assabet renders only ONE month per page; near month-end the current page has
+    very few future days. The next month lives at
+    ``<pass_url>/<year>-<monthname>/``. We fetch a forward window so the calendar
+    has real lookahead.
+    """
+    base = pass_url.rstrip("/")
+    urls = [pass_url]
+    y, m = date.today().year, date.today().month
+    for _ in range(months_ahead):
+        m += 1
+        if m > 12:
+            m = 1
+            y += 1
+        urls.append(f"{base}/{y}-{_MONTH_NAMES[m-1]}/")
+    return urls
 
 # Match a day cell: capture the full class string so we can inspect modifiers.
 _CELL_RE = re.compile(
@@ -65,9 +89,20 @@ def scrape_availability(
     pass_url: str,
     raw_root: Path,
     attraction_slug: str,
+    months_ahead: int = 2,
 ) -> dict:
-    html = fetch(pass_url)
-    days = parse_calendar_html(html)
+    # Fetch the current month + the next `months_ahead` months, merge by date.
+    merged: dict[str, str] = {}
+    for url in _month_urls(pass_url, months_ahead):
+        try:
+            html = fetch(url)
+        except Exception:
+            continue  # a month page may 404 if not bookable that far out
+        for d in parse_calendar_html(html):
+            # don't let an earlier month's "past" cell overwrite a real status
+            if d["date"] not in merged or d["status"] != "closed":
+                merged[d["date"]] = d["status"]
+    days = [{"date": k, "status": v} for k, v in sorted(merged.items())]
     out = raw_root / "assabet" / "availability" / library_id / f"{attraction_slug}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(
