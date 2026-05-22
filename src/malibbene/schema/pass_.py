@@ -58,6 +58,15 @@ class Restrictions:
     seasonal: Optional[dict] = None
     advance_booking_required: bool = False
     advance_booking_hours: Optional[int] = None
+    # Verbatim policy text for a periodic booking cap (e.g. "1 booking per
+    # month"). Only some popular/expensive museums set one, but it's important
+    # — surfaced to the user as a warning. None when not stated.
+    booking_frequency_limit: Optional[str] = None
+    # Verbatim late-return penalty text for circulating (Pik&Rtn) passes
+    # (e.g. "$5/day late fee"). None when not stated. The UI also shows a
+    # blanket "check return policy" reminder for ALL physical_circ passes
+    # regardless of this field (we can't compute the user's pickup/return dates).
+    late_return_penalty: Optional[str] = None
 
 
 class ResidencyRestricted(str, Enum):

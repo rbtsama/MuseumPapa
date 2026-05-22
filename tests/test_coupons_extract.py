@@ -414,3 +414,27 @@ def test_residency_museum_admission_is_not_a_restriction():
 def test_residency_silence_is_unknown_not_open():
     rr = extract_residency_restriction("Pass admits 4 people for 50% off general admission.")
     assert rr is None
+
+
+# --- booking-frequency limit + late-return penalty (Phase P5) ------------------
+from malibbene.sources_v2.coupons.extract import extract_restrictions
+
+
+def test_booking_frequency_limit_per_month():
+    r = extract_restrictions("Pass admits 4 people. Limit one reservation per month per household.")
+    assert r and r["booking_frequency_limit"] and "per month" in r["booking_frequency_limit"].lower()
+
+
+def test_booking_frequency_one_booking_per_month():
+    r = extract_restrictions("Each pass allows 1 booking per month.")
+    assert r and r["booking_frequency_limit"] and "1 booking per month" in r["booking_frequency_limit"].lower()
+
+
+def test_late_return_penalty_per_day():
+    r = extract_restrictions("This is a circulating pass. A late fee of $5 per day applies if not returned on time.")
+    assert r and r["late_return_penalty"] and "$5" in r["late_return_penalty"]
+
+
+def test_no_frequency_or_penalty_when_absent():
+    r = extract_restrictions("Pass admits 4 people for 50% off general admission.")
+    assert r is None or (r.get("booking_frequency_limit") is None and r.get("late_return_penalty") is None)

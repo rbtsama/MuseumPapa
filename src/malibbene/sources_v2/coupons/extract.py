@@ -503,6 +503,34 @@ _ADVANCE_BOOKING = re.compile(
     r"\b(advance\s+reservation|advanced?\s+ticket\s+purchase|advance\s+booking|reservation\s+required)\b",
     re.I,
 )
+# Periodic booking cap, e.g. "1 booking per month", "limit one reservation per
+# week", "may reserve this pass once every 30 days", "one pass per household per
+# month". Capture the verbatim sentence for the user warning.
+# A PERIODIC booking cap only — every branch requires a time period
+# (day/week/month/year) so per-visit capacity phrasing like "limit one pass per
+# party" (that's capacity, not frequency) does NOT match.
+_PERIOD = r"(?:day|week|month|year|\d+\s+days?)"
+_BOOKING_FREQ = re.compile(
+    r"[^.!?\n]*\b(?:"
+    r"(?:one|1|two|2|\d+)\s+(?:booking|reservation|pass|visit)s?\s+per\s+" + _PERIOD
+    + r"|limit(?:ed)?\s+(?:to\s+)?(?:one|two|\d+)\s+(?:booking|reservation|pass|visit)s?"
+      r"\s+(?:per|every|each)\s+" + _PERIOD
+    + r"|once\s+(?:per|every|a)\s+" + _PERIOD
+    + r"|(?:one|1)\s+per\s+(?:household|patron|card|family)\s+per\s+" + _PERIOD
+    + r")[^.!?\n]*",
+    re.I,
+)
+# Late-return penalty for circulating passes, e.g. "$5 per day late fee",
+# "fine of $10/day", "overdue fines apply". Capture verbatim.
+_LATE_PENALTY = re.compile(
+    r"[^.!?\n]*\b(?:"
+    r"\$\s?\d+(?:\.\d{2})?\s*(?:per|/|a)\s*day[^.!?\n]*(?:late|fine|fee|overdue)"
+    r"|(?:late|overdue)\s+(?:fee|fine)[^.!?\n]*\$\s?\d+"
+    r"|fine\s+of\s+\$\s?\d+[^.!?\n]*(?:day|late|overdue)"
+    r"|(?:late|overdue)\s+(?:fee|fine|charge)s?\s+(?:of\s+)?\$\s?\d+"
+    r")[^.!?\n]*",
+    re.I,
+)
 
 _MONTH_TO_INT = {
     "january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6,
@@ -520,6 +548,8 @@ def extract_restrictions(text: str) -> dict[str, Any] | None:
         "seasonal": None,
         "advance_booking_required": False,
         "advance_booking_hours": None,
+        "booking_frequency_limit": None,
+        "late_return_penalty": None,
     }
     any_hit = False
     m = _BLACKOUT_MONTHS.search(t)
@@ -531,6 +561,14 @@ def extract_restrictions(text: str) -> dict[str, Any] | None:
         any_hit = True
     if _ADVANCE_BOOKING.search(t):
         out["advance_booking_required"] = True
+        any_hit = True
+    fm = _BOOKING_FREQ.search(t)
+    if fm:
+        out["booking_frequency_limit"] = fm.group(0).strip()[:300]
+        any_hit = True
+    pm = _LATE_PENALTY.search(t)
+    if pm:
+        out["late_return_penalty"] = pm.group(0).strip()[:300]
         any_hit = True
     return out if any_hit else None
 

@@ -51,6 +51,12 @@ NETWORK_CARD = {
     "NOBLE": ("WAKEFIELD_BARCODE", "wakefield"),
     "MVLC": ("WILMINGTON_BARCODE", "wilmington"),
     "Minuteman": ("SOMERVILLE_BARCODE", "somerville"),
+    # MBLN (Metro Boston Library Network) = BPL + Malden + Chelsea. The BPL card
+    # is MBLN; the operator's BPL card carries a Wakefield (non-Boston/Malden/
+    # Chelsea) address, so it's a genuine same-network non-resident prober for
+    # the MBLN assabet libraries (malden, chelsea). BPL itself is libcal and is
+    # the issuing town -> can't be probed (no second MBLN card).
+    "MBLN": ("BPL_BARCODE", "bpl"),
 }
 # Override prober for libraries that ARE the issuing town of the network card.
 PROBER_OVERRIDE = {
@@ -160,12 +166,12 @@ def main():
                 time.sleep(0.8)
             if verdict == "rejected_resident":
                 rr = {"restricted": "yes", "scope": "town",
-                      "evidence": f"non-resident {card_label} card (same NOBLE network) blocked at card-validation"}
+                      "evidence": f"non-resident {card_label} card (same {network} network) blocked at card-validation"}
                 summary["resident_only"] += 1
                 tag = "RESIDENT-ONLY"
             elif verdict == "accepted":
                 rr = {"restricted": "no", "scope": None,
-                      "evidence": f"non-resident {card_label} card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)"}
+                      "evidence": f"non-resident {card_label} card (same {network} network) accepted at card-validation (advanced to reserver-info; not booked)"}
                 summary["open"] += 1
                 tag = "open"
             else:
