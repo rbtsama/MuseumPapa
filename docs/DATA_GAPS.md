@@ -160,14 +160,21 @@ wakefield__salem-witch-museum                        weston__boston-harbor-islan
 
 (注:`carlisle`/`saugus`/`reading-garden-in-the-woods` 另有文本「同行需 1 名 MA 居民」要求 scope=ma,已与 probe 的 town 轴合并保留。)
 
-### 5A. 拿不到 — 缺「同网络非本镇卡」无法 probe(228 unknown 的构成)
-booking probe 需要目标馆**同网络异镇**的卡。以下测不了,保持 unknown(诚实):
-- `wilmington`(MVLC 本馆,26)、`somerville`(Minuteman 本馆,11):各自网络只有「本镇那张卡」,无异镇卡测自己。
-- `bpl`(libcal,23):平台不同,probe 流程未实现。
-- `cohasset`/`hingham`(museumkey,~31):平台不同 + 要登录。
-- `lexington` 等若干 OCLN/边缘:无该网络卡。
+### 5A. 拿不到 — 无法 probe 的来源(228 unknown 的构成)
+- `wilmington`(MVLC 本馆,26)、`somerville`(Minuteman 本馆,11):各自网络只有「本镇那张卡」,无异镇卡测自己。需再办「非 Wilmington 的 MVLC 卡」+「非 Somerville 的 Minuteman 卡」。**(运营方:暂时办不下来)**
+- `bpl`(libcal,23):**LibCal 没有 Assabet 那种「只验卡、不下单」的安全中间步**(调研结论,见下)。
+- `cohasset`/`hingham`(museumkey,~31):平台不同 + 要登录态。
 
-**处理方向**:① 再办「非 Wilmington 的 MVLC 卡」+「非 Somerville 的 Minuteman 卡」即可补完这两馆;② 实现 libcal probe 补 BPL;③ museumkey 要登录态。
+**为什么 BPL/LibCal 没法像 Assabet 那样安全 probe(Phase P4 调研结论):**
+1. LibCal 预订表单完全 JS 门控 —— headless 自动化下表单不渲染(可订日期格子是空 `<span>`,点击不触发加载表单的 XHR;试了 5 种点击策略均失败)。
+2. 静态 JS 包(`museum.min.js`/`LibCal_public.min.js`)只暴露日历 availability 端点,**没有**独立的「验卡」端点。
+3. LibCal 预订是**单步提交**(barcode+姓名+email+同意 → 一次提交 → 直接下单 + 发邮件)。Assabet 之所以能安全 probe,是因为第 1 步只验卡、不下单;LibCal 没有这个中间点。
+→ 自动 probe BPL 会**在运营方真实 BPL 卡上产生真实预订**(不可逆、影响外部系统),**故不做**。也不瞎编结果。
+
+**BPL 的安全替代路径(三选一,均诚实):**
+- (a) 保持 unknown(当前做法,最安全);
+- (b) 运营方手动用 BPL 卡试订 1 个 pass 到「输卡号」那步,把行/不行告诉我(同最初截图的方式),我再录入;
+- (c) 我去查 BPL 官方公布的 pass 政策(文档依据,非实证)—— 注:BPL 给**所有 MA 居民**发卡(card_eligibility 已确认 = ma_resident),其 pass 大概率对任何 BPL 持卡人开放,但这是**文档推断,非实测**,需明确标注 source。
 
 ### 5C. 注意:unknown ≠ 开放
 228 个 unknown **不代表**这些 pass 对非本地居民开放 —— 只代表还没实证。App 端遇到 unknown 应**保守提示**「可能限本地居民,以预订页为准」,不能默认可订。
