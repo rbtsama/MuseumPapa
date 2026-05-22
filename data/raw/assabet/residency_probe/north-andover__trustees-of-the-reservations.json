@@ -2,10 +2,10 @@
   "library_id": "north-andover",
   "attraction_slug": "trustees-of-the-reservations",
   "prober_card": "wilmington",
-  "probed_date": "2026-may/22",
+  "probed_date": "2026-may/24",
   "verdict": "rejected_resident",
   "restricted": "yes",
   "scope": "town",
-  "evidence": "non-resident wilmington card (same NOBLE network) blocked at card-validation",
+  "evidence": "non-resident wilmington card (same MVLC network) blocked at card-validation",
   "source": "booking_probe"
 }

@@ -2,10 +2,10 @@
   "library_id": "chelmsford",
   "attraction_slug": "mass-audubon-drumlin-farm",
   "prober_card": "wilmington",
-  "probed_date": "2026-may/22",
+  "probed_date": "2026-may/23",
   "verdict": "rejected_resident",
   "restricted": "yes",
   "scope": "town",
-  "evidence": "non-resident wilmington card (same NOBLE network) blocked at card-validation",
+  "evidence": "non-resident wilmington card (same MVLC network) blocked at card-validation",
   "source": "booking_probe"
 }

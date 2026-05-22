@@ -2,10 +2,10 @@
   "library_id": "waltham",
   "attraction_slug": "mass-audubon-drumlin-farm",
   "prober_card": "somerville",
-  "probed_date": "2026-may/24",
+  "probed_date": "2026-may/26",
   "verdict": "rejected_resident",
   "restricted": "yes",
   "scope": "town",
-  "evidence": "non-resident somerville card (same NOBLE network) blocked at card-validation",
+  "evidence": "non-resident somerville card (same Minuteman network) blocked at card-validation",
   "source": "booking_probe"
 }

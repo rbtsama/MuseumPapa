@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-21T20:45:03.177832+00:00",
+    "built_at": "2026-05-22T16:40:44.877720+00:00",
     "n_libraries": 59
   },
   "libraries": [
@@ -144,7 +144,7 @@
       "id": "malden",
       "name": "Malden Public Library",
       "town": "Malden",
-      "network": "NOBLE",
+      "network": "MBLN",
       "platform": "assabet",
       "card_page": "https://maldenpubliclibrary.org/about/policies/library-cards/",
       "address": null,
@@ -375,7 +375,7 @@
       "id": "chelsea",
       "name": "Chelsea Public Library",
       "town": "Chelsea",
-      "network": "NOBLE",
+      "network": "MBLN",
       "platform": "assabet",
       "card_page": "https://www.chelseama.gov/departments/library/",
       "address": null,
