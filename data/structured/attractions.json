@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-22T17:04:17.305364+00:00",
+    "built_at": "2026-05-22T17:06:49.493272+00:00",
     "n_attractions": 96
   },
   "attractions": [
@@ -115,7 +115,16 @@
       "prices": [],
       "sources": [
         "https://americanrepertorytheater.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "12:00-17:00",
+        "wednesday": "12:00-17:00",
+        "thursday": "12:00-17:00",
+        "friday": "12:00-17:00",
+        "saturday": "12:00-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "slug": "americas-stonehenge",
@@ -139,10 +148,44 @@
         "Science"
       ],
       "hero_image": "https://static.wixstatic.com/media/b7955c_72a02c53128c46c48e41f394b2585372%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/b7955c_72a02c53128c46c48e41f394b2585372%7Emv2.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 19.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 17.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "military",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.stonehengeusa.com/"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-16:00",
+        "tuesday": "09:00-16:00",
+        "wednesday": "09:00-16:00",
+        "thursday": "09:00-16:00",
+        "friday": "09:00-16:00",
+        "saturday": "09:00-16:00",
+        "sunday": "09:00-16:00"
+      }
     },
     {
       "slug": "armenian-museum-of-america",
@@ -166,10 +209,38 @@
         "Art"
       ],
       "hero_image": "http://static1.squarespace.com/static/5963d44e03596ece54830d99/t/59b6ae8c46c3c498eb23d45b/1505144461135/facebook.png?format=1500w",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.armenianmuseum.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "closed",
+        "thursday": "12:00-18:00",
+        "friday": "12:00-18:00",
+        "saturday": "12:00-18:00",
+        "sunday": "12:00-18:00"
+      }
     },
     {
       "slug": "battleship-cove",
@@ -193,10 +264,44 @@
         "Science"
       ],
       "hero_image": "https://static.wixstatic.com/media/43b907_ced4b6a5db5c4d7e854ba744b5a37aa4~mv2.jpg/v1/fill/w_1000,h_773,al_c/43b907_ced4b6a5db5c4d7e854ba744b5a37aa4~mv2.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 25.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 23.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "military",
+          "price": 16.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.battleshipcove.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "09:00-17:00"
+      }
     },
     {
       "slug": "bedrock-gardens",
@@ -219,10 +324,26 @@
         "Art"
       ],
       "hero_image": "https://www.bedrockgardens.org/uploads/1/4/4/7/144727098/published/bg-one-line2.png?1710945518",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.bedrockgardens.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "10:00-16:00"
+      }
     },
     {
       "slug": "blithewold",
@@ -246,10 +367,50 @@
         "Nature"
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Blithewold_Mansion.jpg/960px-Blithewold_Mansion.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 22.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "youth",
+          "price": 11.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 6.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 18.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "military",
+          "price": 18.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.blithewold.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "10:00-15:00"
+      }
     },
     {
       "slug": "boch-center",
@@ -265,7 +426,8 @@
       "categories": [],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Wang_Theatre_-_Boch_Center_%2854954249101%29.jpg/960px-Wang_Theatre_-_Boch_Center_%2854954249101%29.jpg",
       "prices": [],
-      "sources": []
+      "sources": [],
+      "hours": null
     },
     {
       "slug": "boston-athenaeum",
@@ -392,13 +554,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "closed",
+        "sunday": "closed"
       }
     },
     {
@@ -493,7 +655,38 @@
         "Nature"
       ],
       "hero_image": "https://www.bostonharborislands.org/wp-content/uploads/opengraph.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 24.95,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 17.95,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 22.95,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 22.95,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "military",
+          "price": 22.95,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "http://www.bostonharborislands.org/"
       ],
@@ -541,7 +734,14 @@
       "description": "Boston Harbor Islands National and State Park comprises 34 islands and peninsulas just minutes from downtown Boston, offering outdoor recreation, relaxation, and learning opportunities accessible by seasonal ferry service.",
       "categories": [],
       "hero_image": "https://www.bostonharborislands.org/wp-content/uploads/opengraph.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.bostonharborislands.org/"
       ],
@@ -596,7 +796,16 @@
       "prices": [],
       "sources": [
         "https://www.butterflyplace-ma.com/"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-16:00",
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "10:00-16:00"
+      }
     },
     {
       "slug": "charles-river-museum-of-industry-and-innovation",
@@ -620,10 +829,50 @@
         "Science"
       ],
       "hero_image": "http://static1.squarespace.com/static/559f7e16e4b009271a8fa1b5/t/61e84257793dec0bef3e12e2/1642611287979/Screen+Shot+2018-10-02+at+11.40.35+AM.png?format=1500w",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "educator",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.charlesrivermuseum.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "10:00-15:00",
+        "thursday": "10:00-15:00",
+        "friday": "10:00-15:00",
+        "saturday": "10:00-14:30",
+        "sunday": "closed"
+      }
     },
     {
       "slug": "charles-riverboat-tour",
@@ -646,7 +895,16 @@
       "prices": [],
       "sources": [
         "https://charlesriverboat.com/"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-17:30",
+        "tuesday": "09:00-17:30",
+        "wednesday": "09:00-17:30",
+        "thursday": "09:00-17:30",
+        "friday": "09:00-17:30",
+        "saturday": "09:00-17:30",
+        "sunday": "09:00-17:30"
+      }
     },
     {
       "slug": "childrens-museum-easton",
@@ -666,10 +924,44 @@
       "description": "The Children's Museum in Easton offers interactive exhibits and educational programming including art classes, music exploration, and hands-on activities designed to inspire learning through play for young children.",
       "categories": [],
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "educator",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "military",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.cmeaston.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "09:30-15:00",
+        "wednesday": "09:30-15:00",
+        "thursday": "09:30-15:00",
+        "friday": "09:30-15:00",
+        "saturday": "12:30-16:00",
+        "sunday": "12:30-16:00"
+      }
     },
     {
       "slug": "childrens-museum-of-new-hampshire",
@@ -693,10 +985,38 @@
         "Science"
       ],
       "hero_image": "https://childrens-museum.org/wp-content/uploads/2024/09/Instagram-logo.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 14.5,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 14.5,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 12.5,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "http://www.childrens-museum.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "09:00-12:00",
+        "wednesday": "09:00-16:00",
+        "thursday": "09:00-16:00",
+        "friday": "09:00-16:00",
+        "saturday": "09:00-16:00",
+        "sunday": "09:00-12:00"
+      }
     },
     {
       "slug": "christian-science-plaza",
@@ -783,7 +1103,8 @@
       "categories": [],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Pratt_Historic_Building%3B2009-08-21.JPG/960px-Pratt_Historic_Building%3B2009-08-21.JPG",
       "prices": [],
-      "sources": []
+      "sources": [],
+      "hours": null
     },
     {
       "slug": "concord-museum",
@@ -858,10 +1179,44 @@
         "Art"
       ],
       "hero_image": "https://static.wixstatic.com/media/9ff7cc_d4721beb3ef34bdba26ba0ea1d019d73~mv2.png/v1/fill/w_1920,h_1080,al_c/9ff7cc_d4721beb3ef34bdba26ba0ea1d019d73~mv2.png",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "youth",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "http://currier.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
     },
     {
       "slug": "davis-farmland",
@@ -960,10 +1315,38 @@
         "Art"
       ],
       "hero_image": "https://thetrustees.org/wp-content/uploads/2020/06/Decordova-4-1-scaled.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 14.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "http://www.decordova.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
     },
     {
       "slug": "ecotarium",
@@ -1057,10 +1440,26 @@
         "Science"
       ],
       "hero_image": "https://cdn-new.gis.beakid.com/photos/18352/a-group-of-people-in-a-classroom--thumbnail-small.webp",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "child",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "http://www.einsteinsworkshop.com/"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-18:00",
+        "tuesday": "10:00-18:00",
+        "wednesday": "10:00-18:00",
+        "thursday": "12:00-20:00",
+        "friday": "10:00-18:00",
+        "saturday": "10:00-18:00",
+        "sunday": "10:00-18:00"
+      }
     },
     {
       "slug": "garden-in-the-woods-native-plant-trust",
@@ -1083,7 +1482,38 @@
         "Nature"
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Garden_in_the_Woods_-_IMG_2462.JPG/960px-Garden_in_the_Woods_-_IMG_2462.JPG",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 18.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "youth",
+          "price": 8.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "military",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "http://www.nativeplanttrust.org/"
       ],
@@ -1134,7 +1564,20 @@
         "History"
       ],
       "hero_image": "https://goreplace.org/images/made/images/uploads/IMG_6800_600_315_s_c1.jpeg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.goreplace.org/"
       ],
@@ -1228,7 +1671,16 @@
       "categories": [],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Greenway_Carousel_-_Rose_Kennedy_Greenway_-_Boston%2C_MA_-_DSC05445.JPG/960px-Greenway_Carousel_-_Rose_Kennedy_Greenway_-_Boston%2C_MA_-_DSC05445.JPG",
       "prices": [],
-      "sources": []
+      "sources": [],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "11:00-20:00",
+        "thursday": "11:00-20:00",
+        "friday": "11:00-21:00",
+        "saturday": "11:00-21:00",
+        "sunday": "11:00-20:00"
+      }
     },
     {
       "slug": "griffin-museum-of-photography",
@@ -1299,10 +1751,26 @@
       "description": "Hale Education is a private nonprofit helping people learn, grow, and thrive in the outdoors for over a century through camps, youth programs, family activities, and school partnerships across 1,200 acres in the Greater Boston area.",
       "categories": [],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hale_Beach_P1080423.jpg/960px-Hale_Beach_P1080423.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://hale.education/"
-      ]
+      ],
+      "hours": {
+        "monday": "08:00-17:00",
+        "tuesday": "08:00-17:00",
+        "wednesday": "08:00-17:00",
+        "thursday": "08:00-17:00",
+        "friday": "08:00-17:00",
+        "saturday": "08:00-17:00",
+        "sunday": "08:00-17:00"
+      }
     },
     {
       "slug": "hale-reservation",
@@ -1315,7 +1783,8 @@
       "categories": [],
       "hero_image": null,
       "prices": [],
-      "sources": []
+      "sources": [],
+      "hours": null
     },
     {
       "slug": "harvard-art-museums",
@@ -1339,10 +1808,26 @@
         "Art"
       ],
       "hero_image": "http://www.harvardartmuseums.org/assets/icons/fb-og-image-400x400.png",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "http://www.harvardartmuseums.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
     },
     {
       "slug": "harvard-museum-of-natural-history",
@@ -1585,7 +2070,8 @@
       "prices": [],
       "sources": [
         "https://www.historicnewengland.org/"
-      ]
+      ],
+      "hours": null
     },
     {
       "slug": "historic-newton",
@@ -1612,7 +2098,16 @@
       "prices": [],
       "sources": [
         "https://www.newtonma.gov/government/historic-newton"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "11:00-17:00",
+        "thursday": "closed",
+        "friday": "11:00-17:00",
+        "saturday": "closed",
+        "sunday": "10:00-17:00"
+      }
     },
     {
       "slug": "ica-boston",
@@ -1635,10 +2130,38 @@
         "Art"
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Institute_of_Contemporary_Art%2C_Boston.jpg/960px-Institute_of_Contemporary_Art%2C_Boston.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 17.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.icaboston.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-21:00",
+        "friday": "10:00-21:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
     },
     {
       "slug": "isabella-stewart-gardner-museum",
@@ -1740,7 +2263,16 @@
       "prices": [],
       "sources": [
         "https://www.jfklibrary.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
     },
     {
       "slug": "larz-anderson",
@@ -1760,10 +2292,50 @@
       "description": "The Larz Anderson Auto Museum in Brookline, Massachusetts showcases America's oldest car collection in a historic carriage house. Located ten minutes from Boston, it offers exhibits, educational programs, and community events celebrating automotive heritage.",
       "categories": [],
       "hero_image": "https://static.wixstatic.com/media/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png/v1/fit/w_2500,h_1330,al_c/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "military",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.larzanderson.org"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "10:00-15:00",
+        "wednesday": "10:00-15:00",
+        "thursday": "10:00-15:00",
+        "friday": "10:00-15:00",
+        "saturday": "10:00-15:00",
+        "sunday": "10:00-15:00"
+      }
     },
     {
       "slug": "larz-anderson-auto-museum",
@@ -1854,7 +2426,8 @@
       "prices": [],
       "sources": [
         "http://www.mass.gov/eea/agencies/dcr/massparks/"
-      ]
+      ],
+      "hours": null
     },
     {
       "slug": "maplewood-day-camp",
@@ -1877,7 +2450,16 @@
       "prices": [],
       "sources": [
         "https://www.maplewoodyearround.com/"
-      ]
+      ],
+      "hours": {
+        "monday": "09:10-15:40",
+        "tuesday": "09:10-15:40",
+        "wednesday": "09:10-15:40",
+        "thursday": "09:10-15:40",
+        "friday": "09:10-15:40",
+        "saturday": "closed",
+        "sunday": "closed"
+      }
     },
     {
       "slug": "mapparium",
@@ -1897,10 +2479,26 @@
       "description": "The 'How Do You See the World?' experience at the Christian Science Plaza features the iconic three-story Mapparium globe (frozen in 1935) and exhibits exploring progress and possibilities worldwide through stories of positive change.",
       "categories": [],
       "hero_image": "https://www.christianscience.com/var/cscom/storage/images/media/images/find-us-images/hdystw-tryptich-3-a/382920-1-eng-US/hdystw-tryptich-3-a.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 6.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "11:00-17:00"
+      }
     },
     {
       "slug": "mass-audubon",
@@ -2097,13 +2695,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "closed",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "09:00-17:00"
       }
     },
     {
@@ -2117,7 +2715,8 @@
       "categories": [],
       "hero_image": null,
       "prices": [],
-      "sources": []
+      "sources": [],
+      "hours": null
     },
     {
       "slug": "massachusetts-state-police-museum-and-learning-center",
@@ -2199,10 +2798,32 @@
         "Art"
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Museum_of_Fine_Arts%2C_Boston_%2854954248311%29.jpg/960px-Museum_of_Fine_Arts%2C_Boston_%2854954248311%29.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 30.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "youth",
+          "price": 14.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "http://www.mfa.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-17:00",
+        "tuesday": "closed",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-22:00",
+        "friday": "10:00-22:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
     },
     {
       "slug": "museum-of-african-american-history",
@@ -2215,7 +2836,8 @@
       "categories": [],
       "hero_image": null,
       "prices": [],
-      "sources": []
+      "sources": [],
+      "hours": null
     },
     {
       "slug": "museum-of-printing",
@@ -2239,10 +2861,44 @@
         "Science"
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Print_forme.jpg/960px-Print_forme.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "military",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.museumofprinting.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "closed",
+        "thursday": "closed",
+        "friday": "closed",
+        "saturday": "10:00-16:00",
+        "sunday": "closed"
+      }
     },
     {
       "slug": "museum-of-science",
@@ -2267,7 +2923,26 @@
         "Science"
       ],
       "hero_image": "https://www.mos.org/sites/default/files/styles/1200x675_16_9_lg_/public/2024-02/Museum-Exterior-1x1.jpg?itok=d_Y1X48L",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 33.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 28.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 29.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "http://www.mos.org/"
       ],
@@ -2426,10 +3101,50 @@
         "Art"
       ],
       "hero_image": "https://www.whalingmuseum.org/wp-content/uploads/2022/05/Whaling-Museum-exterior-2.png",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 24.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "youth",
+          "price": 14.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 22.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "educator",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "military",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.whalingmuseum.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "09:00-17:00"
+      }
     },
     {
       "slug": "new-england-aquarium",
@@ -2738,10 +3453,30 @@
         "Children"
       ],
       "hero_image": "https://static.wixstatic.com/media/f87796_2d5317377a7149c6857e250b2408831a%7Emv2.png/v1/fit/w_2500,h_1330,al_c/f87796_2d5317377a7149c6857e250b2408831a%7Emv2.png",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 35.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 30.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.nhphil.org/"
-      ]
+      ],
+      "hours": null
     },
     {
       "slug": "north-shore-childrens-museum",
@@ -2764,7 +3499,20 @@
         "Science"
       ],
       "hero_image": "https://www.nschildrensmuseum.org/wp-content/uploads/2026/05/Birthday-Parties-May-2026.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.nschildrensmuseum.org/"
       ],
@@ -3038,13 +3786,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "08:30-19:30",
+        "tuesday": "08:30-19:30",
+        "wednesday": "08:30-19:30",
+        "thursday": "08:30-19:30",
+        "friday": "08:30-19:30",
+        "saturday": "08:30-19:30",
+        "sunday": "08:30-19:30"
       }
     },
     {
@@ -3069,10 +3817,50 @@
         "Sports"
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Patriot_Place_in_Foxborough%2C_Massachusetts.jpg/960px-Patriot_Place_in_Foxborough%2C_Massachusetts.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 7.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 7.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "military",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.patriotshalloffame.com/"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
     },
     {
       "slug": "paul-revere-heritage-site",
@@ -3085,7 +3873,8 @@
       "categories": [],
       "hero_image": null,
       "prices": [],
-      "sources": []
+      "sources": [],
+      "hours": null
     },
     {
       "slug": "paul-revere-house",
@@ -3108,10 +3897,44 @@
         "History"
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/2017_Paul_Revere_House_from_east.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 6.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 1.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 5.5,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 5.5,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.paulreverehouse.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-17:15",
+        "tuesday": "10:00-17:15",
+        "wednesday": "10:00-17:15",
+        "thursday": "10:00-17:15",
+        "friday": "10:00-17:15",
+        "saturday": "10:00-17:15",
+        "sunday": "10:00-17:15"
+      }
     },
     {
       "slug": "peabody-essex-museum",
@@ -3207,7 +4030,26 @@
         "Art"
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Plimoth_Plantation_Fence.JPG/960px-Plimoth_Plantation_Fence.JPG",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 35.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 31.5,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "http://www.plimoth.org/"
       ],
@@ -3228,13 +4070,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "09:00-17:00"
       }
     },
     {
@@ -3262,7 +4104,16 @@
       "prices": [],
       "sources": [
         "https://www.publichealthmuseum.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "closed",
+        "thursday": "10:00-14:00",
+        "friday": "closed",
+        "saturday": "10:00-14:00",
+        "sunday": "closed"
+      }
     },
     {
       "slug": "real-pirates-salem",
@@ -3290,7 +4141,16 @@
       "prices": [],
       "sources": [
         "https://www.realpiratessalem.com/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "closed",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "10:00-16:00"
+      }
     },
     {
       "slug": "revolutionary-spaces",
@@ -3305,10 +4165,44 @@
       "description": "Revolutionary Spaces is a nonprofit organization that brings people together to explore America's struggle to create and sustain a free society through the Old State House and Old South Meeting House.",
       "categories": [],
       "hero_image": "https://revolutionaryspaces.org/wp-content/uploads/icn-revolutionary-spaces.png",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 8.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 13.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 13.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://revolutionaryspaces.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-17:00",
+        "tuesday": "10:00-17:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
     },
     {
       "slug": "roger-williams-park-zoo",
@@ -3331,10 +4225,38 @@
         "Nature"
       ],
       "hero_image": "https://www.rwpzoo.org/wp-content/uploads/2022/09/cheetah-pair-2022-1024x575.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 25.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 19.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 21.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "http://www.rwpzoo.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-16:00",
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "10:00-16:00"
+      }
     },
     {
       "slug": "royall-house",
@@ -3354,10 +4276,50 @@
       "description": "A museum in Medford, MA preserving the history of the Royall family and the enslaved people whose labor built their wealth. As one of the few remaining freestanding slave quarters in the North, it documents eighteenth-century bondage and resistance.",
       "categories": [],
       "hero_image": null,
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 10.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "educator",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "military",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://royallhouse.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "closed",
+        "thursday": "closed",
+        "friday": "closed",
+        "saturday": "13:00-16:00",
+        "sunday": "13:00-16:00"
+      }
     },
     {
       "slug": "salem-witch-museum",
@@ -3520,10 +4482,38 @@
         "History"
       ],
       "hero_image": "http://sandwichglassmuseum.org/cdn/shop/files/Website_Home_Image_1200x628_99a4cee4-6479-4c61-bfad-51b9fc604874.png?v=1741960376",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 13.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://sandwichglassmuseum.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "09:30-17:00",
+        "tuesday": "09:30-17:00",
+        "wednesday": "09:30-17:00",
+        "thursday": "09:30-17:00",
+        "friday": "09:30-17:00",
+        "saturday": "09:30-17:00",
+        "sunday": "09:30-17:00"
+      }
     },
     {
       "slug": "seacoast-science-center",
@@ -3660,10 +4650,44 @@
         "Art"
       ],
       "hero_image": "http://static1.squarespace.com/static/646b893e7e6f891975ed0113/t/650dce30566b222b690ed9ea/1695403568372/SBM+Logo+White+%281%29.png?format=1500w",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 25.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 12.5,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 23.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 23.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "http://www.strawberybanke.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-16:00",
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "10:00-16:00"
+      }
     },
     {
       "slug": "the-aviation-museum-of-new-hampshire",
@@ -3763,7 +4787,20 @@
         "Children"
       ],
       "hero_image": "https://www.thechildrenspiazza.com/uploads/b/7ba6f940-a408-11e9-9a28-67bb30306769/Piazza%20circle%20gray%20no%20lines%20w%20white_NzQwNj.png",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 6.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 12.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.thechildrenspiazza.com/"
       ],
@@ -3784,13 +4821,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "08:30-17:00",
+        "tuesday": "08:30-17:00",
+        "wednesday": "08:30-17:00",
+        "thursday": "08:30-17:00",
+        "friday": "08:30-17:00",
+        "saturday": "08:30-12:00",
+        "sunday": "closed"
       }
     },
     {
@@ -3973,10 +5010,32 @@
         "Science"
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Elm_Bank%2C_Wellesley%2C_MA_-_Goddesses_and_Mansion.JPG/960px-Elm_Bank%2C_Wellesley%2C_MA_-_Goddesses_and_Mansion.JPG",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 14.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "youth",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.masshort.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-19:00",
+        "tuesday": "10:00-19:00",
+        "wednesday": "10:00-19:00",
+        "thursday": "10:00-19:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "10:00-17:00"
+      }
     },
     {
       "slug": "the-house-of-seven-gables",
@@ -4173,7 +5232,32 @@
         "History"
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Spellman_Museum_of_Stamps_and_Postal_History%2C_Weston_MA.jpg/960px-Spellman_Museum_of_Stamps_and_Postal_History%2C_Weston_MA.jpg",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 8.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "child",
+          "price": 3.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 5.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "military",
+          "price": 6.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://www.spellmanmuseum.org/"
       ],
@@ -4194,13 +5278,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "closed",
+        "tuesday": "closed",
+        "wednesday": "12:00-17:00",
+        "thursday": "12:00-17:00",
+        "friday": "12:00-17:00",
+        "saturday": "11:00-16:00",
+        "sunday": "12:00-16:00"
       }
     },
     {
@@ -4284,7 +5368,8 @@
       "prices": [],
       "sources": [
         "http://www.thetrustees.org/"
-      ]
+      ],
+      "hours": null
     },
     {
       "slug": "uss-constitution-museum",
@@ -4432,10 +5517,50 @@
         "Nature"
       ],
       "hero_image": "https://jwt-sites-files.storage.googleapis.com/wsymca-org/s3fs-public/styles/hero_banner_desktop/public/2025-09/a738b6fe7373feb5c4803d5b29859123-%281%29.gif.webp?itok=wk3Kk5gF",
-      "prices": [],
+      "prices": [
+        {
+          "audience": "adult",
+          "price": 30.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "youth",
+          "price": 15.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "senior",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "student",
+          "price": 20.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        },
+        {
+          "audience": "military",
+          "price": 0.0,
+          "age_range": null,
+          "source_phrase": "legacy original_price (2026-05-20 snapshot)"
+        }
+      ],
       "sources": [
         "https://wsymca.org/"
-      ]
+      ],
+      "hours": {
+        "monday": "05:30-22:00",
+        "tuesday": "05:30-22:00",
+        "wednesday": "05:30-22:00",
+        "thursday": "05:30-22:00",
+        "friday": "05:30-21:00",
+        "saturday": "07:00-19:00",
+        "sunday": "07:00-19:00"
+      }
     },
     {
       "slug": "wheelock-family-theatre",
@@ -4458,7 +5583,8 @@
       "prices": [],
       "sources": [
         "https://www.wheelockfamilytheatre.org/"
-      ]
+      ],
+      "hours": null
     },
     {
       "slug": "worcester-art-museum",
@@ -4573,13 +5699,13 @@
         "source_phrase": null
       },
       "hours": {
-        "monday": "unknown",
-        "tuesday": "unknown",
-        "wednesday": "unknown",
-        "thursday": "unknown",
-        "friday": "unknown",
-        "saturday": "unknown",
-        "sunday": "unknown"
+        "monday": "09:00-17:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-18:00",
+        "sunday": "09:00-18:00"
       }
     }
   ]

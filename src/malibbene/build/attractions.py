@@ -164,10 +164,12 @@ def build_attractions(raw_root: Path, overrides_root: Path, out_path: Path) -> d
         }
 
         # --- prices/hours/visitor_eligibility/reservation from the NEWER rebuild
-        #     extractions, matched by whichever raw variant has the data.
+        #     extractions, matched by whichever raw variant has the data. Fall
+        #     back to the legacy snapshot (converted) when the rebuild has none
+        #     — legacy covers far more of the long tail (prices 77, hours 97).
         prices = _first_ok(raw_root, "prices", variants)
-        if prices:
-            a["prices"] = prices["extracted"].get("prices", [])
+        rebuilt_prices = prices["extracted"].get("prices", []) if prices else []
+        a["prices"] = rebuilt_prices or list(leg.get("prices") or [])
         ve = _first_ok(raw_root, "visitor_eligibility", variants)
         if ve:
             a["visitor_eligibility"] = ve["extracted"]
@@ -175,8 +177,10 @@ def build_attractions(raw_root: Path, overrides_root: Path, out_path: Path) -> d
         if rv:
             a["reservation"] = rv["extracted"]
         hr = _first_ok(raw_root, "hours", variants)
-        if hr:
-            a["hours"] = hr["extracted"].get("hours")
+        rebuilt_hours = hr["extracted"].get("hours") if hr else None
+        rebuilt_known = rebuilt_hours and any(
+            v and v != "unknown" for v in rebuilt_hours.values())
+        a["hours"] = rebuilt_hours if rebuilt_known else (leg.get("hours") or rebuilt_hours)
 
         if page_meta and page_meta.get("url"):
             a["sources"] = [page_meta["url"]]
