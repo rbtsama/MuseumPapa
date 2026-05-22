@@ -1,76 +1,45 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { classifyAttraction } from './logic.mjs';
+import { passState, usableCardsForPass, bestState } from './logic.mjs';
 
-// 真实抽样的最小子集
-const DATA = {
-  passes: [
-    { library_id:'lexington', attraction_slug:'blithewold', network:'Minuteman', library_name:'Cary Memorial Library', library_town:'Lexington', residency:'yes', scope:'town', summary:'50% off' },
-    { library_id:'lynn', attraction_slug:'isabella-stewart-gardner-museum', network:'NOBLE', library_name:'Lynn Public Library', library_town:'Lynn', residency:'yes', scope:'town', summary:'$10/person' },
-    { library_id:'lynnfield', attraction_slug:'isabella-stewart-gardner-museum', network:'NOBLE', library_name:'Lynnfield Public Library', library_town:'Lynnfield', residency:'no', scope:null, summary:'FREE' },
-  ],
-};
+const open = { library_id: 'acton', attraction_slug: 'x', network: 'Minuteman', library_name: 'Acton', library_town: 'Acton', residency: 'no', summary: '50% off' };
+const ro = { library_id: 'lexington', attraction_slug: 'blithewold', network: 'Minuteman', library_name: 'Cary Memorial Library', library_town: 'Lexington', residency: 'yes', summary: '50% off' };
+const unk = { library_id: 'quincy', attraction_slug: 'y', network: 'OCLN', library_name: 'Quincy', library_town: 'Quincy', residency: 'unknown', summary: null };
+const card = (id, network) => ({ id, network });
 
-test('state 1: 持卡且居民 -> 完全符合', () => {
-  const r = classifyAttraction('blithewold', DATA, ['lexington'], 'Lexington');
-  assert.equal(r.state, 1);
-  assert.deepEqual(r.tags, []);
-  assert.equal(r.usableCards.length, 1);
-  assert.equal(r.usableCards[0].library_id, 'lexington');
+test('开放 pass：持同联盟任一卡 -> 完全符合', () => {
+  assert.equal(passState(open, [card('belmont', 'Minuteman')], 'Salem'), 1);
+});
+test('开放 pass：只有跨联盟卡 -> 缺卡', () => {
+  assert.equal(passState(open, [card('lynn', 'NOBLE')], 'Salem'), 2);
+});
+test('开放 pass：无卡 -> 缺卡（无居民限制，不出现 3/4）', () => {
+  assert.equal(passState(open, [], 'Acton'), 2);
+});
+test('unknown 按开放处理：持同联盟卡 -> 完全符合', () => {
+  assert.equal(passState(unk, [card('quincy', 'OCLN')], 'Salem'), 1);
 });
 
-test('state 3: 持卡但非居民 -> Resident Only', () => {
-  const r = classifyAttraction('blithewold', DATA, ['lexington'], 'Salem');
-  assert.equal(r.state, 3);
-  assert.deepEqual(r.tags, ['resident_only']);
-  assert.deepEqual(r.residentOnlyTowns, ['Lexington']);
-  assert.equal(r.usableCards.length, 1);
+// 用户的原始问题：Blithewold + 持 Acton(同 Minuteman)卡 + Lexington 居民
+test('Blithewold：持 Acton 卡 + Lexington 居民 -> 缺卡（需本馆 Lexington 卡，同联盟无效）', () => {
+  assert.equal(passState(ro, [card('acton', 'Minuteman')], 'Lexington'), 2);
+  assert.equal(usableCardsForPass(ro, [card('acton', 'Minuteman')]).length, 0);
 });
-
-test('state 2: 居民但无卡 -> Library Pass Needed', () => {
-  const r = classifyAttraction('blithewold', DATA, [], 'Lexington');
-  assert.equal(r.state, 2);
-  assert.deepEqual(r.tags, ['library_pass_needed']);
-  assert.equal(r.recommendCards.some(c => c.library_id === 'lexington'), true);
+test('Blithewold：持 Lexington 本馆卡 + Lexington 居民 -> 完全符合', () => {
+  assert.equal(passState(ro, [card('lexington', 'Minuteman')], 'Lexington'), 1);
 });
-
-test('state 4: 无卡且非居民（全 resident-only 景点）-> 双警告', () => {
-  const r = classifyAttraction('blithewold', DATA, [], 'Salem');
-  assert.equal(r.state, 4);
-  assert.deepEqual(r.tags, ['resident_only', 'library_pass_needed']);
+test('Blithewold：持 Lexington 卡 + 非居民 -> 仅限居民', () => {
+  assert.equal(passState(ro, [card('lexington', 'Minuteman')], 'Salem'), 3);
 });
-
-test('state 2: 无卡但有 open pass 兜底 -> 仅缺卡', () => {
-  const r = classifyAttraction('isabella-stewart-gardner-museum', DATA, [], 'Salem');
-  assert.equal(r.state, 2);
-  assert.equal(r.recommendCards.some(c => c.library_id === 'lynnfield'), true);
+test('Blithewold：无卡 + 非居民 -> 都不符合', () => {
+  assert.equal(passState(ro, [], 'Salem'), 4);
 });
-
-test('state 1: open 馆持卡直接可用', () => {
-  const r = classifyAttraction('isabella-stewart-gardner-museum', DATA, ['lynnfield'], 'Salem');
-  assert.equal(r.state, 1);
+test('usableCardsForPass：开放 pass 取同联盟所有持卡', () => {
+  const u = usableCardsForPass(open, [card('belmont', 'Minuteman'), card('lexington', 'Minuteman'), card('lynn', 'NOBLE')]);
+  assert.equal(u.length, 2);
 });
-
-test('state 3: 持 resident-only 卡且非居民，open 馆未持有', () => {
-  const r = classifyAttraction('isabella-stewart-gardner-museum', DATA, ['lynn'], 'Salem');
-  assert.equal(r.state, 3);
-  assert.deepEqual(r.residentOnlyTowns, ['Lynn']);
-});
-
-test('edge: empty passes -> state 4 with empty card lists', () => {
-  const r = classifyAttraction('blithewold', { passes: [] }, [], 'Lexington');
-  assert.equal(r.state, 4);
-  assert.equal(r.offeringCards.length, 0);
-  assert.equal(r.residentOnlyTowns.length, 0);
-});
-
-test('edge: duplicate library_id rows dedupe in card lists', () => {
-  const dup = { passes: [
-    { library_id:'lynnfield', attraction_slug:'museum-of-science', network:'NOBLE', library_name:'Lynnfield Public Library', library_town:'Lynnfield', residency:'no', scope:null, summary:'50% off' },
-    { library_id:'lynnfield', attraction_slug:'museum-of-science', network:'NOBLE', library_name:'Lynnfield Public Library', library_town:'Lynnfield', residency:'no', scope:null, summary:'FREE' },
-  ]};
-  const r = classifyAttraction('museum-of-science', dup, ['lynnfield'], 'Salem');
-  assert.equal(r.state, 1);
-  assert.equal(r.usableCards.length, 1);
-  assert.equal(r.offeringCards.length, 1);
+test('bestState 取最小，空为 5', () => {
+  assert.equal(bestState([3, 1, 4]), 1);
+  assert.equal(bestState([]), 5);
+  assert.equal(bestState([2, 4]), 2);
 });

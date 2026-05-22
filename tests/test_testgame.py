@@ -78,11 +78,11 @@ from malibbene.testgame.render import render_html
 
 def test_render_injects_data_and_logic_no_export():
     sample = select_sample(*_load())
-    logic = "export function classifyAttraction(a, b, c, d) { return {state:1}; }"
+    logic = "export function passState(p, cards, home) { return 1; }"
     template = "<html><script>/*__LOGIC__*/</script><script>/*__DATA__*/\nrender();</script></html>"
     html = render_html(sample, logic, template)
     assert "const TESTGAME_DATA =" in html
-    assert "function classifyAttraction" in html
+    assert "function passState" in html
     assert "export function" not in html
     assert "/*__LOGIC__*/" not in html and "/*__DATA__*/" not in html
     assert "Blithewold" in html
@@ -97,5 +97,5 @@ def test_render_with_real_template_and_logic():
     html = render_html(sample, logic, template)
     assert "export function" not in html
     assert "export default" not in html.split("</script>")[0]
-    assert "classifyAttraction" in html
+    assert "passState" in html
     assert "TESTGAME_DATA" in html

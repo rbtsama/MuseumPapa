@@ -5,73 +5,97 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Museum Pass — 预定交互沙盒 (testgame)</title>
 <style>
-  :root { --bg:#f6f7f9; --card:#fff; --line:#e3e6ea; --ink:#1c2430; --muted:#6b7480; --accent:#2563eb; }
-  * { box-sizing:border-box; }
-  body { margin:0; font:14px/1.45 system-ui,"Segoe UI",sans-serif; background:var(--bg); color:var(--ink); }
-  header { padding:12px 16px; background:#0f172a; color:#fff; }
-  header h1 { margin:0; font-size:16px; }
-  header p { margin:3px 0 0; font-size:12px; color:#9fb0c7; }
+  :root{
+    --bg:#f4f6f8; --panel:#fff; --line:#e6e9ee; --line2:#eef1f5; --ink:#1f2733; --muted:#737d8a;
+    --accent:#2563eb; --accent-d:#1d4ed8;
+    --g-bg:#ecfdf3; --g-fg:#15803d; --g-line:#bbf7d0;
+    --o-bg:#fff7ed; --o-fg:#c2410c; --o-line:#fed7aa;
+    --r-bg:#fef2f2; --r-fg:#b42318; --r-line:#fecaca;
+    --shadow:0 1px 2px rgba(16,24,40,.05);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font:14px/1.5 -apple-system,system-ui,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);}
+  header{padding:14px 22px;background:linear-gradient(180deg,#0f172a,#172339);color:#fff;}
+  header h1{margin:0;font-size:16px;font-weight:650;letter-spacing:.2px;}
+  header p{margin:4px 0 0;font-size:12px;color:#9fb0c7;}
 
-  /* 两栏：左 = 控制区(可固定)，右 = 景点列表 */
-  .layout { display:grid; grid-template-columns:300px 1fr; gap:14px; max-width:1180px; margin:0 auto; padding:14px; align-items:start; }
-  .col-left { position:sticky; top:14px; display:flex; flex-direction:column; gap:12px; }
-  .col-right { display:flex; flex-direction:column; gap:10px; }
-  .panel { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; }
-  .panel h2 { margin:0 0 8px; font-size:13px; color:var(--muted); }
-  select { width:100%; padding:7px 9px; border:1px solid var(--line); border-radius:7px; font:inherit; }
+  .layout{display:grid;grid-template-columns:288px 1fr;gap:16px;max-width:1160px;margin:0 auto;padding:18px;align-items:start;}
+  .col-left{position:sticky;top:18px;display:flex;flex-direction:column;gap:14px;}
+  .col-right{display:flex;flex-direction:column;gap:12px;}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:var(--shadow);}
+  .panel h2{margin:0 0 10px;font-size:12px;font-weight:650;color:var(--muted);}
+  select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff;color:var(--ink);}
+  select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.12);}
 
-  #libraries { display:flex; flex-direction:column; gap:6px; }
-  label.lib { display:flex; align-items:center; gap:7px; padding:6px 7px; border:1px solid var(--line); border-radius:7px; font-size:13px; }
-  label.lib.on { border-color:var(--accent); background:#f5f8ff; }
-  label.lib > span { flex:1; min-width:0; }
-  .cardnum { width:88px; padding:4px 6px; border:1px solid var(--line); border-radius:6px; font:inherit; font-size:12px; }
-  .cardnum:disabled { background:#f0f1f3; }
-  .badge { display:inline-block; font-size:10px; padding:1px 5px; border-radius:999px; background:#eef2ff; color:#3949ab; }
-  small { color:var(--muted); }
+  #libraries{display:flex;flex-direction:column;gap:7px;}
+  label.lib{display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--line);border-radius:9px;font-size:13px;cursor:pointer;}
+  label.lib:hover{border-color:#cdd5df;}
+  label.lib.on{border-color:var(--accent);background:#f5f8ff;}
+  label.lib>span{flex:1;min-width:0;line-height:1.3;}
+  .cardnum{width:78px;padding:5px 7px;border:1px solid var(--line);border-radius:7px;font:inherit;font-size:12px;}
+  .cardnum:disabled{background:#f2f4f7;color:#9aa3af;}
+  .badge{display:inline-block;font-size:10px;font-weight:600;padding:1px 6px;border-radius:6px;background:#eef2ff;color:#3949ab;}
+  small{color:var(--muted);}
 
-  /* 景点卡片：左边色条 + 顶部状态徽章随选择变化 */
-  .card { background:var(--card); border:1px solid var(--line); border-left-width:5px; border-radius:10px; padding:12px; }
-  .card.s1 { border-left-color:#16a34a; }
-  .card.s2 { border-left-color:#f59e0b; }
-  .card.s3, .card.s4 { border-left-color:#dc2626; }
-  .status { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; padding:3px 10px; border-radius:999px; margin-bottom:8px; }
-  .status.s1 { background:#dcfce7; color:#15803d; }
-  .status.s2 { background:#fff7ed; color:#c2410c; }
-  .status.s3, .status.s4 { background:#fef2f2; color:#b91c1c; }
-  .card-head { display:flex; align-items:baseline; gap:10px; }
-  .card-head h3 { margin:0; font-size:15px; flex:1; }
-  .price { color:var(--muted); font-size:12px; }
-  .passes { margin:8px 0; }
-  .passrow { display:flex; align-items:center; gap:10px; padding:5px 0; border-top:1px dashed var(--line); font-size:13px; }
-  .passrow .sum { width:96px; font-weight:600; }
-  .passrow .lib2 { flex:1; }
-  .res { font-size:11px; padding:2px 7px; border-radius:999px; white-space:nowrap; }
-  .res-yes { background:#fef2f2; color:#b91c1c; }
-  .res-open { background:#ecfdf5; color:#047857; }
-  .card-foot { display:flex; align-items:center; gap:10px; margin-top:8px; }
-  .card-foot .hint { flex:1; font-size:12px; color:var(--muted); }
-  button { font:inherit; cursor:pointer; border:1px solid var(--line); background:#fff; padding:8px 14px; border-radius:8px; }
-  button.book, button.primary { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
-  button:disabled { opacity:.5; cursor:not-allowed; }
-  .modal { position:fixed; inset:0; background:rgba(15,23,42,.5); display:flex; align-items:center; justify-content:center; padding:20px; }
-  .modal.hidden { display:none; }
-  .modal-box { background:#fff; border-radius:14px; padding:22px; max-width:460px; width:100%; position:relative; }
-  .modal-close { position:absolute; top:10px; right:12px; border:none; background:none; font-size:22px; line-height:1; }
-  .modal-box h2 { margin:0 0 12px; font-size:17px; }
-  .modal-box h4 { margin:14px 0 6px; font-size:13px; color:var(--muted); }
-  .warn { background:#fffbeb; border:1px solid #fde68a; color:#92400e; padding:9px 11px; border-radius:8px; margin:6px 0; font-size:13px; }
-  .cardline { display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line); font-size:14px; }
-  .cardline span { flex:1; }
-  .cardline code { background:#f3f4f6; padding:2px 6px; border-radius:5px; }
-  #modal-actions { margin-top:16px; display:flex; justify-content:flex-end; gap:8px; }
-  @media (max-width:760px){ .layout{ grid-template-columns:1fr; } .col-left{ position:static; } }
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);}
+  .cardstatus{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:650;padding:3px 11px;border-radius:999px;margin-bottom:10px;border:1px solid transparent;}
+  .cardstatus.s1{background:var(--g-bg);color:var(--g-fg);border-color:var(--g-line);}
+  .cardstatus.s2{background:var(--o-bg);color:var(--o-fg);border-color:var(--o-line);}
+  .cardstatus.s3,.cardstatus.s4{background:var(--r-bg);color:var(--r-fg);border-color:var(--r-line);}
+  .card-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .card-head h3{margin:0;font-size:15px;font-weight:650;flex:1;}
+  .card-head a{font-size:12px;color:var(--accent);text-decoration:none;white-space:nowrap;}
+  .card-head a:hover{text-decoration:underline;}
+  .price{color:var(--muted);font-size:12px;white-space:nowrap;}
+
+  .passes{display:flex;flex-direction:column;gap:6px;}
+  .passrow{display:flex;align-items:center;gap:10px;padding:7px 11px;border-radius:9px;border:1px solid var(--line);background:#fff;font-size:13px;}
+  .passrow.s1{border-color:var(--g-line);background:var(--g-bg);}
+  .passrow.s2{border-color:var(--o-line);background:var(--o-bg);}
+  .passrow.s3,.passrow.s4{border-color:var(--r-line);background:var(--r-bg);}
+  .passrow .sum{width:84px;font-weight:650;}
+  .passrow .lib2{flex:1;min-width:0;}
+  .res{font-size:11px;padding:1px 7px;border-radius:6px;white-space:nowrap;}
+  .res-yes{background:#fbe2e2;color:var(--r-fg);}
+  .res-open{background:#d6f5e1;color:var(--g-fg);}
+  .pstatus{font-size:11px;font-weight:700;white-space:nowrap;min-width:62px;text-align:right;}
+  .pstatus.s1{color:var(--g-fg);}
+  .pstatus.s2{color:var(--o-fg);}
+  .pstatus.s3,.pstatus.s4{color:var(--r-fg);}
+
+  button{font:inherit;cursor:pointer;border:1px solid var(--line);background:#fff;padding:7px 14px;border-radius:8px;color:var(--ink);}
+  button:hover{background:#f7f9fc;}
+  .book{padding:5px 13px;font-size:12px;font-weight:600;background:var(--accent);color:#fff;border-color:var(--accent);}
+  .book:hover{background:var(--accent-d);}
+  button.primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600;}
+  button.primary:hover{background:var(--accent-d);}
+  button:disabled{opacity:.45;cursor:not-allowed;}
+
+  .modal{position:fixed;inset:0;background:rgba(15,23,42,.45);display:flex;align-items:center;justify-content:center;padding:20px;}
+  .modal.hidden{display:none;}
+  .modal-box{background:#fff;border-radius:16px;padding:22px;max-width:440px;width:100%;position:relative;box-shadow:0 20px 50px rgba(16,24,40,.25);}
+  .modal-close{position:absolute;top:12px;right:14px;border:none;background:none;font-size:22px;line-height:1;color:var(--muted);padding:0;}
+  .modal-close:hover{background:none;color:var(--ink);}
+  .modal-box h2{margin:0 22px 14px 0;font-size:16px;font-weight:650;}
+  .modal-box h4{margin:14px 0 7px;font-size:12px;color:var(--muted);font-weight:600;}
+  .note{padding:9px 11px;border-radius:9px;margin:7px 0;font-size:13px;border:1px solid;}
+  .note.ok{background:var(--g-bg);border-color:var(--g-line);color:var(--g-fg);}
+  .note.warn{background:var(--o-bg);border-color:var(--o-line);color:#92400e;}
+  .note.block{background:var(--r-bg);border-color:var(--r-line);color:var(--r-fg);}
+  .cardline{display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid var(--line2);font-size:13px;}
+  .cardline:last-child{border-bottom:none;}
+  .cardline span{flex:1;}
+  .cardline code{background:#f2f4f7;padding:2px 7px;border-radius:6px;font-size:12px;}
+  #modal-actions{margin-top:16px;display:flex;justify-content:flex-end;gap:8px;}
+  @media(max-width:760px){.layout{grid-template-columns:1fr;}.col-left{position:static;}}
 </style>
 </head>
 <body>
 <header>
   <h1>Museum Pass — 预定交互沙盒</h1>
-  <p>真实抽样数据 · 选 Home Town + 勾选你"持有"的图书馆卡 · 点 Book 看 4 态引导</p>
+  <p>真实抽样数据 · 选 Home Town + 勾你"持有"的图书馆卡 · 每条 Pass 上点 Book 看引导</p>
 </header>
+
 <div class="layout">
   <div class="col-left">
     <div class="panel">
@@ -104,27 +128,26 @@
 const state = { homeTown: '', held: new Set(), cardNumbers: {} };
 const $ = (sel) => document.querySelector(sel);
 
-const networkBadge = (net) => `<span class="badge">${net}</span>`;
+const networkBadge = (n) => `<span class="badge">${n}</span>`;
 function residencyLabel(p) {
-  // 游戏中只区分两种：明确"仅限居民"，其余(no / unknown)一律按"无限制"处理
   if (p.residency === 'yes') return `<span class="res res-yes">仅限居民 · ${p.library_town}</span>`;
   return `<span class="res res-open">无限制</span>`;
 }
 const summaryText = (p) => (p.summary ? p.summary : '<em>无折扣信息</em>');
 
-// 列表页一眼可见的状态徽章（随 Home Town / 勾选的卡实时变化）
+// 列表页状态文案：pill = 每条 pass 的简短状态；head = 景点整体(最佳)状态
 const STATUS = {
-  1: { cls: 's1', text: '✅ 完全符合 · 可直接预定' },
-  2: { cls: 's2', text: '⚠️ 缺图书馆卡' },
-  3: { cls: 's3', text: '⛔ 仅限居民 · 你不符合' },
-  4: { cls: 's4', text: '⛔ 缺卡 且 仅限居民' },
+  1: { cls: 's1', pill: '✓ 完全符合', head: '✅ 有完全符合的 Pass · 可直接预定' },
+  2: { cls: 's2', pill: '缺卡', head: '⚠️ 最佳为「缺卡」· 需对应图书馆卡' },
+  3: { cls: 's3', pill: '仅限居民', head: '⛔ 仅限居民' },
+  4: { cls: 's4', pill: '都不符合', head: '⛔ 都不符合' },
+  5: { cls: 's2', pill: '', head: '无可用 Pass' },
 };
-const HINT = {
-  1: '你持有可用卡且满足居民要求',
-  2: '勾选弹窗里提示的任一图书馆卡即可',
-  3: '你持卡，但不是该镇居民',
-  4: '既没有可用卡，也不符合居民要求',
-};
+
+// 用户当前持有的卡（带 network），供 logic 计算覆盖
+const heldCards = () => TESTGAME_DATA.libraries
+  .filter((l) => state.held.has(l.id))
+  .map((l) => ({ id: l.id, network: l.network, name: l.name, town: l.town }));
 
 function renderControls() {
   const opts = ['<option value="">— 选择你的 Home Town —</option>']
@@ -134,36 +157,45 @@ function renderControls() {
   $('#libraries').innerHTML = TESTGAME_DATA.libraries.map((l) => `
     <label class="lib ${state.held.has(l.id) ? 'on' : ''}">
       <input type="checkbox" data-lib="${l.id}" ${state.held.has(l.id) ? 'checked' : ''}>
-      <span>${l.name} ${networkBadge(l.network)} <small>${l.town}</small></span>
-      <input type="text" class="cardnum" data-card="${l.id}" placeholder="卡号(可选)"
+      <span>${l.name} ${networkBadge(l.network)}<br><small>${l.town}</small></span>
+      <input type="text" class="cardnum" data-card="${l.id}" placeholder="卡号"
         value="${state.cardNumbers[l.id] || ''}" ${state.held.has(l.id) ? '' : 'disabled'}>
     </label>`).join('');
 }
 
 function renderAttractions() {
-  $('#attractions').innerHTML = TESTGAME_DATA.attractions.map((a) => {
-    const r = classifyAttraction(a.slug, TESTGAME_DATA, [...state.held], state.homeTown);
-    const rows = r.passes.map((p) => `
-      <div class="passrow">
-        <span class="sum">${summaryText(p)}</span>
-        <span class="lib2">${p.library_name} ${networkBadge(p.network)}</span>
-        ${residencyLabel(p)}
-      </div>`).join('') || '<div class="passrow"><em>样本馆均不提供此景点 pass</em></div>';
-    const st = STATUS[r.state];
+  const cards = heldCards();
+  const list = TESTGAME_DATA.attractions.map((a) => {
+    const rows = TESTGAME_DATA.passes
+      .filter((p) => p.attraction_slug === a.slug)
+      .map((p) => ({ p, s: passState(p, cards, state.homeTown) }))
+      .sort((x, y) => x.s - y.s);
+    return { a, rows, best: bestState(rows.map((r) => r.s)) };
+  }).sort((x, y) => x.best - y.best);
+
+  $('#attractions').innerHTML = list.map(({ a, rows, best }) => {
+    const head = STATUS[best];
+    const body = rows.map(({ p, s }) => {
+      const st = STATUS[s];
+      return `
+        <div class="passrow ${st.cls}">
+          <span class="sum">${summaryText(p)}</span>
+          <span class="lib2">${p.library_name} ${networkBadge(p.network)}</span>
+          ${residencyLabel(p)}
+          <span class="pstatus ${st.cls}">${st.pill}</span>
+          <button class="book" data-slug="${a.slug}" data-libid="${p.library_id}">Book</button>
+        </div>`;
+    }).join('') || '<div class="passrow"><em>样本馆均不提供此景点 pass</em></div>';
     const price = a.price_adult != null ? `成人 $${a.price_adult}` : '价格未知';
     return `
-      <div class="card ${st.cls}">
-        <div class="status ${st.cls}">${st.text}</div>
+      <div class="card">
+        <span class="cardstatus ${head.cls}">${head.head}</span>
         <div class="card-head">
           <h3>${a.name}</h3>
-          <a href="${a.website || '#'}" target="_blank" rel="noopener">官网</a>
+          <a href="${a.website || '#'}" target="_blank" rel="noopener">官网 ↗</a>
           <span class="price">${price}</span>
         </div>
-        <div class="passes">${rows}</div>
-        <div class="card-foot">
-          <span class="hint">${HINT[r.state]}</span>
-          <button class="book" data-slug="${a.slug}">Book</button>
-        </div>
+        <div class="passes">${body}</div>
       </div>`;
   }).join('');
 }
@@ -182,55 +214,61 @@ document.addEventListener('input', (e) => {
   if (e.target.matches('[data-card]')) state.cardNumbers[e.target.dataset.card] = e.target.value;
 });
 document.addEventListener('click', (e) => {
-  if (e.target.matches('.book')) openModal(e.target.dataset.slug);
+  if (e.target.matches('.book')) openModal(e.target.dataset.slug, e.target.dataset.libid);
   else if (e.target.matches('.modal-close') || e.target.matches('#modal')) closeModal();
   else if (e.target.matches('[data-copy]')) {
     const v = e.target.dataset.copy;
     if (v && navigator.clipboard) navigator.clipboard.writeText(v);
-    e.target.textContent = 'Copied';
+    e.target.textContent = '已复制';
   }
 });
 
 const go = (url) => window.open(url || '#', '_blank', 'noopener');
 
-function openModal(slug) {
+function openModal(slug, libId) {
   const a = TESTGAME_DATA.attractions.find((x) => x.slug === slug);
-  const r = classifyAttraction(slug, TESTGAME_DATA, [...state.held], state.homeTown);
+  const p = TESTGAME_DATA.passes.find((x) => x.attraction_slug === slug && x.library_id === libId);
+  const cards = heldCards();
+  const s = passState(p, cards, state.homeTown);
+  const usable = usableCardsForPass(p, cards);
   const url = a.booking_url || a.website || '#';
+  const open = p.residency !== 'yes';
 
-  let warn = '';
-  if (r.tags.includes('library_pass_needed')) {
-    warn += '<p class="warn">⚠ 需要图书馆卡：你当前未持有可领取此 Pass 的图书馆卡。</p>';
-  }
-  if (r.tags.includes('resident_only')) {
-    const towns = r.state === 3 ? r.residentOnlyTowns : [...new Set(r.offeringCards.map((c) => c.library_town))];
-    warn += `<p class="warn">⚠ 仅限居民：此活动仅限 ${towns.join('、')} 的 Resident 参加。</p>`;
+  let notes = '';
+  if (s === 1) notes += `<p class="note ok">✅ 你持有可用卡${open ? '' : ' 且符合居民要求'}，可直接预定。</p>`;
+  if (s === 2) notes += open
+    ? `<p class="note warn">⚠ 需要图书馆卡：持有 ${p.network} 联盟任一馆的卡即可（你当前没有）。</p>`
+    : `<p class="note warn">⚠ 需要图书馆卡：此 Pass 只认 ${p.library_name} 本馆的卡（同联盟别的卡无效）。</p>`;
+  if (s === 3) notes += `<p class="note block">⛔ 仅限居民：此 Pass 仅限 ${p.library_town} 的居民。如果你其实是当地居民，可忽略并继续。</p>`;
+  if (s === 4) {
+    notes += `<p class="note warn">⚠ 需要图书馆卡：只认 ${p.library_name} 本馆的卡。</p>`;
+    notes += `<p class="note block">⛔ 仅限居民：仅限 ${p.library_town} 的居民。</p>`;
   }
 
-  let cards = '';
-  if (r.usableCards.length) {
-    cards = '<h4>你持有的可用卡</h4>' + r.usableCards.map((c) => {
-      const num = state.cardNumbers[c.library_id] || '';
-      return `<div class="cardline"><span>${c.library_name} ${networkBadge(c.network)}</span>
-        <code>${num || '(未录入卡号)'}</code>
+  let cardHtml = '';
+  if (usable.length) {
+    cardHtml = '<h4>你持有的可用卡</h4>' + usable.map((c) => {
+      const num = state.cardNumbers[c.id] || '';
+      return `<div class="cardline"><span>${c.name} ${networkBadge(c.network)}</span>
+        <code>${num || '未录入卡号'}</code>
         <button data-copy="${num}" ${num ? '' : 'disabled'}>Copy</button></div>`;
     }).join('');
-  } else if (r.state === 2) {
-    cards = '<h4>需要以下任一图书馆的卡</h4>' + r.recommendCards.map((c) =>
-      `<div class="cardline"><span>${c.library_name} ${networkBadge(c.network)} <small>${c.library_town}</small></span></div>`).join('');
-  } else if (r.state === 4) {
-    cards = '<h4>提供此景点的馆（均限居民）</h4>' + r.offeringCards.map((c) =>
-      `<div class="cardline"><span>${c.library_name} ${networkBadge(c.network)} <small>${c.library_town}</small></span></div>`).join('');
+  } else if (open) {
+    const sug = TESTGAME_DATA.libraries.filter((l) => l.network === p.network);
+    cardHtml = `<h4>需要 ${p.network} 联盟任一馆的卡</h4>` + sug.map((l) =>
+      `<div class="cardline"><span>${l.name} <small>${l.town}</small></span></div>`).join('');
+  } else {
+    cardHtml = `<h4>需要这张卡</h4><div class="cardline"><span>${p.library_name} ${networkBadge(p.network)} <small>${p.library_town}</small></span></div>`;
   }
 
-  const single = r.usableCards.length === 1 ? r.usableCards[0] : null;
-  const singleNum = single ? (state.cardNumbers[single.library_id] || '') : '';
-  let actions;
-  if (single && singleNum) actions = '<button class="primary" id="copygo">Copy and Go</button>';
-  else actions = `<button class="primary" id="goonly">${r.state === 1 ? 'Go' : 'Go anyway'}</button>`;
+  const single = usable.length === 1 ? usable[0] : null;
+  const singleNum = single ? (state.cardNumbers[single.id] || '') : '';
+  const actions = (single && singleNum)
+    ? '<button class="primary" id="copygo">Copy and Go</button>'
+    : `<button class="primary" id="goonly">${s === 1 ? 'Go' : 'Go anyway'}</button>`;
 
-  $('#modal-title').textContent = a.name + (r.state === 1 ? ' — 可预定' : ' — 请注意');
-  $('#modal-body').innerHTML = warn + cards;
+  $('#modal-title').textContent = `${a.name} · ${p.library_name}`;
+  $('#modal-body').innerHTML = notes + cardHtml;
   $('#modal-actions').innerHTML = actions;
   if ($('#copygo')) $('#copygo').onclick = () => { if (navigator.clipboard) navigator.clipboard.writeText(singleNum); go(url); };
   if ($('#goonly')) $('#goonly').onclick = () => go(url);
