@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Museum Pass — 预定交互沙盒 (testgame)</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --line:#e3e6ea; --ink:#1c2430; --muted:#6b7480; --accent:#2563eb; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.5 system-ui,"Segoe UI",sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding:18px 20px; background:#0f172a; color:#fff; }
+  header h1 { margin:0; font-size:18px; }
+  header p { margin:4px 0 0; font-size:13px; color:#9fb0c7; }
+  main { max-width:980px; margin:0 auto; padding:20px; }
+  .panel { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:20px; }
+  .panel h2 { margin:0 0 12px; font-size:15px; }
+  select { padding:8px 10px; border:1px solid var(--line); border-radius:8px; font:inherit; min-width:240px; }
+  #libraries { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; }
+  label.lib { display:flex; align-items:center; gap:8px; padding:8px; border:1px solid var(--line); border-radius:8px; }
+  label.lib > span { flex:1; }
+  .cardnum { width:120px; padding:5px 7px; border:1px solid var(--line); border-radius:6px; font:inherit; }
+  .cardnum:disabled { background:#f0f1f3; }
+  .badge { display:inline-block; font-size:11px; padding:1px 6px; border-radius:999px; background:#eef2ff; color:#3949ab; }
+  small { color:var(--muted); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
+  .card-head { display:flex; align-items:baseline; gap:12px; }
+  .card-head h3 { margin:0; font-size:16px; flex:1; }
+  .price { color:var(--muted); font-size:13px; }
+  .passes { margin:12px 0; border-top:1px dashed var(--line); }
+  .passrow { display:flex; align-items:center; gap:10px; padding:7px 0; border-bottom:1px dashed var(--line); font-size:14px; }
+  .passrow .sum { width:120px; font-weight:600; }
+  .passrow .lib2 { flex:1; }
+  .res { font-size:12px; padding:2px 8px; border-radius:999px; }
+  .res-yes { background:#fef2f2; color:#b91c1c; }
+  .res-open { background:#ecfdf5; color:#047857; }
+  .res-unknown { background:#f3f4f6; color:#6b7280; }
+  .card-foot { display:flex; align-items:center; gap:10px; }
+  .tags { flex:1; display:flex; gap:6px; }
+  .tag { font-size:12px; padding:3px 9px; border-radius:999px; font-weight:600; }
+  .tag-res { background:#fef2f2; color:#b91c1c; }
+  .tag-card { background:#fff7ed; color:#c2410c; }
+  button { font:inherit; cursor:pointer; border:1px solid var(--line); background:#fff; padding:8px 14px; border-radius:8px; }
+  button.book, button.primary { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
+  button:disabled { opacity:.5; cursor:not-allowed; }
+  .modal { position:fixed; inset:0; background:rgba(15,23,42,.5); display:flex; align-items:center; justify-content:center; padding:20px; }
+  .modal.hidden { display:none; }
+  .modal-box { background:#fff; border-radius:14px; padding:22px; max-width:460px; width:100%; position:relative; }
+  .modal-close { position:absolute; top:10px; right:12px; border:none; background:none; font-size:22px; line-height:1; }
+  .modal-box h2 { margin:0 0 12px; font-size:17px; }
+  .modal-box h4 { margin:14px 0 6px; font-size:13px; color:var(--muted); }
+  .warn { background:#fffbeb; border:1px solid #fde68a; color:#92400e; padding:9px 11px; border-radius:8px; margin:6px 0; font-size:13px; }
+  .cardline { display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px dashed var(--line); font-size:14px; }
+  .cardline span { flex:1; }
+  .cardline code { background:#f3f4f6; padding:2px 6px; border-radius:5px; }
+  #modal-actions { margin-top:16px; display:flex; justify-content:flex-end; gap:8px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Museum Pass — 预定交互沙盒</h1>
+  <p>真实抽样数据 · 选 Home Town + 勾选你"持有"的图书馆卡 · 点 Book 看 4 态引导</p>
+</header>
+<main>
+  <div class="panel">
+    <h2>① 你的 Home Town</h2>
+    <select id="town"></select>
+  </div>
+  <div class="panel">
+    <h2>② 你持有的图书馆卡（多选，勾选后可手填卡号）</h2>
+    <div id="libraries"></div>
+  </div>
+  <div id="attractions"></div>
+</main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="close">&times;</button>
+    <h2 id="modal-title"></h2>
+    <div id="modal-body"></div>
+    <div id="modal-actions"></div>
+  </div>
+</div>
+
+<script>
+/*__LOGIC__*/
+</script>
+<script>
+/*__DATA__*/
+
+const state = { homeTown: '', held: new Set(), cardNumbers: {} };
+const $ = (sel) => document.querySelector(sel);
+
+const networkBadge = (net) => `<span class="badge">${net}</span>`;
+function residencyLabel(p) {
+  if (p.residency === 'yes') return `<span class="res res-yes">Resident Only · ${p.library_town}</span>`;
+  if (p.residency === 'no') return `<span class="res res-open">Open</span>`;
+  return `<span class="res res-unknown">Not stated</span>`;
+}
+const summaryText = (p) => (p.summary ? p.summary : '<em>无折扣信息</em>');
+
+function renderControls() {
+  const opts = ['<option value="">— 选择你的 Home Town —</option>']
+    .concat(TESTGAME_DATA.towns.map((t) => `<option value="${t}">${t}</option>`)).join('');
+  $('#town').innerHTML = opts;
+  $('#town').value = state.homeTown;
+  $('#libraries').innerHTML = TESTGAME_DATA.libraries.map((l) => `
+    <label class="lib">
+      <input type="checkbox" data-lib="${l.id}" ${state.held.has(l.id) ? 'checked' : ''}>
+      <span>${l.name} ${networkBadge(l.network)} <small>${l.town}</small></span>
+      <input type="text" class="cardnum" data-card="${l.id}" placeholder="卡号(可选)"
+        value="${state.cardNumbers[l.id] || ''}" ${state.held.has(l.id) ? '' : 'disabled'}>
+    </label>`).join('');
+}
+
+function renderAttractions() {
+  $('#attractions').innerHTML = TESTGAME_DATA.attractions.map((a) => {
+    const r = classifyAttraction(a.slug, TESTGAME_DATA, [...state.held], state.homeTown);
+    const rows = r.passes.map((p) => `
+      <div class="passrow">
+        <span class="sum">${summaryText(p)}</span>
+        <span class="lib2">${p.library_name} ${networkBadge(p.network)}</span>
+        ${residencyLabel(p)}
+      </div>`).join('') || '<div class="passrow"><em>样本馆均不提供此景点 pass</em></div>';
+    const tagHtml = r.tags.map((t) => (t === 'resident_only'
+      ? '<span class="tag tag-res">Resident Only</span>'
+      : '<span class="tag tag-card">Library Pass Needed</span>')).join('');
+    const price = a.price_adult != null ? `成人 $${a.price_adult}` : '价格未知';
+    return `
+      <div class="card">
+        <div class="card-head">
+          <h3>${a.name}</h3>
+          <a href="${a.website || '#'}" target="_blank" rel="noopener">官网</a>
+          <span class="price">${price}</span>
+        </div>
+        <div class="passes">${rows}</div>
+        <div class="card-foot">
+          <div class="tags">${tagHtml}</div>
+          <button class="book" data-slug="${a.slug}">Book</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function render() { renderControls(); renderAttractions(); }
+
+document.addEventListener('change', (e) => {
+  if (e.target.matches('#town')) { state.homeTown = e.target.value; render(); }
+  else if (e.target.matches('[data-lib]')) {
+    const id = e.target.dataset.lib;
+    if (e.target.checked) state.held.add(id); else state.held.delete(id);
+    render();
+  }
+});
+document.addEventListener('input', (e) => {
+  if (e.target.matches('[data-card]')) state.cardNumbers[e.target.dataset.card] = e.target.value;
+});
+document.addEventListener('click', (e) => {
+  if (e.target.matches('.book')) openModal(e.target.dataset.slug);
+  else if (e.target.matches('.modal-close') || e.target.matches('#modal')) closeModal();
+  else if (e.target.matches('[data-copy]')) {
+    const v = e.target.dataset.copy;
+    if (v && navigator.clipboard) navigator.clipboard.writeText(v);
+    e.target.textContent = 'Copied';
+  }
+});
+
+const go = (url) => window.open(url || '#', '_blank', 'noopener');
+
+function openModal(slug) {
+  const a = TESTGAME_DATA.attractions.find((x) => x.slug === slug);
+  const r = classifyAttraction(slug, TESTGAME_DATA, [...state.held], state.homeTown);
+  const url = a.booking_url || a.website || '#';
+
+  let warn = '';
+  if (r.tags.includes('library_pass_needed')) {
+    warn += '<p class="warn">⚠ 需要图书馆卡：你当前未持有可领取此 Pass 的图书馆卡。</p>';
+  }
+  if (r.tags.includes('resident_only')) {
+    const towns = r.state === 3 ? r.residentOnlyTowns : [...new Set(r.offeringCards.map((c) => c.library_town))];
+    warn += `<p class="warn">⚠ 仅限居民：此活动仅限 ${towns.join('、')} 的 Resident 参加。</p>`;
+  }
+
+  let cards = '';
+  if (r.usableCards.length) {
+    cards = '<h4>你持有的可用卡</h4>' + r.usableCards.map((c) => {
+      const num = state.cardNumbers[c.library_id] || '';
+      return `<div class="cardline"><span>${c.library_name} ${networkBadge(c.network)}</span>
+        <code>${num || '(未录入卡号)'}</code>
+        <button data-copy="${num}" ${num ? '' : 'disabled'}>Copy</button></div>`;
+    }).join('');
+  } else if (r.state === 2) {
+    cards = '<h4>需要以下任一图书馆的卡</h4>' + r.recommendCards.map((c) =>
+      `<div class="cardline"><span>${c.library_name} ${networkBadge(c.network)} <small>${c.library_town}</small></span></div>`).join('');
+  } else if (r.state === 4) {
+    cards = '<h4>提供此景点的馆（均限居民）</h4>' + r.offeringCards.map((c) =>
+      `<div class="cardline"><span>${c.library_name} ${networkBadge(c.network)} <small>${c.library_town}</small></span></div>`).join('');
+  }
+
+  const single = r.usableCards.length === 1 ? r.usableCards[0] : null;
+  const singleNum = single ? (state.cardNumbers[single.library_id] || '') : '';
+  let actions;
+  if (single && singleNum) actions = '<button class="primary" id="copygo">Copy and Go</button>';
+  else actions = `<button class="primary" id="goonly">${r.state === 1 ? 'Go' : 'Go anyway'}</button>`;
+
+  $('#modal-title').textContent = a.name + (r.state === 1 ? ' — 可预定' : ' — 请注意');
+  $('#modal-body').innerHTML = warn + cards;
+  $('#modal-actions').innerHTML = actions;
+  if ($('#copygo')) $('#copygo').onclick = () => { if (navigator.clipboard) navigator.clipboard.writeText(singleNum); go(url); };
+  if ($('#goonly')) $('#goonly').onclick = () => go(url);
+  $('#modal').classList.remove('hidden');
+}
+function closeModal() { $('#modal').classList.add('hidden'); }
+
+render();
+</script>
+</body>
+</html>

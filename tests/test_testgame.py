@@ -71,3 +71,30 @@ def test_booking_url_is_absolute_or_none():
     for a in sample["attractions"]:
         url = a["booking_url"]
         assert url is None or url.startswith("http"), f"{a['slug']} booking_url not absolute: {url!r}"
+
+
+from malibbene.testgame.render import render_html
+
+
+def test_render_injects_data_and_logic_no_export():
+    sample = select_sample(*_load())
+    logic = "export function classifyAttraction(a, b, c, d) { return {state:1}; }"
+    template = "<html><script>/*__LOGIC__*/</script><script>/*__DATA__*/\nrender();</script></html>"
+    html = render_html(sample, logic, template)
+    assert "const TESTGAME_DATA =" in html
+    assert "function classifyAttraction" in html
+    assert "export function" not in html
+    assert "/*__LOGIC__*/" not in html and "/*__DATA__*/" not in html
+    assert "Blithewold" in html
+
+
+def test_render_with_real_template_and_logic():
+    from pathlib import Path
+    pkg = REPO / "src" / "malibbene" / "testgame"
+    template = (pkg / "template.html").read_text(encoding="utf-8")
+    logic = (pkg / "logic.mjs").read_text(encoding="utf-8")
+    sample = select_sample(*_load())
+    html = render_html(sample, logic, template)
+    assert "export" not in html.split("</script>")[0] or "export function" not in html
+    assert "classifyAttraction" in html
+    assert "TESTGAME_DATA" in html
