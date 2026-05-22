@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 from datetime import datetime, timezone
 from malibbene.common.audit_overrides import load_overrides, apply_overrides
+from malibbene.build.legacy import legacy_libraries
 
 def _load_town_zips(seed_path: Path) -> dict:
     """Load config/town_zips.json (sibling of the seed file). Returns town->[zip5]."""
@@ -19,13 +20,19 @@ def build_libraries(seed_path: Path, raw_root: Path, overrides_root: Path, out_p
         seeds = seeds["libraries"]
     overrides = load_overrides(overrides_root)
     town_zips = _load_town_zips(seed_path)
+    # The 2026-05-20 rebuild dropped geo/address for all libraries. Recover them
+    # from the legacy archive (59/59). Seed values, if any, take precedence;
+    # audit overrides (applied below) win over both.
+    legacy = legacy_libraries()
     libs = []
     for s in seeds:
+        leg = legacy.get(s["id"], {})
         lib = {
             "id": s["id"], "name": s["name"], "town": s["town"],
             "network": s["network"], "platform": s["platform"],
-            "card_page": s.get("card_page"), "address": s.get("address"),
-            "geo": s.get("geo"),
+            "card_page": s.get("card_page"),
+            "address": s.get("address") or leg.get("address"),
+            "geo": s.get("geo") or leg.get("geo"),
             "card_eligibility": "unknown",
             "pass_pickup_default": "unknown",
         }

@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 from datetime import datetime, timezone
 from malibbene.common.audit_overrides import load_overrides, apply_overrides
+from malibbene.build.slug_canonical import canonical
 
 PLATFORMS = ("assabet","libcal","museumkey")
 
@@ -18,13 +19,19 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
             cat = json.loads(cat_f.read_text())
             lib = cat["library_id"]
             for p in cat.get("passes",[]):
-                slug = p["attraction_slug"]
+                # `rawslug` is the catalog slug used to KEY the raw coupon /
+                # availability / probe files (look those up with it). The
+                # emitted row carries the CANONICAL slug so it joins to one
+                # attraction record. The 405KB top-level `source_phrases` blob
+                # is dropped (bloat) — coupon.source_phrase_block keeps the
+                # meaningful provenance.
+                rawslug = p["attraction_slug"]
+                slug = canonical(rawslug)
                 row = {
                     "library_id": lib, "attraction_slug": slug,
                     "pass_form": "physical_coupon",
                     "available_at_branches": "all",
                     "source_url": p.get("detail_url"),
-                    "source_phrases": p.get("source_phrases",[]),
                     "coupon": None, "restrictions": None,
                     # The real booking filter. Defaults to unknown — silence in
                     # catalog text does NOT mean the pass is open to non-residents
@@ -37,7 +44,7 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                     "availability": {},
                     "eligibility_override": None,
                 }
-                coup = _read(raw_root/platform/"coupons"/f"{lib}__{slug}.json")
+                coup = _read(raw_root/platform/"coupons"/f"{lib}__{rawslug}.json")
                 if coup and coup.get("status")=="ok":
                     e = coup["extracted"]
                     row["pass_form"] = e.get("pass_form","physical_coupon")
@@ -50,7 +57,7 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                 # EXCEPT it must not erase a text-derived MA-resident requirement
                 # (a different axis the probe can't test, since the prober is
                 # itself a MA resident).
-                probe = _read(raw_root/platform/"residency_probe"/f"{lib}__{slug}.json")
+                probe = _read(raw_root/platform/"residency_probe"/f"{lib}__{rawslug}.json")
                 if probe and probe.get("restricted") in ("yes", "no"):
                     text_rr = row.get("residency_restriction") or {}
                     text_is_ma = (text_rr.get("restricted") == "yes"
@@ -71,10 +78,10 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                             "source": "booking_probe",
                             "evidence": probe.get("evidence"),
                         }
-                avail = _read(raw_root/platform/"availability"/lib/f"{slug}.json")
+                avail = _read(raw_root/platform/"availability"/lib/f"{rawslug}.json")
                 if avail:
                     row["availability"] = {d["date"]:d["status"] for d in avail.get("days",[])}
-                key = f"{lib}__{slug}"
+                key = f"{lib}__{rawslug}"
                 row = apply_overrides(f"pass:{key}", row, overrides)
                 out_passes.append(row)
     out = {"_meta":{"built_at":datetime.now(timezone.utc).isoformat(),
