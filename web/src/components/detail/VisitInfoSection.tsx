@@ -1,25 +1,26 @@
 import { useState } from 'react';
-import type { Attraction } from '../../data/types';
+import type { Attraction, Hours } from '../../data/types';
 import { weeklyHoursList } from '../../lib/hours';
 
 interface Props {
   attraction: Attraction;
 }
 
-function weeklySummary(attraction: Attraction): string {
-  if (!attraction.hours || attraction.hours.status === 'varies' || !attraction.hours.regular_hours) {
-    return 'Hours vary — see museum website';
-  }
-  const rh = attraction.hours.regular_hours;
+function weeklySummary(hours: Hours | null | undefined): string {
+  if (!hours) return 'Hours vary — see museum website';
+  const vals = Object.values(hours);
+  if (vals.every(v => !v || v === 'unknown')) return 'Hours vary — see museum website';
+
   const closedDays: string[] = [];
   const openDays: string[] = [];
-  const order: Array<[string, keyof typeof rh]> = [
-    ['Sun', 'sun'], ['Mon', 'mon'], ['Tue', 'tue'], ['Wed', 'wed'],
-    ['Thu', 'thu'], ['Fri', 'fri'], ['Sat', 'sat'],
+  // Ordered Mon–Sun for display
+  const order: Array<[string, keyof Hours]> = [
+    ['Mon', 'monday'], ['Tue', 'tuesday'], ['Wed', 'wednesday'], ['Thu', 'thursday'],
+    ['Fri', 'friday'], ['Sat', 'saturday'], ['Sun', 'sunday'],
   ];
   for (const [label, key] of order) {
-    const v = rh[key];
-    if (!v || /closed/i.test(v)) closedDays.push(label);
+    const v = hours[key];
+    if (!v || v === 'unknown' || /closed/i.test(v)) closedDays.push(label);
     else openDays.push(label);
   }
   if (closedDays.length === 0) return 'open daily';
@@ -28,9 +29,26 @@ function weeklySummary(attraction: Attraction): string {
   return `open ${openDays.join(', ')}`;
 }
 
+function hasKnownHours(hours: Hours | null | undefined): boolean {
+  if (!hours) return false;
+  return Object.values(hours).some(v => v && v !== 'unknown');
+}
+
+function formatAddress(address: Attraction['address']): string | null {
+  if (!address) return null;
+  const parts = [
+    address.street,
+    address.city,
+    address.state && address.zip ? `${address.state} ${address.zip}` : (address.state ?? address.zip),
+  ].filter(Boolean);
+  return parts.length > 0 ? parts.join(', ') : null;
+}
+
 export function VisitInfoSection({ attraction }: Props) {
   const [showAll, setShowAll] = useState(false);
-  const hasHours = !!attraction.hours && attraction.hours.status !== 'varies' && !!attraction.hours.regular_hours;
+  const hoursObj = attraction.hours ?? null;
+  const hasHours = hasKnownHours(hoursObj);
+  const addressStr = formatAddress(attraction.address ?? null);
 
   return (
     <section style={{ padding: 14, borderBottom: '1px solid var(--rule)' }}>
@@ -41,7 +59,7 @@ export function VisitInfoSection({ attraction }: Props) {
 
       <div style={{ fontSize: 12, color: 'var(--ink-2)', margin: '4px 0' }}>
         <b>Hours this week</b>{' '}
-        <span style={{ color: 'var(--ink-3)' }}>· {weeklySummary(attraction)}</span>
+        <span style={{ color: 'var(--ink-3)' }}>· {weeklySummary(hoursObj)}</span>
         {hasHours && (
           <button
             type="button"
@@ -54,9 +72,9 @@ export function VisitInfoSection({ attraction }: Props) {
         )}
       </div>
 
-      {showAll && hasHours && (
+      {showAll && hasHours && hoursObj && (
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px 8px', margin: '8px 0' }}>
-          {weeklyHoursList(attraction.hours!).map(row => {
+          {weeklyHoursList(hoursObj).map(row => {
             const isClosed = row.value.toLowerCase() === 'closed';
             return (
               <div key={row.key} style={{ display: 'flex', gap: 6, fontSize: 11 }}>
@@ -74,10 +92,10 @@ export function VisitInfoSection({ attraction }: Props) {
         </div>
       )}
 
-      {attraction.address && (
+      {addressStr && (
         <div style={{ fontSize: 12, color: 'var(--ink-2)', margin: '8px 0' }}>
           <b>Address</b>
-          <div style={{ color: 'var(--ink-3)', marginTop: 2 }}>{attraction.address}</div>
+          <div style={{ color: 'var(--ink-3)', marginTop: 2 }}>{addressStr}</div>
         </div>
       )}
 

@@ -1,6 +1,7 @@
 import type { Library, Pass } from '../data/types';
 import { PassTypeLabel } from './PassTypeLabel';
 import { CouponLine } from './CouponLine';
+import { couponSummary } from '../lib/couponSummary';
 import { LockIcon } from './icons';
 
 interface Props {
@@ -27,12 +28,15 @@ export function GuestLockedRow({ pass, library, onSignInRequest }: Props) {
       }}
       aria-label={`Sign in to use ${library?.name ?? pass.library_id} pass`}
     >
-      <PassTypeLabel type={pass.pass_type} />
+      <PassTypeLabel type={pass.pass_form} />
       <span style={{ fontSize: 13, color: 'var(--ink-2)', fontWeight: 500 }}>
         {library?.name ?? pass.library_id}
       </span>
       <span className="ml-auto flex items-center gap-2">
-        <CouponLine coupon={pass.coupon} />
+        {pass.coupon
+          ? <CouponLine coupon={pass.coupon} />
+          : <span style={{ fontSize: 12, color: 'var(--ink-3)' }}>{couponSummary(null)}</span>
+        }
         <LockIcon style={{ color: 'var(--ink-3)' }} />
       </span>
     </button>

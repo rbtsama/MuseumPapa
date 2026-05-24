@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router';
 import {
-  getAttractionBySlug, getPassesForAttraction, getLibraries,
+  getAttractionBySlug, getLibrary, getLibraries,
 } from '../data/load';
 import { CouponRow } from '../components/CouponRow';
 import { CouponCalendar } from '../components/CouponCalendar';
@@ -13,29 +13,20 @@ import { VisitInfoSection } from '../components/detail/VisitInfoSection';
 import { GuestLockedRow } from '../components/GuestLockedRow';
 import { SignInModal } from '../components/SignInModal';
 import { BookingConfirmModal } from '../components/BookingConfirmModal';
-import { passBlockedByRestrictions } from '../lib/restrictions';
 import { useAuth } from '../auth/store';
 import { useCardpack } from '../stores/cardpack';
 import { useFavorites } from '../stores/favorites';
 import { geocodeZip, haversineMiles } from '../lib/distance';
-import { couponRank } from '../lib/tag-algorithm';
 import { heroSrc } from '../lib/hero';
 import { todayIso } from '../lib/dates';
-import { townFromAddress } from '../lib/address';
-import type { Geo, Pass, Library } from '../data/types';
-
-interface Row {
-  pass: Pass;
-  library: Library;
-  distanceMi: number | null;
-  available: boolean;
-  userHasCard: boolean;
-}
-
+import { recommend, type RecommendedPass } from '../lib/recommend';
+import { couponSummary } from '../lib/couponSummary';
+import type { User } from '../lib/eligibility';
+import type { Geo, Pass } from '../data/types';
 
 export function AttractionDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const user = useAuth(s => s.currentUser);
+  const authUser = useAuth(s => s.currentUser);
   const cardpack = useCardpack(s => s.pack);
   const loadCardpack = useCardpack(s => s.load);
   const loadFavorites = useFavorites(s => s.load);
@@ -47,9 +38,9 @@ export function AttractionDetail() {
   const [signInOpen, setSignInOpen] = useState(false);
 
   useEffect(() => {
-    loadCardpack(user?.username ?? null);
-    loadFavorites(user?.username ?? null);
-  }, [user, loadCardpack, loadFavorites]);
+    loadCardpack(authUser?.username ?? null);
+    loadFavorites(authUser?.username ?? null);
+  }, [authUser, loadCardpack, loadFavorites]);
 
   useEffect(() => {
     if (!cardpack.zip || cardpack.zip.length !== 5) { setUserGeo(null); return; }
@@ -59,15 +50,12 @@ export function AttractionDetail() {
   }, [cardpack.zip]);
 
   const attraction = useMemo(() => slug ? getAttractionBySlug(slug) : undefined, [slug]);
-  const allPasses = useMemo(() => slug ? getPassesForAttraction(slug) : [], [slug]);
   const libraries = useMemo(() => getLibraries(), []);
   const libById = useMemo(() => new Map(libraries.map(l => [l.id, l])), [libraries]);
 
-  // Same barcode-filter as AttractionsList — a card without a barcode is not
-  // yet usable, so it shouldn't surface a pass row or affect the best-deal
-  // calculation. Keeps Detail and List consistent.
+  // Barcode-filter: a card without a barcode is not usable.
   const userCardLibIds = useMemo(() => {
-    if (!user) return null;
+    if (!authUser) return null;
     const ids = new Set(
       Object.entries(cardpack.cards)
         .filter(([, card]) => !!card?.barcode)
@@ -75,16 +63,27 @@ export function AttractionDetail() {
     );
     if (ids.size === 0) return null;
     return ids;
-  }, [user, cardpack.cards]);
+  }, [authUser, cardpack.cards]);
 
+  // Build eligibility user for the engine.
+  const engineUser = useMemo((): User => ({
+    homeZip: cardpack.zip ?? '',
+    heldLibraryIds: userCardLibIds ? Array.from(userCardLibIds) : [],
+  }), [cardpack.zip, userCardLibIds]);
+
+  // Guest user for ordering locked rows (all will be L1-blocked, ordered by coupon strength).
+  const guestUser = useMemo((): User => ({ homeZip: '', heldLibraryIds: [] }), []);
+
+  // Compute available data horizon (for calendar month pills).
   const dataHorizon = useMemo(() => {
+    if (!slug) return '';
     let max = '';
-    for (const p of allPasses) {
-      if (!p.availability) continue;
-      for (const d in p.availability) if (d > max) max = d;
+    const recs = recommend(slug, guestUser);
+    for (const r of recs) {
+      for (const d in r.pass.availability) if (d > max) max = d;
     }
     return max;
-  }, [allPasses]);
+  }, [slug, guestUser]);
 
   const monthPills = useMemo(() => {
     const out: string[] = [];
@@ -97,7 +96,7 @@ export function AttractionDetail() {
       const m = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
       if (horizonMonth && m > horizonMonth) break;
       out.push(m);
-      if (!horizonMonth) break; // no scraped data anywhere → only show current month
+      if (!horizonMonth) break;
     }
     return out;
   }, [today, dataHorizon]);
@@ -111,84 +110,54 @@ export function AttractionDetail() {
     );
   }, [month]);
 
-  const rowsForDate = useMemo(() => (date: string): Row[] => {
-    const rows: Row[] = [];
-    for (const pass of allPasses) {
-      const library = libById.get(pass.library_id);
-      if (!library) continue;
-      if (passBlockedByRestrictions(pass.restrictions, date)) continue;
-      const available = pass.availability === null
-        ? true
-        : pass.availability[date] === 'available';
-      const dist = userGeo && library.geo ? haversineMiles(userGeo, library.geo) : null;
-      const userHasCard = userCardLibIds ? userCardLibIds.has(pass.library_id) : true;
-      rows.push({ pass, library, distanceMi: dist, available, userHasCard });
-    }
-    return rows;
-  }, [allPasses, libById, userCardLibIds, userGeo]);
-
-  const sortRows = useMemo(() => (rows: Row[]) => {
-    return [...rows].sort((a, b) => {
-      const ra = couponRank(a.pass.coupon);
-      const rb = couponRank(b.pass.coupon);
-      if (ra !== rb) return ra - rb;
-      if (a.distanceMi == null && b.distanceMi != null) return 1;
-      if (a.distanceMi != null && b.distanceMi == null) return -1;
-      if (a.distanceMi != null && b.distanceMi != null) return a.distanceMi - b.distanceMi;
-      return a.library.id.localeCompare(b.library.id);
-    });
-  }, []);
-
   const heroImg = useMemo(
     () => attraction ? heroSrc(attraction) : '/placeholders/default.svg',
     [attraction],
   );
 
+  // Selected day recs via the engine — show up to 4, eligible first.
+  const selectedDayRecs = useMemo((): RecommendedPass[] => {
+    if (!slug) return [];
+    return recommend(slug, engineUser, new Date(`${selectedDate}T00:00:00`));
+  }, [slug, engineUser, selectedDate]);
+
+  // Calendar cellInfo — for each date compute best eligible rec.
   const cellInfo = useMemo(() => {
-    const out: Record<string, { best: string; isFree: boolean }> = {};
+    const out: Record<string, { best: string; isFree: boolean; status: 'available' | 'booked' | 'closed' | 'none' }> = {};
+    if (!slug) return out;
     for (const d of datesOfMonth) {
-      // Best deal among rows the user can actually use.
-      const rows = rowsForDate(d)
-        .filter(r => r.available)
-        .filter(r => userCardLibIds === null || r.userHasCard);
-      if (rows.length === 0) { out[d] = { best: '', isFree: false }; continue; }
-      const sorted = sortRows(rows);
-      const top = sorted[0].pass.coupon.audience_policies[0];
-      let label = ''; let isFree = false;
-      if (top) {
-        switch (top.form) {
-          case 'free': label = 'FREE'; isFree = true; break;
-          case 'percent-off': label = top.value != null ? `${top.value}%` : '%'; break;
-          case 'dollar-off': label = top.value != null ? `-$${top.value}` : '$ off'; break;
-          case 'per-person-price': label = top.value != null ? `$${top.value}` : '$'; break;
-          case 'discount': label = 'disc'; break;
-        }
+      const recs = recommend(slug, engineUser, new Date(`${d}T00:00:00`));
+      const bestEligible = recs.find(r => r.verdict.eligible);
+      if (!bestEligible) {
+        out[d] = { best: '', isFree: false, status: 'none' };
+        continue;
       }
-      out[d] = { best: label, isFree };
+      const summary = couponSummary(bestEligible.pass.coupon);
+      const isFree = bestEligible.pass.coupon?.audience_policies[0]?.form === 'free';
+      const avRaw = bestEligible.pass.availability?.[d];
+      const status: 'available' | 'booked' | 'closed' | 'none' =
+        avRaw === 'available' ? 'available' :
+        avRaw === 'booked' ? 'booked' :
+        avRaw === 'closed' ? 'closed' : 'none';
+      out[d] = { best: summary, isFree, status };
     }
     return out;
-  }, [datesOfMonth, rowsForDate, sortRows, userCardLibIds]);
-
-  // Selected day's rows — HIDE no-card rows entirely (do not dim).
-  const selectedDayRows = useMemo(
-    () => sortRows(
-      rowsForDate(selectedDate)
-        .filter(r => r.available)
-        .filter(r => userCardLibIds === null || r.userHasCard),
-    ),
-    [selectedDate, rowsForDate, sortRows, userCardLibIds],
-  );
+  }, [datesOfMonth, slug, engineUser]);
 
   if (!slug) return <div className="max-w-3xl mx-auto p-4">Missing slug.</div>;
   if (!attraction) return <div className="max-w-3xl mx-auto p-4">Attraction "{slug}" not found.</div>;
 
-  const town = townFromAddress(attraction.address);
+  const addressCity = attraction.address?.city ?? '';
+  const addressState = attraction.address?.state ?? '';
+  const town = addressCity && addressState ? `${addressCity}, ${addressState}` : (addressCity || '');
+
+  const isTimedEntry = attraction.reservation?.required === 'timed_entry';
 
   return (
     <div className="max-w-3xl mx-auto" style={{ background: 'var(--white)', minHeight: '100vh' }}>
       <HeroBanner
         imageSrc={heroImg}
-        museumName={attraction.museum_name}
+        museumName={attraction.name}
         town={town}
         favoriteSlug={attraction.slug}
       />
@@ -214,14 +183,70 @@ export function AttractionDetail() {
         />
       </section>
 
-      <DescriptionBlock description={attraction.description} />
+      <DescriptionBlock description={attraction.description ?? null} />
 
-      {/* Coupon / perks section — green tint to mark product UVP */}
+      {/* Coupon / perks section */}
       <section style={{ padding: 14, background: 'var(--g-pale)', borderBottom: '1px solid var(--rule)' }}>
         <h3 style={{
           margin: '0 0 8px', fontSize: 13, fontWeight: 600,
           color: 'var(--g)', textTransform: 'uppercase', letterSpacing: '0.05em',
         }}>Your perks · what it'll cost you</h3>
+
+        {/* Two-step guide for timed-entry attractions */}
+        {isTimedEntry && (
+          <div
+            style={{
+              background: 'var(--white)',
+              border: '1px solid var(--g)',
+              borderRadius: 8,
+              padding: '10px 14px',
+              marginBottom: 12,
+              fontSize: 13,
+              color: 'var(--ink-2)',
+            }}
+            data-testid="timed-entry-guide"
+          >
+            <div style={{ fontWeight: 600, color: 'var(--g)', marginBottom: 4, fontSize: 12 }}>
+              预订流程（限时入场景点）
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <div>
+                <span style={{ color: 'var(--g)', fontWeight: 700 }}>①</span>{' '}
+                从图书馆领码／取 pass
+              </div>
+              <div>
+                <span style={{ color: 'var(--g)', fontWeight: 700 }}>②</span>{' '}
+                去景点官网用码订时段
+                {attraction.reservation?.booking_url && (
+                  <>
+                    {' · '}
+                    <a
+                      href={attraction.reservation.booking_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: 'var(--g)', fontWeight: 600, textDecoration: 'none' }}
+                    >
+                      预约 →
+                    </a>
+                  </>
+                )}
+                {attraction.reservation?.pass_holder_url && (
+                  <>
+                    {' '}
+                    <a
+                      href={attraction.reservation.pass_holder_url ?? undefined}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: 'var(--g-2)', fontWeight: 500, fontSize: 11, textDecoration: 'none' }}
+                    >
+                      (持卡人专页 →)
+                    </a>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="flex gap-1.5 mb-3">
           {monthPills.map(m => {
@@ -257,39 +282,37 @@ export function AttractionDetail() {
         </div>
 
         <div style={{ marginTop: 12 }}>
-          {selectedDayRows.length === 0 ? (
+          {selectedDayRecs.length === 0 ? (
             <div style={{ fontSize: 12, color: 'var(--ink-3)', fontStyle: 'italic' }}>
               No coupons available on this date
             </div>
           ) : (
-            selectedDayRows.slice(0, 10).map((r, i) => {
-              if (!user) {
+            selectedDayRecs.map((rec, i) => {
+              const lib = getLibrary(rec.pass.library_id);
+              if (!lib) return null;
+              if (!authUser) {
                 return (
                   <GuestLockedRow
-                    key={`${r.pass.library_id}-${i}`}
-                    pass={r.pass}
-                    library={r.library}
+                    key={`${rec.pass.library_id}-${i}`}
+                    pass={rec.pass}
+                    library={lib}
                     onSignInRequest={() => setSignInOpen(true)}
                   />
                 );
               }
+              const distanceMi = userGeo && lib.geo ? haversineMiles(userGeo, lib.geo) : null;
               return (
                 <CouponRow
-                  key={`${r.pass.library_id}-${i}`}
-                  pass={r.pass}
-                  library={r.library}
-                  distanceMi={r.distanceMi}
-                  userHasCard={r.userHasCard}
+                  key={`${rec.pass.library_id}-${i}`}
+                  pass={rec.pass}
+                  library={lib}
+                  verdict={rec.verdict}
+                  distanceMi={distanceMi}
                   showTopBorder={i > 0}
                   onBook={setBookingPass}
                 />
               );
             })
-          )}
-          {selectedDayRows.length > 10 && (
-            <div style={{ fontSize: 12, color: 'var(--ink-3)', marginTop: 6 }}>
-              +{selectedDayRows.length - 10} more
-            </div>
           )}
         </div>
       </section>

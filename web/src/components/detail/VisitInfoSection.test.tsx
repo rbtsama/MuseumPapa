@@ -1,51 +1,91 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { VisitInfoSection } from './VisitInfoSection';
-import type { Attraction } from '../../data/types';
+import type { Attraction, Hours, Address } from '../../data/types';
 
-function makeAttraction(): Attraction {
+const baseHours: Hours = {
+  monday: 'closed',
+  tuesday: '10:00-17:00',
+  wednesday: '10:00-17:00',
+  thursday: '10:00-22:00',
+  friday: '10:00-22:00',
+  saturday: '10:00-17:00',
+  sunday: '10:00-17:00',
+};
+
+const baseAddress: Address = {
+  street: '465 Huntington Ave',
+  city: 'Boston',
+  state: 'MA',
+  zip: '02115',
+};
+
+function makeAttraction(over: Partial<Attraction> = {}): Attraction {
   return {
     slug: 'mfa',
-    museum_name: 'MFA',
-    address: '465 Huntington Ave, Boston, MA 02115',
+    name: 'Museum of Fine Arts',
+    address: baseAddress,
     website: 'https://mfa.org',
     phone: '617-267-9300',
     description: null,
     categories: [],
     sources: [],
-    original_price: null,
+    prices: [],
     hero_image: null,
     geo: null,
-    hours: {
-      status: 'ok',
-      regular_hours: {
-        sun: '10am – 5pm',
-        mon: 'Closed',
-        tue: '10am – 5pm',
-        wed: '10am – 5pm',
-        thu: '10am – 10pm',
-        fri: '10am – 10pm',
-        sat: '10am – 5pm',
-      },
-      notes: null,
-      source_url: null,
-    },
-    museum_reservation: null,
+    hours: baseHours,
+    reservation: null,
+    ...over,
   } as Attraction;
 }
 
 describe('VisitInfoSection', () => {
-  it('renders address, phone, website', () => {
+  it('renders address as formatted string from Address object', () => {
     render(<VisitInfoSection attraction={makeAttraction()} />);
-    expect(screen.getByText(/465 Huntington/)).toBeInTheDocument();
+    expect(screen.getByText(/465 Huntington Ave/)).toBeInTheDocument();
+    expect(screen.getByText(/Boston/)).toBeInTheDocument();
+    expect(screen.getByText(/MA 02115/)).toBeInTheDocument();
+  });
+
+  it('renders phone and website links', () => {
+    render(<VisitInfoSection attraction={makeAttraction()} />);
     expect(screen.getByRole('link', { name: /617-267-9300/ })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /mfa\.org/ })).toBeInTheDocument();
   });
 
-  it('shows full weekly hours when See all clicked', () => {
+  it('shows hours summary with closed day listed', () => {
     render(<VisitInfoSection attraction={makeAttraction()} />);
-    expect(screen.queryByText(/THU/i)).not.toBeInTheDocument();
+    // Monday is closed → summary should mention "Mon"
+    expect(screen.getByText(/Mon/)).toBeInTheDocument();
+  });
+
+  it('shows full weekly hours when "See all" clicked', () => {
+    render(<VisitInfoSection attraction={makeAttraction()} />);
+    // THU label not visible initially
+    expect(screen.queryByText(/^THU$/i)).not.toBeInTheDocument();
     fireEvent.click(screen.getByText(/See all/i));
-    expect(screen.getByText(/THU/i)).toBeInTheDocument();
+    // After expansion, Thu label appears (via weeklyHoursList)
+    expect(screen.getByText(/^Thu$/)).toBeInTheDocument();
+  });
+
+  it('shows "Hours vary" when hours is null', () => {
+    render(<VisitInfoSection attraction={makeAttraction({ hours: null })} />);
+    expect(screen.getByText(/Hours vary/)).toBeInTheDocument();
+    // No "See all" button when hours unknown
+    expect(screen.queryByText(/See all/i)).not.toBeInTheDocument();
+  });
+
+  it('shows "Hours vary" when all hours are unknown', () => {
+    const allUnknown: Hours = {
+      monday: 'unknown', tuesday: 'unknown', wednesday: 'unknown',
+      thursday: 'unknown', friday: 'unknown', saturday: 'unknown', sunday: 'unknown',
+    };
+    render(<VisitInfoSection attraction={makeAttraction({ hours: allUnknown })} />);
+    expect(screen.getByText(/Hours vary/)).toBeInTheDocument();
+  });
+
+  it('renders null address gracefully (no address section)', () => {
+    render(<VisitInfoSection attraction={makeAttraction({ address: null })} />);
+    expect(screen.queryByText(/Address/)).not.toBeInTheDocument();
   });
 });
