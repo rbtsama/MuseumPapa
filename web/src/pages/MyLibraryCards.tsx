@@ -5,6 +5,7 @@ import { useAuth } from '../auth/store';
 import { useCardpack, type LibraryCard } from '../stores/cardpack';
 import { getLibraries } from '../data/load';
 import { ChevronLeftIcon, ChevronDownIcon, SearchIcon, CheckIcon } from '../components/icons';
+import { ZipPill } from '../components/ZipPill';
 
 export function MyLibraryCards() {
   const user = useAuth(s => s.currentUser);
@@ -90,6 +91,43 @@ export function MyLibraryCards() {
           }
         />
       </header>
+
+      {/* Home ZIP section */}
+      <div style={{ padding: '12px 14px 0' }}>
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 10,
+          padding: '10px 12px',
+          background: 'var(--g-pale)',
+          borderRadius: 8,
+          border: '1px solid var(--rule)',
+        }}>
+          <ZipPill />
+          <p style={{ margin: 0, fontSize: 12, color: 'var(--ink-3)', lineHeight: 1.4 }}>
+            Your home ZIP decides which residency-restricted passes you can pick up.
+          </p>
+        </div>
+      </div>
+
+      {/* BPL eCard warning */}
+      {pack.cards['bpl'] && (
+        <div
+          role="alert"
+          style={{
+            margin: '12px 14px 0',
+            padding: '10px 12px',
+            background: 'var(--or-pale)',
+            border: '1px solid var(--or)',
+            borderRadius: 8,
+            color: 'var(--ink-2)',
+            fontSize: 13,
+            lineHeight: 1.5,
+          }}
+        >
+          <strong>BPL passes require a physical card.</strong> Boston Public Library museum passes
+          cannot be borrowed with an eCard — you must present a physical BPL library card at the
+          circulation desk.
+        </div>
+      )}
 
       {/* Library list */}
       <div style={{ padding: '4px 14px 32px' }}>
