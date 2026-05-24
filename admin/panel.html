@@ -53,6 +53,37 @@
 </aside>
 
 <main class="matrix-wrap">
+  <!-- ── 漏斗模拟器 ── -->
+  <div class="sim-bar" id="sim-bar">
+    <div class="sim-header" id="sim-toggle" role="button" aria-expanded="false" tabindex="0">
+      <span class="sim-title">🔍 漏斗模拟器</span>
+      <span class="sim-subtitle" id="sim-subtitle">选择景点，逐层验证每张 pass 的可用性</span>
+      <span class="sim-chevron" id="sim-chevron">▶</span>
+    </div>
+    <div class="sim-body" id="sim-body" hidden>
+      <div class="sim-inputs">
+        <label class="sim-field">
+          <span class="sim-label">景点</span>
+          <select id="sim-attr" class="sim-select"></select>
+        </label>
+        <label class="sim-field">
+          <span class="sim-label">Home ZIP</span>
+          <input type="text" id="sim-zip" class="sim-input-sm" maxlength="5" value="01880">
+        </label>
+        <label class="sim-field">
+          <span class="sim-label">日期</span>
+          <input type="date" id="sim-date" class="sim-input-sm">
+        </label>
+        <label class="sim-field sim-field-wide">
+          <span class="sim-label">持卡（图书馆 ID，逗号分隔；留空=跟随侧栏）</span>
+          <input type="text" id="sim-cards" class="sim-input-wide" placeholder="例：wakefield,reading,bpl">
+        </label>
+        <button class="btn-tiny primary" id="sim-run">运行模拟 ▶</button>
+      </div>
+      <div id="sim-results" class="sim-results"></div>
+    </div>
+  </div>
+
   <div class="lens-bar">
     <button class="lens-btn active" data-lens="A">A · 卡覆盖查询</button>
     <button class="lens-btn" data-lens="B">B · 资格政策审查</button>

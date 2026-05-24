@@ -756,6 +756,207 @@ async function geocodeZip(zip) {
 }
 
 // ─────────────────────────────────────────────
+//  FUNNEL SIMULATOR
+// ─────────────────────────────────────────────
+
+/**
+ * nextAvailableDay — scan pass.availability forward from `startDate` up to 90 days.
+ * Returns the ISO string of the first date that:
+ *   1. pass.availability[iso] === "available"  (not booked/closed/unknown)
+ *   2. checkL8Restrictions(pass.restrictions, date) passes
+ * Returns null if no such date exists within the window.
+ */
+function nextAvailableDay(pass, startDate) {
+  const WINDOW = 90;
+  const av = pass.availability || {};
+  // start scanning from startDate itself (inclusive)
+  const cur = new Date(startDate.getTime());
+  for (let i = 0; i < WINDOW; i++) {
+    const iso = cur.toISOString().slice(0, 10);
+    if (av[iso] === "available") {
+      const l8 = checkL8Restrictions(pass.restrictions, cur);
+      if (l8.ok) return iso;
+    }
+    cur.setUTCDate(cur.getUTCDate() + 1);
+  }
+  return null;
+}
+
+function simGetUser() {
+  const zipInput = (document.getElementById("sim-zip")?.value || "").trim();
+  const cardsInput = (document.getElementById("sim-cards")?.value || "").trim();
+  const homeZip = /^\d{5}$/.test(zipInput) ? zipInput : STATE.homeZip;
+  let heldLibraryIds;
+  if (cardsInput) {
+    heldLibraryIds = cardsInput.split(",").map(s => s.trim()).filter(Boolean);
+  } else {
+    heldLibraryIds = [...STATE.selectedLibs];
+  }
+  return { homeZip, heldLibraryIds };
+}
+
+function simGetDate() {
+  const v = document.getElementById("sim-date")?.value;
+  return v ? new Date(v + "T00:00:00Z") : STATE.visitDate;
+}
+
+function renderSimResults() {
+  const resultsEl = document.getElementById("sim-results");
+  if (!resultsEl) return;
+  resultsEl.innerHTML = "";
+
+  const slugSel = document.getElementById("sim-attr");
+  const slug = slugSel?.value;
+  if (!slug) {
+    resultsEl.appendChild(el("div", { class: "sim-no-passes" }, "请先选择景点"));
+    return;
+  }
+
+  const attr = STATE.attrBySlug[slug];
+  const passes = STATE.passesByAttr[slug] || [];
+  const user = simGetUser();
+  const date = simGetDate();
+
+  if (!passes.length) {
+    resultsEl.appendChild(el("div", { class: "sim-no-passes" }, "该景点暂无 pass 数据"));
+    return;
+  }
+
+  // attr header
+  resultsEl.appendChild(el("div", { class: "sim-attr-name" },
+    attr ? attr.name : slug,
+    el("span", { style: "font-size:11px;font-weight:400;font-family:inherit;color:var(--ink-3);margin-left:8px" },
+      `${passes.length} 条 pass · ZIP ${user.homeZip} · ${date ? date.toISOString().slice(0,10) : "未选日期"}`
+    )
+  ));
+
+  // Score all passes
+  const rows = [];
+  for (const pass of passes) {
+    const lib = STATE.libsById[pass.library_id];
+    if (!lib) continue;
+    const verdict = resolvePass(pass, lib, attr, user, date);
+    let score = passStrength(pass.coupon) * 10;
+    if (!verdict.eligible) score -= 1000;
+    if (verdict.warnings.length) score -= 5;
+    rows.push({ pass, lib, verdict, score });
+  }
+  rows.sort((a, b) => b.score - a.score);
+
+  // Render
+  const eligRows = rows.filter(r => r.verdict.eligible);
+  const blockedRows = rows.filter(r => !r.verdict.eligible);
+
+  function renderPassCard(r) {
+    const { pass, lib, verdict } = r;
+    const libShort = lib.name.replace(/\sPublic Library$|\sLibrary$/, "");
+    const isTimeBlock = !verdict.eligible && (verdict.blockedLayer === "L8" || verdict.blockedLayer === "L10");
+
+    let cardClass = "sim-pass-card";
+    if (verdict.eligible && verdict.warnings.length) cardClass += " sim-warn";
+    else if (verdict.eligible) cardClass += " sim-eligible";
+    else cardClass += " sim-blocked";
+
+    const card = el("div", { class: cardClass });
+
+    // left: meta
+    const metaEl = el("div", { class: "sim-pass-meta" },
+      el("span", { class: "sim-pass-lib" }, libShort),
+      el("span", { class: "sim-pass-form" }, passFormPill(pass.pass_form)),
+      pass.coupon ? el("span", { class: "sim-pass-coupon" }, couponSummary(pass.coupon)) : null,
+    );
+
+    if (!verdict.eligible && verdict.reasons?.length) {
+      metaEl.appendChild(el("div", { class: "sim-pass-reason" },
+        `${verdict.blockedLayer}: ${verdict.reasons.join(" · ")}`
+      ));
+    }
+    if (verdict.warnings?.length) {
+      metaEl.appendChild(el("div", { class: "sim-pass-warn" }, "⚠ " + verdict.warnings.join(" · ")));
+    }
+
+    // next-available-day for time-layer blocks
+    if (isTimeBlock && date) {
+      const nextDay = nextAvailableDay(pass, date);
+      const nextEl = nextDay
+        ? el("div", { class: "sim-next-avail" }, `下一可用日: ${nextDay}`)
+        : el("div", { class: "sim-next-avail", style: "color:var(--rd);background:var(--rd-pale);border-color:var(--rd)" },
+            "未来 90 天内无可用日");
+      metaEl.appendChild(nextEl);
+    }
+
+    card.appendChild(metaEl);
+
+    // right: verdict badge
+    const vb = verdict.eligible
+      ? (verdict.warnings.length
+          ? el("span", { class: "verdict verdict-warn" }, "⚠ 可预订(待确认)")
+          : el("span", { class: "verdict verdict-ok" }, "✓ 可预订"))
+      : el("span", { class: "verdict verdict-blocked" }, `✗ 拦截 ${verdict.blockedLayer || ""}`);
+    card.appendChild(el("div", { class: "sim-pass-verdict" }, vb));
+
+    return card;
+  }
+
+  if (eligRows.length) {
+    resultsEl.appendChild(el("div", { class: "sim-eligible-hdr" }, `✓ 可预订 (${eligRows.length})`));
+    for (const r of eligRows) resultsEl.appendChild(renderPassCard(r));
+  }
+  if (blockedRows.length) {
+    resultsEl.appendChild(el("div", { class: "sim-blocked-hdr" }, `✗ 被拦截 (${blockedRows.length})`));
+    for (const r of blockedRows) resultsEl.appendChild(renderPassCard(r));
+  }
+}
+
+function initSimulator() {
+  // populate attraction select
+  const sel = document.getElementById("sim-attr");
+  if (!sel) return;
+  const sorted = STATE.attractions.slice().sort((a, b) => a.name.localeCompare(b.name));
+  for (const attr of sorted) {
+    sel.appendChild(el("option", { value: attr.slug }, attr.name));
+  }
+
+  // default date = same as main panel
+  const simDate = document.getElementById("sim-date");
+  if (simDate && STATE.visitDate) {
+    simDate.value = STATE.visitDate.toISOString().slice(0, 10);
+  } else if (simDate) {
+    simDate.value = new Date().toLocaleDateString("en-CA");
+  }
+
+  // toggle collapse
+  const toggle = document.getElementById("sim-toggle");
+  const body = document.getElementById("sim-body");
+  const chevron = document.getElementById("sim-chevron");
+  const subtitle = document.getElementById("sim-subtitle");
+
+  function toggleSim() {
+    const isOpen = !body.hidden;
+    body.hidden = isOpen;
+    chevron.classList.toggle("open", !isOpen);
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+    if (!isOpen) {
+      subtitle.textContent = '正在运行…请点击「运行模拟」';
+    } else {
+      subtitle.textContent = "选择景点，逐层验证每张 pass 的可用性";
+    }
+  }
+  toggle.addEventListener("click", toggleSim);
+  toggle.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleSim(); } });
+
+  // run button
+  document.getElementById("sim-run").addEventListener("click", () => {
+    renderSimResults();
+  });
+
+  // also run on attraction change (auto-run if simulator is open)
+  sel.addEventListener("change", () => {
+    if (!body.hidden) renderSimResults();
+  });
+}
+
+// ─────────────────────────────────────────────
 //  INIT & WIRE-UP
 // ─────────────────────────────────────────────
 async function init() {
@@ -770,6 +971,7 @@ async function init() {
   updateLibCount();
   renderCategoryFilter();
   renderLens();
+  initSimulator();
 
   // All / None
   $("#btn-all").addEventListener("click", () => {
