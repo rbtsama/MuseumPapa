@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import type { Library, Attraction, Pass } from './types';
+import type { Library, Pass } from './types';
 
 describe('types match structured json', () => {
   it('Library has resident_zips + card_eligibility + pass_pickup_default', () => {
