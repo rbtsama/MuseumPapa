@@ -338,6 +338,7 @@ export function AttractionDetail() {
         library={bookingPass ? (libById.get(bookingPass.library_id) ?? null) : null}
         cardpack={cardpack}
         selectedDate={selectedDate}
+        timedEntryUrl={attraction.reservation?.required === 'timed_entry' ? (attraction.reservation.booking_url ?? null) : null}
         onClose={() => setBookingPass(null)}
       />
       <SignInModal isOpen={signInOpen} onClose={() => setSignInOpen(false)} />

@@ -14,6 +14,10 @@ interface Props {
    *  to the per-date reservation form so the user lands on the right calendar
    *  slot, not the per-museum page's top. Falls back to today when unset. */
   selectedDate?: string;
+  /** When provided (non-null), renders a timed-entry reminder line with a link
+   *  to the attraction's reservation page so the user knows to book a slot after
+   *  picking up the pass. When omitted / null, no reminder is shown. */
+  timedEntryUrl?: string | null;
   onClose: () => void;
 }
 
@@ -58,7 +62,7 @@ function CredentialBox({ label, value }: { label: string; value: string }) {
   );
 }
 
-export function BookingConfirmModal({ pass, library, cardpack, selectedDate, onClose }: Props) {
+export function BookingConfirmModal({ pass, library, cardpack, selectedDate, timedEntryUrl, onClose }: Props) {
   if (!pass) return null;
   const card = cardpack.cards[pass.library_id];
   const hasCard = !!card?.barcode;
@@ -118,6 +122,27 @@ export function BookingConfirmModal({ pass, library, cardpack, selectedDate, onC
               <p style={{ fontWeight: 600 }}>
                 You don't have a card from {libraryName} yet.
               </p>
+            </div>
+          )}
+          {timedEntryUrl && (
+            <div style={{
+              marginTop: 10,
+              padding: '8px 12px',
+              background: 'var(--g-pale)',
+              borderRadius: 6,
+              fontSize: 12,
+              color: 'var(--ink-2)',
+            }}>
+              <span>此景点需到官网预约入场时段</span>
+              {' · '}
+              <a
+                href={timedEntryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: 'var(--g)', fontWeight: 600, textDecoration: 'none' }}
+              >
+                预约 →
+              </a>
             </div>
           )}
         </ModalBody>
