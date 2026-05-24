@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { checkL1Card, checkL3Residency, checkL4VisitorResidency } from './eligibility';
+import { checkL1Card, checkL3Residency, checkL4VisitorResidency, checkL8Restrictions, checkL10Availability } from './eligibility';
 import { getLibrary as realLib } from '../data/load';
 
 describe('L1 card/network', () => {
@@ -49,5 +49,23 @@ describe('L4 attraction visitor residency', () => {
   });
   it('unknown -> ok+warn', () => {
     expect(checkL4VisitorResidency({ residency:'unknown' }, '10001')).toMatchObject({ ok:true, warn:true });
+  });
+});
+
+describe('time layers', () => {
+  it('blackout month/day on target date blocks (L8)', () => {
+    const r = checkL8Restrictions({ blackout:[{month:7,day:4}], blackout_recurring:[], weekdays_only:false, seasonal:null, advance_booking_required:false, advance_booking_hours:null }, new Date('2026-07-04'));
+    expect(r.ok).toBe(false);
+  });
+  it('weekdays_only blocks weekend (L8)', () => {
+    const r = checkL8Restrictions({ blackout:[], blackout_recurring:[], weekdays_only:true, seasonal:null, advance_booking_required:false, advance_booking_hours:null }, new Date('2026-06-06')); // Saturday
+    expect(r.ok).toBe(false);
+  });
+  it('availability available -> ok, booked -> blocked (L10)', () => {
+    expect(checkL10Availability({ '2026-06-01':'available' }, '2026-06-01').ok).toBe(true);
+    expect(checkL10Availability({ '2026-06-01':'booked' }, '2026-06-01').ok).toBe(false);
+  });
+  it('availability missing date -> unknown warn (L10)', () => {
+    expect(checkL10Availability({}, '2026-06-01')).toMatchObject({ ok:true, warn:true });
   });
 });
