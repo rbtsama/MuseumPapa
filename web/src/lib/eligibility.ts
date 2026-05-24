@@ -1,4 +1,4 @@
-import type { Library, ResidencyRestriction, VisitorEligibility, Restrictions } from '../data/types';
+import type { Library, ResidencyRestriction, VisitorEligibility, Restrictions, Attraction, Pass } from '../data/types';
 import { getLibrary } from '../data/load';
 import { isMaZip } from '../data/townZips';
 
@@ -51,4 +51,26 @@ export function checkL10Availability(av: Record<string,string>, isoDate: string)
   if (s === 'available') return { ok: true };
   if (s == null) return { ok: true, warn: true, reason: '该日库存未知' };
   return { ok: false, reason: s === 'booked' ? '该日已订满' : '该日不可预约' };
+}
+
+export interface User { homeZip: string; heldLibraryIds: string[]; }
+export interface PassVerdict { eligible: boolean; blockedLayer?: string; reasons: string[]; warnings: string[]; }
+
+export function resolvePass(pass: Pass, lib: Library, attr: Attraction, user: User, date?: Date): PassVerdict {
+  const reasons: string[] = [], warnings: string[] = [];
+  const layers: [string, LayerResult][] = [
+    ['L1', checkL1Card(lib, user.heldLibraryIds)],
+    ['L3', checkL3Residency(pass.residency_restriction, lib, user.homeZip)],
+    ['L4', checkL4VisitorResidency(attr.visitor_eligibility, user.homeZip)],
+  ];
+  if (date) {
+    layers.push(['L8', checkL8Restrictions(pass.restrictions, date)]);
+    const iso = date.toISOString().slice(0, 10);
+    layers.push(['L10', checkL10Availability(pass.availability, iso)]);
+  }
+  for (const [name, r] of layers) {
+    if (r.warn && r.reason) warnings.push(r.reason);
+    if (!r.ok) return { eligible: false, blockedLayer: name, reasons: [r.reason ?? name], warnings };
+  }
+  return { eligible: true, reasons, warnings };
 }

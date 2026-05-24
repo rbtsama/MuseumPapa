@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { checkL1Card, checkL3Residency, checkL4VisitorResidency, checkL8Restrictions, checkL10Availability } from './eligibility';
-import { getLibrary as realLib } from '../data/load';
+import { checkL1Card, checkL3Residency, checkL4VisitorResidency, checkL8Restrictions, checkL10Availability, resolvePass } from './eligibility';
+import { getLibrary as realLib, getAttractionBySlug as RA } from '../data/load';
 
 describe('L1 card/network', () => {
   it('holding the issuing library card passes', () => {
@@ -67,5 +67,17 @@ describe('time layers', () => {
   });
   it('availability missing date -> unknown warn (L10)', () => {
     expect(checkL10Availability({}, '2026-06-01')).toMatchObject({ ok:true, warn:true });
+  });
+});
+
+describe('resolvePass', () => {
+  it('wakefield resident-only pass: Wakefield home ok, other-zip blocked at L3', () => {
+    const lib = realLib('wakefield')!; const attr = RA('mfa')!;
+    const pass = { library_id:'wakefield', attraction_slug:'mfa', pass_form:'physical_coupon' as const, available_at_branches:'all' as const, coupon:null, restrictions:null, residency_restriction:{restricted:'yes' as const, scope:'town' as const, source:null, evidence:null}, availability:{} };
+    const home = resolvePass(pass, lib, attr, { homeZip:'01880', heldLibraryIds:['wakefield'] });
+    expect(home.eligible).toBe(true);
+    const away = resolvePass(pass, lib, attr, { homeZip:'02139', heldLibraryIds:['wakefield'] });
+    expect(away.eligible).toBe(false);
+    expect(away.blockedLayer).toBe('L3');
   });
 });
