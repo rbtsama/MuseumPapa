@@ -1,193 +1,56 @@
-export interface LibraryAddress {
-  street: string | null;
-  city: string | null;
-  state: string | null;
-  zip: string | null;
-}
+export interface Geo { lat: number; lon: number; }
+export interface Address { street: string | null; city: string | null; state: string | null; zip: string | null; }
 
-export interface Geo {
-  lat: number;
-  lon: number;
-}
+export type CardEligibility = 'ma_resident' | 'town_resident' | 'town_or_works' | 'network' | 'none' | 'unknown';
+export type PassPickup = 'same_as_card' | 'ma_resident' | 'town_resident' | 'town_cardholder_only' | 'network' | 'walkin_for_nonresidents' | 'none' | 'unknown';
 
 export interface Library {
-  id: string;
-  name: string;
-  town: string;
-  network: string;
-  platform: string;
-  card_page: string;
-  eligibility: string;
-  supports_availability: boolean;
-  address: LibraryAddress | null;
-  geo: Geo | null;
+  id: string; name: string; town: string; network: string; platform: string;
+  card_page: string | null; address: Address | null; geo: Geo | null;
+  card_eligibility: CardEligibility; pass_pickup_default: PassPickup;
+  eligibility_source_phrase?: string | null; pickup_source_phrase?: string | null;
+  resident_zips: string[];
 }
 
-/** Age-based pricing tier — applies to anyone matching the age range. */
-export interface AgeTier {
-  price: number;
-  min_age?: number | null;   // e.g. Senior 65+
-  max_age?: number | null;   // e.g. Child <=12, Youth 11-17
-}
+export type CouponForm = 'free' | 'percent-off' | 'dollar-off' | 'per-person-price' | 'bogo' | 'discount';
+export type CapacityKind = 'people' | 'vehicle' | 'ticket' | 'unspecified';
+export interface AudiencePrice { audience: string; price: number | null; age_range?: { min: number | null; max: number | null } | null; source_phrase?: string | null; }
+export interface AudiencePolicy { audience: string; form: CouponForm; value?: number | null; age_range?: { min: number | null; max: number | null } | null; count?: number | null; source_phrase?: string | null; }
+export interface Capacity { kind: CapacityKind; n: number | null; }
+export interface Coupon { capacity: Capacity; audience_policies: AudiencePolicy[]; summary?: string | null; source_phrase_block?: string | null; }
 
-/** Identity-based pricing tier — requires status proof (student ID, military ID, educator badge). */
-export interface IdentityTier {
-  price: number;
-  requires?: string | null;   // free-text human description, e.g. "valid student ID"
-}
+export type DayKey = 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';
+export type Hours = Record<DayKey, string>; // "HH:MM-HH:MM" | "closed" | "unknown"
 
-/**
- * Original (non-discounted) admission price for an attraction.
- *
- * Two conceptual layers:
- *   - age_pricing: tiers by age (adult/youth/child/senior + free_under_age threshold)
- *   - identity_pricing: tiers by status proof (student/educator/military)
- *
- * 两层定价模型:age_pricing 按年龄(任何人都适用),identity_pricing 按身份(需出示证件)。
- */
-export interface OriginalPrice {
-  age_pricing: {
-    adult:  AgeTier | null;
-    youth:  AgeTier | null;
-    child:  AgeTier | null;
-    senior: AgeTier | null;
-    free_under_age: number | null;   // age threshold, NOT a price
-  };
-  identity_pricing: {
-    student:  IdentityTier | null;
-    educator: IdentityTier | null;
-    military: IdentityTier | null;
-  };
-  family:    number | null;
-  notes:     string | null;
-  source_url: string | null;
-}
-
-export type CouponCapacityKind = 'people' | 'vehicle' | 'ticket' | 'unspecified';
-
-export interface CouponCapacity {
-  kind: CouponCapacityKind;
-  n: number | null;
-}
-
-export type CouponAudience =
-  | 'Everyone'
-  | 'Adult'
-  | 'Child'
-  | 'Youth'
-  | 'Senior'
-  | 'Vehicle'
-  | 'Single ticket';
-
-export interface AgeRange {
-  min: number | null;
-  max: number | null;
-}
-
-export type CouponForm =
-  | 'free'
-  | 'percent-off'
-  | 'dollar-off'
-  | 'per-person-price'
-  | 'discount';
-
-export interface AudiencePolicy {
-  audience: CouponAudience;
-  age_range: AgeRange | null;
-  count: number | null;
-  form: CouponForm;
-  value: number | null;
-}
-
-export interface Coupon {
-  capacity: CouponCapacity;
-  audience_policies: AudiencePolicy[];
-}
-
-export interface PassRestrictions {
-  blackout_dates: string[];
-  weekdays_only: boolean;
-  seasonal: string | null;
-}
-
-export interface MuseumReservation {
-  required: true;
-  url: string | null;
-}
-
-export interface HeroImage {
-  og_image_url: string | null;
-  local_path: string | null;
-}
-
-export type DayKey = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
-
-export interface Hours {
-  status?: 'ok' | 'varies' | 'seasonal';
-  regular_hours: Record<DayKey, string> | null;  // "Closed" or e.g. "9:00 AM – 5:00 PM"; null when status='varies'
-  // Curated short string for the list card — set for umbrella attractions
-  // (status='varies') so the clock row reads e.g. "Dawn to dusk (most parks)"
-  // instead of dumping the full notes paragraph. Detail page still shows notes.
-  summary?: string | null;
-  notes: string | null;
-  source_url: string | null;
-}
+export interface VisitorEligibility { residency: 'ma_resident' | 'town_resident' | 'none' | 'unknown'; scope?: string | null; locals_free?: boolean; note?: string | null; source_phrase?: string | null; }
+export interface Reservation { required: 'none' | 'timed_entry' | 'walk_in_ok'; booking_url?: string | null; lead_time_hours?: number | null; pass_holder_path?: string; pass_holder_url?: string | null; notes?: string | null; source_phrase?: string | null; }
 
 export interface Attraction {
-  slug: string;
-  museum_name: string;
-  address: string;
-  website: string;
-  phone: string | null;
-  description: string | null;
-  categories: string[];          // canonical 7-class set: Children | History | Nature | Science | Art | Performance | Sports
-  categories_raw?: string[];     // original Assabet labels (audit / debug only)
-  legacy_slugs?: string[];       // alternate slugs that map to this canonical attraction
-  sources: string[];
-  original_price: OriginalPrice | null;
-  hero_image: HeroImage | null;
-  geo: Geo | null;
-  hours: Hours | null;
-  museum_reservation: MuseumReservation | null;
+  slug: string; name: string; website?: string | null; phone?: string | null;
+  address?: Address | null; geo?: Geo | null; description?: string | null;
+  categories: string[]; hero_image?: string | null; hours?: Hours | null;
+  prices: AudiencePrice[]; visitor_eligibility?: VisitorEligibility | null;
+  reservation?: Reservation | null; sources: string[];
 }
 
-export type PassTypeKind = 'digital' | 'physical-coupon' | 'physical-circ' | 'unknown';
-export type PickupMethod = 'digital' | 'physical_at_branch';
-
+export type PassForm = 'digital_email' | 'physical_circ' | 'physical_coupon';
+export interface Restrictions {
+  blackout: { month: number; day: number | null }[]; blackout_recurring: string[];
+  weekdays_only: boolean; seasonal: { start_month: number; end_month: number } | null;
+  advance_booking_required: boolean; advance_booking_hours: number | null;
+  booking_frequency_limit?: string | null; late_return_penalty?: string | null;
+}
+export interface ResidencyRestriction { restricted: 'yes' | 'no' | 'unknown'; scope: 'town' | 'ma' | null; source?: string | null; evidence?: string | null; }
 export interface Pass {
-  library_id: string;
-  attraction_slug: string;
-  pass_type: PassTypeKind;
-  pass_type_raw: string;
-  pickup_method: PickupMethod;
-  pickup_branches: string[];
-  coupon: Coupon;
-  restrictions: PassRestrictions | null;
-  source_url: string;
-  availability: Record<string, string> | null;
+  library_id: string; attraction_slug: string; pass_form: PassForm;
+  available_at_branches: 'all' | string[]; source_url?: string | null;
+  coupon: Coupon | null; restrictions: Restrictions | null;
+  residency_restriction: ResidencyRestriction; availability: Record<string, string>;
+  eligibility_override?: unknown;
 }
+export interface Branch { id: string; library_id: string; name: string; code?: string | null; }
 
-export interface Branch {
-  id: string;
-  name: string;
-  parent_lib_id: string;
-  address: { street: string; city: string; state: string; zip: string | null };
-  geo: Geo;
-  hours_raw: string | null;
-}
-
-export interface BranchesJson {
-  branches: Branch[];
-}
-
-export interface LibrariesJson {
-  libraries: Library[];
-}
-
-export interface AttractionsJson {
-  attractions: Attraction[];
-}
-
-export interface PassesJson {
-  passes: Pass[];
-}
+export interface LibrariesJson { _meta: unknown; libraries: Library[]; }
+export interface AttractionsJson { _meta: unknown; attractions: Attraction[]; }
+export interface PassesJson { _meta: unknown; passes: Pass[]; }
+export interface BranchesJson { _meta: unknown; branches: Branch[]; }
