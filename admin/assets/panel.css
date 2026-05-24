@@ -314,6 +314,11 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .override-badge-reviewed  { background: var(--au-pale); color: var(--au); border-color: var(--au); }
 .override-badge-noted     { background: var(--paper); color: var(--ink-3); border-color: var(--rule-strong); }
 
+/* pass-kind cells are informational only — never round-trip into the build */
+.pass-info-tag { position: absolute; bottom: 3px; right: 5px; font-size: 9px; font-weight: 600;
+  padding: 1px 4px; border-radius: 2px; z-index: 4; line-height: 1.3; cursor: help;
+  background: var(--au-pale); color: var(--au); border: 1px solid var(--au); }
+
 /* ─────────── override popover ─────────── */
 .override-popover { position: fixed; z-index: 1000; background: var(--white);
   border: 1px solid var(--rule-strong); border-radius: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);

@@ -43,7 +43,8 @@
 
   <section class="ctrl-block">
     <h3>筛选</h3>
-    <label class="ctrl-check"><input type="checkbox" id="opt-only-covered" checked> 隐藏无覆盖行</label>
+    <label class="ctrl-check"><input type="checkbox" id="opt-only-covered"> 只看有 coupon 的行</label>
+    <div class="hint" style="margin:2px 0 6px">默认显示全部行（含不合规/被拦截）；勾选后仅隐藏无 coupon 数据的行。资格判定只作徽章展示，永不隐藏行。</div>
     <label class="ctrl-line">分类
       <select id="opt-category">
         <option value="">(全部)</option>
@@ -62,7 +63,7 @@
       <button class="btn-tiny primary" id="btn-export-overrides">导出 overrides</button>
       <button class="btn-tiny" id="btn-export-bundle">导出 bundle</button>
     </div>
-    <div class="hint">✏️ 改值仅对 library/attraction/branch 有效，可被 Python 管道自动应用。Pass 字段仅支持 ✅/📝（信息性标注）。</div>
+    <div class="hint">✏️ 改值仅对 library/attraction/branch 有效，导出后可被 Python 管道按路径自动应用（status=corrected 时合并）。<br>Pass 字段仅支持 ✅/📝，是<strong>信息性标注（不参与构建合并）</strong>：构建侧用 raw slug 给 pass 覆盖建键，本面板只有 canonical slug，无法对齐——<strong>pass 纠错需用 raw slug 手工处理</strong>，本面板不导出可应用路径。</div>
   </section>
 </aside>
 

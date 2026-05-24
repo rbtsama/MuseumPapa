@@ -16,6 +16,7 @@ const STATE = {
   libsById: {},
   attrBySlug: {},
   passesByAttr: {},   // slug -> Pass[]
+  passesByLib: {},    // library_id -> Pass[]
   branchesByLib: {},  // library_id -> Branch[]
   MA_ZIPS: new Set(),
   // derived
@@ -27,7 +28,7 @@ const STATE = {
   homeZip: DEFAULT_ZIP,
   homeGeo: null,
   visitDate: null,     // Date object or null
-  showOnlyCovered: true,
+  showOnlyCovered: false,  // audit tool: show ALL rows (incl. ineligible) by default
   categoryFilter: "",
   activeLens: "A",
   // group collapse state: net -> bool collapsed
@@ -114,8 +115,10 @@ async function loadData() {
   for (const a of STATE.attractions) STATE.attrBySlug[a.slug] = a;
 
   STATE.passesByAttr = {};
+  STATE.passesByLib = {};
   for (const p of STATE.passes) {
     (STATE.passesByAttr[p.attraction_slug] ||= []).push(p);
+    (STATE.passesByLib[p.library_id] ||= []).push(p);
   }
 
   STATE.branchesByLib = {};
@@ -138,6 +141,11 @@ async function loadData() {
   // Default: all networks selected
   STATE.selectedNetworks = new Set(STATE.networks);
   syncSelectedLibs();
+
+  // Perf/ergonomics: collapse every network group by default so the operator
+  // expands only the group they care about (avoids rendering ~1000 visible rows).
+  STATE.groupCollapsed = {};
+  for (const net of STATE.networks) STATE.groupCollapsed[net] = true;
 }
 
 // ─────────────────────────────────────────────
@@ -474,12 +482,12 @@ function buildLensA() {
   for (const lib of STATE.libs) {
     if (!STATE.selectedLibs.has(lib.id)) continue;
     const net = lib.network || "Unknown";
-    const libPasses = STATE.passes.filter(p => p.library_id === lib.id);
+    const libPasses = STATE.passesByLib[lib.id] || [];
     for (const pass of libPasses) {
       const attr = STATE.attrBySlug[pass.attraction_slug];
       if (STATE.categoryFilter && !(attr?.categories || []).includes(STATE.categoryFilter)) continue;
+      if (STATE.showOnlyCovered && !pass.coupon) continue;
       const verdict = resolvePass(pass, lib, attr, user, date);
-      if (STATE.showOnlyCovered && !verdict.eligible) continue;
       const tr = el("tr");
       // Library col
       const libShort = lib.name.replace(/\sPublic Library$|\sLibrary$/, "");
@@ -572,7 +580,7 @@ function buildLensC() {
   for (const lib of STATE.libs) {
     if (!STATE.selectedLibs.has(lib.id)) continue;
     const net = lib.network || "Unknown";
-    const libPasses = STATE.passes.filter(p => p.library_id === lib.id);
+    const libPasses = STATE.passesByLib[lib.id] || [];
 
     for (const pass of libPasses) {
       const attr = STATE.attrBySlug[pass.attraction_slug];
@@ -763,25 +771,33 @@ async function geocodeZip(zip) {
 
 /**
  * nextAvailableDay — scan pass.availability forward from `startDate` up to 90 days.
- * Returns the ISO string of the first date that:
- *   1. pass.availability[iso] === "available"  (not booked/closed/unknown)
- *   2. checkL8Restrictions(pass.restrictions, date) passes
- * Returns null if no such date exists within the window.
+ *
+ * Mirrors L10 semantics (checkL10Availability): a missing availability entry is
+ * "unknown" (a warn-pass in the live funnel), NOT a hard "unavailable". So:
+ *   - If the pass has NO availability data at all (empty map), we DON'T run the
+ *     'available' scan — returning a date would be inventing availability, and
+ *     returning null falsely claims "no available day". Caller renders an honest
+ *     "无库存数据（以馆方为准）" instead. Signalled here via { kind: "no_feed" }.
+ *   - If the pass HAS some availability entries, scan forward 90 days for the
+ *     first date that is explicitly "available" AND passes L8. Signalled via
+ *     { kind: "found", iso } or { kind: "none" } (no available day in window).
  */
 function nextAvailableDay(pass, startDate) {
   const WINDOW = 90;
   const av = pass.availability || {};
+  // No availability feed at all → don't claim a false negative.
+  if (!av || Object.keys(av).length === 0) return { kind: "no_feed" };
   // start scanning from startDate itself (inclusive)
   const cur = new Date(startDate.getTime());
   for (let i = 0; i < WINDOW; i++) {
     const iso = cur.toISOString().slice(0, 10);
     if (av[iso] === "available") {
       const l8 = checkL8Restrictions(pass.restrictions, cur);
-      if (l8.ok) return iso;
+      if (l8.ok) return { kind: "found", iso };
     }
     cur.setUTCDate(cur.getUTCDate() + 1);
   }
-  return null;
+  return { kind: "none" };
 }
 
 function simGetUser() {
@@ -879,11 +895,18 @@ function renderSimResults() {
 
     // next-available-day for time-layer blocks
     if (isTimeBlock && date) {
-      const nextDay = nextAvailableDay(pass, date);
-      const nextEl = nextDay
-        ? el("div", { class: "sim-next-avail" }, `下一可用日: ${nextDay}`)
-        : el("div", { class: "sim-next-avail", style: "color:var(--rd);background:var(--rd-pale);border-color:var(--rd)" },
-            "未来 90 天内无可用日");
+      const next = nextAvailableDay(pass, date);
+      let nextEl;
+      if (next.kind === "found") {
+        nextEl = el("div", { class: "sim-next-avail" }, `下一可用日: ${next.iso}`);
+      } else if (next.kind === "no_feed") {
+        // Honest: no availability feed — don't claim a false negative.
+        nextEl = el("div", { class: "sim-next-avail", style: "color:var(--ink-3)" },
+          "无库存数据（以馆方为准）");
+      } else {
+        nextEl = el("div", { class: "sim-next-avail", style: "color:var(--rd);background:var(--rd-pale);border-color:var(--rd)" },
+          "未来 90 天内无可用日");
+      }
       metaEl.appendChild(nextEl);
     }
 
@@ -1087,11 +1110,20 @@ function auditUpdateCount() {
 // Canonical target string: "<kind>:<id>:<field>"
 function auditTarget(kind, id, field) { return `${kind}:${id}:${field}`; }
 
-// On-disk path for a given kind/id/field
+// On-disk applying path for a given kind/id/field.
+// Returns null for pass kind: the build keys pass overrides by raw platform slug
+// (pass:{library_id}__{rawslug}), but the panel only knows the canonical
+// attraction_slug — so any data/overrides/passes/... path the panel could emit
+// would NOT match load_overrides and would never apply. We therefore decline to
+// present an applying path for pass records (see auditPathNote).
 function auditDiskPath(kind, id, field) {
-  const kindDir = { library: "libraries", attraction: "attractions", branch: "branches", pass: "passes" }[kind] || kind + "s";
+  if (kind === "pass") return null;
+  const kindDir = { library: "libraries", attraction: "attractions", branch: "branches" }[kind] || kind + "s";
   return `data/overrides/${kindDir}/${id}/${field}.json`;
 }
+
+// Human-readable note shown in place of an applying path for pass records.
+const PASS_INFO_NOTE = "信息性标注（不参与构建合并；pass 纠错需用 raw slug 手工处理）";
 
 // Suggested download filename (double-underscore to avoid path separator issues)
 function auditFileName(kind, id, field) {
@@ -1163,6 +1195,34 @@ function auditCloseEditor() {
   _editorSpec = null;
 }
 
+// Light shape validation for known object fields. Returns an error string on
+// failure, or null when the value is acceptable (or the field is unknown).
+const VE_RESIDENCY_ENUM = ["none", "unknown", "ma_resident", "town_resident", "town_or_works"];
+const RESV_REQUIRED_ENUM = ["none", "unknown", "timed_entry", "walk_in_ok"];
+function auditValidateShape(field, value) {
+  if (field === "visitor_eligibility") {
+    if (value === null || typeof value !== "object" || Array.isArray(value)) {
+      return "visitor_eligibility 必须是对象";
+    }
+    if (!("residency" in value)) return "缺少 residency 键";
+    if (!VE_RESIDENCY_ENUM.includes(value.residency)) {
+      return `residency 必须是 ${VE_RESIDENCY_ENUM.join(" / ")} 之一`;
+    }
+    return null;
+  }
+  if (field === "reservation") {
+    if (value === null || typeof value !== "object" || Array.isArray(value)) {
+      return "reservation 必须是对象";
+    }
+    if (!("required" in value)) return "缺少 required 键";
+    if (!RESV_REQUIRED_ENUM.includes(value.required)) {
+      return `required 必须是 ${RESV_REQUIRED_ENUM.join(" / ")} 之一`;
+    }
+    return null;
+  }
+  return null;
+}
+
 function auditSaveEditor() {
   if (!_editorSpec) return;
   const status = document.getElementById("ed-status").value;
@@ -1184,6 +1244,14 @@ function auditSaveEditor() {
       textarea.classList.remove("error");
     } catch (e) {
       hint.textContent = `JSON 解析错误: ${e.message}`;
+      textarea.classList.add("error");
+      return;
+    }
+    // Light shape validation for known object fields so a structurally-wrong-
+    // but-valid-JSON value can't be saved and later break the frontend engine.
+    const shapeErr = auditValidateShape(_editorSpec.field, correctedValue);
+    if (shapeErr) {
+      hint.textContent = "结构校验失败: " + shapeErr;
       textarea.classList.add("error");
       return;
     }
@@ -1242,17 +1310,26 @@ function auditOpenPopover(target, anchorEl) {
   if (record.note) row("备注", record.note);
   row("审计人", record.audited_by);
   row("时间", record.audited_at ? record.audited_at.replace("T", " ").slice(0, 19) + " UTC" : "—");
-  // Show on-disk path hint
+  // Show on-disk applying path — or, for pass records, an explicit
+  // "informational only / not auto-merged" note instead of a misleading path.
   const pathHint = document.createElement("div");
   pathHint.className = "popover-row";
   pathHint.style.cssText = "flex-direction:column;gap:2px;margin-top:4px;border-top:1px solid var(--rule);padding-top:6px;";
+  const diskPath = auditDiskPath(record.kind, record.id, record.field);
   const ph = document.createElement("span");
   ph.className = "popover-label";
-  ph.textContent = "目标路径";
   const pv = document.createElement("span");
   pv.className = "popover-val mono";
   pv.style.fontSize = "10px";
-  pv.textContent = auditDiskPath(record.kind, record.id, record.field);
+  if (diskPath) {
+    ph.textContent = "目标路径";
+    pv.textContent = diskPath;
+  } else {
+    ph.textContent = "合并状态";
+    pv.classList.remove("mono");
+    pv.style.color = "var(--au)";
+    pv.textContent = "⚠ 仅记录，不自动合并 · " + PASS_INFO_NOTE;
+  }
   pathHint.appendChild(ph);
   pathHint.appendChild(pv);
   body.appendChild(pathHint);
@@ -1336,6 +1413,16 @@ function makeAuditableCell(td, spec) {
   actions.appendChild(btnNote);
 
   td.appendChild(actions);
+
+  // For pass-kind cells, surface an explicit "informational only" affordance so
+  // the operator never assumes a pass annotation round-trips into the build.
+  if (spec.kind === "pass") {
+    const info = document.createElement("span");
+    info.className = "pass-info-tag";
+    info.textContent = "ⓘ 仅标注";
+    info.title = PASS_INFO_NOTE;
+    td.appendChild(info);
+  }
 
   // Override badge if record exists
   refreshCellBadge(td, spec);
@@ -1512,12 +1599,15 @@ function buildLensAWithAudit() {
   for (const lib of STATE.libs) {
     if (!STATE.selectedLibs.has(lib.id)) continue;
     const net = lib.network || "Unknown";
-    const libPasses = STATE.passes.filter(p => p.library_id === lib.id);
+    const libPasses = STATE.passesByLib[lib.id] || [];
     for (const pass of libPasses) {
       const attr = STATE.attrBySlug[pass.attraction_slug];
       if (STATE.categoryFilter && !(attr?.categories || []).includes(STATE.categoryFilter)) continue;
+      // Audit tool: the toggle filters on "has coupon/coverage data present",
+      // NOT on eligibility. Eligibility is shown as a verdict badge but never
+      // used to HIDE rows — an auditor needs to see ineligible/blocked passes.
+      if (STATE.showOnlyCovered && !pass.coupon) continue;
       const verdict = resolvePass(pass, lib, attr, user, date);
-      if (STATE.showOnlyCovered && !verdict.eligible) continue;
       const tr = el("tr");
       const libShort = lib.name.replace(/\sPublic Library$|\sLibrary$/, "");
       tr.appendChild(el("td", { class: "col-sticky" }, libShort));
@@ -1568,7 +1658,7 @@ function buildLensCWithAudit() {
   for (const lib of STATE.libs) {
     if (!STATE.selectedLibs.has(lib.id)) continue;
     const net = lib.network || "Unknown";
-    const libPasses = STATE.passes.filter(p => p.library_id === lib.id);
+    const libPasses = STATE.passesByLib[lib.id] || [];
 
     for (const pass of libPasses) {
       const attr = STATE.attrBySlug[pass.attraction_slug];
@@ -1637,9 +1727,15 @@ function auditExportPerFile() {
   if (!entries.length) { alert("尚无审计记录。"); return; }
   for (const record of entries) {
     const filename = auditFileName(record.kind, record.id, record.field);
-    downloadBlob(JSON.stringify(record, null, 2), filename);
+    let out = record;
+    if (record.kind === "pass") {
+      // Pass overrides do NOT round-trip into the build (raw-slug keying). Stamp
+      // the exported file so an operator can't mistake it for an applying override.
+      out = { ...record, _informational_only: true, _note: PASS_INFO_NOTE };
+    }
+    downloadBlob(JSON.stringify(out, null, 2), filename);
   }
-  // Show path hints in the audit log
+  // Show path hints (and pass disclosure) in the audit log
   auditRenderLog(true);
 }
 
@@ -1698,7 +1794,11 @@ function auditRenderLog(showPaths) {
     if (record.note) {
       meta.appendChild(el("div", { class: "ale-note" }, "📝 " + record.note));
     }
-    if (showPaths) {
+    // Pass records are informational only — always disclose, regardless of showPaths.
+    if (record.kind === "pass") {
+      meta.appendChild(el("div", { class: "ale-path-hint", style: "color:var(--au)" },
+        "⚠ 仅记录，不自动合并 · " + PASS_INFO_NOTE));
+    } else if (showPaths) {
       const pathStr = auditDiskPath(record.kind, record.id, record.field);
       meta.appendChild(el("div", { class: "ale-path-hint" }, "→ " + pathStr));
     }
