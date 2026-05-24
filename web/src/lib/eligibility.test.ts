@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { checkL1Card, checkL3Residency } from './eligibility';
+import { checkL1Card, checkL3Residency, checkL4VisitorResidency } from './eligibility';
 import { getLibrary as realLib } from '../data/load';
 
 describe('L1 card/network', () => {
@@ -37,5 +37,17 @@ describe('L3 residency (pass pickup)', () => {
   it('unknown -> ok but warn', () => {
     const r = checkL3Residency({ restricted: 'unknown', scope: null, source: null, evidence: null }, lib, '99999');
     expect(r.ok).toBe(true); expect(r.warn).toBe(true);
+  });
+});
+
+describe('L4 attraction visitor residency', () => {
+  it('no rule -> ok', () => { expect(checkL4VisitorResidency(null, '99999').ok).toBe(true); });
+  it('residency none -> ok', () => { expect(checkL4VisitorResidency({ residency:'none' }, '99999').ok).toBe(true); });
+  it('ma_resident: MA zip ok, non-MA blocked', () => {
+    expect(checkL4VisitorResidency({ residency:'ma_resident' }, '01880').ok).toBe(true);
+    expect(checkL4VisitorResidency({ residency:'ma_resident' }, '10001').ok).toBe(false);
+  });
+  it('unknown -> ok+warn', () => {
+    expect(checkL4VisitorResidency({ residency:'unknown' }, '10001')).toMatchObject({ ok:true, warn:true });
   });
 });

@@ -1,4 +1,4 @@
-import type { Library, ResidencyRestriction } from '../data/types';
+import type { Library, ResidencyRestriction, VisitorEligibility } from '../data/types';
 import { getLibrary } from '../data/load';
 import { isMaZip } from '../data/townZips';
 
@@ -26,4 +26,12 @@ export function checkL3Residency(rr: ResidencyRestriction, lib: Library, homeZip
     return isMaZip(homeZip) ? { ok: true } : { ok: false, reason: '此 pass 仅 MA 居民可取' };
   }
   return { ok: true, warn: true };
+}
+
+export function checkL4VisitorResidency(ve: VisitorEligibility | null | undefined, homeZip: string): LayerResult {
+  if (!ve || ve.residency === 'none') return { ok: true };
+  if (ve.residency === 'unknown') return { ok: true, warn: true, reason: '景点访客资格未确认' };
+  if (ve.residency === 'ma_resident') return isMaZip(homeZip) ? { ok: true } : { ok: false, reason: '该景点仅 MA 居民可入' };
+  // town_resident: scope is the town name; we only have ZIP -> can't verify town precisely -> warn-pass
+  return { ok: true, warn: true, reason: `该景点可能仅 ${ve.scope ?? '本镇'} 居民,建议核对` };
 }
