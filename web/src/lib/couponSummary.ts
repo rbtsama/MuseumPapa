@@ -12,17 +12,17 @@ const STRENGTH: Record<CouponForm, number> = {
 export const couponStrength = (f: CouponForm): number => STRENGTH[f] ?? 0;
 
 export function couponSummary(c: Coupon | null): string {
-  if (!c) return '优惠详情未知';
+  if (!c) return 'Discount details unavailable';
   if (c.summary) return c.summary;
   const p = c.audience_policies[0];
-  if (!p) return '优惠详情未知';
+  if (!p) return 'Discount details unavailable';
   switch (p.form) {
     case 'free': return 'FREE';
     case 'percent-off': return `${p.value ?? ''}% off`;
     case 'dollar-off': return `$${p.value ?? ''} off`;
-    case 'per-person-price': return `$${p.value ?? ''}/人`;
-    case 'bogo': return '买一送一';
-    default: return '折扣';
+    case 'per-person-price': return `$${p.value ?? ''}/person`;
+    case 'bogo': return 'Buy one, get one';
+    default: return 'Discount';
   }
 }
 

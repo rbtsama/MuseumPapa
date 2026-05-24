@@ -36,7 +36,12 @@ export function AttractionCard({
   closedToday = false, date, onBookPass, onSignInClick,
 }: Props) {
   const navigate = useNavigate();
+  // On the compact card we only surface eligible recommendations (incl. warn) so
+  // usable options aren't crowded out by gray ineligible rows. The DETAIL page
+  // still shows every rec (including ineligible-with-reason) for transparency.
+  const eligibleRecs = recommendations.filter(rec => rec.verdict.eligible);
   const total = recommendations.length;
+  const eligibleTotal = eligibleRecs.length;
   const dim = closedToday ? { filter: 'grayscale(0.7)', opacity: 0.55 } : {};
 
   const handleBook = (e: React.SyntheticEvent, pass: Pass) => {
@@ -119,9 +124,16 @@ export function AttractionCard({
             <div className="px-3 py-3 text-center" style={{ fontSize: 11, color: 'var(--ink-3)', fontStyle: 'italic' }}>
               None of your library cards cover this attraction
             </div>
+          ) : eligibleTotal === 0 ? (
+            // Had recommendations, but none eligible for this user's cards.
+            // Keep the card uncrowded — point them to the detail page (the whole
+            // tile is a Link) where every option + reason is shown.
+            <div className="px-3 py-3 text-center" style={{ fontSize: 11, color: 'var(--ink-3)', fontStyle: 'italic' }}>
+              No eligible pass for your cards — see details
+            </div>
           ) : (
             <>
-              {recommendations.slice(0, MAX_ROWS_VISIBLE).map((rec, i) => {
+              {eligibleRecs.slice(0, MAX_ROWS_VISIBLE).map((rec, i) => {
                 const lib = getLibrary(rec.pass.library_id);
                 // For digital_email passes show library name; for physical show town.
                 const locationText = rec.pass.pass_form === 'digital_email'
@@ -168,7 +180,7 @@ export function AttractionCard({
                             }}
                             title={reasons[0]}
                           >
-                            不可领
+                            Not eligible
                           </span>
                         ) : warnings.length > 0 ? (
                           <span
@@ -181,7 +193,7 @@ export function AttractionCard({
                             }}
                             title={warnings[0]}
                           >
-                            资格待确认
+                            Eligibility unconfirmed
                           </span>
                         ) : null}
                       </div>
@@ -207,26 +219,26 @@ export function AttractionCard({
                         lineHeight: 1.1,
                         opacity: isBookable ? 1 : 0.6,
                       }}
-                      title={!isBookable ? (reasons[0] ?? '不可领') : undefined}
+                      title={!isBookable ? (reasons[0] ?? 'Not eligible') : undefined}
                     >
                       <span>Book</span>
                       {!isBookable && (
                         <span style={{
                           fontSize: 9, fontWeight: 400, fontStyle: 'italic',
                           color: 'var(--ink-3)', marginTop: 1,
-                        }}>不可领</span>
+                        }}>Not eligible</span>
                       )}
                     </button>
                   </div>
                 );
               })}
 
-              {total > MAX_ROWS_VISIBLE && (
+              {eligibleTotal > MAX_ROWS_VISIBLE && (
                 <div className="px-3 py-2 text-center" style={{
                   borderTop: '1px solid var(--rule)', background: 'var(--bg)',
                   fontSize: 12, color: 'var(--g)', fontWeight: 500,
                 }}>
-                  + {total - MAX_ROWS_VISIBLE} more option{total - MAX_ROWS_VISIBLE === 1 ? '' : 's'} →
+                  + {eligibleTotal - MAX_ROWS_VISIBLE} more option{eligibleTotal - MAX_ROWS_VISIBLE === 1 ? '' : 's'} →
                 </div>
               )}
             </>

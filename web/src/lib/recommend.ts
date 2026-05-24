@@ -17,13 +17,23 @@ export function recommend(slug: string, user: User, date?: Date): RecommendedPas
     scored.push({ pass, verdict, score });
   }
   scored.sort((a, b) => b.score - a.score);
-  // Email: dedup to best 1; Pickup/Return: up to 3.
+  // Email passes dedup to the single best one. We only FORCE an email pass to the
+  // top when it's eligible (so a convenient email pass leads); an ineligible email
+  // pass must NOT be surfaced above eligible passes — let it fall into normal
+  // score-sorted order instead.
   const out: RecommendedPass[] = [];
-  const email = scored.find(r => r.pass.pass_form === 'digital_email');
-  if (email) out.push(email);
+  const emails = scored.filter(r => r.pass.pass_form === 'digital_email');
+  const eligibleEmail = emails.find(r => r.verdict.eligible);
+  if (eligibleEmail) out.push(eligibleEmail);
+  // The one email pass we keep (eligible if any, else best-scored email).
+  const keptEmail = eligibleEmail ?? emails[0] ?? null;
   for (const r of scored) {
     if (out.length >= 4) break;
-    if (r.pass.pass_form === 'digital_email') continue;
+    if (r.pass.pass_form === 'digital_email') {
+      // Skip all email passes except the single kept one (and only if not already pushed).
+      if (r === eligibleEmail) continue;     // already at out[0]
+      if (r !== keptEmail) continue;          // dedup: drop the rest
+    }
     out.push(r);
   }
   return out.slice(0, 4);

@@ -38,6 +38,13 @@ describe('L3 residency (pass pickup)', () => {
     const r = checkL3Residency({ restricted: 'unknown', scope: null, source: null, evidence: null }, lib, '99999');
     expect(r.ok).toBe(true); expect(r.warn).toBe(true);
   });
+  it('restricted but empty home zip -> ok+warn (do not block; residency unknown)', () => {
+    const town = checkL3Residency({ restricted: 'yes', scope: 'town', source: null, evidence: null }, lib, '');
+    expect(town).toMatchObject({ ok: true, warn: true });
+    expect(town.reason).toMatch(/home ZIP/i);
+    const ma = checkL3Residency({ restricted: 'yes', scope: 'ma', source: null, evidence: null }, lib, '');
+    expect(ma).toMatchObject({ ok: true, warn: true });
+  });
 });
 
 describe('L4 attraction visitor residency', () => {
@@ -49,6 +56,9 @@ describe('L4 attraction visitor residency', () => {
   });
   it('unknown -> ok+warn', () => {
     expect(checkL4VisitorResidency({ residency:'unknown' }, '10001')).toMatchObject({ ok:true, warn:true });
+  });
+  it('ma_resident with empty home zip -> ok+warn (do not block)', () => {
+    expect(checkL4VisitorResidency({ residency:'ma_resident' }, '')).toMatchObject({ ok:true, warn:true });
   });
 });
 
@@ -79,5 +89,28 @@ describe('resolvePass', () => {
     const away = resolvePass(pass, lib, attr, { homeZip:'02139', heldLibraryIds:['wakefield'] });
     expect(away.eligible).toBe(false);
     expect(away.blockedLayer).toBe('L3');
+  });
+
+  it('reads the SAME ISO date that the page passes in — no off-by-one (FIX 2)', () => {
+    // Sanity: parsing a YYYY-MM-DD string yields UTC midnight, so toISOString
+    // round-trips to the same day (the construction the list + detail pages use).
+    expect(new Date('2026-05-25').toISOString().slice(0, 10)).toBe('2026-05-25');
+
+    const lib = realLib('wakefield')!; const attr = RA('mfa')!;
+    // Availability map: target day available, neighbor days booked.
+    const pass = {
+      library_id:'wakefield', attraction_slug:'mfa', pass_form:'physical_coupon' as const,
+      available_at_branches:'all' as const, coupon:null, restrictions:null,
+      residency_restriction:{restricted:'no' as const, scope:null, source:null, evidence:null},
+      availability:{ '2026-05-24':'booked', '2026-05-25':'available', '2026-05-26':'booked' },
+    };
+    const user = { homeZip:'01880', heldLibraryIds:['wakefield'] };
+    // Picking 2026-05-25 must read THAT day's 'available', not a neighbor's 'booked'.
+    const v = resolvePass(pass, lib, attr, user, new Date('2026-05-25'));
+    expect(v.eligible).toBe(true);
+    // Picking a booked day must block at L10.
+    const booked = resolvePass(pass, lib, attr, user, new Date('2026-05-26'));
+    expect(booked.eligible).toBe(false);
+    expect(booked.blockedLayer).toBe('L10');
   });
 });

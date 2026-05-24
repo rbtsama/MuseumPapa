@@ -68,8 +68,8 @@ describe('AttractionDetail — timed-entry two-step guide', () => {
     await waitFor(() => {
       expect(screen.getByTestId('timed-entry-guide')).toBeInTheDocument();
     });
-    expect(screen.getByText(/从图书馆领码/)).toBeInTheDocument();
-    expect(screen.getByText(/去景点官网用码订时段/)).toBeInTheDocument();
+    expect(screen.getByText(/Get the pass\/code from your library/)).toBeInTheDocument();
+    expect(screen.getByText(/Reserve a time slot on the museum's website/)).toBeInTheDocument();
   });
 
   it('does NOT render two-step guide for a walk_in_ok attraction', async () => {
@@ -92,14 +92,14 @@ describe('AttractionDetail — physical_circ pickup reminder', () => {
     // acton has a physical_circ pass for NEA, accessible via Minuteman network.
     // The row should render the pickup/return reminder (may appear multiple times if multiple rows).
     await waitFor(() => {
-      const els = screen.queryAllByText(/需到馆取并归还/);
+      const els = screen.queryAllByText(/Pick up and return at the library/);
       expect(els.length).toBeGreaterThan(0);
     }, { timeout: 3000 });
   });
 });
 
 describe('AttractionDetail — ineligible pass still renders (with reason)', () => {
-  it('renders ineligible pass row with 不可领 chip for new-england-aquarium', async () => {
+  it('renders ineligible pass row with a Not-eligible chip for new-england-aquarium', async () => {
     // With a somerville-only card (Minuteman network), the wakefield pass for NEA
     // (restricted=yes/town) appears ineligible in the results.
     // Verify that ineligible rows are still rendered (transparency requirement).

@@ -100,18 +100,15 @@ export function AttractionsList() {
   const allPasses = useMemo(() => getPasses(), []);
   const libraries = useMemo(() => getLibraries(), []);
 
-  // A library card only counts as "held" when the user has actually entered
-  // a barcode for it — without the barcode the card is useless on the Book
-  // step. Aligns the list-side filter with BookingConfirmModal's hasCard
-  // check (was a silent contradiction: green Book button on the card, then
-  // "You don't have a card from {X}" in the modal).
+  // Holding a library card (it's in the pack) is what qualifies you in the
+  // eligibility funnel — the barcode is only the booking credential you supply
+  // later at the Book step (BookingConfirmModal). So count every held card here,
+  // regardless of whether a barcode is entered yet. Barcode-gating this set was a
+  // contradiction: a user could hold 5 cards yet see "Add a library card…" and
+  // zero recommendations.
   const usableCardLibIds = useMemo(() => {
     if (!user) return null;
-    const ids = new Set(
-      Object.entries(cardpack.cards)
-        .filter(([, card]) => !!card?.barcode)
-        .map(([id]) => id)
-    );
+    const ids = new Set(Object.keys(cardpack.cards));
     if (ids.size === 0) return null;
     return ids;
   }, [user, cardpack.cards]);

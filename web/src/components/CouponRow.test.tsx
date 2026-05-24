@@ -26,8 +26,8 @@ function makePass(over: Partial<Pass> = {}): Pass {
 }
 
 const eligibleVerdict: PassVerdict = { eligible: true, reasons: [], warnings: [] };
-const warnVerdict: PassVerdict = { eligible: true, reasons: [], warnings: ['取 pass 资格未确认'] };
-const ineligibleVerdict: PassVerdict = { eligible: false, blockedLayer: 'L1', reasons: ['你没有 wakefield 网络的卡'], warnings: [] };
+const warnVerdict: PassVerdict = { eligible: true, reasons: [], warnings: ['Pass pickup eligibility not confirmed'] };
+const ineligibleVerdict: PassVerdict = { eligible: false, blockedLayer: 'L1', reasons: ['No NOBLE network card'], warnings: [] };
 
 const libWakefield: Library = {
   id: 'wakefield', name: 'Wakefield Public Library', town: 'Wakefield',
@@ -84,8 +84,8 @@ describe('CouponRow', () => {
     );
     const btn = screen.getByRole('button', { name: /book/i });
     expect(btn).toBeDisabled();
-    // "不可领" chip visible
-    expect(screen.getByText(/不可领/)).toBeInTheDocument();
+    // "Not eligible" chip visible
+    expect(screen.getByText(/Not eligible/)).toBeInTheDocument();
     // Clicking disabled button does not call onBook
     fireEvent.click(btn);
     expect(onBook).not.toHaveBeenCalled();
@@ -101,7 +101,7 @@ describe('CouponRow', () => {
         onBook={() => {}}
       />,
     );
-    expect(screen.getByText(/取 pass 资格未确认/)).toBeInTheDocument();
+    expect(screen.getByText(/Pass pickup eligibility not confirmed/)).toBeInTheDocument();
     // Book button still enabled
     expect(screen.getByRole('button', { name: /book/i })).not.toBeDisabled();
   });
@@ -130,7 +130,7 @@ describe('CouponRow', () => {
         onBook={() => {}}
       />,
     );
-    expect(screen.getByText(/需到馆取并归还/)).toBeInTheDocument();
+    expect(screen.getByText(/Pick up and return at the library/)).toBeInTheDocument();
   });
 
   it('renders booking_frequency_limit note when present', () => {
@@ -151,7 +151,7 @@ describe('CouponRow', () => {
         onBook={() => {}}
       />,
     );
-    expect(screen.getByText(/预订频率限制/)).toBeInTheDocument();
+    expect(screen.getByText(/Booking limit/)).toBeInTheDocument();
     expect(screen.getByText(/one pass per week/)).toBeInTheDocument();
   });
 

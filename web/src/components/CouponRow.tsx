@@ -40,7 +40,7 @@ export function CouponRow({
         border: '1px solid var(--rule)',
         fontSize: 11, fontWeight: 500, padding: '1px 7px', borderRadius: 10,
       }}>
-        不可领
+        Not eligible
         {verdict.reasons[0] && (
           <span style={{ fontWeight: 400 }}> · {verdict.reasons[0]}</span>
         )}
@@ -113,7 +113,7 @@ export function CouponRow({
             lineHeight: 1.1,
             opacity: verdict.eligible ? 1 : 0.6,
           }}
-          title={!verdict.eligible ? (verdict.reasons[0] ?? '不可领') : undefined}
+          title={!verdict.eligible ? (verdict.reasons[0] ?? 'Not eligible') : undefined}
         >
           <span>Book</span>
         </button>
@@ -125,13 +125,13 @@ export function CouponRow({
         pass.restrictions?.booking_frequency_limit) && (
         <div style={{ padding: '0 12px 8px', fontSize: 11, color: 'var(--ink-3)', display: 'flex', flexDirection: 'column', gap: 2 }}>
           {pass.pass_form === 'physical_circ' && (
-            <span>需到馆取并归还，注意逾期罚金</span>
+            <span>Pick up and return at the library — note late-return fees</span>
           )}
           {pass.restrictions?.late_return_penalty && (
             <span>{pass.restrictions.late_return_penalty}</span>
           )}
           {pass.restrictions?.booking_frequency_limit && (
-            <span>预订频率限制：{pass.restrictions.booking_frequency_limit}</span>
+            <span>Booking limit: {pass.restrictions.booking_frequency_limit}</span>
           )}
         </div>
       )}

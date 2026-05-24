@@ -1,6 +1,7 @@
 import {
   Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button,
 } from '@heroui/react';
+import { useNavigate } from 'react-router';
 import type { Pass, Library } from '../data/types';
 import type { CardPack } from '../stores/cardpack';
 import { passUrlForDate } from '../lib/reserveUrl';
@@ -63,9 +64,15 @@ function CredentialBox({ label, value }: { label: string; value: string }) {
 }
 
 export function BookingConfirmModal({ pass, library, cardpack, selectedDate, timedEntryUrl, onClose }: Props) {
+  const navigate = useNavigate();
   if (!pass) return null;
   const card = cardpack.cards[pass.library_id];
   const hasCard = !!card?.barcode;
+  // A card can be "held" (in the pack) without a barcode entered yet. In that
+  // case the user DOES have the card — they just haven't saved the number we
+  // need for the pickup page — so we guide them to add it rather than implying
+  // they don't have the card at all.
+  const heldNoBarcode = !!card && !card.barcode;
   const libraryName = library?.name ?? pass.library_id;
 
   const handleCopyAndGo = async () => {
@@ -87,6 +94,11 @@ export function BookingConfirmModal({ pass, library, cardpack, selectedDate, tim
       window.open(url, '_blank', 'noopener,noreferrer');
     }
     onClose();
+  };
+
+  const handleAddCardNumber = () => {
+    onClose();
+    navigate('/settings/passes');
   };
 
   return (
@@ -119,9 +131,15 @@ export function BookingConfirmModal({ pass, library, cardpack, selectedDate, tim
               fontSize: 13,
               color: 'var(--au)',
             }}>
-              <p style={{ fontWeight: 600 }}>
-                You don't have a card from {libraryName} yet.
-              </p>
+              {heldNoBarcode ? (
+                <p style={{ fontWeight: 600 }}>
+                  Add your {libraryName} card number to pick up this pass.
+                </p>
+              ) : (
+                <p style={{ fontWeight: 600 }}>
+                  You don't have a card from {libraryName} yet.
+                </p>
+              )}
             </div>
           )}
           {timedEntryUrl && (
@@ -133,7 +151,7 @@ export function BookingConfirmModal({ pass, library, cardpack, selectedDate, tim
               fontSize: 12,
               color: 'var(--ink-2)',
             }}>
-              <span>此景点需到官网预约入场时段</span>
+              <span>This attraction requires reserving a timed entry on its website</span>
               {' · '}
               <a
                 href={timedEntryUrl}
@@ -141,7 +159,7 @@ export function BookingConfirmModal({ pass, library, cardpack, selectedDate, tim
                 rel="noopener noreferrer"
                 style={{ color: 'var(--g)', fontWeight: 600, textDecoration: 'none' }}
               >
-                预约 →
+                Reserve →
               </a>
             </div>
           )}
@@ -155,6 +173,17 @@ export function BookingConfirmModal({ pass, library, cardpack, selectedDate, tim
               onClick={handleCopyAndGo}
             >
               {pass.source_url ? 'Copy card # and go →' : 'Copy card # ✓'}
+            </Button>
+          ) : heldNoBarcode ? (
+            <Button
+              size="sm"
+              style={{
+                background: 'var(--g)', color: 'var(--white)',
+                whiteSpace: 'normal', lineHeight: 1.25,
+              }}
+              onClick={handleAddCardNumber}
+            >
+              Add card number →
             </Button>
           ) : (
             <Button

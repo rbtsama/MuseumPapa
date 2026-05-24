@@ -157,11 +157,13 @@ describe('AttractionCard', () => {
     expect(onBookPass).toHaveBeenCalledWith(pass);
   });
 
-  it('renders blocked rec: shows 不可领 badge and Book button is disabled', () => {
+  it('ineligible-only attraction: card hides the row and shows the see-details hint (no Book button)', () => {
+    // The compact card surfaces only eligible recs. An attraction whose only
+    // recommendation is ineligible shows a concise hint pointing to details.
     const rec = makeRec({}, {
       eligible: false,
       blockedLayer: 'L1',
-      reasons: ['你没有 assabet 网络的卡'],
+      reasons: ['No NOBLE network card'],
       warnings: [],
     });
     renderApp(
@@ -171,38 +173,39 @@ describe('AttractionCard', () => {
         cardpackState="has_cards"
       />
     );
-    // Badge text visible
-    expect(screen.getAllByText('不可领').length).toBeGreaterThan(0);
-    // Book button disabled
-    const bookBtn = screen.getByRole('button', { name: /book/i });
-    expect(bookBtn).toBeDisabled();
+    // Hint shown; no ineligible row / Book button rendered on the card.
+    expect(screen.getByText(/No eligible pass for your cards/)).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /book/i })).not.toBeInTheDocument();
   });
 
-  it('blocked Book button does NOT call onBookPass', () => {
+  it('mix of eligible + ineligible: only the eligible row (and its Book button) shows', () => {
     const onBookPass = vi.fn();
-    const rec = makeRec({}, {
-      eligible: false,
-      blockedLayer: 'L1',
-      reasons: ['你没有 assabet 网络的卡'],
-      warnings: [],
+    const eligible = makeRec({ library_id: 'wakefield' }, { eligible: true });
+    const blocked = makeRec({ library_id: 'reading' }, {
+      eligible: false, blockedLayer: 'L1', reasons: ['No NOBLE network card'], warnings: [],
     });
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
-        recommendations={[rec]}
+        recommendations={[eligible, blocked]}
         cardpackState="has_cards"
         onBookPass={onBookPass}
       />
     );
-    const bookBtn = screen.getByRole('button', { name: /book/i });
-    fireEvent.click(bookBtn);
-    expect(onBookPass).not.toHaveBeenCalled();
+    // Exactly one Book button (the eligible one), and it's enabled + actionable.
+    const bookBtns = screen.getAllByRole('button', { name: /book/i });
+    expect(bookBtns.length).toBe(1);
+    expect(bookBtns[0]).not.toBeDisabled();
+    fireEvent.click(bookBtns[0]);
+    expect(onBookPass).toHaveBeenCalledTimes(1);
+    // The ineligible "Not eligible" badge is NOT shown on the card.
+    expect(screen.queryByText('Not eligible')).not.toBeInTheDocument();
   });
 
-  it('renders eligible rec with warning: shows 资格待确认 badge', () => {
+  it('renders eligible rec with warning: shows Eligibility unconfirmed badge', () => {
     const rec = makeRec({}, {
       eligible: true,
-      warnings: ['取 pass 资格未确认'],
+      warnings: ['Pass pickup eligibility not confirmed'],
     });
     renderApp(
       <AttractionCard
@@ -211,7 +214,7 @@ describe('AttractionCard', () => {
         cardpackState="has_cards"
       />
     );
-    expect(screen.getByText('资格待确认')).toBeInTheDocument();
+    expect(screen.getByText('Eligibility unconfirmed')).toBeInTheDocument();
     // Book button still active when eligible (even with warning)
     const bookBtn = screen.getByRole('button', { name: /book/i });
     expect(bookBtn).not.toBeDisabled();

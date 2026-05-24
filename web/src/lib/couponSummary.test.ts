@@ -8,5 +8,5 @@ describe('couponSummary', () => {
     expect(couponStrength('free')).toBeGreaterThan(couponStrength('percent-off'));
     expect(couponStrength('percent-off')).toBeGreaterThan(couponStrength('bogo'));
   });
-  it('null coupon -> placeholder', () => { expect(couponSummary(null)).toBe('优惠详情未知'); });
+  it('null coupon -> placeholder', () => { expect(couponSummary(null)).toBe('Discount details unavailable'); });
 });

@@ -53,14 +53,12 @@ export function AttractionDetail() {
   const libraries = useMemo(() => getLibraries(), []);
   const libById = useMemo(() => new Map(libraries.map(l => [l.id, l])), [libraries]);
 
-  // Barcode-filter: a card without a barcode is not usable.
+  // Held set: a card counts for eligibility/recommendation as soon as it's in the
+  // pack (regardless of barcode). The barcode is only the booking credential
+  // supplied at the Book step, not a prerequisite for qualifying.
   const userCardLibIds = useMemo(() => {
     if (!authUser) return null;
-    const ids = new Set(
-      Object.entries(cardpack.cards)
-        .filter(([, card]) => !!card?.barcode)
-        .map(([id]) => id)
-    );
+    const ids = new Set(Object.keys(cardpack.cards));
     if (ids.size === 0) return null;
     return ids;
   }, [authUser, cardpack.cards]);
@@ -118,7 +116,11 @@ export function AttractionDetail() {
   // Selected day recs via the engine — show up to 4, eligible first.
   const selectedDayRecs = useMemo((): RecommendedPass[] => {
     if (!slug) return [];
-    return recommend(slug, engineUser, new Date(`${selectedDate}T00:00:00`));
+    // Parse the YYYY-MM-DD string as UTC midnight (matching AttractionsList's
+    // `new Date(date)`), because resolvePass derives the ISO date and weekday via
+    // toISOString()/getUTCDay(). Constructing local midnight would shift the day
+    // backward in US timezones and disagree with the list page.
+    return recommend(slug, engineUser, new Date(selectedDate));
   }, [slug, engineUser, selectedDate]);
 
   // Calendar cellInfo — reflect the ACTUAL availability of the best candidate pass.
@@ -221,16 +223,16 @@ export function AttractionDetail() {
             data-testid="timed-entry-guide"
           >
             <div style={{ fontWeight: 600, color: 'var(--g)', marginBottom: 4, fontSize: 12 }}>
-              预订流程（限时入场景点）
+              How to book (timed-entry attraction)
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               <div>
                 <span style={{ color: 'var(--g)', fontWeight: 700 }}>①</span>{' '}
-                从图书馆领码／取 pass
+                1. Get the pass/code from your library
               </div>
               <div>
                 <span style={{ color: 'var(--g)', fontWeight: 700 }}>②</span>{' '}
-                去景点官网用码订时段
+                2. Reserve a time slot on the museum's website
                 {attraction.reservation?.booking_url && (
                   <>
                     {' · '}
@@ -240,7 +242,7 @@ export function AttractionDetail() {
                       rel="noopener noreferrer"
                       style={{ color: 'var(--g)', fontWeight: 600, textDecoration: 'none' }}
                     >
-                      预约 →
+                      Reserve →
                     </a>
                   </>
                 )}
@@ -253,7 +255,7 @@ export function AttractionDetail() {
                       rel="noopener noreferrer"
                       style={{ color: 'var(--g-2)', fontWeight: 500, fontSize: 11, textDecoration: 'none' }}
                     >
-                      (持卡人专页 →)
+                      (Pass-holder page →)
                     </a>
                   </>
                 )}

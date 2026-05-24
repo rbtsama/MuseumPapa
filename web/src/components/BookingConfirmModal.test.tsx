@@ -82,6 +82,17 @@ describe('BookingConfirmModal', () => {
     expect(await screen.findByText(/You don't have a card from/)).toBeInTheDocument();
   });
 
+  it('held card without a barcode: guides user to add their number (not "you don\'t have a card")', async () => {
+    const onClose = vi.fn();
+    const cardpackHeldNoBarcode: CardPack = { zip: '01880', cards: { wakefield: { barcode: '' } } };
+    renderApp(
+      <BookingConfirmModal pass={mockPass} library={mockLibrary} cardpack={cardpackHeldNoBarcode} onClose={onClose} />
+    );
+    expect(await screen.findByText(/Add your .* card number to pick up this pass/)).toBeInTheDocument();
+    expect(screen.queryByText(/You don't have a card from/)).not.toBeInTheDocument();
+    expect(await screen.findByRole('button', { name: /Add card number/i })).toBeInTheDocument();
+  });
+
   it('Copy-and-go button copies barcode and opens source_url (no in-app booking)', async () => {
     const onClose = vi.fn();
     const writeText = vi.fn().mockResolvedValue(undefined);
@@ -129,8 +140,8 @@ describe('BookingConfirmModal', () => {
         timedEntryUrl="https://museum.example.com/timed-entry"
       />
     );
-    expect(await screen.findByText(/此景点需到官网预约入场时段/)).toBeInTheDocument();
-    const link = await screen.findByRole('link', { name: /预约 →/ });
+    expect(await screen.findByText(/This attraction requires reserving a timed entry/)).toBeInTheDocument();
+    const link = await screen.findByRole('link', { name: /Reserve →/ });
     expect(link).toHaveAttribute('href', 'https://museum.example.com/timed-entry');
     expect(link).toHaveAttribute('target', '_blank');
   });
@@ -142,6 +153,6 @@ describe('BookingConfirmModal', () => {
     );
     // Wait for the modal to fully render (library name present) then check reminder is absent.
     expect(await screen.findByText('Wakefield Public Library')).toBeInTheDocument();
-    expect(screen.queryByText(/此景点需到官网预约入场时段/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/This attraction requires reserving a timed entry/)).not.toBeInTheDocument();
   });
 });
