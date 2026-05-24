@@ -1,24 +1,24 @@
 import { Link, useNavigate } from 'react-router';
 import type { Attraction, Pass } from '../data/types';
-import type { PickedTag } from '../lib/tag-algorithm';
+import type { RecommendedPass } from '../lib/recommend';
 import { FavoriteButton } from './FavoriteButton';
 import { PassTypeLabel } from './PassTypeLabel';
-import { CouponLine, formatCapacity } from './CouponLine';
 import { AttractionInfoRows } from './AttractionInfoRows';
 import { heroSrc } from '../lib/hero';
-import { getBranchesForPass } from '../data/load';
+import { getLibrary } from '../data/load';
+import { couponSummary } from '../lib/couponSummary';
 
 /**
  * 'guest'     — not signed in. Show CTA to open SignInModal.
  * 'no_cards'  — signed in but no library cards entered. Show CTA → /settings/passes.
- * 'has_cards' — signed in with ≥1 card. Show real coupons, or a "no match for
- *               this attraction" hint when pickedTags is empty.
+ * 'has_cards' — signed in with ≥1 card. Show real recommendations, or a "no match for
+ *               this attraction" hint when recommendations is empty.
  */
 export type CardpackState = 'guest' | 'no_cards' | 'has_cards';
 
 interface Props {
   attraction: Attraction;
-  pickedTags: PickedTag[];
+  recommendations: RecommendedPass[];
   cardpackState?: CardpackState;
   closedToday?: boolean;
   /** Selected date (ISO) — used to look up today's hours. */
@@ -32,11 +32,11 @@ interface Props {
 const MAX_ROWS_VISIBLE = 3;
 
 export function AttractionCard({
-  attraction, pickedTags, cardpackState = 'has_cards',
+  attraction, recommendations, cardpackState = 'has_cards',
   closedToday = false, date, onBookPass, onSignInClick,
 }: Props) {
   const navigate = useNavigate();
-  const total = pickedTags.length;
+  const total = recommendations.length;
   const dim = closedToday ? { filter: 'grayscale(0.7)', opacity: 0.55 } : {};
 
   const handleBook = (e: React.SyntheticEvent, pass: Pass) => {
@@ -64,7 +64,7 @@ export function AttractionCard({
       <div className="flex gap-3 p-3" style={dim}>
         <img
           src={heroSrc(attraction)}
-          alt={attraction.museum_name}
+          alt={attraction.name}
           loading="lazy"
           className="rounded-md object-cover bg-[color:var(--paper)] flex-shrink-0"
           style={{ width: 70, height: 70 }}
@@ -74,7 +74,7 @@ export function AttractionCard({
           <h3 className="font-serif" style={{
             fontSize: 16, lineHeight: 1.25, color: 'var(--ink-2)', fontWeight: 700,
           }}>
-            {attraction.museum_name}
+            {attraction.name}
           </h3>
 
           <AttractionInfoRows
@@ -94,7 +94,7 @@ export function AttractionCard({
         </div>
       </div>
 
-      {/* Body: pass options, or one of three empty-state CTAs */}
+      {/* Body: recommendation rows, or one of three empty-state CTAs */}
       {closedToday ? null : (
         <div className="border-t" style={{ borderColor: 'var(--rule)' }}>
           {cardpackState === 'guest' ? (
@@ -121,91 +121,114 @@ export function AttractionCard({
             </div>
           ) : (
             <>
-          {pickedTags.slice(0, MAX_ROWS_VISIBLE).map((t, i) => {
-            const isDigital = t.pass.pickup_method === 'digital';
-            // For physical, prefer the actual pickup branch(es). Single-branch
-            // libs synthesize `<lib_id>--main`, so this still resolves cleanly.
-            const branches = isDigital ? [] : getBranchesForPass(t.pass);
-            const showBranchLabel =
-              !isDigital && branches.length === 1 && branches[0].id !== `${t.pass.library_id}--main`;
-            const branchSummary = !isDigital && branches.length > 1
-              ? `${t.library.town} · ${branches.length} branches`
-              : null;
+              {recommendations.slice(0, MAX_ROWS_VISIBLE).map((rec, i) => {
+                const lib = getLibrary(rec.pass.library_id);
+                // For digital_email passes show library name; for physical show town.
+                const locationText = rec.pass.pass_form === 'digital_email'
+                  ? (lib?.name ?? rec.pass.library_id)
+                  : (lib?.town ?? rec.pass.library_id);
 
-            const locationText = isDigital ? t.library.name
-              : branchSummary ? branchSummary
-              : showBranchLabel ? `${branches[0].name} · ${branches[0].address.street}`
-              : t.library.town;
+                const discountLabel = couponSummary(rec.pass.coupon);
+                const { eligible, warnings, reasons } = rec.verdict;
+                const isBookable = eligible;  // blocked passes are NOT bookable
 
-            const capacityText = formatCapacity(t.pass.coupon.capacity);
+                return (
+                  <div
+                    key={`${rec.pass.library_id}-${rec.pass.pass_form}-${i}`}
+                    className="flex items-center gap-3 px-3 py-2"
+                    style={{ borderTop: i === 0 ? 'none' : '1px solid var(--rule)' }}
+                  >
+                    <div className="flex-grow min-w-0 flex flex-col gap-0.5">
+                      {/* Location + pass type row */}
+                      <div className="flex items-center gap-1.5 min-w-0" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
+                        <span style={{
+                          color: 'var(--ink-2)', fontWeight: 500, fontSize: 13,
+                          overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                        }}>
+                          {locationText}
+                        </span>
+                      </div>
 
-            return (
-              <div
-                key={`${t.pass.library_id}-${i}`}
-                className="flex items-center gap-3 px-3 py-2"
-                style={{ borderTop: i === 0 ? 'none' : '1px solid var(--rule)' }}
-              >
-                <div className="flex-grow min-w-0 flex flex-col gap-0.5">
-                  <div className="flex items-center gap-1.5 min-w-0" style={{ fontSize: 12, color: 'var(--ink-3)' }}>
-                    <span style={{ color: 'var(--ink-2)', fontWeight: 500, fontSize: 13,
-                      overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                      {locationText}
-                    </span>
-                    {!isDigital && t.distanceMi != null && (
-                      <span className="flex-shrink-0" style={{ fontSize: 11 }}>
-                        · {Math.round(t.distanceMi)} mi
-                      </span>
-                    )}
+                      {/* Pass type + discount label + eligibility badge */}
+                      <div className="flex items-center flex-wrap gap-x-1.5 gap-y-0.5 min-w-0">
+                        <PassTypeLabel type={rec.pass.pass_form} />
+                        <span style={{ fontSize: 12, color: 'var(--ink-2)', fontWeight: 600 }}>
+                          {discountLabel}
+                        </span>
+
+                        {/* Eligibility badge — driven strictly from verdict */}
+                        {!eligible ? (
+                          <span
+                            className="inline-block whitespace-nowrap"
+                            style={{
+                              fontSize: 11, fontWeight: 500,
+                              background: 'var(--paper)', color: 'var(--ink-3)',
+                              border: '1px solid var(--rule)',
+                              padding: '1px 5px', borderRadius: 3,
+                            }}
+                            title={reasons[0]}
+                          >
+                            不可领
+                          </span>
+                        ) : warnings.length > 0 ? (
+                          <span
+                            className="inline-block whitespace-nowrap"
+                            style={{
+                              fontSize: 11, fontWeight: 500,
+                              background: 'var(--or-pale)', color: 'var(--or)',
+                              border: '1px solid var(--or)',
+                              padding: '1px 5px', borderRadius: 3,
+                            }}
+                            title={warnings[0]}
+                          >
+                            资格待确认
+                          </span>
+                        ) : null}
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        if (!isBookable) { e.preventDefault(); e.stopPropagation(); return; }
+                        handleBook(e, rec.pass);
+                      }}
+                      disabled={!isBookable}
+                      className="flex-shrink-0 rounded-md inline-flex flex-col items-center"
+                      style={{
+                        background: isBookable ? 'var(--g)' : 'var(--paper)',
+                        color: isBookable ? 'var(--white)' : 'var(--ink-3)',
+                        fontSize: 12,
+                        fontWeight: 600,
+                        padding: '6px 12px',
+                        border: isBookable ? 'none' : '1px solid var(--rule)',
+                        cursor: isBookable ? 'pointer' : 'not-allowed',
+                        userSelect: 'none',
+                        lineHeight: 1.1,
+                        opacity: isBookable ? 1 : 0.6,
+                      }}
+                      title={!isBookable ? (reasons[0] ?? '不可领') : undefined}
+                    >
+                      <span>Book</span>
+                      {!isBookable && (
+                        <span style={{
+                          fontSize: 9, fontWeight: 400, fontStyle: 'italic',
+                          color: 'var(--ink-3)', marginTop: 1,
+                        }}>不可领</span>
+                      )}
+                    </button>
                   </div>
-                  {/* items-center (not baseline): the type pill is taller than plain text, so all three elements share one midline. */}
-                  <div className="flex items-center flex-wrap gap-x-1.5 gap-y-0.5 min-w-0">
-                    <PassTypeLabel type={t.pass.pass_type} />
-                    <CouponLine coupon={t.pass.coupon} align="left" />
-                    {capacityText && (
-                      <span style={{ fontSize: 11, color: 'var(--ink-3)' }}>
-                        ({capacityText})
-                      </span>
-                    )}
-                  </div>
+                );
+              })}
+
+              {total > MAX_ROWS_VISIBLE && (
+                <div className="px-3 py-2 text-center" style={{
+                  borderTop: '1px solid var(--rule)', background: 'var(--bg)',
+                  fontSize: 12, color: 'var(--g)', fontWeight: 500,
+                }}>
+                  + {total - MAX_ROWS_VISIBLE} more option{total - MAX_ROWS_VISIBLE === 1 ? '' : 's'} →
                 </div>
-
-                <button
-                  type="button"
-                  onClick={(e) => handleBook(e, t.pass)}
-                  className="flex-shrink-0 rounded-md inline-flex flex-col items-center"
-                  style={{
-                    background: t.userHasCard ? 'var(--g)' : 'var(--paper)',
-                    color: t.userHasCard ? 'var(--white)' : 'var(--ink-3)',
-                    fontSize: 12,
-                    fontWeight: 600,
-                    padding: '6px 12px',
-                    border: 'none',
-                    cursor: 'pointer',
-                    userSelect: 'none',
-                    lineHeight: 1.1,
-                  }}
-                  title={t.userHasCard ? undefined : 'You don\'t have a card from this library'}
-                >
-                  <span>Book</span>
-                  {!t.userHasCard && (
-                    <span style={{
-                      fontSize: 9, fontWeight: 400, fontStyle: 'italic',
-                      color: 'var(--ink-3)', marginTop: 1,
-                    }}>no card</span>
-                  )}
-                </button>
-              </div>
-            );
-          })}
-
-          {total > MAX_ROWS_VISIBLE && (
-            <div className="px-3 py-2 text-center" style={{
-              borderTop: '1px solid var(--rule)', background: 'var(--bg)',
-              fontSize: 12, color: 'var(--g)', fontWeight: 500,
-            }}>
-              + {total - MAX_ROWS_VISIBLE} more coupon{total - MAX_ROWS_VISIBLE === 1 ? '' : 's'} →
-            </div>
-          )}
+              )}
             </>
           )}
         </div>

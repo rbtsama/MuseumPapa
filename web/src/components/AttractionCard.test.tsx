@@ -3,8 +3,9 @@ import { screen, fireEvent } from '@testing-library/react';
 import { renderApp } from '../test-utils';
 import { AttractionCard } from './AttractionCard';
 import { useFavorites } from '../stores/favorites';
-import type { Attraction, Pass, Library } from '../data/types';
-import type { PickedTag } from '../lib/tag-algorithm';
+import type { Attraction, Pass } from '../data/types';
+import type { RecommendedPass } from '../lib/recommend';
+import type { PassVerdict } from '../lib/eligibility';
 
 const navigateMock = vi.fn();
 vi.mock('react-router', async () => {
@@ -20,34 +21,21 @@ beforeEach(() => {
 function makeAttraction(overrides: Partial<Attraction> = {}): Attraction {
   return {
     slug: 'test-zoo',
-    museum_name: 'Test Zoo',
-    address: '100 Zoo Rd, Boston, MA 02101',
+    name: 'Test Zoo',
+    address: { street: '100 Zoo Rd', city: 'Boston', state: 'MA', zip: '02101' },
     website: 'https://example.com',
     phone: null,
     description: null,
     categories: ['Animals', 'Family'],
     sources: [],
-    original_price: {
-      age_pricing: {
-        adult: { price: 30, min_age: null, max_age: null },
-        youth: null,
-        child: { price: 20, min_age: null, max_age: null },
-        senior: null,
-        free_under_age: null,
-      },
-      identity_pricing: {
-        student: null,
-        educator: null,
-        military: null,
-      },
-      family: null,
-      notes: null,
-      source_url: null,
-    },
+    prices: [
+      { audience: 'adult', price: 30, age_range: null },
+      { audience: 'child', price: 20, age_range: null },
+    ],
     hero_image: null,
     geo: null,
     hours: null,
-    museum_reservation: null,
+    reservation: null,
     ...overrides,
   };
 }
@@ -56,43 +44,34 @@ function makePass(overrides: Partial<Pass> = {}): Pass {
   return {
     library_id: 'wakefield',
     attraction_slug: 'test-zoo',
-    pass_type: 'digital',
-    pass_type_raw: 'digital',
-    pickup_method: 'digital',
-    pickup_branches: [],
+    pass_form: 'digital_email',
+    available_at_branches: 'all',
     coupon: {
       capacity: { kind: 'people', n: 4 },
-      audience_policies: [{ audience: 'Everyone', age_range: null, count: null, form: 'free', value: null }],
+      audience_policies: [{ audience: 'Everyone', form: 'free', value: null }],
     },
     restrictions: null,
+    residency_restriction: { restricted: 'no', scope: null },
+    availability: {},
     source_url: 'https://example.com/book',
-    availability: null,
     ...overrides,
   };
 }
 
-function makeLibrary(overrides: Partial<Library> = {}): Library {
+function makeVerdict(overrides: Partial<PassVerdict> = {}): PassVerdict {
   return {
-    id: 'wakefield',
-    name: 'Wakefield Public Library',
-    town: 'Wakefield',
-    network: 'assabet',
-    platform: 'assabet',
-    card_page: 'https://wakefield.com/cards',
-    eligibility: 'Wakefield residents',
-    supports_availability: true,
-    address: null,
-    geo: null,
+    eligible: true,
+    reasons: [],
+    warnings: [],
     ...overrides,
   };
 }
 
-function makePickedTag(passOverrides: Partial<Pass> = {}, libOverrides: Partial<Library> = {}): PickedTag {
+function makeRec(passOverrides: Partial<Pass> = {}, verdictOverrides: Partial<PassVerdict> = {}): RecommendedPass {
   return {
     pass: makePass(passOverrides),
-    library: makeLibrary(libOverrides),
-    distanceMi: null,
-    userHasCard: true,
+    verdict: makeVerdict(verdictOverrides),
+    score: 60,
   };
 }
 
@@ -101,7 +80,7 @@ describe('AttractionCard', () => {
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
-        pickedTags={[]}
+        recommendations={[]}
         cardpackState="has_cards"
       />
     );
@@ -112,7 +91,7 @@ describe('AttractionCard', () => {
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
-        pickedTags={[]}
+        recommendations={[]}
         cardpackState="guest"
       />
     );
@@ -123,18 +102,14 @@ describe('AttractionCard', () => {
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
-        pickedTags={[]}
+        recommendations={[]}
         cardpackState="no_cards"
       />
     );
     const btn = screen.getByText(/Add a library card or Library Pass/);
     expect(btn).toBeInTheDocument();
-    // The CTA is now a native <button> (not a nested <a>) to avoid invalid HTML.
-    // The nearest interactive ancestor must be a button element (the outer card
-    // <Link> is an <a> but the CTA itself must not be another <a>).
     const buttonEl = btn.closest('button');
     expect(buttonEl).not.toBeNull();
-    // Clicking must navigate to /settings/passes — not just render a button.
     fireEvent.click(buttonEl!);
     expect(navigateMock).toHaveBeenCalledWith('/settings/passes');
   });
@@ -143,85 +118,135 @@ describe('AttractionCard', () => {
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
-        pickedTags={[]}
+        recommendations={[]}
         cardpackState="has_cards"
       />
     );
     expect(screen.getByText(/None of your library cards cover this attraction/)).toBeInTheDocument();
   });
 
-  it('renders pass options for logged-in user', () => {
-    const tags = [makePickedTag()];
+  it('renders eligible rec: couponSummary label visible and Book button enabled', () => {
+    const rec = makeRec({}, { eligible: true, warnings: [] });
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
-        pickedTags={tags}
+        recommendations={[rec]}
         cardpackState="has_cards"
       />
     );
-    expect(screen.getByText('Email')).toBeInTheDocument();
-    expect(screen.getByText('Book')).toBeInTheDocument();
+    // couponSummary for a 'free' form is "FREE"
+    expect(screen.getByText('FREE')).toBeInTheDocument();
+    const bookBtn = screen.getByRole('button', { name: /book/i });
+    expect(bookBtn).not.toBeDisabled();
   });
 
-  it('clicking Book button fires onBookPass with the pass', () => {
+  it('clicking Book button fires onBookPass with the pass when eligible', () => {
     const onBookPass = vi.fn();
     const pass = makePass();
-    const tags: PickedTag[] = [{ pass, library: makeLibrary(), distanceMi: null, userHasCard: true }];
+    const rec: RecommendedPass = { pass, verdict: makeVerdict(), score: 60 };
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
-        pickedTags={tags}
+        recommendations={[rec]}
         cardpackState="has_cards"
         onBookPass={onBookPass}
       />
     );
-    const bookBtn = screen.getByText('Book');
+    const bookBtn = screen.getByRole('button', { name: /book/i });
     fireEvent.click(bookBtn);
     expect(onBookPass).toHaveBeenCalledWith(pass);
   });
 
-  it('renders the no-coupons message when no tags and user has cards', () => {
+  it('renders blocked rec: shows 不可领 badge and Book button is disabled', () => {
+    const rec = makeRec({}, {
+      eligible: false,
+      blockedLayer: 'L1',
+      reasons: ['你没有 assabet 网络的卡'],
+      warnings: [],
+    });
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
-        pickedTags={[]}
+        recommendations={[rec]}
         cardpackState="has_cards"
       />
     );
-    // New copy: explicit reason — the user's cards don't yield a coupon here.
-    expect(screen.getByText(/None of your library cards cover this attraction/)).toBeInTheDocument();
+    // Badge text visible
+    expect(screen.getAllByText('不可领').length).toBeGreaterThan(0);
+    // Book button disabled
+    const bookBtn = screen.getByRole('button', { name: /book/i });
+    expect(bookBtn).toBeDisabled();
+  });
+
+  it('blocked Book button does NOT call onBookPass', () => {
+    const onBookPass = vi.fn();
+    const rec = makeRec({}, {
+      eligible: false,
+      blockedLayer: 'L1',
+      reasons: ['你没有 assabet 网络的卡'],
+      warnings: [],
+    });
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        recommendations={[rec]}
+        cardpackState="has_cards"
+        onBookPass={onBookPass}
+      />
+    );
+    const bookBtn = screen.getByRole('button', { name: /book/i });
+    fireEvent.click(bookBtn);
+    expect(onBookPass).not.toHaveBeenCalled();
+  });
+
+  it('renders eligible rec with warning: shows 资格待确认 badge', () => {
+    const rec = makeRec({}, {
+      eligible: true,
+      warnings: ['取 pass 资格未确认'],
+    });
+    renderApp(
+      <AttractionCard
+        attraction={makeAttraction()}
+        recommendations={[rec]}
+        cardpackState="has_cards"
+      />
+    );
+    expect(screen.getByText('资格待确认')).toBeInTheDocument();
+    // Book button still active when eligible (even with warning)
+    const bookBtn = screen.getByRole('button', { name: /book/i });
+    expect(bookBtn).not.toBeDisabled();
   });
 
   it('renders closed state when closedToday=true', () => {
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
-        pickedTags={[makePickedTag()]}
+        recommendations={[makeRec()]}
         cardpackState="has_cards"
         closedToday
       />
     );
     expect(screen.getByText('Closed')).toBeInTheDocument();
     // Book buttons should not appear when closed
-    expect(screen.queryByText('Book')).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /book/i })).not.toBeInTheDocument();
   });
 
-  it('renders location from address', () => {
+  it('renders location from address city', () => {
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
-        pickedTags={[]}
+        recommendations={[]}
         cardpackState="has_cards"
       />
     );
     expect(screen.getByText(/Boston, MA/)).toBeInTheDocument();
   });
 
-  it('renders adult price from original_price', () => {
+  it('renders adult price from prices array', () => {
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
-        pickedTags={[]}
+        recommendations={[]}
         cardpackState="has_cards"
       />
     );
@@ -229,42 +254,17 @@ describe('AttractionCard', () => {
     expect(screen.getByText('$30')).toBeInTheDocument();
   });
 
-  it('renders the "FREE age<N" hint when free_under_age is set', () => {
-    const a = makeAttraction();
-    a.original_price!.age_pricing.free_under_age = 3;
-    renderApp(
-      <AttractionCard
-        attraction={a}
-        pickedTags={[]}
-        cardpackState="has_cards"
-      />
-    );
-    expect(screen.getByText('FREE')).toBeInTheDocument();
-    expect(screen.getByText(/age <3/)).toBeInTheDocument();
-  });
-
-  it('does not render the FREE-age hint when free_under_age is null', () => {
-    renderApp(
-      <AttractionCard
-        attraction={makeAttraction()}
-        pickedTags={[]}
-        cardpackState="has_cards"
-      />
-    );
-    expect(screen.queryByText(/age </)).not.toBeInTheDocument();
-  });
-
-  it('shows "+ N more" when more than 3 tags (cap matches pickTags maxTags=3)', () => {
-    const tags = Array.from({ length: 5 }, (_, i) =>
-      makePickedTag({ library_id: `lib-${i}`, pass_type: 'physical-coupon' }, { id: `lib-${i}`, town: `Town${i}` })
+  it('shows "+ N more options" when more than 3 recommendations', () => {
+    const recs: RecommendedPass[] = Array.from({ length: 5 }, (_, i) =>
+      makeRec({ library_id: `lib-${i}`, pass_form: 'physical_coupon' }, {})
     );
     renderApp(
       <AttractionCard
         attraction={makeAttraction()}
-        pickedTags={tags}
+        recommendations={recs}
         cardpackState="has_cards"
       />
     );
-    expect(screen.getByText(/\+ 2 more coupons/)).toBeInTheDocument();
+    expect(screen.getByText(/\+ 2 more options/)).toBeInTheDocument();
   });
 });

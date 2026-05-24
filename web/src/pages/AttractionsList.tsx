@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { getAttractions, getPasses, getLibraries } from '../data/load';
+import { getAttractions, getPasses, getLibraries, getLibrary } from '../data/load';
 import { AttractionCard } from '../components/AttractionCard';
 import { Banner } from '../components/Banner';
 import { DatePicker } from '../components/DatePicker';
@@ -7,11 +7,12 @@ import { FavoritesToggle } from '../components/FavoritesToggle';
 import { SortDropdown, type SortOption } from '../components/SortDropdown';
 import { SearchBox } from '../components/SearchBox';
 import { CategoryDropdown } from '../components/CategoryDropdown';
-import { pickTags, type PickedTag } from '../lib/tag-algorithm';
+import { recommend, type RecommendedPass } from '../lib/recommend';
+import type { User } from '../lib/eligibility';
 import { useAuth } from '../auth/store';
 import { useCardpack } from '../stores/cardpack';
 import { useFavorites } from '../stores/favorites';
-import { geocodeZip } from '../lib/distance';
+import { geocodeZip, haversineMiles } from '../lib/distance';
 import { SignInModal } from '../components/SignInModal';
 import { SignUpModal } from '../components/SignUpModal';
 import { LandingPromoModal } from '../components/LandingPromoModal';
@@ -114,7 +115,6 @@ export function AttractionsList() {
     if (ids.size === 0) return null;
     return ids;
   }, [user, cardpack.cards]);
-  const userCardLibIds = usableCardLibIds;
 
   const cardpackState: 'guest' | 'no_cards' | 'has_cards' =
     !user ? 'guest'
@@ -122,27 +122,26 @@ export function AttractionsList() {
       : 'has_cards';
   const isGuestOrEmpty = cardpackState !== 'has_cards';
 
-  const passesBySlug = useMemo(() => {
-    const m = new Map<string, typeof allPasses>();
-    for (const p of allPasses) {
-      const arr = m.get(p.attraction_slug) ?? [];
-      arr.push(p);
-      m.set(p.attraction_slug, arr);
-    }
-    return m;
-  }, [allPasses]);
+  // Build the User object for the new eligibility/recommend engine
+  const engineUser: User = useMemo(() => ({
+    homeZip: cardpack.zip ?? '',
+    heldLibraryIds: Array.from(usableCardLibIds ?? []),
+  }), [cardpack.zip, usableCardLibIds]);
+
+  // Suppress unused-variable warning — allPasses is still used to force
+  // the memo to re-run when the data store changes.
+  void allPasses;
 
   const rows = useMemo(() => {
     return attractions.map(a => {
-      const passes = passesBySlug.get(a.slug) ?? [];
-      const tags: PickedTag[] = isGuestOrEmpty ? [] : pickTags({
-        passes, libraries, userCardLibIds, date, userGeo,
-      });
-      return { attraction: a, tags, sourceCount: a.sources.length };
+      const recommendations: RecommendedPass[] = isGuestOrEmpty
+        ? []
+        : recommend(a.slug, engineUser, new Date(date));
+      return { attraction: a, recommendations, sourceCount: a.sources.length };
     });
-  }, [attractions, passesBySlug, libraries, userCardLibIds, date, userGeo, isGuestOrEmpty]);
+  }, [attractions, engineUser, date, isGuestOrEmpty]);
 
-  // Search query — case-insensitive token substring across name, address, categories
+  // Search query — case-insensitive token substring across name, city, categories
   const searchTokens = useMemo(
     () => search.trim().toLowerCase().split(/\s+/).filter(Boolean),
     [search],
@@ -159,7 +158,8 @@ export function AttractionsList() {
     if (searchTokens.length > 0) {
       out = out.filter(r => {
         const a = r.attraction;
-        const hay = `${a.museum_name} ${a.address} ${a.categories.join(' ')}`.toLowerCase();
+        const cityStr = a.address?.city ?? '';
+        const hay = `${a.name} ${cityStr} ${a.categories.join(' ')}`.toLowerCase();
         return searchTokens.every(t => hay.includes(t));
       });
     }
@@ -169,27 +169,36 @@ export function AttractionsList() {
   const sortedRows = useMemo(() => {
     const copy = [...filteredRows];
     const cmpName = (a: typeof copy[0], b: typeof copy[0]) =>
-      a.attraction.museum_name.localeCompare(b.attraction.museum_name);
-    const minDist = (r: typeof copy[0]) => {
+      a.attraction.name.localeCompare(b.attraction.name);
+
+    // minDist: minimum distance over a row's recommendations.
+    // Uses the library's geo for physical passes; Infinity when no geo or no recs.
+    const minDist = (r: typeof copy[0]): number => {
+      if (!userGeo) return Infinity;
       let best = Infinity;
-      for (const t of r.tags) {
-        if (t.distanceMi != null && t.distanceMi < best) best = t.distanceMi;
+      for (const rec of r.recommendations) {
+        const lib = getLibrary(rec.pass.library_id);
+        if (lib?.geo) {
+          const d = haversineMiles(userGeo, lib.geo);
+          if (d < best) best = d;
+        }
       }
       return best;
     };
+
     // Recommended tier (lower = surface first):
-    //   0  has at least one matching coupon for this date
-    //   1  no matching coupon, but not closed today either
+    //   0  has at least one eligible recommendation for this date
+    //   1  no eligible recommendation (but not closed)
     //   2  closed on this date
     const recommendedTier = (r: typeof copy[0]) => {
       if (isClosedOn(r.attraction, date)) return 2;
-      if (r.tags.length === 0) return 1;
-      return 0;
+      if (r.recommendations.some(rec => rec.verdict.eligible)) return 0;
+      return 1;
     };
 
     switch (sort) {
       case 'recommended':
-        // Three-tier sort: has-coupons / no-coupons / closed; distance within tier.
+        // Three-tier sort: has-eligible-recs / no-eligible-recs / closed; distance within tier.
         copy.sort((a, b) => {
           const ta = recommendedTier(a);
           const tb = recommendedTier(b);
@@ -216,7 +225,7 @@ export function AttractionsList() {
         break;
     }
     return copy;
-  }, [filteredRows, sort, date]);
+  }, [filteredRows, sort, date, userGeo]);
 
   return (
     <>
@@ -276,7 +285,7 @@ export function AttractionsList() {
             <AttractionCard
               key={r.attraction.slug}
               attraction={r.attraction}
-              pickedTags={r.tags}
+              recommendations={r.recommendations}
               cardpackState={cardpackState}
               date={date}
               closedToday={isClosedOn(r.attraction, date)}

@@ -1,7 +1,6 @@
-import type { Attraction } from '../data/types';
+import type { Attraction, Address } from '../data/types';
 import { MuseumReservationBanner } from './MuseumReservationBanner';
 import { hoursDisplay } from '../lib/hours';
-import { townFromAddress } from '../lib/address';
 import { PinIcon, ClockIcon, TicketIcon } from './icons';
 
 function fmtMoney(v: number | null | undefined): string {
@@ -9,6 +8,13 @@ function fmtMoney(v: number | null | undefined): string {
   if (v === 0) return 'FREE';
   if (Number.isInteger(v)) return `$${v}`;
   return `$${v.toFixed(2)}`;
+}
+
+/** Extract "City, MA" from a structured Address object. */
+function townFromAddr(addr: Address | null | undefined): string {
+  if (!addr?.city) return '';
+  const state = addr.state ?? 'MA';
+  return `${addr.city}, ${state}`;
 }
 
 
@@ -36,35 +42,34 @@ interface AttractionInfoRowsProps {
 export function AttractionInfoRows({
   attraction, date, closedToday = false, variant = 'card',
 }: AttractionInfoRowsProps) {
-  const town = townFromAddress(attraction.address);
-  const op = attraction.original_price;
-  const adultPrice = op?.age_pricing?.adult?.price ?? null;
-  const youthPrice = op?.age_pricing?.youth?.price ?? null;
-  const childPrice = op?.age_pricing?.child?.price ?? null;
-  const seniorPrice = op?.age_pricing?.senior?.price ?? null;
-  const studentPrice = op?.identity_pricing?.student?.price ?? null;
-  const educatorPrice = op?.identity_pricing?.educator?.price ?? null;
-  const militaryPrice = op?.identity_pricing?.military?.price ?? null;
-  const freeUnder = op?.age_pricing?.free_under_age ?? null;
+  const town = townFromAddr(attraction.address);
 
-  // Price tiers — list each only when it differs from the adult price. Same-
-  // price tiers are noise (Boston Children's Museum has Adult=Child=$24 → just
-  // show Adult). When free_under_age is set AND child has its own price, label
-  // the child tier with its lower bound so the gap reads cleanly:
-  //   $26 adult · $21 senior · $18 age 5+ · FREE age <5
-  // Identity tiers (student/educator/military) inline alongside age tiers, no
-  // "Waivers" wrapper.
-  const tiers: Array<{ label: string; value: number }> = [];
-  if (adultPrice != null) tiers.push({ label: 'adult', value: adultPrice });
-  if (seniorPrice != null && seniorPrice !== adultPrice) tiers.push({ label: 'senior', value: seniorPrice });
-  if (youthPrice != null && youthPrice !== adultPrice) tiers.push({ label: 'youth', value: youthPrice });
-  if (childPrice != null && childPrice !== adultPrice) {
-    const lbl = freeUnder != null ? `age ${freeUnder}+` : 'child';
-    tiers.push({ label: lbl, value: childPrice });
+  // Build a Map<audience, price> taking FIRST occurrence only.
+  // First occurrence = standard/rack price; subsequent entries may be
+  // discounted (e.g. EBT rate) which we don't want to show as the headline.
+  const TIER_ORDER = ['adult', 'senior', 'youth', 'child', 'student', 'educator', 'military'];
+  const priceMap = new Map<string, number | null>();
+  for (const ap of (attraction.prices ?? [])) {
+    if (!priceMap.has(ap.audience)) {
+      priceMap.set(ap.audience, ap.price);
+    }
   }
-  if (studentPrice != null && studentPrice !== adultPrice) tiers.push({ label: 'student', value: studentPrice });
-  if (educatorPrice != null && educatorPrice !== adultPrice) tiers.push({ label: 'educator', value: educatorPrice });
-  if (militaryPrice != null && militaryPrice !== adultPrice) tiers.push({ label: 'military', value: militaryPrice });
+
+  const adultPrice = priceMap.get('adult') ?? null;
+
+  // Build display tiers: always include adult when present; include other tiers
+  // only when they differ from the adult price (same-price tiers are noise).
+  const tiers: Array<{ label: string; value: number | null }> = [];
+  for (const aud of TIER_ORDER) {
+    if (!priceMap.has(aud)) continue;
+    const price = priceMap.get(aud) ?? null;
+    if (price == null) continue;  // skip null-price entries
+    if (aud === 'adult') {
+      tiers.push({ label: 'adult', value: price });
+    } else if (price !== adultPrice) {
+      tiers.push({ label: aud, value: price });
+    }
+  }
 
   const hoursInfo = date ? hoursDisplay(attraction, date) : null;
 
@@ -88,10 +93,9 @@ export function AttractionInfoRows({
         </p>
       )}
 
-      {(tiers.length > 0 || freeUnder != null) && (() => {
-        // Flatten everything into a single token stream so one gap rule
-        // controls every space — no nested flex wrappers, no double gaps,
-        // no leading space before "age <N FREE".
+      {tiers.length > 0 && (() => {
+        // Flatten everything into a single token stream — one gap rule for all
+        // spaces, no nested flex wrappers, no double gaps.
         const tokens: React.ReactNode[] = [];
         tiers.forEach((t, i) => {
           if (i > 0) tokens.push(<span key={`sep-${i}`} aria-hidden>·</span>);
@@ -102,13 +106,6 @@ export function AttractionInfoRows({
             </span>
           );
         });
-        if (freeUnder != null) {
-          if (tiers.length > 0) tokens.push(<span key="fu-sep" aria-hidden>·</span>);
-          tokens.push(<span key="fu-lbl">{`age <${freeUnder}`}</span>);
-          tokens.push(
-            <span key="fu-val" style={{ fontWeight: 700, color: 'var(--ink-2)' }}>FREE</span>
-          );
-        }
         return (
           <p className="info-line" style={{ color: 'var(--ink-3)' }}>
             <span className="info-icon"><TicketIcon /></span>
@@ -118,8 +115,8 @@ export function AttractionInfoRows({
       })()}
 
       <MuseumReservationBanner
-        reservation={attraction.museum_reservation}
-        attractionName={attraction.museum_name}
+        reservation={attraction.reservation}
+        attractionName={attraction.name}
         variant={variant}
       />
     </>
