@@ -1,4 +1,6 @@
-import type { AgeRange, AudiencePolicy, Coupon, CouponCapacity } from '../data/types';
+import type { AudiencePolicy, Capacity, Coupon } from '../data/types';
+
+type AgeRange = { min: number | null; max: number | null };
 
 interface Props {
   coupon: Coupon;
@@ -30,6 +32,8 @@ function fmtAmount(p: AudiencePolicy): string {
     case 'dollar-off': return p.value != null ? `$${p.value} off` : 'discount';
     case 'per-person-price': return p.value != null ? `$${p.value}` : 'discount';
     case 'discount': return 'discount';
+    case 'bogo': return 'BOGO';
+    default: return 'discount';
   }
 }
 
@@ -61,7 +65,7 @@ function fmtAudienceLabel(p: AudiencePolicy): string | null {
  *  coupon isn't headcount-shaped — capacity lives next to location info on the
  *  card, NOT next to prices, so callers render it themselves.
  */
-export function formatCapacity(capacity: CouponCapacity): string | null {
+export function formatCapacity(capacity: Capacity): string | null {
   if (capacity.n == null || capacity.n <= 0) return null;
   if (capacity.kind === 'people') return `up to ${capacity.n}`;
   if (capacity.kind === 'ticket') return `up to ${capacity.n}`;

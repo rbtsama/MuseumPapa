@@ -18,9 +18,8 @@ const AVAILABLE_PLACEHOLDERS = new Set([
 export function heroSrc(
   attraction: Pick<Attraction, 'categories' | 'hero_image'>,
 ): string {
-  if (attraction.hero_image?.local_path) {
-    const filename = attraction.hero_image.local_path.split(/[\\/]/).pop() ?? '';
-    if (filename) return `/images/${filename}`;
+  if (attraction.hero_image) {
+    return attraction.hero_image;
   }
   const cats = (attraction.categories ?? []).map(c => c.toLowerCase());
   for (const c of cats) {

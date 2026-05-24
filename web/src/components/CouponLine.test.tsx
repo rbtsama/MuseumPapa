@@ -1,11 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { CouponLine, formatCapacity } from './CouponLine';
-import type { AudiencePolicy, Coupon, CouponCapacity } from '../data/types';
+import type { AudiencePolicy, Capacity, Coupon } from '../data/types';
 
 const make = (
   policies: AudiencePolicy[],
-  capacity: CouponCapacity = { kind: 'people', n: 4 },
+  capacity: Capacity = { kind: 'people', n: 4 },
 ): Coupon => ({
   capacity,
   audience_policies: policies,

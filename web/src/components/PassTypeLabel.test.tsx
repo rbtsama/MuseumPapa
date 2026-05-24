@@ -4,23 +4,18 @@ import { renderApp } from '../test-utils';
 import { PassTypeLabel } from './PassTypeLabel';
 
 describe('PassTypeLabel', () => {
-  it('renders "Email" for digital type', () => {
-    renderApp(<PassTypeLabel type="digital" />);
+  it('renders "Email" for digital_email form', () => {
+    renderApp(<PassTypeLabel type="digital_email" />);
     expect(screen.getByText('Email')).toBeInTheDocument();
   });
 
-  it('renders "Pickup" for physical-coupon type', () => {
-    renderApp(<PassTypeLabel type="physical-coupon" />);
+  it('renders "Coupon" for physical_coupon form', () => {
+    renderApp(<PassTypeLabel type="physical_coupon" />);
+    expect(screen.getByText('Coupon')).toBeInTheDocument();
+  });
+
+  it('renders "Pickup" for physical_circ form (the value the data layer actually emits)', () => {
+    renderApp(<PassTypeLabel type="physical_circ" />);
     expect(screen.getByText('Pickup')).toBeInTheDocument();
-  });
-
-  it('renders "Pik&Rtn" for physical-circ type (the value the data layer actually emits)', () => {
-    renderApp(<PassTypeLabel type="physical-circ" />);
-    expect(screen.getByText('Pik&Rtn')).toBeInTheDocument();
-  });
-
-  it('renders "Pass" for unknown type', () => {
-    renderApp(<PassTypeLabel type="unknown" />);
-    expect(screen.getByText('Pass')).toBeInTheDocument();
   });
 });

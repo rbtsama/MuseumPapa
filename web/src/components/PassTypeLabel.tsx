@@ -1,28 +1,27 @@
-import type { PassTypeKind } from '../data/types';
+import type { PassForm } from '../data/types';
 
 /**
- * Small colored text label for the three pass types.
+ * Small colored text label for the three pass forms.
  *
  * Color gradient (calm → cautious — what UX feels increasingly inconvenient):
- *   - Email   = forest green (calm, instant, no friction)
- *   - Pickup  = amber (some friction, you drive once)
- *   - Pik&Rtn = orange (most friction, you drive twice — collect and return)
+ *   - digital_email  = forest green (calm, instant, no friction)
+ *   - physical_coupon = amber (some friction — you print/show the coupon)
+ *   - physical_circ  = orange (most friction — you pick up AND return the pass)
  *
  * Same hue family so the page isn't noisy, but distinguishable.
  */
-const META: Record<PassTypeKind, { label: string; fg: string; bg: string }> = {
-  'digital':         { label: 'Email',  fg: 'var(--g)',     bg: 'var(--g-pale)'  },
-  'physical-coupon': { label: 'Pickup', fg: 'var(--au)',    bg: 'var(--au-pale)' },
-  'physical-circ':   { label: 'Pik&Rtn', fg: 'var(--or)',    bg: 'var(--or-pale)' },
-  'unknown':         { label: 'Pass',   fg: 'var(--ink-3)', bg: 'var(--paper)'   },
+const META: Record<PassForm, { label: string; fg: string; bg: string }> = {
+  'digital_email':    { label: 'Email',    fg: 'var(--g)',     bg: 'var(--g-pale)'  },
+  'physical_coupon':  { label: 'Coupon',   fg: 'var(--au)',    bg: 'var(--au-pale)' },
+  'physical_circ':    { label: 'Pickup',   fg: 'var(--or)',    bg: 'var(--or-pale)' },
 };
 
 interface Props {
-  type: PassTypeKind;
+  type: PassForm;
 }
 
 export function PassTypeLabel({ type }: Props) {
-  const m = META[type] ?? META.unknown;
+  const m = META[type] ?? { label: 'Pass', fg: 'var(--ink-3)', bg: 'var(--paper)' };
   return (
     <span
       className="inline-block whitespace-nowrap"
