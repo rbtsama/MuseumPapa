@@ -30,3 +30,7 @@ for (const f of ["libraries", "attractions", "branches", "passes"]) {
   fs.copyFileSync(s, d);
 }
 console.log(`[sync-admin] 4 structured JSON files -> ${structDst}`);
+
+// 3. config/town_zips.json -> public/data/structured/town_zips.json
+fs.copyFileSync(path.join(ROOT, "config", "town_zips.json"), path.join(structDst, "town_zips.json"));
+console.log(`[sync-admin] config/town_zips.json -> ${path.join(structDst, "town_zips.json")}`);
