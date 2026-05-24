@@ -1,22 +1,40 @@
-// MuseumPapa Admin Panel — interactive matrix viewer (libraries × attractions)
-// Output format aligned with web/ frontend CouponLine + PassTypeLabel conventions.
+// MuseumPapa Admin Panel — rebuilt on new data shapes + funnel engine
+// Edit source under admin/ only. See web/sync-admin.mjs for copy rules.
 
 const DEFAULT_ZIP = "01880";
 
+// ─────────────────────────────────────────────
+//  STATE
+// ─────────────────────────────────────────────
 const STATE = {
-  libs: [], attractions: [], branches: {}, passes: [], passesByAttr: {},
-  networks: [],          // ['NOBLE', 'Minuteman', ...] — one card per network
+  libs: [],
+  attractions: [],
+  branches: [],
+  passes: [],
+  townZips: {},       // { towns: { "Wakefield": ["01880"], ... } }
+  // indexes
+  libsById: {},
+  attrBySlug: {},
+  passesByAttr: {},   // slug -> Pass[]
+  branchesByLib: {},  // library_id -> Branch[]
+  MA_ZIPS: new Set(),
+  // derived
+  networks: [],
   libsByNetwork: {},
   selectedNetworks: new Set(),
   selectedLibs: new Set(),   // derived from selectedNetworks
+  // controls
+  homeZip: DEFAULT_ZIP,
   homeGeo: null,
+  visitDate: null,     // Date object or null
   showOnlyCovered: true,
-  sortMode: "coverage-desc",
   categoryFilter: "",
+  activeLens: "A",
+  // group collapse state: net -> bool collapsed
+  groupCollapsed: {},
 };
 
-// Re-derive STATE.selectedLibs from STATE.selectedNetworks. A network card
-// unlocks pass booking at every member library.
+// Re-derive STATE.selectedLibs from STATE.selectedNetworks.
 function syncSelectedLibs() {
   STATE.selectedLibs = new Set(
     STATE.libs
@@ -25,7 +43,9 @@ function syncSelectedLibs() {
   );
 }
 
-// ---------- DOM helpers ----------
+// ─────────────────────────────────────────────
+//  DOM helpers
+// ─────────────────────────────────────────────
 const $ = (s) => document.querySelector(s);
 function el(tag, attrs = {}, ...kids) {
   const e = document.createElement(tag);
@@ -44,8 +64,7 @@ function el(tag, attrs = {}, ...kids) {
   return e;
 }
 
-// Project geo objects use either `lng` (from zippopotam) or `lon`
-// (from data/structured/*.json) — normalize both.
+// Project geo uses `lon` (structured data). zippopotam returns `lng`.
 function lng(g) { return g?.lng ?? g?.lon; }
 function haversineMi(a, b) {
   if (!a || !b) return null;
@@ -56,39 +75,58 @@ function haversineMi(a, b) {
   const s = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLng / 2) ** 2;
   return 2 * R * Math.asin(Math.sqrt(s));
 }
-// Pickup point geo for a pass: branch geo if specified, else library geo.
-// Digital passes don't need pickup — returns null.
-function pickupGeo(pass) {
-  if (pass.pickup_method === "digital") return null;
-  const brs = (pass.pickup_branches || []).map(bid => STATE.branches[bid]).filter(Boolean);
-  if (brs.length && brs[0].geo) return brs[0].geo;
-  const lib = STATE.libs.find(l => l.id === pass.library_id);
-  return lib?.geo || null;
+
+function fmtMoney(v) {
+  if (v == null) return "—";
+  if (v === 0) return "FREE";
+  if (Number.isInteger(v)) return `$${v}`;
+  return `$${v.toFixed(2)}`;
 }
 
-// ---------- data load ----------
+// ─────────────────────────────────────────────
+//  DATA LOAD
+// ─────────────────────────────────────────────
 async function loadData() {
   const fetchJson = async (p) => {
     const r = await fetch(p);
     if (!r.ok) throw new Error(`${p} → ${r.status}`);
     return r.json();
   };
-  // Served via web/'s Vite dev server (pnpm -C web dev) or Vercel — both expose
-  // public/data/structured at the absolute /data/structured/ URL.
-  const [libsD, attrsD, branchesD, passesD] = await Promise.all([
+  const [libsD, attrsD, branchesD, passesD, townZipsD] = await Promise.all([
     fetchJson("/data/structured/libraries.json"),
     fetchJson("/data/structured/attractions.json"),
     fetchJson("/data/structured/branches.json"),
     fetchJson("/data/structured/passes.json"),
+    fetchJson("/data/structured/town_zips.json"),
   ]);
+
   STATE.libs = libsD.libraries.slice().sort((a, b) => a.name.localeCompare(b.name));
   STATE.attractions = attrsD.attractions;
-  for (const br of branchesD.branches) STATE.branches[br.id] = br;
+  STATE.branches = branchesD.branches;
   STATE.passes = passesD.passes;
-  STATE.passesByAttr = {};
-  for (const p of STATE.passes) (STATE.passesByAttr[p.attraction_slug] ||= []).push(p);
+  STATE.townZips = townZipsD;
 
-  // Group libs by network — used only for sidebar layout, not for filter logic.
+  // Build indexes
+  STATE.libsById = {};
+  for (const l of STATE.libs) STATE.libsById[l.id] = l;
+
+  STATE.attrBySlug = {};
+  for (const a of STATE.attractions) STATE.attrBySlug[a.slug] = a;
+
+  STATE.passesByAttr = {};
+  for (const p of STATE.passes) {
+    (STATE.passesByAttr[p.attraction_slug] ||= []).push(p);
+  }
+
+  STATE.branchesByLib = {};
+  for (const b of STATE.branches) {
+    (STATE.branchesByLib[b.library_id] ||= []).push(b);
+  }
+
+  // MA ZIP set
+  STATE.MA_ZIPS = new Set(Object.values(townZipsD.towns || {}).flat());
+
+  // Group libs by network
   STATE.libsByNetwork = {};
   for (const l of STATE.libs) {
     const net = l.network || "Unknown";
@@ -96,245 +134,200 @@ async function loadData() {
   }
   STATE.networks = Object.keys(STATE.libsByNetwork).sort((a, b) =>
     (STATE.libsByNetwork[b].length - STATE.libsByNetwork[a].length) || a.localeCompare(b));
-  // Default: all network cards held → all libraries available.
+
+  // Default: all networks selected
   STATE.selectedNetworks = new Set(STATE.networks);
   syncSelectedLibs();
 }
 
-// ---------- coupon formatting (mirrors web/src/components/CouponLine.tsx) ----------
-function bucket(audience) {
-  switch (audience) {
-    case "Adult": case "Senior": return "Adult";
-    case "Child": return "Child";
-    case "Youth": return "Youth";
-    case "Everyone": return "Everyone";
-    case "Vehicle": case "Single ticket": return null;
-    default: return null;
-  }
+// ─────────────────────────────────────────────
+//  FUNNEL ENGINE  (mirrors web/src/lib/engine.ts exactly)
+// ─────────────────────────────────────────────
+function isMaZip(zip) { return STATE.MA_ZIPS.has(zip); }
+
+function checkL1Card(lib, heldLibraryIds) {
+  if (heldLibraryIds.includes(lib.id)) return { ok: true };
+  const nets = new Set(heldLibraryIds.map(id => STATE.libsById[id]?.network).filter(Boolean));
+  if (nets.has(lib.network)) return { ok: true };
+  return { ok: false, reason: `无 ${lib.network} 网络的卡` };
 }
-function fmtAmount(p) {
+
+function checkL3Residency(rr, lib, homeZip) {
+  if (!rr || rr.restricted === "no") return { ok: true };
+  if (rr.restricted === "unknown") return { ok: true, warn: true, reason: "取 pass 资格未确认" };
+  if (rr.scope === "town") return lib.resident_zips.includes(homeZip) ? { ok: true } : { ok: false, reason: `${lib.town} 仅本镇居民可取` };
+  if (rr.scope === "ma") return isMaZip(homeZip) ? { ok: true } : { ok: false, reason: "仅 MA 居民可取" };
+  return { ok: true, warn: true };
+}
+
+function checkL4VisitorResidency(ve, homeZip) {
+  if (!ve || ve.residency === "none") return { ok: true };
+  if (ve.residency === "unknown") return { ok: true, warn: true, reason: "景点访客资格未确认" };
+  if (ve.residency === "ma_resident") return isMaZip(homeZip) ? { ok: true } : { ok: false, reason: "景点仅 MA 居民可入" };
+  return { ok: true, warn: true, reason: `景点可能仅 ${ve.scope ?? "本镇"} 居民` };
+}
+
+const WD = ["sundays", "mondays", "tuesdays", "wednesdays", "thursdays", "fridays", "saturdays"];
+function checkL8Restrictions(r, date) { // date: Date; USE UTC getters
+  if (!r) return { ok: true };
+  const m = date.getUTCMonth() + 1, d = date.getUTCDate(), dow = date.getUTCDay();
+  for (const b of r.blackout) if (b.month === m && (b.day == null || b.day === d)) return { ok: false, reason: "blackout" };
+  if (r.blackout_recurring.includes(WD[dow])) return { ok: false, reason: "该星期几不可用" };
+  if (r.weekdays_only && (dow === 0 || dow === 6)) return { ok: false, reason: "仅平日" };
+  if (r.seasonal) {
+    const { start_month: s, end_month: e } = r.seasonal;
+    const inS = s <= e ? (m >= s && m <= e) : (m >= s || m <= e);
+    if (!inS) return { ok: false, reason: "季节性闭区" };
+  }
+  return { ok: true };
+}
+
+function checkL10Availability(av, iso) {
+  const s = av?.[iso];
+  if (s === "available") return { ok: true };
+  if (s == null) return { ok: true, warn: true, reason: "该日库存未知" };
+  return { ok: false, reason: s === "booked" ? "该日已订满" : "该日不可预约" };
+}
+
+function resolvePass(pass, lib, attr, user, date) {
+  const reasons = [], warnings = [];
+  const layers = [
+    ["L1", checkL1Card(lib, user.heldLibraryIds)],
+    ["L3", checkL3Residency(pass.residency_restriction, lib, user.homeZip)],
+    ["L4", checkL4VisitorResidency(attr?.visitor_eligibility, user.homeZip)],
+  ];
+  if (date) {
+    layers.push(["L8", checkL8Restrictions(pass.restrictions, date)]);
+    const iso = date.toISOString().slice(0, 10);
+    layers.push(["L10", checkL10Availability(pass.availability, iso)]);
+  }
+  for (const [name, r] of layers) {
+    if (r.warn && r.reason) warnings.push(r.reason);
+    if (!r.ok) return { eligible: false, blockedLayer: name, reasons: [r.reason || name], warnings };
+  }
+  return { eligible: true, reasons, warnings };
+}
+
+const STRENGTH = { free: 6, "percent-off": 5, "dollar-off": 4, "per-person-price": 3, discount: 2, bogo: 1 };
+function couponStrength(f) { return STRENGTH[f] ?? 0; }
+function passStrength(c) {
+  if (!c || !c.audience_policies.length) return 0;
+  return Math.max(...c.audience_policies.map(p => couponStrength(p.form)));
+}
+function couponSummary(c) {
+  if (!c) return "优惠详情未知";
+  if (c.summary) return c.summary;
+  const p = c.audience_policies[0];
+  if (!p) return "优惠详情未知";
   switch (p.form) {
     case "free": return "FREE";
-    case "percent-off": return p.value != null ? `${p.value}% off` : "discount";
-    case "dollar-off": return p.value != null ? `$${p.value} off` : "discount";
-    case "per-person-price": return p.value != null ? `$${p.value}` : "discount";
-    case "discount": return "discount";
-    default: return p.form || "—";
+    case "percent-off": return `${p.value ?? ""}% off`;
+    case "dollar-off": return `$${p.value ?? ""} off`;
+    case "per-person-price": return `$${p.value ?? ""}/人`;
+    case "bogo": return "买一送一";
+    default: return "折扣";
   }
 }
-function isRedundantAge(b, audience, age) {
-  if (!age) return true;
-  const { min, max } = age;
-  if (b === "Adult" && max == null && min != null && min >= 18 && min <= 19) return true;
-  if (b === "Adult" && audience === "Senior") return true;
-  if ((b === "Youth" || b === "Child") && min == null && max != null && max >= 17 && max <= 18) return true;
-  if (b === "Youth" && min === 13 && max === 17) return true;
-  return false;
-}
-function fmtAudienceLabel(p) {
-  const b = bucket(p.audience);
-  if (b == null) return null;
-  const age = p.age_range;
-  if (!age || isRedundantAge(b, p.audience, age)) return b;
-  const { min, max } = age;
-  if (min != null && max != null) return `age ${min}-${max}`;
-  if (max != null) return `age<${max + 1}`;
-  if (min != null) return `age ${min}+`;
-  return b;
-}
-function formatCapacity(cap) {
-  if (!cap || cap.n == null || cap.n <= 0) return null;
-  if (cap.kind === "people" || cap.kind === "ticket") return `up to ${cap.n}`;
-  return null;
-}
-function isNonAdmission(coupon) {
-  if (coupon?.capacity?.kind === "vehicle") return true;
-  return (coupon?.audience_policies || []).some(p => p.audience === "Vehicle");
-}
-
-function renderCouponLine(coupon) {
-  if (!coupon?.audience_policies?.length) return el("div", { class: "cell-prices" }, "—");
-  if (isNonAdmission(coupon)) {
-    return el("div", { class: "cell-prices" }, el("span", { class: "amount" }, "Parking Discount"));
+function recommend(slug, user, date) {
+  const attr = STATE.attrBySlug[slug];
+  if (!attr) return [];
+  const scored = [];
+  for (const pass of (STATE.passesByAttr[slug] || [])) {
+    const lib = STATE.libsById[pass.library_id];
+    if (!lib) continue;
+    const verdict = resolvePass(pass, lib, attr, user, date);
+    let score = passStrength(pass.coupon) * 10;
+    if (!verdict.eligible) score -= 1000;
+    if (verdict.warnings.length) score -= 5;
+    scored.push({ pass, lib, verdict, score });
   }
-  const wrap = el("div", { class: "cell-prices" });
-  coupon.audience_policies.forEach((p, i) => {
-    if (i > 0) wrap.appendChild(el("span", { class: "sep" }, "·"));
-    const label = fmtAudienceLabel(p);
-    if (label && label !== "Everyone") wrap.appendChild(el("span", { class: "label" }, label + " "));
-    wrap.appendChild(el("span", { class: "amount" }, fmtAmount(p)));
-  });
-  return wrap;
+  scored.sort((a, b) => b.score - a.score);
+  const out = [];
+  const email = scored.find(r => r.pass.pass_form === "digital_email");
+  if (email) out.push(email);
+  for (const r of scored) {
+    if (out.length >= 4) break;
+    if (r.pass.pass_form === "digital_email") continue;
+    out.push(r);
+  }
+  return out.slice(0, 4);
 }
 
-// ---------- pass-type pill ----------
-const PASS_TYPE_META = {
-  "digital":         { label: "Email",  cls: "pill-email" },
-  "physical-coupon": { label: "Pickup", cls: "pill-pickup" },
-  "physical-circ":   { label: "Pik&Rtn", cls: "pill-borrow" },
-  "unknown":         { label: "Pass",   cls: "pill-unknown" },
+// ─────────────────────────────────────────────
+//  USER OBJECT
+// ─────────────────────────────────────────────
+function getUser() {
+  return {
+    homeZip: STATE.homeZip,
+    heldLibraryIds: [...STATE.selectedLibs],
+  };
+}
+
+// ─────────────────────────────────────────────
+//  ELIGIBILITY TAG helpers
+// ─────────────────────────────────────────────
+const ELIG_LABEL = {
+  ma_resident: "MA",
+  town_resident: "本镇",
+  town_or_works: "本镇",
+  network: "网络",
+  none: "无限制",
+  unknown: "未知",
 };
-function passTypePill(t) {
-  const m = PASS_TYPE_META[t] || PASS_TYPE_META.unknown;
+const ELIG_CLASS = {
+  ma_resident: "elig-open",
+  town_resident: "elig-residents",
+  town_or_works: "elig-residents",
+  network: "elig-network",
+  none: "elig-open",
+  unknown: "elig-unknown",
+};
+function eligTag(v) {
+  const lbl = ELIG_LABEL[v] || "未知";
+  const cls = ELIG_CLASS[v] || "elig-unknown";
+  return el("span", { class: `elig-tag ${cls}` }, lbl);
+}
+
+// pass_form display
+const PASS_FORM_META = {
+  digital_email: { label: "Email", cls: "pill-email" },
+  physical_circ: { label: "借还", cls: "pill-borrow" },
+  physical_coupon: { label: "凭证", cls: "pill-pickup" },
+};
+function passFormPill(f) {
+  const m = PASS_FORM_META[f] || { label: f || "—", cls: "pill-unknown" };
   return el("span", { class: `pill ${m.cls}` }, m.label);
 }
 
-// ---------- BEST ranking ----------
-function couponStrength(pass, attraction) {
-  if (!pass) return -1;
-  const pols = pass.coupon?.audience_policies || [];
-  let s = 0;
-  for (const p of pols) {
-    if (p.form === "free") s = Math.max(s, 1000);
-    else if (p.form === "percent-off") s = Math.max(s, p.value || 0);
-    else if (p.form === "dollar-off") s = Math.max(s, (p.value || 0) * 2);
-    else if (p.form === "per-person-price") {
-      const orig = attraction?.original_price?.age_pricing?.adult?.price;
-      if (orig && p.value < orig) s = Math.max(s, ((orig - p.value) / orig) * 100);
-    } else if (p.form === "discount") s = Math.max(s, p.value || 0);
+// ─────────────────────────────────────────────
+//  VERDICT BADGE
+// ─────────────────────────────────────────────
+function verdictBadge(verdict) {
+  if (!verdict) return el("span", { class: "verdict verdict-blocked" }, "N/A");
+  if (verdict.eligible && !verdict.warnings.length) {
+    return el("span", { class: "verdict verdict-ok" }, "✓ 合规");
   }
-  return s;
-}
-function bestPassFor(attraction) {
-  const candidates = (STATE.passesByAttr[attraction.slug] || []).filter(p => STATE.selectedLibs.has(p.library_id));
-  if (!candidates.length) return null;
-  let best = candidates[0], bestScore = couponStrength(best, attraction);
-  for (const p of candidates.slice(1)) {
-    const s = couponStrength(p, attraction);
-    if (s > bestScore) { best = p; bestScore = s; }
+  if (verdict.eligible && verdict.warnings.length) {
+    return el("span", { class: "verdict verdict-warn" }, "⚠ 合规(待确认)");
   }
-  return best;
+  return el("span", { class: "verdict verdict-blocked" }, `✗ 拦截 ${verdict.blockedLayer || ""}`);
 }
 
-// ---------- pickup location label (mirrors web/ CouponRow logic) ----------
-function locationLabel(pass) {
-  const lib = STATE.libs.find(l => l.id === pass.library_id);
-  if (!lib) return pass.library_id;
-  if (pass.pickup_method === "digital") return lib.name;
-  const brs = (pass.pickup_branches || []).map(bid => STATE.branches[bid]).filter(Boolean);
-  if (brs.length > 1) return `${lib.town} · ${brs.length} branches`;
-  if (brs.length === 1 && brs[0].id !== `${lib.id}--main`) return brs[0].name;
-  return lib.town;
+// ─────────────────────────────────────────────
+//  AVAIL BADGE
+// ─────────────────────────────────────────────
+function availBadge(pass, iso) {
+  if (!iso) return el("span", { class: "avail avail-unknown" }, "未选日期");
+  const s = pass.availability?.[iso];
+  if (s === "available") return el("span", { class: "avail avail-ok" }, "可预约");
+  if (s === "booked") return el("span", { class: "avail avail-booked" }, "已订满");
+  if (s === "closed") return el("span", { class: "avail avail-closed" }, "已关闭");
+  return el("span", { class: "avail avail-unknown" }, "未知");
 }
 
-// ---------- restrictions summary ----------
-function hasRestrictions(pass) {
-  const r = pass.restrictions;
-  if (!r) return false;
-  return Object.entries(r).some(([k, v]) =>
-    v != null && v !== false && (!Array.isArray(v) || v.length > 0));
-}
-function restrictionLabel(pass) {
-  const r = pass.restrictions || {};
-  const bits = [];
-  if (r.blackout_dates?.length) bits.push("blackout");
-  if (r.weekdays_only) bits.push("weekdays only");
-  if (r.seasonal) bits.push(`seasonal: ${r.seasonal}`);
-  if (r.reservation_required) bits.push("reservation");
-  if (r.lead_time_days) bits.push(`${r.lead_time_days}d lead`);
-  if (r.hold_period_days) bits.push(`${r.hold_period_days}d hold`);
-  return bits.length ? bits.join(" · ") : "with restrictions";
-}
-
-// ---------- cell render ----------
-function renderCell(pass, attraction, opts = {}) {
-  if (!pass) return el("div", { class: "cell-empty" }, "—");
-  const cls = "cell" + (opts.best ? " best" : "");
-  const bookBtn = el("button", {
-    class: "book-btn", type: "button",
-    onclick: () => {
-      if (pass.source_url) window.open(pass.source_url, "_blank", "noopener,noreferrer");
-    },
-  }, "Book →");
-  // For physical passes, append distance from home -> pickup point next to location.
-  // Digital ('Email') passes don't need pickup, so no distance line.
-  let locNode;
-  if (pass.pickup_method !== "digital") {
-    const pg = pickupGeo(pass);
-    const pickupDist = STATE.homeGeo && pg ? haversineMi(STATE.homeGeo, pg) : null;
-    locNode = el("div", { class: "cell-loc" },
-      locationLabel(pass),
-      pickupDist != null ? el("span", { class: "dist" }, ` · ${Math.round(pickupDist)} mi`) : null,
-    );
-  } else {
-    locNode = el("div", { class: "cell-loc" }, locationLabel(pass));
-  }
-  return el("div", { class: cls },
-    passTypePill(pass.pass_type),
-    renderCouponLine(pass.coupon),
-    locNode,
-    (() => {
-      const cap = formatCapacity(pass.coupon?.capacity);
-      return cap ? el("div", { class: "cell-cap" }, cap) : null;
-    })(),
-    hasRestrictions(pass) ? el("div", { class: "cell-restr" }, restrictionLabel(pass)) : null,
-    bookBtn,
-  );
-}
-
-// ---------- attraction price tiers (mirrors web/src/components/AttractionInfoRows.tsx) ----------
-function fmtMoney(v) {
-  if (v == null) return "";
-  if (v === 0) return "FREE";
-  if (Number.isInteger(v)) return `$${v}`;
-  return `$${v.toFixed(2)}`;
-}
-function buildPriceTiers(attraction) {
-  const op = attraction.original_price || {};
-  const ap = op.age_pricing || {};
-  const ip = op.identity_pricing || {};
-  const adult   = ap.adult?.price   ?? null;
-  const youth   = ap.youth?.price   ?? null;
-  const child   = ap.child?.price   ?? null;
-  const senior  = ap.senior?.price  ?? null;
-  const student = ip.student?.price ?? null;
-  const educator= ip.educator?.price?? null;
-  const military= ip.military?.price?? null;
-  const freeUnder = ap.free_under_age ?? null;
-  const tiers = [];
-  if (adult   != null) tiers.push({ label: "adult",  value: adult  });
-  if (senior  != null && senior  !== adult) tiers.push({ label: "senior",  value: senior });
-  if (youth   != null && youth   !== adult) tiers.push({ label: "youth",   value: youth });
-  if (child   != null && child   !== adult) {
-    const lbl = freeUnder != null ? `age ${freeUnder}+` : "child";
-    tiers.push({ label: lbl, value: child });
-  }
-  if (student != null && student !== adult) tiers.push({ label: "student", value: student });
-  if (educator!= null && educator!== adult) tiers.push({ label: "educator", value: educator });
-  if (military!= null && military!== adult) tiers.push({ label: "military", value: military });
-  return { tiers, freeUnder };
-}
-function renderPriceTiers(attraction) {
-  const { tiers, freeUnder } = buildPriceTiers(attraction);
-  if (!tiers.length && freeUnder == null) return null;
-  const out = el("div", { class: "price-tiers" });
-  tiers.forEach((t, i) => {
-    if (i > 0) out.appendChild(el("span", { class: "sep" }, "·"));
-    if (tiers.length > 1) out.appendChild(el("span", { class: "label" }, t.label));
-    out.appendChild(el("span", { class: "val" }, fmtMoney(t.value)));
-  });
-  if (freeUnder != null) {
-    if (tiers.length) out.appendChild(el("span", { class: "sep" }, "·"));
-    out.appendChild(el("span", { class: "label" }, `age <${freeUnder}`));
-    out.appendChild(el("span", { class: "val" }, "FREE"));
-  }
-  return out;
-}
-
-// ---------- sidebar render — cards (= networks) ----------
-const ELIG_LABEL = {
-  "open_ma_resident": "open MA",
-  "residents_only": "residents only",
-  "network_only": "network only",
-  "unknown": "unknown",
-};
-const ELIG_CLASS = {
-  "open_ma_resident": "elig-open",
-  "residents_only": "elig-residents",
-  "network_only": "elig-network",
-  "unknown": "elig-unknown",
-};
-
+// ─────────────────────────────────────────────
+//  SIDEBAR — card list
+// ─────────────────────────────────────────────
 function renderCardList() {
   const wrap = $("#lib-list");
   wrap.innerHTML = "";
@@ -349,30 +342,31 @@ function renderCardList() {
           if (e.target.checked) STATE.selectedNetworks.add(net);
           else STATE.selectedNetworks.delete(net);
           syncSelectedLibs();
-          renderCardList(); updateLibCount(); renderMatrix();
+          renderCardList(); updateLibCount(); renderLens();
         },
       }),
       el("span", { class: "card-name" }, net),
-      el("span", { class: "card-count" }, `${libs.length} libs`),
+      el("span", { class: "card-count" }, `${libs.length} 馆`),
     );
     cardEl.appendChild(hdr);
-    // Member library list (read-only; eligibility = how strict card *application* is).
     const members = el("div", { class: "card-members" });
     for (const l of libs) {
-      const elig = l.eligibility || "unknown";
+      const elig = l.card_eligibility || "unknown";
       members.appendChild(el("div", { class: "card-member" },
         el("span", { class: "card-member-name" },
           l.name.replace(/\sPublic Library$|\sLibrary$/, "")),
-        el("span", { class: `elig-tag ${ELIG_CLASS[elig]}` }, ELIG_LABEL[elig]),
+        eligTag(elig),
       ));
     }
     cardEl.appendChild(members);
     wrap.appendChild(cardEl);
   }
 }
+
 function updateLibCount() {
   $("#lib-count").textContent = `${STATE.selectedNetworks.size} / ${STATE.networks.length}`;
 }
+
 function renderCategoryFilter() {
   const cats = new Set();
   for (const a of STATE.attractions) (a.categories || []).forEach(c => cats.add(c));
@@ -380,143 +374,373 @@ function renderCategoryFilter() {
   for (const c of [...cats].sort()) sel.appendChild(el("option", { value: c }, c));
 }
 
-// ---------- sort + filter ----------
-function sortedVisible() {
-  let list = STATE.attractions.slice();
-  if (STATE.categoryFilter) list = list.filter(a => (a.categories || []).includes(STATE.categoryFilter));
-  list.sort((a, b) => {
-    if (STATE.sortMode === "name-asc") return a.museum_name.localeCompare(b.museum_name);
-    if (STATE.sortMode === "coverage-desc") {
-      const ca = (STATE.passesByAttr[a.slug] || []).filter(p => STATE.selectedLibs.has(p.library_id)).length;
-      const cb = (STATE.passesByAttr[b.slug] || []).filter(p => STATE.selectedLibs.has(p.library_id)).length;
-      return cb - ca || a.museum_name.localeCompare(b.museum_name);
-    }
-    if (STATE.sortMode === "best-strength") {
-      const sa = couponStrength(bestPassFor(a), a);
-      const sb = couponStrength(bestPassFor(b), b);
-      return sb - sa || a.museum_name.localeCompare(b.museum_name);
-    }
-    if (STATE.sortMode === "price-desc") {
-      const pa = a.original_price?.age_pricing?.adult?.price || 0;
-      const pb = b.original_price?.age_pricing?.adult?.price || 0;
-      return pb - pa || a.museum_name.localeCompare(b.museum_name);
-    }
-    if (STATE.sortMode === "distance-asc") {
-      if (!STATE.homeGeo) return 0;
-      const da = a.geo ? haversineMi(STATE.homeGeo, a.geo) ?? 1e9 : 1e9;
-      const db = b.geo ? haversineMi(STATE.homeGeo, b.geo) ?? 1e9 : 1e9;
-      return da - db;
-    }
-    return 0;
-  });
-  return list;
+// ─────────────────────────────────────────────
+//  TABLE BUILDER HELPERS
+// ─────────────────────────────────────────────
+
+// Build a <table class="adm-table"> with column defs and row data
+// colDefs: [{label, sticky?}]
+// rows: elements produced by rowBuilder
+function buildTable(colDefs, rowElems) {
+  const table = el("table", { class: "adm-table" });
+  const thead = el("thead");
+  const tr = el("tr");
+  for (const col of colDefs) {
+    tr.appendChild(el("th", { class: col.sticky ? "col-sticky" : "" }, col.label));
+  }
+  thead.appendChild(tr);
+  table.appendChild(thead);
+  const tbody = el("tbody");
+  for (const r of rowElems) tbody.appendChild(r);
+  table.appendChild(tbody);
+  return table;
 }
 
-// ---------- main matrix render ----------
-function renderMatrix() {
-  const thead = $("#matrix-head");
-  const tbody = $("#matrix-body");
-  thead.innerHTML = ""; tbody.innerHTML = "";
-
-  const selLibs = STATE.libs.filter(l => STATE.selectedLibs.has(l.id));
-
-  thead.appendChild(el("th", { class: "attr-col" }, "Attraction"));
-  for (const l of selLibs) {
-    const short = l.name.replace(/\sPublic Library$/, "").replace(/\sLibrary$/, "");
-    const elig = l.eligibility || "unknown";
-    thead.appendChild(el("th", {},
-      el("div", {}, short),
-      el("div", { class: "th-meta" },
-        el("span", { class: "th-net" }, l.network || "?"),
-        el("span", { class: `elig-tag ${ELIG_CLASS[elig]}` }, ELIG_LABEL[elig]),
-      ),
-    ));
+// Network-grouped rows for a flat array of { net, row_tr } items
+function buildGroupedTable(colDefs, groupedRows) {
+  const table = el("table", { class: "adm-table" });
+  const thead = el("thead");
+  const tr = el("tr");
+  for (const col of colDefs) {
+    tr.appendChild(el("th", { class: col.sticky ? "col-sticky" : "" }, col.label));
   }
+  thead.appendChild(tr);
+  table.appendChild(thead);
+  const tbody = el("tbody");
+  const netOrder = STATE.networks.filter(n => groupedRows[n]?.length);
 
-  const attrs = sortedVisible();
-  const rows = [];
-  for (const a of attrs) {
-    // For each row, compute best pass index among visible selLibs.
-    // Primary key: coupon strength (higher wins). Tie-break: cost-to-redeem
-    // (digital = 0 mi, physical = home->pickup mi). Final tie-break: leftmost.
-    const cells = selLibs.map(l => (STATE.passesByAttr[a.slug] || []).find(p => p.library_id === l.id) || null);
-    const costToRedeem = (p) => {
-      if (!p) return Infinity;
-      if (p.pickup_method === "digital") return 0;
-      const pg = pickupGeo(p);
-      const d = STATE.homeGeo && pg ? haversineMi(STATE.homeGeo, pg) : null;
-      return d != null ? d : Infinity;
-    };
-    let bestIdx = -1, bestScore = -1, bestCost = Infinity;
-    cells.forEach((p, i) => {
-      if (!p) return;
-      const s = couponStrength(p, a);
-      const c = costToRedeem(p);
-      if (s > bestScore || (s === bestScore && c < bestCost)) {
-        bestScore = s; bestCost = c; bestIdx = i;
+  for (const net of netOrder) {
+    const rows = groupedRows[net];
+    if (!rows || !rows.length) continue;
+    const collapsed = STATE.groupCollapsed[net] ?? false;
+    // group header row
+    const ghTr = el("tr", { class: "group-header", onclick: () => toggleGroup(net, tbody) });
+    const ghTd = el("td", { colspan: String(colDefs.length) });
+    ghTd.appendChild(document.createTextNode(`${net} · ${rows.length} 条`));
+    ghTd.appendChild(el("span", { class: "toggle-icon" }, collapsed ? "+" : "−"));
+    ghTr.appendChild(ghTd);
+    tbody.appendChild(ghTr);
+
+    for (const rowTr of rows) {
+      if (collapsed) rowTr.classList.add("group-row", "collapsed");
+      else rowTr.classList.add("group-row");
+      rowTr.dataset.net = net;
+      tbody.appendChild(rowTr);
+    }
+  }
+  table.appendChild(tbody);
+  return table;
+}
+
+function toggleGroup(net, tbody) {
+  const collapsed = !(STATE.groupCollapsed[net] ?? false);
+  STATE.groupCollapsed[net] = collapsed;
+  // update rows and icon
+  for (const rowTr of tbody.querySelectorAll(`[data-net="${net}"].group-row`)) {
+    if (collapsed) rowTr.classList.add("collapsed");
+    else rowTr.classList.remove("collapsed");
+  }
+  // update icon in header
+  for (const ghTr of tbody.querySelectorAll(".group-header")) {
+    const td = ghTr.querySelector("td");
+    if (td && td.textContent.startsWith(net + " ·")) {
+      const icon = td.querySelector(".toggle-icon");
+      if (icon) icon.textContent = collapsed ? "+" : "−";
+    }
+  }
+}
+
+// ─────────────────────────────────────────────
+//  LENS A — 卡覆盖查询
+//  Row: one Pass (for selected libs × all attractions)
+//  Cols: 图书馆 · 景点 · 我合规吗 · 一句话优惠摘要 · 当日库存
+// ─────────────────────────────────────────────
+function buildLensA() {
+  const user = getUser();
+  const date = STATE.visitDate;
+  const iso = date ? date.toISOString().slice(0, 10) : null;
+
+  const colDefs = [
+    { label: "图书馆", sticky: true },
+    { label: "景点" },
+    { label: "我合规吗" },
+    { label: "一句话优惠摘要" },
+    { label: "当日库存" },
+    { label: "来源" },
+  ];
+
+  // filter: only selected libs; optionally only covered
+  const groupedRows = {};
+  for (const lib of STATE.libs) {
+    if (!STATE.selectedLibs.has(lib.id)) continue;
+    const net = lib.network || "Unknown";
+    const libPasses = STATE.passes.filter(p => p.library_id === lib.id);
+    for (const pass of libPasses) {
+      const attr = STATE.attrBySlug[pass.attraction_slug];
+      if (STATE.categoryFilter && !(attr?.categories || []).includes(STATE.categoryFilter)) continue;
+      const verdict = resolvePass(pass, lib, attr, user, date);
+      if (STATE.showOnlyCovered && !verdict.eligible) continue;
+      const tr = el("tr");
+      // Library col
+      const libShort = lib.name.replace(/\sPublic Library$|\sLibrary$/, "");
+      tr.appendChild(el("td", { class: "col-sticky" }, libShort));
+      // Attraction col
+      const attrName = attr ? el("span", { class: "attr-name-serif" }, attr.name) : el("span", {}, pass.attraction_slug);
+      tr.appendChild(el("td", {}, attrName));
+      // Verdict col
+      const vb = verdictBadge(verdict);
+      const vCont = el("td", {}, vb);
+      if (!verdict.eligible && verdict.reasons?.length) {
+        vCont.appendChild(el("div", { class: "cell-reason" }, verdict.reasons.join(" · ")));
       }
-    });
-    if (STATE.showOnlyCovered && bestIdx < 0) continue;
-    rows.push({ a, cells, bestIdx });
-  }
+      if (verdict.warnings?.length) {
+        vCont.appendChild(el("div", { class: "cell-warn-reason" }, "⚠ " + verdict.warnings.join(" · ")));
+      }
+      tr.appendChild(vCont);
+      // Summary col
+      const summary = couponSummary(pass.coupon);
+      tr.appendChild(el("td", {}, el("span", { class: "cell-summary" }, summary)));
+      // Avail col
+      tr.appendChild(el("td", {}, availBadge(pass, iso)));
+      // Source col
+      const srcBtn = pass.source_url
+        ? el("button", { class: "book-link", onclick: () => window.open(pass.source_url, "_blank", "noopener,noreferrer") }, "Book →")
+        : el("span", { style: "color:var(--ink-3)" }, "—");
+      tr.appendChild(el("td", {}, srcBtn));
 
-  for (const { a, cells, bestIdx } of rows) {
-    const tr = el("tr");
-    const origPrice = a.original_price?.age_pricing?.adult?.price;
-    const dist = STATE.homeGeo && a.geo ? haversineMi(STATE.homeGeo, a.geo) : null;
-
-    // Attraction column — thumbnail + serif name + price + distance + categories
-    // hero_image is { og_image_url, local_path } where local_path looks like
-    // "static/images/boston-childrens-museum.png" — strip to filename and serve
-    // from web/public/images (the same dir Vercel deploys).
-    const localPath = a.hero_image?.local_path;
-    const fileName = localPath ? localPath.split("/").pop() : null;
-    const heroSrc = fileName ? `/images/${fileName}` : null;
-    let thumb;
-    if (heroSrc) {
-      thumb = el("img", { class: "attr-thumb", src: heroSrc, alt: "" });
-      thumb.onerror = () => { thumb.style.display = "none"; };
-    } else {
-      thumb = el("div", { class: "attr-thumb attr-thumb-fallback" }, "—");
+      (groupedRows[net] ||= []).push(tr);
     }
-    const cats = (a.categories || []).slice(0, 3).map(c => el("span", { class: "attr-cat" }, c));
-    const town = a.address?.city || null;
-    const resv = a.museum_reservation?.required;
-    tr.appendChild(el("td", { class: "attr-col" },
-      el("div", { class: "attr-row" },
-        thumb,
-        el("div", {},
-          el("span", { class: "attr-name" }, a.museum_name),
-          el("span", { class: "attr-meta" },
-            town || "—",
-            dist != null ? el("span", { class: "dist-tag" }, ` · ${Math.round(dist)} mi`) : null,
-          ),
-          renderPriceTiers(a),
-          resv ? el("div", {}, el("span", { class: "resv-flag" }, "Reservation required")) : null,
-          cats.length ? el("div", { class: "attr-categories" }, cats) : null,
-        ),
-      ),
-    ));
-
-    cells.forEach((p, i) => {
-      tr.appendChild(el("td", {}, renderCell(p, a, { best: i === bestIdx })));
-    });
-    tbody.appendChild(tr);
   }
 
-  // stat
-  const covered = rows.filter(r => r.bestIdx >= 0).length;
-  const free = rows.filter(r => {
-    if (r.bestIdx < 0) return false;
-    const p = r.cells[r.bestIdx];
-    return (p.coupon?.audience_policies || []).some(pol => pol.form === "free");
-  }).length;
-  $("#stat-summary").textContent =
-    `${STATE.selectedLibs.size} cards · ${covered}/${STATE.attractions.length} attractions covered · ${free} FREE`
-    + (STATE.homeGeo ? ` · home ${STATE.homeGeo.zip}` : "");
+  return buildGroupedTable(colDefs, groupedRows);
 }
 
-// ---------- ZIP geocoding via zippopotam.us ----------
+// ─────────────────────────────────────────────
+//  LENS B — 资格政策审查
+//  Row: one Library
+//  Cols: 联盟 · 办卡资格 · 取pass资格 · card_page
+// ─────────────────────────────────────────────
+function buildLensB() {
+  const colDefs = [
+    { label: "图书馆", sticky: true },
+    { label: "联盟(Network)" },
+    { label: "办卡资格(card_eligibility)" },
+    { label: "取 pass 资格(pass_pickup_default)" },
+    { label: "办卡页面" },
+  ];
+
+  const groupedRows = {};
+  for (const lib of STATE.libs) {
+    if (!STATE.selectedLibs.has(lib.id)) continue;
+    const net = lib.network || "Unknown";
+    const tr = el("tr");
+    const libShort = lib.name.replace(/\sPublic Library$|\sLibrary$/, "");
+    tr.appendChild(el("td", { class: "col-sticky" }, libShort));
+    tr.appendChild(el("td", {}, net));
+    // card_eligibility
+    const ce = lib.card_eligibility || "unknown";
+    tr.appendChild(el("td", {}, eligTag(ce), el("span", { style: "margin-left:6px;font-size:11px;color:var(--ink-3)" }, ce)));
+    // pass_pickup_default
+    const pp = lib.pass_pickup_default || "unknown";
+    tr.appendChild(el("td", {}, el("span", { style: "font-size:12px" }, pp)));
+    // card_page
+    const link = lib.card_page
+      ? el("a", { href: lib.card_page, target: "_blank", class: "lib-name-link" }, "办卡页 ↗")
+      : el("span", { style: "color:var(--ink-3)" }, "—");
+    tr.appendChild(el("td", {}, link));
+    (groupedRows[net] ||= []).push(tr);
+  }
+
+  return buildGroupedTable(colDefs, groupedRows);
+}
+
+// ─────────────────────────────────────────────
+//  LENS C — 优惠细节准确性
+//  Row: one Pass
+//  Cols: 图书馆 · 景点 · 人群条款(展开) · 容量 · pass_form
+// ─────────────────────────────────────────────
+function buildLensC() {
+  const colDefs = [
+    { label: "图书馆", sticky: true },
+    { label: "景点" },
+    { label: "人群条款(audience_policies)" },
+    { label: "容量(capacity)" },
+    { label: "pass_form" },
+  ];
+
+  const groupedRows = {};
+  for (const lib of STATE.libs) {
+    if (!STATE.selectedLibs.has(lib.id)) continue;
+    const net = lib.network || "Unknown";
+    const libPasses = STATE.passes.filter(p => p.library_id === lib.id);
+
+    for (const pass of libPasses) {
+      const attr = STATE.attrBySlug[pass.attraction_slug];
+      if (STATE.categoryFilter && !(attr?.categories || []).includes(STATE.categoryFilter)) continue;
+      if (STATE.showOnlyCovered && !pass.coupon) continue;
+
+      const tr = el("tr");
+      const libShort = lib.name.replace(/\sPublic Library$|\sLibrary$/, "");
+      tr.appendChild(el("td", { class: "col-sticky" }, libShort));
+      // Attraction
+      const attrName = attr ? el("span", { class: "attr-name-serif" }, attr.name) : el("span", {}, pass.attraction_slug);
+      tr.appendChild(el("td", {}, attrName));
+      // Audience policies — expanded
+      const apCell = el("td");
+      const policies = pass.coupon?.audience_policies || [];
+      if (!policies.length) {
+        apCell.appendChild(el("span", { style: "color:var(--ink-3)" }, "—"));
+      } else {
+        for (const ap of policies) {
+          const parts = [];
+          if (ap.audience) parts.push(ap.audience);
+          const formVal = ap.form + (ap.value != null ? `=${ap.value}` : "");
+          parts.push(formVal);
+          if (ap.age_range) {
+            const { min, max } = ap.age_range;
+            if (min != null && max != null) parts.push(`age ${min}-${max}`);
+            else if (max != null) parts.push(`age<${max + 1}`);
+            else if (min != null) parts.push(`age ${min}+`);
+          }
+          if (ap.count != null) parts.push(`×${ap.count}`);
+          apCell.appendChild(el("div", { class: "ap-row" },
+            el("span", { class: "ap-label" }, parts.slice(0, -1).join(" · ") + (parts.length > 1 ? " → " : "")),
+            el("span", { class: "ap-val" }, parts[parts.length - 1]),
+          ));
+        }
+      }
+      tr.appendChild(apCell);
+      // Capacity
+      const cap = pass.coupon?.capacity;
+      const capStr = cap && cap.n != null ? `${cap.kind} × ${cap.n}` : "—";
+      tr.appendChild(el("td", {}, el("span", { class: "cap-label" }, capStr)));
+      // pass_form
+      tr.appendChild(el("td", {}, passFormPill(pass.pass_form)));
+      (groupedRows[net] ||= []).push(tr);
+    }
+  }
+
+  return buildGroupedTable(colDefs, groupedRows);
+}
+
+// ─────────────────────────────────────────────
+//  LENS D — 分馆与景点预约
+//  Row: one Attraction
+//  Cols: 景点名 · 访客residency · 预约要求 · 持卡人通道 · 分馆列表
+// ─────────────────────────────────────────────
+function buildLensD() {
+  const colDefs = [
+    { label: "景点", sticky: true },
+    { label: "访客居住资格(visitor_eligibility)" },
+    { label: "预约要求(reservation)" },
+    { label: "持卡人通道" },
+    { label: "提供此景点pass的图书馆" },
+  ];
+
+  const rows = [];
+  for (const attr of STATE.attractions) {
+    if (STATE.categoryFilter && !(attr.categories || []).includes(STATE.categoryFilter)) continue;
+    // filter: only show attractions covered by selected libs, if showOnlyCovered
+    const coveringPasses = (STATE.passesByAttr[attr.slug] || []).filter(p => STATE.selectedLibs.has(p.library_id));
+    if (STATE.showOnlyCovered && !coveringPasses.length) continue;
+
+    const tr = el("tr");
+    // Attraction col
+    tr.appendChild(el("td", { class: "col-sticky" },
+      el("span", { class: "attr-name-serif" }, attr.name),
+      attr.address?.city ? el("div", { style: "font-size:11px;color:var(--ink-3);margin-top:2px" }, attr.address.city + ", MA") : null,
+    ));
+
+    // visitor_eligibility
+    const ve = attr.visitor_eligibility;
+    const veStr = ve ? ve.residency : "unknown";
+    const veNote = ve?.note;
+    const veCell = el("td", {},
+      el("span", { style: "font-size:12px" }, veStr),
+      veNote ? el("div", { style: "font-size:11px;color:var(--ink-3);margin-top:2px" }, veNote) : null,
+    );
+    tr.appendChild(veCell);
+
+    // reservation
+    const resv = attr.reservation;
+    let resvBadge;
+    if (!resv || resv.required === "none") resvBadge = el("span", { class: "resv-none" }, "无需预约");
+    else if (resv.required === "timed_entry") resvBadge = el("span", { class: "resv-required" }, "需定时票");
+    else resvBadge = el("span", { class: "resv-walkin" }, "Walk-in OK");
+    const resvCell = el("td", {}, resvBadge);
+    if (resv?.booking_url) {
+      resvCell.appendChild(el("div", { style: "margin-top:4px" },
+        el("a", { href: resv.booking_url, target: "_blank", class: "lib-name-link" }, "预约链接 ↗")
+      ));
+    }
+    if (resv?.lead_time_hours) {
+      resvCell.appendChild(el("div", { style: "font-size:11px;color:var(--ink-3);margin-top:2px" }, `提前 ${resv.lead_time_hours}h`));
+    }
+    tr.appendChild(resvCell);
+
+    // pass_holder_url
+    const phu = resv?.pass_holder_url;
+    const phuCell = phu
+      ? el("td", {}, el("a", { href: phu, target: "_blank", class: "lib-name-link" }, "持卡通道 ↗"))
+      : el("td", {}, el("span", { style: "color:var(--ink-3)" }, "—"));
+    tr.appendChild(phuCell);
+
+    // Libraries providing this attraction, with branch info
+    const libCell = el("td");
+    if (!coveringPasses.length) {
+      libCell.appendChild(el("span", { style: "color:var(--ink-3)" }, "—"));
+    } else {
+      for (const pass of coveringPasses) {
+        const lib = STATE.libsById[pass.library_id];
+        if (!lib) continue;
+        const libShort = lib.name.replace(/\sPublic Library$|\sLibrary$/, "");
+        const branchInfo = pass.available_at_branches === "all"
+          ? "所有分馆"
+          : (Array.isArray(pass.available_at_branches) ? pass.available_at_branches.join(", ") : String(pass.available_at_branches));
+        libCell.appendChild(el("div", { class: "ap-row" },
+          el("span", { class: "ap-label" }, libShort + " "),
+          el("span", { style: "font-size:11px;color:var(--ink-3)" }, `[${branchInfo}]`),
+        ));
+      }
+    }
+    tr.appendChild(libCell);
+    rows.push(tr);
+  }
+
+  // Lens D is attraction-centric; no network grouping, just a flat table
+  return buildTable(colDefs, rows);
+}
+
+// ─────────────────────────────────────────────
+//  MAIN RENDER DISPATCHER
+// ─────────────────────────────────────────────
+function renderLens() {
+  const container = $("#lens-content");
+  container.innerHTML = "";
+  let table;
+  switch (STATE.activeLens) {
+    case "A": table = buildLensA(); break;
+    case "B": table = buildLensB(); break;
+    case "C": table = buildLensC(); break;
+    case "D": table = buildLensD(); break;
+    default: table = el("div", {}, "Unknown lens");
+  }
+  container.appendChild(table);
+  updateStat();
+}
+
+function updateStat() {
+  const selCount = STATE.selectedLibs.size;
+  const netCount = STATE.selectedNetworks.size;
+  let summary = `${netCount} 张卡 · ${selCount} 馆 · ${STATE.attractions.length} 景`;
+  if (STATE.homeGeo) summary += ` · ZIP ${STATE.homeZip}`;
+  if (STATE.visitDate) summary += ` · ${STATE.visitDate.toISOString().slice(0, 10)}`;
+  $("#stat-summary").textContent = summary;
+}
+
+// ─────────────────────────────────────────────
+//  ZIP geocoding (for distance display only)
+// ─────────────────────────────────────────────
 async function geocodeZip(zip) {
   const key = `zipgeo:${zip}`;
   const cached = localStorage.getItem(key);
@@ -531,28 +755,56 @@ async function geocodeZip(zip) {
   return geo;
 }
 
-// ---------- wire-up ----------
+// ─────────────────────────────────────────────
+//  INIT & WIRE-UP
+// ─────────────────────────────────────────────
 async function init() {
+  // Set default date to today (local)
+  const todayStr = new Date().toLocaleDateString("en-CA"); // YYYY-MM-DD
+  const dateInput = $("#visit-date");
+  dateInput.value = todayStr;
+  STATE.visitDate = new Date(todayStr + "T00:00:00Z");
+
   await loadData();
   renderCardList();
   updateLibCount();
   renderCategoryFilter();
-  renderMatrix();
+  renderLens();
 
+  // All / None
   $("#btn-all").addEventListener("click", () => {
     STATE.selectedNetworks = new Set(STATE.networks);
     syncSelectedLibs();
-    renderCardList(); updateLibCount(); renderMatrix();
+    renderCardList(); updateLibCount(); renderLens();
   });
   $("#btn-none").addEventListener("click", () => {
     STATE.selectedNetworks.clear();
     syncSelectedLibs();
-    renderCardList(); updateLibCount(); renderMatrix();
+    renderCardList(); updateLibCount(); renderLens();
   });
-  $("#opt-only-covered").addEventListener("change", (e) => { STATE.showOnlyCovered = e.target.checked; renderMatrix(); });
-  $("#opt-sort").addEventListener("change", (e) => { STATE.sortMode = e.target.value; renderMatrix(); });
-  $("#opt-category").addEventListener("change", (e) => { STATE.categoryFilter = e.target.value; renderMatrix(); });
 
+  // Lens tabs
+  for (const btn of document.querySelectorAll(".lens-btn")) {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".lens-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      STATE.activeLens = btn.dataset.lens;
+      renderLens();
+    });
+  }
+
+  // Filters
+  $("#opt-only-covered").addEventListener("change", (e) => { STATE.showOnlyCovered = e.target.checked; renderLens(); });
+  $("#opt-category").addEventListener("change", (e) => { STATE.categoryFilter = e.target.value; renderLens(); });
+
+  // Date
+  dateInput.addEventListener("change", (e) => {
+    const v = e.target.value;
+    STATE.visitDate = v ? new Date(v + "T00:00:00Z") : null;
+    renderLens();
+  });
+
+  // ZIP
   async function applyZip() {
     const input = $("#home-zip");
     const hint = $("#zip-hint");
@@ -560,19 +812,22 @@ async function init() {
     if (!/^\d{5}$/.test(zip)) {
       zip = DEFAULT_ZIP;
       input.value = DEFAULT_ZIP;
-      hint.textContent = `ZIP cannot be empty; restored default ${DEFAULT_ZIP}.`;
+      hint.textContent = `ZIP 格式不对；已恢复默认 ${DEFAULT_ZIP}。`;
       hint.className = "hint warn";
     } else {
-      hint.textContent = "Resolving…"; hint.className = "hint";
+      hint.textContent = "解析中…"; hint.className = "hint";
     }
+    STATE.homeZip = zip;
     try {
       STATE.homeGeo = await geocodeZip(zip);
       hint.textContent = `${STATE.homeGeo.name} (${STATE.homeGeo.lat.toFixed(3)}, ${STATE.homeGeo.lng.toFixed(3)})`;
       hint.className = "hint ok";
-      renderMatrix();
     } catch (e) {
-      hint.textContent = `Failed: ${e.message}`; hint.className = "hint warn";
+      STATE.homeGeo = null;
+      hint.textContent = `位置解析失败: ${e.message}（居住资格检查仍有效）`;
+      hint.className = "hint warn";
     }
+    renderLens();
   }
   $("#btn-geocode").addEventListener("click", applyZip);
   $("#home-zip").addEventListener("keydown", (e) => { if (e.key === "Enter") applyZip(); });
@@ -586,5 +841,6 @@ async function init() {
 
 init().catch((e) => {
   console.error(e);
-  $("#stat-summary").textContent = "load error: " + e.message;
+  $("#stat-summary").textContent = "加载错误: " + e.message;
+  $("#lens-content").innerHTML = `<div class="loading-msg" style="color:var(--rd)">加载失败: ${e.message}</div>`;
 });

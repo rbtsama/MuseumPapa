@@ -15,12 +15,12 @@
 
 <aside class="controls">
   <section class="ctrl-block">
-    <h3>Cards <span class="badge" id="lib-count">0 / 0</span></h3>
+    <h3>持卡情况 <span class="badge" id="lib-count">0 / 0</span></h3>
     <div class="ctrl-row">
-      <button class="btn-tiny" id="btn-all">All</button>
-      <button class="btn-tiny" id="btn-none">None</button>
+      <button class="btn-tiny" id="btn-all">全选</button>
+      <button class="btn-tiny" id="btn-none">清空</button>
     </div>
-    <div class="hint" style="margin-bottom:6px">One card per network. Holding the card grants pass access at every member library — pass booking does not re-check residency.</div>
+    <div class="hint" style="margin-bottom:6px">每个联盟选一张卡，即可使用该联盟所有图书馆的 pass。</div>
     <div class="lib-list" id="lib-list"></div>
   </section>
 
@@ -28,36 +28,40 @@
     <h3>Home ZIP</h3>
     <div class="ctrl-row">
       <input type="text" id="home-zip" value="01880" maxlength="5" required>
-      <button class="btn-tiny primary" id="btn-geocode">Apply</button>
+      <button class="btn-tiny primary" id="btn-geocode">应用</button>
     </div>
-    <div class="hint" id="zip-hint">5-digit ZIP (required). Drives attraction + pickup distances.</div>
+    <div class="hint" id="zip-hint">5 位 ZIP（必填）。驱动居住资格 + 距离显示。</div>
   </section>
 
   <section class="ctrl-block">
-    <h3>View</h3>
-    <label class="ctrl-check"><input type="checkbox" id="opt-only-covered" checked> Hide rows with no coverage</label>
-    <label class="ctrl-line">Sort attractions
-      <select id="opt-sort">
-        <option value="coverage-desc">Coverage (most cards first)</option>
-        <option value="name-asc">Name A → Z</option>
-        <option value="best-strength">Best deal strength</option>
-        <option value="price-desc">Original price ↓</option>
-        <option value="distance-asc">Distance from ZIP ↑</option>
-      </select>
-    </label>
-    <label class="ctrl-line">Category
+    <h3>访问日期</h3>
+    <div class="ctrl-row">
+      <input type="date" id="visit-date">
+    </div>
+    <div class="hint">驱动 L8 限制检查 + L10 当日库存。</div>
+  </section>
+
+  <section class="ctrl-block">
+    <h3>筛选</h3>
+    <label class="ctrl-check"><input type="checkbox" id="opt-only-covered" checked> 隐藏无覆盖行</label>
+    <label class="ctrl-line">分类
       <select id="opt-category">
-        <option value="">(all)</option>
+        <option value="">(全部)</option>
       </select>
     </label>
   </section>
 </aside>
 
 <main class="matrix-wrap">
-  <table class="matrix" id="matrix">
-    <thead><tr id="matrix-head"></tr></thead>
-    <tbody id="matrix-body"></tbody>
-  </table>
+  <div class="lens-bar">
+    <button class="lens-btn active" data-lens="A">A · 卡覆盖查询</button>
+    <button class="lens-btn" data-lens="B">B · 资格政策审查</button>
+    <button class="lens-btn" data-lens="C">C · 优惠细节准确性</button>
+    <button class="lens-btn" data-lens="D">D · 分馆与景点预约</button>
+  </div>
+  <div class="lens-content" id="lens-content">
+    <div class="loading-msg">正在加载数据…</div>
+  </div>
 </main>
 
 <script src="assets/panel.js"></script>

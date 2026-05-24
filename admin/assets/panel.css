@@ -176,3 +176,71 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .hours-line { font-size: 11px; color: var(--ink-3); margin-top: 4px; }
 .hours-line .val { color: var(--ink-2); font-weight: 500; }
 
+/* ─────────── lens bar ─────────── */
+.lens-bar { display: flex; gap: 4px; padding: 10px 16px 0; background: var(--bg);
+  border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 5; }
+.lens-btn { font-size: 12px; font-weight: 500; padding: 6px 14px; border: 1px solid var(--rule);
+  border-bottom: none; border-radius: 4px 4px 0 0; cursor: pointer; color: var(--ink-2);
+  background: var(--white); font-family: inherit; transition: background 0.1s; }
+.lens-btn:hover { background: var(--g-pale); }
+.lens-btn.active { background: var(--g); color: var(--white); border-color: var(--g); }
+.lens-content { overflow: auto; padding: 0; }
+
+/* ─────────── generic admin table ─────────── */
+.adm-table { border-collapse: separate; border-spacing: 0; font-size: 12px; width: 100%; min-width: max-content; }
+.adm-table th { position: sticky; top: 0; background: var(--paper); font-weight: 600; color: var(--ink-2);
+  text-align: left; padding: 8px 12px; font-size: 11px; border-bottom: 1px solid var(--rule-strong);
+  border-right: 1px solid var(--rule); white-space: nowrap; z-index: 2; }
+.adm-table td { padding: 8px 12px; border-bottom: 1px solid var(--rule); border-right: 1px solid var(--rule);
+  vertical-align: top; background: var(--white); }
+.adm-table tr:hover td { background: var(--g-pale); }
+.adm-table .col-sticky { position: sticky; left: 0; z-index: 1;
+  box-shadow: 2px 0 4px -2px rgba(0,0,0,0.08); }
+.adm-table thead .col-sticky { z-index: 3; }
+.adm-table tr:hover .col-sticky { background: var(--g-light); }
+
+/* ─────────── group header (network pivot) ─────────── */
+.group-header td { background: var(--g) !important; color: var(--white); font-weight: 600;
+  font-size: 12px; padding: 6px 12px; cursor: pointer; }
+.group-header td .toggle-icon { float: right; font-size: 13px; line-height: 1; }
+.group-header:hover td { background: var(--g-2) !important; }
+.group-row.collapsed { display: none; }
+
+/* ─────────── verdict badges ─────────── */
+.verdict { display: inline-flex; align-items: center; gap: 4px; font-size: 11px;
+  font-weight: 600; padding: 2px 7px; border-radius: 3px; border: 1px solid; white-space: nowrap; }
+.verdict-ok  { color: var(--g);  background: var(--g-pale);  border-color: var(--g);  }
+.verdict-warn { color: var(--au); background: var(--au-pale); border-color: var(--au); }
+.verdict-blocked { color: var(--rd); background: var(--rd-pale); border-color: var(--rd); }
+
+/* ─────────── avail badge ─────────── */
+.avail { font-size: 11px; padding: 1px 6px; border-radius: 3px; border: 1px solid; font-weight: 500; }
+.avail-ok     { color: var(--g);  background: var(--g-pale);  border-color: var(--g);  }
+.avail-booked { color: var(--rd); background: var(--rd-pale); border-color: var(--rd); }
+.avail-closed { color: var(--ink-3); background: var(--paper); border-color: var(--rule-strong); }
+.avail-unknown { color: var(--au); background: var(--au-pale); border-color: var(--au); }
+
+/* ─────────── misc cell content ─────────── */
+.cell-summary { font-size: 12px; font-weight: 600; color: var(--g); }
+.cell-reason { font-size: 11px; color: var(--rd); margin-top: 2px; }
+.cell-warn-reason { font-size: 11px; color: var(--au); margin-top: 2px; }
+.book-link { font-size: 11px; color: var(--g); cursor: pointer; border: none; background: none;
+  padding: 0; font-family: inherit; font-weight: 500; margin-top: 4px; display: inline-block; }
+.book-link:hover { text-decoration: underline; }
+.ap-row { font-size: 11px; color: var(--ink-2); line-height: 1.5; }
+.ap-label { color: var(--ink-3); }
+.ap-val { font-weight: 600; color: var(--g); }
+.cap-label { font-size: 11px; color: var(--ink-3); }
+.loading-msg { padding: 40px; color: var(--ink-3); font-size: 14px; }
+.attr-name-serif { font-family: 'Libre Baskerville', Georgia, serif; font-weight: 700; color: var(--ink); }
+.lib-name-link { color: var(--g); text-decoration: none; font-weight: 500; }
+.lib-name-link:hover { text-decoration: underline; }
+.branch-list { font-size: 11px; color: var(--ink-3); margin-top: 2px; }
+.pass-form-label { font-size: 11px; }
+.resv-required { display: inline-block; font-size: 11px; padding: 1px 5px; border-radius: 2px;
+  background: var(--or-pale); color: var(--or); border: 1px solid var(--or); }
+.resv-none { display: inline-block; font-size: 11px; padding: 1px 5px; border-radius: 2px;
+  background: var(--g-pale); color: var(--g); border: 1px solid var(--g); }
+.resv-walkin { display: inline-block; font-size: 11px; padding: 1px 5px; border-radius: 2px;
+  background: var(--paper); color: var(--ink-3); border: 1px solid var(--rule-strong); }
+
