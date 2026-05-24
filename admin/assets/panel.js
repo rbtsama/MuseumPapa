@@ -719,14 +719,16 @@ function renderLens() {
   container.innerHTML = "";
   let table;
   switch (STATE.activeLens) {
-    case "A": table = buildLensA(); break;
-    case "B": table = buildLensB(); break;
-    case "C": table = buildLensC(); break;
-    case "D": table = buildLensD(); break;
+    case "A": table = buildLensAWithAudit(); break;
+    case "B": table = buildLensBWithAudit(); break;
+    case "C": table = buildLensCWithAudit(); break;
+    case "D": table = buildLensDWithAudit(); break;
     default: table = el("div", {}, "Unknown lens");
   }
   container.appendChild(table);
   updateStat();
+  // Refresh audit count badge on re-render
+  auditUpdateCount();
 }
 
 function updateStat() {
@@ -972,6 +974,7 @@ async function init() {
   renderCategoryFilter();
   renderLens();
   initSimulator();
+  initAuditSystem();
 
   // All / None
   $("#btn-all").addEventListener("click", () => {
@@ -1039,6 +1042,746 @@ async function init() {
 
   // Auto-apply default ZIP on load
   applyZip();
+}
+
+// ─────────────────────────────────────────────
+//  AUDIT OVERRIDE SYSTEM
+//  localStorage key: mp_audit_overrides
+//  Record shape:
+//    { target, kind, id, field, status, corrected_value, note, audited_at, audited_by }
+//  Directory layout produced for export:
+//    libraries/<id>/<field>.json
+//    attractions/<slug>/<field>.json
+//    branches/<lib>__<branch>/<field>.json
+//    passes/<lib>__<slug>/<field>.json  (informational only; corrected NOT applied)
+// ─────────────────────────────────────────────
+
+const AUDIT_LS_KEY = "mp_audit_overrides";
+
+function auditLoad() {
+  try { return JSON.parse(localStorage.getItem(AUDIT_LS_KEY) || "{}"); }
+  catch { return {}; }
+}
+function auditSave(map) {
+  localStorage.setItem(AUDIT_LS_KEY, JSON.stringify(map));
+  auditUpdateCount();
+  auditRenderLog();
+}
+function auditGet(target) { return auditLoad()[target] || null; }
+function auditSet(record) {
+  const map = auditLoad();
+  map[record.target] = record;
+  auditSave(map);
+}
+function auditDelete(target) {
+  const map = auditLoad();
+  delete map[target];
+  auditSave(map);
+}
+function auditUpdateCount() {
+  const n = Object.keys(auditLoad()).length;
+  const badge = document.getElementById("audit-count");
+  if (badge) badge.textContent = String(n);
+}
+
+// Canonical target string: "<kind>:<id>:<field>"
+function auditTarget(kind, id, field) { return `${kind}:${id}:${field}`; }
+
+// On-disk path for a given kind/id/field
+function auditDiskPath(kind, id, field) {
+  const kindDir = { library: "libraries", attraction: "attractions", branch: "branches", pass: "passes" }[kind] || kind + "s";
+  return `data/overrides/${kindDir}/${id}/${field}.json`;
+}
+
+// Suggested download filename (double-underscore to avoid path separator issues)
+function auditFileName(kind, id, field) {
+  const kindDir = { library: "libraries", attraction: "attractions", branch: "branches", pass: "passes" }[kind] || kind + "s";
+  return `${kindDir}__${id.replace(/[^a-z0-9_.-]/gi, "_")}__${field}.json`;
+}
+
+function auditGetAuditor() {
+  return (document.getElementById("auditor-name")?.value || "admin").trim() || "admin";
+}
+
+// ── Cell action helpers ──────────────────────
+
+// Whether corrected is allowed for this kind
+function auditCanCorrect(kind) { return kind === "library" || kind === "attraction" || kind === "branch"; }
+
+// Open the inline editor for a cell
+// spec: { kind, id, field, currentValue }
+let _editorSpec = null;
+function auditOpenEditor(spec) {
+  _editorSpec = spec;
+  const ed = document.getElementById("override-editor");
+  const backdrop = document.getElementById("override-editor-backdrop");
+  document.getElementById("ed-title").textContent = auditTarget(spec.kind, spec.id, spec.field);
+
+  // Prefill from existing record if any
+  const existing = auditGet(auditTarget(spec.kind, spec.id, spec.field));
+  const edStatus = document.getElementById("ed-status");
+  const edValue = document.getElementById("ed-value");
+  const edNote = document.getElementById("ed-note");
+  const correctedRow = document.getElementById("ed-corrected-row");
+
+  // Disable corrected option if not applicable
+  const correctedOpt = edStatus.querySelector('option[value="corrected"]');
+  if (correctedOpt) {
+    correctedOpt.disabled = !auditCanCorrect(spec.kind);
+    correctedOpt.textContent = auditCanCorrect(spec.kind)
+      ? "✏️ 改值 (corrected)"
+      : "✏️ 改值 (corrected) — 此类型不支持自动应用";
+  }
+
+  if (existing) {
+    edStatus.value = existing.status;
+    const currentRawVal = existing.corrected_value !== null && existing.corrected_value !== undefined
+      ? JSON.stringify(existing.corrected_value, null, 2) : "";
+    edValue.value = currentRawVal;
+    edNote.value = existing.note || "";
+  } else {
+    edStatus.value = "reviewed";
+    // Prefill with current value as JSON
+    const cv = spec.currentValue !== undefined
+      ? (typeof spec.currentValue === "string" ? JSON.stringify(spec.currentValue) : JSON.stringify(spec.currentValue, null, 2))
+      : "";
+    edValue.value = cv;
+    edNote.value = "";
+  }
+
+  correctedRow.hidden = edStatus.value !== "corrected";
+  document.getElementById("ed-json-hint").textContent = "";
+  edValue.classList.remove("error");
+
+  ed.hidden = false;
+  backdrop.hidden = false;
+}
+
+function auditCloseEditor() {
+  document.getElementById("override-editor").hidden = true;
+  document.getElementById("override-editor-backdrop").hidden = true;
+  _editorSpec = null;
+}
+
+function auditSaveEditor() {
+  if (!_editorSpec) return;
+  const status = document.getElementById("ed-status").value;
+  const noteVal = document.getElementById("ed-note").value.trim();
+  const hint = document.getElementById("ed-json-hint");
+  const textarea = document.getElementById("ed-value");
+
+  let correctedValue = null;
+  if (status === "corrected") {
+    const raw = textarea.value.trim();
+    if (!raw) {
+      hint.textContent = "改值不能为空";
+      textarea.classList.add("error");
+      return;
+    }
+    try {
+      correctedValue = JSON.parse(raw);
+      hint.textContent = "";
+      textarea.classList.remove("error");
+    } catch (e) {
+      hint.textContent = `JSON 解析错误: ${e.message}`;
+      textarea.classList.add("error");
+      return;
+    }
+  }
+
+  const target = auditTarget(_editorSpec.kind, _editorSpec.id, _editorSpec.field);
+  const record = {
+    target,
+    kind: _editorSpec.kind,
+    id: _editorSpec.id,
+    field: _editorSpec.field,
+    status,
+    corrected_value: correctedValue,
+    note: noteVal,
+    audited_at: new Date().toISOString(),
+    audited_by: auditGetAuditor(),
+  };
+  auditSet(record);
+  auditCloseEditor();
+  // Re-render current lens so badges appear
+  renderLens();
+}
+
+// Open popover showing the stored record for a target
+let _popoverTarget = null;
+function auditOpenPopover(target, anchorEl) {
+  _popoverTarget = target;
+  const record = auditGet(target);
+  if (!record) return;
+
+  const pop = document.getElementById("override-popover");
+  document.getElementById("pop-target").textContent = target;
+
+  const body = document.getElementById("pop-body");
+  body.innerHTML = "";
+
+  function row(label, val, mono) {
+    const rowEl = document.createElement("div");
+    rowEl.className = "popover-row";
+    const lbl = document.createElement("span");
+    lbl.className = "popover-label";
+    lbl.textContent = label;
+    const v = document.createElement("span");
+    v.className = "popover-val" + (mono ? " mono" : "");
+    v.textContent = val;
+    rowEl.appendChild(lbl);
+    rowEl.appendChild(v);
+    body.appendChild(rowEl);
+  }
+
+  const statusEmoji = { corrected: "✏️", reviewed: "✅", noted: "📝" }[record.status] || "";
+  row("状态", `${statusEmoji} ${record.status}`);
+  if (record.status === "corrected" && record.corrected_value !== null) {
+    row("改值", JSON.stringify(record.corrected_value), true);
+  }
+  if (record.note) row("备注", record.note);
+  row("审计人", record.audited_by);
+  row("时间", record.audited_at ? record.audited_at.replace("T", " ").slice(0, 19) + " UTC" : "—");
+  // Show on-disk path hint
+  const pathHint = document.createElement("div");
+  pathHint.className = "popover-row";
+  pathHint.style.cssText = "flex-direction:column;gap:2px;margin-top:4px;border-top:1px solid var(--rule);padding-top:6px;";
+  const ph = document.createElement("span");
+  ph.className = "popover-label";
+  ph.textContent = "目标路径";
+  const pv = document.createElement("span");
+  pv.className = "popover-val mono";
+  pv.style.fontSize = "10px";
+  pv.textContent = auditDiskPath(record.kind, record.id, record.field);
+  pathHint.appendChild(ph);
+  pathHint.appendChild(pv);
+  body.appendChild(pathHint);
+
+  pop.hidden = false;
+
+  // Position near the anchor
+  if (anchorEl) {
+    const rect = anchorEl.getBoundingClientRect();
+    pop.style.left = Math.min(rect.left, window.innerWidth - 400) + "px";
+    pop.style.top = (rect.bottom + 4) + "px";
+  } else {
+    pop.style.left = "50%";
+    pop.style.top = "50%";
+    pop.style.transform = "translate(-50%,-50%)";
+  }
+}
+
+function auditClosePopover() {
+  document.getElementById("override-popover").hidden = true;
+  _popoverTarget = null;
+}
+
+// ── Cell wrapping helper ─────────────────────
+
+// Wrap a <td> element to make it "audit-editable".
+// spec: { kind, id, field, currentValue }
+// Returns the modified td element.
+function makeAuditableCell(td, spec) {
+  td.classList.add("cell-editable");
+  td.style.position = "relative";
+  td.style.paddingBottom = "22px"; // room for badge
+
+  // Hover action buttons
+  const actions = document.createElement("div");
+  actions.className = "cell-actions";
+
+  // ✅ reviewed
+  const btnReview = document.createElement("button");
+  btnReview.className = "audit-action-btn";
+  btnReview.title = "已核 (reviewed)";
+  btnReview.textContent = "✅";
+  btnReview.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const target = auditTarget(spec.kind, spec.id, spec.field);
+    const existing = auditGet(target);
+    auditSet({
+      target, kind: spec.kind, id: spec.id, field: spec.field,
+      status: "reviewed",
+      corrected_value: null,
+      note: existing?.note || "",
+      audited_at: new Date().toISOString(),
+      audited_by: auditGetAuditor(),
+    });
+    renderLens();
+  });
+  actions.appendChild(btnReview);
+
+  // ✏️ corrected (only for library/attraction/branch)
+  if (auditCanCorrect(spec.kind)) {
+    const btnCorrect = document.createElement("button");
+    btnCorrect.className = "audit-action-btn";
+    btnCorrect.title = "改值 (corrected)";
+    btnCorrect.textContent = "✏️";
+    btnCorrect.addEventListener("click", (e) => {
+      e.stopPropagation();
+      auditOpenEditor({ ...spec, status: "corrected" });
+    });
+    actions.appendChild(btnCorrect);
+  }
+
+  // 📝 noted
+  const btnNote = document.createElement("button");
+  btnNote.className = "audit-action-btn";
+  btnNote.title = "备注 (noted)";
+  btnNote.textContent = "📝";
+  btnNote.addEventListener("click", (e) => {
+    e.stopPropagation();
+    auditOpenEditor({ ...spec, status: "noted" });
+  });
+  actions.appendChild(btnNote);
+
+  td.appendChild(actions);
+
+  // Override badge if record exists
+  refreshCellBadge(td, spec);
+
+  return td;
+}
+
+function refreshCellBadge(td, spec) {
+  // Remove existing badge
+  const existing = td.querySelector(".override-badge");
+  if (existing) existing.remove();
+
+  const target = auditTarget(spec.kind, spec.id, spec.field);
+  const record = auditGet(target);
+  if (!record) return;
+
+  const emoji = { corrected: "✏️", reviewed: "✅", noted: "📝" }[record.status] || "?";
+  const cls = `override-badge override-badge-${record.status}`;
+  const badge = document.createElement("span");
+  badge.className = cls;
+  badge.textContent = emoji + " " + record.status;
+  badge.title = `点击查看详情 · ${target}`;
+  badge.addEventListener("click", (e) => {
+    e.stopPropagation();
+    auditOpenPopover(target, badge);
+  });
+  td.appendChild(badge);
+}
+
+// ── Lens wrappers that add audit cells ───────
+
+// Lens B: Library rows — auditable fields: card_eligibility, pass_pickup_default
+function buildLensBWithAudit() {
+  const colDefs = [
+    { label: "图书馆", sticky: true },
+    { label: "联盟(Network)" },
+    { label: "办卡资格(card_eligibility) ✏️" },
+    { label: "取 pass 资格(pass_pickup_default) ✏️" },
+    { label: "办卡页面" },
+  ];
+
+  const groupedRows = {};
+  for (const lib of STATE.libs) {
+    if (!STATE.selectedLibs.has(lib.id)) continue;
+    const net = lib.network || "Unknown";
+    const tr = el("tr");
+    const libShort = lib.name.replace(/\sPublic Library$|\sLibrary$/, "");
+    tr.appendChild(el("td", { class: "col-sticky" }, libShort));
+    tr.appendChild(el("td", {}, net));
+
+    // card_eligibility — auditable
+    const ce = lib.card_eligibility || "unknown";
+    const ceTd = el("td", {}, eligTag(ce), el("span", { style: "margin-left:6px;font-size:11px;color:var(--ink-3)" }, ce));
+    makeAuditableCell(ceTd, { kind: "library", id: lib.id, field: "card_eligibility", currentValue: lib.card_eligibility });
+    tr.appendChild(ceTd);
+
+    // pass_pickup_default — auditable
+    const pp = lib.pass_pickup_default || "unknown";
+    const ppTd = el("td", {}, el("span", { style: "font-size:12px" }, pp));
+    makeAuditableCell(ppTd, { kind: "library", id: lib.id, field: "pass_pickup_default", currentValue: lib.pass_pickup_default });
+    tr.appendChild(ppTd);
+
+    // card_page
+    const link = lib.card_page
+      ? el("a", { href: lib.card_page, target: "_blank", class: "lib-name-link" }, "办卡页 ↗")
+      : el("span", { style: "color:var(--ink-3)" }, "—");
+    tr.appendChild(el("td", {}, link));
+    (groupedRows[net] ||= []).push(tr);
+  }
+
+  return buildGroupedTable(colDefs, groupedRows);
+}
+
+// Lens D: Attraction rows — auditable fields: visitor_eligibility, reservation, prices
+function buildLensDWithAudit() {
+  const colDefs = [
+    { label: "景点", sticky: true },
+    { label: "访客居住资格(visitor_eligibility) ✏️" },
+    { label: "预约要求(reservation) ✏️" },
+    { label: "持卡人通道" },
+    { label: "提供此景点pass的图书馆" },
+  ];
+
+  const rows = [];
+  for (const attr of STATE.attractions) {
+    if (STATE.categoryFilter && !(attr.categories || []).includes(STATE.categoryFilter)) continue;
+    const coveringPasses = (STATE.passesByAttr[attr.slug] || []).filter(p => STATE.selectedLibs.has(p.library_id));
+    if (STATE.showOnlyCovered && !coveringPasses.length) continue;
+
+    const tr = el("tr");
+    // Attraction col
+    tr.appendChild(el("td", { class: "col-sticky" },
+      el("span", { class: "attr-name-serif" }, attr.name),
+      attr.address?.city ? el("div", { style: "font-size:11px;color:var(--ink-3);margin-top:2px" }, attr.address.city + ", MA") : null,
+    ));
+
+    // visitor_eligibility — auditable
+    const ve = attr.visitor_eligibility;
+    const veStr = ve ? ve.residency : "unknown";
+    const veNote = ve?.note;
+    const veTd = el("td", {},
+      el("span", { style: "font-size:12px" }, veStr),
+      veNote ? el("div", { style: "font-size:11px;color:var(--ink-3);margin-top:2px" }, veNote) : null,
+    );
+    makeAuditableCell(veTd, { kind: "attraction", id: attr.slug, field: "visitor_eligibility", currentValue: attr.visitor_eligibility });
+    tr.appendChild(veTd);
+
+    // reservation — auditable
+    const resv = attr.reservation;
+    let resvBadge;
+    if (!resv || resv.required === "none") resvBadge = el("span", { class: "resv-none" }, "无需预约");
+    else if (resv.required === "timed_entry") resvBadge = el("span", { class: "resv-required" }, "需定时票");
+    else resvBadge = el("span", { class: "resv-walkin" }, "Walk-in OK");
+    const resvTd = el("td", {}, resvBadge);
+    if (resv?.booking_url) {
+      resvTd.appendChild(el("div", { style: "margin-top:4px" },
+        el("a", { href: resv.booking_url, target: "_blank", class: "lib-name-link" }, "预约链接 ↗")
+      ));
+    }
+    if (resv?.lead_time_hours) {
+      resvTd.appendChild(el("div", { style: "font-size:11px;color:var(--ink-3);margin-top:2px" }, `提前 ${resv.lead_time_hours}h`));
+    }
+    makeAuditableCell(resvTd, { kind: "attraction", id: attr.slug, field: "reservation", currentValue: attr.reservation });
+    tr.appendChild(resvTd);
+
+    // pass_holder_url
+    const phu = resv?.pass_holder_url;
+    const phuCell = phu
+      ? el("td", {}, el("a", { href: phu, target: "_blank", class: "lib-name-link" }, "持卡通道 ↗"))
+      : el("td", {}, el("span", { style: "color:var(--ink-3)" }, "—"));
+    tr.appendChild(phuCell);
+
+    // Libraries providing this attraction
+    const libCell = el("td");
+    if (!coveringPasses.length) {
+      libCell.appendChild(el("span", { style: "color:var(--ink-3)" }, "—"));
+    } else {
+      for (const pass of coveringPasses) {
+        const lib = STATE.libsById[pass.library_id];
+        if (!lib) continue;
+        const libShort = lib.name.replace(/\sPublic Library$|\sLibrary$/, "");
+        const branchInfo = pass.available_at_branches === "all"
+          ? "所有分馆"
+          : (Array.isArray(pass.available_at_branches) ? pass.available_at_branches.join(", ") : String(pass.available_at_branches));
+        libCell.appendChild(el("div", { class: "ap-row" },
+          el("span", { class: "ap-label" }, libShort + " "),
+          el("span", { style: "font-size:11px;color:var(--ink-3)" }, `[${branchInfo}]`),
+        ));
+      }
+    }
+    tr.appendChild(libCell);
+    rows.push(tr);
+  }
+
+  return buildTable(colDefs, rows);
+}
+
+// Lens A: Pass rows — reviewed/noted only (no corrected for passes)
+function buildLensAWithAudit() {
+  const user = getUser();
+  const date = STATE.visitDate;
+  const iso = date ? date.toISOString().slice(0, 10) : null;
+
+  const colDefs = [
+    { label: "图书馆", sticky: true },
+    { label: "景点" },
+    { label: "我合规吗" },
+    { label: "一句话优惠摘要 ✅/📝" },
+    { label: "当日库存" },
+    { label: "来源" },
+  ];
+
+  const groupedRows = {};
+  for (const lib of STATE.libs) {
+    if (!STATE.selectedLibs.has(lib.id)) continue;
+    const net = lib.network || "Unknown";
+    const libPasses = STATE.passes.filter(p => p.library_id === lib.id);
+    for (const pass of libPasses) {
+      const attr = STATE.attrBySlug[pass.attraction_slug];
+      if (STATE.categoryFilter && !(attr?.categories || []).includes(STATE.categoryFilter)) continue;
+      const verdict = resolvePass(pass, lib, attr, user, date);
+      if (STATE.showOnlyCovered && !verdict.eligible) continue;
+      const tr = el("tr");
+      const libShort = lib.name.replace(/\sPublic Library$|\sLibrary$/, "");
+      tr.appendChild(el("td", { class: "col-sticky" }, libShort));
+      const attrName = attr ? el("span", { class: "attr-name-serif" }, attr.name) : el("span", {}, pass.attraction_slug);
+      tr.appendChild(el("td", {}, attrName));
+      const vb = verdictBadge(verdict);
+      const vCont = el("td", {}, vb);
+      if (!verdict.eligible && verdict.reasons?.length) {
+        vCont.appendChild(el("div", { class: "cell-reason" }, verdict.reasons.join(" · ")));
+      }
+      if (verdict.warnings?.length) {
+        vCont.appendChild(el("div", { class: "cell-warn-reason" }, "⚠ " + verdict.warnings.join(" · ")));
+      }
+      tr.appendChild(vCont);
+
+      // Summary col — auditable (reviewed/noted only for passes)
+      const summary = couponSummary(pass.coupon);
+      const summaryTd = el("td", {}, el("span", { class: "cell-summary" }, summary));
+      // Pass id uses best-effort <library_id>__<attraction_slug> — note key ambiguity
+      const passId = `${pass.library_id}__${pass.attraction_slug}`;
+      makeAuditableCell(summaryTd, { kind: "pass", id: passId, field: "coupon_summary", currentValue: summary });
+      tr.appendChild(summaryTd);
+
+      tr.appendChild(el("td", {}, availBadge(pass, iso)));
+      const srcBtn = pass.source_url
+        ? el("button", { class: "book-link", onclick: () => window.open(pass.source_url, "_blank", "noopener,noreferrer") }, "Book →")
+        : el("span", { style: "color:var(--ink-3)" }, "—");
+      tr.appendChild(el("td", {}, srcBtn));
+
+      (groupedRows[net] ||= []).push(tr);
+    }
+  }
+
+  return buildGroupedTable(colDefs, groupedRows);
+}
+
+// Lens C: Pass rows — reviewed/noted only
+function buildLensCWithAudit() {
+  const colDefs = [
+    { label: "图书馆", sticky: true },
+    { label: "景点" },
+    { label: "人群条款(audience_policies) ✅/📝" },
+    { label: "容量(capacity)" },
+    { label: "pass_form" },
+  ];
+
+  const groupedRows = {};
+  for (const lib of STATE.libs) {
+    if (!STATE.selectedLibs.has(lib.id)) continue;
+    const net = lib.network || "Unknown";
+    const libPasses = STATE.passes.filter(p => p.library_id === lib.id);
+
+    for (const pass of libPasses) {
+      const attr = STATE.attrBySlug[pass.attraction_slug];
+      if (STATE.categoryFilter && !(attr?.categories || []).includes(STATE.categoryFilter)) continue;
+      if (STATE.showOnlyCovered && !pass.coupon) continue;
+
+      const tr = el("tr");
+      const libShort = lib.name.replace(/\sPublic Library$|\sLibrary$/, "");
+      tr.appendChild(el("td", { class: "col-sticky" }, libShort));
+      const attrName = attr ? el("span", { class: "attr-name-serif" }, attr.name) : el("span", {}, pass.attraction_slug);
+      tr.appendChild(el("td", {}, attrName));
+
+      // Audience policies — auditable (noted/reviewed only for pass)
+      const apCell = el("td");
+      const policies = pass.coupon?.audience_policies || [];
+      if (!policies.length) {
+        apCell.appendChild(el("span", { style: "color:var(--ink-3)" }, "—"));
+      } else {
+        for (const ap of policies) {
+          const parts = [];
+          if (ap.audience) parts.push(ap.audience);
+          const formVal = ap.form + (ap.value != null ? `=${ap.value}` : "");
+          parts.push(formVal);
+          if (ap.age_range) {
+            const { min, max } = ap.age_range;
+            if (min != null && max != null) parts.push(`age ${min}-${max}`);
+            else if (max != null) parts.push(`age<${max + 1}`);
+            else if (min != null) parts.push(`age ${min}+`);
+          }
+          if (ap.count != null) parts.push(`×${ap.count}`);
+          apCell.appendChild(el("div", { class: "ap-row" },
+            el("span", { class: "ap-label" }, parts.slice(0, -1).join(" · ") + (parts.length > 1 ? " → " : "")),
+            el("span", { class: "ap-val" }, parts[parts.length - 1]),
+          ));
+        }
+      }
+      const passId = `${pass.library_id}__${pass.attraction_slug}`;
+      makeAuditableCell(apCell, { kind: "pass", id: passId, field: "audience_policies", currentValue: pass.coupon?.audience_policies });
+      tr.appendChild(apCell);
+
+      const cap = pass.coupon?.capacity;
+      const capStr = cap && cap.n != null ? `${cap.kind} × ${cap.n}` : "—";
+      tr.appendChild(el("td", {}, el("span", { class: "cap-label" }, capStr)));
+      tr.appendChild(el("td", {}, passFormPill(pass.pass_form)));
+      (groupedRows[net] ||= []).push(tr);
+    }
+  }
+
+  return buildGroupedTable(colDefs, groupedRows);
+}
+
+// ── Export ────────────────────────────────────
+
+function downloadBlob(content, filename) {
+  const blob = new Blob([content], { type: "application/json;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 200);
+}
+
+function auditExportPerFile() {
+  const map = auditLoad();
+  const entries = Object.values(map);
+  if (!entries.length) { alert("尚无审计记录。"); return; }
+  for (const record of entries) {
+    const filename = auditFileName(record.kind, record.id, record.field);
+    downloadBlob(JSON.stringify(record, null, 2), filename);
+  }
+  // Show path hints in the audit log
+  auditRenderLog(true);
+}
+
+function auditExportBundle() {
+  const map = auditLoad();
+  if (!Object.keys(map).length) { alert("尚无审计记录。"); return; }
+  const bundle = { _generated_at: new Date().toISOString(), overrides: map };
+  downloadBlob(JSON.stringify(bundle, null, 2), "overrides_bundle.json");
+}
+
+// ── Audit Log ─────────────────────────────────
+
+function auditRenderLog(showPaths) {
+  const listEl = document.getElementById("audit-log-list");
+  if (!listEl) return;
+  listEl.innerHTML = "";
+
+  const map = auditLoad();
+  let entries = Object.values(map);
+
+  // Apply filters
+  const fieldFilter = (document.getElementById("al-filter-field")?.value || "").toLowerCase();
+  const auditorFilter = (document.getElementById("al-filter-auditor")?.value || "").toLowerCase();
+  const statusFilter = document.getElementById("al-filter-status")?.value || "";
+  const dateFrom = document.getElementById("al-date-from")?.value || "";
+  const dateTo = document.getElementById("al-date-to")?.value || "";
+
+  if (fieldFilter) entries = entries.filter(r => r.field?.toLowerCase().includes(fieldFilter) || r.target?.toLowerCase().includes(fieldFilter));
+  if (auditorFilter) entries = entries.filter(r => r.audited_by?.toLowerCase().includes(auditorFilter));
+  if (statusFilter) entries = entries.filter(r => r.status === statusFilter);
+  if (dateFrom) entries = entries.filter(r => r.audited_at >= dateFrom);
+  if (dateTo) entries = entries.filter(r => r.audited_at <= dateTo + "T23:59:59Z");
+
+  // Sort newest first
+  entries.sort((a, b) => (b.audited_at || "") > (a.audited_at || "") ? 1 : -1);
+
+  if (!entries.length) {
+    listEl.appendChild(el("div", { class: "audit-log-empty" }, "暂无匹配记录"));
+    return;
+  }
+
+  for (const record of entries) {
+    const entry = el("div", { class: `audit-log-entry entry-${record.status}` });
+
+    const meta = el("div", { class: "ale-meta" });
+    meta.appendChild(el("div", { class: "ale-target" }, record.target));
+
+    const detail = el("div", { class: "ale-detail" },
+      `${record.kind} · ${record.id} · ${record.field}`,
+    );
+    meta.appendChild(detail);
+
+    if (record.status === "corrected" && record.corrected_value !== null) {
+      meta.appendChild(el("div", { class: "ale-value" }, "→ " + JSON.stringify(record.corrected_value)));
+    }
+    if (record.note) {
+      meta.appendChild(el("div", { class: "ale-note" }, "📝 " + record.note));
+    }
+    if (showPaths) {
+      const pathStr = auditDiskPath(record.kind, record.id, record.field);
+      meta.appendChild(el("div", { class: "ale-path-hint" }, "→ " + pathStr));
+    }
+
+    const right = el("div", { class: "ale-right" });
+    const emoji = { corrected: "✏️", reviewed: "✅", noted: "📝" }[record.status] || "";
+    right.appendChild(el("span", { class: "ale-auditor" }, emoji + " " + (record.audited_by || "")));
+    right.appendChild(el("span", { class: "ale-time" }, record.audited_at ? record.audited_at.slice(0, 19).replace("T", " ") : "—"));
+    const delBtn = el("button", { class: "btn-tiny", style: "font-size:10px;color:var(--rd);border-color:var(--rd)" }, "撤销");
+    delBtn.addEventListener("click", () => {
+      if (confirm(`撤销记录: ${record.target}?`)) {
+        auditDelete(record.target);
+        renderLens();
+      }
+    });
+    right.appendChild(delBtn);
+
+    entry.appendChild(meta);
+    entry.appendChild(right);
+    listEl.appendChild(entry);
+  }
+}
+
+// ── Init audit system ─────────────────────────
+
+function initAuditSystem() {
+  auditUpdateCount();
+
+  // Editor status change
+  document.getElementById("ed-status").addEventListener("change", (e) => {
+    document.getElementById("ed-corrected-row").hidden = e.target.value !== "corrected";
+  });
+
+  // Editor save/cancel/close
+  document.getElementById("ed-save").addEventListener("click", auditSaveEditor);
+  document.getElementById("ed-cancel").addEventListener("click", auditCloseEditor);
+  document.getElementById("ed-close").addEventListener("click", auditCloseEditor);
+  document.getElementById("override-editor-backdrop").addEventListener("click", auditCloseEditor);
+
+  // Popover close / revoke
+  document.getElementById("pop-close").addEventListener("click", auditClosePopover);
+  document.getElementById("pop-revoke").addEventListener("click", () => {
+    if (_popoverTarget && confirm(`撤销记录: ${_popoverTarget}?`)) {
+      auditDelete(_popoverTarget);
+      auditClosePopover();
+      renderLens();
+    }
+  });
+  // Close popover on outside click
+  document.addEventListener("click", (e) => {
+    const pop = document.getElementById("override-popover");
+    if (!pop.hidden && !pop.contains(e.target)) auditClosePopover();
+  });
+
+  // Export buttons
+  document.getElementById("btn-export-overrides").addEventListener("click", auditExportPerFile);
+  document.getElementById("btn-export-bundle").addEventListener("click", auditExportBundle);
+
+  // Audit log toggle
+  const logToggle = document.getElementById("audit-log-toggle");
+  const logBody = document.getElementById("audit-log-body");
+  const logChevron = document.getElementById("audit-log-chevron");
+  function toggleLog() {
+    const isOpen = !logBody.hidden;
+    logBody.hidden = isOpen;
+    logChevron.classList.toggle("open", !isOpen);
+    logToggle.setAttribute("aria-expanded", String(!isOpen));
+    if (!isOpen) auditRenderLog();
+  }
+  logToggle.addEventListener("click", toggleLog);
+  logToggle.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleLog(); } });
+
+  // Audit log filters
+  ["al-filter-field", "al-filter-auditor", "al-filter-status", "al-date-from", "al-date-to"].forEach(id => {
+    document.getElementById(id)?.addEventListener("input", () => auditRenderLog());
+    document.getElementById(id)?.addEventListener("change", () => auditRenderLog());
+  });
+  document.getElementById("al-clear-filters")?.addEventListener("click", () => {
+    ["al-filter-field", "al-filter-auditor"].forEach(id => { const el = document.getElementById(id); if (el) el.value = ""; });
+    ["al-filter-status"].forEach(id => { const el = document.getElementById(id); if (el) el.value = ""; });
+    ["al-date-from", "al-date-to"].forEach(id => { const el = document.getElementById(id); if (el) el.value = ""; });
+    auditRenderLog();
+  });
 }
 
 init().catch((e) => {
