@@ -1,6 +1,7 @@
 interface CellInfo {
   best: string;          // "FREE" / "50%" / "$5" / ""
   isFree: boolean;       // for color emphasis
+  status?: 'available' | 'booked' | 'closed' | 'none';  // optional for backward-compat
 }
 
 interface Props {
@@ -48,35 +49,56 @@ export function CouponCalendar({ month, selectedDate, todayIso, cellInfo, onSele
         {cells.map((c, i) => {
           if (!c) return <div key={i} />;
           const info = cellInfo[c.iso];
-          const hasAny = info != null && info.best !== '';
+          const status = info?.status;
           const isPast = c.iso < todayIso;
           const isToday = c.iso === todayIso;
           const isSelected = c.iso === selectedDate;
-          const interactive = !isPast;
 
+          // A cell is interactive when not past AND not booked/closed.
+          // (status values: 'available' | 'booked' | 'closed' | 'none' | undefined)
+          const interactive = !isPast && status !== 'booked' && status !== 'closed';
+
+          // Background: selected overrides everything; otherwise status-driven.
           const bg = isSelected
             ? 'var(--g)'
-            : hasAny ? 'var(--g-pale)' : 'transparent';
+            : status === 'available' ? 'var(--g-pale)'
+            : status === 'booked' ? 'var(--paper)'
+            : status === 'closed' ? 'var(--paper)'
+            : 'transparent';
+
+          // Day number foreground.
           const dayFg = isSelected
             ? 'var(--white)'
-            : isPast ? 'var(--ink-3)' : 'var(--ink-2)';
+            : isPast ? 'var(--ink-3)'
+            : status === 'booked' ? 'var(--ink-3)'
+            : status === 'closed' ? 'var(--rd)'
+            : 'var(--ink-2)';
+
+          // Coupon label foreground.
           const bestFg = isSelected
             ? 'var(--white)'
             : (info && info.isFree) ? 'var(--g)' : 'var(--g-2)';
+
+          // Marker shown when status is booked/closed and best label is blank.
+          const hasLabel = info != null && info.best !== '';
+          const markerText = !hasLabel
+            ? (status === 'closed' ? '×' : status === 'booked' ? '—' : '·')
+            : info.best;
 
           return (
             <button
               key={i}
               type="button"
               disabled={!interactive}
-              onClick={() => onSelect(c.iso)}
+              onClick={() => interactive ? onSelect(c.iso) : undefined}
               className="rounded"
+              data-status={status ?? 'none'}
               style={{
                 background: bg,
                 border: isToday && !isSelected ? '1px solid var(--g)' : '1px solid transparent',
                 color: dayFg,
                 cursor: interactive ? 'pointer' : 'default',
-                opacity: isPast ? 0.4 : 1,
+                opacity: isPast ? 0.4 : (status === 'booked' || status === 'closed') ? 0.6 : 1,
                 padding: '4px 0',
                 lineHeight: 1.1,
                 display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1,
@@ -84,16 +106,20 @@ export function CouponCalendar({ month, selectedDate, todayIso, cellInfo, onSele
                 justifyContent: 'center',
               }}
             >
-              <span style={{ fontSize: 13, fontWeight: isSelected ? 600 : 500 }}>{c.day}</span>
+              <span style={{
+                fontSize: 13,
+                fontWeight: isSelected ? 600 : 500,
+                textDecoration: status === 'closed' && !isSelected ? 'line-through' : 'none',
+              }}>{c.day}</span>
               <span style={{
                 fontSize: 11,
                 fontWeight: 700,
-                color: bestFg,
+                color: hasLabel ? bestFg : 'var(--ink-3)',
                 lineHeight: 1,
                 minHeight: 11,
                 letterSpacing: '-0.02em',
               }}>
-                {hasAny ? info.best : '·'}
+                {markerText}
               </span>
             </button>
           );

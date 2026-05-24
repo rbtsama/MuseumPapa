@@ -121,25 +121,39 @@ export function AttractionDetail() {
     return recommend(slug, engineUser, new Date(`${selectedDate}T00:00:00`));
   }, [slug, engineUser, selectedDate]);
 
-  // Calendar cellInfo — for each date compute best eligible rec.
+  // Calendar cellInfo — reflect the ACTUAL availability of the best candidate pass.
+  // Strategy: call recommend() WITHOUT a date to get the candidate pass the user would use
+  // on an available day (L8/L10 skipped). Then, per visible date, read that pass's
+  // availability[d] to derive status. This keeps the calendar honest.
   const cellInfo = useMemo(() => {
     const out: Record<string, { best: string; isFree: boolean; status: 'available' | 'booked' | 'closed' | 'none' }> = {};
     if (!slug) return out;
+
+    // Find candidate pass: best pass for this user ignoring per-date availability.
+    // Top of recommend() without date = highest-scored pass (eligible by L1/L3/L4).
+    const candidateRecs = recommend(slug, engineUser); // no date → L8/L10 skipped
+    const candidateRec = candidateRecs.find(r => r.verdict.eligible) ?? candidateRecs[0] ?? null;
+
+    if (!candidateRec) {
+      // No passes at all (guest with no cards, or attraction has no passes).
+      for (const d of datesOfMonth) out[d] = { best: '', isFree: false, status: 'none' };
+      return out;
+    }
+
+    const candidatePass = candidateRec.pass;
+    const summary = couponSummary(candidatePass.coupon);
+    const isFree = candidatePass.coupon?.audience_policies[0]?.form === 'free';
+
     for (const d of datesOfMonth) {
-      const recs = recommend(slug, engineUser, new Date(`${d}T00:00:00`));
-      const bestEligible = recs.find(r => r.verdict.eligible);
-      if (!bestEligible) {
-        out[d] = { best: '', isFree: false, status: 'none' };
-        continue;
-      }
-      const summary = couponSummary(bestEligible.pass.coupon);
-      const isFree = bestEligible.pass.coupon?.audience_policies[0]?.form === 'free';
-      const avRaw = bestEligible.pass.availability?.[d];
+      const avRaw = candidatePass.availability?.[d];
+      // 'unavailable' treated same as 'booked' for coloring purposes.
       const status: 'available' | 'booked' | 'closed' | 'none' =
         avRaw === 'available' ? 'available' :
-        avRaw === 'booked' ? 'booked' :
+        avRaw === 'booked' || avRaw === 'unavailable' ? 'booked' :
         avRaw === 'closed' ? 'closed' : 'none';
-      out[d] = { best: summary, isFree, status };
+      // Show the coupon label on available days; blank on booked/closed/none.
+      const bestLabel = status === 'available' ? summary : '';
+      out[d] = { best: bestLabel, isFree: status === 'available' && isFree, status };
     }
     return out;
   }, [datesOfMonth, slug, engineUser]);
