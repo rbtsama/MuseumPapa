@@ -156,22 +156,22 @@ function checkL1Card(lib, heldLibraryIds) {
   if (heldLibraryIds.includes(lib.id)) return { ok: true };
   const nets = new Set(heldLibraryIds.map(id => STATE.libsById[id]?.network).filter(Boolean));
   if (nets.has(lib.network)) return { ok: true };
-  return { ok: false, reason: `无 ${lib.network} 网络的卡` };
+  return { ok: false, reason: `no ${lib.network} card` };
 }
 
 function checkL3Residency(rr, lib, homeZip) {
   if (!rr || rr.restricted === "no") return { ok: true };
-  if (rr.restricted === "unknown") return { ok: true, warn: true, reason: "取 pass 资格未确认" };
-  if (rr.scope === "town") return lib.resident_zips.includes(homeZip) ? { ok: true } : { ok: false, reason: `${lib.town} 仅本镇居民可取` };
-  if (rr.scope === "ma") return isMaZip(homeZip) ? { ok: true } : { ok: false, reason: "仅 MA 居民可取" };
+  if (rr.restricted === "unknown") return { ok: true, warn: true, reason: "pickup eligibility unconfirmed" };
+  if (rr.scope === "town") return lib.resident_zips.includes(homeZip) ? { ok: true } : { ok: false, reason: `${lib.town} residents only` };
+  if (rr.scope === "ma") return isMaZip(homeZip) ? { ok: true } : { ok: false, reason: "MA residents only" };
   return { ok: true, warn: true };
 }
 
 function checkL4VisitorResidency(ve, homeZip) {
   if (!ve || ve.residency === "none") return { ok: true };
-  if (ve.residency === "unknown") return { ok: true, warn: true, reason: "景点访客资格未确认" };
-  if (ve.residency === "ma_resident") return isMaZip(homeZip) ? { ok: true } : { ok: false, reason: "景点仅 MA 居民可入" };
-  return { ok: true, warn: true, reason: `景点可能仅 ${ve.scope ?? "本镇"} 居民` };
+  if (ve.residency === "unknown") return { ok: true, warn: true, reason: "visitor eligibility unconfirmed" };
+  if (ve.residency === "ma_resident") return isMaZip(homeZip) ? { ok: true } : { ok: false, reason: "MA residents only (attraction)" };
+  return { ok: true, warn: true, reason: `attraction may be ${ve.scope ?? "town"} residents only` };
 }
 
 const WD = ["sundays", "mondays", "tuesdays", "wednesdays", "thursdays", "fridays", "saturdays"];
@@ -179,12 +179,12 @@ function checkL8Restrictions(r, date) { // date: Date; USE UTC getters
   if (!r) return { ok: true };
   const m = date.getUTCMonth() + 1, d = date.getUTCDate(), dow = date.getUTCDay();
   for (const b of r.blackout) if (b.month === m && (b.day == null || b.day === d)) return { ok: false, reason: "blackout" };
-  if (r.blackout_recurring.includes(WD[dow])) return { ok: false, reason: "该星期几不可用" };
-  if (r.weekdays_only && (dow === 0 || dow === 6)) return { ok: false, reason: "仅平日" };
+  if (r.blackout_recurring.includes(WD[dow])) return { ok: false, reason: "not available this weekday" };
+  if (r.weekdays_only && (dow === 0 || dow === 6)) return { ok: false, reason: "weekdays only" };
   if (r.seasonal) {
     const { start_month: s, end_month: e } = r.seasonal;
     const inS = s <= e ? (m >= s && m <= e) : (m >= s || m <= e);
-    if (!inS) return { ok: false, reason: "季节性闭区" };
+    if (!inS) return { ok: false, reason: "out of season" };
   }
   return { ok: true };
 }
@@ -192,8 +192,8 @@ function checkL8Restrictions(r, date) { // date: Date; USE UTC getters
 function checkL10Availability(av, iso) {
   const s = av?.[iso];
   if (s === "available") return { ok: true };
-  if (s == null) return { ok: true, warn: true, reason: "该日库存未知" };
-  return { ok: false, reason: s === "booked" ? "该日已订满" : "该日不可预约" };
+  if (s == null) return { ok: true, warn: true, reason: "availability unknown" };
+  return { ok: false, reason: s === "booked" ? "sold out" : "closed/unavailable" };
 }
 
 function resolvePass(pass, lib, attr, user, date) {
@@ -280,8 +280,8 @@ function eligTag(v) {
 // pass_form display
 const PASS_FORM_META = {
   digital_email: { label: "Email", cls: "pill-email" },
-  physical_circ: { label: "借还", cls: "pill-borrow" },
-  physical_coupon: { label: "凭证", cls: "pill-pickup" },
+  physical_circ: { label: "Loaner", cls: "pill-borrow" },
+  physical_coupon: { label: "Coupon", cls: "pill-pickup" },
 };
 function passFormPill(f) {
   const m = PASS_FORM_META[f] || { label: f || "—", cls: "pill-unknown" };
@@ -1054,7 +1054,7 @@ function renderMatrix() {
   const flatLibs = columns.flatMap(c => c.libs);
   if (!flatLibs.length || !rows.length) {
     container.innerHTML = "";
-    container.appendChild(el("div", { class: "loading-msg" }, "无匹配数据（调整持卡/景点筛选）"));
+    container.appendChild(el("div", { class: "loading-msg" }, "No matching data (adjust cards / attraction filter)"));
     return;
   }
 
@@ -1062,7 +1062,7 @@ function renderMatrix() {
   // header row 1: network groups
   const thead = el("thead");
   const netTr = el("tr", { class: "mx-net-row" });
-  netTr.appendChild(el("th", { class: "mx-corner", rowspan: "2" }, "景点 ＼ 馆"));
+  netTr.appendChild(el("th", { class: "mx-corner", rowspan: "2" }, "Attraction ＼ Library"));
   for (const col of columns) {
     netTr.appendChild(el("th", { class: "mx-net", colspan: String(col.libs.length) }, `${col.net} · ${col.libs.length}`));
   }
@@ -1103,9 +1103,9 @@ function renderCell(cell, attr) {
   const glyph = d.offer ? (couponSummary(cell.pass.coupon)) : (shortSummary(cell.pass.coupon) || "•");
   td.appendChild(el("div", { class: "mx-glyph" }, glyph));
 
-  if (cell.warn) td.appendChild(el("span", { class: "mx-warn", title: "资格未确认" }, "⚠"));
+  if (cell.warn) td.appendChild(el("span", { class: "mx-warn", title: "eligibility not confirmed (residency unknown in our data)" }, "⚠"));
   if (d.avail && cell.avail !== "none") td.appendChild(el("div", { class: "mx-sub" }, cell.avail));
-  if (d.verdict && !cell.verdict.eligible) td.appendChild(el("div", { class: "mx-sub mx-block", title: `拦截层 ${cell.verdict.blockedLayer}` }, `✗ ${cell.verdict.reasons[0] || cell.verdict.blockedLayer}`));
+  if (d.verdict && !cell.verdict.eligible) td.appendChild(el("div", { class: "mx-sub mx-block", title: `blocked at ${cell.verdict.blockedLayer}` }, `✗ ${cell.verdict.reasons[0] || cell.verdict.blockedLayer}`));
   if (d.pickup) td.appendChild(el("div", { class: "mx-sub" }, (PASS_FORM_META[cell.pass.pass_form]?.label) || cell.pass.pass_form));
   if (d.distance && cell.lib.geo && STATE.homeGeo) {
     const mi = haversineMi(STATE.homeGeo, cell.lib.geo);
@@ -1117,10 +1117,10 @@ function renderCell(cell, attr) {
   }
   if (d.restrict && cell.pass.restrictions) {
     const r = cell.pass.restrictions, bits = [];
-    if (r.weekdays_only) bits.push("仅平日");
-    if (r.seasonal) bits.push("季节性");
-    if (r.advance_booking_required) bits.push(`提前${r.advance_booking_hours||""}h`);
-    if (r.blackout?.length) bits.push("有blackout");
+    if (r.weekdays_only) bits.push("weekdays");
+    if (r.seasonal) bits.push("seasonal");
+    if (r.advance_booking_required) bits.push(`${r.advance_booking_hours||""}h ahead`);
+    if (r.blackout?.length) bits.push("blackout");
     if (bits.length) td.appendChild(el("div", { class: "mx-sub mx-restrict" }, bits.join("·")));
   }
   // Plan 3 hook: audit ✎ + ⓘ attach here.

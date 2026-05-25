@@ -17,15 +17,15 @@ export function residencyOk(pass, lib, attr, homeZip, maZips) {
   const rr = pass?.residency_restriction;
   if (rr && rr.restricted === "yes") {
     if (rr.scope === "town" && !(lib.resident_zips || []).includes(homeZip))
-      return { ok: false, reason: `${lib.town} 仅本镇居民可取` };
+      return { ok: false, reason: `${lib.town} residents only` };
     if (rr.scope === "ma" && !isMaZip(homeZip, maZips))
-      return { ok: false, reason: "仅 MA 居民可取" };
+      return { ok: false, reason: "MA residents only" };
   } else if (rr && rr.restricted === "unknown") {
     warn = true;
   }
   const ve = attr?.visitor_eligibility;
   if (ve && ve.residency === "ma_resident" && !isMaZip(homeZip, maZips))
-    return { ok: false, reason: "景点仅 MA 居民可入" };
+    return { ok: false, reason: "MA residents only (attraction)" };
   if (ve && (ve.residency === "town_resident" || ve.residency === "unknown")) warn = true;
   return { ok: true, warn };
 }
@@ -66,17 +66,17 @@ export function bestPolicy(coupon) {
 
 // Long human summary (detail rows). Falls back to coupon.summary.
 export function couponSummary(coupon) {
-  if (!coupon) return "优惠详情未知";
+  if (!coupon) return "no offer info";
   if (coupon.summary) return coupon.summary;
   const p = bestPolicy(coupon);
-  if (!p) return "优惠详情未知";
+  if (!p) return "no offer info";
   switch (p.form) {
     case "free": return "FREE";
     case "percent-off": return `${p.value ?? ""}% off`;
     case "dollar-off": return `$${p.value ?? ""} off`;
-    case "per-person-price": return `$${p.value ?? ""}/人`;
-    case "bogo": return "买一送一";
-    default: return "折扣";
+    case "per-person-price": return `$${p.value ?? ""}/person`;
+    case "bogo": return "BOGO";
+    default: return "discount";
   }
 }
 
