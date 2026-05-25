@@ -84,6 +84,21 @@ function fmtMoney(v) {
 // ─────────────────────────────────────────────
 //  DATA LOAD
 // ─────────────────────────────────────────────
+// Persist the operator's filter/display selections so a refresh keeps them.
+const PANEL_STATE_KEY = "mp_panel_state";
+function persistPanelState() {
+  try {
+    localStorage.setItem(PANEL_STATE_KEY, JSON.stringify({
+      libs: [...STATE.selectedLibs], attrs: [...STATE.selectedAttrs],
+      zip: STATE.homeZip, date: STATE.visitDate ? STATE.visitDate.toISOString().slice(0, 10) : null,
+      onlyBookable: STATE.onlyBookable, display: STATE.display,
+    }));
+  } catch (e) { /* storage unavailable — ignore */ }
+}
+function loadPanelState() {
+  try { return JSON.parse(localStorage.getItem(PANEL_STATE_KEY) || "null"); } catch (e) { return null; }
+}
+
 async function loadData() {
   const fetchJson = async (p) => {
     const r = await fetch(p);
@@ -320,8 +335,6 @@ function availBadge(pass, iso) {
 function renderCardList() {
   const wrap = $("#lib-list");
   wrap.innerHTML = "";
-  wrap.appendChild(el("div", { class: "hint", style: "margin:0 0 4px" },
-    "tag = card_eligibility (who can register a card — NOT pass-use eligibility)"));
   for (const net of STATE.networks) {
     const libs = STATE.libsByNetwork[net];
     const allOn = libs.every(l => STATE.selectedLibs.has(l.id));
@@ -1054,6 +1067,7 @@ const LAYER_NUM = { L1: "①", L3: "②", L4: "③", L8: "④", L10: "⑤" };
 function renderMatrix() {
   const container = $("#matrix-container");
   if (!container) return;
+  persistPanelState();
   const { columns, rows } = buildMatrixModel();
   const flatLibs = columns.flatMap(c => c.libs);
   if (!flatLibs.length || !rows.length) {
@@ -1250,6 +1264,20 @@ async function init() {
   STATE.visitDate = new Date(todayStr + "T00:00:00Z");
 
   await loadData();
+
+  // restore the operator's last filters/display from localStorage (survive refresh)
+  const saved = loadPanelState();
+  if (saved) {
+    if (Array.isArray(saved.libs)) STATE.selectedLibs = new Set(saved.libs);
+    if (Array.isArray(saved.attrs)) STATE.selectedAttrs = new Set(saved.attrs);
+    if (typeof saved.onlyBookable === "boolean") STATE.onlyBookable = saved.onlyBookable;
+    if (saved.display) Object.assign(STATE.display, saved.display);
+    if (saved.zip) STATE.homeZip = saved.zip;
+    if (saved.date) { STATE.visitDate = new Date(saved.date + "T00:00:00Z"); dateInput.value = saved.date; }
+  }
+  $("#home-zip").value = STATE.homeZip;
+  $("#opt-only-bookable").checked = STATE.onlyBookable;
+
   renderCardList();
   updateLibCount();
   renderCategoryFilter();
@@ -1268,6 +1296,7 @@ async function init() {
   $("#attr-search").oninput = (e) => { STATE.attrSearch = e.target.value; renderAttrList(); };
   $("#opt-only-bookable").onchange = (e) => { STATE.onlyBookable = e.target.checked; renderMatrix(); };
   for (const [key, id] of Object.entries({policies:"d-policies",verdict:"d-verdict",pickup:"d-pickup",avail:"d-avail",distance:"d-distance",restrict:"d-restrict",warn:"d-warn"})) {
+    $("#"+id).checked = !!STATE.display[key];
     $("#"+id).onchange = (e) => { STATE.display[key] = e.target.checked; renderMatrix(); };
   }
 

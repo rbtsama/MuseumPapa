@@ -20,7 +20,6 @@
       <button class="btn-tiny" id="btn-all">全选</button>
       <button class="btn-tiny" id="btn-none">清空</button>
     </div>
-    <div class="hint" style="margin-bottom:6px">勾选客户实际持有的图书馆卡。能否用某馆的 pass 逐馆判定（同网络不一定通用）。</div>
     <div class="lib-list" id="lib-list"></div>
   </section>
 
@@ -30,7 +29,7 @@
       <input type="text" id="home-zip" value="01880" maxlength="5" required>
       <button class="btn-tiny primary" id="btn-geocode">应用</button>
     </div>
-    <div class="hint" id="zip-hint">5 位 ZIP（必填）。驱动居住资格 + 距离显示。</div>
+    <div class="hint" id="zip-hint">5-digit ZIP</div>
   </section>
 
   <section class="ctrl-block">
@@ -38,7 +37,6 @@
     <div class="ctrl-row">
       <input type="date" id="visit-date">
     </div>
-    <div class="hint">驱动 L8 限制检查 + L10 当日库存。</div>
   </section>
 
   <section class="ctrl-block">
@@ -49,20 +47,18 @@
     </div>
     <input type="text" id="attr-search" placeholder="搜索景点…" class="al-filter-input" style="width:100%;margin:4px 0">
     <div class="attr-list" id="attr-list"></div>
-    <label class="ctrl-check" style="margin-top:6px"><input type="checkbox" id="opt-only-bookable"> 只看可订（隐藏不合规格子）</label>
-    <div class="hint">景点是唯一真过滤；卡/Zip 不符只下沉不隐藏。勾"只看可订"后只留 (a) 合规格子。</div>
+    <label class="ctrl-check" style="margin-top:6px"><input type="checkbox" id="opt-only-bookable"> 只看可订</label>
   </section>
 
   <section class="ctrl-block">
-    <h3>显示选项</h3>
-    <label class="ctrl-check"><input type="checkbox" id="d-policies"> 展开各人群优惠（关掉=只看成人简写）</label>
-    <label class="ctrl-check"><input type="checkbox" id="d-verdict"> 拦截原因（为什么不能用）</label>
-    <label class="ctrl-check"><input type="checkbox" id="d-pickup"> 怎么领文字</label>
+    <h3>详细显示选项</h3>
+    <label class="ctrl-check"><input type="checkbox" id="d-policies"> 展开各人群优惠</label>
+    <label class="ctrl-check"><input type="checkbox" id="d-verdict"> 拦截原因</label>
+    <label class="ctrl-check"><input type="checkbox" id="d-pickup"> 怎么领</label>
     <label class="ctrl-check"><input type="checkbox" id="d-avail"> 库存状态</label>
     <label class="ctrl-check"><input type="checkbox" id="d-distance"> 距离</label>
     <label class="ctrl-check"><input type="checkbox" id="d-restrict"> 限制详情</label>
-    <label class="ctrl-check"><input type="checkbox" id="d-warn"> 资格未确认 ⚠（默认关，否则满屏）</label>
-    <div class="hint">每项独立；勾上=更详细，默认=更简洁。</div>
+    <label class="ctrl-check"><input type="checkbox" id="d-warn"> 资格未确认 ⚠</label>
   </section>
 
   <section class="ctrl-block">
@@ -93,7 +89,6 @@
     <span class="lg-av av-unk">unknown</span>
     <b>Block reason</b>
     <span class="lg-reason">red text — ①no card ②residents only ③attraction ④date ⑤stock</span>
-    <b>⚠ residency unconfirmed (off by default — toggle in 显示选项)</b>
   </div>
   <div class="matrix-scroll">
     <div class="matrix-container" id="matrix-container">
