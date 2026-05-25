@@ -22,8 +22,7 @@ const STATE = {
   // derived
   networks: [],
   libsByNetwork: {},
-  selectedNetworks: new Set(),
-  selectedLibs: new Set(),   // derived from selectedNetworks
+  selectedLibs: new Set(),
   // controls
   homeZip: DEFAULT_ZIP,
   homeGeo: null,
@@ -35,14 +34,6 @@ const STATE = {
   groupCollapsed: {},
 };
 
-// Re-derive STATE.selectedLibs from STATE.selectedNetworks.
-function syncSelectedLibs() {
-  STATE.selectedLibs = new Set(
-    STATE.libs
-      .filter(l => STATE.selectedNetworks.has(l.network || "Unknown"))
-      .map(l => l.id)
-  );
-}
 
 // ─────────────────────────────────────────────
 //  DOM helpers
@@ -138,9 +129,8 @@ async function loadData() {
   STATE.networks = Object.keys(STATE.libsByNetwork).sort((a, b) =>
     (STATE.libsByNetwork[b].length - STATE.libsByNetwork[a].length) || a.localeCompare(b));
 
-  // Default: all networks selected
-  STATE.selectedNetworks = new Set(STATE.networks);
-  syncSelectedLibs();
+  // Default: NO cards held (operator ticks the customer's actual cards).
+  STATE.selectedLibs = new Set();
 
   // Perf/ergonomics: collapse every network group by default so the operator
   // expands only the group they care about (avoids rendering ~1000 visible rows).
@@ -341,16 +331,17 @@ function renderCardList() {
   wrap.innerHTML = "";
   for (const net of STATE.networks) {
     const libs = STATE.libsByNetwork[net];
+    const allOn = libs.every(l => STATE.selectedLibs.has(l.id));
     const cardEl = el("div", { class: "card-group" });
     const hdr = el("label", { class: "card-header" },
       el("input", {
-        type: "checkbox",
-        ...(STATE.selectedNetworks.has(net) ? { checked: "checked" } : {}),
+        type: "checkbox", ...(allOn ? { checked: "checked" } : {}),
         onchange: (e) => {
-          if (e.target.checked) STATE.selectedNetworks.add(net);
-          else STATE.selectedNetworks.delete(net);
-          syncSelectedLibs();
-          renderCardList(); updateLibCount(); renderLens();
+          for (const l of libs) {
+            if (e.target.checked) STATE.selectedLibs.add(l.id);
+            else STATE.selectedLibs.delete(l.id);
+          }
+          renderCardList(); updateLibCount(); renderMatrix();
         },
       }),
       el("span", { class: "card-name" }, net),
@@ -359,11 +350,18 @@ function renderCardList() {
     cardEl.appendChild(hdr);
     const members = el("div", { class: "card-members" });
     for (const l of libs) {
-      const elig = l.card_eligibility || "unknown";
-      members.appendChild(el("div", { class: "card-member" },
+      members.appendChild(el("label", { class: "card-member" },
+        el("input", {
+          type: "checkbox", ...(STATE.selectedLibs.has(l.id) ? { checked: "checked" } : {}),
+          onchange: (e) => {
+            if (e.target.checked) STATE.selectedLibs.add(l.id);
+            else STATE.selectedLibs.delete(l.id);
+            renderCardList(); updateLibCount(); renderMatrix();
+          },
+        }),
         el("span", { class: "card-member-name" },
           l.name.replace(/\sPublic Library$|\sLibrary$/, "")),
-        eligTag(elig),
+        eligTag(l.card_eligibility || "unknown"),
       ));
     }
     cardEl.appendChild(members);
@@ -372,7 +370,7 @@ function renderCardList() {
 }
 
 function updateLibCount() {
-  $("#lib-count").textContent = `${STATE.selectedNetworks.size} / ${STATE.networks.length}`;
+  $("#lib-count").textContent = `${STATE.selectedLibs.size} / ${STATE.libs.length}`;
 }
 
 function renderCategoryFilter() {
