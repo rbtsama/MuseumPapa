@@ -95,7 +95,7 @@ async function loadData() {
     fetchJson("/data/structured/attractions.json"),
     fetchJson("/data/structured/branches.json"),
     fetchJson("/data/structured/passes.json"),
-    fetchJson("/data/structured/town_zips.json"),
+    fetchJson("/config/town_zips.json"),
   ]);
 
   STATE.libs = libsD.libraries.slice().sort((a, b) => a.name.localeCompare(b.name));
