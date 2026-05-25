@@ -48,3 +48,16 @@ def apply_overrides(entity_prefix: str, raw: dict, overrides: dict[str, dict]) -
         field = target.split(":", 2)[2]
         out[field] = record["corrected_value"]
     return out
+
+def merge_override(store: dict[str, dict], record: dict) -> dict[str, dict]:
+    """Upsert one audit record into a {target: record} store. Mutates and returns store."""
+    target = record.get("target")
+    if not target:
+        raise ValueError("override record missing 'target'")
+    store[target] = record
+    return store
+
+def remove_override(store: dict[str, dict], target: str) -> dict[str, dict]:
+    """Remove a record by target. No-op if absent. Mutates and returns store."""
+    store.pop(target, None)
+    return store

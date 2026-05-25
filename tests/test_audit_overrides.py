@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from malibbene.common.audit_overrides import load_overrides, apply_overrides
+from malibbene.common.audit_overrides import load_overrides, apply_overrides, merge_override, remove_override
 
 def _write(p: Path, data: dict):
     p.parent.mkdir(parents=True, exist_ok=True)
@@ -58,3 +58,23 @@ def test_consolidated_file_wins_over_dir_tree(tmp_path):
     }))
     by_target = load_overrides(tmp_path)
     assert by_target["library:wakefield:card_eligibility"]["corrected_value"] == "ma_resident"
+
+def test_merge_override_upserts_by_target():
+    store = {}
+    rec = {"target":"library:x:card_eligibility","status":"corrected","corrected_value":"none"}
+    merge_override(store, rec)
+    assert store["library:x:card_eligibility"]["corrected_value"] == "none"
+    # second write to same target replaces
+    merge_override(store, {"target":"library:x:card_eligibility","status":"verified_ok"})
+    assert store["library:x:card_eligibility"]["status"] == "verified_ok"
+
+def test_merge_override_requires_target():
+    import pytest
+    with pytest.raises(ValueError):
+        merge_override({}, {"status":"corrected"})
+
+def test_remove_override_deletes_target():
+    store = {"library:x:f": {"target":"library:x:f","status":"noted"}}
+    remove_override(store, "library:x:f")
+    assert "library:x:f" not in store
+    remove_override(store, "missing:y:z")  # no error on missing
