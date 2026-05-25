@@ -3,6 +3,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+CONSOLIDATED_FILE = "audit_overrides.json"
+
 def load_overrides(overrides_root: Path) -> dict[str, dict]:
     """Scan overrides_root, index by 'entity:id:field'.
 
@@ -27,6 +29,12 @@ def load_overrides(overrides_root: Path) -> dict[str, dict]:
             for field_file in id_dir.glob("*.json"):
                 target = f"{kind}:{id_dir.name}:{field_file.stem}"
                 by_target[target] = json.loads(field_file.read_text())
+    # Consolidated file written by the admin panel ({target: record}); overlays
+    # (wins over) the legacy per-field directory tree above.
+    consolidated = overrides_root / CONSOLIDATED_FILE
+    if consolidated.exists():
+        for target, record in json.loads(consolidated.read_text()).items():
+            by_target[target] = record
     return by_target
 
 def apply_overrides(entity_prefix: str, raw: dict, overrides: dict[str, dict]) -> dict:
