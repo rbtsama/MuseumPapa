@@ -47,3 +47,20 @@ export function controlsFor(kind, field, currentValue) {
   if (NUMBER.has(key)) return { control: "number", value: currentValue ?? null };
   return { control: "text", value: currentValue ?? "" };
 }
+
+export const ASPECTS = ["coupon","pass_form","residency","reservation","attraction","other"];
+
+// Feedback record — NOT machine-applied (build's apply_overrides only honors
+// status "corrected"). Collected as JSON for later AI analysis.
+export function buildFeedbackRecord({ kind, id, root_cause, aspects = [], feedback = "" }) {
+  if (!ROOT_CAUSE.includes(root_cause))
+    throw new Error("feedback record requires a valid root_cause");
+  return {
+    target: auditTarget(kind, id, "_feedback"),
+    kind, id, field: "_feedback", status: "feedback",
+    root_cause,
+    aspects: (aspects || []).filter(a => ASPECTS.includes(a)),
+    feedback: feedback || "",
+    audited_at: new Date().toISOString(),
+  };
+}
