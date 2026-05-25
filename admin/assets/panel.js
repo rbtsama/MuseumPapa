@@ -2,7 +2,7 @@
 // Edit source under admin/ only. See web/sync-admin.mjs for copy rules.
 
 import { cardOk, residencyOk, cellTier, availStatus, rowSortKey, bestPolicy, couponSummary, shortSummary } from "./panel.logic.mjs";
-import { auditTarget, buildRecord, controlsFor } from "./panel.audit.mjs";
+import { buildRecord, buildFeedbackRecord, ASPECTS } from "./panel.audit.mjs";
 
 const DEFAULT_ZIP = "01880";
 
@@ -568,7 +568,7 @@ function renderCell(cell, attr) {
   td.dataset.attrSlug = attr.slug;
   const aStatus = passAuditStatus(cell);
   if (aStatus) {
-    const sym = aStatus === "corrected" ? "✎" : aStatus === "verified_ok" ? "✓" : "📝";
+    const sym = aStatus === "corrected" ? "✎" : aStatus === "verified_ok" ? "✓" : aStatus === "feedback" ? "💬" : "📝";
     td.appendChild(el("span", { class: `mx-audited mx-audited-${aStatus}`, title: `audited: ${aStatus}` }, sym));
   }
   return td;
@@ -738,207 +738,119 @@ const ZH = {
   },
 };
 
-// Build a <select> from a {code:zh} map, selecting `cur`
-function zhSelect(id, map, cur) {
-  return el("select", { id },
-    ...Object.entries(map).map(([code, zh]) =>
-      el("option", { value: code, ...(String(cur) === code ? { selected: "selected" } : {}) }, zh)));
+// 哪块出错 — 多选标签（feedback 表单 + 审计日志共用）
+const ASPECT_ZH = {
+  coupon: "优惠折扣", pass_form: "取卡方式", residency: "居住限制",
+  reservation: "预约要求", attraction: "景点信息", other: "其他",
+};
+
+// human-readable value via a ZH map; "—" when empty
+function zhVal(map, code) {
+  if (code == null || code === "") return "—";
+  return map[String(code)] || String(code);
 }
 
-function couponSummaryStr(form, value) {
-  if (form === "free") return "FREE";
-  if (form === "percent-off") return `${value}% off`;
-  if (form === "dollar-off") return `$${value} off`;
-  if (form === "per-person-price") return `$${value}/person`;
-  if (form === "bogo") return "buy one get one free";
-  return "discount";
+// one labelled read-only row
+function roRow(label, value) {
+  return el("div", { class: "ro-row" },
+    el("span", { class: "ro-k" }, label),
+    el("span", { class: "ro-v" }, (value == null || value === "") ? "—" : value));
 }
 
-// Render the discount sub-area (有折扣 vs 无折扣 toggle)
-function _renderDiscountSubarea(slotEl, cell, hasDiscount) {
-  const sub = slotEl.querySelector(".af-disc-sub");
-  if (!sub) return;
-  sub.innerHTML = "";
-  if (!hasDiscount) return;
-  const curForm = bestPolicy(cell.pass.coupon)?.form || "free";
-  const curVal = bestPolicy(cell.pass.coupon)?.value ?? "";
-  sub.appendChild(el("label", {}, "折扣类型", zhSelect("af-cform", ZH.coupon_form, curForm)));
-  const valInput = el("input", { type: "number", id: "af-cval", value: String(curVal), placeholder: "数值 / 比例" });
-  sub.appendChild(el("label", {}, "数值/比例", valInput));
+// per-audience offer line, e.g. "Adult  50% off  ×2"
+function audienceLine(ap) {
+  const parts = [ap.audience || "—"];
+  if (ap.age_range && (ap.age_range.min != null || ap.age_range.max != null)) {
+    const lo = ap.age_range.min, hi = ap.age_range.max;
+    parts.push(lo != null && hi != null ? `${lo}–${hi}岁` : hi != null ? `≤${hi}岁` : `≥${lo}岁`);
+  }
+  parts.push(couponSummary({ audience_policies: [ap] }));
+  if (ap.count != null) parts.push(`×${ap.count}`);
+  return parts.join("  ");
 }
 
+// read-only render of the full cell: pass / library / attraction
+function renderCellReadonly(cell, attr) {
+  const wrap = el("div", { class: "ro" });
+  const p = cell.pass, c = p.coupon;
+
+  wrap.appendChild(el("div", { class: "ro-head" }, "这张 pass"));
+  wrap.appendChild(roRow("优惠", couponSummary(c)));
+  wrap.appendChild(roRow("容量",
+    c?.capacity ? `${c.capacity.kind || "—"}${c.capacity.n != null ? " / " + c.capacity.n : ""}` : "—"));
+  const aps = c?.audience_policies || [];
+  if (aps.length) {
+    const list = el("div", { class: "ro-aud" });
+    for (const ap of aps) list.appendChild(el("div", { class: "ro-aud-line" }, audienceLine(ap)));
+    wrap.appendChild(el("div", { class: "ro-row" }, el("span", { class: "ro-k" }, "人群明细"), list));
+  }
+  wrap.appendChild(roRow("取卡方式", zhVal(ZH.pass_form, p.pass_form)));
+  const rr = p.residency_restriction;
+  wrap.appendChild(roRow("取券居住限制",
+    rr ? `${zhVal(ZH.residency_restricted, rr.restricted)}${rr.scope ? " · " + zhVal(ZH.residency_scope, rr.scope) : ""}` : "—"));
+  const restr = p.restrictions || {};
+  const rbits = [];
+  if (restr.weekdays_only) rbits.push("仅工作日");
+  if (restr.seasonal) rbits.push("季节性");
+  if (restr.advance_booking_required) rbits.push("需提前预约");
+  if ((restr.blackout || []).length || (restr.blackout_recurring || []).length) rbits.push("有停用日");
+  if (restr.late_return_penalty) rbits.push("逾期罚金");
+  wrap.appendChild(roRow("限制", rbits.length ? rbits.join(" · ") : "无"));
+  if (p.source_url)
+    wrap.appendChild(el("div", { class: "ro-row" },
+      el("span", { class: "ro-k" }, "来源"),
+      el("a", { class: "ro-v", href: p.source_url, target: "_blank", rel: "noopener" }, "打开 ↗")));
+
+  wrap.appendChild(el("div", { class: "ro-head" }, "图书馆 · " + cell.lib.name));
+  wrap.appendChild(roRow("办卡资格", zhVal(ZH.card_eligibility, cell.lib.card_eligibility)));
+  wrap.appendChild(roRow("取 pass 资格", zhVal(ZH.pass_pickup_default, cell.lib.pass_pickup_default)));
+
+  wrap.appendChild(el("div", { class: "ro-head" }, "景点 · " + attr.name));
+  wrap.appendChild(roRow("访客居住要求", zhVal(ZH.visitor_residency, attr.visitor_eligibility?.residency)));
+  wrap.appendChild(roRow("预约要求", zhVal(ZH.reservation_required, attr.reservation?.required)));
+
+  return wrap;
+}
+
+// 修改数据 = 只读全信息 + 反馈收集（不回填 build）
 function openAuditForm(cell, attr) {
-  const passId = `${cell.lib.id}__${cell.pass.attraction_rawslug}`;
-
-  // FIELDS array — each entry describes one editable field
-  const FIELDS = [
-    {
-      label: "折扣（有无 / 多少）",
-      kind: "pass", id: passId, field: "coupon",
-      render(slotEl) {
-        slotEl.innerHTML = "";
-        const hasDiscount = !!(bestPolicy(cell.pass.coupon)?.form && bestPolicy(cell.pass.coupon)?.form !== "unspecified");
-        const radioYes = el("input", { type: "radio", name: "af-disc", value: "yes", ...(hasDiscount ? { checked: "checked" } : {}) });
-        const radioNo  = el("input", { type: "radio", name: "af-disc", value: "no",  ...(!hasDiscount ? { checked: "checked" } : {}) });
-        const sub = el("div", { class: "af-disc-sub" });
-        const rebuildSub = () => {
-          const on = document.querySelector('input[name="af-disc"]:checked')?.value === "yes";
-          _renderDiscountSubarea(slotEl, cell, on);
-        };
-        radioYes.addEventListener("change", rebuildSub);
-        radioNo.addEventListener("change", rebuildSub);
-        slotEl.appendChild(el("div", { class: "af-radio-row" },
-          el("label", {}, radioYes, " 有折扣"),
-          el("label", {}, radioNo,  " 无折扣")));
-        slotEl.appendChild(sub);
-        _renderDiscountSubarea(slotEl, cell, hasDiscount);
-      },
-      getValue() {
-        const hasDisc = document.querySelector('input[name="af-disc"]:checked')?.value === "yes";
-        if (!hasDisc) {
-          return {
-            capacity: { kind: "unspecified", n: null },
-            audience_policies: [],
-            summary: "无折扣",
-            source_phrase_block: cell.pass.coupon?.source_phrase_block ?? null,
-          };
-        }
-        const f = $("#af-cform")?.value || "free";
-        const raw = $("#af-cval")?.value || "";
-        const v = (f === "free" || f === "bogo" || f === "discount") ? null : (raw === "" ? null : Number(raw));
-        return {
-          capacity: cell.pass.coupon?.capacity ?? { kind: "unspecified", n: null },
-          audience_policies: [{ audience: "Everyone", age_range: null, count: null, form: f, value: v }],
-          summary: couponSummaryStr(f, v),
-          source_phrase_block: cell.pass.coupon?.source_phrase_block ?? null,
-        };
-      },
-    },
-    {
-      label: "取卡方式",
-      kind: "pass", id: passId, field: "pass_form",
-      render(slotEl) {
-        slotEl.innerHTML = "";
-        slotEl.appendChild(zhSelect("af-val", ZH.pass_form, cell.pass.pass_form));
-      },
-      getValue() { return $("#af-val").value; },
-    },
-    {
-      label: "取 pass 的居住限制",
-      kind: "pass", id: passId, field: "residency_restriction",
-      render(slotEl) {
-        slotEl.innerHTML = "";
-        slotEl.appendChild(el("label", {}, "是否有限制",
-          zhSelect("af-rr", ZH.residency_restricted, cell.pass.residency_restriction?.restricted)));
-        slotEl.appendChild(el("label", {}, "范围（仅当有限制时有意义）",
-          zhSelect("af-rs", ZH.residency_scope, cell.pass.residency_restriction?.scope)));
-      },
-      getValue() {
-        return { restricted: $("#af-rr").value, scope: $("#af-rs").value || null, source: "admin", evidence: null };
-      },
-    },
-    {
-      label: "办卡资格",
-      kind: "library", id: cell.lib.id, field: "card_eligibility",
-      render(slotEl) {
-        slotEl.innerHTML = "";
-        slotEl.appendChild(zhSelect("af-val", ZH.card_eligibility, cell.lib.card_eligibility));
-      },
-      getValue() { return $("#af-val").value; },
-    },
-    {
-      label: "取 pass 资格",
-      kind: "library", id: cell.lib.id, field: "pass_pickup_default",
-      render(slotEl) {
-        slotEl.innerHTML = "";
-        slotEl.appendChild(zhSelect("af-val", ZH.pass_pickup_default, cell.lib.pass_pickup_default));
-      },
-      getValue() { return $("#af-val").value; },
-    },
-    {
-      label: "景点访客居住要求",
-      kind: "attraction", id: attr.slug, field: "visitor_eligibility",
-      render(slotEl) {
-        slotEl.innerHTML = "";
-        slotEl.appendChild(zhSelect("af-val", ZH.visitor_residency, attr.visitor_eligibility?.residency));
-      },
-      getValue() { return { residency: $("#af-val").value }; },
-    },
-    {
-      label: "景点预约要求",
-      kind: "attraction", id: attr.slug, field: "reservation",
-      render(slotEl) {
-        slotEl.innerHTML = "";
-        slotEl.appendChild(el("label", {}, "预约要求",
-          zhSelect("af-rq", ZH.reservation_required, attr.reservation?.required)));
-        slotEl.appendChild(el("label", {}, "预约链接（可选）",
-          el("input", { type: "text", id: "af-burl", placeholder: "预约链接（可选）", value: attr.reservation?.booking_url || "" })));
-      },
-      getValue() {
-        return { required: $("#af-rq").value, booking_url: $("#af-burl").value || null };
-      },
-    },
-  ];
-
   const form = el("div", { class: "af" });
 
-  // 介绍行
-  form.appendChild(el("p", { class: "af-intro" }, "先选这条为什么要改，再选改哪一项、改成什么。"));
+  form.appendChild(el("div", { class: "af-section-label" }, "当前数据（自动抓取，只读）"));
+  form.appendChild(renderCellReadonly(cell, attr));
 
-  // 第 1 步 — 为什么改（radio）
-  form.appendChild(el("div", { class: "af-step" }, "第 1 步 — 为什么改"));
-  form.appendChild(
-    el("label", { class: "af-radio" },
-      el("input", { type: "radio", name: "af-cause", value: "extraction_error", checked: "checked" }),
-      " 取错了",
-      el("span", { class: "af-hint" }, "数据源里其实有，是我们抓错了，以后能自动修正。")
-    )
-  );
-  form.appendChild(
-    el("label", { class: "af-radio" },
-      el("input", { type: "radio", name: "af-cause", value: "unobtainable" }),
-      " 取不到",
-      el("span", { class: "af-hint" }, "数据源里没有 / 拿不到，人工补，以你为准。")
-    )
-  );
+  form.appendChild(el("div", { class: "af-divider" }));
+  form.appendChild(el("div", { class: "af-section-label" }, "这条数据有什么问题？"));
 
-  // 第 2 步 — 改哪一项
-  form.appendChild(el("div", { class: "af-step" }, "第 2 步 — 改哪一项"));
-  const fieldSel = el("select", { id: "af-field" });
-  for (let i = 0; i < FIELDS.length; i++) {
-    fieldSel.appendChild(el("option", { value: String(i) }, FIELDS[i].label));
-  }
-  form.appendChild(fieldSel);
+  form.appendChild(el("div", { class: "af-step" }, "原因"));
+  form.appendChild(el("div", { class: "af-radio-row" },
+    el("label", {}, el("input", { type: "radio", name: "af-cause", value: "extraction_error", checked: "checked" }), " 取错了"),
+    el("label", {}, el("input", { type: "radio", name: "af-cause", value: "unobtainable" }), " 取不到")));
 
-  // 第 3 步 — 改成什么（动态 slot）
-  form.appendChild(el("div", { class: "af-step" }, "第 3 步 — 改成什么"));
-  const slot = el("div", { class: "af-slot" });
-  form.appendChild(slot);
+  form.appendChild(el("div", { class: "af-step" }, "哪块出错（可多选，可不选）"));
+  const aspectRow = el("div", { class: "af-aspects" });
+  for (const code of ASPECTS)
+    aspectRow.appendChild(el("label", { class: "af-aspect" },
+      el("input", { type: "checkbox", name: "af-aspect", value: code }), " " + (ASPECT_ZH[code] || code)));
+  form.appendChild(aspectRow);
 
-  // 渲染第一个字段的 slot
-  FIELDS[0].render(slot);
+  form.appendChild(el("div", { class: "af-step" }, "说明"));
+  form.appendChild(el("textarea", { id: "af-feedback", class: "af-textarea", rows: "3",
+    placeholder: "具体哪里不对、应该是什么…" }));
 
-  fieldSel.addEventListener("change", () => {
-    const idx = +fieldSel.value;
-    FIELDS[idx].render(slot);
-  });
-
-  // 备注
-  form.appendChild(el("input", { id: "af-note", class: "af-note", placeholder: "备注（可选）" }));
-
-  // 保存
   const saveBtn = el("button", { class: "btn-tiny primary af-save", onclick: async () => {
-    const cur = FIELDS[+$("#af-field").value];
-    const rec = buildRecord({
-      kind: cur.kind, id: cur.id, field: cur.field, status: "corrected",
-      root_cause: document.querySelector('input[name="af-cause"]:checked').value,
-      corrected_value: cur.getValue(),
-      note: $("#af-note").value,
+    const root_cause = document.querySelector('input[name="af-cause"]:checked').value;
+    const aspects = [...document.querySelectorAll('input[name="af-aspect"]:checked')].map(i => i.value);
+    const feedback = $("#af-feedback").value.trim();
+    if (!feedback && !aspects.length) { alert("请填写说明，或至少选一项「哪块出错」。"); return; }
+    const rec = buildFeedbackRecord({
+      kind: "pass", id: `${cell.lib.id}__${cell.pass.attraction_rawslug}`,
+      root_cause, aspects, feedback,
     });
     await auditPut(rec);
     closeModal();
     renderMatrix();
-  } }, "保存修改");
+  } }, "保存反馈");
   form.appendChild(saveBtn);
 
   openModal(`修改数据：${attr.name} × ${cell.lib.name}`, form);
@@ -1107,6 +1019,16 @@ function auditRenderLog(showPaths) {
       `${record.kind} · ${record.id} · ${record.field}`,
     );
     meta.appendChild(detail);
+    if (record.status === "feedback") {
+      meta.appendChild(el("div", { class: "ale-detail" },
+        "原因：" + ({ extraction_error: "取错了", unobtainable: "取不到" }[record.root_cause] || record.root_cause || "—")));
+      if ((record.aspects || []).length) {
+        const tags = el("div", { class: "ale-aspects" });
+        for (const a of record.aspects) tags.appendChild(el("span", { class: "ale-aspect-tag" }, ASPECT_ZH[a] || a));
+        meta.appendChild(tags);
+      }
+      if (record.feedback) meta.appendChild(el("div", { class: "ale-feedback-text" }, "💬 " + record.feedback));
+    }
 
     if (record.status === "corrected" && record.corrected_value !== null) {
       meta.appendChild(el("div", { class: "ale-value" }, "→ " + JSON.stringify(record.corrected_value)));
@@ -1124,7 +1046,7 @@ function auditRenderLog(showPaths) {
     }
 
     const right = el("div", { class: "ale-right" });
-    const emoji = { corrected: "✏️", reviewed: "✅", noted: "📝" }[record.status] || "";
+    const emoji = { corrected: "✏️", reviewed: "✅", noted: "📝", feedback: "💬" }[record.status] || "";
     right.appendChild(el("span", { class: "ale-auditor" }, emoji + " " + (record.audited_by || "")));
     right.appendChild(el("span", { class: "ale-time" }, record.audited_at ? record.audited_at.slice(0, 19).replace("T", " ") : "—"));
     const delBtn = el("button", { class: "btn-tiny", style: "font-size:10px;color:var(--rd);border-color:var(--rd)" }, "撤销");
