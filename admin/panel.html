@@ -64,16 +64,10 @@
 
   <section class="ctrl-block">
     <h3>审计覆盖 <span class="badge" id="audit-count">0</span></h3>
-    <div class="ctrl-row">
-      <label class="ctrl-line" style="margin:0;flex:1">审计人
-        <input type="text" id="auditor-name" value="admin" maxlength="40" style="width:100%;margin-top:4px">
-      </label>
-    </div>
     <div class="ctrl-row" style="gap:4px;flex-wrap:wrap">
-      <button class="btn-tiny primary" id="btn-export-overrides">导出 overrides</button>
-      <button class="btn-tiny" id="btn-export-bundle">导出 bundle</button>
+      <button class="btn-tiny primary" id="btn-export-audits">导出我的修改</button>
     </div>
-    <div class="hint">✏️ 改值仅对 library/attraction/branch 有效，导出后可被 Python 管道按路径自动应用（status=corrected 时合并）。<br>Pass 字段仅支持 ✅/📝，是<strong>信息性标注（不参与构建合并）</strong>：构建侧用 raw slug 给 pass 覆盖建键，本面板只有 canonical slug，无法对齐——<strong>pass 纠错需用 raw slug 手工处理</strong>，本面板不导出可应用路径。</div>
+    <div class="hint">导出当前所有审计修改（audit_overrides.json），可喂回构建管道。</div>
   </section>
 </aside>
 
@@ -122,50 +116,6 @@
     </div>
   </section>
 </main>
-
-<!-- Override popover (shared singleton) -->
-<div id="override-popover" class="override-popover" hidden>
-  <div class="popover-header">
-    <span class="popover-target" id="pop-target"></span>
-    <button class="popover-close" id="pop-close">×</button>
-  </div>
-  <div class="popover-body" id="pop-body"></div>
-  <div class="popover-footer">
-    <button class="btn-tiny" id="pop-revoke" style="color:var(--rd);border-color:var(--rd)">撤销记录</button>
-  </div>
-</div>
-
-<!-- Override inline editor (shared singleton) -->
-<div id="override-editor" class="override-editor" hidden>
-  <div class="editor-header">
-    <span class="editor-title" id="ed-title"></span>
-    <button class="editor-close" id="ed-close">×</button>
-  </div>
-  <div class="editor-body">
-    <div class="editor-mode-row">
-      <label class="editor-mode-label">操作类型：</label>
-      <select id="ed-status" class="al-filter-select">
-        <option value="reviewed">✅ 已核 (reviewed)</option>
-        <option value="noted">📝 备注 (noted)</option>
-        <option value="corrected">✏️ 改值 (corrected) — 仅 library/attraction/branch</option>
-      </select>
-    </div>
-    <div id="ed-corrected-row" class="editor-corrected-row" hidden>
-      <label class="editor-label">改值（JSON 格式，字符串加引号）：</label>
-      <textarea id="ed-value" class="editor-textarea" rows="3" placeholder='例："ma_resident" 或 {"required":"none"}'></textarea>
-      <div class="editor-json-hint" id="ed-json-hint"></div>
-    </div>
-    <div class="editor-note-row">
-      <label class="editor-label">备注（可选）：</label>
-      <input type="text" id="ed-note" class="editor-note-input" placeholder="说明改动原因…">
-    </div>
-  </div>
-  <div class="editor-footer">
-    <button class="btn-tiny" id="ed-cancel">取消</button>
-    <button class="btn-tiny primary" id="ed-save">保存</button>
-  </div>
-</div>
-<div id="override-editor-backdrop" class="editor-backdrop" hidden></div>
 
 <!-- matrix popup: booking options / source text -->
 <div id="mx-modal" class="mx-modal" hidden>
