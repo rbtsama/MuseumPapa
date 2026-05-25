@@ -90,16 +90,19 @@ export function couponSummary(coupon) {
   }
 }
 
-// Ultra-short glyph for a matrix cell. "" when no coupon.
+// Ultra-short glyph for a matrix cell, based on the adult/headline policy.
+// Forms: FR=free, 50%=percent-off, -$10=dollar-off, $X/p=per-person price,
+// B1G1=bogo, disc=generic discount, ?=unknown / no coupon.
 export function shortSummary(coupon) {
-  const p = bestPolicy(coupon);
-  if (!p) return "";
+  const p = headlinePolicy(coupon);
+  if (!p) return "?";
   switch (p.form) {
     case "free": return "FR";
-    case "percent-off": return `${p.value ?? ""}%`;
-    case "dollar-off": return `$${p.value ?? ""}`;
-    case "per-person-price": return `$${p.value ?? ""}`;
+    case "percent-off": return p.value != null ? `${p.value}%` : "%";
+    case "dollar-off": return p.value != null ? `-$${p.value}` : "-$";
+    case "per-person-price": return p.value != null ? `$${p.value}/p` : "$/p";
     case "bogo": return "B1G1";
-    default: return "%";
+    case "discount": return "disc";
+    default: return "?";
   }
 }

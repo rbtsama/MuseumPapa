@@ -35,7 +35,7 @@ const STATE = {
   selectedAttrs: new Set(),  // attraction slugs to SHOW (default: all)
   attrSearch: "",
   onlyBookable: false,
-  display: { policies:false, offer:true, verdict:false, pickup:false, avail:false, distance:false, restrict:false },
+  display: { policies:false, verdict:false, pickup:false, avail:false, distance:false, restrict:false },
   // group collapse state: net -> bool collapsed
   groupCollapsed: {},
 };
@@ -1101,9 +1101,14 @@ function renderCell(cell, attr) {
     : cell.avail === "unknown" ? "av-unk" : "";
   const td = el("td", { class: `mx-cell ${TIER_CLASS[cell.tier]} ${availCls}` });
 
-  // headline offer (adult/Everyone-preferred), readable — shown when "显示优惠" is on;
-  // when off, the tier color alone conveys presence (no cryptic glyph).
-  if (d.offer) td.appendChild(el("div", { class: "mx-glyph" }, couponSummary(cell.pass.coupon)));
+  // Offer: simplified (default) = adult/headline short glyph; "人群条款全展开" on
+  // = every audience policy spelled out.
+  if (d.policies && cell.pass.coupon?.audience_policies?.length) {
+    for (const p of cell.pass.coupon.audience_policies)
+      td.appendChild(el("div", { class: "mx-sub mx-pol" }, `${p.audience}: ${couponSummary({ audience_policies: [p] })}`));
+  } else {
+    td.appendChild(el("div", { class: "mx-glyph" }, shortSummary(cell.pass.coupon)));
+  }
 
   if (cell.warn) td.appendChild(el("span", { class: "mx-warn", title: "eligibility not confirmed (residency unknown in our data)" }, "⚠"));
   if (d.avail && cell.avail !== "none") td.appendChild(el("div", { class: "mx-sub" }, cell.avail));
@@ -1113,17 +1118,16 @@ function renderCell(cell, attr) {
     const mi = haversineMi(STATE.homeGeo, cell.lib.geo);
     if (mi != null) td.appendChild(el("div", { class: "mx-sub" }, `${mi.toFixed(1)} mi`));
   }
-  if (d.policies && cell.pass.coupon?.audience_policies?.length > 1) {
-    for (const p of cell.pass.coupon.audience_policies)
-      td.appendChild(el("div", { class: "mx-sub mx-pol" }, `${p.audience}: ${couponSummary({audience_policies:[p]})}`));
-  }
   if (d.restrict && cell.pass.restrictions) {
     const r = cell.pass.restrictions, bits = [];
-    if (r.weekdays_only) bits.push("weekdays");
+    if (r.weekdays_only) bits.push("weekdays only");
     if (r.seasonal) bits.push("seasonal");
-    if (r.advance_booking_required) bits.push(`${r.advance_booking_hours||""}h ahead`);
-    if (r.blackout?.length) bits.push("blackout");
-    if (bits.length) td.appendChild(el("div", { class: "mx-sub mx-restrict" }, bits.join("·")));
+    if (r.advance_booking_required) bits.push(`book ${r.advance_booking_hours || "?"}h ahead`);
+    if (r.blackout?.length) bits.push(`${r.blackout.length} blackout date(s)`);
+    if (r.blackout_recurring?.length) bits.push(`closed ${r.blackout_recurring.join("/")}`);
+    if (r.booking_frequency_limit) bits.push(String(r.booking_frequency_limit));
+    if (r.late_return_penalty) bits.push("late fee");
+    if (bits.length) td.appendChild(el("div", { class: "mx-sub mx-restrict", title: r.late_return_penalty || "" }, bits.join(" · ")));
   }
   // Plan 3 hook: audit ✎ + ⓘ attach here.
   td.dataset.libId = cell.lib.id;
@@ -1154,7 +1158,7 @@ async function init() {
   $("#btn-attr-none").onclick = () => { STATE.selectedAttrs = new Set(); renderAttrList(); updateAttrCount(); renderMatrix(); };
   $("#attr-search").oninput = (e) => { STATE.attrSearch = e.target.value; renderAttrList(); };
   $("#opt-only-bookable").onchange = (e) => { STATE.onlyBookable = e.target.checked; renderMatrix(); };
-  for (const [key, id] of Object.entries({policies:"d-policies",offer:"d-offer",verdict:"d-verdict",pickup:"d-pickup",avail:"d-avail",distance:"d-distance",restrict:"d-restrict"})) {
+  for (const [key, id] of Object.entries({policies:"d-policies",verdict:"d-verdict",pickup:"d-pickup",avail:"d-avail",distance:"d-distance",restrict:"d-restrict"})) {
     $("#"+id).onchange = (e) => { STATE.display[key] = e.target.checked; renderMatrix(); };
   }
 

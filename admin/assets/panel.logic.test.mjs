@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { cardOk, residencyOk, cellTier, availStatus, rowSortKey, bestPolicy, shortSummary } from "./panel.logic.mjs";
+import { cardOk, residencyOk, cellTier, availStatus, rowSortKey, bestPolicy, headlinePolicy, shortSummary } from "./panel.logic.mjs";
 
 const libsById = {
   wakefield: { id: "wakefield", network: "NOBLE", town: "Wakefield", resident_zips: ["01880"] },
@@ -59,10 +59,22 @@ test("rowSortKey: best tier + available-first", () => {
   assert.deepEqual(rowSortKey([{ tier: "a", avail: "booked" }]), [0, 1]);
   assert.deepEqual(rowSortKey([]), [9, 9]);
 });
-test("bestPolicy/shortSummary: pick strongest form", () => {
+test("bestPolicy/shortSummary: pick strongest form, short glyphs", () => {
   const coupon = { audience_policies: [ { form: "dollar-off", value: 5 }, { form: "free" } ] };
   assert.equal(bestPolicy(coupon).form, "free");
   assert.equal(shortSummary(coupon), "FR");
   assert.equal(shortSummary({ audience_policies: [{ form: "percent-off", value: 50 }] }), "50%");
-  assert.equal(shortSummary(null), "");
+  assert.equal(shortSummary({ audience_policies: [{ form: "dollar-off", value: 10 }] }), "-$10");
+  assert.equal(shortSummary({ audience_policies: [{ form: "per-person-price", value: 9 }] }), "$9/p");
+  assert.equal(shortSummary({ audience_policies: [{ form: "discount" }] }), "disc");
+  assert.equal(shortSummary(null), "?");
+});
+
+test("headlinePolicy: prefers adult/Everyone over a stronger kid offer", () => {
+  const coupon = { audience_policies: [
+    { audience: "Children under 3", form: "free" },
+    { audience: "Adult", form: "percent-off", value: 50 },
+  ] };
+  assert.equal(headlinePolicy(coupon).audience, "Adult");
+  assert.equal(shortSummary(coupon), "50%");
 });
