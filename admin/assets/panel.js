@@ -30,6 +30,10 @@ const STATE = {
   showOnlyCovered: false,  // audit tool: show ALL rows (incl. ineligible) by default
   categoryFilter: "",
   activeLens: "A",
+  selectedAttrs: new Set(),  // attraction slugs to SHOW (default: all)
+  attrSearch: "",
+  onlyBookable: false,
+  display: { policies:false, offer:false, verdict:false, pickup:false, avail:false, distance:false, restrict:false },
   // group collapse state: net -> bool collapsed
   groupCollapsed: {},
 };
@@ -104,6 +108,9 @@ async function loadData() {
 
   STATE.attrBySlug = {};
   for (const a of STATE.attractions) STATE.attrBySlug[a.slug] = a;
+
+  // Default: all attractions selected
+  STATE.selectedAttrs = new Set(STATE.attractions.map(a => a.slug));
 
   STATE.passesByAttr = {};
   STATE.passesByLib = {};
@@ -377,7 +384,32 @@ function renderCategoryFilter() {
   const cats = new Set();
   for (const a of STATE.attractions) (a.categories || []).forEach(c => cats.add(c));
   const sel = $("#opt-category");
-  for (const c of [...cats].sort()) sel.appendChild(el("option", { value: c }, c));
+  if (sel) for (const c of [...cats].sort()) sel.appendChild(el("option", { value: c }, c));
+}
+
+function renderAttrList() {
+  const wrap = $("#attr-list");
+  wrap.innerHTML = "";
+  const q = STATE.attrSearch.toLowerCase();
+  const list = STATE.attractions
+    .filter(a => !q || a.name.toLowerCase().includes(q))
+    .sort((a, b) => a.name.localeCompare(b.name));
+  for (const a of list) {
+    wrap.appendChild(el("label", { class: "attr-item" },
+      el("input", {
+        type: "checkbox", ...(STATE.selectedAttrs.has(a.slug) ? { checked: "checked" } : {}),
+        onchange: (e) => {
+          if (e.target.checked) STATE.selectedAttrs.add(a.slug);
+          else STATE.selectedAttrs.delete(a.slug);
+          updateAttrCount(); renderMatrix();
+        },
+      }),
+      el("span", {}, a.name),
+    ));
+  }
+}
+function updateAttrCount() {
+  $("#attr-count").textContent = `${STATE.selectedAttrs.size} / ${STATE.attractions.length}`;
 }
 
 // ─────────────────────────────────────────────
@@ -993,20 +1025,28 @@ async function init() {
   renderCardList();
   updateLibCount();
   renderCategoryFilter();
+  renderAttrList(); updateAttrCount();
   renderLens();
   initSimulator();
   initAuditSystem();
 
-  // All / None
+  // Attr filter controls
+  $("#btn-attr-all").onclick = () => { STATE.selectedAttrs = new Set(STATE.attractions.map(a=>a.slug)); renderAttrList(); updateAttrCount(); renderMatrix(); };
+  $("#btn-attr-none").onclick = () => { STATE.selectedAttrs = new Set(); renderAttrList(); updateAttrCount(); renderMatrix(); };
+  $("#attr-search").oninput = (e) => { STATE.attrSearch = e.target.value; renderAttrList(); };
+  $("#opt-only-bookable").onchange = (e) => { STATE.onlyBookable = e.target.checked; renderMatrix(); };
+  for (const [key, id] of Object.entries({policies:"d-policies",offer:"d-offer",verdict:"d-verdict",pickup:"d-pickup",avail:"d-avail",distance:"d-distance",restrict:"d-restrict"})) {
+    $("#"+id).onchange = (e) => { STATE.display[key] = e.target.checked; renderMatrix(); };
+  }
+
+  // All / None (card selection)
   $("#btn-all").addEventListener("click", () => {
-    STATE.selectedNetworks = new Set(STATE.networks);
-    syncSelectedLibs();
-    renderCardList(); updateLibCount(); renderLens();
+    for (const l of STATE.libs) STATE.selectedLibs.add(l.id);
+    renderCardList(); updateLibCount(); renderMatrix();
   });
   $("#btn-none").addEventListener("click", () => {
-    STATE.selectedNetworks.clear();
-    syncSelectedLibs();
-    renderCardList(); updateLibCount(); renderLens();
+    STATE.selectedLibs.clear();
+    renderCardList(); updateLibCount(); renderMatrix();
   });
 
   // Lens tabs

@@ -42,14 +42,27 @@
   </section>
 
   <section class="ctrl-block">
-    <h3>筛选</h3>
-    <label class="ctrl-check"><input type="checkbox" id="opt-only-covered"> 只看有 coupon 的行</label>
-    <div class="hint" style="margin:2px 0 6px">默认显示全部行（含不合规/被拦截）；勾选后仅隐藏无 coupon 数据的行。资格判定只作徽章展示，永不隐藏行。</div>
-    <label class="ctrl-line">分类
-      <select id="opt-category">
-        <option value="">(全部)</option>
-      </select>
-    </label>
+    <h3>景点筛选 <span class="badge" id="attr-count">0 / 0</span></h3>
+    <div class="ctrl-row">
+      <button class="btn-tiny" id="btn-attr-all">全选</button>
+      <button class="btn-tiny" id="btn-attr-none">清空</button>
+    </div>
+    <input type="text" id="attr-search" placeholder="搜索景点…" class="al-filter-input" style="width:100%;margin:4px 0">
+    <div class="attr-list" id="attr-list"></div>
+    <label class="ctrl-check" style="margin-top:6px"><input type="checkbox" id="opt-only-bookable"> 只看可订（隐藏不合规格子）</label>
+    <div class="hint">景点是唯一真过滤；卡/Zip 不符只下沉不隐藏。勾"只看可订"后只留 (a) 合规格子。</div>
+  </section>
+
+  <section class="ctrl-block">
+    <h3>显示选项</h3>
+    <label class="ctrl-check"><input type="checkbox" id="d-policies"> 人群条款全展开</label>
+    <label class="ctrl-check"><input type="checkbox" id="d-offer"> 优惠具体值</label>
+    <label class="ctrl-check"><input type="checkbox" id="d-verdict"> 资格拦截层+原因</label>
+    <label class="ctrl-check"><input type="checkbox" id="d-pickup"> 怎么领文字</label>
+    <label class="ctrl-check"><input type="checkbox" id="d-avail"> 库存状态</label>
+    <label class="ctrl-check"><input type="checkbox" id="d-distance"> 距离</label>
+    <label class="ctrl-check"><input type="checkbox" id="d-restrict"> 限制详情</label>
+    <div class="hint">每项独立；勾上=更详细，默认=更简洁。</div>
   </section>
 
   <section class="ctrl-block">
