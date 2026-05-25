@@ -1131,9 +1131,9 @@ function renderCell(cell, attr) {
     if (r.late_return_penalty) bits.push("late fee");
     if (bits.length) td.appendChild(el("div", { class: "mx-sub mx-restrict", title: r.late_return_penalty || "" }, bits.join(" · ")));
   }
-  // ⓘ source-text popup (top-right); audit ✎ will join here in Plan 3
-  td.appendChild(el("span", { class: "mx-info", title: "source text",
-    onclick: (e) => { e.stopPropagation(); openSourcePopup(cell, attr); } }, "ⓘ"));
+  // whole cell opens the detail popup (offer / eligibility / source + actions)
+  td.classList.add("mx-click");
+  td.addEventListener("click", () => openDetailPopup(cell, attr));
   td.dataset.libId = cell.lib.id;
   td.dataset.attrSlug = attr.slug;
   return td;
@@ -1147,7 +1147,11 @@ function openModal(title, bodyNode) {
 }
 function closeModal() { $("#mx-modal").hidden = true; }
 
-// All HELD cards that offer this attraction, eligible first, each with a booking link.
+// pickup-method order: Email (instant) first, then Pick-up, then Pick-up-and-Return.
+const PICKUP_ORDER = { digital_email: 0, physical_coupon: 1, physical_circ: 2 };
+
+// All HELD cards that offer this attraction; eligible first, then by pickup order.
+// Email pass needs no distance; Pick-up / Pick-up-and-Return show distance to the library.
 function openBookingPopup(attr) {
   const user = getUser();
   const held = new Set(user.heldLibraryIds);
@@ -1155,16 +1159,20 @@ function openBookingPopup(attr) {
     .filter(p => held.has(p.library_id))
     .map(p => { const lib = STATE.libsById[p.library_id];
       return { p, lib, v: resolvePass(p, lib, attr, user, STATE.visitDate) }; })
-    .sort((a, b) => (b.v.eligible - a.v.eligible));
+    .sort((a, b) => (b.v.eligible - a.v.eligible)
+      || ((PICKUP_ORDER[a.p.pass_form] ?? 9) - (PICKUP_ORDER[b.p.pass_form] ?? 9)));
   const box = el("div", { class: "bk-list" });
   if (!held.size) box.appendChild(el("p", { class: "hint" }, "Tick the cards you hold in the sidebar first."));
   else if (!rows.length) box.appendChild(el("p", { class: "hint" }, "None of your cards offer this attraction."));
   else for (const { p, lib, v } of rows) {
+    const physical = p.pass_form !== "digital_email";
+    const mi = (physical && lib.geo && STATE.homeGeo) ? haversineMi(STATE.homeGeo, lib.geo) : null;
     box.appendChild(el("div", { class: "bk-row" },
       el("div", { class: "bk-lib" }, lib.name),
       el("div", { class: "bk-offer" }, couponSummary(p.coupon)),
-      v.eligible ? el("span", { class: "bk-ok" }, "✓ eligible")
-                 : el("span", { class: "bk-no" }, "✗ " + (v.reasons[0] || v.blockedLayer)),
+      el("span", { class: "bk-pickup" }, (PASS_FORM_META[p.pass_form]?.label) || p.pass_form || "—"),
+      el("span", { class: "bk-dist" }, mi != null ? `${mi.toFixed(1)} mi` : ""),
+      v.eligible ? el("span", { class: "bk-ok" }, "✓") : el("span", { class: "bk-no" }, "✗ " + (v.reasons[0] || v.blockedLayer)),
       p.source_url ? el("a", { class: "bk-link", href: p.source_url, target: "_blank", rel: "noopener" }, "Book ↗")
                    : el("span", { class: "hint" }, "no link"),
     ));
@@ -1172,27 +1180,63 @@ function openBookingPopup(attr) {
   openModal(`Book: ${attr.name}`, box);
 }
 
-// Source provenance for one (attraction × library) pass + a Copy button.
-function openSourcePopup(cell, attr) {
+// Raw provenance text for one pass (shown in the detail popup + used by Copy).
+function buildSourceText(cell, attr) {
   const p = cell.pass, c = p.coupon, parts = [];
   parts.push(`${attr.name} × ${cell.lib.name}`);
   if (c?.summary) parts.push(`Offer: ${c.summary}`);
   if (c?.source_phrase_block) parts.push(`\n[coupon source]\n${c.source_phrase_block}`);
   for (const ap of (c?.audience_policies || [])) if (ap.source_phrase) parts.push(`\n[${ap.audience}]\n${ap.source_phrase}`);
   const rr = p.residency_restriction;
-  if (rr && (rr.source || rr.evidence)) parts.push(`\n[residency: ${rr.restricted}/${rr.scope || "-"} via ${rr.source || "?"}]\n${rr.evidence || ""}`);
+  if (rr && (rr.source || rr.evidence)) parts.push(`\n[residency ${rr.restricted}/${rr.scope || "-"} via ${rr.source || "?"}]\n${rr.evidence || ""}`);
   if (p.source_url) parts.push(`\n[booking page] ${p.source_url}`);
-  const text = parts.join("\n").trim();
-  const box = el("div", {});
-  box.appendChild(el("pre", { class: "src-text" }, text || "no source text recorded"));
-  const copyBtn = el("button", { class: "btn-tiny primary" }, "Copy");
-  copyBtn.addEventListener("click", () => {
-    navigator.clipboard.writeText(text).then(() => {
-      copyBtn.textContent = "Copied ✓"; setTimeout(() => copyBtn.textContent = "Copy", 1200);
-    });
-  });
-  box.appendChild(copyBtn);
-  openModal(`Source — ${attr.name} × ${cell.lib.name}`, box);
+  return parts.join("\n").trim();
+}
+
+// Full cell detail popup: readable key facts (highlighted) + source text + actions.
+function openDetailPopup(cell, attr) {
+  const p = cell.pass, c = p.coupon, v = cell.verdict;
+  const box = el("div", { class: "dt" });
+  const kv = (k, val, cls) => el("div", { class: "dt-row" },
+    el("span", { class: "dt-k" }, k),
+    el("span", { class: "dt-v " + (cls || "") }, val));
+  box.appendChild(kv("Offer", couponSummary(c), "hl-offer"));
+  box.appendChild(kv("Eligibility",
+    v.eligible ? "✓ eligible" : `✗ ${v.reasons[0] || v.blockedLayer}`,
+    v.eligible ? "hl-ok" : "hl-bad"));
+  box.appendChild(kv("Pickup", (PASS_FORM_META[p.pass_form]?.label) || p.pass_form || "—", "hl-pickup"));
+  const rr = p.residency_restriction;
+  box.appendChild(kv("Residency",
+    rr && rr.restricted ? `${rr.restricted}${rr.scope ? ` · ${rr.scope}` : ""}` : "—",
+    rr && rr.restricted === "yes" ? "hl-warn" : ""));
+  if (STATE.visitDate) box.appendChild(kv("Availability " + STATE.visitDate.toISOString().slice(0, 10), cell.avail,
+    cell.avail === "available" ? "hl-ok" : (cell.avail === "booked" || cell.avail === "closed") ? "hl-bad" : ""));
+  if (c?.audience_policies?.length) {
+    const pol = el("div", { class: "dt-pol" });
+    for (const ap of c.audience_policies)
+      pol.appendChild(el("div", {}, el("span", { class: "dt-aud" }, ap.audience + ": "), couponSummary({ audience_policies: [ap] })));
+    box.appendChild(kv("By audience", pol));
+  }
+  const srcText = buildSourceText(cell, attr);
+  box.appendChild(el("div", { class: "dt-srchead" }, "Source text"));
+  box.appendChild(el("pre", { class: "src-text" }, srcText || "no source text recorded"));
+
+  const note = el("div", { class: "dt-note", hidden: "hidden" });
+  const planNote = (msg) => { note.textContent = msg; note.hidden = false; };
+  const foot = el("div", { class: "dt-foot" });
+  foot.appendChild(p.source_url
+    ? el("a", { class: "btn-tiny primary", href: p.source_url, target: "_blank", rel: "noopener" }, "预定 ↗")
+    : el("span", { class: "hint" }, "no booking link"));
+  const copyBtn = el("button", { class: "btn-tiny" }, "复制原文");
+  copyBtn.addEventListener("click", () => navigator.clipboard.writeText(srcText).then(() => {
+    copyBtn.textContent = "已复制 ✓"; setTimeout(() => copyBtn.textContent = "复制原文", 1200);
+  }));
+  foot.appendChild(copyBtn);
+  foot.appendChild(el("button", { class: "btn-tiny", onclick: () => planNote("「通过审查」将在 Plan 3（审计）接入——记录到共享 override 文件。") }, "通过审查"));
+  foot.appendChild(el("button", { class: "btn-tiny", onclick: () => planNote("「修改数据」将在 Plan 3 用表单编辑器接入（不写 JSON）。") }, "修改数据"));
+  box.appendChild(foot);
+  box.appendChild(note);
+  openModal(`${attr.name} × ${cell.lib.name}`, box);
 }
 
 // ─────────────────────────────────────────────
