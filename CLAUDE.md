@@ -167,7 +167,6 @@ python scripts/build_audit_site.py   # 产出 audit/audit.html(单文件,5 secti
 
 - 回复语言:默认中文,技术术语保留英文
 - 回复结构:
-  - 📊 记忆使用:X%
   - 🎯 理解总结:[用户需求简要概括]
   - 📝 任务清单:
     □ 任务1
@@ -181,3 +180,4 @@ python scripts/build_audit_site.py   # 产出 audit/audit.html(单文件,5 secti
   - 提交信息清晰描述修改内容
   - 不暂存 `_tmp_*` 文件、不提交 `config/owned_*.json`(已 gitignored)
 - 用户卡 barcode 严禁出现在 commit message / 日志输出 / 任何会推到远端的位置
+- **本项目 Git 远端**:`https://github.com/rbtsama/MuseumPapa.git`,允许直接用普通 `git push` 推送到 `main`。全局配置里「仅限 aim-skills / 禁止操作 main」那条只约束 aim-skills 仓库的 GitHub MCP commit,**不适用于本项目**。
