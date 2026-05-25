@@ -410,6 +410,26 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .mx-legend b:first-child { margin-left: 0; }
 .mx-legend .lg { padding: 1px 6px; border-radius: 3px; }
 .mx-legend .lg-reason { color: #b00; font-weight: 600; }
+/* cell ⓘ source button + clickable attraction name */
+.mx-cell { position: relative; }
+.mx-info { position: absolute; top: 0; right: 1px; font-size: 9px; line-height: 1; color: #36c; cursor: pointer; opacity: .45; }
+.mx-info:hover { opacity: 1; }
+.mx-rowhead-click { cursor: pointer; }
+.mx-rowhead-click:hover { text-decoration: underline; color: #1f6feb; }
+/* popup modal (booking / source) */
+.mx-modal { position: fixed; inset: 0; background: rgba(0,0,0,.35); display: flex; align-items: center; justify-content: center; z-index: 50; }
+.mx-modal[hidden] { display: none; }
+.mx-modal-card { background: #fff; border-radius: 8px; max-width: 560px; width: 90%; max-height: 80vh; overflow: auto; box-shadow: 0 8px 30px rgba(0,0,0,.25); }
+.mx-modal-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--bd,#d4ddd4); font-weight: 600; position: sticky; top: 0; background: #fff; }
+.mx-modal-head button { border: none; background: none; font-size: 20px; cursor: pointer; line-height: 1; }
+.mx-modal-body { padding: 12px 14px; font-size: 13px; }
+.bk-list { display: flex; flex-direction: column; gap: 6px; }
+.bk-row { display: grid; grid-template-columns: 1.4fr 1fr auto auto; gap: 8px; align-items: center; padding: 6px 8px; border: 1px solid var(--bd,#d4ddd4); border-radius: 5px; }
+.bk-lib { font-weight: 600; }
+.bk-ok { color: #2e7d2e; font-size: 11px; }
+.bk-no { color: #b00; font-size: 11px; }
+.bk-link { background: #1f6feb; color: #fff; padding: 3px 10px; border-radius: 4px; text-decoration: none; white-space: nowrap; }
+.src-text { white-space: pre-wrap; word-break: break-word; background: #f6f8f6; border: 1px solid var(--bd,#d4ddd4); border-radius: 5px; padding: 8px; max-height: 50vh; overflow: auto; font-size: 12px; margin: 0 0 8px; }
 .mx-legend .lg-av { padding-left: 6px; border-left: 4px solid #999; }
 .mx-legend .lg-av.av-ok { border-left-color: #2e9e2e; }
 .mx-legend .lg-av.av-no { border-left-color: #c0392b; }

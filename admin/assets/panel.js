@@ -1083,7 +1083,7 @@ function renderMatrix() {
   const tbody = el("tbody");
   for (const row of rows) {
     const tr = el("tr");
-    tr.appendChild(el("th", { class: "mx-rowhead", title: row.attr.name }, row.attr.name));
+    tr.appendChild(el("th", { class: "mx-rowhead mx-rowhead-click", title: "click: your cards that can book this", onclick: () => openBookingPopup(row.attr) }, row.attr.name));
     for (const lib of flatLibs) {
       const cell = row.cells[lib.id];
       if (!cell) { tr.appendChild(el("td", { class: "mx-cell mx-empty" })); continue; }
@@ -1131,10 +1131,68 @@ function renderCell(cell, attr) {
     if (r.late_return_penalty) bits.push("late fee");
     if (bits.length) td.appendChild(el("div", { class: "mx-sub mx-restrict", title: r.late_return_penalty || "" }, bits.join(" · ")));
   }
-  // Plan 3 hook: audit ✎ + ⓘ attach here.
+  // ⓘ source-text popup (top-right); audit ✎ will join here in Plan 3
+  td.appendChild(el("span", { class: "mx-info", title: "source text",
+    onclick: (e) => { e.stopPropagation(); openSourcePopup(cell, attr); } }, "ⓘ"));
   td.dataset.libId = cell.lib.id;
   td.dataset.attrSlug = attr.slug;
   return td;
+}
+
+// ── popups: booking options (per attraction) + source text (per cell) ──
+function openModal(title, bodyNode) {
+  $("#mx-modal-title").textContent = title;
+  const body = $("#mx-modal-body"); body.innerHTML = ""; body.appendChild(bodyNode);
+  $("#mx-modal").hidden = false;
+}
+function closeModal() { $("#mx-modal").hidden = true; }
+
+// All HELD cards that offer this attraction, eligible first, each with a booking link.
+function openBookingPopup(attr) {
+  const user = getUser();
+  const held = new Set(user.heldLibraryIds);
+  const rows = (STATE.passesByAttr[attr.slug] || [])
+    .filter(p => held.has(p.library_id))
+    .map(p => { const lib = STATE.libsById[p.library_id];
+      return { p, lib, v: resolvePass(p, lib, attr, user, STATE.visitDate) }; })
+    .sort((a, b) => (b.v.eligible - a.v.eligible));
+  const box = el("div", { class: "bk-list" });
+  if (!held.size) box.appendChild(el("p", { class: "hint" }, "Tick the cards you hold in the sidebar first."));
+  else if (!rows.length) box.appendChild(el("p", { class: "hint" }, "None of your cards offer this attraction."));
+  else for (const { p, lib, v } of rows) {
+    box.appendChild(el("div", { class: "bk-row" },
+      el("div", { class: "bk-lib" }, lib.name),
+      el("div", { class: "bk-offer" }, couponSummary(p.coupon)),
+      v.eligible ? el("span", { class: "bk-ok" }, "✓ eligible")
+                 : el("span", { class: "bk-no" }, "✗ " + (v.reasons[0] || v.blockedLayer)),
+      p.source_url ? el("a", { class: "bk-link", href: p.source_url, target: "_blank", rel: "noopener" }, "Book ↗")
+                   : el("span", { class: "hint" }, "no link"),
+    ));
+  }
+  openModal(`Book: ${attr.name}`, box);
+}
+
+// Source provenance for one (attraction × library) pass + a Copy button.
+function openSourcePopup(cell, attr) {
+  const p = cell.pass, c = p.coupon, parts = [];
+  parts.push(`${attr.name} × ${cell.lib.name}`);
+  if (c?.summary) parts.push(`Offer: ${c.summary}`);
+  if (c?.source_phrase_block) parts.push(`\n[coupon source]\n${c.source_phrase_block}`);
+  for (const ap of (c?.audience_policies || [])) if (ap.source_phrase) parts.push(`\n[${ap.audience}]\n${ap.source_phrase}`);
+  const rr = p.residency_restriction;
+  if (rr && (rr.source || rr.evidence)) parts.push(`\n[residency: ${rr.restricted}/${rr.scope || "-"} via ${rr.source || "?"}]\n${rr.evidence || ""}`);
+  if (p.source_url) parts.push(`\n[booking page] ${p.source_url}`);
+  const text = parts.join("\n").trim();
+  const box = el("div", {});
+  box.appendChild(el("pre", { class: "src-text" }, text || "no source text recorded"));
+  const copyBtn = el("button", { class: "btn-tiny primary" }, "Copy");
+  copyBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(text).then(() => {
+      copyBtn.textContent = "Copied ✓"; setTimeout(() => copyBtn.textContent = "Copy", 1200);
+    });
+  });
+  box.appendChild(copyBtn);
+  openModal(`Source — ${attr.name} × ${cell.lib.name}`, box);
 }
 
 // ─────────────────────────────────────────────
@@ -1152,6 +1210,11 @@ async function init() {
   updateLibCount();
   renderCategoryFilter();
   renderAttrList(); updateAttrCount();
+
+  // modal close: × button, click outside the card, or Esc
+  $("#mx-modal-close").onclick = closeModal;
+  $("#mx-modal").onclick = (e) => { if (e.target.id === "mx-modal") closeModal(); };
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
   renderMatrix();
   initAuditSystem();
 
