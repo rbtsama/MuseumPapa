@@ -45,10 +45,11 @@ def build_libraries(seed_path: Path, raw_root: Path, overrides_root: Path, out_p
             pol = json.loads(policies_path.read_text())
             if pol.get("card_page"):
                 lib["card_eligibility"] = pol["card_page"].get("card_eligibility","unknown")
-                lib["eligibility_source_phrase"] = pol["card_page"].get("policy_text","")[:500]
             if pol.get("pass_page"):
                 lib["pass_pickup_default"] = pol["pass_page"].get("pass_pickup","unknown")
-                lib["pickup_source_phrase"] = pol["pass_page"].get("policy_text","")[:500]
+            # NOTE: eligibility_source_phrase / pickup_source_phrase dropped — the
+            # raw policy_text is scraped nav-menu / schema.org noise (67/118 garbage),
+            # not real provenance. Re-add only with a proper policy-text extractor.
         lib = apply_overrides(f"library:{s['id']}", lib, overrides)
         libs.append(lib)
     out = {
