@@ -35,7 +35,7 @@ const STATE = {
   selectedAttrs: new Set(),  // attraction slugs to SHOW (default: all)
   attrSearch: "",
   onlyBookable: false,
-  display: { policies:false, offer:false, verdict:false, pickup:false, avail:false, distance:false, restrict:false },
+  display: { policies:false, offer:true, verdict:false, pickup:false, avail:false, distance:false, restrict:false },
   // group collapse state: net -> bool collapsed
   groupCollapsed: {},
 };
@@ -257,11 +257,11 @@ function getUser() {
 // ─────────────────────────────────────────────
 const ELIG_LABEL = {
   ma_resident: "MA",
-  town_resident: "本镇",
-  town_or_works: "本镇",
-  network: "网络",
-  none: "无限制",
-  unknown: "未知",
+  town_resident: "Town",
+  town_or_works: "Town/Work",
+  network: "Network",
+  none: "Open",
+  unknown: "?",
 };
 const ELIG_CLASS = {
   ma_resident: "elig-open",
@@ -320,6 +320,8 @@ function availBadge(pass, iso) {
 function renderCardList() {
   const wrap = $("#lib-list");
   wrap.innerHTML = "";
+  wrap.appendChild(el("div", { class: "hint", style: "margin:0 0 4px" },
+    "tag = card_eligibility (who can register a card — NOT pass-use eligibility)"));
   for (const net of STATE.networks) {
     const libs = STATE.libsByNetwork[net];
     const allOn = libs.every(l => STATE.selectedLibs.has(l.id));
@@ -1099,9 +1101,9 @@ function renderCell(cell, attr) {
     : cell.avail === "unknown" ? "av-unk" : "";
   const td = el("td", { class: `mx-cell ${TIER_CLASS[cell.tier]} ${availCls}` });
 
-  // line 1: short offer glyph (or presence dot when 优惠具体值 off)
-  const glyph = d.offer ? (couponSummary(cell.pass.coupon)) : (shortSummary(cell.pass.coupon) || "•");
-  td.appendChild(el("div", { class: "mx-glyph" }, glyph));
+  // headline offer (adult/Everyone-preferred), readable — shown when "显示优惠" is on;
+  // when off, the tier color alone conveys presence (no cryptic glyph).
+  if (d.offer) td.appendChild(el("div", { class: "mx-glyph" }, couponSummary(cell.pass.coupon)));
 
   if (cell.warn) td.appendChild(el("span", { class: "mx-warn", title: "eligibility not confirmed (residency unknown in our data)" }, "⚠"));
   if (d.avail && cell.avail !== "none") td.appendChild(el("div", { class: "mx-sub" }, cell.avail));

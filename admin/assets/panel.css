@@ -68,7 +68,7 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
   background: var(--white); }
 .card-member { display: flex; align-items: center; justify-content: space-between;
   gap: 6px; padding: 2px 0; }
-.card-member-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card-member-name { flex: 1; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .elig-tag { font-size: 9px; font-weight: 600; letter-spacing: 0.3px;
   padding: 1px 5px; border-radius: 2px; border: 1px solid; flex-shrink: 0; white-space: nowrap; }
@@ -413,8 +413,9 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 /* library name — horizontal, fixed-narrow, wraps, tiny, lighter (lower level) */
 .matrix-table th.mx-lib { width: 76px; min-width: 76px; max-width: 76px; white-space: normal; overflow-wrap: anywhere; font-size: 10px; line-height: 1.15; font-weight: 400; color: #3a4a3a; background: #eef5ee; text-align: center; vertical-align: bottom; }
 /* frozen first column */
-.mx-corner, .mx-rowhead { position: sticky; left: 0; z-index: 2; background: #f3f8f3; text-align: left; max-width: 180px; }
-.mx-corner { z-index: 4; font-size: 10px; font-weight: 600; line-height: 1.15; white-space: normal; }
+.mx-corner, .mx-rowhead { position: sticky; left: 0; z-index: 2; background: #f3f8f3; text-align: left; max-width: 180px; font-size: 10px; line-height: 1.2; }
+/* corner must outrank `.matrix-table thead th` (specificity) so right-scroll never covers it */
+.matrix-table thead th.mx-corner { z-index: 6; font-weight: 600; white-space: normal; }
 .mx-cell { text-align: center; min-width: 76px; max-width: 96px; vertical-align: top; cursor: default; white-space: normal; overflow-wrap: anywhere; }
 .mx-empty { background: #fafbfa; }
 .mx-glyph { font-weight: 600; }

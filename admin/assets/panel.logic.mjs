@@ -64,11 +64,21 @@ export function bestPolicy(coupon) {
     .sort((a, b) => (STRENGTH[b.form] ?? 0) - (STRENGTH[a.form] ?? 0))[0];
 }
 
+// The "headline" policy a rep would quote: the adult/Everyone offer if present,
+// else the strongest by discount type. Avoids quoting a "kids free" as the offer.
+export function headlinePolicy(coupon) {
+  if (!coupon || !coupon.audience_policies?.length) return null;
+  const ADULT = new Set(["adult", "adults", "everyone", "all"]);
+  const adult = coupon.audience_policies.find(
+    p => ADULT.has(String(p.audience || "").toLowerCase()));
+  return adult || bestPolicy(coupon);
+}
+
 // Long human summary (detail rows). Falls back to coupon.summary.
 export function couponSummary(coupon) {
   if (!coupon) return "no offer info";
   if (coupon.summary) return coupon.summary;
-  const p = bestPolicy(coupon);
+  const p = headlinePolicy(coupon);
   if (!p) return "no offer info";
   switch (p.form) {
     case "free": return "FREE";
