@@ -408,11 +408,14 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .matrix-table thead th { position: sticky; top: 0; z-index: 3; background: #eaf3ea; }
 .mx-net-row th { top: 0; }
 .mx-lib-row th { top: 26px; z-index: 3; }
-.mx-lib { writing-mode: vertical-rl; transform: rotate(180deg); max-height: 110px; white-space: nowrap; font-weight: 500; }
+/* network group header — stronger (the upper hierarchy level) */
+.matrix-table th.mx-net { background: #cfe3cf; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .4px; color: #1f3a1f; text-align: center; }
+/* library name — horizontal, fixed-narrow, wraps, tiny, lighter (lower level) */
+.matrix-table th.mx-lib { width: 76px; min-width: 76px; max-width: 76px; white-space: normal; overflow-wrap: anywhere; font-size: 10px; line-height: 1.15; font-weight: 400; color: #3a4a3a; background: #eef5ee; text-align: center; vertical-align: bottom; }
 /* frozen first column */
 .mx-corner, .mx-rowhead { position: sticky; left: 0; z-index: 2; background: #f3f8f3; text-align: left; max-width: 180px; }
 .mx-corner { z-index: 4; }
-.mx-cell { text-align: center; min-width: 34px; vertical-align: top; cursor: default; }
+.mx-cell { text-align: center; min-width: 76px; max-width: 96px; vertical-align: top; cursor: default; white-space: normal; overflow-wrap: anywhere; }
 .mx-empty { background: #fafbfa; }
 .mx-glyph { font-weight: 600; }
 .mx-sub { font-size: 10px; color: #555; }
