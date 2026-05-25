@@ -35,7 +35,7 @@ async function writeFile(store, sha) {
   const res = await fetch(api(FILE), {
     method: "PUT", headers: ghHeaders(), body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error(`github write ${res.status}`);
+  if (!res.ok) throw new Error(`github write ${res.status}: ${await res.text()}`);
 }
 
 export default async function handler(req, res) {
