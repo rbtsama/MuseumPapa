@@ -19,7 +19,9 @@ export function heroSrc(
   attraction: Pick<Attraction, 'categories' | 'hero_image'>,
 ): string {
   if (attraction.hero_image) {
-    return attraction.hero_image;
+    // Upgrade legacy http:// URLs — on an HTTPS deploy (Vercel) browsers block
+    // mixed-content images. https can only help: an http image was already broken.
+    return attraction.hero_image.replace(/^http:\/\//i, 'https://');
   }
   const cats = (attraction.categories ?? []).map(c => c.toLowerCase());
   for (const c of cats) {
