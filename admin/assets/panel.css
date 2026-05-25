@@ -496,3 +496,9 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .attr-list { max-height: 220px; overflow:auto; border:1px solid var(--bd,#d4ddd4); border-radius:4px; padding:2px; }
 .attr-item { display:flex; gap:6px; align-items:center; font-size:12px; padding:1px 2px; }
 
+/* ── matrix cell audit badges (shared-store transport, Plan 1+) ── */
+.mx-audited { position: absolute; top: 0; left: 1px; font-size: 9px; line-height: 1; }
+.mx-audited-verified_ok { color: #1f7a1f; }
+.mx-audited-corrected { color: #1f6feb; }
+.mx-audited-noted { color: #888; }
+

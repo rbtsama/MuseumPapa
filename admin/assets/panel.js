@@ -2,6 +2,7 @@
 // Edit source under admin/ only. See web/sync-admin.mjs for copy rules.
 
 import { cardOk, residencyOk, cellTier, availStatus, rowSortKey, bestPolicy, couponSummary, shortSummary } from "./panel.logic.mjs";
+import { auditTarget, buildRecord, controlsFor } from "./panel.audit.mjs";
 
 const DEFAULT_ZIP = "01880";
 
@@ -39,6 +40,7 @@ const STATE = {
   display: { policies:false, verdict:false, pickup:false, avail:false, distance:false, restrict:false, warn:false },
   // group collapse state: net -> bool collapsed
   groupCollapsed: {},
+  audits: {},
 };
 
 
@@ -80,6 +82,40 @@ function fmtMoney(v) {
   if (v === 0) return "FREE";
   if (Number.isInteger(v)) return `$${v}`;
   return `$${v.toFixed(2)}`;
+}
+
+// ─────────────────────────────────────────────
+//  SHARED AUDIT STORE TRANSPORT
+// ─────────────────────────────────────────────
+// Shared audit store (Plan 1 /api/overrides), with localStorage fallback when no endpoint.
+const AUDIT_LS_V3 = "mp_audit_overrides";
+async function auditLoadAll() {
+  try { const r = await fetch("/api/overrides"); if (r.ok) return await r.json(); } catch (e) {}
+  try { return JSON.parse(localStorage.getItem(AUDIT_LS_V3) || "{}"); } catch (e) { return {}; }
+}
+async function auditPut(record) {
+  STATE.audits[record.target] = record;
+  try {
+    const r = await fetch("/api/overrides", { method:"POST",
+      headers:{"Content-Type":"application/json"}, body: JSON.stringify(record) });
+    if (r.ok) { STATE.audits = await r.json(); return; }
+  } catch (e) {}
+  try { localStorage.setItem(AUDIT_LS_V3, JSON.stringify(STATE.audits)); } catch (e) {}
+}
+async function auditRevoke(target) {
+  delete STATE.audits[target];
+  try {
+    const r = await fetch("/api/overrides", { method:"POST",
+      headers:{"Content-Type":"application/json"}, body: JSON.stringify({revoke:target}) });
+    if (r.ok) { STATE.audits = await r.json(); return; }
+  } catch (e) {}
+  try { localStorage.setItem(AUDIT_LS_V3, JSON.stringify(STATE.audits)); } catch (e) {}
+}
+// any audit record on this pass? returns the record's status or null
+function passAuditStatus(cell) {
+  const prefix = `pass:${cell.lib.id}__${cell.pass.attraction_rawslug}:`;
+  for (const t of Object.keys(STATE.audits || {})) if (t.startsWith(prefix)) return STATE.audits[t].status;
+  return null;
 }
 
 // ─────────────────────────────────────────────
@@ -652,6 +688,11 @@ function renderCell(cell, attr) {
   td.addEventListener("click", () => openDetailPopup(cell, attr));
   td.dataset.libId = cell.lib.id;
   td.dataset.attrSlug = attr.slug;
+  const aStatus = passAuditStatus(cell);
+  if (aStatus) {
+    const sym = aStatus === "corrected" ? "✎" : aStatus === "verified_ok" ? "✓" : "📝";
+    td.appendChild(el("span", { class: `mx-audited mx-audited-${aStatus}`, title: `audited: ${aStatus}` }, sym));
+  }
   return td;
 }
 
@@ -790,6 +831,7 @@ async function init() {
   $("#mx-modal-close").onclick = closeModal;
   $("#mx-modal").onclick = (e) => { if (e.target.id === "mx-modal") closeModal(); };
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+  STATE.audits = await auditLoadAll();
   renderMatrix();
   initAuditSystem();
 
@@ -896,8 +938,7 @@ function auditUpdateCount() {
   if (badge) badge.textContent = String(n);
 }
 
-// Canonical target string: "<kind>:<id>:<field>"
-function auditTarget(kind, id, field) { return `${kind}:${id}:${field}`; }
+// Canonical target string: "<kind>:<id>:<field>" — defined in panel.audit.mjs (imported above)
 
 // On-disk applying path for a given kind/id/field.
 // Returns null for pass kind: the build keys pass overrides by raw platform slug
