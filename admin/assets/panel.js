@@ -755,8 +755,7 @@ function renderLens() {
 
 function updateStat() {
   const selCount = STATE.selectedLibs.size;
-  const netCount = STATE.selectedNetworks.size;
-  let summary = `${netCount} 张卡 · ${selCount} 馆 · ${STATE.attractions.length} 景`;
+  let summary = `${selCount} 馆 · ${STATE.attractions.length} 景`;
   if (STATE.homeGeo) summary += ` · ZIP ${STATE.homeZip}`;
   if (STATE.visitDate) summary += ` · ${STATE.visitDate.toISOString().slice(0, 10)}`;
   $("#stat-summary").textContent = summary;
@@ -996,6 +995,141 @@ function initSimulator() {
 }
 
 // ─────────────────────────────────────────────
+//  MATRIX MODEL + RENDERER
+// ─────────────────────────────────────────────
+
+// Build { columns:[{net,libs:[lib]}], rows:[{attr, cells:{lib_id:{pass,tier,avail,cardOk,zipOk,verdict}}}] }
+function buildMatrixModel() {
+  const user = getUser();
+  const held = user.heldLibraryIds;
+  const iso = STATE.visitDate ? STATE.visitDate.toISOString().slice(0, 10) : null;
+
+  // rows: only selected attractions that have at least one pass
+  const rows = [];
+  for (const attr of STATE.attractions) {
+    if (!STATE.selectedAttrs.has(attr.slug)) continue;
+    const passes = STATE.passesByAttr[attr.slug] || [];
+    if (!passes.length) continue;
+    const cells = {};
+    const cellList = [];
+    for (const pass of passes) {
+      const lib = STATE.libsById[pass.library_id];
+      if (!lib) continue;
+      const ck = cardOk(lib, held, STATE.libsById);
+      const rz = residencyOk(pass, lib, attr, STATE.homeZip, STATE.MA_ZIPS);
+      const tier = cellTier(ck, rz.ok);
+      const avail = availStatus(pass, iso);
+      if (STATE.onlyBookable && tier !== "a") continue; // hide non-eligible cells
+      const verdict = resolvePass(pass, lib, attr, user, STATE.visitDate);
+      const cell = { pass, lib, tier, avail, cardOk: ck, zipOk: rz.ok, warn: rz.warn, verdict };
+      cells[lib.id] = cell;
+      cellList.push({ tier, avail });
+    }
+    if (STATE.onlyBookable && !cellList.length) continue; // row emptied by filter
+    rows.push({ attr, cells, sortKey: rowSortKey(cellList) });
+  }
+  rows.sort((a, b) =>
+    (a.sortKey[0] - b.sortKey[0]) || (a.sortKey[1] - b.sortKey[1]) || a.attr.name.localeCompare(b.attr.name));
+
+  // columns: networks (held-card networks first), prune libs with no visible cell in any row
+  const usedLibIds = new Set();
+  for (const r of rows) for (const id of Object.keys(r.cells)) usedLibIds.add(id);
+  const heldNets = new Set(held.map(id => STATE.libsById[id]?.network).filter(Boolean));
+  const netOrder = STATE.networks.slice().sort((a, b) =>
+    (heldNets.has(b) - heldNets.has(a)) || 0);
+  const columns = [];
+  for (const net of netOrder) {
+    const libs = STATE.libsByNetwork[net].filter(l => usedLibIds.has(l.id));
+    if (libs.length) columns.push({ net, libs });
+  }
+  return { columns, rows };
+}
+
+const TIER_CLASS = { a: "tier-a", b: "tier-b", c: "tier-c", d: "tier-d" };
+
+function renderMatrix() {
+  const container = $("#matrix-container");
+  if (!container) return;
+  const { columns, rows } = buildMatrixModel();
+  const flatLibs = columns.flatMap(c => c.libs);
+  if (!flatLibs.length || !rows.length) {
+    container.innerHTML = "";
+    container.appendChild(el("div", { class: "loading-msg" }, "无匹配数据（调整持卡/景点筛选）"));
+    return;
+  }
+
+  const table = el("table", { class: "matrix-table" });
+  // header row 1: network groups
+  const thead = el("thead");
+  const netTr = el("tr", { class: "mx-net-row" });
+  netTr.appendChild(el("th", { class: "mx-corner", rowspan: "2" }, "景点 ＼ 馆"));
+  for (const col of columns) {
+    netTr.appendChild(el("th", { class: "mx-net", colspan: String(col.libs.length) }, `${col.net} · ${col.libs.length}`));
+  }
+  thead.appendChild(netTr);
+  // header row 2: library names
+  const libTr = el("tr", { class: "mx-lib-row" });
+  for (const lib of flatLibs) {
+    libTr.appendChild(el("th", { class: "mx-lib", title: lib.name },
+      lib.name.replace(/\sPublic Library$|\sLibrary$/, "")));
+  }
+  thead.appendChild(libTr);
+  table.appendChild(thead);
+
+  const tbody = el("tbody");
+  for (const row of rows) {
+    const tr = el("tr");
+    tr.appendChild(el("th", { class: "mx-rowhead", title: row.attr.name }, row.attr.name));
+    for (const lib of flatLibs) {
+      const cell = row.cells[lib.id];
+      if (!cell) { tr.appendChild(el("td", { class: "mx-cell mx-empty" })); continue; }
+      tr.appendChild(renderCell(cell, row.attr));
+    }
+    tbody.appendChild(tr);
+  }
+  table.appendChild(tbody);
+  container.innerHTML = "";
+  container.appendChild(table);
+}
+
+function renderCell(cell, attr) {
+  const d = STATE.display;
+  const availCls = cell.avail === "available" ? "av-ok"
+    : (cell.avail === "booked" || cell.avail === "closed") ? "av-no"
+    : cell.avail === "unknown" ? "av-unk" : "";
+  const td = el("td", { class: `mx-cell ${TIER_CLASS[cell.tier]} ${availCls}` });
+
+  // line 1: short offer glyph (or presence dot when 优惠具体值 off)
+  const glyph = d.offer ? (couponSummary(cell.pass.coupon)) : (shortSummary(cell.pass.coupon) || "•");
+  td.appendChild(el("div", { class: "mx-glyph" }, glyph));
+
+  if (cell.warn) td.appendChild(el("span", { class: "mx-warn", title: "资格未确认" }, "⚠"));
+  if (d.avail && cell.avail !== "none") td.appendChild(el("div", { class: "mx-sub" }, cell.avail));
+  if (d.verdict && !cell.verdict.eligible) td.appendChild(el("div", { class: "mx-sub mx-block" }, `✗ ${cell.verdict.blockedLayer}`));
+  if (d.pickup) td.appendChild(el("div", { class: "mx-sub" }, (PASS_FORM_META[cell.pass.pass_form]?.label) || cell.pass.pass_form));
+  if (d.distance && cell.lib.geo && STATE.homeGeo) {
+    const mi = haversineMi(STATE.homeGeo, cell.lib.geo);
+    if (mi != null) td.appendChild(el("div", { class: "mx-sub" }, `${mi.toFixed(1)} mi`));
+  }
+  if (d.policies && cell.pass.coupon?.audience_policies?.length > 1) {
+    for (const p of cell.pass.coupon.audience_policies)
+      td.appendChild(el("div", { class: "mx-sub mx-pol" }, `${p.audience}: ${couponSummary({audience_policies:[p]})}`));
+  }
+  if (d.restrict && cell.pass.restrictions) {
+    const r = cell.pass.restrictions, bits = [];
+    if (r.weekdays_only) bits.push("仅平日");
+    if (r.seasonal) bits.push("季节性");
+    if (r.advance_booking_required) bits.push(`提前${r.advance_booking_hours||""}h`);
+    if (r.blackout?.length) bits.push("有blackout");
+    if (bits.length) td.appendChild(el("div", { class: "mx-sub mx-restrict" }, bits.join("·")));
+  }
+  // Plan 3 hook: audit ✎ + ⓘ attach here.
+  td.dataset.libId = cell.lib.id;
+  td.dataset.attrSlug = attr.slug;
+  return td;
+}
+
+// ─────────────────────────────────────────────
 //  INIT & WIRE-UP
 // ─────────────────────────────────────────────
 async function init() {
@@ -1010,8 +1144,7 @@ async function init() {
   updateLibCount();
   renderCategoryFilter();
   renderAttrList(); updateAttrCount();
-  renderLens();
-  initSimulator();
+  renderMatrix();
   initAuditSystem();
 
   // Attr filter controls
@@ -1033,25 +1166,11 @@ async function init() {
     renderCardList(); updateLibCount(); renderMatrix();
   });
 
-  // Lens tabs
-  for (const btn of document.querySelectorAll(".lens-btn")) {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".lens-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      STATE.activeLens = btn.dataset.lens;
-      renderLens();
-    });
-  }
-
-  // Filters
-  $("#opt-only-covered").addEventListener("change", (e) => { STATE.showOnlyCovered = e.target.checked; renderLens(); });
-  $("#opt-category").addEventListener("change", (e) => { STATE.categoryFilter = e.target.value; renderLens(); });
-
   // Date
   dateInput.addEventListener("change", (e) => {
     const v = e.target.value;
     STATE.visitDate = v ? new Date(v + "T00:00:00Z") : null;
-    renderLens();
+    renderMatrix();
   });
 
   // ZIP
@@ -1077,7 +1196,7 @@ async function init() {
       hint.textContent = `位置解析失败: ${e.message}（居住资格检查仍有效）`;
       hint.className = "hint warn";
     }
-    renderLens();
+    renderMatrix();
   }
   $("#btn-geocode").addEventListener("click", applyZip);
   $("#home-zip").addEventListener("keydown", (e) => { if (e.key === "Enter") applyZip(); });
@@ -1909,5 +2028,5 @@ function initAuditSystem() {
 init().catch((e) => {
   console.error(e);
   $("#stat-summary").textContent = "加载错误: " + e.message;
-  $("#lens-content").innerHTML = `<div class="loading-msg" style="color:var(--rd)">加载失败: ${e.message}</div>`;
+  const mc = $("#matrix-container"); if (mc) mc.innerHTML = `<div class="loading-msg" style="color:var(--rd)">加载失败: ${e.message}</div>`;
 });
