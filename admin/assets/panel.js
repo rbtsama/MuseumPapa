@@ -763,7 +763,7 @@ function _renderDiscountSubarea(slotEl, cell, hasDiscount) {
   const curForm = bestPolicy(cell.pass.coupon)?.form || "free";
   const curVal = bestPolicy(cell.pass.coupon)?.value ?? "";
   sub.appendChild(el("label", {}, "折扣类型", zhSelect("af-cform", ZH.coupon_form, curForm)));
-  const valInput = el("input", { type: "number", id: "af-cval", value: String(curVal), placeholder: "数值/比例（免费/买一送一/笼统不填）" });
+  const valInput = el("input", { type: "number", id: "af-cval", value: String(curVal), placeholder: "数值 / 比例" });
   sub.appendChild(el("label", {}, "数值/比例", valInput));
 }
 
@@ -787,8 +787,9 @@ function openAuditForm(cell, attr) {
         };
         radioYes.addEventListener("change", rebuildSub);
         radioNo.addEventListener("change", rebuildSub);
-        slotEl.appendChild(el("label", { class: "af-radio" }, radioYes, " 有折扣"));
-        slotEl.appendChild(el("label", { class: "af-radio" }, radioNo,  " 无折扣"));
+        slotEl.appendChild(el("div", { class: "af-radio-row" },
+          el("label", {}, radioYes, " 有折扣"),
+          el("label", {}, radioNo,  " 无折扣")));
         slotEl.appendChild(sub);
         _renderDiscountSubarea(slotEl, cell, hasDiscount);
       },

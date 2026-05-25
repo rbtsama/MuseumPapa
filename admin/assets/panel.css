@@ -502,14 +502,34 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .mx-audited-corrected { color: #1f6feb; }
 .mx-audited-noted { color: #888; }
 
-/* ── audit form editor (openAuditForm) — redesigned ── */
-.af-intro { font-size:12px; color:#556; margin:0 0 10px; }
-.af-step { font-weight:600; font-size:12px; margin:12px 0 4px; }
-.af-radio { display:block; font-size:13px; margin:4px 0; cursor:pointer; }
-.af-radio .af-hint { display:block; font-size:11px; color:#778; margin-left:22px; }
-.af-slot { margin-top:6px; }
-.af-slot label { display:block; font-size:11px; color:#556; margin-top:8px; }
-.af-slot select, .af-slot input, .af-note { width:100%; padding:4px 6px; margin-top:2px; box-sizing:border-box; }
-.af-note { margin-top:10px; }
-.af-save { margin-top:14px; }
+/* ── audit form editor (openAuditForm) — compact, design-system styled ── */
+.af { font-size: 12px; color: var(--ink-2); }
+.af-intro { font-size: 11px; color: var(--ink-3); margin: 0 0 10px; line-height: 1.4; }
+.af-step { font-weight: 600; font-size: 11px; letter-spacing: 0.3px; color: var(--g);
+  margin: 12px 0 5px; padding-top: 10px; border-top: 1px solid var(--rule); }
+.af-step:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+
+/* step-1 cause radios: stacked — each carries its own description hint */
+.af-radio { display: block; font-size: 13px; margin: 3px 0; cursor: pointer; }
+.af-radio .af-hint { display: block; font-size: 11px; color: var(--ink-3); margin-left: 20px; line-height: 1.35; }
+
+.af-slot { margin-top: 4px; }
+.af-slot label { display: block; font-size: 11px; color: var(--ink-3); margin-top: 8px; }
+/* inline radio row (有折扣 / 无折扣 toggle) — side by side, not stacked.
+   Qualified under .af-slot so it outranks the generic `.af-slot label` block rule. */
+.af-slot .af-radio-row { display: flex; gap: 18px; align-items: center; margin-top: 4px; }
+.af-slot .af-radio-row label { display: inline-flex; align-items: center; gap: 5px;
+  flex: none; white-space: nowrap; font-size: 13px; color: var(--ink-2);
+  cursor: pointer; margin-top: 0; }
+/* discount sub-inputs (折扣类型 + 数值) sit side by side */
+.af-disc-sub { display: flex; gap: 10px; margin-top: 6px; }
+.af-disc-sub label { flex: 1; margin-top: 0; }
+.af-slot select, .af-slot input, .af-note {
+  width: 100%; padding: 5px 8px; margin-top: 3px; box-sizing: border-box;
+  border: 1px solid var(--rule); border-radius: 4px; background: var(--white);
+  color: var(--ink-2); font-family: inherit; font-size: 12px; }
+.af-slot select:focus, .af-slot input:focus, .af-note:focus {
+  outline: none; border-color: var(--g); }
+.af-note { margin-top: 12px; }
+.af-save { margin-top: 14px; }
 
