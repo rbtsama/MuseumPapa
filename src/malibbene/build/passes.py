@@ -29,6 +29,7 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                 slug = canonical(rawslug)
                 row = {
                     "library_id": lib, "attraction_slug": slug,
+                    "attraction_rawslug": rawslug,  # build's override key; panel uses this for pass targets
                     "pass_form": "physical_coupon",
                     "available_at_branches": "all",
                     "source_url": p.get("detail_url"),
