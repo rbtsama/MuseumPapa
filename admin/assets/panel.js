@@ -35,7 +35,7 @@ const STATE = {
   selectedAttrs: new Set(),  // attraction slugs to SHOW (default: all)
   attrSearch: "",
   onlyBookable: false,
-  display: { policies:false, verdict:false, pickup:false, avail:false, distance:false, restrict:false },
+  display: { policies:false, verdict:false, pickup:false, avail:false, distance:false, restrict:false, warn:false },
   // group collapse state: net -> bool collapsed
   groupCollapsed: {},
 };
@@ -1112,7 +1112,7 @@ function renderCell(cell, attr) {
     td.appendChild(el("div", { class: "mx-glyph" }, shortSummary(cell.pass.coupon)));
   }
 
-  if (cell.warn) td.appendChild(el("span", { class: "mx-warn", title: "eligibility not confirmed (residency unknown in our data)" }, "⚠"));
+  if (d.warn && cell.warn) td.appendChild(el("span", { class: "mx-warn", title: "eligibility not confirmed (residency unknown in our data)" }, "⚠"));
   if (d.avail && cell.avail !== "none") td.appendChild(el("div", { class: "mx-sub" }, cell.avail));
   if (d.verdict && !cell.verdict.eligible) td.appendChild(el("div", { class: "mx-sub mx-block", title: `blocked at ${cell.verdict.blockedLayer}` }, `${LAYER_NUM[cell.verdict.blockedLayer] || ""} ${cell.verdict.reasons[0] || cell.verdict.blockedLayer}`.trim()));
   if (d.pickup) td.appendChild(el("div", { class: "mx-sub" }, (PASS_FORM_META[cell.pass.pass_form]?.label) || cell.pass.pass_form));
@@ -1160,7 +1160,7 @@ async function init() {
   $("#btn-attr-none").onclick = () => { STATE.selectedAttrs = new Set(); renderAttrList(); updateAttrCount(); renderMatrix(); };
   $("#attr-search").oninput = (e) => { STATE.attrSearch = e.target.value; renderAttrList(); };
   $("#opt-only-bookable").onchange = (e) => { STATE.onlyBookable = e.target.checked; renderMatrix(); };
-  for (const [key, id] of Object.entries({policies:"d-policies",verdict:"d-verdict",pickup:"d-pickup",avail:"d-avail",distance:"d-distance",restrict:"d-restrict"})) {
+  for (const [key, id] of Object.entries({policies:"d-policies",verdict:"d-verdict",pickup:"d-pickup",avail:"d-avail",distance:"d-distance",restrict:"d-restrict",warn:"d-warn"})) {
     $("#"+id).onchange = (e) => { STATE.display[key] = e.target.checked; renderMatrix(); };
   }
 

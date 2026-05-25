@@ -61,6 +61,7 @@
     <label class="ctrl-check"><input type="checkbox" id="d-avail"> 库存状态</label>
     <label class="ctrl-check"><input type="checkbox" id="d-distance"> 距离</label>
     <label class="ctrl-check"><input type="checkbox" id="d-restrict"> 限制详情</label>
+    <label class="ctrl-check"><input type="checkbox" id="d-warn"> 资格未确认 ⚠（默认关，否则满屏）</label>
     <div class="hint">每项独立；勾上=更详细，默认=更简洁。</div>
   </section>
 
@@ -91,8 +92,8 @@
     <span class="lg-av av-no">sold out / closed</span>
     <span class="lg-av av-unk">unknown</span>
     <b>Block reason</b>
-    <span class="lg-reason">red text — level: ①card ②pickup ③attraction ④date ⑤stock</span>
-    <b>⚠ residency not confirmed in our data</b>
+    <span class="lg-reason">red text — ①no card ②residents only ③attraction ④date ⑤stock</span>
+    <b>⚠ residency unconfirmed (off by default — toggle in 显示选项)</b>
   </div>
   <div class="matrix-scroll">
     <div class="matrix-container" id="matrix-container">
