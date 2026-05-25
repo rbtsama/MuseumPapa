@@ -1,5 +1,10 @@
 {
-  "buildCommand": null,
-  "outputDirectory": ".",
-  "rewrites": [{ "source": "/", "destination": "/admin/panel.html" }]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "cd web && npm install --no-audit --no-fund --legacy-peer-deps && npm run build",
+  "outputDirectory": "web/dist",
+  "installCommand": "echo 'skip — handled inside buildCommand'",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
