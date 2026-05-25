@@ -502,3 +502,8 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .mx-audited-corrected { color: #1f6feb; }
 .mx-audited-noted { color: #888; }
 
+/* ── audit form editor (openAuditForm) ── */
+.af label { display:block; font-size:11px; color:#556; margin-top:8px; }
+.af select, .af input { width:100%; padding:4px 6px; margin-top:2px; box-sizing:border-box; }
+.af .af-save { margin-top:12px; }
+

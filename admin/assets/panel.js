@@ -789,11 +789,170 @@ function openDetailPopup(cell, attr) {
     copyBtn.textContent = "已复制 ✓"; setTimeout(() => copyBtn.textContent = "复制原文", 1200);
   }));
   foot.appendChild(copyBtn);
-  foot.appendChild(el("button", { class: "btn-tiny", onclick: () => planNote("「通过审查」将在 Plan 3（审计）接入——记录到共享 override 文件。") }, "通过审查"));
-  foot.appendChild(el("button", { class: "btn-tiny", onclick: () => planNote("「修改数据」将在 Plan 3 用表单编辑器接入（不写 JSON）。") }, "修改数据"));
+  foot.appendChild(el("button", { class: "btn-tiny", onclick: async () => {
+    await auditPut(buildRecord({ kind:"pass",
+      id:`${cell.lib.id}__${cell.pass.attraction_rawslug}`, field:"_verdict", status:"verified_ok" }));
+    planNote("已记录：通过审查 ✓"); renderMatrix();
+  } }, "通过审查"));
+  foot.appendChild(el("button", { class: "btn-tiny", onclick: () => openAuditForm(cell, attr) }, "修改数据"));
   box.appendChild(foot);
   box.appendChild(note);
   openModal(`${attr.name} × ${cell.lib.name}`, box);
+}
+
+// ─────────────────────────────────────────────
+//  AUDIT FORM EDITOR (openAuditForm)
+// ─────────────────────────────────────────────
+
+// Field descriptor table for openAuditForm
+// shape: "enum" | "residency" | "visitor" | "reservation"
+function _afFields(cell, attr) {
+  const passId = `${cell.lib.id}__${cell.pass.attraction_rawslug}`;
+  return [
+    { label: "取卡方式 pass_form",          kind: "pass",       id: passId,       field: "pass_form",             cur: cell.pass.pass_form,             shape: "enum" },
+    { label: "居住限制 residency_restriction", kind: "pass",     id: passId,       field: "residency_restriction", cur: cell.pass.residency_restriction, shape: "residency" },
+    { label: "办卡资格 card_eligibility",    kind: "library",    id: cell.lib.id,  field: "card_eligibility",      cur: cell.lib.card_eligibility,       shape: "enum" },
+    { label: "取pass资格 pass_pickup_default", kind: "library",  id: cell.lib.id,  field: "pass_pickup_default",   cur: cell.lib.pass_pickup_default,    shape: "enum" },
+    { label: "景点访客居住 visitor_eligibility", kind: "attraction", id: attr.slug, field: "visitor_eligibility",  cur: attr.visitor_eligibility,        shape: "visitor" },
+    { label: "景点预约 reservation",         kind: "attraction", id: attr.slug,    field: "reservation",           cur: attr.reservation,                shape: "reservation" },
+  ];
+}
+
+function _afBuildSlot(fieldDef, slotEl) {
+  // Clear slot
+  slotEl.innerHTML = "";
+  const { kind, field, cur, shape } = fieldDef;
+
+  if (shape === "enum") {
+    const cfg = controlsFor(kind, field, cur);
+    const sel = el("select", { id: "af-slot-sel0" });
+    for (const opt of (cfg.options || [])) {
+      sel.appendChild(el("option", { value: opt, ...(String(cfg.value) === opt ? { selected: "selected" } : {}) }, opt));
+    }
+    slotEl.appendChild(el("label", {}, field, sel));
+
+  } else if (shape === "residency") {
+    const cfgR = controlsFor("pass", "residency_restriction.restricted", cur?.restricted);
+    const cfgS = controlsFor("pass", "residency_restriction.scope", cur?.scope);
+
+    const selR = el("select", { id: "af-slot-sel0" });
+    for (const opt of (cfgR.options || [])) {
+      selR.appendChild(el("option", { value: opt, ...(String(cfgR.value) === opt ? { selected: "selected" } : {}) }, opt));
+    }
+
+    const selS = el("select", { id: "af-slot-sel1" });
+    selS.appendChild(el("option", { value: "" }, "(none)"));
+    for (const opt of (cfgS.options || [])) {
+      selS.appendChild(el("option", { value: opt, ...(String(cfgS.value) === opt ? { selected: "selected" } : {}) }, opt));
+    }
+
+    slotEl.appendChild(el("label", {}, "restricted", selR));
+    slotEl.appendChild(el("label", {}, "scope", selS));
+
+  } else if (shape === "visitor") {
+    const cfg = controlsFor("attraction", "visitor_eligibility.residency", cur?.residency);
+    const sel = el("select", { id: "af-slot-sel0" });
+    for (const opt of (cfg.options || [])) {
+      sel.appendChild(el("option", { value: opt, ...(String(cfg.value) === opt ? { selected: "selected" } : {}) }, opt));
+    }
+    slotEl.appendChild(el("label", {}, "residency", sel));
+
+  } else if (shape === "reservation") {
+    const cfgReq = controlsFor("attraction", "reservation.required", cur?.required);
+    const selReq = el("select", { id: "af-slot-sel0" });
+    for (const opt of (cfgReq.options || [])) {
+      selReq.appendChild(el("option", { value: opt, ...(String(cfgReq.value) === opt ? { selected: "selected" } : {}) }, opt));
+    }
+    const inp = el("input", { type: "text", id: "af-slot-txt0", value: cur?.booking_url || "", placeholder: "booking URL (optional)" });
+    slotEl.appendChild(el("label", {}, "required", selReq));
+    slotEl.appendChild(el("label", {}, "booking_url", inp));
+  }
+}
+
+function _afGetCorrectedValue(fieldDef, slotEl) {
+  const { shape } = fieldDef;
+  const sel0 = slotEl.querySelector("#af-slot-sel0");
+  const sel1 = slotEl.querySelector("#af-slot-sel1");
+  const txt0 = slotEl.querySelector("#af-slot-txt0");
+
+  if (shape === "enum") {
+    return sel0 ? sel0.value : null;
+  } else if (shape === "residency") {
+    const scope = sel1 ? (sel1.value || null) : null;
+    return { restricted: sel0 ? sel0.value : null, scope, source: "admin", evidence: null };
+  } else if (shape === "visitor") {
+    return { residency: sel0 ? sel0.value : null };
+  } else if (shape === "reservation") {
+    return { required: sel0 ? sel0.value : null, booking_url: (txt0 && txt0.value) ? txt0.value : null };
+  }
+  return null;
+}
+
+function openAuditForm(cell, attr) {
+  const fields = _afFields(cell, attr);
+
+  const form = el("div", { class: "af" });
+
+  // Field chooser
+  form.appendChild(el("label", {}, "要改哪个字段"));
+  const fieldSel = el("select", { id: "af-field-sel" });
+  for (let i = 0; i < fields.length; i++) {
+    fieldSel.appendChild(el("option", { value: String(i) }, fields[i].label));
+  }
+  form.appendChild(fieldSel);
+
+  // Dynamic slot
+  const slot = el("div", { id: "af-dynamic-slot" });
+  form.appendChild(slot);
+
+  // Populate slot for initial selection
+  _afBuildSlot(fields[0], slot);
+
+  fieldSel.addEventListener("change", () => {
+    const idx = parseInt(fieldSel.value, 10);
+    _afBuildSlot(fields[idx], slot);
+  });
+
+  // correction_kind select
+  form.appendChild(el("label", {}, "结论错/值错",
+    el("select", { id: "af-ckind" },
+      el("option", { value: "value_wrong" }, "值错（取错了的值）"),
+      el("option", { value: "conclusion_wrong" }, "结论错（本不该这样）"),
+    )
+  ));
+
+  // root_cause select
+  form.appendChild(el("label", {}, "根因",
+    el("select", { id: "af-cause" },
+      el("option", { value: "extraction_error" }, "取错了（可自动化修）"),
+      el("option", { value: "unobtainable" }, "取不到（人工为准）"),
+    )
+  ));
+
+  // note input
+  form.appendChild(el("label", {}, "备注（可选）",
+    el("input", { type: "text", id: "af-note", placeholder: "备注…" })
+  ));
+
+  // Save button
+  const saveBtn = el("button", { class: "btn-tiny primary af-save", onclick: async () => {
+    const idx = parseInt(fieldSel.value, 10);
+    const fd = fields[idx];
+    const correctedValue = _afGetCorrectedValue(fd, slot);
+    const ckind = document.getElementById("af-ckind").value;
+    const cause = document.getElementById("af-cause").value;
+    const note = (document.getElementById("af-note").value || "").trim();
+    await auditPut(buildRecord({
+      kind: fd.kind, id: fd.id, field: fd.field,
+      status: "corrected", correction_kind: ckind, root_cause: cause,
+      corrected_value: correctedValue, note,
+    }));
+    closeModal();
+    renderMatrix();
+  } }, "保存修改");
+
+  form.appendChild(saveBtn);
+  openModal(`修改数据：${attr.name} × ${cell.lib.name}`, form);
 }
 
 // ─────────────────────────────────────────────
