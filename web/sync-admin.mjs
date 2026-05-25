@@ -31,6 +31,12 @@ for (const f of ["libraries", "attractions", "branches", "passes"]) {
 }
 console.log(`[sync-admin] 4 structured JSON files -> ${structDst}`);
 
-// 3. config/town_zips.json -> public/data/structured/town_zips.json
-fs.copyFileSync(path.join(ROOT, "config", "town_zips.json"), path.join(structDst, "town_zips.json"));
-console.log(`[sync-admin] config/town_zips.json -> ${path.join(structDst, "town_zips.json")}`);
+// 3. config/town_zips.json -> public/config/town_zips.json
+//    The admin panel fetches "/config/town_zips.json" at runtime (matching the
+//    local serve_admin.py repo-root layout), so it must live under /config on
+//    the deploy too — NOT /data/structured (that 404s → SPA rewrite serves
+//    index.html → "Unexpected token '<'" JSON parse error in the panel).
+const cfgDst = path.join(PUB, "config");
+fs.mkdirSync(cfgDst, { recursive: true });
+fs.copyFileSync(path.join(ROOT, "config", "town_zips.json"), path.join(cfgDst, "town_zips.json"));
+console.log(`[sync-admin] config/town_zips.json -> ${path.join(cfgDst, "town_zips.json")}`);
