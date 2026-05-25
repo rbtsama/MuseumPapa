@@ -679,157 +679,267 @@ function openDetailPopup(cell, attr) {
 }
 
 // ─────────────────────────────────────────────
-//  AUDIT FORM EDITOR (openAuditForm)
+//  AUDIT FORM EDITOR (openAuditForm) — redesigned
+//  顺序：为什么改 → 改哪项 → 改成什么 → 备注 → 保存
 // ─────────────────────────────────────────────
 
-// Field descriptor table for openAuditForm
-// shape: "enum" | "residency" | "visitor" | "reservation"
-function _afFields(cell, attr) {
-  const passId = `${cell.lib.id}__${cell.pass.attraction_rawslug}`;
-  return [
-    { label: "取卡方式 pass_form",          kind: "pass",       id: passId,       field: "pass_form",             cur: cell.pass.pass_form,             shape: "enum" },
-    { label: "居住限制 residency_restriction", kind: "pass",     id: passId,       field: "residency_restriction", cur: cell.pass.residency_restriction, shape: "residency" },
-    { label: "办卡资格 card_eligibility",    kind: "library",    id: cell.lib.id,  field: "card_eligibility",      cur: cell.lib.card_eligibility,       shape: "enum" },
-    { label: "取pass资格 pass_pickup_default", kind: "library",  id: cell.lib.id,  field: "pass_pickup_default",   cur: cell.lib.pass_pickup_default,    shape: "enum" },
-    { label: "景点访客居住 visitor_eligibility", kind: "attraction", id: attr.slug, field: "visitor_eligibility",  cur: attr.visitor_eligibility,        shape: "visitor" },
-    { label: "景点预约 reservation",         kind: "attraction", id: attr.slug,    field: "reservation",           cur: attr.reservation,                shape: "reservation" },
-  ];
+// Chinese label maps for the redesigned audit form
+const ZH = {
+  card_eligibility: {
+    ma_resident: "全 MA 居民可办",
+    town_resident: "仅本镇居民",
+    town_or_works: "本镇居民或在本镇工作",
+    network: "本联盟内",
+    none: "无限制",
+    unknown: "未知",
+  },
+  pass_pickup_default: {
+    same_as_card: "同办卡资格",
+    ma_resident: "全 MA 居民",
+    town_resident: "仅本镇",
+    town_cardholder_only: "仅本馆持卡人",
+    network: "本联盟内",
+    walkin_for_nonresidents: "非居民当天到馆",
+    none: "无限制",
+    unknown: "未知",
+  },
+  coupon_form: {
+    free: "免费",
+    "percent-off": "百分比折扣",
+    "dollar-off": "固定减免",
+    "per-person-price": "持卡固定价",
+    bogo: "买一送一",
+    discount: "笼统折扣（未注明）",
+  },
+  pass_form: {
+    digital_email: "电子券（邮件）",
+    physical_coupon: "到馆取券",
+    physical_circ: "取券并归还",
+  },
+  residency_restricted: {
+    yes: "有居住限制",
+    no: "无限制",
+    unknown: "未知",
+  },
+  residency_scope: {
+    town: "仅本镇",
+    ma: "全 MA",
+  },
+  visitor_residency: {
+    ma_resident: "仅 MA 居民可入",
+    town_resident: "仅本镇居民",
+    none: "无限制",
+    unknown: "未知",
+  },
+  reservation_required: {
+    none: "无需预约",
+    timed_entry: "需预约时段",
+    walk_in_ok: "可直接进",
+  },
+};
+
+// Build a <select> from a {code:zh} map, selecting `cur`
+function zhSelect(id, map, cur) {
+  return el("select", { id },
+    ...Object.entries(map).map(([code, zh]) =>
+      el("option", { value: code, ...(String(cur) === code ? { selected: "selected" } : {}) }, zh)));
 }
 
-function _afBuildSlot(fieldDef, slotEl) {
-  // Clear slot
-  slotEl.innerHTML = "";
-  const { kind, field, cur, shape } = fieldDef;
-
-  if (shape === "enum") {
-    const cfg = controlsFor(kind, field, cur);
-    const sel = el("select", { id: "af-slot-sel0" });
-    for (const opt of (cfg.options || [])) {
-      sel.appendChild(el("option", { value: opt, ...(String(cfg.value) === opt ? { selected: "selected" } : {}) }, opt));
-    }
-    slotEl.appendChild(el("label", {}, field, sel));
-
-  } else if (shape === "residency") {
-    const cfgR = controlsFor("pass", "residency_restriction.restricted", cur?.restricted);
-    const cfgS = controlsFor("pass", "residency_restriction.scope", cur?.scope);
-
-    const selR = el("select", { id: "af-slot-sel0" });
-    for (const opt of (cfgR.options || [])) {
-      selR.appendChild(el("option", { value: opt, ...(String(cfgR.value) === opt ? { selected: "selected" } : {}) }, opt));
-    }
-
-    const selS = el("select", { id: "af-slot-sel1" });
-    selS.appendChild(el("option", { value: "" }, "(none)"));
-    for (const opt of (cfgS.options || [])) {
-      selS.appendChild(el("option", { value: opt, ...(String(cfgS.value) === opt ? { selected: "selected" } : {}) }, opt));
-    }
-
-    slotEl.appendChild(el("label", {}, "restricted", selR));
-    slotEl.appendChild(el("label", {}, "scope", selS));
-
-  } else if (shape === "visitor") {
-    const cfg = controlsFor("attraction", "visitor_eligibility.residency", cur?.residency);
-    const sel = el("select", { id: "af-slot-sel0" });
-    for (const opt of (cfg.options || [])) {
-      sel.appendChild(el("option", { value: opt, ...(String(cfg.value) === opt ? { selected: "selected" } : {}) }, opt));
-    }
-    slotEl.appendChild(el("label", {}, "residency", sel));
-
-  } else if (shape === "reservation") {
-    const cfgReq = controlsFor("attraction", "reservation.required", cur?.required);
-    const selReq = el("select", { id: "af-slot-sel0" });
-    for (const opt of (cfgReq.options || [])) {
-      selReq.appendChild(el("option", { value: opt, ...(String(cfgReq.value) === opt ? { selected: "selected" } : {}) }, opt));
-    }
-    const inp = el("input", { type: "text", id: "af-slot-txt0", value: cur?.booking_url || "", placeholder: "booking URL (optional)" });
-    slotEl.appendChild(el("label", {}, "required", selReq));
-    slotEl.appendChild(el("label", {}, "booking_url", inp));
-  }
+function couponSummaryStr(form, value) {
+  if (form === "free") return "FREE";
+  if (form === "percent-off") return `${value}% off`;
+  if (form === "dollar-off") return `$${value} off`;
+  if (form === "per-person-price") return `$${value}/person`;
+  if (form === "bogo") return "buy one get one free";
+  return "discount";
 }
 
-function _afGetCorrectedValue(fieldDef, slotEl) {
-  const { shape } = fieldDef;
-  const sel0 = slotEl.querySelector("#af-slot-sel0");
-  const sel1 = slotEl.querySelector("#af-slot-sel1");
-  const txt0 = slotEl.querySelector("#af-slot-txt0");
-
-  if (shape === "enum") {
-    return sel0 ? sel0.value : null;
-  } else if (shape === "residency") {
-    const scope = sel1 ? (sel1.value || null) : null;
-    return { restricted: sel0 ? sel0.value : null, scope, source: "admin", evidence: null };
-  } else if (shape === "visitor") {
-    return { residency: sel0 ? sel0.value : null };
-  } else if (shape === "reservation") {
-    return { required: sel0 ? sel0.value : null, booking_url: (txt0 && txt0.value) ? txt0.value : null };
-  }
-  return null;
+// Render the discount sub-area (有折扣 vs 无折扣 toggle)
+function _renderDiscountSubarea(slotEl, cell, hasDiscount) {
+  const sub = slotEl.querySelector(".af-disc-sub");
+  if (!sub) return;
+  sub.innerHTML = "";
+  if (!hasDiscount) return;
+  const curForm = bestPolicy(cell.pass.coupon)?.form || "free";
+  const curVal = bestPolicy(cell.pass.coupon)?.value ?? "";
+  sub.appendChild(el("label", {}, "折扣类型", zhSelect("af-cform", ZH.coupon_form, curForm)));
+  const valInput = el("input", { type: "number", id: "af-cval", value: String(curVal), placeholder: "数值/比例（免费/买一送一/笼统不填）" });
+  sub.appendChild(el("label", {}, "数值/比例", valInput));
 }
 
 function openAuditForm(cell, attr) {
-  const fields = _afFields(cell, attr);
+  const passId = `${cell.lib.id}__${cell.pass.attraction_rawslug}`;
+
+  // FIELDS array — each entry describes one editable field
+  const FIELDS = [
+    {
+      label: "折扣（有无 / 多少）",
+      kind: "pass", id: passId, field: "coupon",
+      render(slotEl) {
+        slotEl.innerHTML = "";
+        const hasDiscount = !!(bestPolicy(cell.pass.coupon)?.form && bestPolicy(cell.pass.coupon)?.form !== "unspecified");
+        const radioYes = el("input", { type: "radio", name: "af-disc", value: "yes", ...(hasDiscount ? { checked: "checked" } : {}) });
+        const radioNo  = el("input", { type: "radio", name: "af-disc", value: "no",  ...(!hasDiscount ? { checked: "checked" } : {}) });
+        const sub = el("div", { class: "af-disc-sub" });
+        const rebuildSub = () => {
+          const on = document.querySelector('input[name="af-disc"]:checked')?.value === "yes";
+          _renderDiscountSubarea(slotEl, cell, on);
+        };
+        radioYes.addEventListener("change", rebuildSub);
+        radioNo.addEventListener("change", rebuildSub);
+        slotEl.appendChild(el("label", { class: "af-radio" }, radioYes, " 有折扣"));
+        slotEl.appendChild(el("label", { class: "af-radio" }, radioNo,  " 无折扣"));
+        slotEl.appendChild(sub);
+        _renderDiscountSubarea(slotEl, cell, hasDiscount);
+      },
+      getValue() {
+        const hasDisc = document.querySelector('input[name="af-disc"]:checked')?.value === "yes";
+        if (!hasDisc) {
+          return {
+            capacity: { kind: "unspecified", n: null },
+            audience_policies: [],
+            summary: "无折扣",
+            source_phrase_block: cell.pass.coupon?.source_phrase_block ?? null,
+          };
+        }
+        const f = $("#af-cform")?.value || "free";
+        const raw = $("#af-cval")?.value || "";
+        const v = (f === "free" || f === "bogo" || f === "discount") ? null : (raw === "" ? null : Number(raw));
+        return {
+          capacity: cell.pass.coupon?.capacity ?? { kind: "unspecified", n: null },
+          audience_policies: [{ audience: "Everyone", age_range: null, count: null, form: f, value: v }],
+          summary: couponSummaryStr(f, v),
+          source_phrase_block: cell.pass.coupon?.source_phrase_block ?? null,
+        };
+      },
+    },
+    {
+      label: "取卡方式",
+      kind: "pass", id: passId, field: "pass_form",
+      render(slotEl) {
+        slotEl.innerHTML = "";
+        slotEl.appendChild(zhSelect("af-val", ZH.pass_form, cell.pass.pass_form));
+      },
+      getValue() { return $("#af-val").value; },
+    },
+    {
+      label: "取 pass 的居住限制",
+      kind: "pass", id: passId, field: "residency_restriction",
+      render(slotEl) {
+        slotEl.innerHTML = "";
+        slotEl.appendChild(el("label", {}, "是否有限制",
+          zhSelect("af-rr", ZH.residency_restricted, cell.pass.residency_restriction?.restricted)));
+        slotEl.appendChild(el("label", {}, "范围（仅当有限制时有意义）",
+          zhSelect("af-rs", ZH.residency_scope, cell.pass.residency_restriction?.scope)));
+      },
+      getValue() {
+        return { restricted: $("#af-rr").value, scope: $("#af-rs").value || null, source: "admin", evidence: null };
+      },
+    },
+    {
+      label: "办卡资格",
+      kind: "library", id: cell.lib.id, field: "card_eligibility",
+      render(slotEl) {
+        slotEl.innerHTML = "";
+        slotEl.appendChild(zhSelect("af-val", ZH.card_eligibility, cell.lib.card_eligibility));
+      },
+      getValue() { return $("#af-val").value; },
+    },
+    {
+      label: "取 pass 资格",
+      kind: "library", id: cell.lib.id, field: "pass_pickup_default",
+      render(slotEl) {
+        slotEl.innerHTML = "";
+        slotEl.appendChild(zhSelect("af-val", ZH.pass_pickup_default, cell.lib.pass_pickup_default));
+      },
+      getValue() { return $("#af-val").value; },
+    },
+    {
+      label: "景点访客居住要求",
+      kind: "attraction", id: attr.slug, field: "visitor_eligibility",
+      render(slotEl) {
+        slotEl.innerHTML = "";
+        slotEl.appendChild(zhSelect("af-val", ZH.visitor_residency, attr.visitor_eligibility?.residency));
+      },
+      getValue() { return { residency: $("#af-val").value }; },
+    },
+    {
+      label: "景点预约要求",
+      kind: "attraction", id: attr.slug, field: "reservation",
+      render(slotEl) {
+        slotEl.innerHTML = "";
+        slotEl.appendChild(el("label", {}, "预约要求",
+          zhSelect("af-rq", ZH.reservation_required, attr.reservation?.required)));
+        slotEl.appendChild(el("label", {}, "预约链接（可选）",
+          el("input", { type: "text", id: "af-burl", placeholder: "预约链接（可选）", value: attr.reservation?.booking_url || "" })));
+      },
+      getValue() {
+        return { required: $("#af-rq").value, booking_url: $("#af-burl").value || null };
+      },
+    },
+  ];
 
   const form = el("div", { class: "af" });
 
-  // Field chooser
-  form.appendChild(el("label", {}, "要改哪个字段"));
-  const fieldSel = el("select", { id: "af-field-sel" });
-  for (let i = 0; i < fields.length; i++) {
-    fieldSel.appendChild(el("option", { value: String(i) }, fields[i].label));
+  // 介绍行
+  form.appendChild(el("p", { class: "af-intro" }, "先选这条为什么要改，再选改哪一项、改成什么。"));
+
+  // 第 1 步 — 为什么改（radio）
+  form.appendChild(el("div", { class: "af-step" }, "第 1 步 — 为什么改"));
+  form.appendChild(
+    el("label", { class: "af-radio" },
+      el("input", { type: "radio", name: "af-cause", value: "extraction_error", checked: "checked" }),
+      " 取错了",
+      el("span", { class: "af-hint" }, "数据源里其实有，是我们抓错了，以后能自动修正。")
+    )
+  );
+  form.appendChild(
+    el("label", { class: "af-radio" },
+      el("input", { type: "radio", name: "af-cause", value: "unobtainable" }),
+      " 取不到",
+      el("span", { class: "af-hint" }, "数据源里没有 / 拿不到，人工补，以你为准。")
+    )
+  );
+
+  // 第 2 步 — 改哪一项
+  form.appendChild(el("div", { class: "af-step" }, "第 2 步 — 改哪一项"));
+  const fieldSel = el("select", { id: "af-field" });
+  for (let i = 0; i < FIELDS.length; i++) {
+    fieldSel.appendChild(el("option", { value: String(i) }, FIELDS[i].label));
   }
   form.appendChild(fieldSel);
 
-  // Dynamic slot
-  const slot = el("div", { id: "af-dynamic-slot" });
+  // 第 3 步 — 改成什么（动态 slot）
+  form.appendChild(el("div", { class: "af-step" }, "第 3 步 — 改成什么"));
+  const slot = el("div", { class: "af-slot" });
   form.appendChild(slot);
 
-  // Populate slot for initial selection
-  _afBuildSlot(fields[0], slot);
+  // 渲染第一个字段的 slot
+  FIELDS[0].render(slot);
 
   fieldSel.addEventListener("change", () => {
-    const idx = parseInt(fieldSel.value, 10);
-    _afBuildSlot(fields[idx], slot);
+    const idx = +fieldSel.value;
+    FIELDS[idx].render(slot);
   });
 
-  // correction_kind select
-  form.appendChild(el("label", {}, "结论错/值错",
-    el("select", { id: "af-ckind" },
-      el("option", { value: "value_wrong" }, "值错（取错了的值）"),
-      el("option", { value: "conclusion_wrong" }, "结论错（本不该这样）"),
-    )
-  ));
+  // 备注
+  form.appendChild(el("input", { id: "af-note", class: "af-note", placeholder: "备注（可选）" }));
 
-  // root_cause select
-  form.appendChild(el("label", {}, "根因",
-    el("select", { id: "af-cause" },
-      el("option", { value: "extraction_error" }, "取错了（可自动化修）"),
-      el("option", { value: "unobtainable" }, "取不到（人工为准）"),
-    )
-  ));
-
-  // note input
-  form.appendChild(el("label", {}, "备注（可选）",
-    el("input", { type: "text", id: "af-note", placeholder: "备注…" })
-  ));
-
-  // Save button
+  // 保存
   const saveBtn = el("button", { class: "btn-tiny primary af-save", onclick: async () => {
-    const idx = parseInt(fieldSel.value, 10);
-    const fd = fields[idx];
-    const correctedValue = _afGetCorrectedValue(fd, slot);
-    const ckind = document.getElementById("af-ckind").value;
-    const cause = document.getElementById("af-cause").value;
-    const note = (document.getElementById("af-note").value || "").trim();
-    await auditPut(buildRecord({
-      kind: fd.kind, id: fd.id, field: fd.field,
-      status: "corrected", correction_kind: ckind, root_cause: cause,
-      corrected_value: correctedValue, note,
-    }));
+    const cur = FIELDS[+$("#af-field").value];
+    const rec = buildRecord({
+      kind: cur.kind, id: cur.id, field: cur.field, status: "corrected",
+      root_cause: document.querySelector('input[name="af-cause"]:checked').value,
+      corrected_value: cur.getValue(),
+      note: $("#af-note").value,
+    });
+    await auditPut(rec);
     closeModal();
     renderMatrix();
   } }, "保存修改");
-
   form.appendChild(saveBtn);
+
   openModal(`修改数据：${attr.name} × ${cell.lib.name}`, form);
 }
 
