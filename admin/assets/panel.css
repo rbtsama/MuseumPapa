@@ -426,11 +426,11 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .mx-cell { position: relative; }
 .mx-info { position: absolute; top: 0; right: 1px; font-size: 9px; line-height: 1; color: #36c; cursor: pointer; opacity: .45; }
 .mx-info:hover { opacity: 1; }
-/* refined clickable cue: subtle tint + a chevron that fades in on hover (no underline) */
-.mx-rowhead-click { cursor: pointer; transition: background .12s; }
-.mx-rowhead-click::after { content: "›"; margin-left: 5px; color: #1f6feb; font-weight: 700; opacity: 0; transition: opacity .12s; }
+/* clickable cue: subtle hover tint + an always-on chevron, vertically centered */
+.mx-rowhead-click { cursor: pointer; transition: background .12s; position: relative; padding-right: 16px; }
+.mx-rowhead-click::after { content: "›"; color: #1f6feb; font-weight: 700;
+  position: absolute; right: 5px; top: 50%; transform: translateY(-50%); }
 .mx-rowhead-click:hover { background: #eef4ff; }
-.mx-rowhead-click:hover::after { opacity: 1; }
 /* popup modal (booking / source) */
 .mx-modal { position: fixed; inset: 0; background: rgba(0,0,0,.35); display: flex; align-items: center; justify-content: center; z-index: 50; }
 .mx-modal[hidden] { display: none; }
