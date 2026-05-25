@@ -36,7 +36,7 @@ const STATE = {
   selectedAttrs: new Set(),  // attraction slugs to SHOW (default: all)
   attrSearch: "",
   onlyEligible: true,   // card + zip confirmed (the eligibility dimension)
-  onlyInStock: false,   // confirmed available on the date (the inventory dimension)
+  onlyInStock: true,    // confirmed available on the date (the inventory dimension)
   display: { policies:false, verdict:false, pickup:false, avail:false, distance:false, restrict:false, warn:false },
   // group collapse state: net -> bool collapsed
   groupCollapsed: {},
