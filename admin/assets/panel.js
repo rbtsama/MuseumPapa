@@ -568,7 +568,7 @@ function renderCell(cell, attr) {
   td.dataset.attrSlug = attr.slug;
   const aStatus = passAuditStatus(cell);
   if (aStatus) {
-    const sym = aStatus === "corrected" ? "✎" : aStatus === "verified_ok" ? "✓" : "📝";
+    const sym = aStatus === "corrected" ? "✎" : aStatus === "verified_ok" ? "✓" : aStatus === "feedback" ? "💬" : "📝";
     td.appendChild(el("span", { class: `mx-audited mx-audited-${aStatus}`, title: `audited: ${aStatus}` }, sym));
   }
   return td;
@@ -1019,6 +1019,16 @@ function auditRenderLog(showPaths) {
       `${record.kind} · ${record.id} · ${record.field}`,
     );
     meta.appendChild(detail);
+    if (record.status === "feedback") {
+      meta.appendChild(el("div", { class: "ale-detail" },
+        "原因：" + ({ extraction_error: "取错了", unobtainable: "取不到" }[record.root_cause] || record.root_cause || "—")));
+      if ((record.aspects || []).length) {
+        const tags = el("div", { class: "ale-aspects" });
+        for (const a of record.aspects) tags.appendChild(el("span", { class: "ale-aspect-tag" }, ASPECT_ZH[a] || a));
+        meta.appendChild(tags);
+      }
+      if (record.feedback) meta.appendChild(el("div", { class: "ale-feedback-text" }, "💬 " + record.feedback));
+    }
 
     if (record.status === "corrected" && record.corrected_value !== null) {
       meta.appendChild(el("div", { class: "ale-value" }, "→ " + JSON.stringify(record.corrected_value)));
@@ -1036,7 +1046,7 @@ function auditRenderLog(showPaths) {
     }
 
     const right = el("div", { class: "ale-right" });
-    const emoji = { corrected: "✏️", reviewed: "✅", noted: "📝" }[record.status] || "";
+    const emoji = { corrected: "✏️", reviewed: "✅", noted: "📝", feedback: "💬" }[record.status] || "";
     right.appendChild(el("span", { class: "ale-auditor" }, emoji + " " + (record.audited_by || "")));
     right.appendChild(el("span", { class: "ale-time" }, record.audited_at ? record.audited_at.slice(0, 19).replace("T", " ") : "—"));
     const delBtn = el("button", { class: "btn-tiny", style: "font-size:10px;color:var(--rd);border-color:var(--rd)" }, "撤销");
