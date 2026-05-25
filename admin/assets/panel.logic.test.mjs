@@ -65,7 +65,7 @@ test("bestPolicy/shortSummary: pick strongest form, short glyphs", () => {
   assert.equal(shortSummary(coupon), "FR");
   assert.equal(shortSummary({ audience_policies: [{ form: "percent-off", value: 50 }] }), "50%");
   assert.equal(shortSummary({ audience_policies: [{ form: "dollar-off", value: 10 }] }), "-$10");
-  assert.equal(shortSummary({ audience_policies: [{ form: "per-person-price", value: 9 }] }), "$9/p");
+  assert.equal(shortSummary({ audience_policies: [{ form: "per-person-price", value: 9 }] }), "$9");
   assert.equal(shortSummary({ audience_policies: [{ form: "discount" }] }), "disc");
   assert.equal(shortSummary(null), "?");
 });

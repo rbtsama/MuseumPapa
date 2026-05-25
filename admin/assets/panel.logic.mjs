@@ -100,7 +100,7 @@ export function shortSummary(coupon) {
     case "free": return "FR";
     case "percent-off": return p.value != null ? `${p.value}%` : "%";
     case "dollar-off": return p.value != null ? `-$${p.value}` : "-$";
-    case "per-person-price": return p.value != null ? `$${p.value}/p` : "$/p";
+    case "per-person-price": return p.value != null ? `$${p.value}` : "$";
     case "bogo": return "B1G1";
     case "discount": return "disc";
     default: return "?";

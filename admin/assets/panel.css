@@ -406,7 +406,10 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .mx-rowhead { font-weight: 400; }
 /* legend bar above the matrix */
 .mx-legend { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 4px 8px; font-size: 10px; border-bottom: 1px solid var(--bd, #d4ddd4); background: #f7faf7; flex: 0 0 auto; }
+.mx-legend b { margin-left: 16px; }
+.mx-legend b:first-child { margin-left: 0; }
 .mx-legend .lg { padding: 1px 6px; border-radius: 3px; }
+.mx-legend .lg-reason { color: #b00; font-weight: 600; }
 .mx-legend .lg-av { padding-left: 6px; border-left: 4px solid #999; }
 .mx-legend .lg-av.av-ok { border-left-color: #2e9e2e; }
 .mx-legend .lg-av.av-no { border-left-color: #c0392b; }
@@ -434,8 +437,8 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 /* tier colors */
 .tier-a { background: #d9f2d9; }
 .tier-b { background: #fbf3cf; }
-.tier-c { background: #fde2cc; }
-.tier-d { background: #ececec; color: #999; }
+.tier-c { background: #f8d0d0; }
+.tier-d { background: #ececec; }
 /* availability accents (left border) */
 .av-ok  { box-shadow: inset 3px 0 0 #2e9e2e; }
 .av-no  { box-shadow: inset 3px 0 0 #c0392b; }

@@ -1048,6 +1048,8 @@ function buildMatrixModel() {
 }
 
 const TIER_CLASS = { a: "tier-a", b: "tier-b", c: "tier-c", d: "tier-d" };
+// funnel layer -> level marker (① card, ② pickup residency, ③ attraction residency, ④ date, ⑤ availability)
+const LAYER_NUM = { L1: "①", L3: "②", L4: "③", L8: "④", L10: "⑤" };
 
 function renderMatrix() {
   const container = $("#matrix-container");
@@ -1112,7 +1114,7 @@ function renderCell(cell, attr) {
 
   if (cell.warn) td.appendChild(el("span", { class: "mx-warn", title: "eligibility not confirmed (residency unknown in our data)" }, "⚠"));
   if (d.avail && cell.avail !== "none") td.appendChild(el("div", { class: "mx-sub" }, cell.avail));
-  if (d.verdict && !cell.verdict.eligible) td.appendChild(el("div", { class: "mx-sub mx-block", title: `blocked at ${cell.verdict.blockedLayer}` }, `✗ ${cell.verdict.reasons[0] || cell.verdict.blockedLayer}`));
+  if (d.verdict && !cell.verdict.eligible) td.appendChild(el("div", { class: "mx-sub mx-block", title: `blocked at ${cell.verdict.blockedLayer}` }, `${LAYER_NUM[cell.verdict.blockedLayer] || ""} ${cell.verdict.reasons[0] || cell.verdict.blockedLayer}`.trim()));
   if (d.pickup) td.appendChild(el("div", { class: "mx-sub" }, (PASS_FORM_META[cell.pass.pass_form]?.label) || cell.pass.pass_form));
   if (d.distance && cell.lib.geo && STATE.homeGeo) {
     const mi = haversineMi(STATE.homeGeo, cell.lib.geo);
