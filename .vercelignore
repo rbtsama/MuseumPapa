@@ -8,11 +8,14 @@ __pycache__/
 # Python source + raw scrape outputs — only consumed at build time by
 # web/sync-admin.mjs, which reads from the still-included data/structured/
 # (which IS uploaded because .vercelignore is allowlist-style exclude).
-src/
-scripts/
-tests/
-docs/
-audit/
+# NOTE: leading slash anchors these to the REPO ROOT. Without it, a bare
+# `src/` also matches web/src/ (any depth) and deletes web/src/main.tsx,
+# breaking the Vite build ("Failed to resolve /src/main.tsx").
+/src/
+/scripts/
+/tests/
+/docs/
+/audit/
 
 # Large raw / snapshot data — not needed for the deployed frontend
 data/raw/
