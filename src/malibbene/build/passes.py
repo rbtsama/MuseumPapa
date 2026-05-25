@@ -4,6 +4,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 from malibbene.common.audit_overrides import load_overrides, apply_overrides
 from malibbene.build.slug_canonical import canonical
+from malibbene.build.coupons import coupon_from_extract, restrictions_from_extract, coupon_coverage_gaps
 
 PLATFORMS = ("assabet","libcal","museumkey")
 
@@ -45,14 +46,26 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                     "availability": {},
                     "eligibility_override": None,
                 }
-                coup = _read(raw_root/platform/"coupons"/f"{lib}__{rawslug}.json")
-                if coup and coup.get("status")=="ok":
-                    e = coup["extracted"]
-                    row["pass_form"] = e.get("pass_form","physical_coupon")
-                    row["coupon"] = e.get("coupon")
-                    row["restrictions"] = e.get("restrictions")
-                    if e.get("residency_restriction"):
-                        row["residency_restriction"] = e["residency_restriction"]
+                # pass_form, residency, and legacy coupon fallback from the original
+                # per-platform extraction. Its coupon VALUES are stale/often wrong, so
+                # only trust it for pass_form/residency and as a last-resort fallback.
+                old = _read(raw_root/platform/"coupons"/f"{lib}__{rawslug}.json")
+                old_e = old["extracted"] if (old and old.get("status") == "ok") else None
+                if old_e:
+                    row["pass_form"] = old_e.get("pass_form", "physical_coupon")
+                    if old_e.get("residency_restriction"):
+                        row["residency_restriction"] = old_e["residency_restriction"]
+                # AUTHORITATIVE coupon numbers: data/raw/pass_coupons/<lib>_<canonical>.json
+                # (single underscore, canonical slug, top-level fields). Canonical name
+                # first, then raw-slug name, then the legacy extraction as fallback.
+                crec = (_read(raw_root/"pass_coupons"/f"{lib}_{slug}.json")
+                        or _read(raw_root/"pass_coupons"/f"{lib}_{rawslug}.json"))
+                if crec and crec.get("status") == "ok":
+                    row["coupon"] = coupon_from_extract(crec)
+                    row["restrictions"] = (old_e or {}).get("restrictions") or restrictions_from_extract(crec)
+                elif old_e:
+                    row["coupon"] = old_e.get("coupon")
+                    row["restrictions"] = old_e.get("restrictions")
                 # A booking-probe result (Phase P3) tests the TOWN-residency axis
                 # (can a same-network non-resident book it). It takes precedence,
                 # EXCEPT it must not erase a text-derived MA-resident requirement
@@ -85,8 +98,21 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                 key = f"{lib}__{rawslug}"
                 row = apply_overrides(f"pass:{key}", row, overrides)
                 out_passes.append(row)
+    # Silent-drop guard: refuse to ship if any pass has an empty coupon while an
+    # authoritative pass_coupons file exists for it (the bug this fix addresses).
+    gaps = coupon_coverage_gaps(out_passes, raw_root)
+    if gaps:
+        raise ValueError(
+            f"coupon coverage regression: {len(gaps)} pass(es) shipped an empty coupon "
+            f"despite an authoritative data/raw/pass_coupons file existing — e.g. {gaps[:8]}. "
+            f"Check the pass_coupons path/slug lookup in build_passes."
+        )
+    n_with_coupon = sum(1 for p in out_passes if p.get("coupon"))
     out = {"_meta":{"built_at":datetime.now(timezone.utc).isoformat(),
-                    "n_passes":len(out_passes)}, "passes": out_passes}
+                    "n_passes":len(out_passes),
+                    "n_with_coupon":n_with_coupon,
+                    "coupon_coverage_pct":round(100*n_with_coupon/max(1,len(out_passes)),1)},
+           "passes": out_passes}
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False))
     return out

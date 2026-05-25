@@ -46,3 +46,60 @@ def test_build_passes_emits_rawslug_and_applies_pass_override(tmp_path):
     assert p["attraction_slug"] == canonical("mfa-promo-code")  # canonical join key
     assert p["attraction_rawslug"] == "mfa-promo-code"          # NEW field
     assert p["pass_form"] == "digital_email"                    # override actually applied
+
+def test_build_passes_reads_pass_coupons_as_authoritative(tmp_path):
+    # The authoritative coupon source is data/raw/pass_coupons/<lib>_<canonical>.json
+    # (single underscore, top-level fields). There is NO old assabet/coupons file here —
+    # the build must still emit a populated, correct coupon (was the silent-drop bug).
+    raw = tmp_path/"raw"
+    _w(raw/"assabet/catalog/acton.json", {"library_id":"acton","passes":[
+        {"library_id":"acton","attraction_slug":"museum-of-science","title":"MoS"}]})
+    _w(raw/"pass_coupons/acton_museum-of-science.json", {
+        "library_id":"acton","attraction_slug":"museum-of-science","status":"ok",
+        "raw":"up to 4 people at a 50% discount; children under 3 free",
+        "capacity":{"kind":"people","n":4},
+        "audience_policies":[
+            {"audience":"Everyone","age_range":None,"count":None,"form":"percent-off","value":50},
+            {"audience":"Child","age_range":{"min":None,"max":2},"count":None,"form":"free","value":None}],
+        "restrictions":{"blackout_dates":[],"weekdays_only":False,"seasonal":None},
+        "source_phrases":{"audience_policies[0].form":"50% discount"}})
+
+    out = tmp_path/"passes.json"
+    build_passes(raw_root=raw, overrides_root=tmp_path/"overrides", out_path=out)
+    p = json.loads(out.read_text())["passes"][0]
+    assert p["coupon"] is not None                                   # not silently dropped
+    assert p["coupon"]["capacity"] == {"kind":"people","n":4}
+    assert p["coupon"]["audience_policies"][0]["form"] == "percent-off"
+    assert p["coupon"]["audience_policies"][0]["value"] == 50
+    assert p["coupon"]["summary"] == "50% off"                       # generated headline
+    assert "50% discount" in (p["coupon"]["source_phrase_block"] or "")  # provenance kept
+
+def test_build_passes_pass_coupons_canonical_alias(tmp_path):
+    # catalog raw slug differs from canonical; pass_coupons keyed by canonical must still match
+    from malibbene.build.slug_canonical import canonical
+    raw = tmp_path/"raw"
+    _w(raw/"assabet/catalog/bpl.json", {"library_id":"bpl","passes":[
+        {"library_id":"bpl","attraction_slug":"mfa-promo-code","title":"MFA"}]})
+    canon = canonical("mfa-promo-code")
+    _w(raw/f"pass_coupons/bpl_{canon}.json", {
+        "library_id":"bpl","attraction_slug":canon,"status":"ok","raw":"free admission",
+        "capacity":{"kind":"people","n":2},
+        "audience_policies":[{"audience":"Everyone","form":"free","value":None}],
+        "restrictions":{"blackout_dates":[],"weekdays_only":False,"seasonal":None}})
+    out = tmp_path/"passes.json"
+    build_passes(raw_root=raw, overrides_root=tmp_path/"overrides", out_path=out)
+    p = json.loads(out.read_text())["passes"][0]
+    assert p["coupon"] is not None and p["coupon"]["summary"] == "FREE"
+
+def test_coupon_coverage_gaps_detects_silent_drop(tmp_path):
+    from malibbene.build.coupons import coupon_coverage_gaps
+    (tmp_path/"pass_coupons").mkdir(parents=True)
+    (tmp_path/"pass_coupons/acton_mfa.json").write_text(
+        json.dumps({"status":"ok","audience_policies":[{"form":"free"}]}))
+    # empty coupon but authoritative raw exists -> flagged as a silent drop
+    dropped = [{"library_id":"acton","attraction_slug":"mfa","attraction_rawslug":"mfa","coupon":None}]
+    assert coupon_coverage_gaps(dropped, tmp_path) == [("acton","mfa")]
+    # populated coupon -> no gap; missing raw file -> no gap
+    ok = [{"library_id":"acton","attraction_slug":"mfa","attraction_rawslug":"mfa","coupon":{"x":1}},
+          {"library_id":"x","attraction_slug":"y","attraction_rawslug":"y","coupon":None}]
+    assert coupon_coverage_gaps(ok, tmp_path) == []

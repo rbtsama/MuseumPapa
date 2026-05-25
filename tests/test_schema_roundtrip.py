@@ -57,7 +57,7 @@ STRUCTURED = REPO / "data" / "structured"
 # Keep this list tight — adding to it weakens the contract.
 _KNOWN_EXTRAS: dict[type, set[str]] = {
     Library: {"domain", "non_resident_policy_initial"},
-    Pass: {"source_phrases", "availability"},
+    Pass: {"source_phrases", "availability", "attraction_rawslug"},
     Attraction: set(),
     Branch: {"code"},
     Address: set(),
