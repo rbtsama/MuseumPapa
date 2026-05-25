@@ -62,8 +62,8 @@ test("rowSortKey: best tier + available-first", () => {
 test("bestPolicy/shortSummary: pick strongest form, short glyphs", () => {
   const coupon = { audience_policies: [ { form: "dollar-off", value: 5 }, { form: "free" } ] };
   assert.equal(bestPolicy(coupon).form, "free");
-  assert.equal(shortSummary(coupon), "FR");
-  assert.equal(shortSummary({ audience_policies: [{ form: "percent-off", value: 50 }] }), "50%");
+  assert.equal(shortSummary(coupon), "FREE");
+  assert.equal(shortSummary({ audience_policies: [{ form: "percent-off", value: 50 }] }), "-50%");
   assert.equal(shortSummary({ audience_policies: [{ form: "dollar-off", value: 10 }] }), "-$10");
   assert.equal(shortSummary({ audience_policies: [{ form: "per-person-price", value: 9 }] }), "$9");
   assert.equal(shortSummary({ audience_policies: [{ form: "discount" }] }), "disc");
@@ -76,5 +76,5 @@ test("headlinePolicy: prefers adult/Everyone over a stronger kid offer", () => {
     { audience: "Adult", form: "percent-off", value: 50 },
   ] };
   assert.equal(headlinePolicy(coupon).audience, "Adult");
-  assert.equal(shortSummary(coupon), "50%");
+  assert.equal(shortSummary(coupon), "-50%");
 });

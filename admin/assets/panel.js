@@ -34,7 +34,8 @@ const STATE = {
   activeLens: "A",
   selectedAttrs: new Set(),  // attraction slugs to SHOW (default: all)
   attrSearch: "",
-  onlyBookable: false,
+  onlyEligible: true,   // card + zip confirmed (the eligibility dimension)
+  onlyInStock: false,   // confirmed available on the date (the inventory dimension)
   display: { policies:false, verdict:false, pickup:false, avail:false, distance:false, restrict:false, warn:false },
   // group collapse state: net -> bool collapsed
   groupCollapsed: {},
@@ -91,7 +92,7 @@ function persistPanelState() {
     localStorage.setItem(PANEL_STATE_KEY, JSON.stringify({
       libs: [...STATE.selectedLibs], attrs: [...STATE.selectedAttrs],
       zip: STATE.homeZip, date: STATE.visitDate ? STATE.visitDate.toISOString().slice(0, 10) : null,
-      onlyBookable: STATE.onlyBookable, display: STATE.display,
+      onlyEligible: STATE.onlyEligible, onlyInStock: STATE.onlyInStock, display: STATE.display,
     }));
   } catch (e) { /* storage unavailable — ignore */ }
 }
@@ -294,13 +295,18 @@ function eligTag(v) {
 
 // pass_form display
 const PASS_FORM_META = {
-  digital_email: { label: "Email", cls: "pill-email" },
-  physical_circ: { label: "Loaner", cls: "pill-borrow" },
-  physical_coupon: { label: "Coupon", cls: "pill-pickup" },
+  digital_email: { label: "Email", cls: "pf-email" },     // green — instant
+  physical_coupon: { label: "Pickup", cls: "pf-pickup" }, // orange — go to library
+  physical_circ: { label: "Pik & Rtn", cls: "pf-rtn" },   // red — pick up AND return
 };
 function passFormPill(f) {
-  const m = PASS_FORM_META[f] || { label: f || "—", cls: "pill-unknown" };
+  const m = PASS_FORM_META[f] || { label: f || "—", cls: "pf-unknown" };
   return el("span", { class: `pill ${m.cls}` }, m.label);
+}
+// transparent colored tag used in the matrix, detail popup, and booking popup
+function pfTag(f) {
+  const m = PASS_FORM_META[f] || { label: f || "—", cls: "pf-unknown" };
+  return el("span", { class: `pf-tag ${m.cls}` }, m.label);
 }
 
 // ─────────────────────────────────────────────
@@ -1034,13 +1040,16 @@ function buildMatrixModel() {
       const rz = residencyOk(pass, lib, attr, STATE.homeZip, STATE.MA_ZIPS);
       const tier = cellTier(ck, rz.ok);
       const avail = availStatus(pass, iso);
-      if (STATE.onlyBookable && tier !== "a") continue; // hide non-eligible cells
+      // eligibility dimension (卡+Zip): strict — unknown residency does NOT count
+      if (STATE.onlyEligible && !(tier === "a" && !rz.warn)) continue;
+      // inventory dimension: only confirmed in stock (unknown/booked/closed excluded)
+      if (STATE.onlyInStock && avail !== "available") continue;
       const verdict = resolvePass(pass, lib, attr, user, STATE.visitDate);
       const cell = { pass, lib, tier, avail, cardOk: ck, zipOk: rz.ok, warn: rz.warn, verdict };
       cells[lib.id] = cell;
       cellList.push({ tier, avail });
     }
-    if (STATE.onlyBookable && !cellList.length) continue; // row emptied by filter
+    if ((STATE.onlyEligible || STATE.onlyInStock) && !cellList.length) continue; // row emptied by filters
     rows.push({ attr, cells, sortKey: rowSortKey(cellList) });
   }
   rows.sort((a, b) =>
@@ -1076,20 +1085,23 @@ function renderMatrix() {
     return;
   }
 
+  const netEndIds = new Set(columns.map(c => c.libs[c.libs.length - 1].id)); // last lib of each network
   const table = el("table", { class: "matrix-table" });
   // header row 1: network groups
   const thead = el("thead");
   const netTr = el("tr", { class: "mx-net-row" });
   netTr.appendChild(el("th", { class: "mx-corner", rowspan: "2" }, "Attraction ＼ Library"));
   for (const col of columns) {
-    netTr.appendChild(el("th", { class: "mx-net", colspan: String(col.libs.length) }, `${col.net} · ${col.libs.length}`));
+    netTr.appendChild(el("th", { class: "mx-net mx-netend", colspan: String(col.libs.length) }, `${col.net} · ${col.libs.length}`));
   }
   thead.appendChild(netTr);
   // header row 2: library names
   const libTr = el("tr", { class: "mx-lib-row" });
   for (const lib of flatLibs) {
-    libTr.appendChild(el("th", { class: "mx-lib", title: lib.name },
-      lib.name.replace(/\sPublic Library$|\sLibrary$/, "")));
+    const th = el("th", { class: "mx-lib", title: lib.name },
+      lib.name.replace(/\sPublic Library$|\sLibrary$/, ""));
+    if (netEndIds.has(lib.id)) th.classList.add("mx-netend");
+    libTr.appendChild(th);
   }
   thead.appendChild(libTr);
   table.appendChild(thead);
@@ -1100,8 +1112,9 @@ function renderMatrix() {
     tr.appendChild(el("th", { class: "mx-rowhead mx-rowhead-click", title: "click: your cards that can book this", onclick: () => openBookingPopup(row.attr) }, row.attr.name));
     for (const lib of flatLibs) {
       const cell = row.cells[lib.id];
-      if (!cell) { tr.appendChild(el("td", { class: "mx-cell mx-empty" })); continue; }
-      tr.appendChild(renderCell(cell, row.attr));
+      const td = cell ? renderCell(cell, row.attr) : el("td", { class: "mx-cell mx-empty" });
+      if (netEndIds.has(lib.id)) td.classList.add("mx-netend");
+      tr.appendChild(td);
     }
     tbody.appendChild(tr);
   }
@@ -1129,7 +1142,7 @@ function renderCell(cell, attr) {
   if (d.warn && cell.warn) td.appendChild(el("span", { class: "mx-warn", title: "eligibility not confirmed (residency unknown in our data)" }, "⚠"));
   if (d.avail && cell.avail !== "none") td.appendChild(el("div", { class: "mx-sub" }, cell.avail));
   if (d.verdict && !cell.verdict.eligible) td.appendChild(el("div", { class: "mx-sub mx-block", title: `blocked at ${cell.verdict.blockedLayer}` }, `${LAYER_NUM[cell.verdict.blockedLayer] || ""} ${cell.verdict.reasons[0] || cell.verdict.blockedLayer}`.trim()));
-  if (d.pickup) td.appendChild(el("div", { class: "mx-sub" }, (PASS_FORM_META[cell.pass.pass_form]?.label) || cell.pass.pass_form));
+  if (d.pickup) td.appendChild(el("div", { class: "mx-sub" }, pfTag(cell.pass.pass_form)));
   if (d.distance && cell.lib.geo && STATE.homeGeo) {
     const mi = haversineMi(STATE.homeGeo, cell.lib.geo);
     if (mi != null) td.appendChild(el("div", { class: "mx-sub" }, `${mi.toFixed(1)} mi`));
@@ -1184,7 +1197,7 @@ function openBookingPopup(attr) {
     box.appendChild(el("div", { class: "bk-row" },
       el("div", { class: "bk-lib" }, lib.name),
       el("div", { class: "bk-offer" }, couponSummary(p.coupon)),
-      el("span", { class: "bk-pickup" }, (PASS_FORM_META[p.pass_form]?.label) || p.pass_form || "—"),
+      pfTag(p.pass_form),
       el("span", { class: "bk-dist" }, mi != null ? `${mi.toFixed(1)} mi` : ""),
       v.eligible ? el("span", { class: "bk-ok" }, "✓") : el("span", { class: "bk-no" }, "✗ " + (v.reasons[0] || v.blockedLayer)),
       p.source_url ? el("a", { class: "bk-link", href: p.source_url, target: "_blank", rel: "noopener" }, "Book ↗")
@@ -1218,7 +1231,7 @@ function openDetailPopup(cell, attr) {
   box.appendChild(kv("Eligibility",
     v.eligible ? "✓ eligible" : `✗ ${v.reasons[0] || v.blockedLayer}`,
     v.eligible ? "hl-ok" : "hl-bad"));
-  box.appendChild(kv("Pickup", (PASS_FORM_META[p.pass_form]?.label) || p.pass_form || "—", "hl-pickup"));
+  box.appendChild(kv("Pickup", pfTag(p.pass_form)));
   const rr = p.residency_restriction;
   box.appendChild(kv("Residency",
     rr && rr.restricted ? `${rr.restricted}${rr.scope ? ` · ${rr.scope}` : ""}` : "—",
@@ -1270,13 +1283,15 @@ async function init() {
   if (saved) {
     if (Array.isArray(saved.libs)) STATE.selectedLibs = new Set(saved.libs);
     if (Array.isArray(saved.attrs)) STATE.selectedAttrs = new Set(saved.attrs);
-    if (typeof saved.onlyBookable === "boolean") STATE.onlyBookable = saved.onlyBookable;
+    if (typeof saved.onlyEligible === "boolean") STATE.onlyEligible = saved.onlyEligible;
+    if (typeof saved.onlyInStock === "boolean") STATE.onlyInStock = saved.onlyInStock;
     if (saved.display) Object.assign(STATE.display, saved.display);
     if (saved.zip) STATE.homeZip = saved.zip;
     if (saved.date) { STATE.visitDate = new Date(saved.date + "T00:00:00Z"); dateInput.value = saved.date; }
   }
   $("#home-zip").value = STATE.homeZip;
-  $("#opt-only-bookable").checked = STATE.onlyBookable;
+  $("#opt-only-eligible").checked = STATE.onlyEligible;
+  $("#opt-only-instock").checked = STATE.onlyInStock;
 
   renderCardList();
   updateLibCount();
@@ -1294,7 +1309,8 @@ async function init() {
   $("#btn-attr-all").onclick = () => { STATE.selectedAttrs = new Set(STATE.attractions.map(a=>a.slug)); renderAttrList(); updateAttrCount(); renderMatrix(); };
   $("#btn-attr-none").onclick = () => { STATE.selectedAttrs = new Set(); renderAttrList(); updateAttrCount(); renderMatrix(); };
   $("#attr-search").oninput = (e) => { STATE.attrSearch = e.target.value; renderAttrList(); };
-  $("#opt-only-bookable").onchange = (e) => { STATE.onlyBookable = e.target.checked; renderMatrix(); };
+  $("#opt-only-eligible").onchange = (e) => { STATE.onlyEligible = e.target.checked; renderMatrix(); };
+  $("#opt-only-instock").onchange = (e) => { STATE.onlyInStock = e.target.checked; renderMatrix(); };
   for (const [key, id] of Object.entries({policies:"d-policies",verdict:"d-verdict",pickup:"d-pickup",avail:"d-avail",distance:"d-distance",restrict:"d-restrict",warn:"d-warn"})) {
     $("#"+id).checked = !!STATE.display[key];
     $("#"+id).onchange = (e) => { STATE.display[key] = e.target.checked; renderMatrix(); };

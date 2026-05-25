@@ -403,7 +403,14 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 /* ── Matrix ── */
 /* single scroll area = .matrix-scroll; container must NOT scroll (avoids double scrollbars) */
 .matrix-container { padding: 0; }
-.mx-rowhead { font-weight: 400; }
+.mx-rowhead { font-weight: 700; }
+.matrix-table .mx-netend { border-right: 2px solid #9bb39b; }  /* divider between networks */
+/* pickup-method transparent tag: Email=green, Pickup=orange, Pik & Rtn=red */
+.pf-tag { display: inline-block; padding: 0 5px; border-radius: 3px; font-size: 10px; line-height: 1.5; border: 1px solid currentColor; background: transparent; }
+.pf-email { color: #1f7a1f; }
+.pf-pickup { color: #c47a00; }
+.pf-rtn { color: #c0392b; }
+.pf-unknown { color: #888; }
 /* legend bar above the matrix */
 .mx-legend { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 4px 8px; font-size: 10px; border-bottom: 1px solid var(--bd, #d4ddd4); background: #f7faf7; flex: 0 0 auto; }
 .mx-legend b { margin-left: 16px; }
@@ -414,12 +421,15 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .mx-cell { position: relative; }
 .mx-info { position: absolute; top: 0; right: 1px; font-size: 9px; line-height: 1; color: #36c; cursor: pointer; opacity: .45; }
 .mx-info:hover { opacity: 1; }
-.mx-rowhead-click { cursor: pointer; }
-.mx-rowhead-click:hover { text-decoration: underline; color: #1f6feb; }
+/* refined clickable cue: subtle tint + a chevron that fades in on hover (no underline) */
+.mx-rowhead-click { cursor: pointer; transition: background .12s; }
+.mx-rowhead-click::after { content: "›"; margin-left: 5px; color: #1f6feb; font-weight: 700; opacity: 0; transition: opacity .12s; }
+.mx-rowhead-click:hover { background: #eef4ff; }
+.mx-rowhead-click:hover::after { opacity: 1; }
 /* popup modal (booking / source) */
 .mx-modal { position: fixed; inset: 0; background: rgba(0,0,0,.35); display: flex; align-items: center; justify-content: center; z-index: 50; }
 .mx-modal[hidden] { display: none; }
-.mx-modal-card { background: #fff; border-radius: 8px; max-width: 560px; width: 90%; max-height: 80vh; overflow: auto; box-shadow: 0 8px 30px rgba(0,0,0,.25); }
+.mx-modal-card { background: #fff; border-radius: 8px; max-width: 680px; width: 92%; max-height: 82vh; overflow: auto; box-shadow: 0 8px 30px rgba(0,0,0,.25); }
 .mx-modal-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--bd,#d4ddd4); font-weight: 600; position: sticky; top: 0; background: #fff; }
 .mx-modal-head button { border: none; background: none; font-size: 20px; cursor: pointer; line-height: 1; }
 .mx-modal-body { padding: 12px 14px; font-size: 13px; }
@@ -436,7 +446,7 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .mx-cell.mx-click { cursor: pointer; }
 .mx-cell.mx-click:hover { outline: 2px solid #1f6feb; outline-offset: -2px; }
 /* detail popup: labeled key facts with highlighted values */
-.dt-row { display: grid; grid-template-columns: 130px 1fr; gap: 8px; padding: 3px 0; align-items: baseline; }
+.dt-row { display: grid; grid-template-columns: 120px 1fr; gap: 10px; padding: 5px 2px; align-items: baseline; border-bottom: 1px solid #eef2ee; }
 .dt-k { color: #667; font-size: 11px; text-transform: uppercase; letter-spacing: .3px; }
 .dt-v { font-size: 13px; }
 .dt-v.hl-offer { background: #e6f7e6; padding: 1px 6px; border-radius: 4px; font-weight: 600; display: inline-block; }
@@ -462,7 +472,7 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 /* network group header — stronger (the upper hierarchy level) */
 .matrix-table th.mx-net { background: #cfe3cf; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .4px; color: #1f3a1f; text-align: center; }
 /* library name — horizontal, fixed-narrow, wraps, tiny, lighter (lower level) */
-.matrix-table th.mx-lib { width: 76px; min-width: 76px; max-width: 76px; white-space: normal; overflow-wrap: anywhere; font-size: 10px; line-height: 1.15; font-weight: 400; color: #3a4a3a; background: #eef5ee; text-align: center; vertical-align: bottom; }
+.matrix-table th.mx-lib { width: 76px; min-width: 76px; max-width: 76px; white-space: normal; overflow-wrap: anywhere; font-size: 10px; line-height: 1.15; font-weight: 700; color: #2c3a2c; background: #eef5ee; text-align: center; vertical-align: bottom; }
 /* frozen first column */
 .mx-corner, .mx-rowhead { position: sticky; left: 0; z-index: 2; background: #f3f8f3; text-align: left; width: 180px; min-width: 180px; max-width: 180px; font-size: 10px; line-height: 1.2; }
 /* corner must outrank `.matrix-table thead th` (specificity) so right-scroll never covers it */

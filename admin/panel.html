@@ -10,19 +10,10 @@
 
 <header class="topbar">
   <div class="brand"><span class="font-serif">MuseumPapa</span> · Admin Panel</div>
-  <div class="stat" id="stat-summary">loading…</div>
+  <div class="stat" id="stat-summary" style="display:none"></div>
 </header>
 
 <aside class="controls">
-  <section class="ctrl-block">
-    <h3>持卡情况 <span class="badge" id="lib-count">0 / 0</span></h3>
-    <div class="ctrl-row">
-      <button class="btn-tiny" id="btn-all">全选</button>
-      <button class="btn-tiny" id="btn-none">清空</button>
-    </div>
-    <div class="lib-list" id="lib-list"></div>
-  </section>
-
   <section class="ctrl-block">
     <h3>Home ZIP</h3>
     <div class="ctrl-row">
@@ -33,21 +24,12 @@
   </section>
 
   <section class="ctrl-block">
-    <h3>访问日期</h3>
+    <h3>领券日期</h3>
     <div class="ctrl-row">
       <input type="date" id="visit-date">
     </div>
-  </section>
-
-  <section class="ctrl-block">
-    <h3>景点筛选 <span class="badge" id="attr-count">0 / 0</span></h3>
-    <div class="ctrl-row">
-      <button class="btn-tiny" id="btn-attr-all">全选</button>
-      <button class="btn-tiny" id="btn-attr-none">清空</button>
-    </div>
-    <input type="text" id="attr-search" placeholder="搜索景点…" class="al-filter-input" style="width:100%;margin:4px 0">
-    <div class="attr-list" id="attr-list"></div>
-    <label class="ctrl-check" style="margin-top:6px"><input type="checkbox" id="opt-only-bookable"> 只看可订</label>
+    <label class="ctrl-check" style="margin-top:6px"><input type="checkbox" id="opt-only-eligible" checked> 只看合规（卡 + Zip）</label>
+    <label class="ctrl-check"><input type="checkbox" id="opt-only-instock"> 只看在售（当日有库存）</label>
   </section>
 
   <section class="ctrl-block">
@@ -58,7 +40,26 @@
     <label class="ctrl-check"><input type="checkbox" id="d-avail"> 库存状态</label>
     <label class="ctrl-check"><input type="checkbox" id="d-distance"> 距离</label>
     <label class="ctrl-check"><input type="checkbox" id="d-restrict"> 限制详情</label>
-    <label class="ctrl-check"><input type="checkbox" id="d-warn"> 资格未确认 ⚠</label>
+    <label class="ctrl-check"><input type="checkbox" id="d-warn"> 无法确认居民限制</label>
+  </section>
+
+  <section class="ctrl-block">
+    <h3>持卡情况 <span class="badge" id="lib-count">0 / 0</span></h3>
+    <div class="ctrl-row">
+      <button class="btn-tiny" id="btn-all">全选</button>
+      <button class="btn-tiny" id="btn-none">清空</button>
+    </div>
+    <div class="lib-list" id="lib-list"></div>
+  </section>
+
+  <section class="ctrl-block">
+    <h3>景点筛选 <span class="badge" id="attr-count">0 / 0</span></h3>
+    <div class="ctrl-row">
+      <button class="btn-tiny" id="btn-attr-all">全选</button>
+      <button class="btn-tiny" id="btn-attr-none">清空</button>
+    </div>
+    <input type="text" id="attr-search" placeholder="搜索景点…" class="al-filter-input" style="width:100%;margin:4px 0">
+    <div class="attr-list" id="attr-list"></div>
   </section>
 
   <section class="ctrl-block">

@@ -91,14 +91,14 @@ export function couponSummary(coupon) {
 }
 
 // Ultra-short glyph for a matrix cell, based on the adult/headline policy.
-// Forms: FR=free, 50%=percent-off, -$10=dollar-off, $X/p=per-person price,
+// Forms: FREE, -50%=percent-off, -$10=dollar-off, $9=per-person price,
 // B1G1=bogo, disc=generic discount, ?=unknown / no coupon.
 export function shortSummary(coupon) {
   const p = headlinePolicy(coupon);
   if (!p) return "?";
   switch (p.form) {
-    case "free": return "FR";
-    case "percent-off": return p.value != null ? `${p.value}%` : "%";
+    case "free": return "FREE";
+    case "percent-off": return p.value != null ? `-${p.value}%` : "%";
     case "dollar-off": return p.value != null ? `-$${p.value}` : "-$";
     case "per-person-price": return p.value != null ? `$${p.value}` : "$";
     case "bogo": return "B1G1";
