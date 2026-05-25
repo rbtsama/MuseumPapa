@@ -2,7 +2,7 @@
 // Edit source under admin/ only. See web/sync-admin.mjs for copy rules.
 
 import { cardOk, residencyOk, cellTier, availStatus, rowSortKey, bestPolicy, couponSummary, shortSummary } from "./panel.logic.mjs";
-import { buildRecord, buildFeedbackRecord } from "./panel.audit.mjs";
+import { buildRecord, buildFeedbackRecord, ASPECTS } from "./panel.audit.mjs";
 
 const DEFAULT_ZIP = "01880";
 
@@ -829,9 +829,9 @@ function openAuditForm(cell, attr) {
 
   form.appendChild(el("div", { class: "af-step" }, "哪块出错（可多选，可不选）"));
   const aspectRow = el("div", { class: "af-aspects" });
-  for (const [code, zh] of Object.entries(ASPECT_ZH))
+  for (const code of ASPECTS)
     aspectRow.appendChild(el("label", { class: "af-aspect" },
-      el("input", { type: "checkbox", name: "af-aspect", value: code }), " " + zh));
+      el("input", { type: "checkbox", name: "af-aspect", value: code }), " " + (ASPECT_ZH[code] || code)));
   form.appendChild(aspectRow);
 
   form.appendChild(el("div", { class: "af-step" }, "说明"));
