@@ -93,7 +93,9 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                         or _read(raw_root/"pass_coupons"/f"{lib}_{rawslug}.json"))
                 if crec and crec.get("status") == "ok":
                     row["coupon"] = coupon_from_extract(crec)
-                    row["restrictions"] = (old_e or {}).get("restrictions") or restrictions_from_extract(crec)
+                    # crec is authoritative for the coupon AND its restrictions;
+                    # the stale legacy old_e is only a fallback when crec has none (B2).
+                    row["restrictions"] = restrictions_from_extract(crec) or (old_e or {}).get("restrictions")
                 elif old_e:
                     row["coupon"] = old_e.get("coupon")
                     row["restrictions"] = old_e.get("restrictions")

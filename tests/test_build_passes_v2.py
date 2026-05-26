@@ -116,6 +116,25 @@ def test_pass_form_from_catalog_pass_type(tmp_path):
     p = json.loads(out.read_text())["passes"][0]
     assert p["pass_form"] == "physical_circ"
 
+def test_pass_coupons_restrictions_win_over_legacy(tmp_path):
+    # crec (data/raw/pass_coupons) is authoritative for the coupon; its restrictions
+    # must also win over the stale legacy old_e.restrictions (B2 precedence fix).
+    raw = tmp_path/"raw"
+    _w(raw/"assabet/catalog/wakefield.json", {"library_id":"wakefield","passes":[
+        {"library_id":"wakefield","attraction_slug":"mfa"}]})
+    _w(raw/"assabet/coupons/wakefield__mfa.json", {"status":"ok","extracted":{
+        "restrictions": {"weekdays_only": True, "blackout": [], "seasonal": None}}})
+    _w(raw/"pass_coupons/wakefield_mfa.json", {
+        "library_id":"wakefield","attraction_slug":"mfa","status":"ok","raw":"x",
+        "capacity":{"kind":"people","n":2},
+        "audience_policies":[{"audience":"Everyone","form":"free"}],
+        "restrictions":{"blackout_dates":["2026-12-25"],"weekdays_only":False,"seasonal":None}})
+    out = tmp_path/"passes.json"
+    build_passes(raw_root=raw, overrides_root=tmp_path/"overrides", out_path=out)
+    p = json.loads(out.read_text())["passes"][0]
+    assert p["restrictions"]["weekdays_only"] is False                 # crec, not legacy True
+    assert p["restrictions"]["blackout"] == [{"month": 12, "day": 25}]  # crec blackout present
+
 def test_coupon_coverage_gaps_detects_silent_drop(tmp_path):
     from malibbene.build.coupons import coupon_coverage_gaps
     (tmp_path/"pass_coupons").mkdir(parents=True)
