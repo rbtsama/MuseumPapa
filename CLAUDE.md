@@ -25,7 +25,7 @@ Massachusetts eastern MA 区域的图书馆 museum-pass 福利数据建设项目
 - `data/structured/attractions.json` — ~108 景元数据
 - `data/structured/passes.json` — (馆 × 景) 矩阵的折扣/凭证/限制字段
 
-中间产物 `data/structured/library_catalog.json` 是全平台规范快照,既给 diff_catalog 当锚点,也供 build 阶段拆出上面三份产物。
+> **历史说明**:早期设计有个中间产物 `data/structured/library_catalog.json`(全平台规范快照)。**该设计已移除**:现在 `build/passes.py` 直接读 `data/raw/<platform>/catalog/` 派生三份产物;不再生成 `library_catalog.json`,`build/catalog.py` 已删。索引页变更检测由 `scripts/snapshot_diff.py` 直接对 `data/raw/<platform>/index/` 做 diff。
 
 **v0.1 已完成**:前端 (`web/`, React + Vite + HeroUI) 可静态部署到 Vercel(`web/vercel.json` SPA rewrite 已就绪);audit 数据审计页 (`audit/audit.html`) 已合并为单页(锚点切换 5 个 section)。详细发布清单见 `C:\Users\Administrator\.claude\plans\indexed-mapping-dongarra.md`(已执行)。
 
@@ -52,8 +52,7 @@ Massachusetts eastern MA 区域的图书馆 museum-pass 福利数据建设项目
 ├── scripts/                   # CLI 入口(scrape_libraries / scrape_attractions / run_llm_extraction / build_all / snapshot_raw / archive_legacy)
 ├── data/raw/<platform>/       # scraper 直接产出
 ├── data/raw/pass_coupons/     # 1008 个 (lib × attraction) coupon JSON(plan-9 subagent re-extracted with source_phrases provenance)
-├── data/structured/           # build pipeline 产出
-│   ├── library_catalog.json   # 规范化中间快照 + diff 锚点(每 lib_id → passes by canonical slug,带 benefit_label/calendar)
+├── data/structured/           # build pipeline 产出(无 library_catalog.json,旧设计已移除)
 │   ├── libraries.json         # 59 馆 final metadata(town/network/card_page/address/geo/eligibility)
 │   ├── attractions.json       # ~107 景 final metadata(slug/name/website/phone/description/categories/price[adult/child/youth/senior/student/military/educator/family]/image/geo/hours/sources)
 │   ├── passes.json            # ~1008 行 (lib × attraction) 矩阵(discount/policy/pass_type/availability)
@@ -139,7 +138,7 @@ python scripts/build_audit_site.py   # 产出 audit/audit.html(单文件,5 secti
 - **状态兜底**:每个 raw JSON 顶层 `meta.status_summary = {ok, empty, failed}`,parser 失败的 cell 标 `status: "failed:<reason>"`,不静默丢失
 - **快照 + diff**:每次主索引页 scraper 跑完先把上一份 raw 移到 `data/snapshots/<日期>/`
 - **平台抽象**:每个 `sources/<platform>/` 模块对外暴露 `index_page.main()`(catalog,必有)和 `availability.main()`(动态,museumkey 不实现)。平台 pass_id 命名空间不通用,各自有手工映射表(`config/platform_pass_ids/*.json`),Assabet 例外(slug 直接是 benefit_id)
-- **Catalog vs availability 分层**:`raw/<platform>/<dataset>/<lib_id>.json` → 合并 + `normalize_benefit` → `structured/library_catalog.json`(规范快照 + diff 锚点)→ 拆分成 BRD §6.1 三大产物 `libraries.json`/`attractions.json`/`passes.json`。`manual_overrides.json` 在最后拆分阶段 merge
+- **Catalog vs availability 分层**:`raw/<platform>/catalog/<lib_id>.json`(+ `coupons/`、`residency_probe/`、`availability/`、`index/` 的 pass_type)→ `build/passes.py` 直接派生 BRD §6.1 三大产物 `libraries.json`/`attractions.json`/`passes.json`。`data/overrides/` 在派生阶段 merge(`apply_overrides`,仅 status=corrected 生效)。**无 library_catalog.json 中间层**(旧设计已移除)
 - **Geocoding**:OSM Nominatim(免费、1 req/sec)via `malibbene.common.geocode.geocode(query)`,结果缓存到 `data/.cache/geocode.json`。直线距离用 `haversine_miles`。失败区分:`no_results`(语义命中,缓存)vs 网络异常(瞬时,不缓存,下次重试)
 - **LLM 提取**(铁律:不调 Anthropic API):需要 LLM 时,Python fetcher 只把 HTML 落盘到 `_pages/`,extraction 通过 subagent dispatch 完成(controller 派 Sonnet),subagent 用 Read/Grep 读 HTML、Write 落 JSON
 - **Hero images**:从景点官网 `<meta property="og:image">` 抓,缓存到 `data/static/images/<slug>.<ext>`(gitignored,体积大);抓不到时前端 fallback `data/static/placeholders/<category>.svg`
