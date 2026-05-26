@@ -507,7 +507,12 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .mx-sub { font-size: 10px; color: #555; }
 .mx-block { color: #b00; }
 .mx-warn { color: #c80; }
-/* single background state: red only when the cardholder fails a resident-only restriction */
+/* tier backgrounds — encode card coverage so the selected cards are visible.
+   a = bookable (card + zip OK, green), c = hold card but resident-only fail (red),
+   b/d = no covering card (grey; normally filtered out by the card-coverage filter). */
+.mx-tier-a { background: #dff3df; }
+.mx-tier-b { background: #efeee9; color: var(--ink-3); }
+.mx-tier-d { background: #e2e0da; color: var(--ink-3); }
 .mx-resident-block { background: #f8d0d0; }
 /* availability accents (left border) */
 .av-ok  { box-shadow: inset 3px 0 0 #2e9e2e; }

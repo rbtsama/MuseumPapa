@@ -468,8 +468,8 @@ function renderCardList() {
           }),
           el("span", { class: "card-member-name", title: l.name }, l.town),
         ),
-        numInput,
         eligTag(l.card_eligibility || "unknown"),
+        numInput,  // last child = pinned to the row's right edge -> inputs align in a column
       ));
     }
     cardEl.appendChild(members);
@@ -600,7 +600,10 @@ function renderMatrix() {
   const flatLibs = columns.flatMap(c => c.libs);
   if (!flatLibs.length || !rows.length) {
     container.innerHTML = "";
-    container.appendChild(el("div", { class: "loading-msg" }, "No matching data (adjust cards / attraction filter)"));
+    const msg = STATE.selectedLibs.size === 0
+      ? "未选卡：矩阵按你持有的卡显示可订结果。请在左侧「持卡情况」勾选卡片，或点「全选」查看全部。"
+      : "No matching data（当前卡 + 筛选下无结果，试试调整卡 / 景点 / 取消「只看在售」）";
+    container.appendChild(el("div", { class: "loading-msg" }, msg));
     return;
   }
 
@@ -649,9 +652,12 @@ function renderCell(cell, attr) {
       : (cell.avail === "booked" || cell.avail === "closed") ? "av-no"
       : cell.avail === "unknown" ? "av-unk" : "")
     : "";
-  // Single background state: red ONLY when the customer HOLDS the card but fails a
-  // resident-only restriction. Eligible cells and no-card cells get no background.
-  const bgCls = (cell.cardOk && !cell.zipOk) ? "mx-resident-block" : "";
+  // Background encodes the eligibility tier so card selection is visible at a
+  // glance: a = bookable (have card + zip OK, green), c = hold card but resident-
+  // only fail (red), b/d = no covering card (grey — normally filtered out by the
+  // card-coverage filter, shown only if that filter is bypassed).
+  const TIER_BG = { a: "mx-tier-a", b: "mx-tier-b", c: "mx-resident-block", d: "mx-tier-d" };
+  const bgCls = TIER_BG[cell.tier] || "";
   const td = el("td", { class: `mx-cell ${bgCls} ${availCls}` });
 
   // Offer: simplified (default) = adult/headline short glyph; "人群条款全展开" on
