@@ -485,6 +485,8 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .mx-cell { text-align: center; min-width: 76px; max-width: 96px; vertical-align: top; cursor: default; white-space: normal; overflow-wrap: anywhere; }
 .mx-empty { background: #fafbfa; }
 .mx-glyph { font-weight: 600; }
+/* compact pickup-method cue: ★ = pickup, ★★ = pick & return (email shows nothing) */
+.mx-pf-star { color: #c47a00; font-size: 9px; letter-spacing: -1px; vertical-align: super; white-space: nowrap; }
 .mx-sub { font-size: 10px; color: #555; }
 .mx-block { color: #b00; }
 .mx-warn { color: #c80; }

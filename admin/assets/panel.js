@@ -353,6 +353,14 @@ function pfTag(f) {
   const m = PASS_FORM_META[f] || { label: f || "—", cls: "pf-unknown" };
   return el("span", { class: `pf-tag ${m.cls}` }, m.label);
 }
+// Compact pickup-method cue for matrix cells (space-saving): email = nothing,
+// physical_coupon = one solid star, physical_circ = two solid stars.
+const PASS_FORM_STARS = { digital_email: "", physical_coupon: "★", physical_circ: "★★" };
+function pfStarEl(f) {
+  const s = PASS_FORM_STARS[f] || "";
+  if (!s) return null;
+  return el("span", { class: "mx-pf-star", title: `怎么领：${PASS_FORM_META[f]?.label || f}` }, s);
+}
 
 // ─────────────────────────────────────────────
 //  SIDEBAR — card list
@@ -584,8 +592,9 @@ function renderCell(cell, attr) {
   if (d.policies && cell.pass.coupon?.audience_policies?.length) {
     for (const p of cell.pass.coupon.audience_policies)
       td.appendChild(el("div", { class: "mx-sub mx-pol" }, `${p.audience}: ${couponSummary({ audience_policies: [p] })}`));
+    const s = pfStarEl(cell.pass.pass_form); if (s) td.appendChild(el("div", { class: "mx-glyph" }, s));
   } else {
-    td.appendChild(el("div", { class: "mx-glyph" }, shortSummary(cell.pass.coupon)));
+    td.appendChild(el("div", { class: "mx-glyph" }, shortSummary(cell.pass.coupon), " ", pfStarEl(cell.pass.pass_form)));
   }
 
   if (d.warn && cell.warn) td.appendChild(el("span", { class: "mx-warn", title: "eligibility not confirmed (residency unknown in our data)" }, "⚠"));
