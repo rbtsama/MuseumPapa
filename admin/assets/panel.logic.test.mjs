@@ -18,6 +18,13 @@ test("cardOk: same network matches", () => {
 test("cardOk: different network fails", () => {
   assert.equal(cardOk(libsById.bpl, ["wakefield"], libsById), false);
 });
+test("cardOk: requiresOwnCard blocks same-network sibling card", () => {
+  // reading pass needs its OWN card — a wakefield (same NOBLE) card is rejected
+  assert.equal(cardOk(libsById.reading, ["wakefield"], libsById, true), false);
+});
+test("cardOk: requiresOwnCard still allows the library's own card", () => {
+  assert.equal(cardOk(libsById.reading, ["reading"], libsById, true), true);
+});
 test("residencyOk: no restriction passes", () => {
   const r = residencyOk({ residency_restriction: { restricted: "no" } }, libsById.wakefield, null, "99999", maZips);
   assert.equal(r.ok, true);

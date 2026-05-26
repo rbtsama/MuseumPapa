@@ -105,4 +105,9 @@ class Pass:
     eligibility_override: Optional[EligibilityOverride] = None
     restrictions: Optional[Restrictions] = None
     residency_restriction: Optional[ResidencyRestriction] = None
+    # True when this library's OWN card is required to book (a same-network
+    # sibling card is rejected at card-validation). Card-ownership, NOT residency
+    # — the card is obtainable by any MA resident. From the booking probe.
+    requires_own_card: bool = False
+    own_card_evidence: Optional[str] = None
     source_url: Optional[str] = None

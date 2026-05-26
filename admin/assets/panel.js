@@ -253,8 +253,10 @@ async function loadData() {
 // ─────────────────────────────────────────────
 function isMaZip(zip) { return STATE.MA_ZIPS.has(zip); }
 
-function checkL1Card(lib, heldLibraryIds) {
+function checkL1Card(lib, heldLibraryIds, requiresOwnCard) {
   if (heldLibraryIds.includes(lib.id)) return { ok: true };
+  // own-card-only pass: a same-network sibling card is rejected at booking
+  if (requiresOwnCard) return { ok: false, reason: `需 ${lib.town} 本馆卡` };
   const nets = new Set(heldLibraryIds.map(id => STATE.libsById[id]?.network).filter(Boolean));
   if (nets.has(lib.network)) return { ok: true };
   return { ok: false, reason: `no ${lib.network} card` };
@@ -300,7 +302,7 @@ function checkL10Availability(av, iso) {
 function resolvePass(pass, lib, attr, user, date) {
   const reasons = [], warnings = [];
   const layers = [
-    ["L1", checkL1Card(lib, user.heldLibraryIds)],
+    ["L1", checkL1Card(lib, user.heldLibraryIds, pass.requires_own_card)],
     ["L3", checkL3Residency(pass.residency_restriction, lib, user.homeZip)],
     ["L4", checkL4VisitorResidency(attr?.visitor_eligibility, user.homeZip)],
   ];
@@ -491,7 +493,7 @@ function buildMatrixModel() {
       const lib = STATE.libsById[pass.library_id];
       if (!lib) continue;
       columnLibIds.add(lib.id);
-      const ck = cardOk(lib, held, STATE.libsById);
+      const ck = cardOk(lib, held, STATE.libsById, pass.requires_own_card);
       const rz = residencyOk(pass, lib, attr, STATE.homeZip, STATE.MA_ZIPS);
       const tier = cellTier(ck, rz.ok);
       const avail = availStatus(pass, iso);
@@ -843,6 +845,8 @@ function renderCellReadonly(cell, attr) {
     wrap.appendChild(el("div", { class: "ro-row" }, el("span", { class: "ro-k" }, "人群明细"), list));
   }
   wrap.appendChild(roRow("取卡方式", zhVal(ZH.pass_form, p.pass_form)));
+  wrap.appendChild(roRow("持卡要求",
+    p.requires_own_card ? "仅限本馆卡（同网络别馆卡无法预订）" : "本网络通用"));
   const rr = p.residency_restriction;
   wrap.appendChild(roRow("取券居住限制",
     rr ? `${zhVal(ZH.residency_restricted, rr.restricted)}${rr.scope ? " · " + zhVal(ZH.residency_scope, rr.scope) : ""}` : "—"));

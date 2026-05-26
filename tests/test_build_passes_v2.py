@@ -135,6 +135,39 @@ def test_pass_coupons_restrictions_win_over_legacy(tmp_path):
     assert p["restrictions"]["weekdays_only"] is False                 # crec, not legacy True
     assert p["restrictions"]["blackout"] == [{"month": 12, "day": 25}]  # crec blackout present
 
+def test_booking_probe_rejection_is_own_card_not_residency(tmp_path):
+    # A probe rejection (same-network sibling card blocked at card-validation)
+    # means "needs THIS library's own card" — card-ownership, NOT town residency.
+    # It must set requires_own_card and NOT a town residency_restriction.
+    raw = tmp_path/"raw"
+    _w(raw/"assabet/catalog/wakefield.json", {"library_id":"wakefield","passes":[
+        {"library_id":"wakefield","attraction_slug":"mfa","title":"MFA"}]})
+    _w(raw/"assabet/residency_probe/wakefield__mfa.json", {
+        "library_id":"wakefield","attraction_slug":"mfa","prober_card":"reading",
+        "verdict":"rejected_resident","restricted":"yes","scope":"town",
+        "evidence":"non-resident reading card (same NOBLE network) blocked at card-validation"})
+    out = tmp_path/"passes.json"
+    build_passes(raw_root=raw, overrides_root=tmp_path/"overrides", out_path=out)
+    p = json.loads(out.read_text())["passes"][0]
+    assert p["requires_own_card"] is True
+    assert p["residency_restriction"]["restricted"] == "no"   # NOT yes/town
+    assert p["residency_restriction"]["scope"] is None
+
+def test_booking_probe_acceptance_is_network_open(tmp_path):
+    # A probe acceptance (sibling card accepted) -> network-open, own card not required.
+    raw = tmp_path/"raw"
+    _w(raw/"assabet/catalog/acton.json", {"library_id":"acton","passes":[
+        {"library_id":"acton","attraction_slug":"mfa","title":"MFA"}]})
+    _w(raw/"assabet/residency_probe/acton__mfa.json", {
+        "library_id":"acton","attraction_slug":"mfa","prober_card":"somerville",
+        "verdict":"accepted","restricted":"no","scope":None,
+        "evidence":"non-resident somerville card (same Minuteman network) accepted at card-validation"})
+    out = tmp_path/"passes.json"
+    build_passes(raw_root=raw, overrides_root=tmp_path/"overrides", out_path=out)
+    p = json.loads(out.read_text())["passes"][0]
+    assert p["requires_own_card"] is False
+    assert p["residency_restriction"]["restricted"] == "no"
+
 def test_coupon_coverage_gaps_detects_silent_drop(tmp_path):
     from malibbene.build.coupons import coupon_coverage_gaps
     (tmp_path/"pass_coupons").mkdir(parents=True)

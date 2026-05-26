@@ -68,6 +68,12 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                         "restricted": "unknown", "scope": None,
                         "source": None, "evidence": None,
                     },
+                    # True when this library's OWN card is required to book (a
+                    # same-network sibling card is rejected at card-validation).
+                    # This is a CARD-OWNERSHIP fact, not residency — the card is
+                    # obtainable by any MA resident. Set from the booking probe.
+                    "requires_own_card": False,
+                    "own_card_evidence": None,
                     "availability": {},
                     "eligibility_override": None,
                 }
@@ -99,29 +105,42 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                 elif old_e:
                     row["coupon"] = old_e.get("coupon")
                     row["restrictions"] = old_e.get("restrictions")
-                # A booking-probe result (Phase P3) tests the TOWN-residency axis
-                # (can a same-network non-resident book it). It takes precedence,
-                # EXCEPT it must not erase a text-derived MA-resident requirement
-                # (a different axis the probe can't test, since the prober is
-                # itself a MA resident).
+                # A booking probe tries to book with a SAME-NETWORK card from a
+                # DIFFERENT library. Its rejection happens at card-validation and
+                # means "this pass needs THIS library's OWN card" (card-ownership)
+                # — NOT town residency: the card is obtainable by any MA resident.
+                # So a "yes" sets requires_own_card, NOT a residency restriction.
+                # A "no" (sibling card accepted) confirms the pass is network-open.
+                # Neither overwrites a text-derived MA-resident requirement (a
+                # separate axis the probe cannot test — the prober is a MA resident).
                 probe = _read(raw_root/platform/"residency_probe"/f"{lib}__{rawslug}.json")
                 if probe and probe.get("restricted") in ("yes", "no"):
                     text_rr = row.get("residency_restriction") or {}
                     text_is_ma = (text_rr.get("restricted") == "yes"
                                   and text_rr.get("scope") == "ma")
-                    if probe["restricted"] == "no" and text_is_ma:
-                        # Town-open confirmed by probe, but the catalog text still
-                        # requires a MA resident in the party — keep that, annotate.
+                    if probe["restricted"] == "yes":
+                        # own-card-only; residency itself is unrestricted unless the
+                        # catalog text independently requires a MA resident.
+                        row["requires_own_card"] = True
+                        row["own_card_evidence"] = probe.get("evidence")
+                        if not text_is_ma:
+                            row["residency_restriction"] = {
+                                "restricted": "no", "scope": None,
+                                "source": "booking_probe_card_ownership",
+                                "evidence": probe.get("evidence"),
+                            }
+                    elif text_is_ma:
+                        # network-open per probe, but catalog text still requires a
+                        # MA resident in the party — keep that, annotate.
                         row["residency_restriction"] = {
                             "restricted": "yes", "scope": "ma",
                             "source": "catalog_text+booking_probe",
                             "evidence": (text_rr.get("evidence") or "")
-                            + " | booking probe: town-open (non-town same-network card accepted)",
+                            + " | booking probe: same-network card accepted",
                         }
                     else:
                         row["residency_restriction"] = {
-                            "restricted": probe["restricted"],
-                            "scope": probe.get("scope"),
+                            "restricted": "no", "scope": None,
                             "source": "booking_probe",
                             "evidence": probe.get("evidence"),
                         }

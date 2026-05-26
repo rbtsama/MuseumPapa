@@ -4,8 +4,11 @@
 export function isMaZip(zip, maZips) { return maZips.has(zip); }
 
 // L1: do the held cards cover this library? (own id, OR a card in the same network)
-export function cardOk(lib, heldLibIds, libsById) {
+// requiresOwnCard: this pass needs THIS library's own card — a same-network
+// sibling card is rejected at booking, so the network fallback does NOT apply.
+export function cardOk(lib, heldLibIds, libsById, requiresOwnCard = false) {
   if (heldLibIds.includes(lib.id)) return true;
+  if (requiresOwnCard) return false;
   const nets = new Set(heldLibIds.map(id => libsById[id]?.network).filter(Boolean));
   return nets.has(lib.network);
 }
