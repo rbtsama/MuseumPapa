@@ -600,7 +600,6 @@ function renderCell(cell, attr) {
   if (d.warn && cell.warn) td.appendChild(el("span", { class: "mx-warn", title: "eligibility not confirmed (residency unknown in our data)" }, "⚠"));
   if (d.avail && cell.avail !== "none") td.appendChild(el("div", { class: "mx-sub" }, cell.avail));
   if (d.verdict && !cell.verdict.eligible) td.appendChild(el("div", { class: "mx-sub mx-block", title: `blocked at ${cell.verdict.blockedLayer}` }, `${LAYER_NUM[cell.verdict.blockedLayer] || ""} ${cell.verdict.reasons[0] || cell.verdict.blockedLayer}`.trim()));
-  if (d.pickup) td.appendChild(el("div", { class: "mx-sub" }, pfTag(cell.pass.pass_form)));
   if (d.distance && cell.lib.geo && STATE.homeGeo) {
     const mi = haversineMi(STATE.homeGeo, cell.lib.geo);
     if (mi != null) td.appendChild(el("div", { class: "mx-sub" }, `${mi.toFixed(1)} mi`));
@@ -960,7 +959,7 @@ async function init() {
   $("#opt-only-eligible").onchange = (e) => { STATE.onlyEligible = e.target.checked; renderMatrix(); };
   $("#opt-only-instock").onchange = (e) => { STATE.onlyInStock = e.target.checked; renderMatrix(); };
   $("#opt-show-stock").onchange = (e) => { STATE.showStock = e.target.checked; renderMatrix(); };
-  for (const [key, id] of Object.entries({policies:"d-policies",verdict:"d-verdict",pickup:"d-pickup",avail:"d-avail",distance:"d-distance",restrict:"d-restrict",warn:"d-warn"})) {
+  for (const [key, id] of Object.entries({policies:"d-policies",verdict:"d-verdict",avail:"d-avail",distance:"d-distance",restrict:"d-restrict",warn:"d-warn"})) {
     $("#"+id).checked = !!STATE.display[key];
     $("#"+id).onchange = (e) => { STATE.display[key] = e.target.checked; renderMatrix(); };
   }
