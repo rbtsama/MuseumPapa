@@ -82,7 +82,14 @@ def summary_for(audience_policies: list) -> str:
         return "discount unspecified"
     p = next((x for x in aps if str(x.get("audience", "")).lower() in _ADULT), None)
     if p is None:
-        p = max(aps, key=lambda x: _STRENGTH.get(x.get("form"), 0))
+        # No adult/Everyone-keyed policy. A bare "free" line here is almost always
+        # a secondary child/infant benefit (e.g. "Single ticket 50% off" + "Child
+        # free"); letting it win the strength rank would mislabel a paid discount
+        # as FREE. Headline what a paying visitor gets — fall back to free only when
+        # every policy is free.
+        non_free = [x for x in aps if x.get("form") != "free"]
+        pool = non_free or aps
+        p = max(pool, key=lambda x: _STRENGTH.get(x.get("form"), 0))
     f, v = p.get("form"), p.get("value")
     if f == "free":
         return "FREE"
