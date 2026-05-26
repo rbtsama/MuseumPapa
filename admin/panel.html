@@ -34,6 +34,7 @@
 
   <section class="ctrl-block">
     <h3>详细显示选项</h3>
+    <label class="ctrl-check"><input type="checkbox" id="opt-show-stock"> 展示库存（左侧色条标记当日库存）</label>
     <label class="ctrl-check"><input type="checkbox" id="d-policies"> 展开各人群优惠</label>
     <label class="ctrl-check"><input type="checkbox" id="d-verdict"> 拦截原因</label>
     <label class="ctrl-check"><input type="checkbox" id="d-pickup"> 怎么领</label>
@@ -73,12 +74,10 @@
 
 <main class="matrix-wrap">
   <div class="mx-legend" id="mx-legend">
-    <b>Color = eligibility</b>
-    <span class="lg tier-a">card✓ zip✓</span>
-    <span class="lg tier-b">no card · zip✓</span>
-    <span class="lg tier-c">card✓ · zip✗</span>
-    <span class="lg tier-d">both ✗</span>
-    <b>Left bar = availability</b>
+    <b>底色</b>
+    <span class="lg mx-resident-block">持卡但不符居住限制（Resident only）</span>
+    <span class="lg">其他情况无底色</span>
+    <b>左侧色条 = 库存</b><span class="hint" style="font-size:10px">（需勾选「展示库存」）</span>
     <span class="lg-av av-ok">available</span>
     <span class="lg-av av-no">sold out / closed</span>
     <span class="lg-av av-unk">unknown</span>

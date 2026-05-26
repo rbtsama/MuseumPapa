@@ -37,6 +37,7 @@ const STATE = {
   attrSearch: "",
   onlyEligible: true,   // card + zip confirmed (the eligibility dimension)
   onlyInStock: true,    // confirmed available on the date (the inventory dimension)
+  showStock: false,     // show the per-cell availability styling (left-border accent); off = data-verification mode
   display: { policies:false, verdict:false, pickup:false, avail:false, distance:false, restrict:false, warn:false },
   // group collapse state: net -> bool collapsed
   groupCollapsed: {},
@@ -128,7 +129,7 @@ function persistPanelState() {
     localStorage.setItem(PANEL_STATE_KEY, JSON.stringify({
       libs: [...STATE.selectedLibs], attrs: [...STATE.selectedAttrs],
       zip: STATE.homeZip, date: STATE.visitDate ? STATE.visitDate.toISOString().slice(0, 10) : null,
-      onlyEligible: STATE.onlyEligible, onlyInStock: STATE.onlyInStock, display: STATE.display,
+      onlyEligible: STATE.onlyEligible, onlyInStock: STATE.onlyInStock, showStock: STATE.showStock, display: STATE.display,
     }));
   } catch (e) { /* storage unavailable — ignore */ }
 }
@@ -350,8 +351,7 @@ function renderCardList() {
             renderCardList(); updateLibCount(); renderMatrix();
           },
         }),
-        el("span", { class: "card-member-name" },
-          l.name.replace(/\sPublic Library$|\sLibrary$/, "")),
+        el("span", { class: "card-member-name", title: l.name }, l.town),
         eligTag(l.card_eligibility || "unknown"),
       ));
     }
@@ -472,7 +472,6 @@ function buildMatrixModel() {
   return { columns, rows };
 }
 
-const TIER_CLASS = { a: "tier-a", b: "tier-b", c: "tier-c", d: "tier-d" };
 // funnel layer -> level marker (① card, ② pickup residency, ③ attraction residency, ④ date, ⑤ availability)
 const LAYER_NUM = { L1: "①", L3: "②", L4: "③", L8: "④", L10: "⑤" };
 
@@ -493,7 +492,7 @@ function renderMatrix() {
   // header row 1: network groups
   const thead = el("thead");
   const netTr = el("tr", { class: "mx-net-row" });
-  netTr.appendChild(el("th", { class: "mx-corner", rowspan: "2" }, "Attraction ＼ Library"));
+  netTr.appendChild(el("th", { class: "mx-corner", rowspan: "2" }, "Attraction ＼ Town"));
   for (const col of columns) {
     netTr.appendChild(el("th", { class: "mx-net mx-netend", colspan: String(col.libs.length) }, `${col.net} · ${col.libs.length}`));
   }
@@ -501,8 +500,7 @@ function renderMatrix() {
   // header row 2: library names
   const libTr = el("tr", { class: "mx-lib-row" });
   for (const lib of flatLibs) {
-    const th = el("th", { class: "mx-lib", title: lib.name },
-      lib.name.replace(/\sPublic Library$|\sLibrary$/, ""));
+    const th = el("th", { class: "mx-lib", title: lib.name }, lib.town);
     if (netEndIds.has(lib.id)) th.classList.add("mx-netend");
     libTr.appendChild(th);
   }
@@ -528,10 +526,16 @@ function renderMatrix() {
 
 function renderCell(cell, attr) {
   const d = STATE.display;
-  const availCls = cell.avail === "available" ? "av-ok"
-    : (cell.avail === "booked" || cell.avail === "closed") ? "av-no"
-    : cell.avail === "unknown" ? "av-unk" : "";
-  const td = el("td", { class: `mx-cell ${TIER_CLASS[cell.tier]} ${availCls}` });
+  // availability accent (left border) only shown in "展示库存" mode
+  const availCls = STATE.showStock
+    ? (cell.avail === "available" ? "av-ok"
+      : (cell.avail === "booked" || cell.avail === "closed") ? "av-no"
+      : cell.avail === "unknown" ? "av-unk" : "")
+    : "";
+  // Single background state: red ONLY when the customer HOLDS the card but fails a
+  // resident-only restriction. Eligible cells and no-card cells get no background.
+  const bgCls = (cell.cardOk && !cell.zipOk) ? "mx-resident-block" : "";
+  const td = el("td", { class: `mx-cell ${bgCls} ${availCls}` });
 
   // Offer: simplified (default) = adult/headline short glyph; "人群条款全展开" on
   // = every audience policy spelled out.
@@ -603,7 +607,7 @@ function openBookingPopup(attr) {
     const physical = p.pass_form !== "digital_email";
     const mi = (physical && lib.geo && STATE.homeGeo) ? haversineMi(STATE.homeGeo, lib.geo) : null;
     box.appendChild(el("div", { class: "bk-row" },
-      el("div", { class: "bk-lib" }, lib.name),
+      el("div", { class: "bk-lib", title: lib.name }, lib.town),
       el("div", { class: "bk-offer" }, couponSummary(p.coupon)),
       pfTag(p.pass_form),
       el("span", { class: "bk-dist" }, mi != null ? `${mi.toFixed(1)} mi` : ""),
@@ -618,7 +622,7 @@ function openBookingPopup(attr) {
 // Raw provenance text for one pass (shown in the detail popup + used by Copy).
 function buildSourceText(cell, attr) {
   const p = cell.pass, c = p.coupon, parts = [];
-  parts.push(`${attr.name} × ${cell.lib.name}`);
+  parts.push(`${attr.name} × ${cell.lib.town}`);
   if (c?.summary) parts.push(`Offer: ${c.summary}`);
   if (c?.source_phrase_block) parts.push(`\n[coupon source]\n${c.source_phrase_block}`);
   for (const ap of (c?.audience_policies || [])) if (ap.source_phrase) parts.push(`\n[${ap.audience}]\n${ap.source_phrase}`);
@@ -675,7 +679,7 @@ function openDetailPopup(cell, attr) {
   foot.appendChild(el("button", { class: "btn-tiny", onclick: () => openAuditForm(cell, attr) }, "修改数据"));
   box.appendChild(foot);
   box.appendChild(note);
-  openModal(`${attr.name} × ${cell.lib.name}`, box);
+  openModal(`${attr.name} × ${cell.lib.town}`, box);
 }
 
 // ─────────────────────────────────────────────
@@ -801,7 +805,7 @@ function renderCellReadonly(cell, attr) {
       el("span", { class: "ro-k" }, "来源"),
       el("a", { class: "ro-v", href: p.source_url, target: "_blank", rel: "noopener" }, "打开 ↗")));
 
-  wrap.appendChild(el("div", { class: "ro-head" }, "图书馆 · " + cell.lib.name));
+  wrap.appendChild(el("div", { class: "ro-head" }, "图书馆 · " + cell.lib.town));
   wrap.appendChild(roRow("办卡资格", zhVal(ZH.card_eligibility, cell.lib.card_eligibility)));
   wrap.appendChild(roRow("取 pass 资格", zhVal(ZH.pass_pickup_default, cell.lib.pass_pickup_default)));
 
@@ -853,7 +857,7 @@ function openAuditForm(cell, attr) {
   } }, "保存反馈");
   form.appendChild(saveBtn);
 
-  openModal(`修改数据：${attr.name} × ${cell.lib.name}`, form);
+  openModal(`修改数据：${attr.name} × ${cell.lib.town}`, form);
 }
 
 // ─────────────────────────────────────────────
@@ -875,6 +879,7 @@ async function init() {
     if (Array.isArray(saved.attrs)) STATE.selectedAttrs = new Set(saved.attrs);
     if (typeof saved.onlyEligible === "boolean") STATE.onlyEligible = saved.onlyEligible;
     if (typeof saved.onlyInStock === "boolean") STATE.onlyInStock = saved.onlyInStock;
+    if (typeof saved.showStock === "boolean") STATE.showStock = saved.showStock;
     if (saved.display) Object.assign(STATE.display, saved.display);
     if (saved.zip) STATE.homeZip = saved.zip;
     if (saved.date) { STATE.visitDate = new Date(saved.date + "T00:00:00Z"); dateInput.value = saved.date; }
@@ -882,6 +887,7 @@ async function init() {
   $("#home-zip").value = STATE.homeZip;
   $("#opt-only-eligible").checked = STATE.onlyEligible;
   $("#opt-only-instock").checked = STATE.onlyInStock;
+  $("#opt-show-stock").checked = STATE.showStock;
 
   renderCardList();
   updateLibCount();
@@ -901,6 +907,7 @@ async function init() {
   $("#attr-search").oninput = (e) => { STATE.attrSearch = e.target.value; renderAttrList(); };
   $("#opt-only-eligible").onchange = (e) => { STATE.onlyEligible = e.target.checked; renderMatrix(); };
   $("#opt-only-instock").onchange = (e) => { STATE.onlyInStock = e.target.checked; renderMatrix(); };
+  $("#opt-show-stock").onchange = (e) => { STATE.showStock = e.target.checked; renderMatrix(); };
   for (const [key, id] of Object.entries({policies:"d-policies",verdict:"d-verdict",pickup:"d-pickup",avail:"d-avail",distance:"d-distance",restrict:"d-restrict",warn:"d-warn"})) {
     $("#"+id).checked = !!STATE.display[key];
     $("#"+id).onchange = (e) => { STATE.display[key] = e.target.checked; renderMatrix(); };
