@@ -83,6 +83,18 @@ function fmtMoney(v) {
   return `$${v.toFixed(2)}`;
 }
 
+// Transient confirmation toast (bottom-center, auto-dismisses). Gives the
+// operator the same "saved" feedback whether the modal closes or stays open (A8).
+let _toastTimer = null;
+function toast(msg) {
+  let t = document.getElementById("mp-toast");
+  if (!t) { t = el("div", { id: "mp-toast", class: "mp-toast" }); document.body.appendChild(t); }
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(() => t.classList.remove("show"), 2200);
+}
+
 // ─────────────────────────────────────────────
 //  SHARED AUDIT STORE TRANSPORT
 // ─────────────────────────────────────────────
@@ -894,10 +906,13 @@ function openAuditForm(cell, attr) {
       root_cause, aspects, feedback,
     });
     await auditPut(rec);
+    toast(STATE.readOnly ? "已记录反馈（本地）✓" : "已记录反馈 ✓");
     closeModal();
     renderMatrix();
   } }, "保存反馈");
-  form.appendChild(saveBtn);
+  form.appendChild(el("div", { class: "af-actions" },
+    el("button", { class: "btn-tiny", onclick: closeModal }, "取消"),
+    saveBtn));
 
   openModal(`修改数据：${attr.name} × ${cell.lib.town}`, form);
 }
