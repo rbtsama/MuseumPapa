@@ -430,6 +430,9 @@ function buildMatrixModel() {
 
   // rows: only selected attractions that have at least one pass
   const rows = [];
+  // Every library that offers a selected attraction — its column is kept even when
+  // filters empty all of its cells (don't hide columns; see operator request).
+  const columnLibIds = new Set();
   for (const attr of STATE.attractions) {
     if (!STATE.selectedAttrs.has(attr.slug)) continue;
     const passes = STATE.passesByAttr[attr.slug] || [];
@@ -439,6 +442,7 @@ function buildMatrixModel() {
     for (const pass of passes) {
       const lib = STATE.libsById[pass.library_id];
       if (!lib) continue;
+      columnLibIds.add(lib.id);
       const ck = cardOk(lib, held, STATE.libsById);
       const rz = residencyOk(pass, lib, attr, STATE.homeZip, STATE.MA_ZIPS);
       const tier = cellTier(ck, rz.ok);
@@ -458,15 +462,14 @@ function buildMatrixModel() {
   rows.sort((a, b) =>
     (a.sortKey[0] - b.sortKey[0]) || (a.sortKey[1] - b.sortKey[1]) || a.attr.name.localeCompare(b.attr.name));
 
-  // columns: networks (held-card networks first), prune libs with no visible cell in any row
-  const usedLibIds = new Set();
-  for (const r of rows) for (const id of Object.keys(r.cells)) usedLibIds.add(id);
+  // columns: networks (held-card networks first). Keep every library that offers a
+  // selected attraction, even if filters emptied all its cells — don't hide columns.
   const heldNets = new Set(held.map(id => STATE.libsById[id]?.network).filter(Boolean));
   const netOrder = STATE.networks.slice().sort((a, b) =>
     (heldNets.has(b) - heldNets.has(a)) || 0);
   const columns = [];
   for (const net of netOrder) {
-    const libs = STATE.libsByNetwork[net].filter(l => usedLibIds.has(l.id));
+    const libs = STATE.libsByNetwork[net].filter(l => columnLibIds.has(l.id));
     if (libs.length) columns.push({ net, libs });
   }
   return { columns, rows };
