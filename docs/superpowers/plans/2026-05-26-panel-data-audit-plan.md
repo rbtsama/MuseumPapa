@@ -11,7 +11,19 @@
 > - **P2**：P2-1/A2（只读横幅 + content-type 检测）、P2-2（跨模式 mergeAudits）、P2-3/A4（residencyOk warn + headline 修正，含 P0-2 镜像到矩阵 glyph）、P2-4/A3（branches 可选降级）。
 > - **P3**：P3-1/D3（浮点 .0 → 整数，31→0）。
 >
-> **待办**：P1-2（build_all 跨文件一致性）、P1-5（catalog.py 死代码决策）、P2-5/A6、P2-6/A7（死代码清理）、P2-7/A8（UX+verified_ok）、P3-2/D5（重复价格行+错 age_range）、P3-4（childrens-piazza 倒挂）、P3-5（maah 空壳，需补抓）、P3-6/B3（ferry 文件改名）、P3-7（18 个空分类景点补全）、P4（closed_days 派生 / promo_code 预订模型——需逐馆核实 / pass_type 两源对账）。
+> **再更新（联网核实后又完成 8 条，共 20 条）**：
+> - **P2**：P2-5/A6（只看合规保留 warn 格）、P2-6/A7（删死代码）、P2-7/A8（verified_ok 进日志+筛选）。
+> - **P3**：P3-5（maah 空壳补全：website/phone/desc/address/geo + History）、P3-7（18 个空分类景点全部补类，空分类 18→0）。
+> - **P4**：P4-2（**联网核实** PEM/MFA/ICA/ISG/BCM 全为 promo_code，新增 Attraction.booking_model + booking_note，逐馆操作指引；纠正 PEM/BCM 原 walk_in_ok 误导）。
+>
+> **明确不自动做（需逐项核实或决策，建议留给反馈/AI 流或你拍板）**：
+> - **P3-2/D5 价格行去重**：17 个景点的"重复"多是**不同票档**（NEA bundle vs admission、mass-audubon 是伞形机构多 sanctuary），盲目去重会**误报价格**；错 age_range 也需逐条判。
+> - **P3-4 childrens-piazza** 成人$6/儿童$12：未核实是否真倒挂（有些儿童场馆确实儿童票更贵），不臆改。
+> - **P3-6/B3 ferry 文件**：当前 build 用的是正确 legacy 数据，该文件是潜在隐患非现网错误；改名/重抽低优。
+> - **P1-2 跨文件一致性 guard**：B5 已因统一走 build_all 缓解；guard 价值低。
+> - **P1-5 catalog.py**：死于 build 路径，但 CLAUDE.md 将 library_catalog.json 记为 diff 锚点——是否删需你决定，未擅动。
+> - **P4-1 closed_days**：可从 hours 派生，但当前无消费方（日历视图未做），YAGNI 暂缓。
+> - **A8 保存 UX**（取消键/toast 一致性）：纯交互打磨，低优。
 
 ---
 
