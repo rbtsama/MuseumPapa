@@ -712,10 +712,22 @@ const PICKUP_ORDER = { digital_email: 0, physical_coupon: 1, physical_circ: 2 };
 
 // One booking-choice row: which card (place), its full number + copy, offer/pickup,
 // distance, and the action (Book link, or the block reason for ineligible cards).
-function bookingRow({ p, lib, v }, eligible) {
+// The HELD library whose card actually covers this pass: the pass's own library
+// if held, else any held library in the same network (unless the pass requires
+// its own card). null = no held card covers it. Mirrors cardOk's L1 logic so the
+// booking popup agrees with the matrix.
+function coveringHeldLib(lib, heldIds, requiresOwnCard) {
+  if (heldIds.includes(lib.id)) return lib.id;
+  if (requiresOwnCard) return null;
+  return heldIds.find(id => STATE.libsById[id]?.network === lib.network) || null;
+}
+
+function bookingRow({ p, lib, cardLibId, v }, eligible) {
+  const cardLib = STATE.libsById[cardLibId] || lib;
+  const sameNet = cardLibId !== p.library_id;  // booking with a same-network card, not this library's own
   const physical = p.pass_form !== "digital_email";
   const mi = (physical && lib.geo && STATE.homeGeo) ? haversineMi(STATE.homeGeo, lib.geo) : null;
-  const num = cardNumOf(lib.id);
+  const num = cardNumOf(cardLibId);  // the held card you'd actually use
   let cardCell;
   if (num) {
     const copyBtn = el("button", { class: "bk-copy", title: "复制卡号" }, "复制");
@@ -729,8 +741,12 @@ function bookingRow({ p, lib, v }, eligible) {
     ? (p.source_url ? el("a", { class: "bk-link", href: p.source_url, target: "_blank", rel: "noopener" }, "Book ↗")
                     : el("span", { class: "hint" }, "无预订链接"))
     : el("span", { class: "bk-no" }, "✗ " + (v.reasons[0] || v.blockedLayer));
+  // Use your held card; book through the pass's library (same-network is allowed).
+  const libLabel = sameNet
+    ? `${cardLib.town} 卡 → 在 ${lib.town} 预订（同 ${lib.network}）`
+    : `${lib.town} 馆卡`;
   return el("div", { class: "bk-row" + (eligible ? "" : " bk-row-blocked") },
-    el("div", { class: "bk-lib", title: lib.name }, `${lib.town} 馆卡`),
+    el("div", { class: "bk-lib", title: lib.name }, libLabel),
     cardCell,
     el("div", { class: "bk-offer" }, couponSummary(p.coupon)),
     pfTag(p.pass_form),
@@ -744,17 +760,22 @@ function bookingRow({ p, lib, v }, eligible) {
 // then any held-but-blocked cards with the reason.
 function openBookingPopup(attr) {
   const user = getUser();
-  const held = new Set(user.heldLibraryIds);
+  const heldIds = user.heldLibraryIds;
   const all = (STATE.passesByAttr[attr.slug] || [])
-    .filter(p => held.has(p.library_id))
-    .map(p => { const lib = STATE.libsById[p.library_id];
-      return { p, lib, v: resolvePass(p, lib, attr, user, STATE.visitDate) }; })
+    .map(p => {
+      const lib = STATE.libsById[p.library_id];
+      // which held card covers this pass — own library OR same-network sibling
+      // (matches the matrix's cardOk; not just exact-library as before)
+      const cardLibId = lib ? coveringHeldLib(lib, heldIds, p.requires_own_card) : null;
+      return { p, lib, cardLibId, v: resolvePass(p, lib, attr, user, STATE.visitDate) };
+    })
+    .filter(r => r.lib && r.cardLibId)
     .sort((a, b) => (b.v.eligible - a.v.eligible)
       || ((PICKUP_ORDER[a.p.pass_form] ?? 9) - (PICKUP_ORDER[b.p.pass_form] ?? 9)));
   const eligible = all.filter(r => r.v.eligible);
   const blocked = all.filter(r => !r.v.eligible);
   const box = el("div", { class: "bk-list" });
-  if (!held.size) {
+  if (!heldIds.length) {
     box.appendChild(el("p", { class: "hint" }, "先在左侧「持卡情况」勾选你持有的卡。"));
   } else if (!all.length) {
     box.appendChild(el("p", { class: "hint" }, "你持有的卡都不提供此景点。"));
