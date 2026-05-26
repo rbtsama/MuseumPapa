@@ -794,6 +794,29 @@ function openBookingPopup(attr) {
   openModal(`用哪张卡预订：${attr.name}`, box);
 }
 
+// Pass-scoped booking: the operator clicked a SPECIFIC cell (one library×attraction
+// pass), so list only the held card(s) that can book THIS pass — own library card,
+// or a same-network card unless the pass requires its own. Not the whole attraction.
+function openBookingForPass(cell, attr) {
+  const user = getUser();
+  const heldIds = user.heldLibraryIds;
+  const p = cell.pass, lib = cell.lib;
+  const cardLibIds = heldIds.filter(id =>
+    id === p.library_id || (!p.requires_own_card && STATE.libsById[id]?.network === lib.network));
+  const box = el("div", { class: "bk-list" });
+  if (!cardLibIds.length) {
+    box.appendChild(el("p", { class: "hint" },
+      p.requires_own_card ? `此 pass 需 ${lib.town} 本馆卡（同网络卡不被接受）。`
+                          : `你持有的卡都不能预订这张 pass。`));
+  } else {
+    const v = resolvePass(p, lib, attr, user, STATE.visitDate);
+    box.appendChild(el("div", { class: "bk-sec" + (v.eligible ? "" : " bk-sec-muted") },
+      v.eligible ? "用这张卡预订" : `持有卡但当前不符合：${v.reasons[0] || v.blockedLayer}`));
+    for (const cardLibId of cardLibIds) box.appendChild(bookingRow({ p, lib, cardLibId, v }, v.eligible));
+  }
+  openModal(`预订：${attr.name} × ${lib.town}`, box);
+}
+
 // Raw provenance text for one pass (shown in the detail popup + used by Copy).
 function buildSourceText(cell, attr) {
   const p = cell.pass, c = p.coupon, parts = [];
@@ -838,10 +861,10 @@ function openDetailPopup(cell, attr) {
   const note = el("div", { class: "dt-note", hidden: "hidden" });
   const planNote = (msg) => { note.textContent = msg; note.hidden = false; };
   const foot = el("div", { class: "dt-foot" });
-  // 预定 → open the "which card to book with" chooser for this attraction
-  // (lists all your eligible cards + numbers + copy), not a direct jump.
+  // 预定 → which of YOUR cards can book THIS pass (scoped to this cell, not the
+  // whole attraction — the operator already picked a specific library×景点).
   foot.appendChild(el("button", { class: "btn-tiny primary",
-    onclick: () => openBookingPopup(attr) }, "预定（选卡）→"));
+    onclick: () => openBookingForPass(cell, attr) }, "预定（选卡）→"));
   const copyBtn = el("button", { class: "btn-tiny" }, "复制原文");
   copyBtn.addEventListener("click", () => navigator.clipboard.writeText(srcText).then(() => {
     copyBtn.textContent = "已复制 ✓"; setTimeout(() => copyBtn.textContent = "复制原文", 1200);
