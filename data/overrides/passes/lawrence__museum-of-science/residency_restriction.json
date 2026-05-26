@@ -1,9 +1,0 @@
-{
-  "status": "corrected",
-  "corrected_value": {
-    "restricted": "yes",
-    "scope": "town",
-    "source": "cross_network_test",
-    "evidence": "Same-network rejection: lawrence is MVLC; an MVLC card (wilmington) was rejected at lawrence's museum-of-science booking (backup/cross_network_tests.json, 2026-05-10). A same-network non-resident card being refused indicates town-residency is required. (Was 'unknown' — no booking probe had been run.)"
-  }
-}

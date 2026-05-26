@@ -1,0 +1,11 @@
+{
+  "library_id": "everett",
+  "attraction_slug": "museum-of-science",
+  "prober_card": "reading",
+  "probed_date": "2026-05-10",
+  "verdict": "rejected_resident",
+  "restricted": "yes",
+  "scope": "town",
+  "evidence": "Same-network rejection: everett is NOBLE; a NOBLE card (reading) was rejected at everett's museum-of-science booking (backup/cross_network_tests.json, 2026-05-10). Same-network sibling card refused at card-validation => requires everett's own card (card-ownership), not town residency.",
+  "source": "cross_network_test"
+}
