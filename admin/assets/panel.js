@@ -484,7 +484,10 @@ function buildMatrixModel() {
       const tier = cellTier(ck, rz.ok);
       const avail = availStatus(pass, iso);
       // eligibility dimension (卡+Zip): strict — unknown residency does NOT count
-      if (STATE.onlyEligible && !(tier === "a" && !rz.warn)) continue;
+      // "只看合规" = tier A (card + zip OK). Residency-unknown (warn) cells are
+      // still eligible — keep them so they can be reviewed; the separate ⚠ display
+      // toggle controls the warning glyph, not visibility (A6).
+      if (STATE.onlyEligible && tier !== "a") continue;
       // inventory dimension: only confirmed in stock (unknown/booked/closed excluded)
       if (STATE.onlyInStock && avail !== "available") continue;
       const verdict = resolvePass(pass, lib, attr, user, STATE.visitDate);
