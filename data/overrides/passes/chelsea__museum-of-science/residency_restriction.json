@@ -1,0 +1,9 @@
+{
+  "status": "corrected",
+  "corrected_value": {
+    "restricted": "unknown",
+    "scope": null,
+    "source": "manual_review",
+    "evidence": "Downgraded from 'no'. The prior booking_probe evidence claimed the accepting bpl card was 'same MBLN network', but chelsea is MBLN while bpl is network=BPL — that card is cross-network, so its acceptance does not prove town-open. backup/cross_network_tests.json also shows a rejection, but with a cross-network NOBLE (reading) card, which only proves cross-network blocking, not town residency. No valid same-network evidence either way → unknown."
+  }
+}
