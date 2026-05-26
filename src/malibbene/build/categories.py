@@ -32,6 +32,7 @@ RAW_TO_CANONICAL = {
     "Military": "History", "Tours": "History",
     "Nature": "Nature", "Ocean": "Nature", "Sky": "Nature",
     "Zoo": "Nature", "Recreation": "Nature",
+    "Performance": "Performance",
     "Music": "Performance", "Theatre": "Performance", "Dance": "Performance",
     "Entertainment": "Performance",
     "Science": "Science", "Technology": "Science",
