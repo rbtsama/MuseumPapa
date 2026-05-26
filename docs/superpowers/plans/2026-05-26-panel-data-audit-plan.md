@@ -21,11 +21,13 @@
 > - **P3-4 childrens-piazza**：联网核实**不是倒挂**——按参与儿童收费，儿童 $12 是主票、首位成人免费（sandmagination 同理）。保留并澄清。
 > - **P3-6/B3 + 孤儿守卫**：核实 ferry 优惠各馆不同（多数 50% off、hingham BOGO）。修排查时发现 `test_coupon_orphans` 守卫**坏了**（null-coupon TypeError + 孤儿逻辑不匹配 build 的 rawslug 查找）→ 重写守卫，并解决暴露出的 **24 个 pre-canonical-rename 孤儿**：19 个改名到 canonical slug（build 改用权威 coupon，coupon_missing 0.2%→0.0%），5 个删除（boston-harbor 簇 islands/ferry 错标含 hingham 错值 + hingham 无 harvard pass）。hingham ferry 正确保持 BOGO。
 >
-> **仍未做（低优/需你拍板）**：
-> - **P1-2 跨文件一致性 guard**：B5 已因统一走 build_all 缓解；价值低。
-> - **P1-5 catalog.py**：死于 build 路径，但 CLAUDE.md 记 library_catalog.json 为 diff 锚点——删否需你决定。
-> - **P4-1 closed_days**：可从 hours 派生，但当前无消费方（日历视图未做），YAGNI 暂缓。
-> - **A8 保存 UX**（取消键/toast 一致性）：纯交互打磨，低优。
+> **最后一批（清掉剩下的）——全部完成**：
+> - **P1-2** `check_build_consistency`：build_all 末尾校验四份产物 `_meta.built_at` 同一次构建（>1h 报错，catch B5），并把 committed 文件时间戳同步。
+> - **A8** 保存反馈：加 `toast()` 确认（只读模式感知）+ 取消键，与「通过审查」一致。
+> - **P4-1** `closed_days`：从现有 hours 确定性派生（35 个景点落值），加 `Attraction.closed_days` 字段。
+> - **P1-5** 删 `build/catalog.py` + `test_build_catalog.py`（死子系统、假信心；library_catalog.json 从不生成/消费），并修正 CLAUDE.md/`__init__` 里把它当 canonical 的过期描述。
+>
+> **✅ 全部 26 条排查项已落地**（P0/P1/P2/P3/P4 + 孤儿守卫修复 + 联网核实）。剩 `scripts/build_assabet_classifications.py`（独立死脚本，读不存在的 library_catalog.json）按需再清。
 
 ---
 
