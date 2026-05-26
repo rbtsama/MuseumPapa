@@ -30,9 +30,6 @@ const STATE = {
   homeZip: DEFAULT_ZIP,
   homeGeo: null,
   visitDate: null,     // Date object or null
-  showOnlyCovered: false,  // audit tool: show ALL rows (incl. ineligible) by default
-  categoryFilter: "",
-  activeLens: "A",
   selectedAttrs: new Set(),  // attraction slugs to SHOW (default: all)
   attrSearch: "",
   onlyEligible: true,   // card + zip confirmed (the eligibility dimension)
@@ -439,14 +436,6 @@ function updateAttrCount() {
 // ─────────────────────────────────────────────
 //  MAIN RENDER DISPATCHER
 // ─────────────────────────────────────────────
-
-function updateStat() {
-  const selCount = STATE.selectedLibs.size;
-  let summary = `${selCount} 馆 · ${STATE.attractions.length} 景`;
-  if (STATE.homeGeo) summary += ` · ZIP ${STATE.homeZip}`;
-  if (STATE.visitDate) summary += ` · ${STATE.visitDate.toISOString().slice(0, 10)}`;
-  $("#stat-summary").textContent = summary;
-}
 
 // ─────────────────────────────────────────────
 //  ZIP geocoding (for distance display only)
@@ -1028,18 +1017,12 @@ function auditUpdateCount() {
 
 // On-disk applying path for a given kind/id/field.
 // Returns null for pass kind (raw-slug keying mismatch — cannot auto-apply).
-function auditDiskPath(kind, id, field) {
-  if (kind === "pass") return null;
-  const kindDir = { library: "libraries", attraction: "attractions", branch: "branches" }[kind] || kind + "s";
-  return `data/overrides/${kindDir}/${id}/${field}.json`;
-}
-
 // Human-readable note shown for pass records in the audit log.
 const PASS_INFO_NOTE = "信息性标注（不参与构建合并；pass 纠错需用 raw slug 手工处理）";
 
 // ── Audit Log ─────────────────────────────────
 
-function auditRenderLog(showPaths) {
+function auditRenderLog() {
   const listEl = document.getElementById("audit-log-list");
   if (!listEl) return;
   listEl.innerHTML = "";
@@ -1094,13 +1077,10 @@ function auditRenderLog(showPaths) {
     if (record.note) {
       meta.appendChild(el("div", { class: "ale-note" }, "📝 " + record.note));
     }
-    // Pass records are informational only — always disclose, regardless of showPaths.
+    // Pass records are informational only — always disclose.
     if (record.kind === "pass") {
       meta.appendChild(el("div", { class: "ale-path-hint", style: "color:var(--au)" },
         "⚠ 仅记录，不自动合并 · " + PASS_INFO_NOTE));
-    } else if (showPaths) {
-      const pathStr = auditDiskPath(record.kind, record.id, record.field);
-      meta.appendChild(el("div", { class: "ale-path-hint" }, "→ " + pathStr));
     }
 
     const right = el("div", { class: "ale-right" });
