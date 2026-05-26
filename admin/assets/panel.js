@@ -1087,7 +1087,7 @@ function auditRenderLog() {
     }
 
     const right = el("div", { class: "ale-right" });
-    const emoji = { corrected: "✏️", reviewed: "✅", noted: "📝", feedback: "💬" }[record.status] || "";
+    const emoji = { corrected: "✏️", verified_ok: "✓", reviewed: "✅", noted: "📝", feedback: "💬" }[record.status] || "";
     right.appendChild(el("span", { class: "ale-auditor" }, emoji + " " + (record.audited_by || "")));
     right.appendChild(el("span", { class: "ale-time" }, record.audited_at ? record.audited_at.slice(0, 19).replace("T", " ") : "—"));
     const delBtn = el("button", { class: "btn-tiny", style: "font-size:10px;color:var(--rd);border-color:var(--rd)" }, "撤销");
