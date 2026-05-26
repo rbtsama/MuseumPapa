@@ -16,12 +16,14 @@
 > - **P3**：P3-5（maah 空壳补全：website/phone/desc/address/geo + History）、P3-7（18 个空分类景点全部补类，空分类 18→0）。
 > - **P4**：P4-2（**联网核实** PEM/MFA/ICA/ISG/BCM 全为 promo_code，新增 Attraction.booking_model + booking_note，逐馆操作指引；纠正 PEM/BCM 原 walk_in_ok 误导）。
 >
-> **明确不自动做（需逐项核实或决策，建议留给反馈/AI 流或你拍板）**：
-> - **P3-2/D5 价格行去重**：17 个景点的"重复"多是**不同票档**（NEA bundle vs admission、mass-audubon 是伞形机构多 sanctuary），盲目去重会**误报价格**；错 age_range 也需逐条判。
-> - **P3-4 childrens-piazza** 成人$6/儿童$12：未核实是否真倒挂（有些儿童场馆确实儿童票更贵），不臆改。
-> - **P3-6/B3 ferry 文件**：当前 build 用的是正确 legacy 数据，该文件是潜在隐患非现网错误；改名/重抽低优。
-> - **P1-2 跨文件一致性 guard**：B5 已因统一走 build_all 缓解；guard 价值低。
-> - **P1-5 catalog.py**：死于 build 路径，但 CLAUDE.md 将 library_catalog.json 记为 diff 锚点——是否删需你决定，未擅动。
+> **联网核实后又完成（第三批，共 ~26 条）**：
+> - **P3-2/D5 价格**：3 个联网 agent 核实 19 个景点的官方现价，按受众/正确 age_range 重写（重复行 17→0；NEA 成人/老人不再错挂 3–11 岁；ISG 显真实 $22 而非 $5 券价）。中等置信度的已在 source_phrase 标注。
+> - **P3-4 childrens-piazza**：联网核实**不是倒挂**——按参与儿童收费，儿童 $12 是主票、首位成人免费（sandmagination 同理）。保留并澄清。
+> - **P3-6/B3 + 孤儿守卫**：核实 ferry 优惠各馆不同（多数 50% off、hingham BOGO）。修排查时发现 `test_coupon_orphans` 守卫**坏了**（null-coupon TypeError + 孤儿逻辑不匹配 build 的 rawslug 查找）→ 重写守卫，并解决暴露出的 **24 个 pre-canonical-rename 孤儿**：19 个改名到 canonical slug（build 改用权威 coupon，coupon_missing 0.2%→0.0%），5 个删除（boston-harbor 簇 islands/ferry 错标含 hingham 错值 + hingham 无 harvard pass）。hingham ferry 正确保持 BOGO。
+>
+> **仍未做（低优/需你拍板）**：
+> - **P1-2 跨文件一致性 guard**：B5 已因统一走 build_all 缓解；价值低。
+> - **P1-5 catalog.py**：死于 build 路径，但 CLAUDE.md 记 library_catalog.json 为 diff 锚点——删否需你决定。
 > - **P4-1 closed_days**：可从 hours 派生，但当前无消费方（日历视图未做），YAGNI 暂缓。
 > - **A8 保存 UX**（取消键/toast 一致性）：纯交互打磨，低优。
 
