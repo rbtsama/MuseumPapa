@@ -39,6 +39,14 @@ def test_free_only_policy_stays_free():
     assert summary_for(aps) == "FREE"
 
 
+def test_integer_valued_float_drops_trailing_zero():
+    """$9.0/person -> $9/person, but real decimals (e.g. $13.5) are kept (D3)."""
+    assert summary_for([{"audience": "Everyone", "form": "per-person-price", "value": 9.0}]) == "$9/person"
+    assert summary_for([{"audience": "Everyone", "form": "per-person-price", "value": 13.5}]) == "$13.5/person"
+    assert summary_for([{"audience": "Adult", "form": "dollar-off", "value": 10.0}]) == "$10 off"
+    assert summary_for([{"audience": "Adult", "form": "percent-off", "value": 50.0}]) == "50% off"
+
+
 def test_adult_match_still_wins_over_a_stronger_form():
     """Explicit adult/everyone audience takes precedence over the strength rank."""
     aps = [

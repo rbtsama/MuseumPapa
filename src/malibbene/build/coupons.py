@@ -74,6 +74,14 @@ _STRENGTH = {"free": 6, "percent-off": 5, "dollar-off": 4, "per-person-price": 3
 _ADULT = {"adult", "adults", "everyone", "all"}
 
 
+def _fmt_num(v):
+    """Drop a trailing .0 on integer-valued floats ($9.0 -> $9) but keep real
+    decimals ($13.5). Extraction often yields floats; the headline reads cleaner."""
+    if isinstance(v, float) and v.is_integer():
+        return str(int(v))
+    return str(v)
+
+
 def summary_for(audience_policies: list) -> str:
     """Mobile e-commerce style headline for the adult/Everyone policy (else the
     strongest by discount form). Matches the panel's couponSummary wording."""
@@ -94,11 +102,11 @@ def summary_for(audience_policies: list) -> str:
     if f == "free":
         return "FREE"
     if f == "percent-off":
-        return f"{v}% off" if v is not None else "% off"
+        return f"{_fmt_num(v)}% off" if v is not None else "% off"
     if f == "dollar-off":
-        return f"${v} off" if v is not None else "$ off"
+        return f"${_fmt_num(v)} off" if v is not None else "$ off"
     if f == "per-person-price":
-        return f"${v}/person" if v is not None else "$/person"
+        return f"${_fmt_num(v)}/person" if v is not None else "$/person"
     if f == "bogo":
         return "buy one get one free"
     return "discount"
