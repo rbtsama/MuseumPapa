@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-26T13:54:09.877793+00:00",
+    "built_at": "2026-05-26T14:29:35.824276+00:00",
     "n_attractions": 96
   },
   "attractions": [
@@ -63,6 +63,8 @@
           "source_phrase": "ming. Massachusetts EBT, WIC, and ConnectorCare Cardholders $3 Adult Admission and Free admission for up to four (4) child"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.americanheritagemuseum.org/"
       ],
@@ -114,6 +116,8 @@
       ],
       "hero_image": "https://assets.americanrepertorytheater.org/wp-content/uploads/2018/04/130109ARTPippStudMatEVE-104-e1525912630656.jpg?fit=1024%2C1024",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://americanrepertorytheater.org/"
       ],
@@ -175,6 +179,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.stonehengeusa.com/"
       ],
@@ -230,6 +236,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.armenianmuseum.org/"
       ],
@@ -291,6 +299,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.battleshipcove.org/"
       ],
@@ -333,6 +343,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.bedrockgardens.org/"
       ],
@@ -400,6 +412,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.blithewold.org/"
       ],
@@ -424,9 +438,13 @@
         "lon": -71.0650067
       },
       "description": null,
-      "categories": [],
+      "categories": [
+        "Performance"
+      ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Wang_Theatre_-_Boch_Center_%2854954249101%29.jpg/960px-Wang_Theatre_-_Boch_Center_%2854954249101%29.jpg",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [],
       "hours": null
     },
@@ -484,6 +502,8 @@
           "source_phrase": "amming. General admission to the Athenaeum’s first floor is $2 per adult with EBT, WIC, or ConnectorCare card; children 12"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.bostonathenaeum.org/"
       ],
@@ -535,6 +555,8 @@
       ],
       "hero_image": "https://bostonbyfoot.org/images/home/2192790797_0f349d3cb0_b.jpg",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.bostonbyfoot.org/"
       ],
@@ -606,6 +628,8 @@
           "source_phrase": "opens at 10:00am. Admission adults: $24 children (1 – 15): $24 infants (under 12 months): FREE members: FREE Get Tickets!"
         }
       ],
+      "booking_model": "promo_code",
+      "booking_note": "On the museum's reservations page pick Discount Programs → Half-Price Library Timed Tickets ($12/person, up to 4) with your library coupon.",
       "sources": [
         "http://www.bostonchildrensmuseum.org/"
       ],
@@ -688,6 +712,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.bostonharborislands.org/"
       ],
@@ -733,7 +759,10 @@
         "lon": -71.0524197
       },
       "description": "Boston Harbor Islands National and State Park comprises 34 islands and peninsulas just minutes from downtown Boston, offering outdoor recreation, relaxation, and learning opportunities accessible by seasonal ferry service.",
-      "categories": [],
+      "categories": [
+        "Nature",
+        "History"
+      ],
       "hero_image": "https://www.bostonharborislands.org/wp-content/uploads/opengraph.jpg",
       "prices": [
         {
@@ -743,6 +772,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.bostonharborislands.org/"
       ],
@@ -795,6 +826,8 @@
       ],
       "hero_image": "https://butterflyplace-ma.com/images/Atrium-Telegraph.jpg",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.butterflyplace-ma.com/"
       ],
@@ -862,6 +895,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.charlesrivermuseum.org/"
       ],
@@ -891,9 +926,13 @@
         "lon": -71.0759859
       },
       "description": "Boston's premier boat company offering public and private cruises on the Charles River and Boston Harbor, featuring sightseeing tours, sunset cruises, weddings, and corporate events.",
-      "categories": [],
+      "categories": [
+        "Nature"
+      ],
       "hero_image": "https://charlesriverboat.com/wp-content/uploads/2024/04/high-res-logos.png",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://charlesriverboat.com/"
       ],
@@ -923,7 +962,9 @@
         "lon": -71.1024549
       },
       "description": "The Children's Museum in Easton offers interactive exhibits and educational programming including art classes, music exploration, and hands-on activities designed to inspire learning through play for young children.",
-      "categories": [],
+      "categories": [
+        "Children"
+      ],
       "hero_image": null,
       "prices": [
         {
@@ -951,6 +992,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.cmeaston.org/"
       ],
@@ -1007,6 +1050,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.childrens-museum.org/"
       ],
@@ -1062,6 +1107,8 @@
           "source_phrase": "card) Senior (62+) $5 Reduced price with show of ID Student $5 Reduced price with valid student ID First Responder $5 Redu"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza"
       ],
@@ -1102,9 +1149,13 @@
         "lon": -70.7996633
       },
       "description": null,
-      "categories": [],
+      "categories": [
+        "History"
+      ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Pratt_Historic_Building%3B2009-08-21.JPG/960px-Pratt_Historic_Building%3B2009-08-21.JPG",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [],
       "hours": null
     },
@@ -1130,6 +1181,8 @@
       ],
       "hero_image": "https://concordmuseum.org/wp-content/uploads/2023/09/share-fb_concord-museum.jpg",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.concordmuseum.org/"
       ],
@@ -1207,6 +1260,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://currier.org/"
       ],
@@ -1267,6 +1322,8 @@
           "source_phrase": "neral Admission (age 2-59) $31.95 Seniors (60+) $28.95 SAVE $4 PER TICKET – BUY ONLINE DISCOUNT TICKETS! There’s a limited"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.davisfarmland.com/"
       ],
@@ -1337,6 +1394,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.decordova.org/"
       ],
@@ -1392,6 +1451,8 @@
           "source_phrase": "off admission for each senior (age 65+). Student Discount - $6 off admission with valid student ID. Active Duty Military D"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.ecotarium.org/"
       ],
@@ -1450,6 +1511,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.einsteinsworkshop.com/"
       ],
@@ -1516,6 +1579,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.nativeplanttrust.org/"
       ],
@@ -1580,6 +1645,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.goreplace.org/"
       ],
@@ -1631,6 +1698,8 @@
       ],
       "hero_image": "https://www.broadwayandmain.com/media/com_jbusinessdirectory/pictures/companies/398/GBS_thumbnail.png",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.greaterbostonstage.org/"
       ],
@@ -1671,9 +1740,13 @@
         "lon": -71.0508834
       },
       "description": null,
-      "categories": [],
+      "categories": [
+        "Children"
+      ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Greenway_Carousel_-_Rose_Kennedy_Greenway_-_Boston%2C_MA_-_DSC05445.JPG/960px-Greenway_Carousel_-_Rose_Kennedy_Greenway_-_Boston%2C_MA_-_DSC05445.JPG",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [],
       "hours": {
         "monday": "closed",
@@ -1707,6 +1780,8 @@
       ],
       "hero_image": "https://narmassociation.org/wp-content/uploads/2024/09/GMP_JudkinsPondView_web.jpg",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.griffinmuseum.org/"
       ],
@@ -1752,7 +1827,10 @@
         "lon": -71.2276393
       },
       "description": "Hale Education is a private nonprofit helping people learn, grow, and thrive in the outdoors for over a century through camps, youth programs, family activities, and school partnerships across 1,200 acres in the Greater Boston area.",
-      "categories": [],
+      "categories": [
+        "Nature",
+        "Children"
+      ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Hale_Beach_P1080423.jpg/960px-Hale_Beach_P1080423.jpg",
       "prices": [
         {
@@ -1762,6 +1840,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://hale.education/"
       ],
@@ -1783,9 +1863,14 @@
       "address": null,
       "geo": null,
       "description": null,
-      "categories": [],
+      "categories": [
+        "Nature",
+        "Children"
+      ],
       "hero_image": null,
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [],
       "hours": null
     },
@@ -1819,6 +1904,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.harvardartmuseums.org/"
       ],
@@ -1880,6 +1967,8 @@
           "source_phrase": "guest Non-Harvard students with ID: $10.00 Youth ages 3–18: $10.00 Youth under 3: Free Free for members Directions and Parking"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://hmnh.harvard.edu/"
       ],
@@ -1952,6 +2041,8 @@
           "source_phrase": "00 Harvard ID Holders: Free Non-Harvard students with I.D.: $10.00 Youth ages 3–18: $10.00 Youth under 3: Free Free for member"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://hmsc.harvard.edu/"
       ],
@@ -1997,7 +2088,11 @@
         "lon": -70.5059897
       },
       "description": "Heritage Museums & Gardens is a 100-acre destination in Sandwich, MA featuring art, history, and nature exhibits including a 1908 Looff Carousel and American Automobile Collection, plus extensive gardens with rhododendrons and nature trails.",
-      "categories": [],
+      "categories": [
+        "Nature",
+        "Art",
+        "History"
+      ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/9/92/Heritage_Museum_and_Gardens_%283789207677%29.jpg",
       "prices": [
         {
@@ -2019,6 +2114,8 @@
           "source_phrase": "aily 10 am-5 pm, until October 18 Adults: $26 Youth (3-17): $16 Child (0-2): $0 Members: Free _____________________________"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://heritagemuseumsandgardens.org/"
       ],
@@ -2071,6 +2168,8 @@
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/0/05/Lyman_Estate%2C_Waltham%2C_Massachusetts_-_front_facade.JPG",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.historicnewengland.org/"
       ],
@@ -2099,6 +2198,8 @@
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Jackson_Homestead_%28Front%29.jpg/960px-Jackson_Homestead_%28Front%29.jpg",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.newtonma.gov/government/historic-newton"
       ],
@@ -2154,6 +2255,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": "promo_code",
+      "booking_note": "On icaboston.org reserve a dated 'Library Pass' ticket ($10/person, up to 2) with your code; bring the email and your library pass.",
       "sources": [
         "https://www.icaboston.org/"
       ],
@@ -2215,6 +2318,8 @@
           "source_phrase": ", WIC , or ConnectorCare card holders receive a discount of $2 per person, per card for up to four adults per visit. Child"
         }
       ],
+      "booking_model": "promo_code",
+      "booking_note": "Reserve a timed-entry ticket on gardnermuseum.org using your library pass code ($5/person, up to 4 adults; 17 & under free).",
       "sources": [
         "http://www.gardnermuseum.org/home/"
       ],
@@ -2266,6 +2371,8 @@
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/1/16/JFK_library_Stitch_Crop.jpg",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.jfklibrary.org/"
       ],
@@ -2295,7 +2402,9 @@
         "lon": -71.134743
       },
       "description": "The Larz Anderson Auto Museum in Brookline, Massachusetts showcases America's oldest car collection in a historic carriage house. Located ten minutes from Boston, it offers exhibits, educational programs, and community events celebrating automotive heritage.",
-      "categories": [],
+      "categories": [
+        "History"
+      ],
       "hero_image": "https://static.wixstatic.com/media/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png/v1/fit/w_2500,h_1330,al_c/86e6bb_81a0b8dadb7340a486adfd87a9409b84%7Emv2.png",
       "prices": [
         {
@@ -2329,6 +2438,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.larzanderson.org"
       ],
@@ -2378,6 +2489,8 @@
           "source_phrase": "$15 | Seniors, Students, Military (with ID), Children 6-12, $10 Children under 6 are free. Museum Members are always free."
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.larzanderson.org/"
       ],
@@ -2429,6 +2542,8 @@
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Halibut_point_state_park_rockport.JPG",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.mass.gov/eea/agencies/dcr/massparks/"
       ],
@@ -2450,9 +2565,13 @@
         "lon": -71.073125
       },
       "description": "Since 1965, Maplewood has provided summer camp and year-round enrichment for children ages 3-14 in South Easton, MA, featuring 50+ activities, expert swim instruction, and a welcoming family environment.",
-      "categories": [],
+      "categories": [
+        "Children"
+      ],
       "hero_image": null,
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.maplewoodyearround.com/"
       ],
@@ -2482,7 +2601,10 @@
         "lon": -71.0868834
       },
       "description": "The 'How Do You See the World?' experience at the Christian Science Plaza features the iconic three-story Mapparium globe (frozen in 1935) and exhibits exploring progress and possibilities worldwide through stories of positive change.",
-      "categories": [],
+      "categories": [
+        "History",
+        "Art"
+      ],
       "hero_image": "https://www.christianscience.com/var/cscom/storage/images/media/images/find-us-images/hdystw-tryptich-3-a/382920-1-eng-US/hdystw-tryptich-3-a.jpg",
       "prices": [
         {
@@ -2492,6 +2614,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience"
       ],
@@ -2574,6 +2698,8 @@
           "source_phrase": "that let you visit any of our wildlife sanctuaries for just $2 per person for up to four people (children under age 2 are"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.massaudubon.org/"
       ],
@@ -2680,6 +2806,8 @@
           "source_phrase": "that let you visit any of our wildlife sanctuaries for just $2 per person for up to four people (children under age 2 are"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.massaudubon.org/"
       ],
@@ -2717,9 +2845,13 @@
       "address": null,
       "geo": null,
       "description": null,
-      "categories": [],
+      "categories": [
+        "Nature"
+      ],
       "hero_image": null,
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [],
       "hours": null
     },
@@ -2752,6 +2884,8 @@
           "source_phrase": "peration: Tuesday and Saturday 11am-4pm ​ Museum Admission: $5 for adults Free for under age 16, Museum Members, and Milit"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.mspmlc.org/ "
       ],
@@ -2817,6 +2951,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": "promo_code",
+      "booking_note": "Redeem your library pass code on mfa.org, or show the code email at the admission desk ($15/adult up to 2, $10/youth 7–17 up to 4).",
       "sources": [
         "http://www.mfa.org/"
       ],
@@ -2833,14 +2969,26 @@
     {
       "slug": "museum-of-african-american-history",
       "name": "Museum of African American History",
-      "website": null,
-      "phone": null,
-      "address": null,
-      "geo": null,
-      "description": null,
-      "categories": [],
+      "website": "https://www.maah.org/",
+      "phone": "(617) 725-0022",
+      "address": {
+        "street": "46 Joy Street",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02108"
+      },
+      "geo": {
+        "lat": 42.359995,
+        "lon": -71.0652097
+      },
+      "description": "New England's largest museum dedicated to preserving, conserving and interpreting the contributions of African Americans.",
+      "categories": [
+        "History"
+      ],
       "hero_image": null,
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [],
       "hours": null
     },
@@ -2892,6 +3040,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.museumofprinting.org/"
       ],
@@ -2948,6 +3098,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.mos.org/"
       ],
@@ -3054,6 +3206,8 @@
           "source_phrase": "its Group Pricing Adults $27 Youth (5-12) $16 Seniors (65+) $20 Prices may vary based on ticket type. Book Your Group More"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.hoophall.com/"
       ],
@@ -3138,6 +3292,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.whalingmuseum.org/"
       ],
@@ -3256,6 +3412,8 @@
           "source_phrase": ".95 Child (3–11) $25.95 Child 2 and under Free Senior (60+) $32.95 Aquarium Tickets *Residents of CT, MA, ME, NH, RI, and VT r"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.neaq.org/"
       ],
@@ -3351,6 +3509,8 @@
           "source_phrase": "12) $12 $14 Child (age 3 and under) : Free Free Free Dogs : $8 ( Learn more about dog walking guidelines ) $8 $8 Learn abo"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.nebg.org/"
       ],
@@ -3409,6 +3569,8 @@
           "source_phrase": "PM Closed Sundays and Mondays Admission Regular Admission - $10 Children 12 and under - FREE Museum Members - FREE EBT card"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.neqm.org/"
       ],
@@ -3479,6 +3641,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.nhphil.org/"
       ],
@@ -3519,6 +3683,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.nschildrensmuseum.org/"
       ],
@@ -3645,6 +3811,8 @@
           "source_phrase": "Admission Rates Online: Adults $27.00 Seniors (60 and over) $25.00 Youths (4-17) $12.00 Children (Age 3 and under) FREE Daytim"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.osv.org/"
       ],
@@ -3721,6 +3889,8 @@
           "source_phrase": "EBT/WIC/Connector Care Card to Culture & Museums for All ( $3 per ticket; four max ) MTA ( 1/2-price ) & Other Teachers ("
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.louisamayalcott.org/"
       ],
@@ -3772,6 +3942,8 @@
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/WATER_DIVERSIONS_OF_ALL_KINDS_ARE_ENJOYED_IN_THE_FRESH%2C_CLEAN_WATERS_OF_THE_SQUANNACOOK_RIVER._IT_IS_A_MAIN_TRIBUTARY..._-_NARA_-_553334.jpg/960px-WATER_DIVERSIONS_OF_ALL_KINDS_ARE_ENJOYED_IN_THE_FRESH%2C_CLEAN_WATERS_OF_THE_SQUANNACOOK_RIVER._IT_IS_A_MAIN_TRIBUTARY..._-_NARA_-_553334.jpg",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.paddleboston.com/"
       ],
@@ -3855,6 +4027,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.patriotshalloffame.com/"
       ],
@@ -3876,9 +4050,13 @@
       "address": null,
       "geo": null,
       "description": null,
-      "categories": [],
+      "categories": [
+        "History"
+      ],
       "hero_image": null,
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [],
       "hours": null
     },
@@ -3929,6 +4107,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.paulreverehouse.org/"
       ],
@@ -3985,6 +4165,8 @@
           "source_phrase": "m Admission Adults $25 Seniors (65+) $23 Students (with ID) $15 Youth (under 16) Free Salem Residents Free People who work"
         }
       ],
+      "booking_model": "promo_code",
+      "booking_note": "Get the code from your library pass email, then buy discounted tickets on pem.org ($12/person, up to 2 adults; under 16 free).",
       "sources": [
         "http://www.pem.org/"
       ],
@@ -4056,6 +4238,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.plimoth.org/"
       ],
@@ -4108,6 +4292,8 @@
       ],
       "hero_image": "https://www.publichealthmuseum.org/uploads/1/2/6/9/126956945/phm-photo-front-outside-summer_orig.jpg",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.publichealthmuseum.org/"
       ],
@@ -4145,6 +4331,8 @@
       ],
       "hero_image": "https://realpiratessalem.com/wp-content/uploads/2023/07/RPS2022_PB-401-700x400.jpg",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.realpiratessalem.com/"
       ],
@@ -4169,7 +4357,9 @@
         "lon": -71.0575878
       },
       "description": "Revolutionary Spaces is a nonprofit organization that brings people together to explore America's struggle to create and sustain a free society through the Old State House and Old South Meeting House.",
-      "categories": [],
+      "categories": [
+        "History"
+      ],
       "hero_image": "https://revolutionaryspaces.org/wp-content/uploads/icn-revolutionary-spaces.png",
       "prices": [
         {
@@ -4197,6 +4387,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://revolutionaryspaces.org/"
       ],
@@ -4251,6 +4443,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.rwpzoo.org/"
       ],
@@ -4280,7 +4474,9 @@
         "lon": -71.1117338
       },
       "description": "A museum in Medford, MA preserving the history of the Royall family and the enslaved people whose labor built their wealth. As one of the few remaining freestanding slave quarters in the North, it documents eighteenth-century bondage and resistance.",
-      "categories": [],
+      "categories": [
+        "History"
+      ],
       "hero_image": null,
       "prices": [
         {
@@ -4314,6 +4510,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://royallhouse.org/"
       ],
@@ -4368,6 +4566,8 @@
           "source_phrase": "Adults: $19.00 Seniors (62+): $17.50 Children (Ages 6-14): $16.00 Plan to Visit Salem Witch Museum 19 1/2 Washington Square N"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.salemwitchmuseum.com/"
       ],
@@ -4438,6 +4638,8 @@
           "source_phrase": "ditional Adults 90 Minutes $4.00 Additional Hour 60 Minutes $5.00 Therapists (attending with family) 90 Minutes Free * Every"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://sandmagination.com/"
       ],
@@ -4508,6 +4710,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://sandwichglassmuseum.org/"
       ],
@@ -4605,6 +4809,8 @@
           "source_phrase": "Cost for NH schools during the school year: $6 per student, $8 per adult Explorer Group: Park Only Cost: $2 per participan"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.seacoastsciencecenter.org/"
       ],
@@ -4682,6 +4888,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.strawberybanke.org/"
       ],
@@ -4744,6 +4952,8 @@
           "source_phrase": "ay appropriate admission fee. • ‘Museums for All ‘discount: $5 for all members of a family (up to four people total) prese"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://aviationmuseumofnh.org/"
       ],
@@ -4807,6 +5017,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.thechildrenspiazza.com/"
       ],
@@ -4889,6 +5101,8 @@
           "source_phrase": "th Museum Admission Adults: $7.00 Seniors (65+) + FSU Alum: $6.00 Framingham residents: $6.00 High school + college students:"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://danforth.framingham.edu/"
       ],
@@ -4965,6 +5179,8 @@
           "source_phrase": "d Discovery Woods Adult: $19.00 Senior (60+): $18.00 Child: $19.00 Under 1 year old: Free Teachers are always free! Members: F"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.discoveryacton.org/"
       ],
@@ -5030,6 +5246,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.masshort.org/"
       ],
@@ -5120,6 +5338,8 @@
           "source_phrase": "– Free Military – Adult – $21.00 Military – Child (5-12) – $16.00 Salem Resident – FREE, proof of residency required NARM/Mus"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.7gables.org/"
       ],
@@ -5188,6 +5408,8 @@
           "source_phrase": "n. ADMISSION Members: FREE Adults: (18+) $15 Seniors: (65+) $12 Students: (with ID) FREE Children and youth: (0-17) FREE pu"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.iconmuseum.org/"
       ],
@@ -5264,6 +5486,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.spellmanmuseum.org/"
       ],
@@ -5324,6 +5548,8 @@
           "source_phrase": "dmission tiers of: Pay it Forward: $25 per person Standard: $15 per person Reduced: Free – $10 per person Please help us ke"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://ussconstitutionmuseum.org/"
       ],
@@ -5372,6 +5598,8 @@
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Great_House_-_Castle_Hill_on_the_Crane_Estate_-_Ipswich%2C_Massachusetts_-_DSC06125.jpg/960px-Great_House_-_Castle_Hill_on_the_Crane_Estate_-_Ipswich%2C_Massachusetts_-_DSC06125.jpg",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.thetrustees.org/"
       ],
@@ -5393,7 +5621,9 @@
         "lon": -71.0555158
       },
       "description": "The USS Constitution Museum is a top-rated institution dedicated to sparking excitement about maritime heritage, naval service, and the American experience through exhibits, collections, and educational programs.",
-      "categories": [],
+      "categories": [
+        "History"
+      ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/c/c0/USS_Constitution_Museum.jpg",
       "prices": [
         {
@@ -5403,6 +5633,8 @@
           "source_phrase": "dmission tiers of: Pay it Forward: $25 per person Standard: $15 per person Reduced: Free – $10 per person Please help us ke"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://ussconstitutionmuseum.org/"
       ],
@@ -5473,6 +5705,8 @@
           "source_phrase": "Admission Rates $15.00 – Adults $10.00 – Seniors (ages 65+) $10.00 – Children ages 2 – 18; babies aged 0-23 months are free. W"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.wenhammuseum.org/"
       ],
@@ -5555,6 +5789,8 @@
           "source_phrase": "legacy original_price (2026-05-20 snapshot)"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://wsymca.org/"
       ],
@@ -5589,6 +5825,8 @@
       ],
       "hero_image": "https://www.wheelockfamilytheatre.org/wp-content/uploads/2020/10/cropped-wftlogo_1-wftlogo39.5.png",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "https://www.wheelockfamilytheatre.org/"
       ],
@@ -5636,6 +5874,8 @@
           "source_phrase": "ing, and Christmas. Tickets Adults $22 Students $17 Seniors $17 Youth 17 and under FREE Members FREE College Partners FREE"
         }
       ],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.worcesterart.org/"
       ],
@@ -5687,6 +5927,8 @@
       ],
       "hero_image": "http://www.zoonewengland.org/media/1259935/zoo-new-england.jpg",
       "prices": [],
+      "booking_model": null,
+      "booking_note": null,
       "sources": [
         "http://www.zoonewengland.org/"
       ],

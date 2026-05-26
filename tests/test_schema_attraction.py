@@ -23,3 +23,14 @@ def test_audience_price_fields():
     p = AudiencePrice(audience="adult", price=27.0, source_phrase="Adults $27")
     assert p.audience == "adult"
     assert p.price == 27.0
+
+def test_attraction_booking_fields_default_none():
+    a = Attraction(slug="mfa", name="Museum of Fine Arts")
+    assert a.booking_model is None   # how a library-pass holder redeems
+    assert a.booking_note is None    # one-sentence actionable instruction
+
+def test_attraction_booking_fields_accept_values():
+    a = Attraction(slug="mfa", name="MFA", booking_model="promo_code",
+                   booking_note="Redeem your code on mfa.org.")
+    assert a.booking_model == "promo_code"
+    assert a.booking_note.startswith("Redeem")

@@ -62,4 +62,10 @@ class Attraction:
     prices: list[AudiencePrice] = field(default_factory=list)
     visitor_eligibility: Optional[VisitorEligibility] = None
     reservation: Optional[Reservation] = None
+    # How a LIBRARY-PASS holder redeems (distinct from museum-wide reservation):
+    # "promo_code" = library issues a code, patron books on the museum's own
+    # site; "timed_entry"; "walk_in". booking_note is a one-sentence patron
+    # instruction. Populated via overrides from verified per-museum research.
+    booking_model: Optional[str] = None
+    booking_note: Optional[str] = None
     sources: list[str] = field(default_factory=list)

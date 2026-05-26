@@ -160,6 +160,10 @@ def build_attractions(raw_root: Path, overrides_root: Path, out_path: Path) -> d
             "hero_image": leg.get("hero_image")
             or (page_meta.get("og_image") if page_meta else None),
             "prices": [],
+            # Library-pass redemption model + note — populated via overrides from
+            # verified per-museum research (P4-2). Default unknown.
+            "booking_model": None,
+            "booking_note": None,
             "sources": [],
         }
 
