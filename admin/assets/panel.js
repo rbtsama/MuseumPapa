@@ -551,15 +551,17 @@ function buildMatrixModel() {
     for (const pass of passes) {
       const lib = STATE.libsById[pass.library_id];
       if (!lib) continue;
-      columnLibIds.add(lib.id);
       const ck = cardOk(lib, held, STATE.libsById, pass.requires_own_card);
+      // PRIMARY filter: the matrix shows results for the operator's SELECTED cards.
+      // No covering card (own id or same-network, unless requires_own_card) -> hidden.
+      // No cards selected -> empty matrix; click 全选 to see everything.
+      if (!ck) continue;
+      columnLibIds.add(lib.id); // a covered lib keeps its column even if secondary filters empty its cells
       const rz = residencyOk(pass, lib, attr, STATE.homeZip, STATE.MA_ZIPS);
       const tier = cellTier(ck, rz.ok);
       const avail = availStatus(pass, iso);
-      // eligibility dimension (卡+Zip): strict — unknown residency does NOT count
-      // "只看合规" = tier A (card + zip OK). Residency-unknown (warn) cells are
-      // still eligible — keep them so they can be reviewed; the separate ⚠ display
-      // toggle controls the warning glyph, not visibility (A6).
+      // "只看合规" further requires Zip/residency OK (drops tier-c resident blocks).
+      // Residency-unknown (warn) stays — the ⚠ display toggle controls the glyph (A6).
       if (STATE.onlyEligible && tier !== "a") continue;
       // inventory dimension: only confirmed in stock (unknown/booked/closed excluded)
       if (STATE.onlyInStock && avail !== "available") continue;
@@ -568,7 +570,7 @@ function buildMatrixModel() {
       cells[lib.id] = cell;
       cellList.push({ tier, avail });
     }
-    if ((STATE.onlyEligible || STATE.onlyInStock) && !cellList.length) continue; // row emptied by filters
+    if (!cellList.length) continue; // no covered (and filter-passing) cell -> drop row
     rows.push({ attr, cells, sortKey: rowSortKey(cellList) });
   }
   rows.sort((a, b) =>
@@ -811,9 +813,10 @@ function openDetailPopup(cell, attr) {
   const note = el("div", { class: "dt-note", hidden: "hidden" });
   const planNote = (msg) => { note.textContent = msg; note.hidden = false; };
   const foot = el("div", { class: "dt-foot" });
-  foot.appendChild(p.source_url
-    ? el("a", { class: "btn-tiny primary", href: p.source_url, target: "_blank", rel: "noopener" }, "预定 ↗")
-    : el("span", { class: "hint" }, "no booking link"));
+  // 预定 → open the "which card to book with" chooser for this attraction
+  // (lists all your eligible cards + numbers + copy), not a direct jump.
+  foot.appendChild(el("button", { class: "btn-tiny primary",
+    onclick: () => openBookingPopup(attr) }, "预定（选卡）→"));
   const copyBtn = el("button", { class: "btn-tiny" }, "复制原文");
   copyBtn.addEventListener("click", () => navigator.clipboard.writeText(srcText).then(() => {
     copyBtn.textContent = "已复制 ✓"; setTimeout(() => copyBtn.textContent = "复制原文", 1200);
