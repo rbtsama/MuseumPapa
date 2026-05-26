@@ -1,6 +1,27 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { auditTarget, buildRecord, controlsFor, buildFeedbackRecord, ASPECTS, CARD_ELIGIBILITY, COUPON_FORM } from "./panel.audit.mjs";
+import { auditTarget, buildRecord, controlsFor, buildFeedbackRecord, ASPECTS, CARD_ELIGIBILITY, COUPON_FORM, mergeAudits } from "./panel.audit.mjs";
+
+test("mergeAudits: unions targets, newer audited_at wins", () => {
+  const local = {
+    "pass:a:_feedback": { target: "pass:a:_feedback", feedback: "old", audited_at: "2026-05-01T00:00:00Z" },
+    "pass:local-only:_feedback": { target: "pass:local-only:_feedback", audited_at: "2026-05-02T00:00:00Z" },
+  };
+  const server = {
+    "pass:a:_feedback": { target: "pass:a:_feedback", feedback: "new", audited_at: "2026-05-10T00:00:00Z" },
+    "pass:server-only:_feedback": { target: "pass:server-only:_feedback", audited_at: "2026-05-03T00:00:00Z" },
+  };
+  const m = mergeAudits(local, server);
+  assert.equal(m["pass:a:_feedback"].feedback, "new");          // newer wins
+  assert.ok(m["pass:local-only:_feedback"]);                    // local-only kept (P2-2)
+  assert.ok(m["pass:server-only:_feedback"]);                   // server-only kept
+});
+
+test("mergeAudits: local newer than server is preserved", () => {
+  const local = { "t": { target: "t", v: "local", audited_at: "2026-05-09T00:00:00Z" } };
+  const server = { "t": { target: "t", v: "server", audited_at: "2026-05-01T00:00:00Z" } };
+  assert.equal(mergeAudits(local, server)["t"].v, "local");
+});
 
 test("auditTarget composes kind:id:field", () => {
   assert.equal(auditTarget("library","wakefield","card_eligibility"), "library:wakefield:card_eligibility");

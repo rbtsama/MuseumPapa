@@ -539,3 +539,12 @@ a.ro-v:hover { text-decoration: underline; }
 .af-textarea:focus { outline: none; border-color: var(--g); }
 .af-save { margin-top: 14px; }
 
+
+/* Read-only mode banner (A2) — shown when no /api/overrides backend exists. */
+.readonly-banner {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--or-pale); color: var(--au);
+  border-bottom: 2px solid var(--or);
+  padding: 8px 16px; font-size: 13px; font-weight: 600;
+  text-align: center;
+}

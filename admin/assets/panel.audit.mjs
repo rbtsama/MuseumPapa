@@ -14,6 +14,18 @@ export const ROOT_CAUSE = ["extraction_error","unobtainable"];     // 取错了 
 
 export function auditTarget(kind, id, field) { return `${kind}:${id}:${field}`; }
 
+// Merge two {target: record} stores, newer audited_at wins. Used to reconcile
+// the localStorage store with the server store so feedback entered in one
+// serving mode (static deploy vs python server) is never dropped (P2-2).
+export function mergeAudits(a = {}, b = {}) {
+  const out = { ...a };
+  for (const [target, rec] of Object.entries(b)) {
+    const cur = out[target];
+    if (!cur || (rec?.audited_at || "") >= (cur?.audited_at || "")) out[target] = rec;
+  }
+  return out;
+}
+
 export function buildRecord({ kind, id, field, status, correction_kind = null,
                              root_cause = null, corrected_value, note = "" }) {
   if (status === "corrected" && corrected_value === undefined)

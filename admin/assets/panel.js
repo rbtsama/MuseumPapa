@@ -2,7 +2,7 @@
 // Edit source under admin/ only. See web/sync-admin.mjs for copy rules.
 
 import { cardOk, residencyOk, cellTier, availStatus, rowSortKey, bestPolicy, couponSummary, shortSummary } from "./panel.logic.mjs";
-import { buildRecord, buildFeedbackRecord, ASPECTS } from "./panel.audit.mjs";
+import { buildRecord, buildFeedbackRecord, ASPECTS, mergeAudits } from "./panel.audit.mjs";
 
 const DEFAULT_ZIP = "01880";
 
@@ -42,6 +42,7 @@ const STATE = {
   // group collapse state: net -> bool collapsed
   groupCollapsed: {},
   audits: {},
+  readOnly: false,   // true when no real /api/overrides backend (static deploy)
 };
 
 
@@ -90,27 +91,58 @@ function fmtMoney(v) {
 // ─────────────────────────────────────────────
 // Shared audit store (Plan 1 /api/overrides), with localStorage fallback when no endpoint.
 const AUDIT_LS_V3 = "mp_audit_overrides";
-async function auditLoadAll() {
-  try { const r = await fetch("/api/overrides"); if (r.ok) return await r.json(); } catch (e) {}
+
+function loadLocalAudits() {
   try { return JSON.parse(localStorage.getItem(AUDIT_LS_V3) || "{}"); } catch (e) { return {}; }
+}
+function saveLocalAudits() {
+  try { localStorage.setItem(AUDIT_LS_V3, JSON.stringify(STATE.audits)); } catch (e) {}
+}
+// A real JSON API answers /api/overrides. On a static deploy the SPA rewrite
+// returns index.html (HTML 200) for any missing path — so check the
+// content-type and never parse HTML as JSON. Returns the parsed store, or null
+// when there is no real backend (→ read-only / localStorage-only mode).
+async function fetchServerOverrides(opts) {
+  try {
+    const r = await fetch("/api/overrides", opts);
+    if (!r.ok) return null;
+    if (!(r.headers.get("content-type") || "").includes("application/json")) return null;
+    return await r.json();
+  } catch (e) { return null; }
+}
+async function auditLoadAll() {
+  const local = loadLocalAudits();
+  const server = await fetchServerOverrides();
+  if (server === null) { STATE.readOnly = true; return local; }
+  STATE.readOnly = false;
+  // Server reachable: merge so records made in read-only mode aren't dropped (P2-2).
+  return mergeAudits(local, server);
 }
 async function auditPut(record) {
   STATE.audits[record.target] = record;
-  try {
-    const r = await fetch("/api/overrides", { method:"POST",
-      headers:{"Content-Type":"application/json"}, body: JSON.stringify(record) });
-    if (r.ok) { STATE.audits = await r.json(); return; }
-  } catch (e) {}
-  try { localStorage.setItem(AUDIT_LS_V3, JSON.stringify(STATE.audits)); } catch (e) {}
+  saveLocalAudits();                       // durable first — feedback never lost
+  if (STATE.readOnly) return;
+  const server = await fetchServerOverrides({ method:"POST",
+    headers:{"Content-Type":"application/json"}, body: JSON.stringify(record) });
+  if (server) { STATE.audits = mergeAudits(loadLocalAudits(), server); saveLocalAudits(); }
+  else { STATE.readOnly = true; renderReadOnlyBanner(); }
 }
 async function auditRevoke(target) {
   delete STATE.audits[target];
-  try {
-    const r = await fetch("/api/overrides", { method:"POST",
-      headers:{"Content-Type":"application/json"}, body: JSON.stringify({revoke:target}) });
-    if (r.ok) { STATE.audits = await r.json(); return; }
-  } catch (e) {}
-  try { localStorage.setItem(AUDIT_LS_V3, JSON.stringify(STATE.audits)); } catch (e) {}
+  saveLocalAudits();
+  if (STATE.readOnly) return;
+  const server = await fetchServerOverrides({ method:"POST",
+    headers:{"Content-Type":"application/json"}, body: JSON.stringify({revoke:target}) });
+  if (server) { STATE.audits = mergeAudits(loadLocalAudits(), server); saveLocalAudits(); }
+  else { STATE.readOnly = true; renderReadOnlyBanner(); }
+}
+// Persistent banner shown when there is no /api/overrides backend, so the
+// operator knows audits/feedback live only in this browser (A2).
+function renderReadOnlyBanner() {
+  if (!STATE.readOnly || document.getElementById("readonly-banner")) return;
+  const b = el("div", { id: "readonly-banner", class: "readonly-banner" },
+    "⚠ 只读模式：审计与反馈仅保存在本浏览器（localStorage），不会自动进入构建管线。完成后请点「导出」下载 audit_overrides.json 交给构建。");
+  document.body.insertBefore(b, document.body.firstChild);
 }
 // any audit record on this pass? returns the record's status or null
 function passAuditStatus(cell) {
@@ -138,22 +170,29 @@ function loadPanelState() {
 }
 
 async function loadData() {
-  const fetchJson = async (p) => {
-    const r = await fetch(p);
-    if (!r.ok) throw new Error(`${p} → ${r.status}`);
-    return r.json();
+  // `optional` files degrade to null instead of crashing the whole matrix;
+  // the four core files remain fatal (Promise.all rejects -> init's catch).
+  const fetchJson = async (p, optional = false) => {
+    try {
+      const r = await fetch(p);
+      if (!r.ok) throw new Error(`${p} → ${r.status}`);
+      return await r.json();
+    } catch (e) {
+      if (optional) { console.warn(`optional data ${p} unavailable:`, e.message); return null; }
+      throw e;
+    }
   };
   const [libsD, attrsD, branchesD, passesD, townZipsD] = await Promise.all([
     fetchJson("/data/structured/libraries.json"),
     fetchJson("/data/structured/attractions.json"),
-    fetchJson("/data/structured/branches.json"),
+    fetchJson("/data/structured/branches.json", true),   // only used in detail modal
     fetchJson("/data/structured/passes.json"),
     fetchJson("/config/town_zips.json"),
   ]);
 
   STATE.libs = libsD.libraries.slice().sort((a, b) => a.name.localeCompare(b.name));
   STATE.attractions = attrsD.attractions;
-  STATE.branches = branchesD.branches;
+  STATE.branches = branchesD?.branches || [];
   STATE.passes = passesD.passes;
   STATE.townZips = townZipsD;
 
@@ -901,6 +940,7 @@ async function init() {
   $("#mx-modal").onclick = (e) => { if (e.target.id === "mx-modal") closeModal(); };
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
   STATE.audits = await auditLoadAll();
+  renderReadOnlyBanner();
   renderMatrix();
   initAuditSystem();
 
