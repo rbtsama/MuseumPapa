@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-26T16:36:45.886127+00:00",
+    "built_at": "2026-05-26T16:51:39.369554+00:00",
     "n_attractions": 96
   },
   "attractions": [
@@ -68,6 +68,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.americanheritagemuseum.org/"
       ],
@@ -121,6 +122,10 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday",
+        "sunday"
+      ],
       "sources": [
         "https://americanrepertorytheater.org/"
       ],
@@ -184,6 +189,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.stonehengeusa.com/"
       ],
@@ -241,6 +247,11 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday",
+        "tuesday",
+        "wednesday"
+      ],
       "sources": [
         "https://www.armenianmuseum.org/"
       ],
@@ -304,6 +315,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.battleshipcove.org/"
       ],
@@ -348,6 +360,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "https://www.bedrockgardens.org/"
       ],
@@ -417,6 +432,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "https://www.blithewold.org/"
       ],
@@ -448,6 +466,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [],
       "hours": null
     },
@@ -513,6 +532,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "sunday"
+      ],
       "sources": [
         "https://www.bostonathenaeum.org/"
       ],
@@ -566,6 +588,10 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "saturday",
+        "sunday"
+      ],
       "sources": [
         "http://www.bostonbyfoot.org/"
       ],
@@ -639,6 +665,9 @@
       ],
       "booking_model": "promo_code",
       "booking_note": "On the museum's reservations page pick Discount Programs → Half-Price Library Timed Tickets ($12/person, up to 4) with your library coupon.",
+      "closed_days": [
+        "tuesday"
+      ],
       "sources": [
         "http://www.bostonchildrensmuseum.org/"
       ],
@@ -732,6 +761,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.bostonharborislands.org/"
       ],
@@ -792,6 +822,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.bostonharborislands.org/"
       ],
@@ -846,6 +877,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.butterflyplace-ma.com/"
       ],
@@ -915,6 +947,11 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday",
+        "tuesday",
+        "sunday"
+      ],
       "sources": [
         "https://www.charlesrivermuseum.org/"
       ],
@@ -951,6 +988,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://charlesriverboat.com/"
       ],
@@ -1012,6 +1050,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "https://www.cmeaston.org/"
       ],
@@ -1070,6 +1111,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "http://www.childrens-museum.org/"
       ],
@@ -1133,6 +1177,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza"
       ],
@@ -1180,6 +1225,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [],
       "hours": null
     },
@@ -1207,6 +1253,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.concordmuseum.org/"
       ],
@@ -1286,6 +1333,10 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday",
+        "tuesday"
+      ],
       "sources": [
         "http://currier.org/"
       ],
@@ -1351,6 +1402,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.davisfarmland.com/"
       ],
@@ -1423,6 +1475,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "http://www.decordova.org/"
       ],
@@ -1507,6 +1562,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "http://www.ecotarium.org/"
       ],
@@ -1567,6 +1625,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.einsteinsworkshop.com/"
       ],
@@ -1635,6 +1694,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.nativeplanttrust.org/"
       ],
@@ -1701,6 +1761,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.goreplace.org/"
       ],
@@ -1754,6 +1815,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.greaterbostonstage.org/"
       ],
@@ -1801,6 +1863,10 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday",
+        "tuesday"
+      ],
       "sources": [],
       "hours": {
         "monday": "closed",
@@ -1836,6 +1902,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.griffinmuseum.org/"
       ],
@@ -1896,6 +1963,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://hale.education/"
       ],
@@ -1925,6 +1993,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [],
       "hours": null
     },
@@ -1960,6 +2029,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "http://www.harvardartmuseums.org/"
       ],
@@ -2023,6 +2095,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://hmnh.harvard.edu/"
       ],
@@ -2097,6 +2170,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://hmsc.harvard.edu/"
       ],
@@ -2170,6 +2244,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://heritagemuseumsandgardens.org/"
       ],
@@ -2224,6 +2299,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.historicnewengland.org/"
       ],
@@ -2254,6 +2330,12 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday",
+        "tuesday",
+        "thursday",
+        "saturday"
+      ],
       "sources": [
         "https://www.newtonma.gov/government/historic-newton"
       ],
@@ -2311,6 +2393,9 @@
       ],
       "booking_model": "promo_code",
       "booking_note": "On icaboston.org reserve a dated 'Library Pass' ticket ($10/person, up to 2) with your code; bring the email and your library pass.",
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "https://www.icaboston.org/"
       ],
@@ -2386,6 +2471,9 @@
       ],
       "booking_model": "promo_code",
       "booking_note": "Reserve a timed-entry ticket on gardnermuseum.org using your library pass code ($5/person, up to 4 adults; 17 & under free).",
+      "closed_days": [
+        "tuesday"
+      ],
       "sources": [
         "http://www.gardnermuseum.org/home/"
       ],
@@ -2439,6 +2527,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.jfklibrary.org/"
       ],
@@ -2506,6 +2595,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "https://www.larzanderson.org"
       ],
@@ -2557,6 +2649,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.larzanderson.org/"
       ],
@@ -2610,6 +2703,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.mass.gov/eea/agencies/dcr/massparks/"
       ],
@@ -2638,6 +2732,10 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "saturday",
+        "sunday"
+      ],
       "sources": [
         "https://www.maplewoodyearround.com/"
       ],
@@ -2682,6 +2780,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience"
       ],
@@ -2736,6 +2837,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.massaudubon.org/"
       ],
@@ -2814,6 +2916,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "http://www.massaudubon.org/"
       ],
@@ -2858,6 +2963,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [],
       "hours": null
     },
@@ -2892,6 +2998,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.mspmlc.org/ "
       ],
@@ -2959,6 +3066,9 @@
       ],
       "booking_model": "promo_code",
       "booking_note": "Redeem your library pass code on mfa.org, or show the code email at the admission desk ($15/adult up to 2, $10/youth 7–17 up to 4).",
+      "closed_days": [
+        "tuesday"
+      ],
       "sources": [
         "http://www.mfa.org/"
       ],
@@ -2995,6 +3105,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [],
       "hours": null
     },
@@ -3048,6 +3159,14 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "sunday"
+      ],
       "sources": [
         "https://www.museumofprinting.org/"
       ],
@@ -3106,6 +3225,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.mos.org/"
       ],
@@ -3199,6 +3319,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.hoophall.com/"
       ],
@@ -3285,6 +3406,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.whalingmuseum.org/"
       ],
@@ -3357,6 +3479,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.neaq.org/"
       ],
@@ -3445,6 +3568,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.nebg.org/"
       ],
@@ -3505,6 +3629,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "sunday"
+      ],
       "sources": [
         "https://www.neqm.org/"
       ],
@@ -3577,6 +3704,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.nhphil.org/"
       ],
@@ -3619,6 +3747,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.nschildrensmuseum.org/"
       ],
@@ -3702,6 +3831,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.osv.org/"
       ],
@@ -3780,6 +3910,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.louisamayalcott.org/"
       ],
@@ -3833,6 +3964,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.paddleboston.com/"
       ],
@@ -3918,6 +4050,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.patriotshalloffame.com/"
       ],
@@ -3946,6 +4079,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [],
       "hours": null
     },
@@ -3998,6 +4132,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.paulreverehouse.org/"
       ],
@@ -4056,6 +4191,10 @@
       ],
       "booking_model": "promo_code",
       "booking_note": "Get the code from your library pass email, then buy discounted tickets on pem.org ($12/person, up to 2 adults; under 16 free).",
+      "closed_days": [
+        "tuesday",
+        "wednesday"
+      ],
       "sources": [
         "http://www.pem.org/"
       ],
@@ -4129,6 +4268,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.plimoth.org/"
       ],
@@ -4183,6 +4323,13 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "friday",
+        "sunday"
+      ],
       "sources": [
         "https://www.publichealthmuseum.org/"
       ],
@@ -4222,6 +4369,11 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday",
+        "tuesday",
+        "wednesday"
+      ],
       "sources": [
         "https://www.realpiratessalem.com/"
       ],
@@ -4278,6 +4430,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://revolutionaryspaces.org/"
       ],
@@ -4334,6 +4487,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.rwpzoo.org/"
       ],
@@ -4401,6 +4555,13 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday"
+      ],
       "sources": [
         "https://royallhouse.org/"
       ],
@@ -4457,6 +4618,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.salemwitchmuseum.com/"
       ],
@@ -4535,6 +4697,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://sandmagination.com/"
       ],
@@ -4607,6 +4770,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://sandwichglassmuseum.org/"
       ],
@@ -4688,6 +4852,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "http://www.seacoastsciencecenter.org/"
       ],
@@ -4767,6 +4934,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.strawberybanke.org/"
       ],
@@ -4831,6 +4999,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://aviationmuseumofnh.org/"
       ],
@@ -4905,6 +5074,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "sunday"
+      ],
       "sources": [
         "https://www.thechildrenspiazza.com/"
       ],
@@ -4989,6 +5161,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "https://danforth.framingham.edu/"
       ],
@@ -5079,6 +5254,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.discoveryacton.org/"
       ],
@@ -5146,6 +5322,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.masshort.org/"
       ],
@@ -5217,6 +5394,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.7gables.org/"
       ],
@@ -5287,6 +5465,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.iconmuseum.org/"
       ],
@@ -5365,6 +5544,10 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday",
+        "tuesday"
+      ],
       "sources": [
         "https://www.spellmanmuseum.org/"
       ],
@@ -5427,6 +5610,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://ussconstitutionmuseum.org/"
       ],
@@ -5477,6 +5661,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.thetrustees.org/"
       ],
@@ -5512,6 +5697,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://ussconstitutionmuseum.org/"
       ],
@@ -5584,6 +5770,11 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday",
+        "tuesday",
+        "sunday"
+      ],
       "sources": [
         "http://www.wenhammuseum.org/"
       ],
@@ -5668,6 +5859,7 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://wsymca.org/"
       ],
@@ -5704,6 +5896,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "https://www.wheelockfamilytheatre.org/"
       ],
@@ -5753,6 +5946,10 @@
       ],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [
+        "monday",
+        "tuesday"
+      ],
       "sources": [
         "http://www.worcesterart.org/"
       ],
@@ -5806,6 +6003,7 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
+      "closed_days": [],
       "sources": [
         "http://www.zoonewengland.org/"
       ],

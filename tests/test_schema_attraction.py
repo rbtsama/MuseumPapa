@@ -29,6 +29,10 @@ def test_attraction_booking_fields_default_none():
     assert a.booking_model is None   # how a library-pass holder redeems
     assert a.booking_note is None    # one-sentence actionable instruction
 
+def test_attraction_closed_days_default_empty():
+    a = Attraction(slug="mfa", name="Museum of Fine Arts")
+    assert a.closed_days == []
+
 def test_attraction_booking_fields_accept_values():
     a = Attraction(slug="mfa", name="MFA", booking_model="promo_code",
                    booking_note="Redeem your code on mfa.org.")

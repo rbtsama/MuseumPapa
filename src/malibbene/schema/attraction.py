@@ -59,6 +59,9 @@ class Attraction:
     categories: list[str] = field(default_factory=list)
     hero_image: Optional[str] = None
     hours: Optional[dict] = None
+    # Weekly recurring closures derived from `hours` (e.g. ["monday","tuesday"]).
+    # Recurring only — not holiday/seasonal closures.
+    closed_days: list[str] = field(default_factory=list)
     prices: list[AudiencePrice] = field(default_factory=list)
     visitor_eligibility: Optional[VisitorEligibility] = None
     reservation: Optional[Reservation] = None

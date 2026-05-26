@@ -35,3 +35,12 @@ def test_build_attractions_merges_pages_prices_eligibility_reservation_hours_wit
     assert a["reservation"]["required"] == "timed_entry"
     assert a["visitor_eligibility"]["residency"] == "none"
     assert any(p["audience"]=="adult" and p["price"]==27 for p in a["prices"])
+    # closed_days derived from hours (monday closed, tuesday open)
+    assert a["closed_days"] == ["monday"]
+
+
+def test_closed_days_from_hours():
+    from malibbene.build.attractions import closed_days_from_hours
+    assert closed_days_from_hours({"monday": "closed", "tuesday": "10-5", "wednesday": "Closed"}) == ["monday", "wednesday"]
+    assert closed_days_from_hours(None) == []
+    assert closed_days_from_hours({"monday": "unknown", "tuesday": "10-5"}) == []  # unknown != closed

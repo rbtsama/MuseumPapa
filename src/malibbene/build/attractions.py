@@ -11,6 +11,17 @@ from malibbene.build.categories import canonicalize as canonicalize_categories
 
 def _read_json(p): return json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
 
+_WEEK_ORDER = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+
+def closed_days_from_hours(hours: dict | None) -> list[str]:
+    """Weekly recurring closures derived from an hours dict (day -> "closed" /
+    hours string / "unknown"). Returns canonical week order. Only "closed"
+    counts — "unknown" is not a closure. (Holiday/seasonal closures aren't here.)"""
+    if not hours:
+        return []
+    closed = {d for d, v in hours.items() if str(v).strip().lower() == "closed"}
+    return [d for d in _WEEK_ORDER if d in closed] + [d for d in hours if d in closed and d not in _WEEK_ORDER]
+
 
 # Page-title cruft to strip from raw <title> strings when no clean legacy name
 # exists. e.g. "Peabody Essex Museum | World-Renowned Art Museum In Salem, MA",
@@ -164,6 +175,7 @@ def build_attractions(raw_root: Path, overrides_root: Path, out_path: Path) -> d
             # verified per-museum research (P4-2). Default unknown.
             "booking_model": None,
             "booking_note": None,
+            "closed_days": [],
             "sources": [],
         }
 
@@ -185,6 +197,7 @@ def build_attractions(raw_root: Path, overrides_root: Path, out_path: Path) -> d
         rebuilt_known = rebuilt_hours and any(
             v and v != "unknown" for v in rebuilt_hours.values())
         a["hours"] = rebuilt_hours if rebuilt_known else (leg.get("hours") or rebuilt_hours)
+        a["closed_days"] = closed_days_from_hours(a["hours"])
 
         if page_meta and page_meta.get("url"):
             a["sources"] = [page_meta["url"]]
