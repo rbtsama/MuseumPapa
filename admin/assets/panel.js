@@ -652,12 +652,10 @@ function renderCell(cell, attr) {
       : (cell.avail === "booked" || cell.avail === "closed") ? "av-no"
       : cell.avail === "unknown" ? "av-unk" : "")
     : "";
-  // Background encodes the eligibility tier so card selection is visible at a
-  // glance: a = bookable (have card + zip OK, green), c = hold card but resident-
-  // only fail (red), b/d = no covering card (grey — normally filtered out by the
-  // card-coverage filter, shown only if that filter is bypassed).
-  const TIER_BG = { a: "mx-tier-a", b: "mx-tier-b", c: "mx-resident-block", d: "mx-tier-d" };
-  const bgCls = TIER_BG[cell.tier] || "";
+  // Single background state: red ONLY when you HOLD the card but fail a resident-
+  // only restriction. Eligible cells and no-card cells (the latter normally
+  // filtered out by 只看合规) get NO background.
+  const bgCls = (cell.cardOk && !cell.zipOk) ? "mx-resident-block" : "";
   const td = el("td", { class: `mx-cell ${bgCls} ${availCls}` });
 
   // Offer: simplified (default) = adult/headline short glyph; "人群条款全展开" on
