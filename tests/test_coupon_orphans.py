@@ -1,15 +1,20 @@
-"""Every raw coupon file with status=ok must end up consumed by a pass entry.
+"""Every raw coupon file with status=ok must be reachable by a pass entry.
 
 Orphans mean the slug naming drifted between scraper and catalog (Wakefield's
-"Patuxent" typo was discovered this way). Failing the build forces the alias
-to be added to slug_canonical.LEGACY_TO_CANONICAL or the file renamed.
+"Patuxent" typo was discovered this way). Failing forces the alias to be added
+to slug_canonical.LEGACY_TO_CANONICAL or the file renamed/removed.
+
+The guard models build_passes' ACTUAL lookup: for each pass it reads
+``pass_coupons/{lib}_{attraction_slug}.json`` then ``{lib}_{attraction_rawslug}.json``
+(passes.py). So a file ``{lib}_{F}.json`` is reachable iff some pass for that
+library has attraction_slug == F or attraction_rawslug == F. (The previous
+version only compared canonical(file slug) to attraction_slug, missing the
+rawslug path — and indexed p["coupon"] unguarded, crashing on null coupons.)
 """
 from __future__ import annotations
 
 import json
 import pathlib
-
-from malibbene.build.slug_canonical import canonical
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
@@ -18,29 +23,24 @@ def test_no_orphan_raw_coupon_files():
     raw_dir = ROOT / "data" / "raw" / "pass_coupons"
     passes = json.loads((ROOT / "data" / "structured" / "passes.json").read_text(encoding="utf-8"))["passes"]
 
-    consumed: set[tuple[str, str]] = {
-        (p["library_id"], p["attraction_slug"])
-        for p in passes
-        if p["coupon"]["audience_policies"] or p["coupon"]["capacity"]["n"] is not None
-    }
+    # Every (library, slug) the build will look a coupon file up under.
+    reachable: set[tuple[str, str]] = set()
+    for p in passes:
+        reachable.add((p["library_id"], p["attraction_slug"]))
+        if p.get("attraction_rawslug"):
+            reachable.add((p["library_id"], p["attraction_rawslug"]))
 
     orphans: list[str] = []
     for f in sorted(raw_dir.glob("*.json")):
         rec = json.loads(f.read_text(encoding="utf-8"))
         if rec.get("status") != "ok":
             continue
-        if "_" in f.stem:
-            stem_lib, stem_slug = f.stem.split("_", 1)
-        else:
-            stem_lib, stem_slug = f.stem, ""
-        lib_id = rec.get("library_id") or stem_lib
-        raw_slug = rec.get("attraction_slug") or stem_slug
-        canon = canonical(raw_slug)
-        if (lib_id, canon) not in consumed:
+        lib, _, slug = f.stem.partition("_")
+        if (lib, slug) not in reachable:
             orphans.append(f.name)
 
     assert not orphans, (
-        f"{len(orphans)} raw coupon files never reached passes.json — "
-        f"add the slug alias to LEGACY_TO_CANONICAL or rename the file:\n  "
+        f"{len(orphans)} raw coupon files no pass will ever read — "
+        f"add the slug alias to LEGACY_TO_CANONICAL or rename/remove the file:\n  "
         + "\n  ".join(orphans[:20])
     )
