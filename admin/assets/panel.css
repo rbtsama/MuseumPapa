@@ -452,16 +452,12 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .bk-copy:hover { background: #eef4ff; }
 .bk-card-none { font-size: 10px; color: #aa9; }
 .bk-link { background: #1f6feb; color: #fff; padding: 3px 10px; border-radius: 4px; text-decoration: none; white-space: nowrap; }
-/* card-number editor (修改卡号) */
-.cn-editor { display: flex; flex-direction: column; gap: 8px; }
-.cn-list { display: flex; flex-direction: column; gap: 6px; max-height: 56vh; overflow: auto; }
-.cn-row { display: grid; grid-template-columns: 120px 1fr; gap: 10px; align-items: center; }
-.cn-lib { font-weight: 600; font-size: 12px; }
-.cn-input { padding: 5px 8px; font-size: 12px; border: 1px solid var(--rule,#d4ddd4); border-radius: 4px; font-family: monospace; background: #fff; }
-.cn-input:focus { outline: none; border-color: #1f6feb; }
-.cn-foot { display: flex; justify-content: flex-end; border-top: 1px solid var(--rule,#d4ddd4); padding-top: 8px; }
-/* sidebar indicator that a card has a stored number */
-.card-num-tag { font-size: 9px; font-family: monospace; color: var(--g,#1B5740); background: var(--g-pale,#EAF1EE); border: 1px solid var(--g,#1B5740); border-radius: 2px; padding: 0 4px; flex-shrink: 0; white-space: nowrap; }
+/* inline per-card number field (in the sidebar card list) */
+.cm-check { display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; cursor: pointer; }
+.cm-cardnum { width: 76px; flex-shrink: 0; padding: 2px 5px; font-size: 10px; font-family: monospace;
+  border: 1px solid var(--rule,#d4ddd4); border-radius: 3px; background: #fff; color: var(--ink-2,#1A1917); }
+.cm-cardnum:focus { outline: none; border-color: #1f6feb; }
+.cm-cardnum::placeholder { color: #b3b0a8; }
 .src-text { white-space: pre-wrap; word-break: break-word; background: #f6f8f6; border: 1px solid var(--bd,#d4ddd4); border-radius: 5px; padding: 8px; max-height: 40vh; overflow: auto; font-size: 12px; margin: 0; }
 /* clickable cell */
 .mx-cell.mx-click { cursor: pointer; }

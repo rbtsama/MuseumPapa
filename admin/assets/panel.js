@@ -40,7 +40,8 @@ const STATE = {
   groupCollapsed: {},
   audits: {},
   readOnly: false,   // true when no real /api/overrides backend (static deploy)
-  cardNumbers: {},   // { library_id: "barcode" } — SENSITIVE, localStorage ONLY, never committed/logged
+  cardNumbers: {},   // { library_id: "barcode" } LOCAL typed overrides — SENSITIVE, localStorage ONLY
+  cardNumbersEnv: {},// { library_id: "barcode" } from /api/cards (.env / Vercel env vars) — source of truth
 };
 
 
@@ -189,6 +190,23 @@ function loadCardNumbers() {
 function saveCardNumbers() {
   try { localStorage.setItem(CARD_NUMS_KEY, JSON.stringify(STATE.cardNumbers)); } catch (e) {}
 }
+// Card numbers backed by .env (local serve_admin) or Vercel env vars, via /api/cards.
+// This is the source of truth; the inline sidebar field is a local typed override.
+async function fetchEnvCards() {
+  try {
+    const r = await fetch("/api/cards");
+    if (!r.ok) return {};
+    if (!(r.headers.get("content-type") || "").includes("application/json")) return {};
+    return await r.json();
+  } catch (e) { return {}; }
+}
+// Effective card number for a library: a locally-typed override wins (for testing),
+// else the .env-backed value. null when neither is set.
+function cardNumOf(libId) {
+  const local = (STATE.cardNumbers[libId] || "").trim();
+  return local || STATE.cardNumbersEnv[libId] || null;
+}
+
 // Show only the last 4 chars in the UI; the full value is copied, not displayed.
 function maskCard(num) {
   const s = String(num || "").trim();
@@ -424,19 +442,35 @@ function renderCardList() {
     cardEl.appendChild(hdr);
     const members = el("div", { class: "card-members" });
     for (const l of libs) {
-      members.appendChild(el("label", { class: "card-member" },
-        el("input", {
-          type: "checkbox", ...(STATE.selectedLibs.has(l.id) ? { checked: "checked" } : {}),
-          onchange: (e) => {
-            if (e.target.checked) STATE.selectedLibs.add(l.id);
-            else STATE.selectedLibs.delete(l.id);
-            renderCardList(); updateLibCount(); renderMatrix();
-          },
-        }),
-        el("span", { class: "card-member-name", title: l.name }, l.town),
-        STATE.cardNumbers[l.id]
-          ? el("span", { class: "card-num-tag", title: "已存卡号" }, "#" + maskCard(STATE.cardNumbers[l.id]))
-          : null,
+      const envNum = STATE.cardNumbersEnv[l.id];
+      // Inline card-number field — independent of the checkbox. Typed value is a
+      // LOCAL testing override (localStorage); .env value shows as a placeholder.
+      const numInput = el("input", {
+        type: "text", class: "cm-cardnum", autocomplete: "off",
+        value: STATE.cardNumbers[l.id] || "",
+        placeholder: envNum ? "env ·" + maskCard(envNum).slice(-4) : "卡号",
+        title: envNum ? "已从 .env 载入；此处填写覆盖（仅本浏览器，测试用）" : "填卡号（仅本浏览器，测试用）",
+        onchange: (e) => {
+          const v = e.target.value.trim();
+          if (v) STATE.cardNumbers[l.id] = v; else delete STATE.cardNumbers[l.id];
+          saveCardNumbers();
+        },
+      });
+      // clicking inside the input must not toggle the checkbox
+      numInput.addEventListener("click", (e) => e.stopPropagation());
+      members.appendChild(el("div", { class: "card-member" },
+        el("label", { class: "cm-check" },
+          el("input", {
+            type: "checkbox", ...(STATE.selectedLibs.has(l.id) ? { checked: "checked" } : {}),
+            onchange: (e) => {
+              if (e.target.checked) STATE.selectedLibs.add(l.id);
+              else STATE.selectedLibs.delete(l.id);
+              renderCardList(); updateLibCount(); renderMatrix();
+            },
+          }),
+          el("span", { class: "card-member-name", title: l.name }, l.town),
+        ),
+        numInput,
         eligTag(l.card_eligibility || "unknown"),
       ));
     }
@@ -672,43 +706,6 @@ function closeModal() { $("#mx-modal").hidden = true; }
 // pickup-method order: Email (instant) first, then Pick-up, then Pick-up-and-Return.
 const PICKUP_ORDER = { digital_email: 0, physical_coupon: 1, physical_circ: 2 };
 
-// Editor for per-library card numbers (barcodes). Lists the cards you hold;
-// values are saved to localStorage only (never committed). Booking popup reads them.
-function openCardNumberEditor() {
-  const held = [...STATE.selectedLibs];
-  const box = el("div", { class: "cn-editor" });
-  box.appendChild(el("p", { class: "hint" }, "卡号仅保存在本浏览器（localStorage），不会上传、不进构建。"));
-  if (!held.size) {
-    box.appendChild(el("p", { class: "hint warn" }, "先在下方「持卡情况」勾选你持有的卡，再回来填卡号。"));
-    openModal("修改卡号", box);
-    return;
-  }
-  const inputs = {};
-  const list = el("div", { class: "cn-list" });
-  for (const id of held.sort((a, b) => (STATE.libsById[a]?.town || "").localeCompare(STATE.libsById[b]?.town || ""))) {
-    const lib = STATE.libsById[id];
-    if (!lib) continue;
-    const inp = el("input", { type: "text", class: "cn-input", value: STATE.cardNumbers[id] || "",
-      placeholder: "卡号 / barcode", autocomplete: "off" });
-    inputs[id] = inp;
-    list.appendChild(el("label", { class: "cn-row" },
-      el("span", { class: "cn-lib", title: lib.name }, lib.town), inp));
-  }
-  box.appendChild(list);
-  const save = el("button", { class: "btn-tiny primary" }, "保存");
-  save.addEventListener("click", () => {
-    for (const [id, inp] of Object.entries(inputs)) {
-      const v = inp.value.trim();
-      if (v) STATE.cardNumbers[id] = v; else delete STATE.cardNumbers[id];
-    }
-    saveCardNumbers();
-    closeModal();
-    renderCardList();
-  });
-  box.appendChild(el("div", { class: "cn-foot" }, save));
-  openModal("修改卡号（仅存本地，不上传）", box);
-}
-
 // All HELD cards that offer this attraction; eligible first, then by pickup order.
 // Email pass needs no distance; Pick-up / Pick-up-and-Return show distance to the library.
 function openBookingPopup(attr) {
@@ -726,7 +723,7 @@ function openBookingPopup(attr) {
   else for (const { p, lib, v } of rows) {
     const physical = p.pass_form !== "digital_email";
     const mi = (physical && lib.geo && STATE.homeGeo) ? haversineMi(STATE.homeGeo, lib.geo) : null;
-    const num = STATE.cardNumbers[lib.id];
+    const num = cardNumOf(lib.id);
     let cardCell;
     if (num) {
       const copyBtn = el("button", { class: "bk-copy", title: "复制卡号" }, "复制");
@@ -1025,6 +1022,7 @@ async function init() {
   $("#opt-show-stock").checked = STATE.showStock;
 
   STATE.cardNumbers = loadCardNumbers();
+  STATE.cardNumbersEnv = await fetchEnvCards();
   renderCardList();
   updateLibCount();
   renderAttrList(); updateAttrCount();
@@ -1059,7 +1057,6 @@ async function init() {
     STATE.selectedLibs.clear();
     renderCardList(); updateLibCount(); renderMatrix();
   });
-  $("#btn-card-nums").addEventListener("click", openCardNumberEditor);
 
   // Date
   dateInput.addEventListener("change", (e) => {
