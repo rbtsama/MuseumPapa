@@ -5,6 +5,8 @@
 
 > 这份是**排查报告 + 路线图**，不是逐步实现计划。圈定要做的条目后，再用 writing-plans 为它们出 TDD 级实现计划。
 
+> **执行进度（2026-05-26，本地，未 push）**：✅ P0-1 / P0-2 / P0-3 / P0-4 / P1-1 / P1-3(B6) 已完成并 commit（均 TDD + rebuild 核验）。pass_form 分布 physical_coupon 738→281、digital_email 170→568；误导 FREE 8→0；Performance 0→7；everett/lawrence 居住=yes/town、chelsea 降级 unknown；validate 加引用完整性硬门。**待办**：P1-2/P1-4/P1-5、P2（panel 全部）、P3（数据清洗）、P4（增强）。
+
 ---
 
 ## 总体判断（修订版）
