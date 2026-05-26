@@ -1,0 +1,35 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 7,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from danforth.framingham.edu/visit"
+    },
+    {
+      "audience": "senior",
+      "price": 6,
+      "age_range": {
+        "min": 65,
+        "max": null
+      },
+      "source_phrase": "verified high confidence 2026-05 from danforth.framingham.edu/visit"
+    },
+    {
+      "audience": "student",
+      "price": 5,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from danforth.framingham.edu/visit"
+    },
+    {
+      "audience": "child",
+      "price": 0,
+      "age_range": {
+        "min": 0,
+        "max": 13
+      },
+      "source_phrase": "verified high confidence 2026-05 from danforth.framingham.edu/visit"
+    }
+  ]
+}

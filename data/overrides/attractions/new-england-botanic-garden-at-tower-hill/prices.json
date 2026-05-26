@@ -1,0 +1,38 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 20,
+      "age_range": null,
+      "source_phrase": "verified medium confidence 2026-05 from nebg.org/plan-your-visit"
+    },
+    {
+      "audience": "senior",
+      "price": 17,
+      "age_range": {
+        "min": 65,
+        "max": null
+      },
+      "source_phrase": "verified medium confidence 2026-05 from nebg.org/plan-your-visit"
+    },
+    {
+      "audience": "child",
+      "price": 10,
+      "age_range": {
+        "min": 4,
+        "max": 12
+      },
+      "source_phrase": "verified medium confidence 2026-05 from nebg.org/plan-your-visit"
+    },
+    {
+      "audience": "infant",
+      "price": 0,
+      "age_range": {
+        "min": 0,
+        "max": 3
+      },
+      "source_phrase": "verified medium confidence 2026-05 from nebg.org/plan-your-visit"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 19,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from discoveryacton.org/visit"
+    },
+    {
+      "audience": "child",
+      "price": 19,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from discoveryacton.org/visit"
+    },
+    {
+      "audience": "senior",
+      "price": 18,
+      "age_range": {
+        "min": 60,
+        "max": null
+      },
+      "source_phrase": "verified high confidence 2026-05 from discoveryacton.org/visit"
+    },
+    {
+      "audience": "infant",
+      "price": 0,
+      "age_range": {
+        "min": 0,
+        "max": 1
+      },
+      "source_phrase": "verified high confidence 2026-05 from discoveryacton.org/visit"
+    },
+    {
+      "audience": "educator",
+      "price": 0,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from discoveryacton.org/visit"
+    }
+  ]
+}

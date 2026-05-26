@@ -1,0 +1,38 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 39.95,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from neaq.org/visit/tickets"
+    },
+    {
+      "audience": "child",
+      "price": 30.95,
+      "age_range": {
+        "min": 3,
+        "max": 11
+      },
+      "source_phrase": "verified high confidence 2026-05 from neaq.org/visit/tickets"
+    },
+    {
+      "audience": "senior",
+      "price": 37.95,
+      "age_range": {
+        "min": 60,
+        "max": null
+      },
+      "source_phrase": "verified high confidence 2026-05 from neaq.org/visit/tickets"
+    },
+    {
+      "audience": "infant",
+      "price": 0,
+      "age_range": {
+        "min": 0,
+        "max": 2
+      },
+      "source_phrase": "verified high confidence 2026-05 from neaq.org/visit/tickets"
+    }
+  ]
+}

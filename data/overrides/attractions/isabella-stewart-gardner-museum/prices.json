@@ -1,0 +1,41 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 22,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from gardnermuseum.org/visit/admissions"
+    },
+    {
+      "audience": "senior",
+      "price": 20,
+      "age_range": {
+        "min": 65,
+        "max": null
+      },
+      "source_phrase": "verified high confidence 2026-05 from gardnermuseum.org/visit/admissions"
+    },
+    {
+      "audience": "student",
+      "price": 15,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from gardnermuseum.org/visit/admissions"
+    },
+    {
+      "audience": "youth",
+      "price": 0,
+      "age_range": {
+        "min": null,
+        "max": 17
+      },
+      "source_phrase": "verified high confidence 2026-05 from gardnermuseum.org/visit/admissions"
+    },
+    {
+      "audience": "military",
+      "price": 0,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from gardnermuseum.org/visit/admissions"
+    }
+  ]
+}

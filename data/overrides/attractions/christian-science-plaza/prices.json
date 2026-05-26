@@ -1,0 +1,35 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 6,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from christianscience.com plaza (only Mapparium ticketed; plaza free)"
+    },
+    {
+      "audience": "senior",
+      "price": 5,
+      "age_range": {
+        "min": 62,
+        "max": null
+      },
+      "source_phrase": "verified high confidence 2026-05 from christianscience.com plaza (only Mapparium ticketed; plaza free)"
+    },
+    {
+      "audience": "student",
+      "price": 5,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from christianscience.com plaza (only Mapparium ticketed; plaza free)"
+    },
+    {
+      "audience": "youth",
+      "price": 0,
+      "age_range": {
+        "min": 0,
+        "max": 17
+      },
+      "source_phrase": "verified high confidence 2026-05 from christianscience.com plaza (only Mapparium ticketed; plaza free)"
+    }
+  ]
+}

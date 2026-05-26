@@ -1,0 +1,29 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "child",
+      "price": 18,
+      "age_range": {
+        "min": 1,
+        "max": 10
+      },
+      "source_phrase": "verified high confidence 2026-05 from sandmagination.com/admissions (per-child; first adult free)"
+    },
+    {
+      "audience": "adult",
+      "price": 0,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from sandmagination.com/admissions (per-child; first adult free)"
+    },
+    {
+      "audience": "infant",
+      "price": 0,
+      "age_range": {
+        "min": 0,
+        "max": 0
+      },
+      "source_phrase": "verified high confidence 2026-05 from sandmagination.com/admissions (per-child; first adult free)"
+    }
+  ]
+}

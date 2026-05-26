@@ -1,0 +1,44 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 24.95,
+      "age_range": null,
+      "source_phrase": "verified medium confidence 2026-05 from bostonharborislands.org/ferry-tickets (round-trip)"
+    },
+    {
+      "audience": "senior",
+      "price": 22.95,
+      "age_range": null,
+      "source_phrase": "verified medium confidence 2026-05 from bostonharborislands.org/ferry-tickets (round-trip)"
+    },
+    {
+      "audience": "student",
+      "price": 22.95,
+      "age_range": null,
+      "source_phrase": "verified medium confidence 2026-05 from bostonharborislands.org/ferry-tickets (round-trip)"
+    },
+    {
+      "audience": "military",
+      "price": 22.95,
+      "age_range": null,
+      "source_phrase": "verified medium confidence 2026-05 from bostonharborislands.org/ferry-tickets (round-trip)"
+    },
+    {
+      "audience": "child",
+      "price": 17.95,
+      "age_range": null,
+      "source_phrase": "verified medium confidence 2026-05 from bostonharborislands.org/ferry-tickets (round-trip)"
+    },
+    {
+      "audience": "infant",
+      "price": 0,
+      "age_range": {
+        "min": 0,
+        "max": 2
+      },
+      "source_phrase": "verified medium confidence 2026-05 from bostonharborislands.org/ferry-tickets (round-trip)"
+    }
+  ]
+}

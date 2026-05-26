@@ -1,0 +1,26 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 6,
+      "age_range": null,
+      "source_phrase": "verified medium confidence 2026-05 from per-child play space: child is primary admission, first adult free; saugus library pass listing"
+    },
+    {
+      "audience": "child",
+      "price": 12,
+      "age_range": null,
+      "source_phrase": "verified medium confidence 2026-05 from per-child play space: child is primary admission, first adult free; saugus library pass listing"
+    },
+    {
+      "audience": "infant",
+      "price": 5,
+      "age_range": {
+        "min": 0,
+        "max": 1
+      },
+      "source_phrase": "verified medium confidence 2026-05 from per-child play space: child is primary admission, first adult free; saugus library pass listing"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 30,
+      "age_range": null,
+      "source_phrase": "verified medium confidence 2026-05 from hoophall.com/admission (site 403; cross-checked snippets)"
+    },
+    {
+      "audience": "senior",
+      "price": 25,
+      "age_range": {
+        "min": 65,
+        "max": null
+      },
+      "source_phrase": "verified medium confidence 2026-05 from hoophall.com/admission (site 403; cross-checked snippets)"
+    },
+    {
+      "audience": "student",
+      "price": 25,
+      "age_range": null,
+      "source_phrase": "verified medium confidence 2026-05 from hoophall.com/admission (site 403; cross-checked snippets)"
+    },
+    {
+      "audience": "youth",
+      "price": 20,
+      "age_range": {
+        "min": 5,
+        "max": 12
+      },
+      "source_phrase": "verified medium confidence 2026-05 from hoophall.com/admission (site 403; cross-checked snippets)"
+    },
+    {
+      "audience": "child",
+      "price": 0,
+      "age_range": {
+        "min": null,
+        "max": 4
+      },
+      "source_phrase": "verified medium confidence 2026-05 from hoophall.com/admission (site 403; cross-checked snippets)"
+    }
+  ]
+}

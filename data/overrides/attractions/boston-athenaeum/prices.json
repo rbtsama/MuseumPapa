@@ -1,0 +1,41 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 11,
+      "age_range": {
+        "min": 14,
+        "max": null
+      },
+      "source_phrase": "verified high confidence 2026-05 from bostonathenaeum.org/visit (1st-floor GA)"
+    },
+    {
+      "audience": "child",
+      "price": 5,
+      "age_range": {
+        "min": null,
+        "max": 13
+      },
+      "source_phrase": "verified high confidence 2026-05 from bostonathenaeum.org/visit (1st-floor GA)"
+    },
+    {
+      "audience": "student",
+      "price": 8,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from bostonathenaeum.org/visit (1st-floor GA)"
+    },
+    {
+      "audience": "educator",
+      "price": 8,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from bostonathenaeum.org/visit (1st-floor GA)"
+    },
+    {
+      "audience": "military",
+      "price": 8,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from bostonathenaeum.org/visit (1st-floor GA)"
+    }
+  ]
+}

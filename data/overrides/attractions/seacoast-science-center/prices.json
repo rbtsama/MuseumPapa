@@ -1,0 +1,47 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 15,
+      "age_range": {
+        "min": 12,
+        "max": null
+      },
+      "source_phrase": "verified high confidence 2026-05 from seacoastsciencecenter.org/visit"
+    },
+    {
+      "audience": "senior",
+      "price": 12.5,
+      "age_range": {
+        "min": 65,
+        "max": null
+      },
+      "source_phrase": "verified high confidence 2026-05 from seacoastsciencecenter.org/visit"
+    },
+    {
+      "audience": "military",
+      "price": 12.5,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from seacoastsciencecenter.org/visit"
+    },
+    {
+      "audience": "child",
+      "price": 10,
+      "age_range": {
+        "min": 3,
+        "max": 11
+      },
+      "source_phrase": "verified high confidence 2026-05 from seacoastsciencecenter.org/visit"
+    },
+    {
+      "audience": "infant",
+      "price": 0,
+      "age_range": {
+        "min": 0,
+        "max": 2
+      },
+      "source_phrase": "verified high confidence 2026-05 from seacoastsciencecenter.org/visit"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 12,
+      "age_range": null,
+      "source_phrase": "verified medium confidence 2026-05 from ecotarium.org/visit"
+    },
+    {
+      "audience": "youth",
+      "price": 8,
+      "age_range": {
+        "min": 2,
+        "max": 18
+      },
+      "source_phrase": "verified medium confidence 2026-05 from ecotarium.org/visit"
+    },
+    {
+      "audience": "senior",
+      "price": 8,
+      "age_range": {
+        "min": 65,
+        "max": null
+      },
+      "source_phrase": "verified medium confidence 2026-05 from ecotarium.org/visit"
+    },
+    {
+      "audience": "student",
+      "price": 8,
+      "age_range": null,
+      "source_phrase": "verified medium confidence 2026-05 from ecotarium.org/visit"
+    },
+    {
+      "audience": "military",
+      "price": 0,
+      "age_range": null,
+      "source_phrase": "verified medium confidence 2026-05 from ecotarium.org/visit"
+    },
+    {
+      "audience": "infant",
+      "price": 0,
+      "age_range": {
+        "min": 0,
+        "max": 1
+      },
+      "source_phrase": "verified medium confidence 2026-05 from ecotarium.org/visit"
+    }
+  ]
+}

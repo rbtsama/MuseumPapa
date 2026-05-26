@@ -1,0 +1,32 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 28.95,
+      "age_range": {
+        "min": 2,
+        "max": 59
+      },
+      "source_phrase": "verified high confidence 2026-05 from davisfarmland.com/plan-your-visit (weekday; weekend +$3)"
+    },
+    {
+      "audience": "senior",
+      "price": 25.95,
+      "age_range": {
+        "min": 60,
+        "max": null
+      },
+      "source_phrase": "verified high confidence 2026-05 from davisfarmland.com/plan-your-visit (weekday; weekend +$3)"
+    },
+    {
+      "audience": "infant",
+      "price": 0,
+      "age_range": {
+        "min": 0,
+        "max": 1
+      },
+      "source_phrase": "verified high confidence 2026-05 from davisfarmland.com/plan-your-visit (weekday; weekend +$3)"
+    }
+  ]
+}

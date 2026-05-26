@@ -1,0 +1,44 @@
+{
+  "status": "corrected",
+  "corrected_value": [
+    {
+      "audience": "adult",
+      "price": 23,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from americanheritagemuseum.org (in-person; online -$2)"
+    },
+    {
+      "audience": "senior",
+      "price": 20,
+      "age_range": {
+        "min": 62,
+        "max": null
+      },
+      "source_phrase": "verified high confidence 2026-05 from americanheritagemuseum.org (in-person; online -$2)"
+    },
+    {
+      "audience": "military",
+      "price": 20,
+      "age_range": null,
+      "source_phrase": "verified high confidence 2026-05 from americanheritagemuseum.org (in-person; online -$2)"
+    },
+    {
+      "audience": "child",
+      "price": 12,
+      "age_range": {
+        "min": 3,
+        "max": 12
+      },
+      "source_phrase": "verified high confidence 2026-05 from americanheritagemuseum.org (in-person; online -$2)"
+    },
+    {
+      "audience": "infant",
+      "price": 0,
+      "age_range": {
+        "min": 0,
+        "max": 2
+      },
+      "source_phrase": "verified high confidence 2026-05 from americanheritagemuseum.org (in-person; online -$2)"
+    }
+  ]
+}
