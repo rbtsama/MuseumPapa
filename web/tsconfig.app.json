@@ -23,5 +23,15 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "../data/structured/*.json"]
+  "include": ["src", "../data/structured/*.json"],
+  // Vitest test files are type-checked by Vitest, not the production build
+  // (tsc -b). Excluding them keeps the deploy build independent of test-only
+  // peer deps (e.g. @testing-library/dom).
+  "exclude": [
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx",
+    "src/setupTests.ts"
+  ]
 }
