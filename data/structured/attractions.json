@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-22T18:25:53.556325+00:00",
+    "built_at": "2026-05-26T13:54:09.877793+00:00",
     "n_attractions": 96
   },
   "attractions": [
@@ -109,7 +109,8 @@
       },
       "description": "Founded in 1979, the American Repertory Theater is associated with Harvard University, where many of its staff teach. Its schedule includes new and neglected plays and musical theatre, many of which have won awards and gone on to other venues after being developed at the theatre. Please check the website for current productions. The theater is fully wheelchair accessible, and the lobby and entrance to the theater are at sidewalk level. An all-gender, wheelchair-accessible bathroom is on the premises. The theater makes headsets and loops available for the hard of hearing.",
       "categories": [
-        "Children"
+        "Children",
+        "Performance"
       ],
       "hero_image": "https://assets.americanrepertorytheater.org/wp-content/uploads/2018/04/130109ARTPippStudMatEVE-104-e1525912630656.jpg?fit=1024%2C1024",
       "prices": [],
@@ -982,7 +983,8 @@
       "categories": [
         "Children",
         "History",
-        "Science"
+        "Science",
+        "Performance"
       ],
       "hero_image": "https://childrens-museum.org/wp-content/uploads/2024/09/Instagram-logo.jpg",
       "prices": [
@@ -1624,7 +1626,8 @@
       },
       "description": "The Greater Boston Stage Company is a not-for-profit regional theatre located in Stoneham, MA. They produce six to seven shows each year—world and regional premieres alongside fresh interpretations of familiar work—as part of their Mainstage series.",
       "categories": [
-        "Children"
+        "Children",
+        "Performance"
       ],
       "hero_image": "https://www.broadwayandmain.com/media/com_jbusinessdirectory/pictures/companies/398/GBS_thumbnail.png",
       "prices": [],
@@ -2127,7 +2130,8 @@
       "description": "The building that houses the Institute of Contemporary Art/Boston on Fan Pier is the first in the US designed by the architectural firm of Diller Scofidio + Renfro. The museum was founded in 1936 as a sister institution to New York's MoMA, though it had no permanent collection until starting one after moving into the new building on the waterfront in 2006. In addition to the collection, changing exhibitions, music, dance, film, talks, tours, family activities, and teen programming are offered throughout the year.",
       "categories": [
         "Children",
-        "Art"
+        "Art",
+        "Performance"
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Institute_of_Contemporary_Art%2C_Boston.jpg/960px-Institute_of_Contemporary_Art%2C_Boston.jpg",
       "prices": [
@@ -2181,7 +2185,8 @@
       "description": "The Gardner Museum houses the collection of Isabella Stewart Gardner, a local patron of the arts who died in 1924, in a building she commissioned to look like a 15th century Venetian palazzo. The center of the original building showcases courtyard plantings that reflect the seasons as they evolve throughout the year. In addition to her collection, which remains displayed exactly as she arranged it per her will, there are changing exhibitions, concerts, lectures, family events, and an artist-in-residence program. In 2012, the museum opened an addition designed by Renzo Piano that houses a space for their concert series.",
       "categories": [
         "Children",
-        "Art"
+        "Art",
+        "Performance"
       ],
       "hero_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/IsabellaStewartGardenerMuseumMainLobby.jpg/960px-IsabellaStewartGardenerMuseumMainLobby.jpg",
       "prices": [
@@ -3450,7 +3455,8 @@
       },
       "description": "The New Hampshire Philharmonic Orchestra has presented classical music concerts with their mix of student, amateur, and professional musicians for over a century in various venues. In 2018, they took up residence in the Seifert Performing Arts Center in Salem, built the previous year. Among the themed concerts that allow them to present well-known pieces of classical repertory, they typically schedule Holiday Pops concerts in December.",
       "categories": [
-        "Children"
+        "Children",
+        "Performance"
       ],
       "hero_image": "https://static.wixstatic.com/media/f87796_2d5317377a7149c6857e250b2408831a%7Emv2.png/v1/fit/w_2500,h_1330,al_c/f87796_2d5317377a7149c6857e250b2408831a%7Emv2.png",
       "prices": [
@@ -5578,7 +5584,9 @@
         "lon": -71.1060693
       },
       "description": "The Wheelock Family Theatre, now a part of Boston University, brings intergenerational and multicultural performances to the stage to provide a shared experience for the whole family. These include classic children's shows, family-friendly musicals, and thought-provoking dramas.",
-      "categories": [],
+      "categories": [
+        "Performance"
+      ],
       "hero_image": "https://www.wheelockfamilytheatre.org/wp-content/uploads/2020/10/cropped-wftlogo_1-wftlogo39.5.png",
       "prices": [],
       "sources": [

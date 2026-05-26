@@ -8,7 +8,31 @@ from malibbene.build.coupons import coupon_from_extract, restrictions_from_extra
 
 PLATFORMS = ("assabet","libcal","museumkey")
 
+# Authoritative pass-type (scraped deterministically from the index page) ->
+# the schema's pass_form. `unknown` and anything unmapped return None so the
+# caller keeps the legacy/default value.
+_PASS_TYPE_TO_FORM = {
+    "digital": "digital_email",
+    "physical-coupon": "physical_coupon",
+    "physical-circ": "physical_circ",
+}
+
+def _pass_form_from_pass_type(pass_type: str | None) -> str | None:
+    return _PASS_TYPE_TO_FORM.get(pass_type)
+
 def _read(p): return json.loads(p.read_text()) if p.exists() else None
+
+def _index_pass_types(raw_root: Path, platform: str, lib: str) -> dict:
+    """slug -> pass_type from the index/ snapshot for one library (empty if absent).
+
+    The index/ files carry deterministic pass_type for all 59 libraries; the v2
+    catalog scraper only began emitting pass_type after the markup fix, so this
+    snapshot is the authoritative source until catalog/ is re-scraped.
+    """
+    idx = _read(raw_root / platform / "index" / f"{lib}.json")
+    if not idx:
+        return {}
+    return {p.get("slug"): p.get("pass_type") for p in idx.get("passes", []) if p.get("slug")}
 
 def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
     overrides = load_overrides(overrides_root)
@@ -19,6 +43,7 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
         for cat_f in catalog_dir.glob("*.json"):
             cat = json.loads(cat_f.read_text())
             lib = cat["library_id"]
+            idx_pass_types = _index_pass_types(raw_root, platform, lib)
             for p in cat.get("passes",[]):
                 # `rawslug` is the catalog slug used to KEY the raw coupon /
                 # availability / probe files (look those up with it). The
@@ -55,6 +80,12 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                     row["pass_form"] = old_e.get("pass_form", "physical_coupon")
                     if old_e.get("residency_restriction"):
                         row["residency_restriction"] = old_e["residency_restriction"]
+                # AUTHORITATIVE pass_form: the deterministic pass_type scraped from
+                # the index page (catalog record first, else the index/ snapshot)
+                # overrides the LLM-guessed legacy old_e value. Unknown -> keep prior.
+                pf = _pass_form_from_pass_type(p.get("pass_type") or idx_pass_types.get(rawslug))
+                if pf:
+                    row["pass_form"] = pf
                 # AUTHORITATIVE coupon numbers: data/raw/pass_coupons/<lib>_<canonical>.json
                 # (single underscore, canonical slug, top-level fields). Canonical name
                 # first, then raw-slug name, then the legacy extraction as fallback.

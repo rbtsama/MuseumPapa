@@ -26,31 +26,48 @@ _PASS_BENEFITS_RE = re.compile(
     r"<h5[^>]*>\s*Pass\s+Benefits?\s*</h5>\s*(.+?)(?=<h5|</div>\s*</div>)",
     re.S | re.I,
 )
+# Pass Type is NOT an <h5> heading — Assabet renders it in a
+# `museum-pass-pass-type` element that sits just BEFORE the pass's by-museum
+# URL (the benefit text is after it). Pattern ported from the proven legacy
+# scraper (src/malibbene/_legacy/sources/assabet/index_page.py).
 _PASS_TYPE_RE = re.compile(
-    r"<h5[^>]*>\s*Pass\s+Type[^<]*</h5>\s*(.+?)(?=<h5|</div>)",
-    re.S | re.I,
+    r"museum-pass-pass-type[^>]*>(?:<strong>[^<]*</strong>)?\s*([^<]+)", re.I
 )
 _PARA_RE = re.compile(r"<p[^>]*>(.*?)</p>", re.S | re.I)
+
+# Raw pass-type text -> one of the three canonical pass types. Order matters:
+# the more specific "coupon pass (must be picked up..." must precede a bare
+# "coupon" match. Mirrors the legacy PASS_TYPE_MAP.
+_PASS_TYPE_MAP = [
+    ("circulating pass", "physical-circ"),
+    ("coupon pass (must be picked up", "physical-coupon"),
+    ("printable/digital coupon pass", "digital"),
+]
+
+
+def _classify_pass_type(text: str | None) -> str:
+    low = (text or "").strip().lower()
+    for prefix, fmt in _PASS_TYPE_MAP:
+        if prefix in low:
+            return fmt
+    return "unknown"
 
 
 def _strip(s: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", s)).strip()
 
 
-def _slice_pass_section(html: str, slug: str) -> str | None:
-    """Return the HTML window around a pass's section in the index.
+def _pass_windows(html: str, slug: str) -> tuple[str, str] | None:
+    """Return (pre, post) HTML windows around a pass's by-museum URL anchor.
 
-    Assabet renders each pass in an `.entry`-like container. We anchor on the
-    by-museum/<slug>/ URL and grab up to ~6000 chars forward — enough to cover
-    the Pass Benefits + Pass Type blocks that follow.
+    `post` (the ~6000 chars AFTER the anchor) holds the Pass Benefits block.
+    `pre` (the ~2500 chars BEFORE the anchor) holds the `museum-pass-pass-type`
+    element, which Assabet renders ahead of the URL.
     """
-    anchor = re.search(
-        rf'/museum-passes/by-museum/{re.escape(slug)}/', html
-    )
+    anchor = re.search(rf'/museum-passes/by-museum/{re.escape(slug)}/', html)
     if not anchor:
         return None
-    start = anchor.end()
-    return html[start : start + 6000]
+    return html[max(0, anchor.start() - 2500) : anchor.start()], html[anchor.end() : anchor.end() + 6000]
 
 
 def parse_index_html(html: str, library_id: str) -> list[dict]:
@@ -62,20 +79,23 @@ def parse_index_html(html: str, library_id: str) -> list[dict]:
         seen.add(slug)
         title = slug.replace("-", " ").title()
 
-        section = _slice_pass_section(html, slug)
+        windows = _pass_windows(html, slug)
         benefit_text = None
         pass_type_text = None
         phrases: list[str] = []
-        if section:
-            bm = _PASS_BENEFITS_RE.search(section)
+        if windows:
+            pre, post = windows
+            bm = _PASS_BENEFITS_RE.search(post)
             if bm:
                 paras = _PARA_RE.findall(bm.group(1))
                 phrases = [p for p in (_strip(x) for x in paras) if 5 < len(p) < 2000]
                 if phrases:
                     benefit_text = "\n".join(phrases[:6])
-            tm = _PASS_TYPE_RE.search(section)
-            if tm:
-                pass_type_text = _strip(tm.group(1))
+            # The pass-type closest to the anchor (last match in `pre`) is this
+            # pass's; earlier matches belong to the preceding pass card.
+            tms = _PASS_TYPE_RE.findall(pre)
+            if tms:
+                pass_type_text = _strip(tms[-1])
 
         out.append({
             "library_id": library_id,
@@ -84,6 +104,7 @@ def parse_index_html(html: str, library_id: str) -> list[dict]:
             "detail_url": url,
             "benefit_text": benefit_text,
             "pass_type_text": pass_type_text,
+            "pass_type": _classify_pass_type(pass_type_text),
             "source_phrases": phrases,
         })
     return out

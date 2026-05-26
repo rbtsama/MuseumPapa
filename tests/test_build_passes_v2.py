@@ -91,6 +91,31 @@ def test_build_passes_pass_coupons_canonical_alias(tmp_path):
     p = json.loads(out.read_text())["passes"][0]
     assert p["coupon"] is not None and p["coupon"]["summary"] == "FREE"
 
+def test_pass_form_derives_from_index_pass_type_over_legacy(tmp_path):
+    # The catalog scrape may lack pass_type (pre-fix); the index/ snapshot carries
+    # the deterministic, authoritative pass_type. It must win over a legacy old_e
+    # pass_form (the LLM-guessed value that defaulted ~105 passes to physical_coupon).
+    raw = tmp_path/"raw"
+    _w(raw/"assabet/catalog/wakefield.json", {"library_id":"wakefield","passes":[
+        {"library_id":"wakefield","attraction_slug":"pem","title":"PEM"}]})
+    _w(raw/"assabet/index/wakefield.json", {"passes":[{"slug":"pem","pass_type":"digital"}]})
+    _w(raw/"assabet/coupons/wakefield__pem.json",
+       {"status":"ok","extracted":{"pass_form":"physical_coupon"}})
+    out = tmp_path/"passes.json"
+    build_passes(raw_root=raw, overrides_root=tmp_path/"overrides", out_path=out)
+    p = json.loads(out.read_text())["passes"][0]
+    assert p["pass_form"] == "digital_email"
+
+def test_pass_form_from_catalog_pass_type(tmp_path):
+    # After the scraper fix, catalog records carry pass_type directly.
+    raw = tmp_path/"raw"
+    _w(raw/"assabet/catalog/wakefield.json", {"library_id":"wakefield","passes":[
+        {"library_id":"wakefield","attraction_slug":"gables","pass_type":"physical-circ"}]})
+    out = tmp_path/"passes.json"
+    build_passes(raw_root=raw, overrides_root=tmp_path/"overrides", out_path=out)
+    p = json.loads(out.read_text())["passes"][0]
+    assert p["pass_form"] == "physical_circ"
+
 def test_coupon_coverage_gaps_detects_silent_drop(tmp_path):
     from malibbene.build.coupons import coupon_coverage_gaps
     (tmp_path/"pass_coupons").mkdir(parents=True)
