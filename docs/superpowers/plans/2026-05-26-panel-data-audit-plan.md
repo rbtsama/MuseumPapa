@@ -5,7 +5,13 @@
 
 > 这份是**排查报告 + 路线图**，不是逐步实现计划。圈定要做的条目后，再用 writing-plans 为它们出 TDD 级实现计划。
 
-> **执行进度（2026-05-26，本地，未 push）**：✅ P0-1 / P0-2 / P0-3 / P0-4 / P1-1 / P1-3(B6) 已完成并 commit（均 TDD + rebuild 核验）。pass_form 分布 physical_coupon 738→281、digital_email 170→568；误导 FREE 8→0；Performance 0→7；everett/lawrence 居住=yes/town、chelsea 降级 unknown；validate 加引用完整性硬门。**待办**：P1-2/P1-4/P1-5、P2（panel 全部）、P3（数据清洗）、P4（增强）。
+> **执行进度（2026-05-26，本地，未 push）**：已完成 **12 条**（均 TDD + rebuild/测试核验）：
+> - **P0**：P0-1（pass_form 改读 index pass_type：physical_coupon 738→281、digital_email 170→568）、P0-2（误导 FREE 8→0）、P0-3（everett/lawrence=yes/town、chelsea 降级 unknown）、P0-4（Performance 0→7）。
+> - **P1**：P1-1（validate 引用完整性硬门 + 数据质量指标）、P1-3/B6（删死函数）、P1-4/B2（crec restrictions 优先）。
+> - **P2**：P2-1/A2（只读横幅 + content-type 检测）、P2-2（跨模式 mergeAudits）、P2-3/A4（residencyOk warn + headline 修正，含 P0-2 镜像到矩阵 glyph）、P2-4/A3（branches 可选降级）。
+> - **P3**：P3-1/D3（浮点 .0 → 整数，31→0）。
+>
+> **待办**：P1-2（build_all 跨文件一致性）、P1-5（catalog.py 死代码决策）、P2-5/A6、P2-6/A7（死代码清理）、P2-7/A8（UX+verified_ok）、P3-2/D5（重复价格行+错 age_range）、P3-4（childrens-piazza 倒挂）、P3-5（maah 空壳，需补抓）、P3-6/B3（ferry 文件改名）、P3-7（18 个空分类景点补全）、P4（closed_days 派生 / promo_code 预订模型——需逐馆核实 / pass_type 两源对账）。
 
 ---
 
