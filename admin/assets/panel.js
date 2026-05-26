@@ -40,6 +40,7 @@ const STATE = {
   groupCollapsed: {},
   audits: {},
   readOnly: false,   // true when no real /api/overrides backend (static deploy)
+  cardNumbers: {},   // { library_id: "barcode" } — SENSITIVE, localStorage ONLY, never committed/logged
 };
 
 
@@ -176,6 +177,29 @@ function persistPanelState() {
 }
 function loadPanelState() {
   try { return JSON.parse(localStorage.getItem(PANEL_STATE_KEY) || "null"); } catch (e) { return null; }
+}
+
+// Card numbers (barcodes) are SENSITIVE: kept ONLY in this browser's localStorage,
+// never written to disk, never sent to /api/overrides, never logged. Separate key
+// so they never ride along with the build-bound audit/panel state.
+const CARD_NUMS_KEY = "mp_card_numbers";
+function loadCardNumbers() {
+  try { return JSON.parse(localStorage.getItem(CARD_NUMS_KEY) || "{}"); } catch (e) { return {}; }
+}
+function saveCardNumbers() {
+  try { localStorage.setItem(CARD_NUMS_KEY, JSON.stringify(STATE.cardNumbers)); } catch (e) {}
+}
+// Show only the last 4 chars in the UI; the full value is copied, not displayed.
+function maskCard(num) {
+  const s = String(num || "").trim();
+  return s.length <= 4 ? s : "····" + s.slice(-4);
+}
+// Copy text to clipboard and flash the trigger button's label.
+function copyText(text, btn, okLabel = "已复制 ✓") {
+  navigator.clipboard.writeText(text).then(() => {
+    const prev = btn.textContent; btn.textContent = okLabel;
+    setTimeout(() => { btn.textContent = prev; }, 1200);
+  }).catch(() => {});
 }
 
 async function loadData() {
@@ -410,6 +434,9 @@ function renderCardList() {
           },
         }),
         el("span", { class: "card-member-name", title: l.name }, l.town),
+        STATE.cardNumbers[l.id]
+          ? el("span", { class: "card-num-tag", title: "已存卡号" }, "#" + maskCard(STATE.cardNumbers[l.id]))
+          : null,
         eligTag(l.card_eligibility || "unknown"),
       ));
     }
@@ -645,6 +672,43 @@ function closeModal() { $("#mx-modal").hidden = true; }
 // pickup-method order: Email (instant) first, then Pick-up, then Pick-up-and-Return.
 const PICKUP_ORDER = { digital_email: 0, physical_coupon: 1, physical_circ: 2 };
 
+// Editor for per-library card numbers (barcodes). Lists the cards you hold;
+// values are saved to localStorage only (never committed). Booking popup reads them.
+function openCardNumberEditor() {
+  const held = [...STATE.selectedLibs];
+  const box = el("div", { class: "cn-editor" });
+  box.appendChild(el("p", { class: "hint" }, "卡号仅保存在本浏览器（localStorage），不会上传、不进构建。"));
+  if (!held.size) {
+    box.appendChild(el("p", { class: "hint warn" }, "先在下方「持卡情况」勾选你持有的卡，再回来填卡号。"));
+    openModal("修改卡号", box);
+    return;
+  }
+  const inputs = {};
+  const list = el("div", { class: "cn-list" });
+  for (const id of held.sort((a, b) => (STATE.libsById[a]?.town || "").localeCompare(STATE.libsById[b]?.town || ""))) {
+    const lib = STATE.libsById[id];
+    if (!lib) continue;
+    const inp = el("input", { type: "text", class: "cn-input", value: STATE.cardNumbers[id] || "",
+      placeholder: "卡号 / barcode", autocomplete: "off" });
+    inputs[id] = inp;
+    list.appendChild(el("label", { class: "cn-row" },
+      el("span", { class: "cn-lib", title: lib.name }, lib.town), inp));
+  }
+  box.appendChild(list);
+  const save = el("button", { class: "btn-tiny primary" }, "保存");
+  save.addEventListener("click", () => {
+    for (const [id, inp] of Object.entries(inputs)) {
+      const v = inp.value.trim();
+      if (v) STATE.cardNumbers[id] = v; else delete STATE.cardNumbers[id];
+    }
+    saveCardNumbers();
+    closeModal();
+    renderCardList();
+  });
+  box.appendChild(el("div", { class: "cn-foot" }, save));
+  openModal("修改卡号（仅存本地，不上传）", box);
+}
+
 // All HELD cards that offer this attraction; eligible first, then by pickup order.
 // Email pass needs no distance; Pick-up / Pick-up-and-Return show distance to the library.
 function openBookingPopup(attr) {
@@ -662,12 +726,22 @@ function openBookingPopup(attr) {
   else for (const { p, lib, v } of rows) {
     const physical = p.pass_form !== "digital_email";
     const mi = (physical && lib.geo && STATE.homeGeo) ? haversineMi(STATE.homeGeo, lib.geo) : null;
+    const num = STATE.cardNumbers[lib.id];
+    let cardCell;
+    if (num) {
+      const copyBtn = el("button", { class: "bk-copy", title: "复制卡号" }, "复制");
+      copyBtn.addEventListener("click", () => copyText(num, copyBtn, "✓"));
+      cardCell = el("span", { class: "bk-card" }, el("span", { class: "bk-card-num" }, maskCard(num)), copyBtn);
+    } else {
+      cardCell = el("span", { class: "bk-card bk-card-none", title: "在「持卡情况」旁点「修改卡号」添加" }, "无卡号");
+    }
     box.appendChild(el("div", { class: "bk-row" },
       el("div", { class: "bk-lib", title: lib.name }, lib.town),
       el("div", { class: "bk-offer" }, couponSummary(p.coupon)),
       pfTag(p.pass_form),
       el("span", { class: "bk-dist" }, mi != null ? `${mi.toFixed(1)} mi` : ""),
       v.eligible ? el("span", { class: "bk-ok" }, "✓") : el("span", { class: "bk-no" }, "✗ " + (v.reasons[0] || v.blockedLayer)),
+      cardCell,
       p.source_url ? el("a", { class: "bk-link", href: p.source_url, target: "_blank", rel: "noopener" }, "Book ↗")
                    : el("span", { class: "hint" }, "no link"),
     ));
@@ -950,6 +1024,7 @@ async function init() {
   $("#opt-only-instock").checked = STATE.onlyInStock;
   $("#opt-show-stock").checked = STATE.showStock;
 
+  STATE.cardNumbers = loadCardNumbers();
   renderCardList();
   updateLibCount();
   renderAttrList(); updateAttrCount();
@@ -984,6 +1059,7 @@ async function init() {
     STATE.selectedLibs.clear();
     renderCardList(); updateLibCount(); renderMatrix();
   });
+  $("#btn-card-nums").addEventListener("click", openCardNumberEditor);
 
   // Date
   dateInput.addEventListener("change", (e) => {
