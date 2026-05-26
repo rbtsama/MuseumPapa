@@ -439,19 +439,24 @@ body { display: grid; grid-template-areas: "top top" "side main"; grid-template-
 .mx-modal-head button { border: none; background: none; font-size: 20px; cursor: pointer; line-height: 1; }
 .mx-modal-body { padding: 12px 14px; font-size: 13px; }
 .bk-list { display: flex; flex-direction: column; gap: 6px; }
-.bk-row { display: grid; grid-template-columns: 1.2fr .8fr auto auto auto auto auto; gap: 8px; align-items: center; padding: 6px 8px; border: 1px solid var(--bd,#d4ddd4); border-radius: 5px; }
-.bk-lib { font-weight: 600; }
+/* booking choice rows: place + full card number + copy + offer/pickup + action */
+.bk-sec { font-size: 11px; font-weight: 700; color: var(--g,#1B5740); margin: 6px 0 2px; }
+.bk-sec-muted { color: #998; }
+.bk-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 7px 9px; border: 1px solid var(--bd,#d4ddd4); border-radius: 5px; }
+.bk-row-blocked { opacity: .7; background: #faf7f6; }
+.bk-lib { font-weight: 600; min-width: 88px; }
 .bk-pickup { font-size: 11px; background: #eef; padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
 .bk-dist { font-size: 11px; color: #556; white-space: nowrap; }
+.bk-offer { font-size: 12px; color: #334; }
 .bk-ok { color: #2e7d2e; font-size: 11px; }
 .bk-no { color: #b00; font-size: 11px; }
-/* chosen card's number (masked) + copy button */
-.bk-card { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
-.bk-card-num { font-family: monospace; font-size: 11px; color: #334; background: #eef2f7; padding: 1px 5px; border-radius: 3px; }
+/* chosen card's FULL number + copy button */
+.bk-card { display: inline-flex; align-items: center; gap: 5px; }
+.bk-card-num { font-family: monospace; font-size: 12px; color: #224; background: #eef2f7; padding: 2px 6px; border-radius: 3px; letter-spacing: .3px; user-select: all; }
 .bk-copy { font-size: 11px; padding: 2px 7px; border: 1px solid #1f6feb; color: #1f6feb; background: #fff; border-radius: 4px; cursor: pointer; font-family: inherit; }
 .bk-copy:hover { background: #eef4ff; }
-.bk-card-none { font-size: 10px; color: #aa9; }
-.bk-link { background: #1f6feb; color: #fff; padding: 3px 10px; border-radius: 4px; text-decoration: none; white-space: nowrap; }
+.bk-card-none { font-size: 11px; color: #aa9; }
+.bk-link { background: #1f6feb; color: #fff; padding: 3px 10px; border-radius: 4px; text-decoration: none; white-space: nowrap; margin-left: auto; }
 /* inline per-card number field (in the sidebar card list) */
 .cm-check { display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; cursor: pointer; }
 .cm-cardnum { width: 76px; flex-shrink: 0; padding: 2px 5px; font-size: 10px; font-family: monospace;

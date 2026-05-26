@@ -207,11 +207,6 @@ function cardNumOf(libId) {
   return local || STATE.cardNumbersEnv[libId] || null;
 }
 
-// Show only the last 4 chars in the UI; the full value is copied, not displayed.
-function maskCard(num) {
-  const s = String(num || "").trim();
-  return s.length <= 4 ? s : "····" + s.slice(-4);
-}
 // Copy text to clipboard and flash the trigger button's label.
 function copyText(text, btn, okLabel = "已复制 ✓") {
   navigator.clipboard.writeText(text).then(() => {
@@ -443,16 +438,19 @@ function renderCardList() {
     const members = el("div", { class: "card-members" });
     for (const l of libs) {
       const envNum = STATE.cardNumbersEnv[l.id];
-      // Inline card-number field — independent of the checkbox. Typed value is a
-      // LOCAL testing override (localStorage); .env value shows as a placeholder.
+      // Inline card-number field — independent of the checkbox. Shows the full
+      // effective number (no masking); .env value prefills it. Editing stores a
+      // LOCAL override (localStorage) used at Book time for testing.
       const numInput = el("input", {
         type: "text", class: "cm-cardnum", autocomplete: "off",
-        value: STATE.cardNumbers[l.id] || "",
-        placeholder: envNum ? "env ·" + maskCard(envNum).slice(-4) : "卡号",
-        title: envNum ? "已从 .env 载入；此处填写覆盖（仅本浏览器，测试用）" : "填卡号（仅本浏览器，测试用）",
+        value: cardNumOf(l.id) || "",
+        placeholder: "卡号",
+        title: envNum ? "来自 .env；可改写（仅本浏览器，测试用）" : "填卡号（仅本浏览器，测试用）",
         onchange: (e) => {
           const v = e.target.value.trim();
-          if (v) STATE.cardNumbers[l.id] = v; else delete STATE.cardNumbers[l.id];
+          // store as a local override only when it differs from the .env value
+          if (v && v !== (envNum || "")) STATE.cardNumbers[l.id] = v;
+          else delete STATE.cardNumbers[l.id];
           saveCardNumbers();
         },
       });
@@ -706,44 +704,67 @@ function closeModal() { $("#mx-modal").hidden = true; }
 // pickup-method order: Email (instant) first, then Pick-up, then Pick-up-and-Return.
 const PICKUP_ORDER = { digital_email: 0, physical_coupon: 1, physical_circ: 2 };
 
-// All HELD cards that offer this attraction; eligible first, then by pickup order.
-// Email pass needs no distance; Pick-up / Pick-up-and-Return show distance to the library.
+// One booking-choice row: which card (place), its full number + copy, offer/pickup,
+// distance, and the action (Book link, or the block reason for ineligible cards).
+function bookingRow({ p, lib, v }, eligible) {
+  const physical = p.pass_form !== "digital_email";
+  const mi = (physical && lib.geo && STATE.homeGeo) ? haversineMi(STATE.homeGeo, lib.geo) : null;
+  const num = cardNumOf(lib.id);
+  let cardCell;
+  if (num) {
+    const copyBtn = el("button", { class: "bk-copy", title: "复制卡号" }, "复制");
+    copyBtn.addEventListener("click", () => copyText(num, copyBtn, "✓"));
+    // full number, no masking
+    cardCell = el("span", { class: "bk-card" }, el("span", { class: "bk-card-num" }, num), copyBtn);
+  } else {
+    cardCell = el("span", { class: "bk-card-none", title: "在左侧「持卡情况」该馆卡右侧填卡号" }, "未填卡号");
+  }
+  const action = eligible
+    ? (p.source_url ? el("a", { class: "bk-link", href: p.source_url, target: "_blank", rel: "noopener" }, "Book ↗")
+                    : el("span", { class: "hint" }, "无预订链接"))
+    : el("span", { class: "bk-no" }, "✗ " + (v.reasons[0] || v.blockedLayer));
+  return el("div", { class: "bk-row" + (eligible ? "" : " bk-row-blocked") },
+    el("div", { class: "bk-lib", title: lib.name }, `${lib.town} 馆卡`),
+    cardCell,
+    el("div", { class: "bk-offer" }, couponSummary(p.coupon)),
+    pfTag(p.pass_form),
+    el("span", { class: "bk-dist" }, mi != null ? `${mi.toFixed(1)} mi` : ""),
+    action,
+  );
+}
+
+// Click "Book" → choose which of YOUR cards to book with. Lists every held card
+// that offers this attraction: eligible ones first (pick one, copy its number),
+// then any held-but-blocked cards with the reason.
 function openBookingPopup(attr) {
   const user = getUser();
   const held = new Set(user.heldLibraryIds);
-  const rows = (STATE.passesByAttr[attr.slug] || [])
+  const all = (STATE.passesByAttr[attr.slug] || [])
     .filter(p => held.has(p.library_id))
     .map(p => { const lib = STATE.libsById[p.library_id];
       return { p, lib, v: resolvePass(p, lib, attr, user, STATE.visitDate) }; })
     .sort((a, b) => (b.v.eligible - a.v.eligible)
       || ((PICKUP_ORDER[a.p.pass_form] ?? 9) - (PICKUP_ORDER[b.p.pass_form] ?? 9)));
+  const eligible = all.filter(r => r.v.eligible);
+  const blocked = all.filter(r => !r.v.eligible);
   const box = el("div", { class: "bk-list" });
-  if (!held.size) box.appendChild(el("p", { class: "hint" }, "Tick the cards you hold in the sidebar first."));
-  else if (!rows.length) box.appendChild(el("p", { class: "hint" }, "None of your cards offer this attraction."));
-  else for (const { p, lib, v } of rows) {
-    const physical = p.pass_form !== "digital_email";
-    const mi = (physical && lib.geo && STATE.homeGeo) ? haversineMi(STATE.homeGeo, lib.geo) : null;
-    const num = cardNumOf(lib.id);
-    let cardCell;
-    if (num) {
-      const copyBtn = el("button", { class: "bk-copy", title: "复制卡号" }, "复制");
-      copyBtn.addEventListener("click", () => copyText(num, copyBtn, "✓"));
-      cardCell = el("span", { class: "bk-card" }, el("span", { class: "bk-card-num" }, maskCard(num)), copyBtn);
+  if (!held.size) {
+    box.appendChild(el("p", { class: "hint" }, "先在左侧「持卡情况」勾选你持有的卡。"));
+  } else if (!all.length) {
+    box.appendChild(el("p", { class: "hint" }, "你持有的卡都不提供此景点。"));
+  } else {
+    if (eligible.length) {
+      box.appendChild(el("div", { class: "bk-sec" }, "可预订的卡 — 选一张"));
+      for (const r of eligible) box.appendChild(bookingRow(r, true));
     } else {
-      cardCell = el("span", { class: "bk-card bk-card-none", title: "在「持卡情况」旁点「修改卡号」添加" }, "无卡号");
+      box.appendChild(el("p", { class: "hint" }, "你持有的卡都不满足此景点的预订条件。"));
     }
-    box.appendChild(el("div", { class: "bk-row" },
-      el("div", { class: "bk-lib", title: lib.name }, lib.town),
-      el("div", { class: "bk-offer" }, couponSummary(p.coupon)),
-      pfTag(p.pass_form),
-      el("span", { class: "bk-dist" }, mi != null ? `${mi.toFixed(1)} mi` : ""),
-      v.eligible ? el("span", { class: "bk-ok" }, "✓") : el("span", { class: "bk-no" }, "✗ " + (v.reasons[0] || v.blockedLayer)),
-      cardCell,
-      p.source_url ? el("a", { class: "bk-link", href: p.source_url, target: "_blank", rel: "noopener" }, "Book ↗")
-                   : el("span", { class: "hint" }, "no link"),
-    ));
+    if (blocked.length) {
+      box.appendChild(el("div", { class: "bk-sec bk-sec-muted" }, "不可预订（持有但不符合条件）"));
+      for (const r of blocked) box.appendChild(bookingRow(r, false));
+    }
   }
-  openModal(`Book: ${attr.name}`, box);
+  openModal(`用哪张卡预订：${attr.name}`, box);
 }
 
 // Raw provenance text for one pass (shown in the detail popup + used by Copy).
