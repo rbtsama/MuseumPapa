@@ -61,8 +61,8 @@ test("rowSortKey: best tier + available-first", () => {
 });
 test("bestPolicy/shortSummary: pick strongest form, short glyphs", () => {
   const coupon = { audience_policies: [ { form: "dollar-off", value: 5 }, { form: "free" } ] };
-  assert.equal(bestPolicy(coupon).form, "free");
-  assert.equal(shortSummary(coupon), "FREE");
+  assert.equal(bestPolicy(coupon).form, "free");          // bestPolicy = pure strength
+  assert.equal(shortSummary(coupon), "-$5");              // headline = the paid offer, not the free line
   assert.equal(shortSummary({ audience_policies: [{ form: "percent-off", value: 50 }] }), "-50%");
   assert.equal(shortSummary({ audience_policies: [{ form: "dollar-off", value: 10 }] }), "-$10");
   assert.equal(shortSummary({ audience_policies: [{ form: "per-person-price", value: 9 }] }), "$9");
@@ -77,4 +77,29 @@ test("headlinePolicy: prefers adult/Everyone over a stronger kid offer", () => {
   ] };
   assert.equal(headlinePolicy(coupon).audience, "Adult");
   assert.equal(shortSummary(coupon), "-50%");
+});
+
+test("headlinePolicy: prefers paid offer over a secondary free line when no adult audience", () => {
+  // jfk-library shape: 'Single ticket 50% off' + 'Child free'. The matrix glyph
+  // must not read FREE — mirrors the data-side summary_for fix (P0-2).
+  const coupon = { audience_policies: [
+    { audience: "Single ticket", form: "percent-off", value: 50 },
+    { audience: "Child", form: "free" },
+  ] };
+  assert.equal(headlinePolicy(coupon).form, "percent-off");
+  assert.equal(shortSummary(coupon), "-50%");
+});
+
+test("headlinePolicy: all-free stays FREE", () => {
+  const coupon = { audience_policies: [
+    { audience: "Adult", form: "free" }, { audience: "Child", form: "free" } ] };
+  assert.equal(shortSummary(coupon), "FREE");
+});
+
+test("residencyOk: restricted=yes with unknown scope warns (not silently clean)", () => {
+  // A4: matrix and detail paths disagreed here — matrix showed a clean tier-A.
+  const r = residencyOk({ residency_restriction: { restricted: "yes", scope: null } },
+    libsById.wakefield, null, "01880", maZips);
+  assert.equal(r.ok, true);
+  assert.equal(r.warn, true);
 });

@@ -16,10 +16,18 @@ export function residencyOk(pass, lib, attr, homeZip, maZips) {
   let warn = false;
   const rr = pass?.residency_restriction;
   if (rr && rr.restricted === "yes") {
-    if (rr.scope === "town" && !(lib.resident_zips || []).includes(homeZip))
-      return { ok: false, reason: `${lib.town} residents only` };
-    if (rr.scope === "ma" && !isMaZip(homeZip, maZips))
-      return { ok: false, reason: "MA residents only" };
+    if (rr.scope === "town") {
+      if (!(lib.resident_zips || []).includes(homeZip))
+        return { ok: false, reason: `${lib.town} residents only` };
+    } else if (rr.scope === "ma") {
+      if (!isMaZip(homeZip, maZips))
+        return { ok: false, reason: "MA residents only" };
+    } else {
+      // Restricted, but scope is unknown/unevaluable — we can't clear it, so
+      // never present it as a clean tier-A; flag for review. (Matches the
+      // detail-popup path; was silently {ok:true,warn:false} here. A4.)
+      warn = true;
+    }
   } else if (rr && rr.restricted === "unknown") {
     warn = true;
   }
@@ -71,7 +79,13 @@ export function headlinePolicy(coupon) {
   const ADULT = new Set(["adult", "adults", "everyone", "all"]);
   const adult = coupon.audience_policies.find(
     p => ADULT.has(String(p.audience || "").toLowerCase()));
-  return adult || bestPolicy(coupon);
+  if (adult) return adult;
+  // No adult/Everyone policy: a bare "free" line is usually a secondary
+  // child/infant benefit (e.g. "Single ticket 50% off" + "Child free").
+  // Headline what a paying visitor gets unless every policy is free.
+  // Mirrors build/coupons.py summary_for (P0-2).
+  const nonFree = coupon.audience_policies.filter(p => p.form !== "free");
+  return bestPolicy({ audience_policies: nonFree.length ? nonFree : coupon.audience_policies });
 }
 
 // Long human summary (detail rows). Falls back to coupon.summary.
