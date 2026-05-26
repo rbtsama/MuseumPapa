@@ -39,6 +39,25 @@ def test_validate_raises_on_duplicate_pair(tmp_path):
         validate_build(libraries=lp, attractions=ap, passes_file=pp)
 
 
+def test_check_build_consistency_raises_on_skew(tmp_path):
+    from malibbene.build.validate import check_build_consistency
+    stamps = {"libraries": "2026-05-22T18:00:00+00:00", "attractions": "2026-05-22T18:00:05+00:00",
+              "branches": "2026-05-22T18:00:02+00:00", "passes": "2026-05-25T16:00:00+00:00"}  # 3-day skew
+    for f, ts in stamps.items():
+        (tmp_path/f"{f}.json").write_text(json.dumps({"_meta": {"built_at": ts}}))
+    with pytest.raises(ValueError, match="built"):
+        check_build_consistency(tmp_path)
+
+
+def test_check_build_consistency_passes_when_built_together(tmp_path):
+    from malibbene.build.validate import check_build_consistency
+    stamps = {"libraries": "2026-05-22T18:00:00+00:00", "attractions": "2026-05-22T18:00:05+00:00",
+              "branches": "2026-05-22T18:00:02+00:00", "passes": "2026-05-22T18:00:11+00:00"}
+    for f, ts in stamps.items():
+        (tmp_path/f"{f}.json").write_text(json.dumps({"_meta": {"built_at": ts}}))
+    check_build_consistency(tmp_path)  # within one run -> no raise
+
+
 def test_validate_reports_data_quality_metrics(tmp_path):
     lp, ap, pp = _write(tmp_path,
         [{"id": "a"}],

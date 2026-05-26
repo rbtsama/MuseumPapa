@@ -9,7 +9,7 @@ from malibbene.build.libraries import build_libraries
 from malibbene.build.attractions import build_attractions
 from malibbene.build.branches import build_branches
 from malibbene.build.passes import build_passes
-from malibbene.build.validate import validate_build
+from malibbene.build.validate import validate_build, check_build_consistency
 
 
 def main():
@@ -20,6 +20,7 @@ def main():
     build_attractions(raw_root=raw, overrides_root=over, out_path=out/"attractions.json")
     build_branches(raw_root=raw, overrides_root=over, out_path=out/"branches.json")
     build_passes(raw_root=raw, overrides_root=over, out_path=out/"passes.json")
+    check_build_consistency(out)
     report = validate_build(libraries=out/"libraries.json",
                              attractions=out/"attractions.json",
                              passes_file=out/"passes.json")

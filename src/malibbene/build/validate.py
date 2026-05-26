@@ -1,9 +1,40 @@
 from __future__ import annotations
 import json
 from pathlib import Path
+from datetime import datetime
 from collections import Counter
 
 def _pct(n,total): return round(100.0*n/total,1) if total else 0.0
+
+
+def _parse_ts(s: str) -> datetime:
+    return datetime.fromisoformat(s.replace("Z", "+00:00"))
+
+
+def check_build_consistency(out_dir: Path, max_skew_seconds: int = 3600) -> None:
+    """Raise if the structured files were not built in the same run.
+
+    build_all writes all four within seconds; a large skew in _meta.built_at
+    means one file (usually passes.json) was rebuilt alone and the products are
+    out of sync (the B5 finding: passes was 3 days newer than the rest)."""
+    stamps = {}
+    for name in ("libraries", "attractions", "branches", "passes"):
+        p = out_dir / f"{name}.json"
+        if not p.exists():
+            continue
+        built = (json.loads(p.read_text()).get("_meta") or {}).get("built_at")
+        if built:
+            stamps[name] = _parse_ts(built)
+    if len(stamps) < 2:
+        return
+    skew = (max(stamps.values()) - min(stamps.values())).total_seconds()
+    if skew > max_skew_seconds:
+        newest = max(stamps, key=stamps.get); oldest = min(stamps, key=stamps.get)
+        raise ValueError(
+            f"structured files built {skew/3600:.1f}h apart — not one build run "
+            f"({newest} @ {stamps[newest].isoformat()} vs {oldest} @ {stamps[oldest].isoformat()}). "
+            f"Run scripts/build_all.py to rebuild them together."
+        )
 
 
 def _referential_integrity(libs, attrs, passes) -> None:
