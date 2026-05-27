@@ -38,6 +38,12 @@ test("residencyOk: ma scope accepts MA zip", () => {
   const pass = { residency_restriction: { restricted: "yes", scope: "ma" } };
   assert.equal(residencyOk(pass, libsById.wakefield, null, "01867", maZips).ok, true);
 });
+test("residencyOk: ma scope accepts a real MA zip outside seed towns (01886 Westford)", () => {
+  // Regression: isMaZip used to key off the ~59 seed-town set, so a genuine MA
+  // resident in Westford got a false "MA residents only" block.
+  const pass = { residency_restriction: { restricted: "yes", scope: "ma" } };
+  assert.equal(residencyOk(pass, libsById.wakefield, null, "01886", maZips).ok, true);
+});
 test("residencyOk: unknown passes with warn", () => {
   const r = residencyOk({ residency_restriction: { restricted: "unknown" } }, libsById.wakefield, null, "01880", maZips);
   assert.equal(r.ok, true);

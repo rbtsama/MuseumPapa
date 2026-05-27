@@ -288,7 +288,14 @@ async function loadData() {
 // ─────────────────────────────────────────────
 //  FUNNEL ENGINE  (mirrors web/src/lib/engine.ts exactly)
 // ─────────────────────────────────────────────
-function isMaZip(zip) { return STATE.MA_ZIPS.has(zip); }
+// MA occupies the 010xx–027xx ZIP range (028xx–029xx = RI, 030xx+ = NH/ME).
+// NOT keyed off STATE.MA_ZIPS — that only holds our ~59 seed-town ZIPs, which
+// wrongly blocked genuine MA residents in other towns (e.g. 01886 Westford).
+function isMaZip(zip) {
+  if (!/^\d{5}$/.test(zip || "")) return false;
+  const p = Number(String(zip).slice(0, 3));
+  return p >= 10 && p <= 27;
+}
 
 function checkL1Card(lib, heldLibraryIds, requiresOwnCard) {
   if (heldLibraryIds.includes(lib.id)) return { ok: true };

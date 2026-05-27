@@ -1,7 +1,14 @@
 // Pure, dependency-injected logic for the admin matrix. No global STATE, no DOM.
 // Mirrors the funnel layer semantics in panel.js / web/src/lib/engine.ts.
 
-export function isMaZip(zip, maZips) { return maZips.has(zip); }
+// MA occupies the 010xx–027xx ZIP range (028xx–029xx = RI, 030xx+ = NH/ME).
+// `maZips` (the ~59 seed-town set) is intentionally ignored: keying off it
+// wrongly blocked genuine MA residents in other towns (e.g. 01886 Westford).
+export function isMaZip(zip, _maZips) {
+  if (!/^\d{5}$/.test(zip || "")) return false;
+  const p = Number(String(zip).slice(0, 3));
+  return p >= 10 && p <= 27;
+}
 
 // L1: do the held cards cover this library? (own id, OR a card in the same network)
 // requiresOwnCard: this pass needs THIS library's own card — a same-network
