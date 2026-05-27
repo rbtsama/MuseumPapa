@@ -84,19 +84,18 @@
     },
     {
       "library_id": "bpl",
-      "libcal_pass_id": "27fd343838f2",
+      "libcal_pass_id": "testhalebeach",
       "attraction_slug": "hale-education-physical-pass",
-      "title": "Hale Education (physical pass)",
-      "detail_url": "https://bpl.libcal.com/passes/27fd343838f2",
-      "benefit_text": "THIS IS A RETURNABLE PASS\nCoupon allows for free parking for one vehicle for the day at Hale during normal business hours and access to hiking Hale&rsquo;s many trails. Pass is valid for one-time use at Hale. Pass is not valid for use for other programming (beach time, boating, camping, swimming, lessons, etc.) Those offerings must be purchased separately.\nNote: This pass is limited to one booking per month per person.\nPhysical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.\nTo use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties.",
+      "title": "Hale South Beach Day (digital pass)",
+      "detail_url": "https://bpl.libcal.com/passes/testhalebeach",
+      "benefit_text": "Digital (downloadable via email) passes are available. The pass includes access to: Hale&rsquo;s South Entrance parking lots; private beach access with swimming and boating; picnic/playground areas; restrooms and rinse stations; volleyball and basketball courts; canoes, kayaks, and more. South Beach Access &mdash; Pre-Season: May 23&ndash;June 21, weekends only, 12&ndash;6 PM; Program Season: June 22&ndash;Aug. 16, weekdays 9 AM&ndash;7 PM, weekends 10 AM&ndash;6 PM; Post-Season: Aug. 17&ndash;31, daily, 12&ndash;6 PM.",
       "source_phrases": [
-        "THIS IS A RETURNABLE PASS",
-        "Coupon allows for free parking for one vehicle for the day at Hale during normal business hours and access to hiking Hale&rsquo;s many trails. Pass is valid for one-time use at Hale. Pass is not valid for use for other programming (beach time, boating, camping, swimming, lessons, etc.) Those offerings must be purchased separately.",
-        "Note: This pass is limited to one booking per month per person.",
-        "Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.",
-        "To use this platform, the system writes one or more cookies in your browser. These cookies are not shared with any third parties. In addition, your IP address and browser information is stored in server logs and used to generate anonymized usage statistics. Your institution uses these statistics to gauge the use of library content, and the information is not shared with any third parties."
+        "Digital (downloadable via email) passes are available.",
+        "The pass includes access to: Hale&rsquo;s South Entrance parking lots; Private beach access with swimming and boating; Picnic/playground areas; Restrooms and rinse stations; Volleyball and basketball courts; Canoes, kayaks, and more.",
+        "South Beach Access &mdash; Pre-Season: May 23&ndash;June 21, Weekends Only, 12&ndash;6 PM; Program Season: June 22&ndash;Aug. 16, Weekdays, 9 AM&ndash;7 PM, Weekends 10 AM&ndash;6 PM; Post-Season: Aug. 17&ndash;31, Daily, 12&ndash;6 PM."
       ],
-      "libcal_museum_id": "27fd343838f2"
+      "_audit_note": "2026-05-28 strict_audit: remapped from discontinued physical parking/hiking pass (27fd343838f2, 404) to the current 'Hale South Beach Day' digital pass (testhalebeach); benefit + pass_form changed per operator confirmation. attraction_slug kept canonicalizing to hale-education to preserve the join.",
+      "libcal_museum_id": "testhalebeach"
     },
     {
       "library_id": "bpl",

@@ -1,0 +1,168 @@
+{
+  "checked_at": "2026-05-28T01:31:34",
+  "unique_urls": 1002,
+  "dead_count": 26,
+  "status_histogram": {
+    "200": 976,
+    "404": 26
+  },
+  "unreachable_urls": [],
+  "dead": [
+    {
+      "library_id": "marblehead",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://abbotlibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "acton",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://actonmemoriallibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "belmont",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://belmontpubliclibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "brookline",
+      "attraction_slug": "zoo-new-england",
+      "status": 404,
+      "source_url": "https://brooklinelibrary.libcal.com/passes/c284e6b3063b"
+    },
+    {
+      "library_id": "brookline",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://brooklinelibrary.libcal.com/passes/nea"
+    },
+    {
+      "library_id": "lexington",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://carylibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "everett",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://everettpubliclibraries.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "middleton",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://flintlibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "framingham",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://framinghamlibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "sudbury",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://goodnowlibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "lawrence",
+      "attraction_slug": "boston-childrens-museum",
+      "status": 404,
+      "source_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/boston-childrens-museum/"
+    },
+    {
+      "library_id": "lawrence",
+      "attraction_slug": "harvard-museums-of-science-and-culture",
+      "status": 404,
+      "source_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/harvard-museums-of-science-and-culture/"
+    },
+    {
+      "library_id": "lawrence",
+      "attraction_slug": "ma-state-parks",
+      "status": 404,
+      "source_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/massachusetts-state-parks-department-of-conservation-and-recreation/"
+    },
+    {
+      "library_id": "lawrence",
+      "attraction_slug": "mfa",
+      "status": 404,
+      "source_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/museum-of-fine-arts/"
+    },
+    {
+      "library_id": "lawrence",
+      "attraction_slug": "museum-of-science",
+      "status": 404,
+      "source_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/museum-of-science/"
+    },
+    {
+      "library_id": "lawrence",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "lawrence",
+      "attraction_slug": "the-uss-constitution-museum",
+      "status": 404,
+      "source_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/the-uss-constitution-museum/"
+    },
+    {
+      "library_id": "lawrence",
+      "attraction_slug": "wheelock-family-theatre",
+      "status": 404,
+      "source_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/wheelock-family-theatre/"
+    },
+    {
+      "library_id": "lawrence",
+      "attraction_slug": "zoo-new-england",
+      "status": 404,
+      "source_url": "https://lawrencepl.assabetinteractive.com/museum-passes/by-museum/zoo-new-england/"
+    },
+    {
+      "library_id": "lynnfield",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://lynnfieldlibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "methuen",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://nevinslibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "peabody",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://peabodylibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "somerville",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://somervillepubliclibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "north-andover",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://stevensmemlib.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "wellesley",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://wellesleyfreelibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    },
+    {
+      "library_id": "wilmington",
+      "attraction_slug": "new-england-aquarium",
+      "status": 404,
+      "source_url": "https://wilmlibrary.assabetinteractive.com/museum-passes/by-museum/new-england-aquarium/"
+    }
+  ]
+}

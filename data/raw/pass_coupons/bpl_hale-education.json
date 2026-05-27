@@ -2,10 +2,10 @@
   "library_id": "bpl",
   "attraction_slug": "hale-education",
   "status": "ok",
-  "raw": "THIS IS A RETURNABLE PASS Coupon allows for free parking for one vehicle for the day at Hale during normal business hours and access to hiking Hale's many trails. Pass is valid for one-time use at Hale. Pass is not valid for use for other programming (beach time, boating, camping, swimming, lessons, etc.) Those offerings must be purchased separately. Note: This pass is limited to one booking per month per person. Physical (must be picked up at the library and returned) passes are available. Select your location preference and then pick the dates from the availability calendar.",
+  "raw": "Digital (downloadable via email) passes are available. The pass includes access to: Hale's South Entrance parking lots; private beach access with swimming and boating; picnic/playground areas; restrooms and rinse stations; volleyball and basketball courts; canoes, kayaks, and more. South Beach Access — Pre-Season: May 23–June 21, weekends only, 12–6 PM; Program Season: June 22–Aug. 16, weekdays 9 AM–7 PM, weekends 10 AM–6 PM; Post-Season: Aug. 17–31, daily, 12–6 PM.",
   "capacity": {
     "kind": "vehicle",
-    "n": null
+    "n": 1
   },
   "audience_policies": [
     {
@@ -19,11 +19,16 @@
   "restrictions": {
     "blackout_dates": [],
     "weekdays_only": false,
-    "seasonal": null,
+    "seasonal": {
+      "start_month": 5,
+      "end_month": 8
+    },
     "reservation_required": false
   },
   "source_phrases": {
-    "capacity.kind": "free parking for one vehicle",
-    "audience_policies[0].form": "free parking"
-  }
+    "capacity.kind": "Hale's South Entrance parking lots",
+    "audience_policies[0].form": "Digital (downloadable via email) passes are available",
+    "restrictions.seasonal": "South Beach Access — Pre-Season: May 23–June 21 ... Post-Season: Aug. 17–31"
+  },
+  "_audit_note": "2026-05-28 strict_audit: remapped from discontinued physical parking/hiking pass to the current 'Hale South Beach Day' digital pass (testhalebeach), per operator confirmation. Old pass excluded beach use; new pass IS the beach day pass. capacity kept per-vehicle (day pass covers South Entrance parking + carload beach access); seasonal May–Aug."
 }

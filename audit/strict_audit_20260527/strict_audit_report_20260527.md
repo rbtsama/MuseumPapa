@@ -85,6 +85,36 @@ BPL 这一类当前确认了 4 个公开页即可落锤的问题数据点。
 | belmont | isabella-stewart-gardner-museum | `rejected_resident` | 解除阻塞；与当前结构化结论一致，不新增问题点。 |
 | newton | larz-anderson-auto-museum | `accepted` | 解除阻塞，但不记为问题数据点。 |
 
+### D. source_url 全量联网校验：坏链（404）分三类，性质不同
+
+对 `data/structured/passes.json` 引用的全部 **1002 个唯一 `source_url`** 做了一次穷举式公开页 liveness 校验（纯 HTTP GET，不登录、**不使用任何卡**；脚本 `audit/strict_audit_20260527/scripts/check_source_urls.py`，机读结果落 `outputs/dead_source_urls.json`，初次校验 2026-05-28）。首轮：975 个 `200`，**27 个 `404`**，0 个不可达。
+
+**重要更正**：404 出现在带具体 pass-id 的**深链**上，而对应平台的**索引页是活的**（`https://bpl.libcal.com/passes`、`https://<lib>.assabetinteractive.com/museum-passes/` 均 200，用户可正常进入预订）。所以「深链 404」**不等于**「该 pass 不可订」。逐条把每个 404 深链与其所属馆的索引页交叉核对后，27 条分成三类（核对脚本同上）：
+
+#### D1. STALE-ID（1 条）——景点仍在索引上，只是我们存的深链 id 过期 → **已修复**
+
+| Library | Attraction | 旧（404） | 现状 | 处理 |
+|---|---|---|---|---|
+| bpl | hale-education | `…/passes/27fd343838f2` | BPL 索引仍有 Hale；旧「停车/徒步 physical pass」已被下线，现存的是福利不同的「Hale South Beach Day **digital** pass」(`…/passes/testhalebeach`) | 2026-05-28 经 operator 确认**重映射**：`source_url`→testhalebeach、`pass_form` physical_circ→**digital_email**、benefit 改为沙滩日、加 May–Aug 季节性限制。详见 id 映射与 raw catalog 的 `_audit_note`。 |
+
+这类是**数据新鲜度 bug**（深链 id 变了 / pass 被同馆新 pass 顶替），重抓即修，不应展示成「broken source」。
+
+#### D2. 真下架（17 条）——该景点已从所属馆**索引页**也消失
+
+| 景点 (attraction) | 馆数 | 受影响馆 |
+|---|---|---|
+| new-england-aquarium | 16 | acton, belmont, brookline\*, everett, framingham, lexington, lynnfield, marblehead, methuen, middleton, north-andover, peabody, somerville, sudbury, wellesley, wilmington |
+| zoo-new-england | 1 | brookline\* |
+
+`*` = libcal（brookline）。NEA 跨 16 馆 + brookline 同时从各馆索引消失 → 平台侧把该 pass 整体下线，应从产品下架或重抓。与 §A/probe 里这些 NEA pass「无可用日期 → `ambiguous`」同源。
+另注：`brookline/new-england-aquarium` 存的 libcal 链是 `…/passes/nea`，`nea` 非真实 hex id，疑似占位/抓取错误，即便未下架也无效。
+
+#### D3. lawrence 整馆索引失效（9 条）——连 `/museum-passes/` 索引本身都 404
+
+lawrence 一个馆独占 9 条坏链（new-england-aquarium、zoo-new-england、boston-childrens-museum、harvard-museums-of-science-and-culture、mfa、museum-of-science、ma-state-parks、the-uss-constitution-museum、wheelock-family-theatre），且其 **Assabet 索引页 `https://<lawrence-domain>/museum-passes/` 本身返回 404** —— 不是单个 pass 失活，而是整馆路径失效（换域名 / 迁平台 / 退出 Assabet）。需单独核实 lawrence 的 `domain`/`platform` 配置后整馆重抓。
+
+修复 D1 后，当前剩余 **26 条 404**（D2 的 17 + D3 的 9），均待下架或重抓。
+
 ## 阻塞与未落锤项
 
 ### 1. 需要复测但暂不记为数据错误
@@ -109,6 +139,7 @@ BPL 这一类当前确认了 4 个公开页即可落锤的问题数据点。
 - 本轮总共确认 29 个问题数据点。
 - 其中最显著的问题簇在 `MVLC`：多家 library 的多个 pass，结构化数据判定“同网络非本镇卡可订”，但官网真实卡校验直接拒绝。
 - `North Reading` 出现反向问题：结构化数据把多个 pass 判成需要本馆卡，但实测同网络跨镇卡可以通过。
-- `BPL` 至少有 3 个 pass 的 `pass_form` 与公开页矛盾，另有 1 个 `source_url` 已经 404。
+- `BPL` 至少有 3 个 pass 的 `pass_form` 与公开页矛盾。
+- **source_url 全量校验（§D）发现 27 条 404 深链**，但**索引页都是活的**——「深链 404 ≠ 不可订」。逐条交叉核对后分三类：① STALE-ID 1 条（`bpl/hale-education`，pass 仍在索引、id 过期，**已重映射修复**为 digital 沙滩日 pass）；② 真下架 17 条（`new-england-aquarium` 跨 16 馆 + brookline、brookline `zoo`，已从各馆索引消失，与 probe 侧 `ambiguous` 同源）；③ `lawrence` 整馆 9 条（`/museum-passes/` 索引本身 404，整馆路径失效，需重抓）。剩余 26 条待下架或重抓。
 - `BPL` 与 `MBLN` 的联盟/持卡覆盖关系建模错误：`Malden` 卡可真实登录 BPL，但现有结构化 `network` 语义表达不出来。
 - `BPL` 的真实登录链路已被少量验证打通：`Malden` 卡可进入 `Boston Children's Museum` 与 `MFA` 的真实 `Booking Details` 页，因此后续 BPL 审计可以继续沿这条路径少量扩展。
