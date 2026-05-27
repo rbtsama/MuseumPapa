@@ -3,6 +3,10 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  // Force the automatic JSX runtime for the test transform so test files need no
+  // `import React` (plugin-react's automatic runtime isn't applied to the vitest
+  // transform under vite 8). Without this, JSX compiles to React.createElement.
+  esbuild: { jsx: 'automatic', jsxImportSource: 'react' },
   test: {
     globals: true,
     environment: 'jsdom',

@@ -83,14 +83,17 @@ describe('AttractionDetail — timed-entry two-step guide', () => {
 });
 
 describe('AttractionDetail — physical_circ pickup reminder', () => {
-  it('renders pickup/return reminder for physical_circ pass in new-england-aquarium', async () => {
-    renderDetail('new-england-aquarium');
+  it('renders pickup/return reminder for physical_circ pass in ma-state-parks', async () => {
+    // ma-state-parks has physical_circ passes at many Minuteman libraries (e.g. acton),
+    // reachable via the somerville card. (new-england-aquarium no longer has any
+    // physical_circ pass after pass_form was derived from authoritative pass_type.)
+    renderDetail('ma-state-parks');
     // Wait for the attraction to load.
     await waitFor(() => {
-      expect(screen.getAllByText(/New England Aquarium/i).length).toBeGreaterThan(0);
+      expect(screen.getAllByText(/Massachusetts State Parks/i).length).toBeGreaterThan(0);
     });
-    // acton has a physical_circ pass for NEA, accessible via Minuteman network.
-    // The row should render the pickup/return reminder (may appear multiple times if multiple rows).
+    // The physical_circ row should render the pickup/return reminder (may appear
+    // multiple times across rows).
     await waitFor(() => {
       const els = screen.queryAllByText(/Pick up and return at the library/);
       expect(els.length).toBeGreaterThan(0);
