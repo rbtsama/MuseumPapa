@@ -324,6 +324,7 @@ export function AttractionDetail() {
                   library={lib}
                   verdict={rec.verdict}
                   distanceMi={distanceMi}
+                  userGeo={userGeo}
                   showTopBorder={i > 0}
                   onBook={setBookingPass}
                 />

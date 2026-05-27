@@ -1,202 +1,339 @@
 {
   "_meta": {
-    "built_at": "2026-05-26T17:17:50.593029+00:00",
-    "n_branches": 34
+    "built_at": "2026-05-27T13:08:01.018476+00:00",
+    "n_branches": 34,
+    "n_geocoded": 34
   },
   "branches": [
     {
       "id": "bpl-central",
       "library_id": "bpl",
       "name": "Central",
-      "code": "3"
+      "code": "3",
+      "geo": {
+        "lat": 42.3624657,
+        "lon": -71.0546745
+      }
     },
     {
       "id": "bpl-adams-street",
       "library_id": "bpl",
       "name": "Adams Street",
-      "code": "13"
+      "code": "13",
+      "geo": {
+        "lat": 42.2862449,
+        "lon": -71.0543931
+      }
     },
     {
       "id": "bpl-brighton",
       "library_id": "bpl",
       "name": "Brighton",
-      "code": "15"
+      "code": "15",
+      "geo": {
+        "lat": 42.347559,
+        "lon": -71.1526263
+      }
     },
     {
       "id": "bpl-charlestown",
       "library_id": "bpl",
       "name": "Charlestown",
-      "code": "16"
+      "code": "16",
+      "geo": {
+        "lat": 42.3778749,
+        "lon": -71.0619957
+      }
     },
     {
       "id": "bpl-chinatown",
       "library_id": "bpl",
       "name": "Chinatown",
-      "code": "83"
+      "code": "83",
+      "geo": {
+        "lat": 42.3513291,
+        "lon": -71.0626228
+      }
     },
     {
       "id": "bpl-codman-square",
       "library_id": "bpl",
       "name": "Codman Square",
-      "code": "17"
+      "code": "17",
+      "geo": {
+        "lat": 42.2875284,
+        "lon": -71.0708517
+      }
     },
     {
       "id": "bpl-connolly",
       "library_id": "bpl",
       "name": "Connolly",
-      "code": "18"
+      "code": "18",
+      "geo": {
+        "lat": 42.3206515,
+        "lon": -71.1110858
+      }
     },
     {
       "id": "bpl-east-boston",
       "library_id": "bpl",
       "name": "East Boston",
-      "code": "21"
+      "code": "21",
+      "geo": {
+        "lat": 42.3777815,
+        "lon": -71.0280956
+      }
     },
     {
       "id": "bpl-egleston-square",
       "library_id": "bpl",
       "name": "Egleston Square",
-      "code": "22"
+      "code": "22",
+      "geo": {
+        "lat": 42.3141061,
+        "lon": -71.0957166
+      }
     },
     {
       "id": "bpl-faneuil",
       "library_id": "bpl",
       "name": "Faneuil",
-      "code": "23"
+      "code": "23",
+      "geo": {
+        "lat": 42.3513286,
+        "lon": -71.1678718
+      }
     },
     {
       "id": "bpl-grove-hall",
       "library_id": "bpl",
       "name": "Grove Hall",
-      "code": "25"
+      "code": "25",
+      "geo": {
+        "lat": 42.3079423,
+        "lon": -71.0812108
+      }
     },
     {
       "id": "bpl-honan-allston",
       "library_id": "bpl",
       "name": "Honan-Allston",
-      "code": "26"
+      "code": "26",
+      "geo": {
+        "lat": 42.3601192,
+        "lon": -71.1277246
+      }
     },
     {
       "id": "bpl-hyde-park",
       "library_id": "bpl",
       "name": "Hyde Park",
-      "code": "27"
+      "code": "27",
+      "geo": {
+        "lat": 42.256995,
+        "lon": -71.12209
+      }
     },
     {
       "id": "bpl-jamaica-plain",
       "library_id": "bpl",
       "name": "Jamaica Plain",
-      "code": "28"
+      "code": "28",
+      "geo": {
+        "lat": 42.3086446,
+        "lon": -71.1149102
+      }
     },
     {
       "id": "bpl-lower-mills",
       "library_id": "bpl",
       "name": "Lower Mills",
-      "code": "29"
+      "code": "29",
+      "geo": {
+        "lat": 42.2734109,
+        "lon": -71.0684432
+      }
     },
     {
       "id": "bpl-mattapan",
       "library_id": "bpl",
       "name": "Mattapan",
-      "code": "30"
+      "code": "30",
+      "geo": {
+        "lat": 42.277345,
+        "lon": -71.0930048
+      }
     },
     {
       "id": "bpl-north-end",
       "library_id": "bpl",
       "name": "North End",
-      "code": "31"
+      "code": "31",
+      "geo": {
+        "lat": 42.364013,
+        "lon": -71.054998
+      }
     },
     {
       "id": "bpl-parker-hill",
       "library_id": "bpl",
       "name": "Parker Hill",
-      "code": "34"
+      "code": "34",
+      "geo": {
+        "lat": 42.3324729,
+        "lon": -71.099076
+      }
     },
     {
       "id": "bpl-roslindale",
       "library_id": "bpl",
       "name": "Roslindale",
-      "code": "35"
+      "code": "35",
+      "geo": {
+        "lat": 42.2855958,
+        "lon": -71.1285567
+      }
     },
     {
       "id": "bpl-shaw-roxbury",
       "library_id": "bpl",
       "name": "Shaw-Roxbury",
-      "code": "19"
+      "code": "19",
+      "geo": {
+        "lat": 42.3280581,
+        "lon": -71.0836027
+      }
     },
     {
       "id": "bpl-south-boston",
       "library_id": "bpl",
       "name": "South Boston",
-      "code": "36"
+      "code": "36",
+      "geo": {
+        "lat": 42.3358202,
+        "lon": -71.038751
+      }
     },
     {
       "id": "bpl-uphams-corner",
       "library_id": "bpl",
       "name": "Uphams Corner",
-      "code": "38"
+      "code": "38",
+      "geo": {
+        "lat": 42.3147979,
+        "lon": -71.067633
+      }
     },
     {
       "id": "bpl-west-end",
       "library_id": "bpl",
       "name": "West End",
-      "code": "39"
+      "code": "39",
+      "geo": {
+        "lat": 42.3615437,
+        "lon": -71.0650037
+      }
     },
     {
       "id": "bpl-west-roxbury",
       "library_id": "bpl",
       "name": "West Roxbury",
-      "code": "40"
+      "code": "40",
+      "geo": {
+        "lat": 42.2833892,
+        "lon": -71.1574253
+      }
     },
     {
       "id": "brookline-brookline-village",
       "library_id": "brookline",
-      "name": "Brookline Village"
+      "name": "Brookline Village",
+      "geo": {
+        "lat": 42.3325441,
+        "lon": -71.1169971
+      }
     },
     {
       "id": "brookline-coolidge-corner",
       "library_id": "brookline",
-      "name": "Coolidge Corner"
+      "name": "Coolidge Corner",
+      "geo": {
+        "lat": 42.3435193,
+        "lon": -71.1191436
+      }
     },
     {
       "id": "brookline-putterham",
       "library_id": "brookline",
-      "name": "Putterham"
+      "name": "Putterham",
+      "geo": {
+        "lat": 42.302505,
+        "lon": -71.1501028
+      }
     },
     {
       "id": "cambridge-main",
       "library_id": "cambridge",
-      "name": "Main Library"
+      "name": "Main Library",
+      "geo": {
+        "lat": 42.3734603,
+        "lon": -71.1111571
+      }
     },
     {
       "id": "cambridge-boudreau",
       "library_id": "cambridge",
-      "name": "Boudreau Branch"
+      "name": "Boudreau Branch",
+      "geo": {
+        "lat": 42.3833739,
+        "lon": -71.1325764
+      }
     },
     {
       "id": "cambridge-central-square",
       "library_id": "cambridge",
-      "name": "Central Square Branch"
+      "name": "Central Square Branch",
+      "geo": {
+        "lat": 42.3639454,
+        "lon": -71.1038247
+      }
     },
     {
       "id": "cambridge-collins",
       "library_id": "cambridge",
-      "name": "Collins Branch"
+      "name": "Collins Branch",
+      "geo": {
+        "lat": 42.3769056,
+        "lon": -71.1468839
+      }
     },
     {
       "id": "cambridge-o-connell",
       "library_id": "cambridge",
-      "name": "O'Connell Branch"
+      "name": "O'Connell Branch",
+      "geo": {
+        "lat": 42.3704407,
+        "lon": -71.0848233
+      }
     },
     {
       "id": "cambridge-o-neill",
       "library_id": "cambridge",
-      "name": "O'Neill Branch"
+      "name": "O'Neill Branch",
+      "geo": {
+        "lat": 42.392702,
+        "lon": -71.128603
+      }
     },
     {
       "id": "cambridge-valente",
       "library_id": "cambridge",
-      "name": "Valente Branch"
+      "name": "Valente Branch",
+      "geo": {
+        "lat": 42.3721548,
+        "lon": -71.0902467
+      }
     }
   ]
 }

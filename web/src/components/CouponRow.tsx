@@ -1,14 +1,17 @@
-import type { Pass, Library } from '../data/types';
+import type { Pass, Library, Geo } from '../data/types';
 import type { PassVerdict } from '../lib/eligibility';
 import { PassTypeLabel } from './PassTypeLabel';
 import { CouponLine, formatCapacity } from './CouponLine';
 import { couponSummary } from '../lib/couponSummary';
+import { PickupBranches } from './PickupBranches';
 
 interface CouponRowProps {
   pass: Pass;
   library: Library;
   verdict: PassVerdict;
   distanceMi: number | null;
+  /** User home centroid, for the multi-branch pickup distances. */
+  userGeo?: Geo | null;
   /** Render a top border between rows; pass `false` on the first row in a list. */
   showTopBorder?: boolean;
   onBook: (pass: Pass) => void;
@@ -16,8 +19,11 @@ interface CouponRowProps {
 
 /** Shared coupon row used by the detail page and the list card. */
 export function CouponRow({
-  pass, library, verdict, distanceMi, showTopBorder = true, onBook,
+  pass, library, verdict, distanceMi, userGeo = null, showTopBorder = true, onBook,
 }: CouponRowProps) {
+  // Physical passes are collected in person; digital (email) ones are not, so
+  // only the physical forms get the "which branch do I pick it up at" affordance.
+  const isPhysical = pass.pass_form === 'physical_coupon' || pass.pass_form === 'physical_circ';
   const isDigital = pass.pass_form === 'digital_email';
 
   const locationText = isDigital ? library.name : library.town;
@@ -133,6 +139,14 @@ export function CouponRow({
           {pass.restrictions?.booking_frequency_limit && (
             <span>Booking limit: {pass.restrictions.booking_frequency_limit}</span>
           )}
+        </div>
+      )}
+
+      {/* Where to pick up — only for physical passes at multi-branch libraries.
+          Renders nothing for single-branch libraries / digital passes. */}
+      {isPhysical && (
+        <div style={{ padding: '0 12px 8px' }}>
+          <PickupBranches libraryId={library.id} userGeo={userGeo} />
         </div>
       )}
     </div>

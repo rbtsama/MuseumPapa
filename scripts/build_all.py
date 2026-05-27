@@ -18,7 +18,8 @@ def main():
     build_libraries(seed_path=ROOT/"config/library_seeds.json",
                     raw_root=raw, overrides_root=over, out_path=out/"libraries.json")
     build_attractions(raw_root=raw, overrides_root=over, out_path=out/"attractions.json")
-    build_branches(raw_root=raw, overrides_root=over, out_path=out/"branches.json")
+    build_branches(raw_root=raw, overrides_root=over, out_path=out/"branches.json",
+                   libraries_path=out/"libraries.json")
     build_passes(raw_root=raw, overrides_root=over, out_path=out/"passes.json")
     check_build_consistency(out)
     report = validate_build(libraries=out/"libraries.json",

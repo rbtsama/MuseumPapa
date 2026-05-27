@@ -48,7 +48,7 @@ export interface Pass {
   residency_restriction: ResidencyRestriction; availability: Record<string, string>;
   eligibility_override?: unknown;
 }
-export interface Branch { id: string; library_id: string; name: string; code?: string | null; }
+export interface Branch { id: string; library_id: string; name: string; code?: string | null; geo?: Geo | null; }
 
 export interface LibrariesJson { _meta: unknown; libraries: Library[]; }
 export interface AttractionsJson { _meta: unknown; attractions: Attraction[]; }
