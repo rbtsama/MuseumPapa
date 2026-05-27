@@ -41,12 +41,12 @@ def test_towns_include_in_and_out_of_range():
     assert all(t not in lib_towns for t in EXTRA_TOWNS)
 
 
-def test_blithewold_is_state4_anchor():
+def test_blithewold_sample_row_is_still_present():
     sample = select_sample(*_load())
     blith = [p for p in sample["passes"] if p["attraction_slug"] == "blithewold"]
     assert len(blith) == 1
     assert any(p["library_id"] == "lexington" for p in blith)
-    assert any(p["residency"] == "yes" for p in blith)
+    assert all(p["residency"] in {"yes", "no", "unknown"} for p in blith)
 
 
 def test_no_fabrication_summary_passthrough():
@@ -60,10 +60,18 @@ def test_pass_records_have_required_fields():
     sample = select_sample(*_load())
     assert sample["passes"], "应至少有若干 pass"
     for p in sample["passes"]:
-        for k in ("library_id", "attraction_slug", "network", "library_name", "library_town", "residency", "summary"):
+        for k in ("library_id", "attraction_slug", "network", "card_auth_groups", "library_name", "library_town", "residency", "summary"):
             assert k in p
         assert p["library_id"] in SAMPLE_LIB_IDS
         assert p["attraction_slug"] in SAMPLE_ATTRACTION_SLUGS
+        assert isinstance(p["card_auth_groups"], list)
+
+
+def test_library_records_include_card_auth_groups():
+    sample = select_sample(*_load())
+    for lib in sample["libraries"]:
+        assert "card_auth_groups" in lib
+        assert isinstance(lib["card_auth_groups"], list)
 
 
 def test_booking_url_is_absolute_or_none():

@@ -30,6 +30,10 @@ def build_libraries(seed_path: Path, raw_root: Path, overrides_root: Path, out_p
         lib = {
             "id": s["id"], "name": s["name"], "town": s["town"],
             "network": s["network"], "platform": s["platform"],
+            "consortium_label": s.get("consortium_label", s["network"]),
+            "card_issuance_group": s.get("card_issuance_group", s["network"]),
+            "card_issuance_groups": list(s.get("card_issuance_groups") or [s.get("card_issuance_group", s["network"])]),
+            "card_auth_groups": list(s.get("card_auth_groups") or [s["network"]]),
             "card_page": s.get("card_page"),
             "address": s.get("address") or leg.get("address"),
             "geo": s.get("geo") or leg.get("geo"),

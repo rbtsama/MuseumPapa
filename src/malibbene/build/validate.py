@@ -1,10 +1,21 @@
 from __future__ import annotations
 import json
+import time
+import hashlib
 from pathlib import Path
 from datetime import datetime
 from collections import Counter
+from urllib.request import Request, urlopen
+from urllib.error import HTTPError, URLError
+from malibbene.build.slug_canonical import canonical
+from malibbene.build.passes import infer_pass_form_from_text
 
 def _pct(n,total): return round(100.0*n/total,1) if total else 0.0
+
+
+REPO = Path(__file__).resolve().parents[3]
+DEFAULT_SOURCE_URL_CACHE = REPO / "data" / ".cache" / "source_url_status.json"
+DEFAULT_SOURCE_URL_TTL_SECONDS = 72 * 3600
 
 
 def _parse_ts(s: str) -> datetime:
@@ -72,14 +83,176 @@ def _duplicate_audience_count(passes) -> int:
             n += 1
     return n
 
+def _libcal_catalog_texts(raw_root: Path | None) -> dict[tuple[str, str], str]:
+    if not raw_root:
+        return {}
+    out = {}
+    catalog_dir = raw_root / "libcal" / "catalog"
+    if not catalog_dir.exists():
+        return out
+    for cat_f in catalog_dir.glob("*.json"):
+        cat = json.loads(cat_f.read_text(encoding="utf-8"))
+        lib = cat.get("library_id")
+        for p in cat.get("passes", []):
+            rawslug = p.get("attraction_slug")
+            if not lib or not rawslug:
+                continue
+            out[(lib, canonical(rawslug))] = p.get("benefit_text") or ""
+    return out
 
-def validate_build(libraries: Path, attractions: Path, passes_file: Path) -> dict:
+def _pass_form_catalog_conflicts(passes, raw_root: Path | None) -> tuple[int, list[dict]]:
+    texts = _libcal_catalog_texts(raw_root)
+    mismatches = []
+    for p in passes:
+        text = texts.get((p.get("library_id"), p.get("attraction_slug")))
+        if not text:
+            continue
+        expected = infer_pass_form_from_text(text)
+        actual = p.get("pass_form")
+        if expected and actual and expected != actual:
+            mismatches.append({
+                "library_id": p.get("library_id"),
+                "attraction_slug": p.get("attraction_slug"),
+                "expected": expected,
+                "actual": actual,
+            })
+    return len(mismatches), mismatches[:8]
+
+
+def _booking_probe_own_card_conflicts(passes) -> tuple[int, list[dict]]:
+    mismatches = []
+    for p in passes:
+        rr = p.get("residency_restriction") or {}
+        evidence = " ".join(filter(None, [p.get("own_card_evidence"), rr.get("evidence")])).lower()
+        if not evidence:
+            continue
+
+        expects_own = "blocked at card-validation" in evidence or "card rejected" in evidence
+        expects_open = "same-network card accepted" in evidence or "card accepted" in evidence
+        actual_own = bool(p.get("requires_own_card"))
+
+        if rr.get("source") == "booking_probe_card_ownership" and rr.get("restricted") != "no":
+            mismatches.append({
+                "library_id": p.get("library_id"),
+                "attraction_slug": p.get("attraction_slug"),
+                "issue": "booking_probe_card_ownership_must_not_set_residency_block",
+                "actual_restricted": rr.get("restricted"),
+            })
+            continue
+
+        if expects_own and not actual_own:
+            mismatches.append({
+                "library_id": p.get("library_id"),
+                "attraction_slug": p.get("attraction_slug"),
+                "issue": "probe_blocked_but_requires_own_card_false",
+            })
+        elif expects_open and actual_own:
+            mismatches.append({
+                "library_id": p.get("library_id"),
+                "attraction_slug": p.get("attraction_slug"),
+                "issue": "probe_accepted_but_requires_own_card_true",
+            })
+    return len(mismatches), mismatches[:8]
+
+def fetch_url_status(url: str, timeout: int = 10) -> int | None:
+    req = Request(url, headers={"User-Agent": "MuseumPapa validate/1.0"})
+    try:
+        with urlopen(req, timeout=timeout) as resp:
+            return getattr(resp, "status", None) or resp.getcode()
+    except HTTPError as e:
+        return e.code
+    except URLError:
+        return None
+
+
+def _load_status_cache(cache_path: Path) -> dict[str, dict]:
+    if not cache_path.exists():
+        return {}
+    try:
+        cached = json.loads(cache_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
+    if not isinstance(cached, dict):
+        return {}
+    return cached
+
+
+def _save_status_cache(cache_path: Path, cache: dict[str, dict]) -> None:
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    cache_path.write_text(json.dumps(cache, indent=2, sort_keys=True), encoding="utf-8")
+
+
+def _cache_key(url: str) -> str:
+    return hashlib.sha1(url.encode("utf-8")).hexdigest()
+
+
+def build_source_url_fetcher(
+    *,
+    fetcher=fetch_url_status,
+    cache_path: Path = DEFAULT_SOURCE_URL_CACHE,
+    ttl_seconds: int = DEFAULT_SOURCE_URL_TTL_SECONDS,
+    now: float | None = None,
+):
+    clock = time.time if now is None else (lambda: now)
+    cache = _load_status_cache(cache_path)
+
+    def cached_fetch(url: str) -> int | None:
+        key = _cache_key(url)
+        entry = cache.get(key)
+        if entry and entry.get("url") == url:
+            checked_at = entry.get("checked_at")
+            if isinstance(checked_at, (int, float)) and clock() - checked_at <= ttl_seconds:
+                return entry.get("status")
+
+        status = fetcher(url)
+        if status is None:
+            return None
+
+        cache[key] = {"url": url, "status": status, "checked_at": clock()}
+        _save_status_cache(cache_path, cache)
+        return status
+
+    return cached_fetch
+
+def _source_url_health(passes, fetcher=None) -> tuple[int | None, list[dict]]:
+    if fetcher is None:
+        return None, []
+    seen = {}
+    bad = []
+    for p in passes:
+        url = p.get("source_url")
+        if not url:
+            continue
+        if url not in seen:
+            seen[url] = fetcher(url)
+        status = seen[url]
+        if status is not None and status >= 400:
+            bad.append({
+                "library_id": p.get("library_id"),
+                "attraction_slug": p.get("attraction_slug"),
+                "status": status,
+                "source_url": url,
+            })
+    return len(bad), bad[:8]
+
+def validate_build(
+    libraries: Path,
+    attractions: Path,
+    passes_file: Path,
+    *,
+    raw_root: Path | None = None,
+    source_url_fetcher=None,
+) -> dict:
     libs = json.loads(libraries.read_text())["libraries"]
     attrs = json.loads(attractions.read_text())["attractions"]
     passes = json.loads(passes_file.read_text())["passes"]
 
     # Hard gate: corruption must never ship.
     _referential_integrity(libs, attrs, passes)
+
+    pass_form_conflict_count, pass_form_conflict_samples = _pass_form_catalog_conflicts(passes, raw_root)
+    booking_probe_conflict_count, booking_probe_conflict_samples = _booking_probe_own_card_conflicts(passes)
+    dead_source_url_count, dead_source_url_samples = _source_url_health(passes, source_url_fetcher)
 
     return {
         "libraries": {
@@ -105,5 +278,11 @@ def validate_build(libraries: Path, attractions: Path, passes_file: Path) -> dic
             "coupon_missing_pct": _pct(
                 sum(1 for p in passes if not p.get("coupon")), len(passes)),
             "duplicate_audience_count": _duplicate_audience_count(passes),
+            "pass_form_catalog_conflict_count": pass_form_conflict_count,
+            "pass_form_catalog_conflict_samples": pass_form_conflict_samples,
+            "booking_probe_own_card_conflict_count": booking_probe_conflict_count,
+            "booking_probe_own_card_conflict_samples": booking_probe_conflict_samples,
+            "dead_source_url_count": dead_source_url_count,
+            "dead_source_url_samples": dead_source_url_samples,
         },
     }

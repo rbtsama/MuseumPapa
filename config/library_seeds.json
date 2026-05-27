@@ -179,6 +179,8 @@
       "name": "Boston Public Library",
       "town": "Boston",
       "network": "BPL",
+      "consortium_label": "BPL",
+      "card_auth_groups": ["BPL", "MBLN"],
       "platform": "libcal",
       "domain": "bpl.libcal.com",
       "pass_page": "https://bpl.libcal.com/passes",

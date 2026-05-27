@@ -49,5 +49,9 @@ class Library:
     hours: Optional[dict] = None
     branch_ids: list[str] = field(default_factory=list)
     resident_zips: list[str] = field(default_factory=list)
+    consortium_label: Optional[str] = None
+    card_issuance_group: Optional[str] = None
+    card_issuance_groups: list[str] = field(default_factory=list)
+    card_auth_groups: list[str] = field(default_factory=list)
     eligibility_source_phrase: Optional[str] = None
     pickup_source_phrase: Optional[str] = None

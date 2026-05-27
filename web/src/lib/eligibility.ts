@@ -4,13 +4,43 @@ import { isMaZip } from '../data/townZips';
 
 export interface LayerResult { ok: boolean; reason?: string; warn?: boolean; }
 
-export function checkL1Card(lib: Library, heldLibraryIds: string[]): LayerResult {
+function issuedCardGroups(lib: Library): Set<string> {
+  const groups = lib.card_issuance_groups?.length
+    ? lib.card_issuance_groups
+    : [lib.card_issuance_group || lib.network].filter(Boolean) as string[];
+  return new Set(groups);
+}
+
+function acceptedCardGroups(lib: Library): Set<string> {
+  const groups = lib.card_auth_groups?.length
+    ? lib.card_auth_groups
+    : [lib.network].filter(Boolean) as string[];
+  return new Set(groups);
+}
+
+function bookingAccessMode(pass?: Pass | null): 'own_card_only' | 'network_open' | 'ambiguous' | 'not_verified' {
+  const verdict = pass?.booking_access_probe?.verdict;
+  if (verdict === 'own_card_only' || verdict === 'network_open' || verdict === 'ambiguous' || verdict === 'not_verified') return verdict;
+  return pass?.requires_own_card ? 'own_card_only' : 'not_verified';
+}
+
+export function checkL1Card(lib: Library, heldLibraryIds: string[], pass?: Pass | null): LayerResult {
   if (heldLibraryIds.includes(lib.id)) return { ok: true };
-  const heldNetworks = new Set(
-    heldLibraryIds.map(id => getLibrary(id)?.network).filter(Boolean) as string[]
-  );
-  if (heldNetworks.has(lib.network)) return { ok: true };
-  return { ok: false, reason: `No ${lib.network} network card` };
+  const mode = bookingAccessMode(pass);
+  if (mode === 'own_card_only') return { ok: false, reason: `${lib.town} library card required` };
+  for (const id of heldLibraryIds) {
+    const heldLib = getLibrary(id);
+    if (!heldLib) continue;
+    const heldGroups = issuedCardGroups(heldLib);
+    for (const group of acceptedCardGroups(lib)) {
+      if (heldGroups.has(group)) {
+        return mode === 'not_verified' || mode === 'ambiguous'
+          ? { ok: true, warn: true, reason: mode === 'ambiguous' ? 'Sibling/access-group booking probe was inconclusive' : 'Sibling/access-group booking not yet verified' }
+          : { ok: true };
+      }
+    }
+  }
+  return { ok: false, reason: 'No eligible library card' };
 }
 
 export function checkL3Residency(rr: ResidencyRestriction, lib: Library, homeZip: string): LayerResult {
@@ -62,7 +92,7 @@ export interface PassVerdict { eligible: boolean; blockedLayer?: string; reasons
 export function resolvePass(pass: Pass, lib: Library, attr: Attraction, user: User, date?: Date): PassVerdict {
   const reasons: string[] = [], warnings: string[] = [];
   const layers: [string, LayerResult][] = [
-    ['L1', checkL1Card(lib, user.heldLibraryIds)],
+    ['L1', checkL1Card(lib, user.heldLibraryIds, pass)],
     ['L3', checkL3Residency(pass.residency_restriction, lib, user.homeZip)],
     ['L4', checkL4VisitorResidency(attr.visitor_eligibility, user.homeZip)],
   ];

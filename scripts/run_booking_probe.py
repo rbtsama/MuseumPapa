@@ -107,16 +107,30 @@ def _prober_for(lib: str, network: str):
 
 
 def main():
+    args = sys.argv[1:]
+    # --only-missing: incremental — never re-probe a pass that already has a
+    #   CONCLUSIVE verdict on disk (accepted/rejected_resident). Protects the
+    #   existing conclusive verdicts from being clobbered/downgraded to ambiguous
+    #   just because a once-available date has since gone stale on a re-run.
+    # --offline: NEVER submit a card. Only record passes that have NO future
+    #   available date as `ambiguous` (those can't be probed anyway, so no card
+    #   is used); passes that still have bookable dates are left unprobed
+    #   (not_verified). Lets us populate genuine ambiguous rows without spending
+    #   any card-validation attempts against the live sites.
+    only_missing = "--only-missing" in args
+    offline = "--offline" in args
+    targets_arg = [a for a in args if not a.startswith("--")]
     cards = _load_env()
     seeds = {s["id"]: s for s in json.loads((ROOT / "config/library_seeds.json").read_text(encoding="utf-8"))["libraries"]}
     out_dir = ROOT / "data/raw/assabet/residency_probe"
     out_dir.mkdir(parents=True, exist_ok=True)
-    summary = {"probed": 0, "resident_only": 0, "open": 0,
-               "no_conclusive_date": 0, "untested_libs": 0, "errors": 0, "booked_unexpectedly": 0}
+    summary = {"probed": 0, "resident_only": 0, "open": 0, "ambiguous": 0,
+               "no_conclusive_date": 0, "untested_libs": 0, "errors": 0, "booked_unexpectedly": 0,
+               "skipped_existing": 0, "skipped_live_offline": 0}
 
     # Default: every Assabet library on a network we hold a card for.
-    if sys.argv[1:]:
-        targets = sys.argv[1:]
+    if targets_arg:
+        targets = targets_arg
     else:
         targets = [s["id"] for s in seeds.values()
                    if s.get("platform") == "assabet" and s.get("network") in NETWORK_CARD]
@@ -138,9 +152,22 @@ def main():
         print(f"== {lib} ({network}) via {card_label} card — {len(passes)} passes")
         for p in passes:
             slug = p["attraction_slug"]
+            out_file = out_dir / f"{lib}__{slug}.json"
+            if only_missing and out_file.exists():
+                existing = json.loads(out_file.read_text(encoding="utf-8"))
+                if existing.get("verdict") in ("accepted", "rejected_resident"):
+                    summary["skipped_existing"] += 1
+                    continue
             verdict = None
             probed_date = None
-            for ym, day in _available_dates(lib, slug):
+            attempts = []
+            dates = list(_available_dates(lib, slug))
+            if offline and dates:
+                # Has bookable dates but offline mode forbids spending a card to
+                # probe them — leave unprobed (not_verified), don't guess.
+                summary["skipped_live_offline"] += 1
+                continue
+            for ym, day in dates:
                 url = _date_path(base, slug, ym, day)
                 res = None
                 for attempt in range(3):  # connection resets are common; retry
@@ -155,6 +182,7 @@ def main():
                 if res is None:
                     continue
                 v = res["verdict"]
+                attempts.append({"date": f"{ym}/{day}", "verdict": v, "http_status": res.get("http_status")})
                 if v == "booked_unexpectedly":
                     print(f"  STOP {lib}/{slug}: looked finalized — aborting")
                     summary["booked_unexpectedly"] += 1
@@ -176,13 +204,26 @@ def main():
                 tag = "open"
             else:
                 summary["no_conclusive_date"] += 1
+                summary["ambiguous"] += 1
+                if attempts:
+                    evidence = (f"inconclusive booking probe via {card_label} card; "
+                                f"attempts={','.join(a['verdict'] for a in attempts)}")
+                else:
+                    # No future available date existed, so no card was ever
+                    # submitted — honest provenance for an offline/no-date row.
+                    evidence = "no future available date to probe — inconclusive (no card submitted)"
+                rr = {"restricted": "unknown", "scope": None, "evidence": evidence}
+                verdict = "ambiguous"
+                tag = "AMBIGUOUS"
                 print(f"  - {lib}/{slug}: no conclusive available date")
-                continue
             summary["probed"] += 1
             out = {"library_id": lib, "attraction_slug": slug,
-                   "prober_card": card_label, "probed_date": probed_date,
-                   "verdict": verdict, **rr, "source": "booking_probe"}
-            (out_dir / f"{lib}__{slug}.json").write_text(
+                   # Only record the prober card when a card was actually
+                   # submitted; a no-date ambiguous row used no card.
+                   "prober_card": card_label if attempts else None,
+                   "probed_date": probed_date,
+                   "verdict": verdict, "attempts": attempts, **rr, "source": "booking_probe"}
+            out_file.write_text(
                 json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
             print(f"  {lib}/{slug}: {tag}")
             time.sleep(1.0)

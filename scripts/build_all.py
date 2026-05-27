@@ -1,5 +1,6 @@
 """Run all build/*.py, write data/structured/*, print validate report."""
 import sys
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -9,7 +10,11 @@ from malibbene.build.libraries import build_libraries
 from malibbene.build.attractions import build_attractions
 from malibbene.build.branches import build_branches
 from malibbene.build.passes import build_passes
-from malibbene.build.validate import validate_build, check_build_consistency
+from malibbene.build.validate import (
+    validate_build,
+    check_build_consistency,
+    build_source_url_fetcher,
+)
 
 
 def main():
@@ -22,9 +27,14 @@ def main():
                    libraries_path=out/"libraries.json")
     build_passes(raw_root=raw, overrides_root=over, out_path=out/"passes.json")
     check_build_consistency(out)
+    source_url_fetcher = None
+    if os.environ.get("MUSEUMPAPA_VALIDATE_SOURCE_URLS") == "1":
+        source_url_fetcher = build_source_url_fetcher()
     report = validate_build(libraries=out/"libraries.json",
                              attractions=out/"attractions.json",
-                             passes_file=out/"passes.json")
+                             passes_file=out/"passes.json",
+                             raw_root=raw,
+                             source_url_fetcher=source_url_fetcher)
     print("=== Validate Report ===")
     import json; print(json.dumps(report, indent=2))
 

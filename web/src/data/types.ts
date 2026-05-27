@@ -6,6 +6,10 @@ export type PassPickup = 'same_as_card' | 'ma_resident' | 'town_resident' | 'tow
 
 export interface Library {
   id: string; name: string; town: string; network: string; platform: string;
+  consortium_label?: string | null;
+  card_issuance_group?: string | null;
+  card_issuance_groups?: string[] | null;
+  card_auth_groups?: string[] | null;
   card_page: string | null; address: Address | null; geo: Geo | null;
   card_eligibility: CardEligibility; pass_pickup_default: PassPickup;
   eligibility_source_phrase?: string | null; pickup_source_phrase?: string | null;
@@ -41,12 +45,19 @@ export interface Restrictions {
   booking_frequency_limit?: string | null; late_return_penalty?: string | null;
 }
 export interface ResidencyRestriction { restricted: 'yes' | 'no' | 'unknown'; scope: 'town' | 'ma' | null; source?: string | null; evidence?: string | null; }
+export interface BookingAccessProbe {
+  verdict: 'own_card_only' | 'network_open' | 'ambiguous' | 'not_verified';
+  source?: string | null;
+  evidence?: string | null;
+  prober_card?: string | null;
+  probed_date?: string | null;
+}
 export interface Pass {
   library_id: string; attraction_slug: string; pass_form: PassForm;
   available_at_branches: 'all' | string[]; source_url?: string | null;
   coupon: Coupon | null; restrictions: Restrictions | null;
   residency_restriction: ResidencyRestriction; availability: Record<string, string>;
-  eligibility_override?: unknown;
+  eligibility_override?: unknown; requires_own_card?: boolean; booking_access_probe?: BookingAccessProbe | null;
 }
 export interface Branch { id: string; library_id: string; name: string; code?: string | null; geo?: Geo | null; }
 

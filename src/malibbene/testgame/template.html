@@ -142,10 +142,18 @@ const STATUS = {
   5: { cls: 's2', pill: '', head: '无可用 Pass' },
 };
 
-// 用户当前持有的卡（带 network），供 logic 计算覆盖
+const authGroupLabel = (groups) => (groups && groups.length ? groups.join(' / ') : '未知');
+
+// 用户当前持有的卡（带 card_auth_groups），供 logic 计算覆盖
 const heldCards = () => TESTGAME_DATA.libraries
   .filter((l) => state.held.has(l.id))
-  .map((l) => ({ id: l.id, network: l.network, name: l.name, town: l.town }));
+  .map((l) => ({
+    id: l.id,
+    network: l.network,
+    card_auth_groups: l.card_auth_groups || [],
+    name: l.name,
+    town: l.town
+  }));
 
 function renderControls() {
   const opts = ['<option value="">— 选择你的 Home Town —</option>']
@@ -234,7 +242,7 @@ function openModal(slug, libId) {
   let notes = '';
   if (s === 1) notes += `<p class="note ok">✅ 你持有可用卡${open ? '' : ' 且符合居民要求'}，可直接预定。</p>`;
   if (s === 2) notes += open
-    ? `<p class="note warn">⚠ 需要图书馆卡：持有 ${p.network} 联盟任一馆的卡即可（你当前没有）。</p>`
+    ? `<p class="note warn">⚠ 需要图书馆卡：需持有能覆盖 ${authGroupLabel(p.card_auth_groups)} 认证组的馆卡（你当前没有）。</p>`
     : `<p class="note warn">⚠ 需要图书馆卡：此 Pass 只认 ${p.library_name} 本馆的卡（同联盟别的卡无效）。</p>`;
   if (s === 3) notes += `<p class="note block">⛔ 仅限居民：此 Pass 仅限 ${p.library_town} 的居民。如果你其实是当地居民，可忽略并继续。</p>`;
   if (s === 4) {
@@ -251,8 +259,9 @@ function openModal(slug, libId) {
         <button data-copy="${num}" ${num ? '' : 'disabled'}>Copy</button></div>`;
     }).join('');
   } else if (open) {
-    const sug = TESTGAME_DATA.libraries.filter((l) => l.network === p.network);
-    cardHtml = `<h4>需要 ${p.network} 联盟任一馆的卡</h4>` + sug.map((l) =>
+    const wanted = new Set(p.card_auth_groups || []);
+    const sug = TESTGAME_DATA.libraries.filter((l) => (l.card_auth_groups || []).some((g) => wanted.has(g)));
+    cardHtml = `<h4>需要可覆盖 ${authGroupLabel(p.card_auth_groups)} 的馆卡</h4>` + sug.map((l) =>
       `<div class="cardline"><span>${l.name} <small>${l.town}</small></span></div>`).join('');
   } else {
     cardHtml = `<h4>需要这张卡</h4><div class="cardline"><span>${p.library_name} ${networkBadge(p.network)} <small>${p.library_town}</small></span></div>`;

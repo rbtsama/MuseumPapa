@@ -10,14 +10,53 @@ export function isMaZip(zip, _maZips) {
   return p >= 10 && p <= 27;
 }
 
-// L1: do the held cards cover this library? (own id, OR a card in the same network)
-// requiresOwnCard: this pass needs THIS library's own card — a same-network
-// sibling card is rejected at booking, so the network fallback does NOT apply.
-export function cardOk(lib, heldLibIds, libsById, requiresOwnCard = false) {
-  if (heldLibIds.includes(lib.id)) return true;
-  if (requiresOwnCard) return false;
-  const nets = new Set(heldLibIds.map(id => libsById[id]?.network).filter(Boolean));
-  return nets.has(lib.network);
+function issuedCardGroups(lib) {
+  const groups = Array.isArray(lib?.card_issuance_groups) && lib.card_issuance_groups.length
+    ? lib.card_issuance_groups
+    : [lib?.card_issuance_group || lib?.network].filter(Boolean);
+  return new Set(groups);
+}
+
+function acceptedCardGroups(lib) {
+  const groups = Array.isArray(lib?.card_auth_groups) && lib.card_auth_groups.length
+    ? lib.card_auth_groups
+    : [lib?.network].filter(Boolean);
+  return new Set(groups);
+}
+
+function sharesAccessGroup(heldLib, targetLib) {
+  const heldGroups = issuedCardGroups(heldLib);
+  for (const group of acceptedCardGroups(targetLib)) {
+    if (heldGroups.has(group)) return true;
+  }
+  return false;
+}
+
+export function bookingAccessMode(passOrRequiresOwnCard = false) {
+  if (passOrRequiresOwnCard && typeof passOrRequiresOwnCard === "object") {
+    const verdict = passOrRequiresOwnCard.booking_access_probe?.verdict;
+    if (verdict === "own_card_only" || verdict === "network_open" || verdict === "ambiguous" || verdict === "not_verified") {
+      return verdict;
+    }
+    return passOrRequiresOwnCard.requires_own_card ? "own_card_only" : "not_verified";
+  }
+  return passOrRequiresOwnCard ? "own_card_only" : "not_verified";
+}
+
+export function cardCoverage(lib, heldLibIds, libsById, passOrRequiresOwnCard = false) {
+  if (heldLibIds.includes(lib.id)) return { ok: true, warn: false, mode: bookingAccessMode(passOrRequiresOwnCard) };
+  const mode = bookingAccessMode(passOrRequiresOwnCard);
+  if (mode === "own_card_only") return { ok: false, warn: false, mode };
+  const ok = heldLibIds.some(id => sharesAccessGroup(libsById[id], lib));
+  return { ok, warn: ok && (mode === "not_verified" || mode === "ambiguous"), mode };
+}
+
+// L1: do the held cards cover this library? (own id, OR a card in an accepted
+// access group for this library).
+// requiresOwnCard: this pass needs THIS library's own card — a sibling/access
+// group fallback is rejected at booking, so the group fallback does NOT apply.
+export function cardOk(lib, heldLibIds, libsById, passOrRequiresOwnCard = false) {
+  return cardCoverage(lib, heldLibIds, libsById, passOrRequiresOwnCard).ok;
 }
 
 // L3 (pass pickup residency) + L4 (attraction visitor residency) combined -> zip eligibility.
@@ -48,7 +87,8 @@ export function residencyOk(pass, lib, attr, homeZip, maZips) {
   return { ok: true, warn };
 }
 
-export function cellTier(cardOk_, zipOk_) {
+export function cellTier(cardOk_, zipOk_, warn = false) {
+  if (cardOk_ && zipOk_ && warn) return "aw";
   if (cardOk_ && zipOk_) return "a";
   if (!cardOk_ && zipOk_) return "b";
   if (cardOk_ && !zipOk_) return "c";
@@ -62,7 +102,7 @@ export function availStatus(pass, iso) {
   return "unknown";
 }
 
-const TIER_RANK = { a: 0, b: 1, c: 2, d: 3 };
+const TIER_RANK = { a: 0, aw: 1, b: 2, c: 3, d: 4 };
 // cells: [{tier, avail}] for the passes present in one attraction row. Returns
 // [bestTierRank, bestAvailRank] — lower sorts first. Empty row -> [9,9] (sinks).
 export function rowSortKey(cells) {

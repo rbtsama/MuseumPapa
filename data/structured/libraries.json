@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-26T17:17:50.551367+00:00",
+    "built_at": "2026-05-27T17:01:59.063172+00:00",
     "n_libraries": 59
   },
   "libraries": [
@@ -10,6 +10,14 @@
       "town": "Wakefield",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://wakefieldlibrary.org/get-a-library-card/",
       "address": {
         "street": "345 Main Street",
@@ -33,6 +41,14 @@
       "town": "Stoneham",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://stonehamlibrary.org/get-a-library-card/",
       "address": {
         "street": "431 Main Street",
@@ -56,6 +72,14 @@
       "town": "Reading",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://www.readingpl.org/get-a-library-card/",
       "address": {
         "street": "64 Middlesex Avenue",
@@ -79,6 +103,14 @@
       "town": "Woburn",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://woburnpubliclibrary.org/services/how-to-get-a-library-card/",
       "address": {
         "street": "45 Pleasant Street",
@@ -102,6 +134,14 @@
       "town": "Lynnfield",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://lynnfieldlibrary.org/about/get-a-library-card/",
       "address": {
         "street": "18 Summer St",
@@ -125,6 +165,14 @@
       "town": "Peabody",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://peabodylibrary.org/librarycard/",
       "address": {
         "street": "82 Main Street",
@@ -148,6 +196,14 @@
       "town": "Melrose",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://melrosepubliclibrary.org/services/borrow/library-cards/",
       "address": {
         "street": "69 West Emerson Street",
@@ -171,6 +227,14 @@
       "town": "Saugus",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://www.sauguspubliclibrary.org/explore/library-card/",
       "address": {
         "street": "295 Central Street",
@@ -194,6 +258,14 @@
       "town": "Malden",
       "network": "MBLN",
       "platform": "assabet",
+      "consortium_label": "MBLN",
+      "card_issuance_group": "MBLN",
+      "card_issuance_groups": [
+        "MBLN"
+      ],
+      "card_auth_groups": [
+        "MBLN"
+      ],
       "card_page": "https://maldenpubliclibrary.org/about/policies/library-cards/",
       "address": {
         "street": "36 Salem St.",
@@ -217,6 +289,14 @@
       "town": "Medford",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://medfordlibrary.org/about-us/policies/borrowing-policies/",
       "address": {
         "street": "111 High Street",
@@ -240,6 +320,14 @@
       "town": "Burlington",
       "network": "MVLC",
       "platform": "assabet",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
+      "card_issuance_groups": [
+        "MVLC"
+      ],
+      "card_auth_groups": [
+        "MVLC"
+      ],
       "card_page": "https://www.burlingtonpubliclibrary.org/186/Get-a-Library-Card",
       "address": {
         "street": "29 Center Street",
@@ -263,6 +351,14 @@
       "town": "North Reading",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://flintmemoriallibrary.org/home/borrow-materials/",
       "address": {
         "street": "147 Park Street",
@@ -286,6 +382,14 @@
       "town": "Wilmington",
       "network": "MVLC",
       "platform": "assabet",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
+      "card_issuance_groups": [
+        "MVLC"
+      ],
+      "card_auth_groups": [
+        "MVLC"
+      ],
       "card_page": "https://wilmlibrary.org/library-card/",
       "address": {
         "street": "175 Middlesex Ave.",
@@ -309,6 +413,14 @@
       "town": "Winchester",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://www.winpublib.org/librarycard/",
       "address": {
         "street": "80 Washington Street",
@@ -332,6 +444,15 @@
       "town": "Boston",
       "network": "BPL",
       "platform": "libcal",
+      "consortium_label": "BPL",
+      "card_issuance_group": "BPL",
+      "card_issuance_groups": [
+        "BPL"
+      ],
+      "card_auth_groups": [
+        "BPL",
+        "MBLN"
+      ],
       "card_page": "https://www.bpl.org/faq/eligibility/",
       "address": {
         "street": "700 Boylston St.",
@@ -379,6 +500,14 @@
       "town": "Beverly",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://beverlypubliclibrary.org/services/borrowing/",
       "address": {
         "street": "32 Essex Street",
@@ -402,6 +531,14 @@
       "town": "Danvers",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://danverslibrary.org/library-policies-information/",
       "address": {
         "street": "15 Sylvan Street",
@@ -425,6 +562,14 @@
       "town": "Lynn",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://lynnpubliclibrary.org/",
       "address": {
         "street": "5 North Common St.",
@@ -451,6 +596,14 @@
       "town": "Marblehead",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://abbotlibrary.org/about/general-info/",
       "address": {
         "street": "235 Pleasant Street",
@@ -474,6 +627,14 @@
       "town": "Everett",
       "network": "NOBLE",
       "platform": "assabet",
+      "consortium_label": "NOBLE",
+      "card_issuance_group": "NOBLE",
+      "card_issuance_groups": [
+        "NOBLE"
+      ],
+      "card_auth_groups": [
+        "NOBLE"
+      ],
       "card_page": "https://www.everettpubliclibraries.org/get-a-library-card/",
       "address": {
         "street": "410 Broadway",
@@ -497,6 +658,14 @@
       "town": "Chelsea",
       "network": "MBLN",
       "platform": "assabet",
+      "consortium_label": "MBLN",
+      "card_issuance_group": "MBLN",
+      "card_issuance_groups": [
+        "MBLN"
+      ],
+      "card_auth_groups": [
+        "MBLN"
+      ],
       "card_page": "https://www.chelseama.gov/departments/library/",
       "address": {
         "street": "569 Broadway",
@@ -520,6 +689,14 @@
       "town": "Billerica",
       "network": "MVLC",
       "platform": "assabet",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
+      "card_issuance_groups": [
+        "MVLC"
+      ],
+      "card_auth_groups": [
+        "MVLC"
+      ],
       "card_page": "https://billericalibrary.org/borrowing/library-cards/",
       "address": {
         "street": "15 Concord Road",
@@ -543,6 +720,14 @@
       "town": "Topsfield",
       "network": "MVLC",
       "platform": "assabet",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
+      "card_issuance_groups": [
+        "MVLC"
+      ],
+      "card_auth_groups": [
+        "MVLC"
+      ],
       "card_page": "https://topsfieldlibrary.org/borrow/get-a-library-card/",
       "address": {
         "street": "1 South Common Street",
@@ -566,6 +751,14 @@
       "town": "Boxford",
       "network": "MVLC",
       "platform": "assabet",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
+      "card_issuance_groups": [
+        "MVLC"
+      ],
+      "card_auth_groups": [
+        "MVLC"
+      ],
       "card_page": "https://www.boxfordma.gov/210/Get-a-Library-Card",
       "address": {
         "street": "7A Spofford Road",
@@ -589,6 +782,14 @@
       "town": "Tewksbury",
       "network": "MVLC",
       "platform": "assabet",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
+      "card_issuance_groups": [
+        "MVLC"
+      ],
+      "card_auth_groups": [
+        "MVLC"
+      ],
       "card_page": "https://www.tewksburypl.org/about-us/pages/get-library-card",
       "address": {
         "street": "300 Chandler Street",
@@ -612,6 +813,14 @@
       "town": "Chelmsford",
       "network": "MVLC",
       "platform": "assabet",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
+      "card_issuance_groups": [
+        "MVLC"
+      ],
+      "card_auth_groups": [
+        "MVLC"
+      ],
       "card_page": "https://www.chelmsfordlibrary.org/about/get-a-library-card",
       "address": {
         "street": "25 Boston Road",
@@ -636,6 +845,14 @@
       "town": "Haverhill",
       "network": "MVLC",
       "platform": "assabet",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
+      "card_issuance_groups": [
+        "MVLC"
+      ],
+      "card_auth_groups": [
+        "MVLC"
+      ],
       "card_page": "https://www.haverhillpl.org/library-card",
       "address": {
         "street": "99 Main Street",
@@ -661,6 +878,14 @@
       "town": "Lawrence",
       "network": "MVLC",
       "platform": "assabet",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
+      "card_issuance_groups": [
+        "MVLC"
+      ],
+      "card_auth_groups": [
+        "MVLC"
+      ],
       "card_page": "https://www.lawrencepl.org/library-card",
       "address": {
         "street": "51 Lawrence Street",
@@ -686,6 +911,14 @@
       "town": "Methuen",
       "network": "MVLC",
       "platform": "assabet",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
+      "card_issuance_groups": [
+        "MVLC"
+      ],
+      "card_auth_groups": [
+        "MVLC"
+      ],
       "card_page": "https://www.nevinslibrary.org/about-nevins-library/library-cards/",
       "address": {
         "street": "305 Broadway",
@@ -709,6 +942,14 @@
       "town": "Andover",
       "network": "MVLC",
       "platform": "assabet",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
+      "card_issuance_groups": [
+        "MVLC"
+      ],
+      "card_auth_groups": [
+        "MVLC"
+      ],
       "card_page": "https://mhl.org/borrow/on-the-shelves/library-cards-and-borrowing-items",
       "address": {
         "street": "2 North Main Street",
@@ -732,6 +973,14 @@
       "town": "North Andover",
       "network": "MVLC",
       "platform": "assabet",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
+      "card_issuance_groups": [
+        "MVLC"
+      ],
+      "card_auth_groups": [
+        "MVLC"
+      ],
       "card_page": "https://www.stevensmemlib.org/library-card",
       "address": {
         "street": "345 Main Street",
@@ -755,6 +1004,14 @@
       "town": "Middleton",
       "network": "MVLC",
       "platform": "assabet",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
+      "card_issuance_groups": [
+        "MVLC"
+      ],
+      "card_auth_groups": [
+        "MVLC"
+      ],
       "card_page": "https://flintlibrary.org/index.php/get-a-library-card/",
       "address": {
         "street": "1 South Main St.",
@@ -778,6 +1035,14 @@
       "town": "Arlington",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://www.robbinslibrary.org/about/library-card/",
       "address": {
         "street": "700 Massachusetts Avenue",
@@ -802,6 +1067,14 @@
       "town": "Newton",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://newtonfreelibrary.net/about/our-library/library-card-borrowing/",
       "address": {
         "street": "330 Homer Street",
@@ -834,6 +1107,14 @@
       "town": "Lincoln",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://lincolnpl.org/",
       "address": {
         "street": "3 Bedford Road",
@@ -857,6 +1138,14 @@
       "town": "Acton",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://www.actonmemoriallibrary.org/services/library-cards/",
       "address": {
         "street": "486 Main Street",
@@ -880,6 +1169,14 @@
       "town": "Framingham",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://framinghamlibrary.org/services/cards-borrowing",
       "address": {
         "street": "49 Lexington Street",
@@ -904,6 +1201,14 @@
       "town": "Maynard",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://www.maynardpubliclibrary.org/get-library-card",
       "address": {
         "street": "77 Nason Street",
@@ -927,6 +1232,14 @@
       "town": "Carlisle",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://gleasonlibrary.org/get-a-library-card",
       "address": {
         "street": "22 Bedford Road",
@@ -950,6 +1263,14 @@
       "town": "Wayland",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://waylandlibrary.org/services/library-card/",
       "address": {
         "street": "5 Concord Rd",
@@ -973,6 +1294,14 @@
       "town": "Weston",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://www.westonma.gov/CivicSend/ViewMessage/message/165250",
       "address": {
         "street": "87 School Street",
@@ -996,6 +1325,14 @@
       "town": "Sudbury",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://goodnowlibrary.org/",
       "address": {
         "street": "21 Concord Road",
@@ -1019,6 +1356,14 @@
       "town": "Belmont",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://www.belmontpubliclibrary.net/",
       "address": {
         "street": "336 Concord Avenue",
@@ -1042,6 +1387,14 @@
       "town": "Lexington",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://www.carylibrary.org/library-cards",
       "address": {
         "street": "1874 Massachusetts Avenue",
@@ -1066,6 +1419,14 @@
       "town": "Wellesley",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://www.wellesleyfreelibrary.org/library-info/policies/eligibility-and-use-of-library-cards-policy/",
       "address": {
         "street": "530 Washington Street",
@@ -1090,6 +1451,14 @@
       "town": "Waltham",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://waltham.lib.ma.us/policies/library-cards/",
       "address": {
         "street": "735 Main Street",
@@ -1115,6 +1484,14 @@
       "town": "Watertown",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://www.watertownlib.org/217/Library-Cards-Borrowing",
       "address": {
         "street": "123 Main Street",
@@ -1138,6 +1515,14 @@
       "town": "Concord",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://concordlibrary.org/borrow/library-cards-and-borrowing",
       "address": {
         "street": "129 Main Street",
@@ -1161,6 +1546,14 @@
       "town": "Bedford",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://bedfordlibrary.net/library-card",
       "address": {
         "street": "7 Mudge Way",
@@ -1184,6 +1577,14 @@
       "town": "Needham",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://needhamlibrary.org/get-a-library-card",
       "address": {
         "street": "1139 Highland Avenue",
@@ -1208,6 +1609,14 @@
       "town": "Natick",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://www.morseinstitute.org/",
       "address": {
         "street": "14 East Central Street",
@@ -1231,6 +1640,14 @@
       "town": "Somerville",
       "network": "Minuteman",
       "platform": "assabet",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://somervillepubliclibrary.org/how-do-i/get-library-card/",
       "address": {
         "street": "79 Highland Ave.",
@@ -1256,6 +1673,14 @@
       "town": "Quincy",
       "network": "OCLN",
       "platform": "assabet",
+      "consortium_label": "OCLN",
+      "card_issuance_group": "OCLN",
+      "card_issuance_groups": [
+        "OCLN"
+      ],
+      "card_auth_groups": [
+        "OCLN"
+      ],
       "card_page": "https://thomascranelibrary.org/library-cards-accounts/",
       "address": {
         "street": "40 Washington Street",
@@ -1281,6 +1706,14 @@
       "town": "Cambridge",
       "network": "Minuteman",
       "platform": "libcal",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://www.cambridgema.gov/iwantto/getalibrarycard",
       "address": {
         "street": "795 Massachusetts Ave.",
@@ -1308,6 +1741,14 @@
       "town": "Brookline",
       "network": "Minuteman",
       "platform": "libcal",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
+      "card_issuance_groups": [
+        "Minuteman"
+      ],
+      "card_auth_groups": [
+        "Minuteman"
+      ],
       "card_page": "https://brooklinelibrary.org/library-card",
       "address": {
         "street": "361 Washington Street",
@@ -1333,6 +1774,14 @@
       "town": "Braintree",
       "network": "OCLN",
       "platform": "libcal",
+      "consortium_label": "OCLN",
+      "card_issuance_group": "OCLN",
+      "card_issuance_groups": [
+        "OCLN"
+      ],
+      "card_auth_groups": [
+        "OCLN"
+      ],
       "card_page": "https://www.thayerpubliclibrary.org/",
       "address": {
         "street": "798 Washington Street",
@@ -1357,6 +1806,14 @@
       "town": "Milton",
       "network": "OCLN",
       "platform": "libcal",
+      "consortium_label": "OCLN",
+      "card_issuance_group": "OCLN",
+      "card_issuance_groups": [
+        "OCLN"
+      ],
+      "card_auth_groups": [
+        "OCLN"
+      ],
       "card_page": "https://www.miltonlibrary.org/",
       "address": {
         "street": "476 Canton Ave",
@@ -1380,6 +1837,14 @@
       "town": "Cohasset",
       "network": "OCLN",
       "platform": "museumkey",
+      "consortium_label": "OCLN",
+      "card_issuance_group": "OCLN",
+      "card_issuance_groups": [
+        "OCLN"
+      ],
+      "card_auth_groups": [
+        "OCLN"
+      ],
       "card_page": "https://www.cohassetlibrary.org/",
       "address": {
         "street": "35 Ripley Road",
@@ -1403,6 +1868,14 @@
       "town": "Hingham",
       "network": "OCLN",
       "platform": "museumkey",
+      "consortium_label": "OCLN",
+      "card_issuance_group": "OCLN",
+      "card_issuance_groups": [
+        "OCLN"
+      ],
+      "card_auth_groups": [
+        "OCLN"
+      ],
       "card_page": "https://hinghamlibrary.org/",
       "address": {
         "street": "66 Leavitt Street",

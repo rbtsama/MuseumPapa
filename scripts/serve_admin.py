@@ -51,6 +51,12 @@ class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *a, **k):
         super().__init__(*a, directory=str(REPO), **k)
 
+    def end_headers(self):
+        # Dev/admin server: never cache, so edited panel.js/.mjs/.css (and the
+        # whole ES-module import graph) load fresh without a manual hard refresh.
+        self.send_header("Cache-Control", "no-store, must-revalidate")
+        super().end_headers()
+
     def _json(self, code: int, payload: dict) -> None:
         body = json.dumps(payload).encode("utf-8")
         self.send_response(code)

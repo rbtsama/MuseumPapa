@@ -1,14 +1,19 @@
 // 纯决策逻辑：无 DOM 依赖。构建时会被剥掉 `export` 内联进 HTML。
 //
 // 卡覆盖规则（来自真实 booking-probe 数据）：
-//   开放 pass（residency 非 'yes'，即 no / unknown）：探测证明"同联盟非本镇的卡被接受"
-//     → 持有【同联盟任一馆】的卡即可覆盖；且无居民限制。
+//   开放 pass（residency 非 'yes'，即 no / unknown）：探测证明"覆盖该馆认证组的卡被接受"
+//     → 持有【可认证组重叠】的馆卡即可覆盖；且无居民限制。
 //   仅限居民 pass（residency === 'yes'，scope=town）：探测证明"连同联盟的卡都被拦"
 //     → 只认【发证馆本馆】的卡，且需本镇居民。
 
-// 能用于这条 pass 的、用户持有的卡。heldCards: [{id, network, ...}]
+const authGroups = (row) => row.card_auth_groups || (row.network ? [row.network] : []);
+
+// 能用于这条 pass 的、用户持有的卡。heldCards: [{id, network, card_auth_groups, ...}]
 export function usableCardsForPass(pass, heldCards) {
-  if (pass.residency !== 'yes') return heldCards.filter((c) => c.network === pass.network);
+  if (pass.residency !== 'yes') {
+    const wanted = new Set(authGroups(pass));
+    return heldCards.filter((c) => authGroups(c).some((g) => wanted.has(g)));
+  }
   return heldCards.filter((c) => c.id === pass.library_id);
 }
 

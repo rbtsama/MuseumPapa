@@ -9,11 +9,36 @@ describe('L1 card/network', () => {
   });
   it('holding a same-network sibling card passes', () => {
     const lib = realLib('reading')!; // NOBLE
-    expect(checkL1Card(lib, ['wakefield']).ok).toBe(true); // wakefield NOBLE
+    expect(checkL1Card(lib, ['wakefield'], { library_id: 'reading', attraction_slug: 'mfa', pass_form: 'physical_coupon', available_at_branches: 'all', coupon: null, restrictions: null, residency_restriction: { restricted: 'no', scope: null, source: null, evidence: null }, availability: {}, booking_access_probe: { verdict: 'network_open' } }).ok).toBe(true); // wakefield NOBLE
   });
   it('holding only a different-network card fails', () => {
     const lib = realLib('reading')!; // NOBLE
     expect(checkL1Card(lib, ['somerville']).ok).toBe(false); // Minuteman
+  });
+  it('holding an allowed cross-network consortium card passes', () => {
+    const lib = {
+      ...realLib('bpl')!,
+      card_auth_groups: ['BPL', 'MBLN'],
+    };
+    const original = realLib('malden')!;
+    expect(checkL1Card(lib, [original.id], { library_id: 'bpl', attraction_slug: 'mfa', pass_form: 'physical_coupon', available_at_branches: 'all', coupon: null, restrictions: null, residency_restriction: { restricted: 'no', scope: null, source: null, evidence: null }, availability: {}, booking_access_probe: { verdict: 'network_open' } }).ok).toBe(true);
+  });
+  it('own-card-only pass blocks same-network sibling card', () => {
+    const lib = realLib('reading')!;
+    const r = checkL1Card(lib, ['wakefield'], { library_id: 'reading', attraction_slug: 'mfa', pass_form: 'physical_coupon', available_at_branches: 'all', coupon: null, restrictions: null, residency_restriction: { restricted: 'no', scope: null, source: null, evidence: null }, availability: {}, booking_access_probe: { verdict: 'own_card_only' } });
+    expect(r.ok).toBe(false);
+    expect(r.reason).toMatch(/library card required/i);
+  });
+  it('not_verified sibling coverage passes with warning', () => {
+    const lib = realLib('reading')!;
+    const r = checkL1Card(lib, ['wakefield'], { library_id: 'reading', attraction_slug: 'mfa', pass_form: 'physical_coupon', available_at_branches: 'all', coupon: null, restrictions: null, residency_restriction: { restricted: 'no', scope: null, source: null, evidence: null }, availability: {}, booking_access_probe: { verdict: 'not_verified' } });
+    expect(r).toMatchObject({ ok: true, warn: true });
+  });
+  it('ambiguous sibling coverage passes with warning', () => {
+    const lib = realLib('reading')!;
+    const r = checkL1Card(lib, ['wakefield'], { library_id: 'reading', attraction_slug: 'mfa', pass_form: 'physical_coupon', available_at_branches: 'all', coupon: null, restrictions: null, residency_restriction: { restricted: 'no', scope: null, source: null, evidence: null }, availability: {}, booking_access_probe: { verdict: 'ambiguous' } });
+    expect(r).toMatchObject({ ok: true, warn: true });
+    expect(r.reason).toMatch(/inconclusive/i);
   });
 });
 

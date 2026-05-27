@@ -43,7 +43,13 @@ def select_sample(libraries: list[dict], attractions: list[dict], passes: list[d
         raise ValueError(f"样本不在数据集中: libs={missing_libs} attractions={missing_attrs}")
 
     out_libs = [
-        {"id": lib["id"], "name": lib["name"], "town": lib["town"], "network": lib["network"]}
+        {
+            "id": lib["id"],
+            "name": lib["name"],
+            "town": lib["town"],
+            "network": lib["network"],
+            "card_auth_groups": lib.get("card_auth_groups") or ([lib["network"]] if lib.get("network") else []),
+        }
         for lib in (lib_by_id[i] for i in SAMPLE_LIB_IDS)
     ]
     out_attrs = []
@@ -71,6 +77,7 @@ def select_sample(libraries: list[dict], attractions: list[dict], passes: list[d
             "library_id": p["library_id"],
             "attraction_slug": p["attraction_slug"],
             "network": lib["network"],
+            "card_auth_groups": lib.get("card_auth_groups") or ([lib["network"]] if lib.get("network") else []),
             "library_name": lib["name"],
             "library_town": lib["town"],
             "residency": rr.get("restricted", "unknown"),

@@ -106,6 +106,67 @@ def test_pass_form_derives_from_index_pass_type_over_legacy(tmp_path):
     p = json.loads(out.read_text())["passes"][0]
     assert p["pass_form"] == "digital_email"
 
+def test_pass_form_uses_canonical_index_slug_when_catalog_slug_differs(tmp_path):
+    # LibCal/BPL frequently drifts between catalog and index slugs:
+    # "...-theatre" vs "...-theater", "...-tours", "...-physical-pass".
+    # The index pass_type is still authoritative and must be recovered via the
+    # canonical attraction slug.
+    raw = tmp_path/"raw"
+    _w(raw/"libcal/catalog/bpl.json", {"library_id":"bpl","passes":[
+        {"library_id":"bpl","attraction_slug":"american-repertory-theatre","title":"ART","detail_url":"https://bpl.libcal.com/passes/5bf37dc2bee6"},
+        {"library_id":"bpl","attraction_slug":"boch-center-tours","title":"Boch Center Tours","detail_url":"https://bpl.libcal.com/passes/572fd99e65a3"},
+        {"library_id":"bpl","attraction_slug":"harvard-museums-of-science-and-culture-physical-pass","title":"HMSC","detail_url":"https://bpl.libcal.com/passes/92c222667367"},
+    ]})
+    _w(raw/"libcal/index/bpl.json", {"passes":[
+        {"slug":"american-repertory-theater","pass_type":"digital","museum_hex":"5bf37dc2bee6"},
+        {"slug":"boch-center","pass_type":"digital","museum_hex":"572fd99e65a3"},
+        # Real BPL shape: the slug may be shortened, but the museum_hex is stable.
+        {"slug":"harvard-museums","pass_type":"physical-coupon","museum_hex":"92c222667367"},
+    ]})
+    # Legacy extraction is wrong for all three; index canonical fallback must win.
+    _w(raw/"libcal/coupons/bpl__american-repertory-theatre.json",
+       {"status":"ok","extracted":{"pass_form":"physical_coupon"}})
+    _w(raw/"libcal/coupons/bpl__boch-center-tours.json",
+       {"status":"ok","extracted":{"pass_form":"physical_coupon"}})
+    _w(raw/"libcal/coupons/bpl__harvard-museums-of-science-and-culture-physical-pass.json",
+       {"status":"ok","extracted":{"pass_form":"physical_circ"}})
+
+    out = tmp_path/"passes.json"
+    build_passes(raw_root=raw, overrides_root=tmp_path/"overrides", out_path=out)
+    rows = {(p["library_id"], p["attraction_slug"]): p for p in json.loads(out.read_text())["passes"]}
+
+    assert rows[("bpl", "american-repertory-theater")]["pass_form"] == "digital_email"
+    assert rows[("bpl", "boch-center")]["pass_form"] == "digital_email"
+    assert rows[("bpl", "harvard-museums-of-science-and-culture")]["pass_form"] == "physical_coupon"
+
+def test_libcal_catalog_text_can_override_wrong_legacy_pass_form(tmp_path):
+    raw = tmp_path/"raw"
+    _w(raw/"libcal/catalog/cambridge.json", {"library_id":"cambridge","passes":[
+        {"library_id":"cambridge","attraction_slug":"harvard-museums-of-science-culture",
+         "title":"HMSC","benefit_text":"Physical passes must be picked up from one of the library locations listed in the dropdown menu below.",
+         "detail_url":"https://cambridgepl.libcal.com/passes/harvard-museums-of-science-and-culture"},
+        {"library_id":"cambridge","attraction_slug":"trustees-go-pass",
+         "title":"Trustees","benefit_text":"SEASONAL PASS. Physical passes must be picked up from one of the library locations listed in the dropdown menu below.",
+         "detail_url":"https://cambridgepl.libcal.com/passes/trustees-go-pass"},
+        {"library_id":"cambridge","attraction_slug":"zoo-new-england",
+         "title":"Zoo","benefit_text":"Physical passes must be picked up from one of the library locations listed in the dropdown menu below.",
+         "detail_url":"https://cambridgepl.libcal.com/passes/zoo-new-england"},
+    ]})
+    _w(raw/"libcal/coupons/cambridge__harvard-museums-of-science-culture.json",
+       {"status":"ok","extracted":{"pass_form":"physical_circ"}})
+    _w(raw/"libcal/coupons/cambridge__trustees-go-pass.json",
+       {"status":"ok","extracted":{"pass_form":"physical_circ"}})
+    _w(raw/"libcal/coupons/cambridge__zoo-new-england.json",
+       {"status":"ok","extracted":{"pass_form":"physical_circ"}})
+
+    out = tmp_path/"passes.json"
+    build_passes(raw_root=raw, overrides_root=tmp_path/"overrides", out_path=out)
+    rows = {(p["library_id"], p["attraction_slug"]): p for p in json.loads(out.read_text())["passes"]}
+
+    assert rows[("cambridge", "harvard-museums-of-science-and-culture")]["pass_form"] == "physical_coupon"
+    assert rows[("cambridge", "trustees-of-reservations")]["pass_form"] == "physical_coupon"
+    assert rows[("cambridge", "zoo-new-england")]["pass_form"] == "physical_coupon"
+
 def test_pass_form_from_catalog_pass_type(tmp_path):
     # After the scraper fix, catalog records carry pass_type directly.
     raw = tmp_path/"raw"
@@ -152,6 +213,13 @@ def test_booking_probe_rejection_is_own_card_not_residency(tmp_path):
     assert p["requires_own_card"] is True
     assert p["residency_restriction"]["restricted"] == "no"   # NOT yes/town
     assert p["residency_restriction"]["scope"] is None
+    assert p["booking_access_probe"] == {
+        "verdict": "own_card_only",
+        "source": "booking_probe",
+        "evidence": "non-resident reading card (same NOBLE network) blocked at card-validation",
+        "prober_card": "reading",
+        "probed_date": None,
+    }
 
 def test_booking_probe_acceptance_is_network_open(tmp_path):
     # A probe acceptance (sibling card accepted) -> network-open, own card not required.
@@ -167,6 +235,45 @@ def test_booking_probe_acceptance_is_network_open(tmp_path):
     p = json.loads(out.read_text())["passes"][0]
     assert p["requires_own_card"] is False
     assert p["residency_restriction"]["restricted"] == "no"
+    assert p["booking_access_probe"] == {
+        "verdict": "network_open",
+        "source": "booking_probe",
+        "evidence": "non-resident somerville card (same Minuteman network) accepted at card-validation",
+        "prober_card": "somerville",
+        "probed_date": None,
+    }
+
+
+def test_pass_without_probe_stays_not_verified(tmp_path):
+    raw = tmp_path/"raw"
+    _w(raw/"assabet/catalog/wakefield.json", {"library_id":"wakefield","passes":[
+        {"library_id":"wakefield","attraction_slug":"mfa","title":"MFA"}]})
+    out = tmp_path/"passes.json"
+    build_passes(raw_root=raw, overrides_root=tmp_path/"overrides", out_path=out)
+    p = json.loads(out.read_text())["passes"][0]
+    assert p["booking_access_probe"]["verdict"] == "not_verified"
+    assert p["booking_access_probe"]["source"] is None
+
+
+def test_ambiguous_booking_probe_is_preserved_without_forcing_own_card(tmp_path):
+    raw = tmp_path/"raw"
+    _w(raw/"assabet/catalog/wakefield.json", {"library_id":"wakefield","passes":[
+        {"library_id":"wakefield","attraction_slug":"mfa","title":"MFA"}]})
+    _w(raw/"assabet/residency_probe/wakefield__mfa.json", {
+        "library_id":"wakefield","attraction_slug":"mfa","prober_card":"reading",
+        "probed_date":None,"verdict":"ambiguous","restricted":"unknown","scope":None,
+        "evidence":"inconclusive booking probe via reading card; attempts=format_error,unknown"})
+    out = tmp_path/"passes.json"
+    build_passes(raw_root=raw, overrides_root=tmp_path/"overrides", out_path=out)
+    p = json.loads(out.read_text())["passes"][0]
+    assert p["requires_own_card"] is False
+    assert p["booking_access_probe"] == {
+        "verdict": "ambiguous",
+        "source": "booking_probe",
+        "evidence": "inconclusive booking probe via reading card; attempts=format_error,unknown",
+        "prober_card": "reading",
+        "probed_date": None,
+    }
 
 def test_coupon_coverage_gaps_detects_silent_drop(tmp_path):
     from malibbene.build.coupons import coupon_coverage_gaps

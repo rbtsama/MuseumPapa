@@ -1,7 +1,7 @@
 // MuseumPapa Admin Panel — rebuilt on new data shapes + funnel engine
 // Edit source under admin/ only. See web/sync-admin.mjs for copy rules.
 
-import { cardOk, residencyOk, cellTier, availStatus, rowSortKey, bestPolicy, couponSummary, shortSummary } from "./panel.logic.mjs";
+import { cardOk, cardCoverage, bookingAccessMode, residencyOk, cellTier, availStatus, rowSortKey, bestPolicy, couponSummary, shortSummary } from "./panel.logic.mjs";
 import { buildRecord, buildFeedbackRecord, ASPECTS, mergeAudits } from "./panel.audit.mjs";
 
 const DEFAULT_ZIP = "01880";
@@ -297,13 +297,46 @@ function isMaZip(zip) {
   return p >= 10 && p <= 27;
 }
 
-function checkL1Card(lib, heldLibraryIds, requiresOwnCard) {
+function cardIssuanceGroups(lib) {
+  const groups = Array.isArray(lib?.card_issuance_groups) && lib.card_issuance_groups.length
+    ? lib.card_issuance_groups
+    : [lib?.card_issuance_group || lib?.network].filter(Boolean);
+  return new Set(groups);
+}
+
+function cardAcceptedGroups(lib) {
+  const groups = Array.isArray(lib?.card_auth_groups) && lib.card_auth_groups.length
+    ? lib.card_auth_groups
+    : [lib?.network].filter(Boolean);
+  return new Set(groups);
+}
+
+function heldCardCoversLibrary(heldLib, targetLib) {
+  const heldGroups = cardIssuanceGroups(heldLib);
+  for (const group of cardAcceptedGroups(targetLib)) {
+    if (heldGroups.has(group)) return true;
+  }
+  return false;
+}
+
+function describeBookingAccess(pass, lib) {
+  const mode = bookingAccessMode(pass);
+  if (mode === "own_card_only") return { mode, label: `仅限 ${lib.town} 本馆卡`, siblingLabel: "同组别馆卡已验证会被拒绝" };
+  if (mode === "network_open") return { mode, label: "已验证可用覆盖馆卡", siblingLabel: "覆盖馆卡已验证可用于该馆预订" };
+  if (mode === "ambiguous") return { mode, label: "覆盖馆卡探测结果不明确", siblingLabel: "覆盖馆卡曾探测，但结果不明确" };
+  return { mode, label: "覆盖馆卡规则未验证", siblingLabel: "覆盖馆卡可能可用，但尚未验证" };
+}
+
+function checkL1Card(lib, heldLibraryIds, pass) {
   if (heldLibraryIds.includes(lib.id)) return { ok: true };
-  // own-card-only pass: a same-network sibling card is rejected at booking
-  if (requiresOwnCard) return { ok: false, reason: `需 ${lib.town} 本馆卡` };
-  const nets = new Set(heldLibraryIds.map(id => STATE.libsById[id]?.network).filter(Boolean));
-  if (nets.has(lib.network)) return { ok: true };
-  return { ok: false, reason: `no ${lib.network} card` };
+  const access = describeBookingAccess(pass, lib);
+  if (access.mode === "own_card_only") return { ok: false, reason: `需 ${lib.town} 本馆卡` };
+  if (heldLibraryIds.some(id => heldCardCoversLibrary(STATE.libsById[id], lib))) {
+    return access.mode === "not_verified"
+      ? { ok: true, warn: true, reason: "sibling/access-group booking unverified" }
+      : { ok: true };
+  }
+  return { ok: false, reason: "没有可覆盖该馆的图书馆卡" };
 }
 
 function checkL3Residency(rr, lib, homeZip) {
@@ -346,7 +379,7 @@ function checkL10Availability(av, iso) {
 function resolvePass(pass, lib, attr, user, date) {
   const reasons = [], warnings = [];
   const layers = [
-    ["L1", checkL1Card(lib, user.heldLibraryIds, pass.requires_own_card)],
+    ["L1", checkL1Card(lib, user.heldLibraryIds, pass)],
     ["L3", checkL3Residency(pass.residency_restriction, lib, user.homeZip)],
     ["L4", checkL4VisitorResidency(attr?.visitor_eligibility, user.homeZip)],
   ];
@@ -558,22 +591,23 @@ function buildMatrixModel() {
     for (const pass of passes) {
       const lib = STATE.libsById[pass.library_id];
       if (!lib) continue;
-      const ck = cardOk(lib, held, STATE.libsById, pass.requires_own_card);
+      const ck = cardCoverage(lib, held, STATE.libsById, pass);
       // PRIMARY filter: the matrix shows results for the operator's SELECTED cards.
       // No covering card (own id or same-network, unless requires_own_card) -> hidden.
       // No cards selected -> empty matrix; click 全选 to see everything.
-      if (!ck) continue;
+      if (!ck.ok) continue;
       columnLibIds.add(lib.id); // a covered lib keeps its column even if secondary filters empty its cells
       const rz = residencyOk(pass, lib, attr, STATE.homeZip, STATE.MA_ZIPS);
-      const tier = cellTier(ck, rz.ok);
+      const tier = cellTier(ck.ok, rz.ok, Boolean(ck.warn || rz.warn));
       const avail = availStatus(pass, iso);
-      // "只看合规" further requires Zip/residency OK (drops tier-c resident blocks).
-      // Residency-unknown (warn) stays — the ⚠ display toggle controls the glyph (A6).
+      // "只看合规" means fully confirmed clean access only. Warned/unknown
+      // eligibility stays visible in broader views, but must not masquerade as
+      // a clean eligible result here.
       if (STATE.onlyEligible && tier !== "a") continue;
       // inventory dimension: only confirmed in stock (unknown/booked/closed excluded)
       if (STATE.onlyInStock && avail !== "available") continue;
       const verdict = resolvePass(pass, lib, attr, user, STATE.visitDate);
-      const cell = { pass, lib, tier, avail, cardOk: ck, zipOk: rz.ok, warn: rz.warn, verdict };
+      const cell = { pass, lib, tier, avail, cardOk: ck.ok, zipOk: rz.ok, warn: Boolean(ck.warn || rz.warn), verdict };
       cells[lib.id] = cell;
       cellList.push({ tier, avail });
     }
@@ -662,7 +696,8 @@ function renderCell(cell, attr) {
   // Single background state: red ONLY when you HOLD the card but fail a resident-
   // only restriction. Eligible cells and no-card cells (the latter normally
   // filtered out by 只看合规) get NO background.
-  const bgCls = (cell.cardOk && !cell.zipOk) ? "mx-resident-block" : "";
+  const bgCls = (cell.cardOk && !cell.zipOk) ? "mx-resident-block"
+    : cell.warn ? "mx-unconfirmed" : "";
   const td = el("td", { class: `mx-cell ${bgCls} ${availCls}` });
 
   // Offer: simplified (default) = adult/headline short glyph; "人群条款全展开" on
@@ -675,7 +710,7 @@ function renderCell(cell, attr) {
     td.appendChild(el("div", { class: "mx-glyph" }, shortSummary(cell.pass.coupon), " ", pfStarEl(cell.pass.pass_form)));
   }
 
-  if (d.warn && cell.warn) td.appendChild(el("span", { class: "mx-warn", title: "eligibility not confirmed (residency unknown in our data)" }, "⚠"));
+  if (cell.warn) td.appendChild(el("span", { class: "mx-warn", title: "eligibility not confirmed (residency/visitor rule unknown in our data)" }, "⚠"));
   if (d.avail && cell.avail !== "none") td.appendChild(el("div", { class: "mx-sub" }, cell.avail));
   if (d.verdict && !cell.verdict.eligible) td.appendChild(el("div", { class: "mx-sub mx-block", title: `blocked at ${cell.verdict.blockedLayer}` }, `${LAYER_NUM[cell.verdict.blockedLayer] || ""} ${cell.verdict.reasons[0] || cell.verdict.blockedLayer}`.trim()));
   if (d.distance && cell.lib.geo && STATE.homeGeo) {
@@ -720,18 +755,19 @@ const PICKUP_ORDER = { digital_email: 0, physical_coupon: 1, physical_circ: 2 };
 // One booking-choice row: which card (place), its full number + copy, offer/pickup,
 // distance, and the action (Book link, or the block reason for ineligible cards).
 // The HELD library whose card actually covers this pass: the pass's own library
-// if held, else any held library in the same network (unless the pass requires
-// its own card). null = no held card covers it. Mirrors cardOk's L1 logic so the
-// booking popup agrees with the matrix.
-function coveringHeldLib(lib, heldIds, requiresOwnCard) {
+// if held, else any held library whose issuance group is accepted here (unless
+// the pass is known own-card-only). null = no held card covers it. Mirrors the
+// L1 logic so the booking popup agrees with the matrix.
+function coveringHeldLib(lib, heldIds, pass) {
   if (heldIds.includes(lib.id)) return lib.id;
-  if (requiresOwnCard) return null;
-  return heldIds.find(id => STATE.libsById[id]?.network === lib.network) || null;
+  if (bookingAccessMode(pass) === "own_card_only") return null;
+  return heldIds.find(id => heldCardCoversLibrary(STATE.libsById[id], lib)) || null;
 }
 
 function bookingRow({ p, lib, cardLibId, v }, eligible) {
   const cardLib = STATE.libsById[cardLibId] || lib;
   const sameNet = cardLibId !== p.library_id;  // booking with a same-network card, not this library's own
+  const access = describeBookingAccess(p, lib);
   const physical = p.pass_form !== "digital_email";
   const mi = (physical && lib.geo && STATE.homeGeo) ? haversineMi(STATE.homeGeo, lib.geo) : null;
   const num = cardNumOf(cardLibId);  // the held card you'd actually use
@@ -748,9 +784,9 @@ function bookingRow({ p, lib, cardLibId, v }, eligible) {
     ? (p.source_url ? el("a", { class: "bk-link", href: p.source_url, target: "_blank", rel: "noopener" }, "Book ↗")
                     : el("span", { class: "hint" }, "无预订链接"))
     : el("span", { class: "bk-no" }, "✗ " + (v.reasons[0] || v.blockedLayer));
-  // Use your held card; book through the pass's library (same-network is allowed).
+  // Use your held card; book through the pass's library when that card can cover it.
   const libLabel = sameNet
-    ? `${cardLib.town} 卡 → 在 ${lib.town} 预订（同 ${lib.network}）`
+    ? `${cardLib.town} 卡 → 在 ${lib.town} 预订（${access.siblingLabel}）`
     : `${lib.town} 馆卡`;
   return el("div", { class: "bk-row" + (eligible ? "" : " bk-row-blocked") },
     el("div", { class: "bk-lib", title: lib.name }, libLabel),
@@ -773,7 +809,7 @@ function openBookingPopup(attr) {
       const lib = STATE.libsById[p.library_id];
       // which held card covers this pass — own library OR same-network sibling
       // (matches the matrix's cardOk; not just exact-library as before)
-      const cardLibId = lib ? coveringHeldLib(lib, heldIds, p.requires_own_card) : null;
+      const cardLibId = lib ? coveringHeldLib(lib, heldIds, p) : null;
       return { p, lib, cardLibId, v: resolvePass(p, lib, attr, user, STATE.visitDate) };
     })
     .filter(r => r.lib && r.cardLibId)
@@ -803,18 +839,25 @@ function openBookingPopup(attr) {
 
 // Pass-scoped booking: the operator clicked a SPECIFIC cell (one library×attraction
 // pass), so list only the held card(s) that can book THIS pass — own library card,
-// or a same-network card unless the pass requires its own. Not the whole attraction.
+// or any held card whose issuance group is accepted here (unless the pass
+// requires its own). Not the whole attraction.
 function openBookingForPass(cell, attr) {
   const user = getUser();
   const heldIds = user.heldLibraryIds;
   const p = cell.pass, lib = cell.lib;
+  const access = describeBookingAccess(p, lib);
   const cardLibIds = heldIds.filter(id =>
-    id === p.library_id || (!p.requires_own_card && STATE.libsById[id]?.network === lib.network));
+    id === p.library_id || (access.mode !== "own_card_only" && heldCardCoversLibrary(STATE.libsById[id], lib)));
   const box = el("div", { class: "bk-list" });
   if (!cardLibIds.length) {
     box.appendChild(el("p", { class: "hint" },
-      p.requires_own_card ? `此 pass 需 ${lib.town} 本馆卡（同网络卡不被接受）。`
-                          : `你持有的卡都不能预订这张 pass。`));
+      access.mode === "own_card_only"
+        ? `此 pass 需 ${lib.town} 本馆卡；同组别馆卡已验证会被拒绝。`
+        : access.mode === "ambiguous"
+          ? `你当前没有可覆盖该馆的明确可用卡；并且同组覆盖探测结果不明确。`
+        : access.mode === "not_verified"
+          ? `你当前没有可覆盖该馆的卡；并且同组覆盖规则尚未验证。`
+          : `你持有的卡都不能预订这张 pass。`));
   } else {
     const v = resolvePass(p, lib, attr, user, STATE.visitDate);
     box.appendChild(el("div", { class: "bk-sec" + (v.eligible ? "" : " bk-sec-muted") },
@@ -995,8 +1038,7 @@ function renderCellReadonly(cell, attr) {
     wrap.appendChild(el("div", { class: "ro-row" }, el("span", { class: "ro-k" }, "人群明细"), list));
   }
   wrap.appendChild(roRow("取卡方式", zhVal(ZH.pass_form, p.pass_form)));
-  wrap.appendChild(roRow("持卡要求",
-    p.requires_own_card ? "仅限本馆卡（同网络别馆卡无法预订）" : "本网络通用"));
+  wrap.appendChild(roRow("持卡要求", describeBookingAccess(p, cell.lib).label));
   const rr = p.residency_restriction;
   wrap.appendChild(roRow("取券居住限制",
     rr ? `${zhVal(ZH.residency_restricted, rr.restricted)}${rr.scope ? " · " + zhVal(ZH.residency_scope, rr.scope) : ""}` : "—"));

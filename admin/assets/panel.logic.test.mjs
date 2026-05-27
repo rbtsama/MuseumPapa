@@ -1,11 +1,12 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { cardOk, residencyOk, cellTier, availStatus, rowSortKey, bestPolicy, headlinePolicy, shortSummary } from "./panel.logic.mjs";
+import { cardOk, cardCoverage, bookingAccessMode, residencyOk, cellTier, availStatus, rowSortKey, bestPolicy, headlinePolicy, shortSummary } from "./panel.logic.mjs";
 
 const libsById = {
   wakefield: { id: "wakefield", network: "NOBLE", town: "Wakefield", resident_zips: ["01880"] },
   reading:   { id: "reading",   network: "NOBLE", town: "Reading",  resident_zips: ["01867"] },
   bpl:       { id: "bpl",       network: "BPL",   town: "Boston",   resident_zips: ["02118"] },
+  malden:    { id: "malden",    network: "MBLN",  town: "Malden",   resident_zips: ["02148"] },
 };
 const maZips = new Set(["01880", "01867", "02118"]);
 
@@ -18,12 +19,57 @@ test("cardOk: same network matches", () => {
 test("cardOk: different network fails", () => {
   assert.equal(cardOk(libsById.bpl, ["wakefield"], libsById), false);
 });
+test("cardOk: accepted cross-network access group passes", () => {
+  const libs = {
+    ...libsById,
+    malden: {
+      ...libsById.malden,
+      card_issuance_group: "MBLN",
+    },
+    bpl: {
+      ...libsById.bpl,
+      card_auth_groups: ["BPL", "MBLN"],
+    },
+  };
+  assert.equal(cardOk(libs.bpl, ["malden"], libs), true);
+});
 test("cardOk: requiresOwnCard blocks same-network sibling card", () => {
   // reading pass needs its OWN card — a wakefield (same NOBLE) card is rejected
   assert.equal(cardOk(libsById.reading, ["wakefield"], libsById, true), false);
 });
 test("cardOk: requiresOwnCard still allows the library's own card", () => {
   assert.equal(cardOk(libsById.reading, ["reading"], libsById, true), true);
+});
+test("bookingAccessMode: structured probe verdict wins", () => {
+  assert.equal(bookingAccessMode({ requires_own_card: false, booking_access_probe: { verdict: "network_open" } }), "network_open");
+  assert.equal(bookingAccessMode({ requires_own_card: false, booking_access_probe: { verdict: "not_verified" } }), "not_verified");
+});
+test("cardCoverage: not_verified sibling coverage warns", () => {
+  const coverage = cardCoverage(
+    libsById.reading,
+    ["wakefield"],
+    libsById,
+    { requires_own_card: false, booking_access_probe: { verdict: "not_verified" } },
+  );
+  assert.deepEqual(coverage, { ok: true, warn: true, mode: "not_verified" });
+});
+test("cardCoverage: own_card_only sibling coverage blocks", () => {
+  const coverage = cardCoverage(
+    libsById.reading,
+    ["wakefield"],
+    libsById,
+    { requires_own_card: false, booking_access_probe: { verdict: "own_card_only" } },
+  );
+  assert.deepEqual(coverage, { ok: false, warn: false, mode: "own_card_only" });
+});
+test("cardCoverage: ambiguous sibling coverage warns", () => {
+  const coverage = cardCoverage(
+    libsById.reading,
+    ["wakefield"],
+    libsById,
+    { requires_own_card: false, booking_access_probe: { verdict: "ambiguous" } },
+  );
+  assert.deepEqual(coverage, { ok: true, warn: true, mode: "ambiguous" });
 });
 test("residencyOk: no restriction passes", () => {
   const r = residencyOk({ residency_restriction: { restricted: "no" } }, libsById.wakefield, null, "99999", maZips);
@@ -56,6 +102,7 @@ test("residencyOk: attraction ma_resident rejects non-MA", () => {
 });
 test("cellTier: a/b/c/d matrix", () => {
   assert.equal(cellTier(true, true), "a");
+  assert.equal(cellTier(true, true, true), "aw");
   assert.equal(cellTier(false, true), "b");
   assert.equal(cellTier(true, false), "c");
   assert.equal(cellTier(false, false), "d");
@@ -68,7 +115,8 @@ test("availStatus: maps states; no date -> none", () => {
 });
 test("rowSortKey: best tier + available-first", () => {
   assert.deepEqual(rowSortKey([{ tier: "a", avail: "available" }]), [0, 0]);
-  assert.deepEqual(rowSortKey([{ tier: "b", avail: "available" }, { tier: "c", avail: "available" }]), [1, 0]);
+  assert.deepEqual(rowSortKey([{ tier: "aw", avail: "available" }]), [1, 0]);
+  assert.deepEqual(rowSortKey([{ tier: "b", avail: "available" }, { tier: "c", avail: "available" }]), [2, 0]);
   assert.deepEqual(rowSortKey([{ tier: "a", avail: "booked" }]), [0, 1]);
   assert.deepEqual(rowSortKey([]), [9, 9]);
 });

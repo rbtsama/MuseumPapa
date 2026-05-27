@@ -4,6 +4,14 @@
   "buildCommand": "cd web && corepack enable && pnpm install --frozen-lockfile && pnpm run build",
   "outputDirectory": "web/dist",
   "installCommand": "echo 'skip — handled inside buildCommand'",
+  "headers": [
+    {
+      "source": "/admin/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, must-revalidate" }
+      ]
+    }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

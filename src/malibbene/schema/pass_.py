@@ -95,6 +95,22 @@ class ResidencyRestriction:
     source: Optional[str] = None                 # "catalog_text" | "booking_probe"
     evidence: Optional[str] = None               # verbatim phrase, or probe result detail
 
+
+class BookingAccessVerdict(str, Enum):
+    OWN_CARD_ONLY = "own_card_only"
+    NETWORK_OPEN = "network_open"
+    AMBIGUOUS = "ambiguous"
+    NOT_VERIFIED = "not_verified"
+
+
+@dataclass
+class BookingAccessProbe:
+    verdict: BookingAccessVerdict = BookingAccessVerdict.NOT_VERIFIED
+    source: Optional[str] = None
+    evidence: Optional[str] = None
+    prober_card: Optional[str] = None
+    probed_date: Optional[str] = None
+
 @dataclass
 class Pass:
     library_id: str
@@ -110,4 +126,5 @@ class Pass:
     # — the card is obtainable by any MA resident. From the booking probe.
     requires_own_card: bool = False
     own_card_evidence: Optional[str] = None
+    booking_access_probe: Optional[BookingAccessProbe] = None
     source_url: Optional[str] = None

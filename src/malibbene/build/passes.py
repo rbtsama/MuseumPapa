@@ -22,8 +22,30 @@ def _pass_form_from_pass_type(pass_type: str | None) -> str | None:
 
 def _read(p): return json.loads(p.read_text()) if p.exists() else None
 
-def _index_pass_types(raw_root: Path, platform: str, lib: str) -> dict:
-    """slug -> pass_type from the index/ snapshot for one library (empty if absent).
+def infer_pass_form_from_text(text: str | None) -> str | None:
+    t = " ".join((text or "").lower().split())
+    if not t:
+        return None
+    if "digital (downloadable via email)" in t or "e-coupon" in t or "e-ticket" in t:
+        return "digital_email"
+    # These explicit no-return cues are more trustworthy than the generic
+    # LibCal footer boilerplate that sometimes still says "picked up ... and
+    # returned" even when the pass page body says otherwise.
+    if "does not need to be returned" in t or "this is a disposable pass" in t or "disposable pass" in t:
+        return "physical_coupon"
+    if "returnable pass" in t or "must be returned" in t:
+        return "physical_circ"
+    if "physical passes must be picked up" in t or "must be picked up at the branch" in t or "must be picked up at the library" in t:
+        return "physical_coupon"
+    return None
+
+def _detail_hex(url: str | None) -> str | None:
+    if not url:
+        return None
+    return url.rstrip("/").rsplit("/", 1)[-1] or None
+
+def _index_pass_types(raw_root: Path, platform: str, lib: str) -> tuple[dict, dict]:
+    """Return (slug_map, hex_map) from the index/ snapshot for one library.
 
     The index/ files carry deterministic pass_type for all 59 libraries; the v2
     catalog scraper only began emitting pass_type after the markup fix, so this
@@ -31,8 +53,23 @@ def _index_pass_types(raw_root: Path, platform: str, lib: str) -> dict:
     """
     idx = _read(raw_root / platform / "index" / f"{lib}.json")
     if not idx:
-        return {}
-    return {p.get("slug"): p.get("pass_type") for p in idx.get("passes", []) if p.get("slug")}
+        return {}, {}
+    slug_map = {}
+    hex_map = {}
+    for p in idx.get("passes", []):
+        raw = p.get("slug")
+        pass_type = p.get("pass_type")
+        if raw:
+            slug_map[raw] = pass_type
+            # LibCal often emits slightly different catalog vs index slugs
+            # ("...-theatre" vs "...-theater", "...-tours", "...-physical-pass").
+            # The canonical attraction slug is the stable join key, so expose it as
+            # a second lookup path for pass_form recovery.
+            slug_map[canonical(raw)] = pass_type
+        museum_hex = p.get("museum_hex") or p.get("pass_id")
+        if museum_hex:
+            hex_map[museum_hex] = pass_type
+    return slug_map, hex_map
 
 def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
     overrides = load_overrides(overrides_root)
@@ -43,7 +80,7 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
         for cat_f in catalog_dir.glob("*.json"):
             cat = json.loads(cat_f.read_text())
             lib = cat["library_id"]
-            idx_pass_types = _index_pass_types(raw_root, platform, lib)
+            idx_pass_types, idx_pass_types_by_hex = _index_pass_types(raw_root, platform, lib)
             for p in cat.get("passes",[]):
                 # `rawslug` is the catalog slug used to KEY the raw coupon /
                 # availability / probe files (look those up with it). The
@@ -74,6 +111,13 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                     # obtainable by any MA resident. Set from the booking probe.
                     "requires_own_card": False,
                     "own_card_evidence": None,
+                    "booking_access_probe": {
+                        "verdict": "not_verified",
+                        "source": None,
+                        "evidence": None,
+                        "prober_card": None,
+                        "probed_date": None,
+                    },
                     "availability": {},
                     "eligibility_override": None,
                 }
@@ -89,9 +133,21 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                 # AUTHORITATIVE pass_form: the deterministic pass_type scraped from
                 # the index page (catalog record first, else the index/ snapshot)
                 # overrides the LLM-guessed legacy old_e value. Unknown -> keep prior.
-                pf = _pass_form_from_pass_type(p.get("pass_type") or idx_pass_types.get(rawslug))
+                pf = _pass_form_from_pass_type(
+                    p.get("pass_type")
+                    or idx_pass_types.get(rawslug)
+                    or idx_pass_types.get(slug)
+                    or idx_pass_types_by_hex.get(_detail_hex(p.get("detail_url")))
+                )
                 if pf:
                     row["pass_form"] = pf
+                # LibCal body text is often a better pass-form signal than the
+                # legacy coupon extraction, especially when old_e defaulted many
+                # pickup-only passes to physical_circ.
+                if platform == "libcal":
+                    text_pf = infer_pass_form_from_text(p.get("benefit_text"))
+                    if text_pf:
+                        row["pass_form"] = text_pf
                 # AUTHORITATIVE coupon numbers: data/raw/pass_coupons/<lib>_<canonical>.json
                 # (single underscore, canonical slug, top-level fields). Canonical name
                 # first, then raw-slug name, then the legacy extraction as fallback.
@@ -114,6 +170,23 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                 # Neither overwrites a text-derived MA-resident requirement (a
                 # separate axis the probe cannot test — the prober is a MA resident).
                 probe = _read(raw_root/platform/"residency_probe"/f"{lib}__{rawslug}.json")
+                if probe:
+                    probe_verdict = probe.get("verdict")
+                    mapped = {
+                        "rejected_resident": "own_card_only",
+                        "accepted": "network_open",
+                        "ambiguous": "ambiguous",
+                        "unknown": "ambiguous",
+                        "format_error": "ambiguous",
+                    }.get(probe_verdict)
+                    if mapped:
+                        row["booking_access_probe"] = {
+                            "verdict": mapped,
+                            "source": "booking_probe",
+                            "evidence": probe.get("evidence"),
+                            "prober_card": probe.get("prober_card"),
+                            "probed_date": probe.get("probed_date"),
+                        }
                 if probe and probe.get("restricted") in ("yes", "no"):
                     text_rr = row.get("residency_restriction") or {}
                     text_is_ma = (text_rr.get("restricted") == "yes"
