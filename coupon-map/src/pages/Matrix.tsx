@@ -612,11 +612,21 @@ function EvidenceSection({ items }: { items: EvidenceItem[] }) {
       {visible.map((it, i) => (
         <div className="ev-item" key={i}>
           {it.label && <div className="ev-label">{it.label}</div>}
-          {it.quote && <div className="ev-quote">{it.quote}</div>}
-          {it.source && (
-            <a className="ev-link" href={it.source} target="_blank" rel="noreferrer">
-              {prettyHost(it.source)} ↗
-            </a>
+          {it.quote ? (
+            <div className="ev-quote">
+              {it.quote}
+              {it.source && (
+                <a className="ev-link" href={it.source} target="_blank" rel="noreferrer">
+                  Open ↗
+                </a>
+              )}
+            </div>
+          ) : (
+            it.source && (
+              <a className="ev-link standalone" href={it.source} target="_blank" rel="noreferrer">
+                Open ↗
+              </a>
+            )
           )}
         </div>
       ))}
@@ -628,27 +638,39 @@ function CellAuditRow({
   entry,
   onToggleApprove,
   onSetCorrection,
+  onBook,
 }: {
   entry?: { approved?: { at: string }; corrections?: { at: string; notes: Record<string, string> } };
   onToggleApprove: () => void;
   onSetCorrection: (field: string, note: string) => void;
+  onBook: () => void;
 }) {
   const [showEdit, setShowEdit] = useState(false);
+  // Pair-icon set: both ▣ / ▢-style fill-vs-outline so Approve and Edit read
+  // as the same family at a glance, just one filled (action committed) and
+  // one outline (pending action).
   return (
     <>
-      <div className="audit-row">
-        <button
-          className={`audit-btn${entry?.corrections ? " has-notes" : ""}${showEdit ? " open" : ""}`}
-          onClick={() => setShowEdit((s) => !s)}
-        >
-          <span className="ico">✎</span> Edit
-          {entry?.corrections && <span className="dot-mark" />}
-        </button>
+      <div className="action-bar">
         <button
           className={`audit-btn approve${entry?.approved ? " active" : ""}`}
           onClick={onToggleApprove}
+          title={entry?.approved ? `Approved ${new Date(entry.approved.at).toLocaleString()}` : "Mark verified"}
         >
-          <span className="ico">✓</span> {entry?.approved ? "Approved" : "Approve"}
+          <span className="ico">{entry?.approved ? "▣" : "▢"}</span>
+          {entry?.approved ? "Approved" : "Approve"}
+        </button>
+        <button
+          className={`audit-btn${entry?.corrections ? " has-notes" : ""}${showEdit ? " open" : ""}`}
+          onClick={() => setShowEdit((s) => !s)}
+          title={entry?.corrections ? "Has edits — click to view" : "Add edit notes"}
+        >
+          <span className="ico">{entry?.corrections ? "▤" : "▥"}</span>
+          Edit
+          {entry?.corrections && <span className="dot-mark" />}
+        </button>
+        <button className="book-btn" onClick={onBook}>
+          Book Now ↗
         </button>
       </div>
       {showEdit && (
@@ -840,10 +862,6 @@ function CellDetail({
         {attr.name} · {branch ? `${lib.town} · ${branch.name}` : lib.town} · {lib.network}
       </div>
 
-      <button onClick={onBook} className="book-cta">
-        <span className="book-cta-arrow">↗</span> Book now
-      </button>
-
       {/* Discount — plain row group with sub-rows for each audience. */}
       <div className="data-section">
         <div className="section-h">Discount</div>
@@ -901,14 +919,6 @@ function CellDetail({
         )}
       </div>
 
-      {/* Audit — Edit on the left, Approve on the right. Edit toggles an inline
-          field-by-field form below the row (form is a sibling node so it never
-          pushes Approve to a second line). */}
-      <CellAuditRow
-        entry={entry}
-        onToggleApprove={onToggleApprove}
-        onSetCorrection={onSetCorrection}
-      />
 
       <EvidenceSection
         items={[
@@ -934,6 +944,14 @@ function CellDetail({
               }
             : { label: "" },
         ]}
+      />
+
+      {/* Bottom action bar — Approve + Edit on the left, Book Now anchored right. */}
+      <CellAuditRow
+        entry={entry}
+        onToggleApprove={onToggleApprove}
+        onSetCorrection={onSetCorrection}
+        onBook={onBook}
       />
     </div>
   );
