@@ -552,8 +552,11 @@ body,
   flex-wrap: wrap;
   margin: 14px 0 10px;
 }
-.detail-card .audit-edit { flex: 0 0 auto; }
-.detail-card .audit-edit[open] { flex: 1 1 100%; }
+.detail-card .audit-btn.open {
+  background: #ecebe5;
+  color: #1b5740;
+  border-color: #b5b2a8;
+}
 .detail-card .audit-btn {
   display: inline-flex;
   align-items: center;

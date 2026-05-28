@@ -620,6 +620,52 @@ function EvidenceSection({ items }: { items: EvidenceItem[] }) {
   );
 }
 
+function CellAuditRow({
+  entry,
+  onToggleApprove,
+  onSetCorrection,
+}: {
+  entry?: { approved?: { at: string }; corrections?: { at: string; notes: Record<string, string> } };
+  onToggleApprove: () => void;
+  onSetCorrection: (field: string, note: string) => void;
+}) {
+  const [showEdit, setShowEdit] = useState(false);
+  return (
+    <>
+      <div className="audit-row">
+        <button
+          className={`audit-btn${entry?.corrections ? " has-notes" : ""}${showEdit ? " open" : ""}`}
+          onClick={() => setShowEdit((s) => !s)}
+        >
+          <span className="ico">✎</span> Edit
+          {entry?.corrections && <span className="dot-mark" />}
+        </button>
+        <button
+          className={`audit-btn approve${entry?.approved ? " active" : ""}`}
+          onClick={onToggleApprove}
+        >
+          <span className="ico">✓</span> {entry?.approved ? "Approved" : "Approve"}
+        </button>
+      </div>
+      {showEdit && (
+        <div className="correction-fields">
+          {AUDITABLE_FIELDS.map((f) => (
+            <div className="cf-row" key={f.key}>
+              <label className="cf-label">{f.label}</label>
+              <textarea
+                className="cf-input"
+                rows={1}
+                defaultValue={entry?.corrections?.notes[f.key] || ""}
+                onBlur={(e) => onSetCorrection(f.key, e.target.value)}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+    </>
+  );
+}
+
 function CellGlyph({ p, lib, approved, hasCorrection }: { p: Pass; lib: Library; approved?: boolean; hasCorrection?: boolean }) {
   const fl = formLabel(p.pass_form);
   const verdict = p.booking_access_probe?.verdict;
@@ -853,34 +899,14 @@ function CellDetail({
         )}
       </div>
 
-      {/* Audit — Edit on the left (opens inline form), Approve on the right. */}
-      <div className="audit-row">
-        <details className="audit-edit">
-          <summary className={`audit-btn${entry?.corrections ? " has-notes" : ""}`}>
-            <span className="ico">✎</span> Edit
-            {entry?.corrections && <span className="dot-mark" />}
-          </summary>
-          <div className="correction-fields">
-            {AUDITABLE_FIELDS.map((f) => (
-              <div className="cf-row" key={f.key}>
-                <label className="cf-label">{f.label}</label>
-                <textarea
-                  className="cf-input"
-                  rows={1}
-                  defaultValue={entry?.corrections?.notes[f.key] || ""}
-                  onBlur={(e) => onSetCorrection(f.key, e.target.value)}
-                />
-              </div>
-            ))}
-          </div>
-        </details>
-        <button
-          className={`audit-btn approve${entry?.approved ? " active" : ""}`}
-          onClick={onToggleApprove}
-        >
-          <span className="ico">✓</span> {entry?.approved ? "Approved" : "Approve"}
-        </button>
-      </div>
+      {/* Audit — Edit on the left, Approve on the right. Edit toggles an inline
+          field-by-field form below the row (form is a sibling node so it never
+          pushes Approve to a second line). */}
+      <CellAuditRow
+        entry={entry}
+        onToggleApprove={onToggleApprove}
+        onSetCorrection={onSetCorrection}
+      />
 
       <EvidenceSection
         items={[
