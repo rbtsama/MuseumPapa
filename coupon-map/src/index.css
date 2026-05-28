@@ -25,17 +25,23 @@ body,
   border: 1px solid #d0cec6;
   border-radius: 6px;
   background: #fafaf7;
+  isolation: isolate; /* establish a stacking context so sticky cells beat
+                         any out-of-tree popover transforms */
+  position: relative;
 }
 .matrix {
   display: grid;
   font-size: 12px;
+  width: max-content; /* force the grid to its full computed size so the
+                         scroll container actually scrolls past the last col
+                         without losing sticky on the left header */
 }
 .mx-net,
 .mx-town,
 .mx-row-head,
 .mx-cell {
-  border-bottom: 1px solid #ecebe5;
-  border-right: 1px solid #ecebe5;
+  border-bottom: 1px solid #d0cec6;
+  border-right: 1px solid #d0cec6;
   padding: 4px 6px;
   background: #fafaf7;
 }
@@ -151,8 +157,8 @@ body,
 .mx-cell {
   text-align: center;
   font-size: 11px;
-  min-width: 78px;
-  max-width: 78px;
+  min-width: 92px;
+  max-width: 92px;
   white-space: nowrap;
   cursor: pointer;
   position: relative;
@@ -160,14 +166,24 @@ body,
 .mx-cell:hover {
   background: #eaf1ee;
 }
+/* Crosshair: the hovered cell's row-head and column header light up so the
+   user can locate which (景点, 馆) the cell belongs to on this wide matrix.
+   Applied/removed via direct DOM mutation, no React re-render. */
+.mx-row-head.row-active {
+  background: #eaf1ee;
+}
+.mx-town.row-active,
+.mx-town.col-active {
+  background: #c4ddcf;
+}
 .mx-cell.empty {
   background-image: linear-gradient(
     135deg,
-    #ecebe5 25%,
+    #d8d6cc 25%,
     transparent 25%,
     transparent 50%,
-    #ecebe5 50%,
-    #ecebe5 75%,
+    #d8d6cc 50%,
+    #d8d6cc 75%,
     transparent 75%
   );
   background-size: 6px 6px;
@@ -549,6 +565,103 @@ body,
 }
 .detail-card .row .k {
   color: #4a4845;
+}
+
+/* ── Booking Floater (replaces the 3-step wizard) ──────────────────── */
+.floater {
+  padding: 14px 18px 12px;
+  font-size: 12px;
+  color: #1a1917;
+  background: #fafaf7;
+  min-width: 520px;
+  max-width: 640px;
+}
+.floater-head { margin-bottom: 10px; }
+.floater-title { font-size: 15px; font-weight: 700; color: #1b5740; }
+.floater-sub { font-size: 12px; color: #4a4845; margin-top: 2px; }
+.floater-sub code {
+  background: #eaf1ee; padding: 1px 4px; border-radius: 3px; color: #1b5740;
+}
+.floater-cal { margin-bottom: 12px; }
+.cal-nav { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
+.cal-nav button {
+  font: inherit; font-size: 11px; padding: 3px 8px;
+  background: #fafaf7; color: #1a1917; border: 1px solid #d0cec6; border-radius: 3px; cursor: pointer;
+}
+.cal-nav button:disabled { opacity: 0.35; cursor: default; }
+.cal-nav strong { font-size: 13px; color: #1b5740; letter-spacing: 1px; }
+.cal-week, .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.cal-wh { text-align: center; font-size: 10px; color: #4a4845; padding: 2px 0; }
+.cal-blank { background: transparent; }
+.cal-cell {
+  border: 1px solid #d0cec6; border-radius: 3px; padding: 4px 0 3px;
+  text-align: center; font-size: 11px; cursor: pointer;
+  display: flex; flex-direction: column; gap: 1px;
+}
+.cal-cell:disabled { cursor: default; }
+.cal-cell.selected { outline: 2px solid #1b5740; outline-offset: -2px; font-weight: 700; }
+.cal-day { font-weight: 600; }
+.cal-tag { font-size: 9px; opacity: 0.8; }
+.cal-legend {
+  margin-top: 6px; display: flex; gap: 10px; font-size: 10px; color: #4a4845;
+}
+.cal-legend .lg { display: inline-flex; align-items: center; gap: 4px; }
+.cal-legend .lg-sw {
+  display: inline-block; width: 10px; height: 10px;
+  border: 1px solid #b5b2a8; border-radius: 2px;
+}
+
+.floater-cards {
+  border-top: 1px solid #d0cec6;
+  padding-top: 8px;
+  margin-bottom: 10px;
+  max-height: 220px; overflow-y: auto;
+}
+.cards-h { font-size: 11px; font-weight: 700; color: #4a4845; letter-spacing: 0.5px; margin-bottom: 4px; }
+.cards-empty { font-size: 11px; color: #4a4845; font-style: italic; padding: 6px 0; }
+.card-pick {
+  display: flex; align-items: center; gap: 8px;
+  padding: 5px 7px; margin-bottom: 4px;
+  border: 1px solid #d0cec6; border-radius: 4px;
+  background: #fafaf7; cursor: pointer;
+}
+.card-pick.disabled { opacity: 0.4; background: #ecebe5; cursor: default; }
+.card-pick.selected { border-color: #1b5740; background: #eaf1ee; }
+.card-pick .cp-main { flex: 1; min-width: 0; }
+.card-pick .cp-name { font-weight: 600; font-size: 12px; display: flex; gap: 6px; align-items: baseline; }
+.card-pick .cp-role { font-size: 10px; font-weight: 500; color: #4a4845; }
+.card-pick .cp-meta { display: flex; align-items: center; gap: 6px; font-size: 11px; margin-top: 2px; flex-wrap: wrap; }
+.card-pick .cp-barcode { background: #ecebe5; padding: 1px 5px; border-radius: 3px; font-family: ui-monospace, monospace; }
+.card-pick .cp-note { color: #4a4845; font-size: 10px; font-style: italic; }
+.card-pick .cp-copy {
+  font: inherit; font-size: 10px; padding: 1px 6px;
+  border: 1px solid #c4ddcf; background: #eaf1ee; color: #1b5740;
+  border-radius: 3px; cursor: pointer;
+}
+.card-pick .cp-radio { accent-color: #1b5740; }
+
+.floater-foot {
+  border-top: 1px solid #d0cec6; padding-top: 8px;
+  display: flex; justify-content: space-between; align-items: center;
+  position: relative;
+}
+.foot-status { font-size: 11px; color: #4a4845; }
+.foot-status code { background: #ecebe5; padding: 1px 5px; border-radius: 3px; font-family: ui-monospace, monospace; }
+.foot-btns { display: flex; gap: 8px; }
+.foot-btns .btn-primary {
+  font: inherit; font-size: 12px; font-weight: 600;
+  padding: 6px 12px;
+  background: #1b5740; color: #fafaf7; border: none; border-radius: 4px; cursor: pointer;
+}
+.foot-btns .btn-primary:disabled { opacity: 0.4; cursor: default; }
+.foot-btns .btn-ghost {
+  font: inherit; font-size: 12px;
+  padding: 5px 12px;
+  background: #fafaf7; color: #1a1917; border: 1px solid #d0cec6; border-radius: 4px; cursor: pointer;
+}
+.copy-toast {
+  position: absolute; right: 0; bottom: 100%; margin-bottom: 6px;
+  background: #1b5740; color: #fafaf7; padding: 4px 10px; border-radius: 3px; font-size: 11px;
 }
 
 .wizard {

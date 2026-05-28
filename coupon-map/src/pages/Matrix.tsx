@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { Modal, ModalBody, ModalContent, ModalHeader, Popover, PopoverContent, PopoverTrigger } from "@heroui/react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Modal, ModalBody, ModalContent, Popover, PopoverContent, PopoverTrigger } from "@heroui/react";
 import type { Attraction, Branch, DataBundle, Library, Pass } from "../data/types";
 import { AUDITABLE_FIELDS, type AuditState, passKey } from "../store/audit";
 import {
@@ -134,8 +134,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
   }, [bundle, q, category]);
 
   // Wizard state
-  const [bookAttr, setBookAttr] = useState<Attraction | null>(null);
-  const [bookLib, setBookLib] = useState<Library | null>(null);
+  const [bookCtx, setBookCtx] = useState<{ attr: Attraction; lib: Library; pass: Pass } | null>(null);
 
   // Cell detail popover (inline) — show on click
   const [openKey, setOpenKey] = useState<string | null>(null);
@@ -153,10 +152,50 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
     return true;
   }
 
-  // All columns (lib + branch) use the same 78px width — branches are peer
-  // pickup-locations, not subordinates. Cell content is identical because
-  // they read the same institutional pass record.
-  const cellTemplate = `260px ${cols.map(() => "78px").join(" ")}`;
+  // 92px gives town names ("Wakefield", "Wilmington") + 💳 icon enough room
+  // without cutting at the right edge. Branches share the same width.
+  const cellTemplate = `260px ${cols.map(() => "92px").join(" ")}`;
+
+  // Crosshair hover — light up the hovered row's row-head and the hovered
+  // column's town header via direct DOM mutation, so the user can orient
+  // themselves on this wide matrix without us re-rendering 5700 cells.
+  const matrixRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const matrix = matrixRef.current;
+    if (!matrix) return;
+    let lastRow: HTMLElement | null = null;
+    let lastCol: HTMLElement | null = null;
+    const onOver = (e: Event) => {
+      const t = (e.target as HTMLElement).closest("[data-row], [data-col]") as HTMLElement | null;
+      if (!t) return;
+      const row = t.getAttribute("data-row");
+      const col = t.getAttribute("data-col");
+      if (lastRow && lastRow.getAttribute("data-row") !== row) {
+        lastRow.classList.remove("row-active"); lastRow = null;
+      }
+      if (lastCol && lastCol.getAttribute("data-col") !== col) {
+        lastCol.classList.remove("col-active"); lastCol = null;
+      }
+      if (row && !lastRow) {
+        const rh = matrix.querySelector(`.mx-row-head[data-row="${CSS.escape(row)}"]`) as HTMLElement | null;
+        if (rh) { rh.classList.add("row-active"); lastRow = rh; }
+      }
+      if (col && !lastCol) {
+        const ch = matrix.querySelector(`.mx-town[data-col="${col}"]`) as HTMLElement | null;
+        if (ch) { ch.classList.add("col-active"); lastCol = ch; }
+      }
+    };
+    const onLeave = () => {
+      if (lastRow) { lastRow.classList.remove("row-active"); lastRow = null; }
+      if (lastCol) { lastCol.classList.remove("col-active"); lastCol = null; }
+    };
+    matrix.addEventListener("mouseover", onOver);
+    matrix.addEventListener("mouseleave", onLeave);
+    return () => {
+      matrix.removeEventListener("mouseover", onOver);
+      matrix.removeEventListener("mouseleave", onLeave);
+    };
+  }, [cols.length, rows.length]);
 
   return (
     <div>
@@ -267,7 +306,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
       </div>
 
       <div className="matrix-scroll">
-        <div className="matrix" style={{ gridTemplateColumns: cellTemplate }}>
+        <div ref={matrixRef} className="matrix" style={{ gridTemplateColumns: cellTemplate }}>
           {/* row 1: corner + network groups */}
           <div className="mx-corner">景点 \ 图书馆 (按 network)</div>
           {groups.map((g) => (
@@ -297,7 +336,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                   return (
                     <Popover key={`lib:${l.id}:${ci}`} placement="bottom" showArrow>
                       <PopoverTrigger>
-                        <div className={cls} title={`${l.name} (${l.network})`}>
+                        <div className={cls} data-col={String(ci)} title={`${l.name} (${l.network})`}>
                           {l.town}
                           {multi && (
                             <button
@@ -413,7 +452,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                   return (
                     <Popover key={`br:${b.id}:${ci}`} placement="bottom" showArrow>
                       <PopoverTrigger>
-                        <div className="mx-town branch-head" title={`${b.name} — ${c.lib.name}`}>
+                        <div className="mx-town branch-head" data-col={String(ci)} title={`${b.name} — ${c.lib.name}`}>
                           {b.name}
                         </div>
                       </PopoverTrigger>
@@ -520,10 +559,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                 audit={audit}
                 onToggleApprove={toggleApprove}
                 onSetCorrection={setCorrection}
-                onBook={(lib) => {
-                  setBookAttr(a);
-                  setBookLib(lib);
-                }}
+                onBook={(lib, pass) => setBookCtx({ attr: a, lib, pass })}
               />
             );
           })}
@@ -531,23 +567,20 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
       </div>
 
       <Modal
-        isOpen={!!bookAttr}
-        onOpenChange={(o) => !o && (setBookAttr(null), setBookLib(null))}
+        isOpen={!!bookCtx}
+        onOpenChange={(o) => !o && setBookCtx(null)}
         size="2xl"
         scrollBehavior="inside"
       >
         <ModalContent>
-          <ModalHeader>预定预检 — {bookAttr?.name}</ModalHeader>
-          <ModalBody>
-            {bookAttr && (
+          <ModalBody style={{ padding: 0 }}>
+            {bookCtx && (
               <BookingWizard
                 bundle={bundle}
-                attraction={bookAttr}
-                preselectLib={bookLib}
-                onClose={() => {
-                  setBookAttr(null);
-                  setBookLib(null);
-                }}
+                attraction={bookCtx.attr}
+                pass={bookCtx.pass}
+                lib={bookCtx.lib}
+                onClose={() => setBookCtx(null)}
               />
             )}
           </ModalBody>
@@ -569,7 +602,7 @@ interface RowProps {
   audit: AuditState;
   onToggleApprove: (key: string) => void;
   onSetCorrection: (key: string, field: string, note: string) => void;
-  onBook: (lib: Library) => void;
+  onBook: (lib: Library, pass: Pass) => void;
 }
 
 function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult, resFlag, audit, onToggleApprove, onSetCorrection, onBook }: RowProps) {
@@ -577,7 +610,7 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
     <>
       <Popover placement="right-start" showArrow>
         <PopoverTrigger>
-          <div className="mx-row-head" title={attr.slug}>
+          <div className="mx-row-head" data-row={attr.slug} title={attr.slug}>
             <div className="attr-name">{attr.name}</div>
             <div className="attr-meta">
               {attr.categories?.slice(0, 2).join(" · ")} · ${adult ?? "—"}
@@ -604,7 +637,7 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
         // Both lib and branch cells render identically — branches are peer
         // pickup-locations, not subordinates. The popover header carries the
         // location label so the user sees the actual pickup point.
-        if (!p) return <div key={key} className={`mx-cell empty${startCls}`} />;
+        if (!p) return <div key={key} className={`mx-cell empty${startCls}`} data-row={attr.slug} data-col={String(ci)} />;
         const masked = !cellMatch(p);
         const branch = c.kind === "branch" ? c.branch : null;
         const locTitle = branch ? `${l.town} · ${branch.name}` : l.town;
@@ -622,6 +655,8 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
               <div
                 className={`mx-cell${startCls}`}
                 style={masked ? { opacity: 0.18 } : undefined}
+                data-row={attr.slug}
+                data-col={String(ci)}
                 title={`${attr.name} × ${locTitle}`}
               >
                 <CellGlyph p={p} lib={l} approved={!!entry?.approved} hasCorrection={!!entry?.corrections} />
@@ -638,7 +673,7 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
                 onSetCorrection={(field, note) => onSetCorrection(pkey, field, note)}
                 onBook={() => {
                   setOpenKey(null);
-                  onBook(l);
+                  onBook(l, p);
                 }}
               />
             </PopoverContent>
@@ -972,23 +1007,6 @@ function CellDetail({
         >
           去预定
         </button>
-        {p.source_url && (
-          <a
-            href={p.source_url}
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              padding: "6px 12px",
-              border: "1px solid #D0CEC6",
-              borderRadius: 4,
-              color: "#1a1917",
-              textDecoration: "none",
-              fontSize: 12,
-            }}
-          >
-            源页面 ↗
-          </a>
-        )}
       </div>
     </div>
   );

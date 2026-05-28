@@ -1,309 +1,262 @@
+// BookingFloater — replaces the old 3-step BookingWizard with a single
+// floating panel pinned to a specific (lib, attraction) pair. Cell-anchored
+// (library is already chosen), so the panel only needs to:
+//   1. show this pass's calendar with the same status colors the official
+//      site uses (available / not-available / closed / not-yet-released);
+//   2. show all stored cards with non-usable ones greyed out;
+//   3. deep-link to the official booking page WITH the chosen date already
+//      selected, so the user just pastes the card and confirms.
 import { useEffect, useMemo, useState } from "react";
 import type { Attraction, DataBundle, Library, Pass } from "../data/types";
-import { formLabel, matchCards, verdictLabel } from "../lib/derive";
+import { matchCards } from "../lib/derive";
 import { loadCards } from "../store/cards";
 
 interface Props {
   bundle: DataBundle;
   attraction: Attraction;
-  preselectLib: Library | null;
+  pass: Pass;
+  lib: Library;
   onClose: () => void;
 }
 
-type Step = 1 | 2 | 3;
-
-// Aggregate availability for one attraction across all its passes.
-// A date is "available" if ANY library's pass for this attraction is available.
-function aggregateAvail(passes: Pass[]) {
-  const all = new Map<string, { available: number; booked: number; closed: number }>();
-  for (const p of passes) {
-    if (!p.availability) continue;
-    for (const [d, st] of Object.entries(p.availability)) {
-      const v = all.get(d) || { available: 0, booked: 0, closed: 0 };
-      if (st === "available") v.available++;
-      else if (st === "booked") v.booked++;
-      else if (st === "closed") v.closed++;
-      all.set(d, v);
+// Construct a deep URL that already lands on the chosen date on the
+// official booking site. Pattern is platform-specific:
+//   assabet → /museum-passes/by-date/YYYY-<month>/<day>/<slug>/
+//   libcal  → ?date=YYYY-MM-DD appended
+//   other   → fall back to the raw source_url (no deep-link possible)
+function deepBookingUrl(pass: Pass, date: string | null): string {
+  const url = pass.source_url || "";
+  if (!url) return "";
+  if (!date) return url;
+  if (url.includes("assabetinteractive.com")) {
+    const months = ["january", "february", "march", "april", "may", "june",
+                    "july", "august", "september", "october", "november", "december"];
+    const m = url.match(/\/museum-passes\/by-museum\/([^/]+)\//);
+    if (m) {
+      const slug = m[1];
+      const [y, mo, d] = date.split("-");
+      const monthName = months[parseInt(mo, 10) - 1];
+      const base = url.split("/museum-passes/")[0];
+      return `${base}/museum-passes/by-date/${y}-${monthName}/${parseInt(d, 10)}/${slug}/`;
     }
   }
-  return all;
+  if (url.includes("libcal.com")) {
+    return url + (url.includes("?") ? "&" : "?") + "date=" + date;
+  }
+  return url;
 }
 
-export default function BookingWizard({ bundle, attraction, preselectLib, onClose }: Props) {
-  // All passes for this attraction
-  const passesForAttr = useMemo(
-    () => bundle.passes.filter((p) => p.attraction_slug === attraction.slug),
-    [bundle, attraction]
-  );
-  const passByLib = useMemo(() => {
-    const m = new Map<string, Pass>();
-    for (const p of passesForAttr) m.set(p.library_id, p);
-    return m;
-  }, [passesForAttr]);
-  const agg = useMemo(() => aggregateAvail(passesForAttr), [passesForAttr]);
+type DayStatus = "available" | "booked" | "closed" | "unavailable" | "none";
 
-  const [step, setStep] = useState<Step>(1);
-  const [date, setDate] = useState<string | null>(null);
-  const [libId, setLibId] = useState<string | null>(preselectLib?.id || null);
-  const cards = useMemo(() => loadCards(), []);
+const STATUS_STYLE: Record<DayStatus, { bg: string; fg: string; label: string; click: boolean }> = {
+  available:   { bg: "#C4DDCF", fg: "#1B5740", label: "Available",     click: true  },
+  booked:      { bg: "#FDF1E2", fg: "#8C6018", label: "Not Available", click: false },
+  closed:      { bg: "#ECEAE4", fg: "#4A4845", label: "Closed",        click: false },
+  unavailable: { bg: "#F4F3EF", fg: "#B5B2A8", label: "Not Yet Released", click: false },
+  none:        { bg: "#FAFAF7", fg: "#B5B2A8", label: "No Data",       click: false },
+};
 
-  // Build month range from availability data span
-  const dates = useMemo(() => Array.from(agg.keys()).sort(), [agg]);
-  const today = new Date().toISOString().slice(0, 10);
+export default function BookingWizard({ bundle, attraction, pass, lib, onClose }: Props) {
+  const avail = pass.availability || {};
+  // Pick months: all months that appear in this pass's availability, sorted.
   const months = useMemo(() => {
-    const ms = new Set<string>();
-    dates.forEach((d) => ms.add(d.slice(0, 7)));
-    return Array.from(ms).sort();
-  }, [dates]);
-  const [month, setMonth] = useState(() => months[0] || today.slice(0, 7));
+    const s = new Set<string>();
+    Object.keys(avail).forEach((d) => s.add(d.slice(0, 7)));
+    return Array.from(s).sort();
+  }, [avail]);
+  const todayStr = new Date().toISOString().slice(0, 10);
+  const initialMonth =
+    months.find((m) => m >= todayStr.slice(0, 7)) || months[0] || todayStr.slice(0, 7);
+  const [month, setMonth] = useState(initialMonth);
+  const [date, setDate] = useState<string | null>(null);
 
+  // My cards from localStorage. matchCards classifies them per pass.
+  const cards = useMemo(() => loadCards(), []);
+  const { exact, network } = useMemo(
+    () => matchCards(cards, pass, bundle.libById),
+    [cards, pass, bundle]
+  );
+  const exactIds = new Set(exact.map((c) => c.id));
+  const networkIds = new Set(network.map((c) => c.id));
+  const usableIds = new Set([...exactIds, ...networkIds]);
+
+  const [selectedCardId, setSelectedCardId] = useState<string | null>(
+    exact[0]?.id || network[0]?.id || null
+  );
+  const [copied, setCopied] = useState<string | null>(null);
+
+  // Reset card selection if the auto-pick becomes invalid (rare here, but tidy).
   useEffect(() => {
-    if (!month && months.length) setMonth(months[0]);
-  }, [months, month]);
+    if (selectedCardId && !usableIds.has(selectedCardId)) setSelectedCardId(null);
+  }, [selectedCardId, usableIds]);
 
-  function statusFor(d: string): "available" | "booked" | "closed" | "none" {
-    const v = agg.get(d);
-    if (!v) return "none";
-    if (v.available > 0) return "available";
-    if (v.booked > 0) return "booked";
-    return "closed";
+  // ── Month grid ────────────────────────────────────────────────────────
+  const [y, m] = month.split("-").map(Number);
+  const monthFirst = new Date(Date.UTC(y, m - 1, 1));
+  const daysInMonth = new Date(Date.UTC(y, m, 0)).getUTCDate();
+  const leading = monthFirst.getUTCDay();
+  const cells: Array<{ d: string | null; label: number | null }> = [];
+  for (let i = 0; i < leading; i++) cells.push({ d: null, label: null });
+  for (let i = 1; i <= daysInMonth; i++) {
+    const ds = `${month}-${String(i).padStart(2, "0")}`;
+    cells.push({ d: ds, label: i });
+  }
+  const mi = months.indexOf(month);
+
+  const selectedCard = cards.find((c) => c.id === selectedCardId) || null;
+  const jumpUrl = deepBookingUrl(pass, date);
+
+  function copy(text: string) {
+    navigator.clipboard.writeText(text).then(
+      () => {
+        setCopied(text);
+        setTimeout(() => setCopied(null), 1500);
+      },
+      () => setCopied("复制失败")
+    );
   }
 
-  // ── Step 1: calendar ──
-  if (step === 1) {
-    const [y, m] = month.split("-").map(Number);
-    const first = new Date(Date.UTC(y, m - 1, 1));
-    const dim = new Date(Date.UTC(y, m, 0)).getUTCDate();
-    const leading = first.getUTCDay(); // 0=Sun
-    const cells: Array<{ d: string | null; label: number | null }> = [];
-    for (let i = 0; i < leading; i++) cells.push({ d: null, label: null });
-    for (let i = 1; i <= dim; i++) {
-      const ds = `${month}-${String(i).padStart(2, "0")}`;
-      cells.push({ d: ds, label: i });
-    }
-    const mi = months.indexOf(month);
-    return (
-      <div className="wizard">
-        <h3>① 选日期 — {attraction.name}</h3>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-          <button onClick={() => mi > 0 && setMonth(months[mi - 1])} disabled={mi <= 0} style={navBtn}>
+  function onJump() {
+    if (selectedCard) navigator.clipboard.writeText(selectedCard.card_number).catch(() => {});
+    window.open(jumpUrl, "_blank", "noopener");
+  }
+
+  return (
+    <div className="floater">
+      <div className="floater-head">
+        <div>
+          <div className="floater-title">{attraction.name}</div>
+          <div className="floater-sub">
+            取件: <strong>{lib.town}</strong> ({lib.network}) · pass <code>{pass.coupon.summary}</code>
+          </div>
+        </div>
+      </div>
+
+      {/* Calendar */}
+      <div className="floater-cal">
+        <div className="cal-nav">
+          <button onClick={() => mi > 0 && setMonth(months[mi - 1])} disabled={mi <= 0}>
             ← {months[mi - 1] || ""}
           </button>
           <strong>{month}</strong>
-          <button onClick={() => mi < months.length - 1 && setMonth(months[mi + 1])} disabled={mi >= months.length - 1} style={navBtn}>
+          <button
+            onClick={() => mi < months.length - 1 && setMonth(months[mi + 1])}
+            disabled={mi >= months.length - 1}
+          >
             {months[mi + 1] || ""} →
           </button>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 4, fontSize: 12 }}>
+        <div className="cal-week">
           {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((w) => (
-            <div key={w} style={{ textAlign: "center", color: "#4a4845", padding: 4 }}>{w}</div>
+            <div key={w} className="cal-wh">{w}</div>
           ))}
+        </div>
+        <div className="cal-grid">
           {cells.map((c, i) => {
-            if (!c.d) return <div key={i} />;
-            const st = statusFor(c.d);
-            const past = c.d < today;
-            const v = agg.get(c.d);
-            const palette: Record<string, { bg: string; fg: string; clickable: boolean }> = {
-              available: { bg: "#C4DDCF", fg: "#1B5740", clickable: true },
-              booked: { bg: "#FDF1E2", fg: "#8C6018", clickable: false },
-              closed: { bg: "#ECEAE4", fg: "#4A4845", clickable: false },
-              none: { bg: "#FAFAF7", fg: "#B5B2A8", clickable: false },
-            };
-            const p = palette[st];
-            const disabled = past || !p.clickable;
+            if (!c.d) return <div key={i} className="cal-blank" />;
+            const raw = avail[c.d];
+            const status: DayStatus =
+              raw === "available" ? "available" :
+              raw === "booked" ? "booked" :
+              raw === "closed" ? "closed" :
+              raw === "unavailable" ? "unavailable" : "none";
+            const st = STATUS_STYLE[status];
+            const past = c.d < todayStr;
+            const isSelected = c.d === date;
+            const disabled = past || !st.click;
             return (
               <button
                 key={c.d}
+                className={`cal-cell${isSelected ? " selected" : ""}`}
                 disabled={disabled}
-                onClick={() => {
-                  setDate(c.d!);
-                  setStep(2);
-                }}
-                style={{
-                  background: p.bg,
-                  color: p.fg,
-                  border: "1px solid #D0CEC6",
-                  borderRadius: 4,
-                  padding: "6px 0 4px",
-                  fontSize: 12,
-                  cursor: disabled ? "default" : "pointer",
-                  opacity: past ? 0.35 : 1,
-                  textAlign: "center",
-                }}
-                title={v ? `available:${v.available} booked:${v.booked} closed:${v.closed}` : "无数据"}
+                style={{ background: st.bg, color: st.fg, opacity: past ? 0.35 : 1 }}
+                onClick={() => setDate(c.d!)}
+                title={`${c.d} — ${st.label}`}
               >
-                <div style={{ fontWeight: 600 }}>{c.label}</div>
-                <div style={{ fontSize: 10 }}>{v ? `${v.available}馆` : "—"}</div>
+                <span className="cal-day">{c.label}</span>
+                <span className="cal-tag">{st.label}</span>
               </button>
             );
           })}
         </div>
-        <div style={{ marginTop: 10, fontSize: 11, color: "#4a4845" }}>
-          绿=至少一馆当日可领 · 黄=全部已被订 · 灰=馆休息 · 数字=当日可领馆数
+        <div className="cal-legend">
+          {(["available","booked","closed","unavailable"] as DayStatus[]).map((s) => (
+            <span key={s} className="lg">
+              <span className="lg-sw" style={{ background: STATUS_STYLE[s].bg }} />
+              {STATUS_STYLE[s].label}
+            </span>
+          ))}
         </div>
       </div>
-    );
-  }
 
-  // ── Step 2: pick library ──
-  if (step === 2 && date) {
-    const rows = bundle.networks
-      .flatMap((g) => g.libraries.filter((l) => passByLib.has(l.id)))
-      .map((l) => {
-        const p = passByLib.get(l.id)!;
-        const av = p.availability?.[date];
-        return { lib: l, pass: p, avail: av };
-      })
-      .sort((a, b) => {
-        const av = (x: typeof a) => (x.avail === "available" ? 0 : x.avail === "booked" ? 1 : 2);
-        const d = av(a) - av(b);
-        return d !== 0 ? d : a.lib.town.localeCompare(b.lib.town);
-      });
-
-    return (
-      <div className="wizard">
-        <h3>② 选图书馆 — {date}</h3>
-        <button onClick={() => setStep(1)} style={navBtn}>← 改日期</button>
-        <div className="lib-pick" style={{ marginTop: 10 }}>
-          {rows.map(({ lib, pass, avail }) => {
-            const usable = avail === "available";
-            const fl = formLabel(pass.pass_form);
-            const vd = verdictLabel(pass.booking_access_probe?.verdict);
-            const { exact, network } = matchCards(cards, pass, bundle.libById);
-            const hasCard = exact.length > 0 || network.length > 0;
-            const chosen = exact[0] || network[0];
-            return (
-              <div key={lib.id} className={`pick ${usable ? "" : "dim"}`}>
-                <span className="town">{lib.town}</span>
-                <span style={{ fontSize: 11, color: "#4a4845" }}>{lib.network}</span>
-                <span className="form">{fl.icon} {fl.short}</span>
-                <span className="summary">{pass.coupon.summary}</span>
-                <span style={{ fontSize: 11 }} title={vd.text}>{vd.dot}</span>
-                <span style={{ fontSize: 11, color: usable ? "#1B5740" : "#8C6018" }}>
-                  {avail === "available" ? "当日可领" : avail === "booked" ? "已被订" : avail === "closed" ? "休息" : "无数据"}
-                </span>
-                <span className={`card ${hasCard ? "" : "no"}`}>
-                  {hasCard ? (
-                    <>
-                      <span title={exact.length ? "本馆卡" : "同 network 卡"}>
-                        {exact.length ? "✓本馆卡" : "✓同 network 卡"}
-                      </span>
-                      <code style={{ background: "#ECEAE4", padding: "1px 4px", borderRadius: 3 }}>
-                        {chosen.card_number}
-                      </code>
-                      <button
-                        onClick={() => {
-                          navigator.clipboard.writeText(chosen.card_number);
-                        }}
-                        style={btnTinyInline}
-                      >
-                        复制
-                      </button>
-                      <button
-                        disabled={!usable}
-                        onClick={() => {
-                          setLibId(lib.id);
-                          setStep(3);
-                        }}
-                        style={{ ...btnPrimaryInline, opacity: usable ? 1 : 0.4 }}
-                      >
-                        下一步
-                      </button>
-                    </>
-                  ) : (
-                    <span>⚠ 你没可用卡</span>
-                  )}
-                </span>
+      {/* My cards */}
+      <div className="floater-cards">
+        <div className="cards-h">我的卡 · 可用 {usableIds.size} / {cards.length}</div>
+        {cards.length === 0 && (
+          <div className="cards-empty">还没有卡。去「我的卡」tab 添加或导入。</div>
+        )}
+        {cards.map((c) => {
+          const usable = usableIds.has(c.id);
+          const role = exactIds.has(c.id) ? "本馆卡" : networkIds.has(c.id) ? "同 network 卡" : "不适用";
+          const cardLib = bundle.libById.get(c.library_id);
+          const selected = c.id === selectedCardId;
+          return (
+            <div
+              key={c.id}
+              className={`card-pick${usable ? "" : " disabled"}${selected ? " selected" : ""}`}
+              onClick={() => usable && setSelectedCardId(c.id)}
+            >
+              <div className="cp-main">
+                <div className="cp-name">
+                  {cardLib ? `${cardLib.town} (${cardLib.network})` : c.library_id}
+                  <span className="cp-role">{usable ? `✓ ${role}` : `· ${role}`}</span>
+                </div>
+                <div className="cp-meta">
+                  <code className="cp-barcode">{c.card_number}</code>
+                  <button
+                    className="cp-copy"
+                    onClick={(e) => { e.stopPropagation(); copy(c.card_number); }}
+                    title="复制卡号"
+                  >
+                    复制
+                  </button>
+                  {c.note && <span className="cp-note">{c.note}</span>}
+                </div>
               </div>
-            );
-          })}
-          {rows.length === 0 && <div>该景点没有任何馆提供 pass。</div>}
-        </div>
+              {usable && (
+                <input
+                  type="radio"
+                  className="cp-radio"
+                  checked={selected}
+                  onChange={() => setSelectedCardId(c.id)}
+                />
+              )}
+            </div>
+          );
+        })}
       </div>
-    );
-  }
 
-  // ── Step 3: confirm + open external booking page ──
-  if (step === 3 && date && libId) {
-    const lib = bundle.libById.get(libId)!;
-    const pass = passByLib.get(libId)!;
-    const { exact, network } = matchCards(cards, pass, bundle.libById);
-    const chosen = exact[0] || network[0];
-    const url = pass.source_url || attraction.reservation?.booking_url || lib.pass_page || lib.card_page || "";
-    return (
-      <div className="wizard">
-        <h3>③ 确认 · 复制卡号 · 跳转</h3>
-        <button onClick={() => setStep(2)} style={navBtn}>← 改图书馆</button>
-        <div style={{ marginTop: 12, padding: 12, background: "#EAF1EE", borderRadius: 6 }}>
-          <div className="row"><strong>景点</strong> {attraction.name}</div>
-          <div className="row"><strong>日期</strong> {date}</div>
-          <div className="row"><strong>取券馆</strong> {lib.town} ({lib.network})</div>
-          <div className="row"><strong>优惠</strong> {pass.coupon.summary}</div>
-          <div className="row" style={{ marginTop: 8 }}>
-            <strong>卡号</strong>{" "}
-            <code style={{ background: "#FAFAF7", padding: "2px 6px", borderRadius: 3 }}>
-              {chosen?.card_number || "(无卡)"}
-            </code>{" "}
-            {chosen && (
-              <button onClick={() => navigator.clipboard.writeText(chosen.card_number)} style={btnTinyInline}>
-                复制
-              </button>
-            )}
-          </div>
+      {/* Jump */}
+      <div className="floater-foot">
+        <div className="foot-status">
+          {date ? <>选定: <strong>{date}</strong></> : <>未选日期</>}
+          {selectedCard && (
+            <> · 卡号 <code>{selectedCard.card_number}</code></>
+          )}
         </div>
-        <div style={{ marginTop: 12, padding: 10, borderLeft: "3px solid #8C6018", background: "#F4EFE8", fontSize: 12 }}>
-          外部预定页无法自动预填:打开后请在该页面手动选择 <strong>{date}</strong>,
-          并粘贴卡号即可完成预定。
-        </div>
-        <div style={{ marginTop: 14, display: "flex", gap: 8 }}>
-          <a href={url} target="_blank" rel="noreferrer" style={{ ...btnPrimaryInline, textDecoration: "none", display: "inline-block" }}>
-            打开预定页 ↗
-          </a>
-          <button onClick={onClose} style={btnGhostInline}>
-            关闭
+        <div className="foot-btns">
+          <button onClick={onClose} className="btn-ghost">关闭</button>
+          <button
+            onClick={onJump}
+            disabled={!date}
+            className="btn-primary"
+            title={!date ? "先选日期" : "复制卡号 + 在新标签打开预定页"}
+          >
+            去预定 ↗ {selectedCard && "(已复制卡号)"}
           </button>
         </div>
+        {copied && <div className="copy-toast">已复制: {copied.length > 16 ? copied.slice(0, 16) + "…" : copied}</div>}
       </div>
-    );
-  }
-
-  return null;
+    </div>
+  );
 }
-
-const navBtn: React.CSSProperties = {
-  padding: "3px 8px",
-  background: "#FAFAF7",
-  color: "#1a1917",
-  border: "1px solid #D0CEC6",
-  borderRadius: 4,
-  cursor: "pointer",
-  fontSize: 11,
-};
-const btnPrimaryInline: React.CSSProperties = {
-  padding: "4px 10px",
-  background: "#1B5740",
-  color: "#FAFAF7",
-  border: "none",
-  borderRadius: 4,
-  cursor: "pointer",
-  fontSize: 11,
-  fontWeight: 600,
-};
-const btnGhostInline: React.CSSProperties = {
-  padding: "4px 10px",
-  background: "#FAFAF7",
-  color: "#1a1917",
-  border: "1px solid #D0CEC6",
-  borderRadius: 4,
-  cursor: "pointer",
-  fontSize: 11,
-};
-const btnTinyInline: React.CSSProperties = {
-  padding: "1px 6px",
-  background: "#EAF1EE",
-  color: "#1B5740",
-  border: "1px solid #C4DDCF",
-  borderRadius: 3,
-  cursor: "pointer",
-  fontSize: 10,
-};
