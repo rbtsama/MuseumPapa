@@ -117,19 +117,9 @@ export default function Matrix({ bundle }: Props) {
           <div className="legend-col">
             <h5>单元格图例</h5>
             <div className="lg-row">
-              <span className="lg-dot" style={{ background: "#1B5740", display: "inline-block", width: 8, height: 8, borderRadius: "50%" }} />
-              <code>avail dot 绿</code>
-              <span className="lg-text">至少 1 个 future 日期可订</span>
-            </div>
-            <div className="lg-row">
-              <span className="lg-dot" style={{ background: "#D97706", display: "inline-block", width: 8, height: 8, borderRadius: "50%" }} />
-              <code>avail dot 橙</code>
-              <span className="lg-text">future 日期全部 booked</span>
-            </div>
-            <div className="lg-row">
-              <span className="lg-dot" style={{ background: "#B5B2A8", display: "inline-block", width: 8, height: 8, borderRadius: "50%" }} />
-              <code>avail dot 灰</code>
-              <span className="lg-text">全 closed / 无库存数据</span>
+              <span className="lg-dot">DISC</span>
+              <code>L1 amount</code>
+              <span className="lg-text">优惠金额 (-50% / $10 / FREE / B1G1)</span>
             </div>
             <div className="lg-row">
               <span className="lg-dot">★</span>
@@ -139,7 +129,7 @@ export default function Matrix({ bundle }: Props) {
             <div className="lg-row">
               <span className="lg-dot">💳</span>
               <code>L2 card</code>
-              <span className="lg-text">卡限制(system 层)</span>
+              <span className="lg-text">卡限制 (system 层)</span>
             </div>
             <div className="lg-row">
               <span className="lg-dot">🏠</span>
@@ -638,8 +628,6 @@ function EvidenceSection({ items }: { items: EvidenceItem[] }) {
 
 function CellGlyph({ p, lib }: { p: Pass; lib: Library }) {
   const fl = formLabel(p.pass_form);
-  const av = availabilitySummary(p.availability);
-  const dot = av === "has_avail" ? "#1B5740" : av === "all_booked" ? "#D97706" : "#B5B2A8";
   const verdict = p.booking_access_probe?.verdict;
   const ownOnly = verdict === "own_card_only";
   const networkOpen = verdict === "network_open";
@@ -658,10 +646,10 @@ function CellGlyph({ p, lib }: { p: Pass; lib: Library }) {
   }
   return (
     <div className="glyph">
-      <div className="glyph-l1">
+      <div className="glyph-l1" title="DISC = discount 优惠">
+        <span className="line-tag">DISC</span>
         <span className="amount">{simpleDiscount(p.coupon)}</span>
         {fl.cellIcon && <span className="form-icon-solid">{fl.cellIcon}</span>}
-        <span className="dot-avail" style={{ background: dot }} title="库存:绿=有可订日 / 橙=已订满 / 灰=全闭" />
       </div>
       <div className="glyph-l2" style={{ color: networkColor }} title="卡限制 (system 层)">
         <span className="line-icon">💳</span> {networkText}
@@ -809,7 +797,7 @@ function CellDetail({
       {p.coupon.audience_policies && p.coupon.audience_policies.length > 0 ? (
         <div className="breakdown">
           <div className="k" style={{ marginBottom: 3, fontWeight: 600, color: "#8c6018" }}>
-            DISC 明细
+            折扣明细
           </div>
           {p.coupon.audience_policies.map((ap, i) => (
             <div className="pol" key={i}>
@@ -824,7 +812,7 @@ function CellDetail({
         </div>
       ) : (
         <div className="row">
-          <span className="k">DISC</span>
+          <span className="k">折扣</span>
           <span style={{ color: "#1B5740", fontWeight: 600 }}>{p.coupon.summary}</span>
         </div>
       )}
