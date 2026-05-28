@@ -413,17 +413,6 @@ body,
   border-radius: 4px;
   background: #fafaf7;
 }
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 2px 8px;
-  border-radius: 10px;
-  background: #c4ddcf;
-  color: #1b5740;
-  font-size: 11px;
-}
-
 /* ── Detail popover & wizard ────────────────────────────────────────── */
 /* Force HeroUI popover content to be fully opaque — default is translucent
    and that made the detail card unreadable against the matrix behind. */
@@ -682,19 +671,6 @@ body,
   word-break: break-all;
 }
 .detail-card .ev-link:hover { text-decoration: underline; }
-.detail-card h4 {
-  margin: 0 0 4px;
-  font-size: 13px;
-}
-.detail-card .row {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  margin: 2px 0;
-}
-.detail-card .row .k {
-  color: #4a4845;
-}
 
 /* ── Booking Floater (replaces the 3-step wizard) ──────────────────── */
 .floater {
@@ -710,11 +686,13 @@ body,
   grid-template-columns: 1fr 320px;
   gap: 18px;
 }
-.floater-head { margin-bottom: 10px; }
-.floater-title { font-size: 15px; font-weight: 700; color: #1b5740; }
-.floater-sub { font-size: 12px; color: #4a4845; margin-top: 2px; }
+.floater-head { margin-bottom: 14px; }
+.floater-title { font-size: 16px; font-weight: 700; color: #1b5740; letter-spacing: 0.2px; }
+.floater-sub { font-size: 12px; color: #8a877f; margin-top: 4px; }
+.floater-sub strong { color: #4a4845; font-weight: 600; }
 .floater-sub code {
-  background: #eaf1ee; padding: 1px 4px; border-radius: 3px; color: #1b5740;
+  background: #ecebe5; padding: 1px 5px; border-radius: 3px; color: #4a4845;
+  font-family: ui-monospace, monospace; font-size: 11px;
 }
 .floater-cal { margin-bottom: 0; }
 .cal-nav { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }

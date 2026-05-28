@@ -470,8 +470,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
       <Modal
         isOpen={!!bookCtx}
         onOpenChange={(o) => !o && setBookCtx(null)}
-        size="2xl"
-        scrollBehavior="inside"
+        size="3xl"
       >
         <ModalContent>
           <ModalBody style={{ padding: 0 }}>
