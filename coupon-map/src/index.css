@@ -240,9 +240,9 @@ body,
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1px;
-  line-height: 1.1;
-  padding: 2px 0;
+  gap: 2px;
+  line-height: 1.35;
+  padding: 3px 0;
 }
 .mx-cell .glyph-l1 {
   display: flex;
@@ -262,21 +262,23 @@ body,
 /* (.line-tag removed — DISC is now produced inline by simpleDiscount only
    when the upstream coupon.summary is a bare "discount" with no number.) */
 .mx-cell .glyph-l2 {
-  font-size: 10px;
+  font-size: 11px;
+  line-height: 1.4;
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 74px;
+  max-width: 86px;
 }
 .mx-cell .glyph-l3 {
-  font-size: 10px;
+  font-size: 11px;
+  line-height: 1.4;
   font-weight: 500;
   color: #8c2a1e;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 74px;
+  max-width: 86px;
 }
 .mx-cell .line-icon {
   font-size: 8px;
@@ -498,6 +500,7 @@ body,
   word-break: break-word;
 }
 .detail-card .data-row .v-warn { color: #8c2a1e; }
+.detail-card .data-row .v-free { color: #1b5740; font-weight: 600; }
 .detail-card .data-row .v-note {
   font-weight: 400;
   color: #8a877f;
@@ -543,13 +546,13 @@ body,
 /* (Old .breakdown block removed — Discount now uses .data-section + .data-row.sub
    so it visually aligns with every other data section, no tinted box.) */
 
-/* Audit row — Edit (left, collapsible) + Approve (right). Icon + text. */
+/* Audit row — Edit + Approve both anchored to the right, Edit immediately
+   to the left of Approve. Icon + text. */
 .detail-card .audit-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-start;
   gap: 8px;
-  flex-wrap: wrap;
   margin: 14px 0 10px;
 }
 .detail-card .audit-btn.open {
@@ -577,7 +580,6 @@ body,
 .detail-card .audit-btn:hover { background: #ecebe5; color: #1b5740; }
 .detail-card .audit-btn .ico { font-size: 13px; line-height: 1; }
 .detail-card .audit-btn.approve {
-  margin-left: auto;
   color: #1b5740;
   border-color: #c4ddcf;
 }
@@ -830,25 +832,174 @@ body,
   color: #8c2a1e;
 }
 
-/* ── Cards page ─────────────────────────────────────────────────────── */
-.card-row {
-  display: grid;
-  grid-template-columns: 220px 1fr 1fr auto;
-  gap: 8px;
-  align-items: center;
-  padding: 6px 0;
-  border-bottom: 1px dashed #ecebe5;
+/* ── My Cards page — unified typography ────────────────────────────── */
+.my-cards { padding: 6px 4px; font-size: 13px; }
+
+.my-cards-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #d0cec6;
 }
-.card-row input,
-.card-row select {
-  padding: 4px 6px;
+.my-cards-head h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1b5740;
+  margin: 0 0 3px;
+  letter-spacing: 0.2px;
+}
+.my-cards-head .meta {
+  font-size: 12px;
+  color: #8a877f;
+}
+.my-cards-actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+.mc-btn {
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  background: #fafaf7;
+  color: #4a4845;
+  border: 1px solid #d0cec6;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.mc-btn:hover:not(:disabled) { background: #ecebe5; color: #1b5740; }
+.mc-btn:disabled { opacity: 0.4; cursor: default; }
+.mc-btn.primary {
+  background: #1b5740;
+  color: #fafaf7;
+  border-color: #1b5740;
+}
+.mc-btn.primary:hover:not(:disabled) { background: #2a7055; color: #fafaf7; }
+.mc-btn.tiny {
+  font-size: 11px;
+  padding: 2px 8px;
+}
+.mc-btn.ghost {
+  background: transparent;
+  border-color: #d0cec6;
+  color: #8a877f;
+}
+.mc-btn.ghost:hover { background: #f4eae9; color: #8c2a1e; border-color: #d0cec6; }
+
+.add-form {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(180px, 1.4fr) minmax(120px, 1fr) auto;
+  gap: 12px;
+  align-items: end;
+  padding: 14px 16px;
+  background: #ecebe5;
+  border-radius: 6px;
+  margin-bottom: 18px;
+}
+.add-form .field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.add-form .field-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #4a4845;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.add-form input, .add-form select {
+  font: inherit;
+  font-size: 13px;
+  padding: 6px 8px;
   border: 1px solid #d0cec6;
   border-radius: 4px;
   background: #fafaf7;
-  font: inherit;
+  color: #1a1917;
+  min-width: 0;
 }
-.card-row .barcode {
+.add-form input:focus, .add-form select:focus {
+  outline: none;
+  border-color: #1b5740;
+  background: #fff;
+}
+.add-form input.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+.mc-empty {
+  padding: 28px 0;
+  text-align: center;
+  color: #8a877f;
+  font-size: 13px;
+}
+
+.cards-table {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr auto;
+  border: 1px solid #d0cec6;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fafaf7;
+}
+.cards-table .ct-head {
+  display: contents;
+}
+.cards-table .ct-head > span {
+  padding: 8px 12px;
+  background: #ecebe5;
+  font-size: 10px;
+  font-weight: 700;
+  color: #4a4845;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #d0cec6;
+}
+.cards-table .ct-row {
+  display: contents;
+}
+.cards-table .ct-row > span,
+.cards-table .ct-row > button {
+  padding: 10px 12px;
+  border-bottom: 1px solid #ecebe5;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  min-width: 0;
+}
+.cards-table .ct-row:last-child > span,
+.cards-table .ct-row:last-child > button { border-bottom: none; }
+.cards-table .ct-lib { gap: 8px; }
+.cards-table .ct-lib strong { color: #1a1917; font-weight: 600; }
+.cards-table .ct-net {
+  font-size: 11px;
+  color: #8a877f;
+}
+.cards-table .ct-warn { color: #8c2a1e; }
+.cards-table .ct-card {
+  gap: 8px;
+}
+.cards-table .ct-card code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  background: #ecebe5;
+  color: #1a1917;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+}
+.cards-table .ct-note { color: #4a4845; }
+.cards-table > button {
+  justify-self: end;
+}
+
+.copy-toast-fixed {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1b5740;
+  color: #fafaf7;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
 }
 
 /* ── Loading / error screens ────────────────────────────────────────── */

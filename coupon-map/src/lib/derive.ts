@@ -180,27 +180,56 @@ export function matchCards(
 
 // ── audience policy formatting (used in cell detail) ─────────────────────
 const AUDIENCE_LABEL: Record<string, string> = {
-  adult: "成人",
-  child: "儿童",
-  children: "儿童",
-  senior: "老人",
-  youth: "青少年",
-  student: "学生",
-  military: "军人",
-  veteran: "退伍军人",
-  educator: "教师",
-  teacher: "教师",
-  family: "家庭",
-  everyone: "所有人",
-  infant: "婴幼儿",
-  toddler: "幼儿",
-  preschool: "学龄前",
-  resident: "本地居民",
-  member: "会员",
-  group: "团体",
+  adult: "Adult",
+  child: "Child",
+  children: "Children",
+  senior: "Senior",
+  youth: "Youth",
+  student: "Student",
+  military: "Military",
+  veteran: "Veteran",
+  educator: "Educator",
+  teacher: "Teacher",
+  family: "Family",
+  everyone: "Everyone",
+  infant: "Infant",
+  toddler: "Toddler",
+  preschool: "Preschool",
+  resident: "Resident",
+  member: "Member",
+  group: "Group",
 };
 export function audienceLabel(a: string): string {
-  return AUDIENCE_LABEL[a.toLowerCase()] || a;
+  if (!a) return "";
+  return AUDIENCE_LABEL[a.toLowerCase()] || (a.charAt(0).toUpperCase() + a.slice(1));
+}
+
+// Format an age-range hint for a price/policy row.
+//   { min: 0, max: 2 }   → "0–2"
+//   { min: 62 }          → "62+"
+//   { max: 12 }          → "≤12"
+//   null / empty         → ""
+export function ageRangeLabel(r?: { min: number | null; max: number | null } | null): string {
+  if (!r) return "";
+  const { min, max } = r;
+  if (min != null && max != null) return `${min}–${max}`;
+  if (min != null) return `${min}+`;
+  if (max != null) return `≤${max}`;
+  return "";
+}
+
+// One ticket-price line: friendly audience name + age range + price/Free.
+export function priceLine(p: {
+  audience: string;
+  price: number | null;
+  age_range?: { min: number | null; max: number | null } | null;
+}): { label: string; value: string; isFree: boolean } {
+  const aud = audienceLabel(p.audience);
+  const range = ageRangeLabel(p.age_range);
+  const label = range ? `${aud} ${range}` : aud;
+  const isFree = p.price === 0;
+  const value = isFree ? "Free" : p.price == null ? "—" : `$${p.price}`;
+  return { label, value, isFree };
 }
 
 export interface AudiencePolicy {

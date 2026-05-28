@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { DataBundle } from "../data/types";
 import { exportCards, importCardsFromFile, loadCards, newId, saveCards } from "../store/cards";
 import type { StoredCard } from "../lib/derive";
@@ -11,45 +11,22 @@ export default function MyCards({ bundle }: Props) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [copyHint, setCopyHint] = useState<string | null>(null);
 
-  useEffect(() => {
-    setCards(loadCards());
-  }, []);
+  useEffect(() => { setCards(loadCards()); }, []);
 
-  // Library options: 59 entries, town as label, sorted by network then town.
-  const options = useMemo(() => {
-    const out: Array<{ id: string; label: string; network: string }> = [];
-    for (const g of bundle.networks) {
-      for (const l of g.libraries) out.push({ id: l.id, label: `${l.town} (${g.network})`, network: g.network });
-    }
-    return out;
-  }, [bundle]);
-
-  function persist(next: StoredCard[]) {
-    setCards(next);
-    saveCards(next);
-  }
-
+  function persist(next: StoredCard[]) { setCards(next); saveCards(next); }
   function add() {
     if (!draft.library_id || !draft.card_number.trim()) return;
     const c: StoredCard = { ...draft, id: newId(), card_number: draft.card_number.trim(), note: draft.note?.trim() };
     persist([...cards, c]);
     setDraft({ id: "", library_id: "", card_number: "", note: "" });
   }
-
-  function remove(id: string) {
-    persist(cards.filter((c) => c.id !== id));
-  }
-
+  function remove(id: string) { persist(cards.filter((c) => c.id !== id)); }
   function copy(text: string) {
     navigator.clipboard.writeText(text).then(
-      () => {
-        setCopyHint("Copied");
-        setTimeout(() => setCopyHint(null), 1200);
-      },
+      () => { setCopyHint("Copied"); setTimeout(() => setCopyHint(null), 1200); },
       () => setCopyHint("Copy failed")
     );
   }
-
   async function onImport(e: React.ChangeEvent<HTMLInputElement>) {
     const f = e.target.files?.[0];
     if (!f) return;
@@ -66,127 +43,94 @@ export default function MyCards({ bundle }: Props) {
   }
 
   return (
-    <div>
-      <div className="filter-bar">
-        <strong style={{ marginRight: 8 }}>My Library Cards</strong>
-        <span style={{ color: "#4a4845" }}>{cards.length} stored · localStorage only, never committed</span>
-        <span style={{ marginLeft: "auto", display: "flex", gap: 8 }}>
-          <button onClick={() => exportCards(cards)} style={btnGhost}>
-            Export JSON
-          </button>
-          <button onClick={() => fileRef.current?.click()} style={btnGhost}>
-            Import JSON
-          </button>
+    <div className="my-cards">
+      <div className="my-cards-head">
+        <div>
+          <h2>My Library Cards</h2>
+          <div className="meta">{cards.length} stored · localStorage only, never committed</div>
+        </div>
+        <div className="my-cards-actions">
+          <button onClick={() => fileRef.current?.click()} className="mc-btn">Import JSON</button>
+          <button onClick={() => exportCards(cards)} className="mc-btn" disabled={cards.length === 0}>Export JSON</button>
           <input ref={fileRef} type="file" accept="application/json" hidden onChange={onImport} />
-        </span>
+        </div>
       </div>
 
-      {/* add form */}
-      <div className="card-row" style={{ borderBottom: "1px solid #d0cec6", paddingBottom: 8 }}>
-        <select
-          value={draft.library_id}
-          onChange={(e) => setDraft({ ...draft, library_id: e.target.value })}
-        >
-          <option value="">— Select library (town) —</option>
-          {bundle.networks.map((g) => (
-            <optgroup key={g.network} label={g.network}>
-              {g.libraries.map((l) => (
-                <option key={l.id} value={l.id}>
-                  {l.town}
-                </option>
-              ))}
-            </optgroup>
-          ))}
-        </select>
-        <input
-          className="barcode"
-          placeholder="Card number / barcode"
-          value={draft.card_number}
-          onChange={(e) => setDraft({ ...draft, card_number: e.target.value })}
-        />
-        <input
-          placeholder="Note (e.g. primary / old)"
-          value={draft.note || ""}
-          onChange={(e) => setDraft({ ...draft, note: e.target.value })}
-        />
-        <button onClick={add} style={btnPrimary} disabled={!draft.library_id || !draft.card_number.trim()}>
-          Add
+      <div className="add-form">
+        <div className="field">
+          <label className="field-label">Library</label>
+          <select
+            value={draft.library_id}
+            onChange={(e) => setDraft({ ...draft, library_id: e.target.value })}
+          >
+            <option value="">— Select town —</option>
+            {bundle.networks.map((g) => (
+              <optgroup key={g.network} label={g.network}>
+                {g.libraries.map((l) => (
+                  <option key={l.id} value={l.id}>{l.town}</option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+        </div>
+        <div className="field">
+          <label className="field-label">Card number</label>
+          <input
+            className="mono"
+            value={draft.card_number}
+            onChange={(e) => setDraft({ ...draft, card_number: e.target.value })}
+          />
+        </div>
+        <div className="field">
+          <label className="field-label">Note</label>
+          <input
+            placeholder="e.g. primary"
+            value={draft.note || ""}
+            onChange={(e) => setDraft({ ...draft, note: e.target.value })}
+          />
+        </div>
+        <button onClick={add} className="mc-btn primary" disabled={!draft.library_id || !draft.card_number.trim()}>
+          + Add
         </button>
       </div>
 
-      {cards.length === 0 && (
-        <div style={{ padding: "16px 0", color: "#4a4845", fontStyle: "italic" }}>
-          No cards yet. Duplicate entries per library are allowed.
-        </div>
-      )}
-
-      {/* list */}
-      {cards.map((c) => {
-        const lib = bundle.libById.get(c.library_id);
-        const town = lib ? `${lib.town} (${lib.network})` : `⚠ Unknown library: ${c.library_id}`;
-        return (
-          <div key={c.id} className="card-row">
-            <span>{town}</span>
-            <span className="barcode" style={{ fontWeight: 600 }}>
-              {c.card_number}{" "}
-              <button onClick={() => copy(c.card_number)} style={btnTiny} title="Copy card number">
-                Copy
-              </button>
-            </span>
-            <span style={{ color: "#4a4845" }}>{c.note || "—"}</span>
-            <button onClick={() => remove(c.id)} style={btnGhost}>
-              Delete
-            </button>
+      {cards.length === 0 ? (
+        <div className="mc-empty">No cards yet. Duplicates per library are allowed.</div>
+      ) : (
+        <div className="cards-table">
+          <div className="ct-head">
+            <span>Library</span>
+            <span>Card number</span>
+            <span>Note</span>
+            <span></span>
           </div>
-        );
-      })}
-
-      {copyHint && (
-        <div
-          style={{
-            position: "fixed",
-            bottom: 20,
-            right: 20,
-            background: "#1B5740",
-            color: "#FAFAF7",
-            padding: "6px 14px",
-            borderRadius: 4,
-            fontSize: 12,
-          }}
-        >
-          {copyHint}
+          {cards.map((c) => {
+            const lib = bundle.libById.get(c.library_id);
+            return (
+              <div key={c.id} className="ct-row">
+                <span className="ct-lib">
+                  {lib ? (
+                    <>
+                      <strong>{lib.town}</strong>
+                      <span className="ct-net">{lib.network}</span>
+                    </>
+                  ) : (
+                    <span className="ct-warn">⚠ {c.library_id}</span>
+                  )}
+                </span>
+                <span className="ct-card">
+                  <code>{c.card_number}</code>
+                  <button onClick={() => copy(c.card_number)} className="mc-btn tiny" title="Copy">Copy</button>
+                </span>
+                <span className="ct-note">{c.note || "—"}</span>
+                <button onClick={() => remove(c.id)} className="mc-btn tiny ghost" title="Delete">×</button>
+              </div>
+            );
+          })}
         </div>
       )}
+
+      {copyHint && <div className="copy-toast-fixed">{copyHint}</div>}
     </div>
   );
 }
-
-const btnPrimary: React.CSSProperties = {
-  padding: "5px 12px",
-  background: "#1B5740",
-  color: "#FAFAF7",
-  border: "none",
-  borderRadius: 4,
-  cursor: "pointer",
-  fontSize: 12,
-  fontWeight: 600,
-};
-const btnGhost: React.CSSProperties = {
-  padding: "4px 10px",
-  background: "#FAFAF7",
-  color: "#1a1917",
-  border: "1px solid #D0CEC6",
-  borderRadius: 4,
-  cursor: "pointer",
-  fontSize: 12,
-};
-const btnTiny: React.CSSProperties = {
-  padding: "1px 6px",
-  background: "#EAF1EE",
-  color: "#1B5740",
-  border: "1px solid #C4DDCF",
-  borderRadius: 3,
-  cursor: "pointer",
-  fontSize: 10,
-  marginLeft: 4,
-};

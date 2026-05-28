@@ -12,6 +12,7 @@ import {
   passResidencyLabel,
   policyRange,
   policyText,
+  priceLine,
   reservationFlag,
   simpleDiscount,
   verdictLabel,
@@ -571,8 +572,11 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
                 onToggleApprove={() => onToggleApprove(pkey)}
                 onSetCorrection={(field, note) => onSetCorrection(pkey, field, note)}
                 onBook={() => {
-                  setOpenKey(null);
+                  // Open the modal first (sync state update), then close the
+                  // popover on the next tick so HeroUI's popover dismiss flow
+                  // doesn't race with the modal-mount portal.
                   onBook(l, p);
+                  requestAnimationFrame(() => setOpenKey(null));
                 }}
               />
             </PopoverContent>
@@ -720,13 +724,11 @@ function AttractionDetail({ a }: { a: Attraction }) {
         <div className="data-section">
           <div className="section-h">Tickets</div>
           {a.prices.map((p, i) => {
-            const range = p.age_range && p.age_range.min != null
-              ? ` ${p.age_range.min}${p.age_range.max != null ? `–${p.age_range.max}` : "+"}`
-              : "";
+            const pl = priceLine(p);
             return (
               <div key={i} className="data-row sub">
-                <span className="k">{p.audience}{range}</span>
-                <span className="v">{p.price == null ? "—" : `$${p.price}`}</span>
+                <span className="k">{pl.label}</span>
+                <span className={`v${pl.isFree ? " v-free" : ""}`}>{pl.value}</span>
               </div>
             );
           })}
