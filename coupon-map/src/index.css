@@ -199,13 +199,8 @@ body,
   font-size: 10px;
   letter-spacing: -1px;
 }
-.mx-cell .line-tag {
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  color: #8c6018;
-  margin-right: 1px;
-}
+/* (.line-tag removed — DISC is now produced inline by simpleDiscount only
+   when the upstream coupon.summary is a bare "discount" with no number.) */
 .mx-cell .glyph-l2 {
   font-size: 10px;
   font-weight: 500;

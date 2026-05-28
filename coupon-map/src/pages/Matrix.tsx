@@ -117,9 +117,9 @@ export default function Matrix({ bundle }: Props) {
           <div className="legend-col">
             <h5>单元格图例</h5>
             <div className="lg-row">
-              <span className="lg-dot">DISC</span>
+              <span className="lg-dot">$N</span>
               <code>L1 amount</code>
-              <span className="lg-text">优惠金额 (-50% / $10 / FREE / B1G1)</span>
+              <span className="lg-text">-50% / $10 / FREE / B1G1 / DISC(=泛指discount,无具体金额)</span>
             </div>
             <div className="lg-row">
               <span className="lg-dot">★</span>
@@ -646,8 +646,7 @@ function CellGlyph({ p, lib }: { p: Pass; lib: Library }) {
   }
   return (
     <div className="glyph">
-      <div className="glyph-l1" title="DISC = discount 优惠">
-        <span className="line-tag">DISC</span>
+      <div className="glyph-l1">
         <span className="amount">{simpleDiscount(p.coupon)}</span>
         {fl.cellIcon && <span className="form-icon-solid">{fl.cellIcon}</span>}
       </div>
