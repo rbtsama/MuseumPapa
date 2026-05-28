@@ -43,18 +43,18 @@ export function verdictLabel(
   v: Verdict | undefined,
   ctx?: { network?: string; town?: string }
 ) {
-  const net = ctx?.network ?? "network";
-  const town = ctx?.town ?? "本馆";
+  const net = ctx?.network ?? "Network";
+  const town = ctx?.town ?? "Own";
   switch (v) {
     case "network_open":
-      return { dot: "🟢", text: `${net} 网络任意卡可用`, tone: "g" as const };
+      return { dot: "🟢", text: `Any ${net} card`, tone: "g" as const };
     case "own_card_only":
-      return { dot: "🔴", text: `仅 ${town} 本馆卡可用`, tone: "rd" as const };
+      return { dot: "🔴", text: `${town} card only`, tone: "rd" as const };
     case "ambiguous":
-      return { dot: "🟠", text: "已测,结果不确定 (无可订日期)", tone: "or" as const };
+      return { dot: "🟠", text: "Ambiguous", tone: "or" as const };
     case "not_verified":
     default:
-      return { dot: "⚪", text: "尚未实测验证", tone: "ink-3" as const };
+      return { dot: "⚪", text: "Not verified", tone: "ink-3" as const };
   }
 }
 
@@ -77,19 +77,19 @@ export function eligibilityLabel(
   e: Eligibility,
   ctx?: { network?: string; town?: string }
 ) {
-  const net = ctx?.network ?? "network";
-  const town = ctx?.town ?? "本镇";
+  const net = ctx?.network ?? "Network";
+  const town = ctx?.town ?? "Town";
   switch (e) {
     case "ma_resident":
-      return { text: "任何 MA 居民可办卡", warn: false, tooltip: "MA 居民均可,等同无 residency 限制" };
+      return { text: "MA Resident", warn: false, tooltip: "Any MA resident may apply" };
     case "town_resident":
-      return { text: `⚠ 仅 ${town} 居民可办卡`, warn: true, tooltip: `仅 ${town} 居民可办卡` };
+      return { text: `${town} Resident only`, warn: true, tooltip: `${town} residents only` };
     case "town_or_works":
-      return { text: `${town} 居民或工作者可办卡`, warn: true, tooltip: `${town} 居民,或在 ${town} 工作/上学/持物业者` };
+      return { text: `${town} Resident or Worker`, warn: true, tooltip: `Residents, workers, students, property owners of ${town}` };
     case "network":
-      return { text: `${net} 网络覆盖区居民可办卡`, warn: false, tooltip: `${net} network 服务区内居民` };
+      return { text: `${net} Network`, warn: false, tooltip: `Residents within the ${net} service area` };
     case "unknown":
-      return { text: "办卡资格未知", warn: false, tooltip: "未确认" };
+      return { text: "Unknown", warn: false, tooltip: "Eligibility not confirmed" };
   }
 }
 
@@ -109,17 +109,17 @@ export function passResidencyLabel(
   scope?: string | null,
   ctx?: { town?: string }
 ) {
-  const town = ctx?.town ?? "本馆所在镇";
+  const town = ctx?.town ?? "Town";
   switch (r) {
     case "yes":
-      if (scope === "town")
-        return { text: `⚠ 取券仅限 ${town} 居民`, warn: true };
-      return { text: "⚠ 取券有居住地限制", warn: true };
+      if (scope === "town") return { text: `${town} Residents only`, warn: true };
+      if (scope === "ma") return { text: "MA Residents only", warn: true };
+      return { text: "Residency restricted", warn: true };
     case "no":
-      return { text: "取券无居住地限制", warn: false };
+      return { text: "No restriction", warn: false };
     case "unknown":
     default:
-      return { text: "取券限制未知 (未探测)", warn: false };
+      return { text: "Unknown", warn: false };
   }
 }
 

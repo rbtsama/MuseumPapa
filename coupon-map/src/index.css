@@ -15,13 +15,29 @@ body,
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC",
     "Microsoft YaHei", sans-serif;
 }
+/* Make the app fill the viewport vertically so the matrix scroll area takes
+   the remaining height — no big empty band below the table. */
+#root > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.app-header { flex-shrink: 0; }
+.app-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.app-body > div { flex: 1; min-height: 0; display: flex; flex-direction: column; }
 
 /* ── Matrix layout ─────────────────────────────────────────────────────
    Built with CSS grid + sticky for the cross-tab. HeroUI <Table> is row-list
    oriented and not suited to a double-sticky 96×59 cross-tab. */
 .matrix-scroll {
   overflow: auto;
-  max-height: calc(100vh - 200px);
+  flex: 1;
+  min-height: 0;
   border: 1px solid #d0cec6;
   border-radius: 6px;
   background: #fafaf7;
@@ -318,9 +334,7 @@ body,
   opacity: 0.4;
   cursor: default;
 }
-.app-body {
-  padding: 14px 20px;
-}
+.app-body { padding: 14px 20px; }
 
 /* ── Legend (taxonomy reference) ─────────────────────────────────────── */
 .legend {
@@ -430,12 +444,74 @@ body,
   color: #1a1917;
 }
 .detail-card h4 {
-  font-size: 14px;
-  margin: 0 0 8px;
+  font-size: 15px;
+  margin: 0 0 6px;
   color: #1b5740;
   font-weight: 700;
   letter-spacing: 0.2px;
+  line-height: 1.25;
 }
+
+/* A horizontal cluster of pill chips beneath the title — quick meta
+   (town, network, eligibility, branches count, reservation tag). Keeps
+   the popover compact instead of stacking one row per fact. */
+.detail-card .chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0 0 10px;
+}
+.detail-card .chip {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 9px;
+  background: #ecebe5;
+  color: #4a4845;
+  white-space: nowrap;
+}
+.detail-card .chip-tone {
+  background: #eaf1ee;
+  color: #1b5740;
+}
+.detail-card .chip-warn {
+  background: #f4eae9;
+  color: #8c2a1e;
+}
+
+/* A grouped data section (Hours, Tickets, etc.) — gives the popover a
+   clean visual rhythm without bordered boxes everywhere. */
+.detail-card .block {
+  margin: 8px 0;
+}
+.detail-card .block.compact {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #4a4845;
+}
+.detail-card .block-h {
+  font-size: 10px;
+  font-weight: 700;
+  color: #8a877f;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 3px;
+}
+.detail-card .block-note {
+  font-size: 12px;
+  color: #8c6018;
+  line-height: 1.4;
+}
+.detail-card .addr {
+  font-size: 12px;
+  color: #4a4845;
+  margin-bottom: 2px;
+}
+.detail-card .ext-link {
+  font-size: 11px;
+  color: #1b5740;
+  text-decoration: none;
+}
+.detail-card .ext-link:hover { text-decoration: underline; }
 .detail-card .row {
   display: flex;
   justify-content: space-between;

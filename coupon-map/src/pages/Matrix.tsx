@@ -263,7 +263,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                   return (
                     <Popover key={`lib:${l.id}:${ci}`} placement="bottom" showArrow>
                       <PopoverTrigger>
-                        <div className={cls} data-col={String(ci)} title={`${l.name} (${l.network})`}>
+                        <div className={cls} data-col={String(ci)}>
                           {l.town}
                           {multi && (
                             <button
@@ -283,39 +283,15 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                       <PopoverContent>
                         <div className="detail-card">
                           <h4>{l.name}</h4>
-                          <div className="row">
-                            <span className="k">Town · Network</span>
-                            <span>
-                              {l.town} · {l.network}
-                            </span>
+                          <div className="chip-row">
+                            <span className="chip">{l.town}</span>
+                            <span className="chip">{l.network}</span>
+                            <span className={`chip ${e.warn ? "chip-warn" : "chip-tone"}`}>{e.text}</span>
+                            {multi && <span className="chip">{c.branches.length} branches</span>}
                           </div>
-                          <div className="row">
-                            <span className="k">Eligibility</span>
-                            <span title={e.tooltip} style={{ color: e.warn ? "#8c2a1e" : "#1a1917" }}>
-                              {e.text}
-                            </span>
-                          </div>
-                          {l.address && (
-                            <div className="row">
-                              <span className="k">Address</span>
-                              <span>
-                                {[l.address.street, l.address.city, l.address.state, l.address.zip]
-                                  .filter(Boolean)
-                                  .join(", ")}
-                              </span>
-                            </div>
-                          )}
-                          {l.card_page && (
-                            <div className="row">
-                              <span className="k">Card page</span>
-                              <a href={l.card_page} target="_blank" rel="noreferrer">
-                                Open ↗
-                              </a>
-                            </div>
-                          )}
                           {l.hours ? (
-                            <div className="row" style={{ display: "block" }}>
-                              <div className="k">Hours</div>
+                            <div className="block">
+                              <div className="block-h">Hours</div>
                               <div className="hours-grid">
                                 {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
                                   <div key={d}>
@@ -326,22 +302,21 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                               </div>
                             </div>
                           ) : l.hours_note ? (
-                            <div className="row" style={{ display: "block" }}>
-                              <div className="k">Hours</div>
-                              <div style={{ fontSize: 12, color: "#8C6018" }}>⚠ {l.hours_note}</div>
+                            <div className="block">
+                              <div className="block-h">Hours</div>
+                              <div className="block-note">{l.hours_note}</div>
                             </div>
-                          ) : (
-                            <div className="row">
-                              <span className="k">Hours</span>
-                              <span style={{ color: "#4a4845", fontStyle: "italic" }}>no data</span>
-                            </div>
-                          )}
-                          {multi && (
-                            <div className="row" style={{ display: "block", marginTop: 4 }}>
-                              <span className="k">Branches</span>
-                              <span style={{ fontSize: 12, color: "#4a4845" }}>
-                                Click [+{c.branches.length}] on the town header to expand into peer pickup-location columns.
-                              </span>
+                          ) : null}
+                          {(l.address || l.card_page) && (
+                            <div className="block compact">
+                              {l.address && (
+                                <div className="addr">
+                                  {[l.address.street, l.address.city, l.address.state, l.address.zip].filter(Boolean).join(", ")}
+                                </div>
+                              )}
+                              {l.card_page && (
+                                <a className="ext-link" href={l.card_page} target="_blank" rel="noreferrer">{prettyHost(l.card_page)} ↗</a>
+                              )}
                             </div>
                           )}
                           <EvidenceSection
@@ -380,44 +355,28 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                   return (
                     <Popover key={`br:${b.id}:${ci}`} placement="bottom" showArrow>
                       <PopoverTrigger>
-                        <div className="mx-town branch-head" data-col={String(ci)} title={`${b.name} — ${c.lib.name}`}>
+                        <div className="mx-town branch-head" data-col={String(ci)}>
                           {b.name}
                         </div>
                       </PopoverTrigger>
                       <PopoverContent>
                         <div className="detail-card">
                           <h4>{b.name}</h4>
-                          <div className="row">
-                            <span className="k">Town · Network</span>
-                            <span>
-                              {c.lib.town} · {c.lib.network}
-                            </span>
+                          <div className="chip-row">
+                            <span className="chip">{c.lib.town}</span>
+                            <span className="chip">{c.lib.network}</span>
+                            <span className="chip chip-tone">Branch of {c.lib.name}</span>
+                            {b.code && <span className="chip">Code {b.code}</span>}
                           </div>
-                          <div className="row">
-                            <span className="k">Institution</span>
-                            <span>{c.lib.name}</span>
-                          </div>
-                          {b.code && (
-                            <div className="row">
-                              <span className="k">Code</span>
-                              <span>{b.code}</span>
-                            </div>
-                          )}
                           {b.geo && (
                             <div className="row">
                               <span className="k">Geo</span>
-                              <span>
-                                {b.geo.lat.toFixed(4)}, {b.geo.lon.toFixed(4)}
-                              </span>
+                              <span>{b.geo.lat.toFixed(4)}, {b.geo.lon.toFixed(4)}</span>
                             </div>
                           )}
-                          <div className="row">
-                            <span className="k">Eligibility</span>
-                            <span>{eligibilityLabel(c.lib.card_eligibility, { network: c.lib.network, town: c.lib.town }).text}</span>
-                          </div>
                           {c.lib.hours ? (
-                            <div className="row" style={{ display: "block" }}>
-                              <div className="k">Hours</div>
+                            <div className="block">
+                              <div className="block-h">Hours (institution)</div>
                               <div className="hours-grid">
                                 {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
                                   <div key={d}>
@@ -428,16 +387,11 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                               </div>
                             </div>
                           ) : c.lib.hours_note ? (
-                            <div className="row" style={{ display: "block" }}>
-                              <div className="k">Hours</div>
-                              <div style={{ fontSize: 12, color: "#8C6018" }}>⚠ {c.lib.hours_note}</div>
+                            <div className="block">
+                              <div className="block-h">Hours (institution)</div>
+                              <div className="block-note">{c.lib.hours_note}</div>
                             </div>
-                          ) : (
-                            <div className="row">
-                              <span className="k">Hours</span>
-                              <span style={{ color: "#4a4845", fontStyle: "italic" }}>no data</span>
-                            </div>
-                          )}
+                          ) : null}
                           <EvidenceSection
                             items={[
                               { label: "Card page", source: c.lib.card_page || null },
@@ -539,7 +493,7 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
     <>
       <Popover placement="right-start" showArrow>
         <PopoverTrigger>
-          <div className="mx-row-head" data-row={attr.slug} title={attr.slug}>
+          <div className="mx-row-head" data-row={attr.slug}>
             <div className="attr-name">{attr.name}</div>
             <div className="attr-meta">
               {attr.categories?.slice(0, 2).join(" · ")} · ${adult ?? "—"}
@@ -586,7 +540,6 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
                 style={masked ? { opacity: 0.18 } : undefined}
                 data-row={attr.slug}
                 data-col={String(ci)}
-                title={`${attr.name} × ${locTitle}`}
               >
                 <CellGlyph p={p} lib={l} approved={!!entry?.approved} hasCorrection={!!entry?.corrections} />
               </div>
@@ -676,11 +629,11 @@ function CellGlyph({ p, lib, approved, hasCorrection }: { p: Pass; lib: Library;
         <span className="amount">{simpleDiscount(p.coupon)}</span>
         {fl.cellIcon && <span className="form-icon-solid">{fl.cellIcon}</span>}
       </div>
-      <div className="glyph-l2" style={{ color: networkColor }} title="卡限制 (system 层)">
+      <div className="glyph-l2" style={{ color: networkColor }}>
         <span className="line-icon">💳</span> {networkText}
       </div>
       {residencyText && (
-        <div className="glyph-l3" title="取券居住地限制">
+        <div className="glyph-l3">
           <span className="line-icon">🏠</span> {residencyText}
         </div>
       )}
@@ -689,19 +642,45 @@ function CellGlyph({ p, lib, approved, hasCorrection }: { p: Pass; lib: Library;
 }
 
 function AttractionDetail({ a }: { a: Attraction }) {
+  const reservationText: Record<string, string> = {
+    walk_in_ok: "Walk-in",
+    required: "Reservation required",
+    recommended: "Reservation recommended",
+  };
+  const res = a.reservation?.required ? (reservationText[a.reservation.required] || a.reservation.required) : "Unknown";
+  const addr = a.address ? [a.address.street, a.address.city, a.address.state, a.address.zip].filter(Boolean).join(", ") : null;
   return (
     <div className="detail-card">
       <h4>{a.name}</h4>
-      {a.categories && <div className="row"><span className="k">Category</span><span>{a.categories.join(" / ")}</span></div>}
-      {a.address && (
-        <div className="row">
-          <span className="k">Address</span>
-          <span>{[a.address.street, a.address.city, a.address.state, a.address.zip].filter(Boolean).join(", ")}</span>
+      {a.categories && a.categories.length > 0 && (
+        <div className="chip-row">
+          {a.categories.map((c) => <span key={c} className="chip">{c}</span>)}
+          <span className="chip chip-tone">{res}</span>
         </div>
       )}
+
+      {a.prices && a.prices.length > 0 && (
+        <div className="block">
+          <div className="block-h">Tickets</div>
+          <div className="price-grid">
+            {a.prices.map((p, i) => {
+              const range = p.age_range && p.age_range.min != null
+                ? ` ${p.age_range.min}${p.age_range.max != null ? `–${p.age_range.max}` : "+"}`
+                : "";
+              return (
+                <div key={i}>
+                  <span className="price-aud">{p.audience}{range}</span>
+                  <span className="price-v">{p.price == null ? "—" : `$${p.price}`}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {a.hours ? (
-        <div className="row" style={{ display: "block" }}>
-          <div className="k">Hours</div>
+        <div className="block">
+          <div className="block-h">Hours</div>
           <div className="hours-grid">
             {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
               <div key={d}>
@@ -712,42 +691,18 @@ function AttractionDetail({ a }: { a: Attraction }) {
           </div>
         </div>
       ) : a.hours_note ? (
-        <div className="row" style={{ display: "block" }}>
-          <div className="k">Hours</div>
-          <div style={{ fontSize: 12, color: "#8C6018" }}>⚠ {a.hours_note}</div>
+        <div className="block">
+          <div className="block-h">Hours</div>
+          <div className="block-note">{a.hours_note}</div>
         </div>
-      ) : (
-        <div className="row">
-          <span className="k">Hours</span>
-          <span style={{ color: "#4a4845", fontStyle: "italic" }}>no data</span>
-        </div>
-      )}
-      {a.prices && a.prices.length > 0 && (
-        <div className="row" style={{ display: "block" }}>
-          <div className="k">Tickets</div>
-          <div className="price-grid">
-            {a.prices.map((p, i) => (
-              <div key={i}>
-                <span className="price-aud">{p.audience}</span>
-                <span className="price-v">
-                  {p.price == null ? "—" : `$${p.price}`}
-                  {p.age_range && p.age_range.min != null
-                    ? ` (${p.age_range.min}${p.age_range.max != null ? `-${p.age_range.max}` : "+"})`
-                    : ""}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-      <div className="row">
-        <span className="k">Reservation</span>
-        <span>{a.reservation?.required || "unknown"}</span>
-      </div>
-      {a.website && (
-        <div className="row">
-          <span className="k">Website</span>
-          <a href={a.website} target="_blank" rel="noreferrer">Open ↗</a>
+      ) : null}
+
+      {(addr || a.website) && (
+        <div className="block compact">
+          {addr && <div className="addr">{addr}</div>}
+          {a.website && (
+            <a className="ext-link" href={a.website} target="_blank" rel="noreferrer">{prettyHost(a.website)} ↗</a>
+          )}
         </div>
       )}
       <EvidenceSection
