@@ -3,11 +3,14 @@ import { Modal, ModalBody, ModalContent, ModalHeader, Popover, PopoverContent, P
 import type { Attraction, DataBundle, Library, Pass } from "../data/types";
 import {
   adultPrice,
+  audienceLabel,
   availabilitySummary,
   eligibilityLabel,
   formLabel,
   frequencyLimit,
   passResidencyLabel,
+  policyRange,
+  policyText,
   reservationFlag,
   verdictLabel,
 } from "../lib/derive";
@@ -20,16 +23,18 @@ function useColumns(bundle: DataBundle) {
   return useMemo(() => {
     const cols: Library[] = [];
     const groups: Array<{ network: string; span: number }> = [];
+    const netStartCols = new Set<number>(); // column indices that begin a network
     for (const g of bundle.networks) {
+      netStartCols.add(cols.length);
       groups.push({ network: g.network, span: g.libraries.length });
       for (const l of g.libraries) cols.push(l);
     }
-    return { cols, groups };
+    return { cols, groups, netStartCols };
   }, [bundle]);
 }
 
 export default function Matrix({ bundle }: Props) {
-  const { cols, groups } = useColumns(bundle);
+  const { cols, groups, netStartCols } = useColumns(bundle);
 
   // ── filters ─────────────────────────────────────────────────────────
   const [q, setQ] = useState("");
@@ -132,12 +137,13 @@ export default function Matrix({ bundle }: Props) {
 
           {/* row 2: corner-2 + town headers */}
           <div className="mx-corner-2">{rows.length} 景 × {cols.length} 馆</div>
-          {cols.map((l) => {
+          {cols.map((l, ci) => {
             const e = eligibilityLabel(l.card_eligibility);
+            const cls = `mx-town${netStartCols.has(ci) ? " net-start" : ""}`;
             return (
               <Popover key={l.id} placement="bottom" showArrow>
                 <PopoverTrigger>
-                  <div className="mx-town" title={`${l.name} (${l.network})`}>
+                  <div className={cls} title={`${l.name} (${l.network})`}>
                     {l.town}
                   </div>
                 </PopoverTrigger>
@@ -195,6 +201,7 @@ export default function Matrix({ bundle }: Props) {
                 key={a.slug}
                 attr={a}
                 cols={cols}
+                netStartCols={netStartCols}
                 bundle={bundle}
                 cellMatch={cellMatch}
                 openKey={openKey}
@@ -241,6 +248,7 @@ export default function Matrix({ bundle }: Props) {
 interface RowProps {
   attr: Attraction;
   cols: Library[];
+  netStartCols: Set<number>;
   bundle: DataBundle;
   cellMatch: (p: Pass) => boolean;
   openKey: string | null;
@@ -250,7 +258,7 @@ interface RowProps {
   onBook: (lib: Library) => void;
 }
 
-function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult, resFlag, onBook }: RowProps) {
+function RowFragment({ attr, cols, netStartCols, bundle, cellMatch, openKey, setOpenKey, adult, resFlag, onBook }: RowProps) {
   return (
     <>
       <Popover placement="right-start" showArrow>
@@ -270,10 +278,11 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
         </PopoverContent>
       </Popover>
 
-      {cols.map((l) => {
+      {cols.map((l, ci) => {
         const key = `${attr.slug}::${l.id}`;
         const p = bundle.passByPair.get(key);
-        if (!p) return <div key={key} className="mx-cell empty" />;
+        const startCls = netStartCols.has(ci) ? " net-start" : "";
+        if (!p) return <div key={key} className={`mx-cell empty${startCls}`} />;
         const masked = !cellMatch(p);
         return (
           <Popover
@@ -285,7 +294,7 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
           >
             <PopoverTrigger>
               <div
-                className="mx-cell"
+                className={`mx-cell${startCls}`}
                 style={masked ? { opacity: 0.18 } : undefined}
                 title={`${attr.name} × ${l.town}`}
               >
@@ -337,7 +346,7 @@ function AttractionDetail({ a }: { a: Attraction }) {
           <span>{[a.address.street, a.address.city, a.address.state, a.address.zip].filter(Boolean).join(", ")}</span>
         </div>
       )}
-      {a.hours && (
+      {a.hours ? (
         <div className="row" style={{ display: "block" }}>
           <div className="k">营业时间</div>
           <div style={{ fontSize: 11 }}>
@@ -347,6 +356,16 @@ function AttractionDetail({ a }: { a: Attraction }) {
               </div>
             ))}
           </div>
+        </div>
+      ) : a.hours_note ? (
+        <div className="row" style={{ display: "block" }}>
+          <div className="k">营业时间</div>
+          <div style={{ fontSize: 11, color: "#8C6018" }}>⚠ {a.hours_note}</div>
+        </div>
+      ) : (
+        <div className="row">
+          <span className="k">营业时间</span>
+          <span style={{ color: "#4a4845", fontStyle: "italic" }}>暂无数据</span>
         </div>
       )}
       {a.prices && a.prices.length > 0 && (
@@ -406,16 +425,26 @@ function CellDetail({
       <div className="row"><span className="k">卡限制</span><span title={p.booking_access_probe?.evidence || ""}>{vd.dot} {vd.text}</span></div>
       <div className="row"><span className="k">取券 residency</span><span style={{ color: pr.warn ? "#8c2a1e" : "#1a1917" }}>{pr.text}</span></div>
       <div className="row"><span className="k">每月领取限制</span><span>{fq || "不限"}</span></div>
-      {p.coupon.audience_policies && p.coupon.audience_policies.length > 1 && (
-        <div className="row" style={{ display: "block" }}>
-          <div className="k">分人群折扣</div>
-          <div style={{ fontSize: 11 }}>
-            {p.coupon.audience_policies.map((ap, i) => (
-              <div key={i}>
-                {ap.audience}: {ap.form} {ap.value ?? ""}
-              </div>
-            ))}
+      {p.coupon.audience_policies && p.coupon.audience_policies.length > 0 ? (
+        <div className="breakdown">
+          <div className="k" style={{ marginBottom: 3, fontWeight: 600, color: "#8c6018" }}>
+            分人群折扣
           </div>
+          {p.coupon.audience_policies.map((ap, i) => (
+            <div className="pol" key={i}>
+              <span>
+                {audienceLabel(ap.audience)}
+                {policyRange(ap)}
+                {ap.count ? ` × ${ap.count}` : ""}
+              </span>
+              <span className="v">{policyText(ap)}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="row">
+          <span className="k">分人群折扣</span>
+          <span style={{ color: "#4a4845", fontStyle: "italic" }}>未细分</span>
         </div>
       )}
       <div style={{ marginTop: 10, display: "flex", gap: 8 }}>

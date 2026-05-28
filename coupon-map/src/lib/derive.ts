@@ -125,6 +125,67 @@ export function matchCards(
   return { exact, network };
 }
 
+// ── audience policy formatting (used in cell detail) ─────────────────────
+const AUDIENCE_LABEL: Record<string, string> = {
+  adult: "成人",
+  child: "儿童",
+  children: "儿童",
+  senior: "老人",
+  youth: "青少年",
+  student: "学生",
+  military: "军人",
+  veteran: "退伍军人",
+  educator: "教师",
+  teacher: "教师",
+  family: "家庭",
+  everyone: "所有人",
+  infant: "婴幼儿",
+  toddler: "幼儿",
+  preschool: "学龄前",
+  resident: "本地居民",
+  member: "会员",
+  group: "团体",
+};
+export function audienceLabel(a: string): string {
+  return AUDIENCE_LABEL[a.toLowerCase()] || a;
+}
+
+export interface AudiencePolicy {
+  audience: string;
+  age_range?: { min: number | null; max: number | null } | null;
+  count?: number | null;
+  form?: string;
+  value?: number | null;
+}
+export function policyText(p: AudiencePolicy): string {
+  const v = p.value;
+  switch ((p.form || "").toLowerCase()) {
+    case "percent-off":
+      return v != null ? `${v}% off` : "% off";
+    case "free":
+      return "FREE";
+    case "dollars-off":
+    case "dollar-off":
+      return v != null ? `$${v} off` : "$ off";
+    case "fixed-price":
+      return v != null ? `$${v}/人` : "固定价";
+    case "fixed-total":
+      return v != null ? `共 $${v}` : "固定总价";
+    case "bogo":
+      return "买一送一";
+    default:
+      return [p.form, v].filter((x) => x !== undefined && x !== null && x !== "").join(" ").trim() || "—";
+  }
+}
+export function policyRange(p: AudiencePolicy): string {
+  if (!p.age_range || (p.age_range.min == null && p.age_range.max == null)) return "";
+  const { min, max } = p.age_range;
+  if (min != null && max != null) return ` (${min}-${max} 岁)`;
+  if (min != null) return ` (${min}+ 岁)`;
+  if (max != null) return ` (≤${max} 岁)`;
+  return "";
+}
+
 // ── attraction adult price (display only) ────────────────────────────────
 export function adultPrice(a: { prices?: Array<{ audience: string; price: number | null }> }): number | null {
   const p = a.prices?.find((x) => x.audience === "adult");

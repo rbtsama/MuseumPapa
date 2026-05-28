@@ -60,6 +60,7 @@ export interface Attraction {
     source_phrase?: string | null;
   };
   hours?: Record<string, string> | null;
+  hours_note?: string | null;
   sources?: unknown;
 }
 

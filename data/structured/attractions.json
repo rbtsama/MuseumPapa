@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-27T17:31:09.910167+00:00",
+    "built_at": "2026-05-27T20:02:02.990874+00:00",
     "n_attractions": 96
   },
   "attractions": [
@@ -468,7 +468,8 @@
       "booking_note": null,
       "closed_days": [],
       "sources": [],
-      "hours": null
+      "hours": null,
+      "hours_note": "剧院导览按日程安排,公共展览仅在 5-7 月特定 Wed/Thu/Sat/Sun 的 10am-3pm 开放;Private Tours 可一周七天预约 — 见官网"
     },
     {
       "slug": "boston-athenaeum",
@@ -1227,7 +1228,15 @@
       "booking_note": null,
       "closed_days": [],
       "sources": [],
-      "hours": null
+      "hours": {
+        "monday": "09:00-13:00",
+        "tuesday": "09:00-13:00",
+        "wednesday": "09:00-13:00",
+        "thursday": "09:00-13:00",
+        "friday": "09:00-13:00",
+        "saturday": "closed",
+        "sunday": "closed"
+      }
     },
     {
       "slug": "concord-museum",
@@ -1995,7 +2004,8 @@
       "booking_note": null,
       "closed_days": [],
       "sources": [],
-      "hours": null
+      "hours": null,
+      "hours_note": "全年每天对公众开放,具体时段随季节变化(冬季 8AM-5PM,4 月 9 日起延长至 8AM-7PM,Sen Ki 区 dawn-to-dusk)— 见官网"
     },
     {
       "slug": "harvard-art-museums",
@@ -2303,7 +2313,8 @@
       "sources": [
         "https://www.historicnewengland.org/"
       ],
-      "hours": null
+      "hours": null,
+      "hours_note": "拥有多处历史宅邸/物业,各地点开放时间不同 — 见官网各 property 页"
     },
     {
       "slug": "historic-newton",
@@ -2707,7 +2718,8 @@
       "sources": [
         "http://www.mass.gov/eea/agencies/dcr/massparks/"
       ],
-      "hours": null
+      "hours": null,
+      "hours_note": "DCR 管辖多处州立公园,通常 dawn-to-dusk,开放时间因公园而异 — 见各公园 mass.gov 页面"
     },
     {
       "slug": "maplewood-day-camp",
@@ -2965,7 +2977,8 @@
       "booking_note": null,
       "closed_days": [],
       "sources": [],
-      "hours": null
+      "hours": null,
+      "hours_note": "Mass Audubon 在全州运营 114 个野生动物保护区,各保护区开放时间不同 — 见官网各 sanctuary 页面"
     },
     {
       "slug": "massachusetts-state-police-museum-and-learning-center",
@@ -3107,7 +3120,15 @@
       "booking_note": null,
       "closed_days": [],
       "sources": [],
-      "hours": null
+      "hours": {
+        "monday": "10:00-16:00",
+        "tuesday": "10:00-16:00",
+        "wednesday": "10:00-16:00",
+        "thursday": "10:00-16:00",
+        "friday": "10:00-16:00",
+        "saturday": "10:00-16:00",
+        "sunday": "closed"
+      }
     },
     {
       "slug": "museum-of-printing",
@@ -3708,7 +3729,8 @@
       "sources": [
         "https://www.nhphil.org/"
       ],
-      "hours": null
+      "hours": null,
+      "hours_note": "无固定场馆开放时间,按音乐会安排(周六/周日 2:00 PM 演出)— 见官网"
     },
     {
       "slug": "north-shore-childrens-museum",
@@ -4081,7 +4103,8 @@
       "booking_note": null,
       "closed_days": [],
       "sources": [],
-      "hours": null
+      "hours": null,
+      "hours_note": "季节性开放:4/15-10/31 每日 10:00-17:15;11/1-4/14 每日 10:00-16:15,1-3 月周一闭馆 — 见官网"
     },
     {
       "slug": "paul-revere-house",
@@ -5665,7 +5688,8 @@
       "sources": [
         "http://www.thetrustees.org/"
       ],
-      "hours": null
+      "hours": null,
+      "hours_note": "拥有 120+ 处不同类型物业(海岸/花园/历史宅邸等),各地点开放时间不同 — 见官网各 property 页"
     },
     {
       "slug": "uss-constitution-museum",
@@ -5900,7 +5924,8 @@
       "sources": [
         "https://www.wheelockfamilytheatre.org/"
       ],
-      "hours": null
+      "hours": null,
+      "hours_note": "按演出场次售票,无固定每日开放时间 — 见官网"
     },
     {
       "slug": "worcester-art-museum",
