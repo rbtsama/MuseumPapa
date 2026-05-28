@@ -60,11 +60,11 @@ export function countCorrections(s: AuditState): number {
 // Auditable structured-data fields the correction form lets the user annotate.
 // Each entry's note travels through as-is to the downloaded JSON.
 export const AUDITABLE_FIELDS: Array<{ key: string; label: string }> = [
-  { key: "discount", label: "折扣 (DISC)" },
-  { key: "capacity", label: "人数上限" },
-  { key: "pass_form", label: "领取方式 (Email/Pickup/Pickup&return)" },
-  { key: "verdict", label: "卡限制 (system 层)" },
-  { key: "residency", label: "取券居住地" },
-  { key: "frequency_limit", label: "月领限制" },
-  { key: "other", label: "其他 (自由备注)" },
+  { key: "discount", label: "Discount" },
+  { key: "capacity", label: "Capacity" },
+  { key: "pickup", label: "Pickup" },
+  { key: "card", label: "Card" },
+  { key: "residency", label: "Residency" },
+  { key: "monthly_limit", label: "Monthly limit" },
+  { key: "other", label: "Other" },
 ];

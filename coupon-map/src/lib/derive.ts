@@ -47,9 +47,9 @@ export function verdictLabel(
   const town = ctx?.town ?? "Own";
   switch (v) {
     case "network_open":
-      return { dot: "🟢", text: `Any ${net} card`, tone: "g" as const };
+      return { dot: "🟢", text: net, tone: "g" as const };
     case "own_card_only":
-      return { dot: "🔴", text: `${town} card only`, tone: "rd" as const };
+      return { dot: "🔴", text: town, tone: "rd" as const };
     case "ambiguous":
       return { dot: "🟠", text: "Ambiguous", tone: "or" as const };
     case "not_verified":
@@ -112,14 +112,14 @@ export function passResidencyLabel(
   const town = ctx?.town ?? "Town";
   switch (r) {
     case "yes":
-      if (scope === "town") return { text: `${town} Residents only`, warn: true };
-      if (scope === "ma") return { text: "MA Residents only", warn: true };
-      return { text: "Residency restricted", warn: true };
+      if (scope === "town") return { text: `${town} Resident`, warn: true };
+      if (scope === "ma") return { text: "MA Resident", warn: true };
+      return { text: "Restricted", warn: true };
     case "no":
-      return { text: "No restriction", warn: false };
+      return { text: "—", warn: false };
     case "unknown":
     default:
-      return { text: "Unknown", warn: false };
+      return { text: "—", warn: false };
   }
 }
 

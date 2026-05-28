@@ -282,16 +282,32 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                       </PopoverTrigger>
                       <PopoverContent>
                         <div className="detail-card">
-                          <h4>{l.name}</h4>
-                          <div className="chip-row">
-                            <span className="chip">{l.town}</span>
-                            <span className="chip">{l.network}</span>
-                            <span className={`chip ${e.warn ? "chip-warn" : "chip-tone"}`}>{e.text}</span>
-                            {multi && <span className="chip">{c.branches.length} branches</span>}
+                          <div className="card-subtitle">{l.name}</div>
+
+                          <div className="data-section">
+                            <div className="data-row">
+                              <span className="k">Town</span>
+                              <span className="v">{l.town}</span>
+                            </div>
+                            <div className="data-row">
+                              <span className="k">Network</span>
+                              <span className="v">{l.network}</span>
+                            </div>
+                            <div className="data-row">
+                              <span className="k">Eligibility</span>
+                              <span className={`v${e.warn ? " v-warn" : ""}`}>{e.text}</span>
+                            </div>
+                            {multi && (
+                              <div className="data-row">
+                                <span className="k">Branches</span>
+                                <span className="v">{c.branches.length}</span>
+                              </div>
+                            )}
                           </div>
+
                           {l.hours ? (
-                            <div className="block">
-                              <div className="block-h">Hours</div>
+                            <div className="data-section">
+                              <div className="section-h">Hours</div>
                               <div className="hours-grid">
                                 {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
                                   <div key={d}>
@@ -302,13 +318,14 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                               </div>
                             </div>
                           ) : l.hours_note ? (
-                            <div className="block">
-                              <div className="block-h">Hours</div>
+                            <div className="data-section">
+                              <div className="section-h">Hours</div>
                               <div className="block-note">{l.hours_note}</div>
                             </div>
                           ) : null}
+
                           {(l.address || l.card_page) && (
-                            <div className="block compact">
+                            <div className="data-section compact">
                               {l.address && (
                                 <div className="addr">
                                   {[l.address.street, l.address.city, l.address.state, l.address.zip].filter(Boolean).join(", ")}
@@ -361,22 +378,23 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                       </PopoverTrigger>
                       <PopoverContent>
                         <div className="detail-card">
-                          <h4>{b.name}</h4>
-                          <div className="chip-row">
-                            <span className="chip">{c.lib.town}</span>
-                            <span className="chip">{c.lib.network}</span>
-                            <span className="chip chip-tone">Branch of {c.lib.name}</span>
-                            {b.code && <span className="chip">Code {b.code}</span>}
+                          <div className="card-subtitle">{b.name} · branch of {c.lib.name}</div>
+
+                          <div className="data-section">
+                            <div className="data-row"><span className="k">Town</span><span className="v">{c.lib.town}</span></div>
+                            <div className="data-row"><span className="k">Network</span><span className="v">{c.lib.network}</span></div>
+                            {b.code && <div className="data-row"><span className="k">Code</span><span className="v">{b.code}</span></div>}
+                            {b.geo && (
+                              <div className="data-row">
+                                <span className="k">Geo</span>
+                                <span className="v">{b.geo.lat.toFixed(4)}, {b.geo.lon.toFixed(4)}</span>
+                              </div>
+                            )}
                           </div>
-                          {b.geo && (
-                            <div className="row">
-                              <span className="k">Geo</span>
-                              <span>{b.geo.lat.toFixed(4)}, {b.geo.lon.toFixed(4)}</span>
-                            </div>
-                          )}
+
                           {c.lib.hours ? (
-                            <div className="block">
-                              <div className="block-h">Hours (institution)</div>
+                            <div className="data-section">
+                              <div className="section-h">Hours (institution)</div>
                               <div className="hours-grid">
                                 {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
                                   <div key={d}>
@@ -387,8 +405,8 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                               </div>
                             </div>
                           ) : c.lib.hours_note ? (
-                            <div className="block">
-                              <div className="block-h">Hours (institution)</div>
+                            <div className="data-section">
+                              <div className="section-h">Hours (institution)</div>
                               <div className="block-note">{c.lib.hours_note}</div>
                             </div>
                           ) : null}
@@ -587,13 +605,13 @@ function EvidenceSection({ items }: { items: EvidenceItem[] }) {
   if (visible.length === 0) return null;
   return (
     <div className="evidence">
-      <div className="evidence-h">原文证据 · Evidence</div>
+      <div className="section-h">Sources</div>
       {visible.map((it, i) => (
-        <div className="ev-row" key={i}>
-          <div className="ev-label">{it.label}</div>
-          {it.quote && <div className="ev-quote">"{it.quote}"</div>}
+        <div className="ev-item" key={i}>
+          {it.label && <div className="ev-label">{it.label}</div>}
+          {it.quote && <div className="ev-quote">{it.quote}</div>}
           {it.source && (
-            <a className="ev-src" href={it.source} target="_blank" rel="noreferrer">
+            <a className="ev-link" href={it.source} target="_blank" rel="noreferrer">
               {prettyHost(it.source)} ↗
             </a>
           )}
@@ -651,36 +669,35 @@ function AttractionDetail({ a }: { a: Attraction }) {
   const addr = a.address ? [a.address.street, a.address.city, a.address.state, a.address.zip].filter(Boolean).join(", ") : null;
   return (
     <div className="detail-card">
-      <h4>{a.name}</h4>
-      {a.categories && a.categories.length > 0 && (
-        <div className="chip-row">
-          {a.categories.map((c) => <span key={c} className="chip">{c}</span>)}
-          <span className="chip chip-tone">{res}</span>
-        </div>
-      )}
+      <div className="card-subtitle">{a.name}</div>
 
       {a.prices && a.prices.length > 0 && (
-        <div className="block">
-          <div className="block-h">Tickets</div>
-          <div className="price-grid">
-            {a.prices.map((p, i) => {
-              const range = p.age_range && p.age_range.min != null
-                ? ` ${p.age_range.min}${p.age_range.max != null ? `–${p.age_range.max}` : "+"}`
-                : "";
-              return (
-                <div key={i}>
-                  <span className="price-aud">{p.audience}{range}</span>
-                  <span className="price-v">{p.price == null ? "—" : `$${p.price}`}</span>
-                </div>
-              );
-            })}
-          </div>
+        <div className="data-section">
+          <div className="section-h">Tickets</div>
+          {a.prices.map((p, i) => {
+            const range = p.age_range && p.age_range.min != null
+              ? ` ${p.age_range.min}${p.age_range.max != null ? `–${p.age_range.max}` : "+"}`
+              : "";
+            return (
+              <div key={i} className="data-row sub">
+                <span className="k">{p.audience}{range}</span>
+                <span className="v">{p.price == null ? "—" : `$${p.price}`}</span>
+              </div>
+            );
+          })}
         </div>
       )}
 
+      <div className="data-section">
+        <div className="data-row">
+          <span className="k">Reservation</span>
+          <span className="v">{res}</span>
+        </div>
+      </div>
+
       {a.hours ? (
-        <div className="block">
-          <div className="block-h">Hours</div>
+        <div className="data-section">
+          <div className="section-h">Hours</div>
           <div className="hours-grid">
             {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
               <div key={d}>
@@ -691,14 +708,14 @@ function AttractionDetail({ a }: { a: Attraction }) {
           </div>
         </div>
       ) : a.hours_note ? (
-        <div className="block">
-          <div className="block-h">Hours</div>
+        <div className="data-section">
+          <div className="section-h">Hours</div>
           <div className="block-note">{a.hours_note}</div>
         </div>
       ) : null}
 
       {(addr || a.website) && (
-        <div className="block compact">
+        <div className="data-section compact">
           {addr && <div className="addr">{addr}</div>}
           {a.website && (
             <a className="ext-link" href={a.website} target="_blank" rel="noreferrer">{prettyHost(a.website)} ↗</a>
@@ -768,74 +785,81 @@ function CellDetail({
   const pr = passResidencyLabel(p.residency_restriction?.restricted, p.residency_restriction?.scope, { town: lib.town });
   const fq = frequencyLimit(p.restrictions?.booking_frequency_limit);
   const cap = p.coupon.capacity?.n;
+  const cs = capacityStructure(p.coupon);
+  const capValue = cs.total ?? cap;
   return (
     <div className="detail-card">
-      <h4>
-        {attr.name} <span style={{ color: "#4a4845", fontWeight: 400 }}>×</span>{" "}
-        {branch ? `${lib.town} · ${branch.name}` : lib.town}
-        <span style={{ color: "#4a4845", fontWeight: 400, fontSize: 11 }}> ({lib.network})</span>
-      </h4>
-      {branch && branch.geo && (
-        <div className="row">
-          <span className="k">Pickup geo</span>
-          <span>
-            {branch.geo.lat.toFixed(4)}, {branch.geo.lon.toFixed(4)}
+      <div className="card-subtitle">
+        {attr.name} · {branch ? `${lib.town} · ${branch.name}` : lib.town} · {lib.network}
+      </div>
+
+      <button onClick={onBook} className="book-cta">
+        <span className="book-cta-arrow">↗</span> Book now
+      </button>
+
+      {/* Discount — plain row group with sub-rows for each audience. */}
+      <div className="data-section">
+        <div className="section-h">Discount</div>
+        {p.coupon.audience_policies && p.coupon.audience_policies.length > 0 ? (
+          p.coupon.audience_policies.map((ap, i) => {
+            const range = policyRange(ap);
+            const count = ap.count ? ` × ${ap.count}` : "";
+            return (
+              <div className="data-row sub" key={i}>
+                <span className="k">{audienceLabel(ap.audience)}{range}{count}</span>
+                <span className="v">{policyText(ap)}</span>
+              </div>
+            );
+          })
+        ) : (
+          <div className="data-row sub">
+            <span className="k">Everyone</span>
+            <span className="v">{p.coupon.summary}</span>
+          </div>
+        )}
+      </div>
+
+      {/* Other facts — one row each. */}
+      <div className="data-section">
+        <div className="data-row">
+          <span className="k">Capacity</span>
+          <span className="v">
+            {capValue ?? "—"}
+            {cs.parts && cs.parts.length > 0 && (
+              <span className="v-note"> · {cs.parts.join(" + ")}</span>
+            )}
           </span>
         </div>
-      )}
-      {/* Discount breakdown replaces the single summary line — show each audience policy. */}
-      {p.coupon.audience_policies && p.coupon.audience_policies.length > 0 ? (
-        <div className="breakdown">
-          <div className="breakdown-h">Discount</div>
-          {p.coupon.audience_policies.map((ap, i) => (
-            <div className="pol" key={i}>
-              <span>
-                {audienceLabel(ap.audience)}
-                {policyRange(ap)}
-                {ap.count ? ` × ${ap.count}` : ""}
-              </span>
-              <span className="v">{policyText(ap)}</span>
-            </div>
-          ))}
+        <div className="data-row">
+          <span className="k">Pickup</span>
+          <span className="v">{fl.icon} {fl.short}</span>
         </div>
-      ) : (
-        <div className="row">
-          <span className="k">Discount</span>
-          <span style={{ color: "#1B5740", fontWeight: 600 }}>{p.coupon.summary}</span>
+        <div className="data-row">
+          <span className="k">Card</span>
+          <span className="v">{vd.text}</span>
         </div>
-      )}
-      {(() => {
-        const cs = capacityStructure(p.coupon);
-        const fallback = cap ? String(cap) : "—";
-        return (
-          <div className="row">
-            <span className="k">Capacity</span>
-            <span style={{ fontWeight: 600 }}>
-              {cs.total ? cs.total : fallback}
-              {cs.parts && cs.parts.length > 0 && (
-                <span style={{ marginLeft: 6, color: "#4a4845", fontWeight: 400 }}>
-                  ({cs.parts.join(" + ")})
-                </span>
-              )}
-            </span>
+        <div className="data-row">
+          <span className="k">Residency</span>
+          <span className={`v${pr.warn ? " v-warn" : ""}`}>{pr.text}</span>
+        </div>
+        <div className="data-row">
+          <span className="k">Monthly limit</span>
+          <span className="v">{fq || "—"}</span>
+        </div>
+        {branch && branch.geo && (
+          <div className="data-row">
+            <span className="k">Pickup geo</span>
+            <span className="v">{branch.geo.lat.toFixed(4)}, {branch.geo.lon.toFixed(4)}</span>
           </div>
-        );
-      })()}
-      <div className="row"><span className="k">Pickup</span><span title={fl.tooltip}>{fl.icon} {fl.short}</span></div>
-      <div className="row"><span className="k">Card</span><span title={p.booking_access_probe?.evidence || ""}>{vd.dot} {vd.text}</span></div>
-      <div className="row"><span className="k">Residency</span><span style={{ color: pr.warn ? "#8c2a1e" : "#1a1917" }}>{pr.text}</span></div>
-      <div className="row"><span className="k">Monthly limit</span><span>{fq || "none"}</span></div>
-      <div className="audit-controls">
-        <button
-          className={`audit-btn${entry?.approved ? " active" : ""}`}
-          onClick={onToggleApprove}
-          title={entry?.approved ? `Approved ${new Date(entry.approved.at).toLocaleString()}` : "Mark this cell as verified"}
-        >
-          {entry?.approved ? "✓ Approved" : "Approve"}
-        </button>
-        <details className="correction-form">
-          <summary className="audit-btn" data-state={entry?.corrections ? "has" : ""}>
-            {entry?.corrections ? "✎ Notes ●" : "✎ Notes"}
+        )}
+      </div>
+
+      {/* Audit — Edit on the left (opens inline form), Approve on the right. */}
+      <div className="audit-row">
+        <details className="audit-edit">
+          <summary className={`audit-btn${entry?.corrections ? " has-notes" : ""}`}>
+            <span className="ico">✎</span> Edit
+            {entry?.corrections && <span className="dot-mark" />}
           </summary>
           <div className="correction-fields">
             {AUDITABLE_FIELDS.map((f) => (
@@ -844,7 +868,6 @@ function CellDetail({
                 <textarea
                   className="cf-input"
                   rows={1}
-                  placeholder=""
                   defaultValue={entry?.corrections?.notes[f.key] || ""}
                   onBlur={(e) => onSetCorrection(f.key, e.target.value)}
                 />
@@ -852,7 +875,14 @@ function CellDetail({
             ))}
           </div>
         </details>
+        <button
+          className={`audit-btn approve${entry?.approved ? " active" : ""}`}
+          onClick={onToggleApprove}
+        >
+          <span className="ico">✓</span> {entry?.approved ? "Approved" : "Approve"}
+        </button>
       </div>
+
       <EvidenceSection
         items={[
           { label: "Pass page", source: p.source_url || null },
@@ -861,7 +891,7 @@ function CellDetail({
             : { label: "" },
           p.residency_restriction?.evidence
             ? {
-                label: `Residency (${p.residency_restriction.source || "?"})`,
+                label: `Residency (${p.residency_restriction.source || "—"})`,
                 quote: p.residency_restriction.evidence || null,
                 source: p.source_url || null,
               }
@@ -871,29 +901,13 @@ function CellDetail({
                 label:
                   `Card probe` +
                   (p.booking_access_probe.prober_card ? ` (via ${p.booking_access_probe.prober_card})` : "") +
-                  (p.booking_access_probe.probed_date ? `, ${p.booking_access_probe.probed_date}` : ""),
+                  (p.booking_access_probe.probed_date ? ` · ${p.booking_access_probe.probed_date}` : ""),
                 quote: p.booking_access_probe.evidence || null,
                 source: p.source_url || null,
               }
             : { label: "" },
         ]}
       />
-      <div style={{ marginTop: 10, display: "flex", gap: 8 }}>
-        <button
-          onClick={onBook}
-          style={{
-            padding: "6px 12px",
-            background: "#1B5740",
-            color: "#FAFAF7",
-            border: "none",
-            borderRadius: 4,
-            cursor: "pointer",
-            fontWeight: 600,
-          }}
-        >
-          去预定
-        </button>
-      </div>
     </div>
   );
 }
