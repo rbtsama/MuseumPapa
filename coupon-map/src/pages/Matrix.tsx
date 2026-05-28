@@ -8,6 +8,7 @@ import {
   adultPrice,
   audienceLabel,
   availabilitySummary,
+  capacityStructure,
   eligibilityLabel,
   formLabel,
   frequencyLimit,
@@ -15,6 +16,7 @@ import {
   policyRange,
   policyText,
   reservationFlag,
+  simpleDiscount,
   verdictLabel,
 } from "../lib/derive";
 import BookingWizard from "../components/BookingWizard";
@@ -273,10 +275,28 @@ export default function Matrix({ bundle }: Props) {
                               </a>
                             </div>
                           )}
-                          <div className="row">
-                            <span className="k">营业时间</span>
-                            <span style={{ color: "#4a4845", fontStyle: "italic" }}>暂无数据 (v0.2)</span>
-                          </div>
+                          {l.hours ? (
+                            <div className="row" style={{ display: "block" }}>
+                              <div className="k">营业时间</div>
+                              <div style={{ fontSize: 11 }}>
+                                {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
+                                  <div key={d}>
+                                    {d.slice(0, 3)}: {l.hours?.[d] || "—"}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          ) : l.hours_note ? (
+                            <div className="row" style={{ display: "block" }}>
+                              <div className="k">营业时间</div>
+                              <div style={{ fontSize: 11, color: "#8C6018" }}>⚠ {l.hours_note}</div>
+                            </div>
+                          ) : (
+                            <div className="row">
+                              <span className="k">营业时间</span>
+                              <span style={{ color: "#4a4845", fontStyle: "italic" }}>暂无数据</span>
+                            </div>
+                          )}
                           {multi && (
                             <div className="row" style={{ display: "block", marginTop: 4 }}>
                               <span className="k">分馆 ({c.branches.length})</span>
@@ -331,10 +351,28 @@ export default function Matrix({ bundle }: Props) {
                             <span className="k">办卡资格</span>
                             <span>{eligibilityLabel(c.lib.card_eligibility, { network: c.lib.network, town: c.lib.town }).text}</span>
                           </div>
-                          <div className="row">
-                            <span className="k">营业时间</span>
-                            <span style={{ color: "#4a4845", fontStyle: "italic" }}>暂无数据 (v0.2)</span>
-                          </div>
+                          {c.lib.hours ? (
+                            <div className="row" style={{ display: "block" }}>
+                              <div className="k">营业时间</div>
+                              <div style={{ fontSize: 11 }}>
+                                {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
+                                  <div key={d}>
+                                    {d.slice(0, 3)}: {c.lib.hours?.[d] || "—"}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          ) : c.lib.hours_note ? (
+                            <div className="row" style={{ display: "block" }}>
+                              <div className="k">营业时间</div>
+                              <div style={{ fontSize: 11, color: "#8C6018" }}>⚠ {c.lib.hours_note}</div>
+                            </div>
+                          ) : (
+                            <div className="row">
+                              <span className="k">营业时间</span>
+                              <span style={{ color: "#4a4845", fontStyle: "italic" }}>暂无数据</span>
+                            </div>
+                          )}
                         </div>
                       </PopoverContent>
                     </Popover>
@@ -414,10 +452,10 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
           <div className="mx-row-head" title={attr.slug}>
             <div className="attr-name">{attr.name}</div>
             <div className="attr-meta">
-              {attr.categories?.slice(0, 2).join(" · ")} · ${adult ?? "—"}{" "}
-              <span style={{ color: resFlag.tone === "or" ? "#D97706" : "#1B5740" }}>
-                {resFlag.need ? "⚠预约" : "✅walk-in"}
-              </span>
+              {attr.categories?.slice(0, 2).join(" · ")} · ${adult ?? "—"}
+              {resFlag.need && (
+                <span style={{ color: "#D97706", marginLeft: 6 }}>⚠预约</span>
+              )}
             </div>
           </div>
         </PopoverTrigger>
@@ -456,7 +494,7 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
                 style={masked ? { opacity: 0.18 } : undefined}
                 title={`${attr.name} × ${locTitle}`}
               >
-                <CellGlyph p={p} />
+                <CellGlyph p={p} lib={l} />
               </div>
             </PopoverTrigger>
             <PopoverContent>
@@ -478,19 +516,36 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
   );
 }
 
-function CellGlyph({ p }: { p: Pass }) {
+function CellGlyph({ p, lib }: { p: Pass; lib: Library }) {
   const fl = formLabel(p.pass_form);
   const av = availabilitySummary(p.availability);
   const dot = av === "has_avail" ? "#1B5740" : av === "all_booked" ? "#D97706" : "#B5B2A8";
-  const ownOnly = p.booking_access_probe?.verdict === "own_card_only";
+  const verdict = p.booking_access_probe?.verdict;
+  const ownOnly = verdict === "own_card_only";
+  const networkOpen = verdict === "network_open";
+  const residency = p.residency_restriction?.restricted;
+  const residencyScope = p.residency_restriction?.scope;
+  // Line 2: Network (default) when any same-network card works; the town name
+  // in orange when restricted to this library's own card; em-dash when not
+  // yet verified or ambiguous.
+  const networkText = ownOnly ? lib.town : networkOpen ? "Network" : verdict === "ambiguous" ? "Network?" : "—";
+  const networkColor = ownOnly ? "#D97706" : networkOpen ? "#1B5740" : "#B5B2A8";
+  // Line 3: residency only when there IS a restriction (yes). Otherwise hidden.
+  let residencyText: string | null = null;
+  if (residency === "yes") {
+    if (residencyScope === "ma") residencyText = "MA Resident Only";
+    else residencyText = `${lib.town} Resident Only`;
+  }
   return (
-    <>
-      <span className="summary">{p.coupon.summary}</span>
-      <br />
-      <span className="form-icon">{fl.icon}</span>
-      <span className="dot-avail" style={{ background: dot }} />
-      {ownOnly && <span className="own-only">本</span>}
-    </>
+    <div className="glyph">
+      <div className="glyph-l1">
+        <span className="amount">{simpleDiscount(p.coupon)}</span>
+        {fl.cellIcon && <span className="form-icon-solid">{fl.cellIcon}</span>}
+        <span className="dot-avail" style={{ background: dot }} />
+      </div>
+      <div className="glyph-l2" style={{ color: networkColor }}>{networkText}</div>
+      {residencyText && <div className="glyph-l3">{residencyText}</div>}
+    </div>
   );
 }
 
@@ -589,16 +644,11 @@ function CellDetail({
           </span>
         </div>
       )}
-      <div className="row"><span className="k">折扣</span><span style={{ color: "#1B5740", fontWeight: 600 }}>{p.coupon.summary}</span></div>
-      <div className="row"><span className="k">人数上限</span><span>{cap ? `up to ${cap} ${p.coupon.capacity?.kind || "people"}` : "—"}</span></div>
-      <div className="row"><span className="k">领取方式</span><span title={fl.tooltip}>{fl.icon} {fl.short}</span></div>
-      <div className="row"><span className="k">卡限制 (system 层)</span><span title={p.booking_access_probe?.evidence || ""}>{vd.dot} {vd.text}</span></div>
-      <div className="row"><span className="k">取券居住地</span><span style={{ color: pr.warn ? "#8c2a1e" : "#1a1917" }}>{pr.text}</span></div>
-      <div className="row"><span className="k">每月领取限制</span><span>{fq || "不限"}</span></div>
+      {/* Discount breakdown replaces the single summary line — show each audience policy. */}
       {p.coupon.audience_policies && p.coupon.audience_policies.length > 0 ? (
         <div className="breakdown">
           <div className="k" style={{ marginBottom: 3, fontWeight: 600, color: "#8c6018" }}>
-            分人群折扣
+            折扣明细
           </div>
           {p.coupon.audience_policies.map((ap, i) => (
             <div className="pol" key={i}>
@@ -613,10 +663,27 @@ function CellDetail({
         </div>
       ) : (
         <div className="row">
-          <span className="k">分人群折扣</span>
-          <span style={{ color: "#4a4845", fontStyle: "italic" }}>未细分</span>
+          <span className="k">折扣</span>
+          <span style={{ color: "#1B5740", fontWeight: 600 }}>{p.coupon.summary}</span>
         </div>
       )}
+      {(() => {
+        const cs = capacityStructure(p.coupon);
+        const fallback = cap ? `${cap} 人` : "—";
+        return (
+          <div className="row" style={{ display: "block" }}>
+            <span className="k">人数上限</span>{" "}
+            <span style={{ fontWeight: 600 }}>{cs.total ? `${cs.total} 人` : fallback}</span>
+            {cs.parts && cs.parts.length > 0 && (
+              <span style={{ marginLeft: 6, color: "#4a4845" }}>({cs.parts.join(" + ")})</span>
+            )}
+          </div>
+        );
+      })()}
+      <div className="row"><span className="k">领取方式</span><span title={fl.tooltip}>{fl.icon} {fl.short}</span></div>
+      <div className="row"><span className="k">卡限制 (system 层)</span><span title={p.booking_access_probe?.evidence || ""}>{vd.dot} {vd.text}</span></div>
+      <div className="row"><span className="k">取券居住地</span><span style={{ color: pr.warn ? "#8c2a1e" : "#1a1917" }}>{pr.text}</span></div>
+      <div className="row"><span className="k">每月领取限制</span><span>{fq || "不限"}</span></div>
       <div style={{ marginTop: 10, display: "flex", gap: 8 }}>
         <button
           onClick={onBook}

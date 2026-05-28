@@ -12,19 +12,23 @@ import type {
 } from "../data/types";
 
 // ── pass_form → 领取方式 (confirmed mapping) ─────────────────────────────
+// `cellIcon` shows in the compact matrix cell — Email leaves it blank so the
+// cell stays clean (Email is the implicit default). Solid stars distinguish
+// pickup (★) from pickup-and-return (★★) at a glance.
 export interface FormLabel {
-  icon: string;        // ✉ / ☆ / ☆☆
+  cellIcon: string;    // "" / ★ / ★★  (for cell glyph)
+  icon: string;        // ✉ / ★ / ★★   (for popover row)
   short: string;       // Email / Pickup / Pickup&return
-  tooltip: string;     // long Chinese
+  tooltip: string;
 }
 export function formLabel(f: PassForm): FormLabel {
   switch (f) {
     case "digital_email":
-      return { icon: "✉", short: "Email", tooltip: "邮件电子券:下单后自动发邮件" };
+      return { cellIcon: "", icon: "✉", short: "Email", tooltip: "邮件电子券:下单后自动发邮件" };
     case "physical_coupon":
-      return { icon: "☆", short: "Pickup", tooltip: "去图书馆领纸质优惠券,领走即可" };
+      return { cellIcon: "★", icon: "★", short: "Pickup", tooltip: "去图书馆领纸质优惠券,领走即可" };
     case "physical_circ":
-      return { icon: "☆☆", short: "Pickup & return", tooltip: "借实体通行证,用完需归还" };
+      return { cellIcon: "★★", icon: "★★", short: "Pickup & return", tooltip: "借实体通行证,用完需归还" };
   }
 }
 
@@ -210,21 +214,87 @@ export function policyText(p: AudiencePolicy): string {
   const v = p.value;
   switch ((p.form || "").toLowerCase()) {
     case "percent-off":
-      return v != null ? `${v}% off` : "% off";
+      return v != null ? `-${v}%` : "% off";
     case "free":
       return "FREE";
     case "dollars-off":
     case "dollar-off":
-      return v != null ? `$${v} off` : "$ off";
+      return v != null ? `-$${v}` : "$ off";
     case "fixed-price":
       return v != null ? `$${v}/人` : "固定价";
     case "fixed-total":
       return v != null ? `共 $${v}` : "固定总价";
     case "bogo":
-      return "买一送一";
+      return "B1G1";
     default:
       return [p.form, v].filter((x) => x !== undefined && x !== null && x !== "").join(" ").trim() || "—";
   }
+}
+
+// Compact discount for the matrix cell — picks the primary audience policy
+// and returns a short label like "-50%", "$10", "-$2", "FREE", "B1G1".
+// If multiple policies disagree, returns the first (typically "Everyone").
+export function simpleDiscount(coupon: {
+  summary?: string;
+  audience_policies?: AudiencePolicy[];
+} | null | undefined): string {
+  if (!coupon) return "—";
+  const policies = coupon.audience_policies || [];
+  if (policies.length === 0) return coupon.summary || "—";
+  // Prefer an "Everyone" / "Adult" policy; otherwise first.
+  const primary =
+    policies.find((p) => /everyone/i.test(p.audience)) ||
+    policies.find((p) => /adult/i.test(p.audience)) ||
+    policies[0];
+  const v = primary.value;
+  switch ((primary.form || "").toLowerCase()) {
+    case "percent-off":
+      return v != null ? `-${v}%` : coupon.summary || "—";
+    case "free":
+      return "FREE";
+    case "dollars-off":
+    case "dollar-off":
+      return v != null ? `-$${v}` : coupon.summary || "—";
+    case "fixed-price":
+      return v != null ? `$${v}` : coupon.summary || "—";
+    case "fixed-total":
+      return v != null ? `$${v}` : coupon.summary || "—";
+    case "bogo":
+      return "B1G1";
+    default:
+      return coupon.summary || "—";
+  }
+}
+
+// Structured capacity: total people + per-audience breakdown when present.
+// Returns { total, parts? } where parts is e.g. ["1 大", "1 小"] or undefined
+// when only a total is known.
+export function capacityStructure(coupon: {
+  capacity?: { kind?: string; n?: number | null };
+  audience_policies?: AudiencePolicy[];
+} | null | undefined): { total: number | null; parts?: string[] } {
+  const total = coupon?.capacity?.n ?? null;
+  const policies = coupon?.audience_policies || [];
+  const withCount = policies.filter((p) => p.count != null && p.count > 0);
+  if (withCount.length === 0) return { total };
+  const audMap: Record<string, string> = {
+    adult: "大",
+    senior: "老",
+    child: "小",
+    children: "小",
+    youth: "青",
+    student: "学",
+    infant: "婴",
+    everyone: "人",
+    family: "家",
+    military: "军",
+  };
+  const parts = withCount.map((p) => {
+    const aud = (p.audience || "").toLowerCase();
+    const tag = audMap[aud] || p.audience;
+    return `${p.count} ${tag}`;
+  });
+  return { total, parts };
 }
 export function policyRange(p: AudiencePolicy): string {
   if (!p.age_range || (p.age_range.min == null && p.age_range.max == null)) return "";

@@ -28,6 +28,8 @@ export interface Library {
   card_eligibility: Eligibility;
   pass_pickup_default?: string;
   resident_zips?: string[];
+  hours?: Record<string, string> | null;
+  hours_note?: string | null;
 }
 
 export interface Attraction {
