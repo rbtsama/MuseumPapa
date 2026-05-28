@@ -809,7 +809,7 @@ function CellDetail({
       {p.coupon.audience_policies && p.coupon.audience_policies.length > 0 ? (
         <div className="breakdown">
           <div className="k" style={{ marginBottom: 3, fontWeight: 600, color: "#8c6018" }}>
-            折扣明细
+            DISC 明细
           </div>
           {p.coupon.audience_policies.map((ap, i) => (
             <div className="pol" key={i}>
@@ -824,7 +824,7 @@ function CellDetail({
         </div>
       ) : (
         <div className="row">
-          <span className="k">折扣</span>
+          <span className="k">DISC</span>
           <span style={{ color: "#1B5740", fontWeight: 600 }}>{p.coupon.summary}</span>
         </div>
       )}
