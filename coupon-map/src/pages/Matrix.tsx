@@ -472,9 +472,12 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
         isOpen={!!bookCtx}
         onOpenChange={(o) => !o && setBookCtx(null)}
         size="3xl"
+        placement="center"
+        backdrop="opaque"
+        classNames={{ base: "floater-modal", body: "floater-modal-body" }}
       >
         <ModalContent>
-          <ModalBody style={{ padding: 0 }}>
+          <ModalBody>
             {bookCtx && (
               <BookingWizard
                 bundle={bundle}

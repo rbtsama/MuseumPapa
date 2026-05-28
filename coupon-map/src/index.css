@@ -705,6 +705,19 @@ body,
   margin: 4px 0 0;
 }
 
+/* ── Floater Modal (HeroUI wrapper) ─────────────────────────────────── */
+/* HeroUI's default modal base is transparent unless themed. We force a
+   solid newspaper-cream background, centered, with a clear shadow. */
+.floater-modal {
+  background: #fafaf7 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22) !important;
+  border: 1px solid #d0cec6 !important;
+}
+.floater-modal-body {
+  padding: 0 !important;
+}
+
 /* ── Booking Floater (replaces the 3-step wizard) ──────────────────── */
 .floater {
   padding: 14px 18px 12px;
@@ -728,6 +741,15 @@ body,
   font-family: ui-monospace, monospace; font-size: 11px;
 }
 .floater-cal { margin-bottom: 0; }
+.col-hint {
+  font-size: 12px;
+  color: #4a4845;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  background: #ecebe5;
+  border-radius: 4px;
+}
+.col-hint strong { color: #1b5740; font-weight: 700; }
 .cal-nav { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
 .cal-nav button {
   font: inherit; font-size: 11px; padding: 3px 8px;
@@ -757,56 +779,100 @@ body,
 }
 
 .floater-cards {
-  border-left: 1px solid #ecebe5;
-  padding-left: 14px;
   max-height: 360px; overflow-y: auto;
 }
-.cards-h { font-size: 11px; font-weight: 700; color: #4a4845; letter-spacing: 0.5px; margin-bottom: 4px; }
-.cards-empty { font-size: 11px; color: #4a4845; font-style: italic; padding: 6px 0; }
+.cards-empty { font-size: 12px; color: #8a877f; padding: 10px 0; }
 .card-pick {
-  display: flex; align-items: center; gap: 8px;
-  padding: 5px 7px; margin-bottom: 4px;
-  border: 1px solid #d0cec6; border-radius: 4px;
-  background: #fafaf7; cursor: pointer;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  border: 1px solid #d0cec6;
+  border-radius: 5px;
+  background: #fafaf7;
+  cursor: pointer;
+  transition: background 0.1s, border-color 0.1s;
 }
-.card-pick.disabled { opacity: 0.4; background: #ecebe5; cursor: default; }
-.card-pick.selected { border-color: #1b5740; background: #eaf1ee; }
-.card-pick .cp-main { flex: 1; min-width: 0; }
-.card-pick .cp-name { font-weight: 600; font-size: 12px; display: flex; gap: 6px; align-items: baseline; }
-.card-pick .cp-role { font-size: 10px; font-weight: 500; color: #4a4845; }
-.card-pick .cp-meta { display: flex; align-items: center; gap: 6px; font-size: 11px; margin-top: 2px; flex-wrap: wrap; }
-.card-pick .cp-barcode { background: #ecebe5; padding: 1px 5px; border-radius: 3px; font-family: ui-monospace, monospace; }
-.card-pick .cp-note { color: #4a4845; font-size: 10px; font-style: italic; }
-.card-pick .cp-copy {
-  font: inherit; font-size: 10px; padding: 1px 6px;
-  border: 1px solid #c4ddcf; background: #eaf1ee; color: #1b5740;
-  border-radius: 3px; cursor: pointer;
+.card-pick:hover:not(.disabled) {
+  background: #eaf1ee;
+  border-color: #c4ddcf;
 }
-.card-pick .cp-radio { accent-color: #1b5740; }
+.card-pick.disabled {
+  opacity: 0.4;
+  background: #ecebe5;
+  cursor: default;
+}
+.card-pick.selected {
+  border-color: #1b5740;
+  background: #c4ddcf;
+}
+.card-pick.selected:hover { background: #c4ddcf; }
+.card-pick .cp-name {
+  font-weight: 600;
+  font-size: 13px;
+  color: #1a1917;
+  display: flex; gap: 8px; align-items: baseline;
+}
+.card-pick .cp-net {
+  font-size: 11px;
+  font-weight: 500;
+  color: #8a877f;
+}
+.card-pick .cp-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+.card-pick .cp-barcode {
+  background: #ecebe5;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+.card-pick .cp-note {
+  color: #4a4845;
+  font-size: 11px;
+}
 
 .floater-foot {
-  border-top: 1px solid #d0cec6; padding-top: 8px;
-  display: flex; justify-content: space-between; align-items: center;
-  position: relative;
+  border-top: 1px solid #d0cec6;
+  padding-top: 12px;
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
 }
-.foot-status { font-size: 11px; color: #4a4845; }
-.foot-status code { background: #ecebe5; padding: 1px 5px; border-radius: 3px; font-family: ui-monospace, monospace; }
-.foot-btns { display: flex; gap: 8px; }
+.foot-btns { display: flex; gap: 10px; }
 .foot-btns .btn-primary {
-  font: inherit; font-size: 12px; font-weight: 600;
-  padding: 6px 12px;
-  background: #1b5740; color: #fafaf7; border: none; border-radius: 4px; cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 18px;
+  background: #1b5740;
+  color: #fafaf7;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
-.foot-btns .btn-primary:disabled { opacity: 0.4; cursor: default; }
+.foot-btns .btn-primary:hover:not(:disabled) { background: #2a7055; }
+.foot-btns .btn-primary:disabled {
+  background: #d0cec6;
+  color: #8a877f;
+  cursor: default;
+}
 .foot-btns .btn-ghost {
-  font: inherit; font-size: 12px;
-  padding: 5px 12px;
-  background: #fafaf7; color: #1a1917; border: 1px solid #d0cec6; border-radius: 4px; cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  padding: 6px 14px;
+  background: #fafaf7;
+  color: #1a1917;
+  border: 1px solid #d0cec6;
+  border-radius: 4px;
+  cursor: pointer;
 }
-.copy-toast {
-  position: absolute; right: 0; bottom: 100%; margin-bottom: 6px;
-  background: #1b5740; color: #fafaf7; padding: 4px 10px; border-radius: 3px; font-size: 11px;
-}
+.foot-btns .btn-ghost:hover { background: #ecebe5; }
 
 .wizard {
   padding: 8px 4px;

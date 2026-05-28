@@ -1,11 +1,10 @@
-// BookingFloater — replaces the old 3-step BookingWizard with a single
-// floating panel pinned to a specific (lib, attraction) pair. Cell-anchored
-// (library is already chosen), so the panel only needs to:
-//   1. show this pass's calendar with the same status colors the official
-//      site uses (available / not-available / closed / not-yet-released);
-//   2. show all stored cards with non-usable ones greyed out;
-//   3. deep-link to the official booking page WITH the chosen date already
-//      selected, so the user just pastes the card and confirms.
+// BookingFloater — opens from the Pass cell. Two columns:
+//   Date (left)  ·  Card (right).
+// User picks a date from the calendar; user picks a card from their wallet
+// (non-usable cards rendered greyed-out, non-clickable, no "Not Eligible"
+// label). When both are selected, the Book button lights up and clicking
+// it copies the selected card's number to the clipboard and opens the
+// official booking page deep-linked to that date.
 import { useEffect, useMemo, useState } from "react";
 import type { Attraction, DataBundle, Library, Pass } from "../data/types";
 import { matchCards } from "../lib/derive";
@@ -20,17 +19,17 @@ interface Props {
 }
 
 // Construct a deep URL that already lands on the chosen date on the
-// official booking site. Pattern is platform-specific:
-//   assabet → /museum-passes/by-date/YYYY-<month>/<day>/<slug>/
+// official booking site. Platform-specific:
+//   assabet → /by-date/YYYY-<month>/<day>/<slug>/
 //   libcal  → ?date=YYYY-MM-DD appended
-//   other   → fall back to the raw source_url (no deep-link possible)
+//   other   → raw source_url
 function deepBookingUrl(pass: Pass, date: string | null): string {
   const url = pass.source_url || "";
   if (!url) return "";
   if (!date) return url;
   if (url.includes("assabetinteractive.com")) {
-    const months = ["january", "february", "march", "april", "may", "june",
-                    "july", "august", "september", "october", "november", "december"];
+    const months = ["january","february","march","april","may","june",
+                    "july","august","september","october","november","december"];
     const m = url.match(/\/museum-passes\/by-museum\/([^/]+)\//);
     if (m) {
       const slug = m[1];
@@ -47,7 +46,6 @@ function deepBookingUrl(pass: Pass, date: string | null): string {
 }
 
 type DayStatus = "available" | "booked" | "closed" | "unavailable" | "none";
-
 const STATUS_STYLE: Record<DayStatus, { bg: string; fg: string; label: string; click: boolean }> = {
   available:   { bg: "#C4DDCF", fg: "#1B5740", label: "Available",     click: true  },
   booked:      { bg: "#FDF1E2", fg: "#8C6018", label: "Not Available", click: false },
@@ -58,7 +56,6 @@ const STATUS_STYLE: Record<DayStatus, { bg: string; fg: string; label: string; c
 
 export default function BookingWizard({ bundle, attraction, pass, lib, onClose }: Props) {
   const avail = pass.availability || {};
-  // Pick months: all months that appear in this pass's availability, sorted.
   const months = useMemo(() => {
     const s = new Set<string>();
     Object.keys(avail).forEach((d) => s.add(d.slice(0, 7)));
@@ -70,7 +67,6 @@ export default function BookingWizard({ bundle, attraction, pass, lib, onClose }
   const [month, setMonth] = useState(initialMonth);
   const [date, setDate] = useState<string | null>(null);
 
-  // My cards from localStorage. matchCards classifies them per pass.
   const cards = useMemo(() => loadCards(), []);
   const { exact, network } = useMemo(
     () => matchCards(cards, pass, bundle.libById),
@@ -80,12 +76,10 @@ export default function BookingWizard({ bundle, attraction, pass, lib, onClose }
   const networkIds = new Set(network.map((c) => c.id));
   const usableIds = new Set([...exactIds, ...networkIds]);
 
-  const [selectedCardId, setSelectedCardId] = useState<string | null>(
-    exact[0]?.id || network[0]?.id || null
-  );
-  const [copied, setCopied] = useState<string | null>(null);
+  const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
+  const selectedCard = cards.find((c) => c.id === selectedCardId) || null;
 
-  // Reset card selection if the auto-pick becomes invalid (rare here, but tidy).
+  // If a card we had pre-selected stops being usable, drop it.
   useEffect(() => {
     if (selectedCardId && !usableIds.has(selectedCardId)) setSelectedCardId(null);
   }, [selectedCardId, usableIds]);
@@ -103,23 +97,13 @@ export default function BookingWizard({ bundle, attraction, pass, lib, onClose }
   }
   const mi = months.indexOf(month);
 
-  const selectedCard = cards.find((c) => c.id === selectedCardId) || null;
-  const jumpUrl = deepBookingUrl(pass, date);
-
-  function copy(text: string) {
-    navigator.clipboard.writeText(text).then(
-      () => {
-        setCopied(text);
-        setTimeout(() => setCopied(null), 1500);
-      },
-      () => setCopied("复制失败")
-    );
+  function onBook() {
+    if (!date || !selectedCard) return;
+    navigator.clipboard.writeText(selectedCard.card_number).catch(() => {});
+    window.open(deepBookingUrl(pass, date), "_blank", "noopener");
   }
 
-  function onJump() {
-    if (selectedCard) navigator.clipboard.writeText(selectedCard.card_number).catch(() => {});
-    window.open(jumpUrl, "_blank", "noopener");
-  }
+  const ready = Boolean(date && selectedCard);
 
   return (
     <div className="floater">
@@ -131,8 +115,11 @@ export default function BookingWizard({ bundle, attraction, pass, lib, onClose }
       </div>
 
       <div className="floater-body">
-        {/* Calendar */}
+        {/* Date column */}
         <div className="floater-cal">
+          <div className="col-hint">
+            {date ? <>Date: <strong>{date}</strong></> : <>Please select a date</>}
+          </div>
           <div className="cal-nav">
             <button onClick={() => mi > 0 && setMonth(months[mi - 1])} disabled={mi <= 0}>
               ← {months[mi - 1] || ""}
@@ -188,15 +175,20 @@ export default function BookingWizard({ bundle, attraction, pass, lib, onClose }
           </div>
         </div>
 
-        {/* My cards */}
+        {/* Card column */}
         <div className="floater-cards">
-          <div className="cards-h">My cards — {usableIds.size} usable of {cards.length}</div>
+          <div className="col-hint">
+            {selectedCard ? (
+              <>Card: <strong>{bundle.libById.get(selectedCard.library_id)?.town || selectedCard.library_id}</strong></>
+            ) : (
+              <>Please select a card to book</>
+            )}
+          </div>
           {cards.length === 0 && (
-            <div className="cards-empty">No cards yet. Add or import from the "My Cards" tab.</div>
+            <div className="cards-empty">No cards yet. Add or import from "My Cards".</div>
           )}
           {cards.map((c) => {
             const usable = usableIds.has(c.id);
-            const role = exactIds.has(c.id) ? "own card" : networkIds.has(c.id) ? "same network" : "not eligible";
             const cardLib = bundle.libById.get(c.library_id);
             const selected = c.id === selectedCardId;
             return (
@@ -207,55 +199,33 @@ export default function BookingWizard({ bundle, attraction, pass, lib, onClose }
               >
                 <div className="cp-main">
                   <div className="cp-name">
-                    {cardLib ? `${cardLib.town} (${cardLib.network})` : c.library_id}
-                    <span className="cp-role">{usable ? `✓ ${role}` : `· ${role}`}</span>
+                    {cardLib ? cardLib.town : c.library_id}
+                    {cardLib && <span className="cp-net">{cardLib.network}</span>}
                   </div>
                   <div className="cp-meta">
                     <code className="cp-barcode">{c.card_number}</code>
-                    <button
-                      className="cp-copy"
-                      onClick={(e) => { e.stopPropagation(); copy(c.card_number); }}
-                      title="Copy card number"
-                    >
-                      Copy
-                    </button>
                     {c.note && <span className="cp-note">{c.note}</span>}
                   </div>
                 </div>
-                {usable && (
-                  <input
-                    type="radio"
-                    className="cp-radio"
-                    checked={selected}
-                    onChange={() => setSelectedCardId(c.id)}
-                  />
-                )}
               </div>
             );
           })}
         </div>
       </div>
 
-      {/* Jump */}
+      {/* Footer — Book button enabled only when both date and card chosen. */}
       <div className="floater-foot">
-        <div className="foot-status">
-          {date ? <>Selected: <strong>{date}</strong></> : <>No date selected</>}
-          {selectedCard && (
-            <> · Card <code>{selectedCard.card_number}</code></>
-          )}
-        </div>
         <div className="foot-btns">
           <button onClick={onClose} className="btn-ghost">Close</button>
           <button
-            onClick={onJump}
-            disabled={!date}
+            onClick={onBook}
+            disabled={!ready}
             className="btn-primary"
-            title={!date ? "Pick a date first" : "Copy card number + open booking page"}
+            title={!date ? "Pick a date first" : !selectedCard ? "Pick a card" : "Copy card & open booking page"}
           >
-            Book ↗ {selectedCard && "(card copied)"}
+            Book ↗
           </button>
         </div>
-        {copied && <div className="copy-toast">Copied: {copied.length > 16 ? copied.slice(0, 16) + "…" : copied}</div>}
       </div>
     </div>
   );

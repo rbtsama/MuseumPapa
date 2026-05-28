@@ -718,7 +718,15 @@
       "resident_zips": [
         "01945"
       ],
-      "hours_note": "官网未公布每日时间表 — 见官网"
+      "hours": {
+        "monday": "09:30-21:00",
+        "tuesday": "09:30-18:00",
+        "wednesday": "09:30-21:00",
+        "thursday": "12:00-18:00",
+        "friday": "09:30-17:00",
+        "saturday": "09:30-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "everett",
