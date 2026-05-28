@@ -425,7 +425,7 @@ body,
   border-radius: 8px !important;
 }
 .detail-card {
-  padding: 16px 20px;
+  padding: 16px 20px 0;
   width: 580px;
   max-height: 50vh;
   overflow-y: auto;
@@ -434,6 +434,8 @@ body,
   background: #fafaf7;
   border-radius: 8px;
   color: #1a1917;
+  /* The cell-foot pins itself to the bottom via position:sticky. The card
+     itself stays the scroll container. */
 }
 
 /* Subdued title at the top — user already saw this context on the cell
@@ -494,10 +496,14 @@ body,
   color: #8a877f;
   font-size: 12px;
 }
-.detail-card .data-row.sub .k {
-  padding-left: 2px;
-  color: #4a4845;
+.detail-card .data-row .v-attn {
+  color: #8c6018;
+  font-weight: 600;
 }
+/* Tighten gap between sections so "Discount → Capacity" doesn't read as an
+   empty blank row. Section identity comes from .section-h, not whitespace. */
+.detail-card .data-section { margin: 0 0 8px; }
+.detail-card .data-section + .data-section { margin-top: -2px; }
 
 .detail-card .hours-grid {
   display: grid;
@@ -534,22 +540,28 @@ body,
 /* (Old .breakdown block removed — Discount now uses .data-section + .data-row.sub
    so it visually aligns with every other data section, no tinted box.) */
 
-/* Bottom action bar — Approve · Edit cluster on the left, Book Now anchored
-   right. Lives at the very bottom of the popover so it stays visible when
-   the body scrolls. */
-.detail-card .action-bar {
+/* Sticky bottom — the action bar pins to the bottom of the scroll container
+   so it stays visible no matter how long the Sources list is. */
+.detail-card .cell-foot {
+  position: sticky;
+  bottom: 0;
+  margin: 0 -20px;
+  padding: 0 20px 16px;
+  background: linear-gradient(180deg, rgba(250,250,247,0) 0, #fafaf7 8px, #fafaf7 100%);
+  z-index: 2;
+}
+.detail-card .cell-foot .action-bar {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 14px;
   padding-top: 12px;
   border-top: 1px solid #d0cec6;
 }
-.detail-card .action-bar .book-btn {
+.detail-card .cell-foot .action-bar .book-btn {
   margin-left: auto;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   padding: 6px 14px;
   background: #1b5740;
   color: #fafaf7;
@@ -560,7 +572,12 @@ body,
   font-weight: 600;
   cursor: pointer;
 }
-.detail-card .action-bar .book-btn:hover { background: #2a7055; }
+.detail-card .cell-foot .action-bar .book-btn:hover { background: #2a7055; }
+.detail-card .cell-foot .audit-btn .ico-svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
 .detail-card .audit-btn.open {
   background: #ecebe5;
   color: #1b5740;

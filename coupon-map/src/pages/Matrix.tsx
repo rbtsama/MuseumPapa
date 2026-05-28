@@ -634,6 +634,26 @@ function EvidenceSection({ items }: { items: EvidenceItem[] }) {
   );
 }
 
+// Paired SVG icons (Lucide-style, stroke-only) so Approve and Edit read as
+// a deliberate two-button set at the same visual weight.
+const IconCheck = () => (
+  <svg className="ico-svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
+const IconPencil = () => (
+  <svg className="ico-svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M12 20h9" />
+    <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
+  </svg>
+);
+const IconBook = () => (
+  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <line x1="7" y1="17" x2="17" y2="7" />
+    <polyline points="7 7 17 7 17 17" />
+  </svg>
+);
+
 function CellAuditRow({
   entry,
   onToggleApprove,
@@ -646,33 +666,8 @@ function CellAuditRow({
   onBook: () => void;
 }) {
   const [showEdit, setShowEdit] = useState(false);
-  // Pair-icon set: both ▣ / ▢-style fill-vs-outline so Approve and Edit read
-  // as the same family at a glance, just one filled (action committed) and
-  // one outline (pending action).
   return (
-    <>
-      <div className="action-bar">
-        <button
-          className={`audit-btn approve${entry?.approved ? " active" : ""}`}
-          onClick={onToggleApprove}
-          title={entry?.approved ? `Approved ${new Date(entry.approved.at).toLocaleString()}` : "Mark verified"}
-        >
-          <span className="ico">{entry?.approved ? "▣" : "▢"}</span>
-          {entry?.approved ? "Approved" : "Approve"}
-        </button>
-        <button
-          className={`audit-btn${entry?.corrections ? " has-notes" : ""}${showEdit ? " open" : ""}`}
-          onClick={() => setShowEdit((s) => !s)}
-          title={entry?.corrections ? "Has edits — click to view" : "Add edit notes"}
-        >
-          <span className="ico">{entry?.corrections ? "▤" : "▥"}</span>
-          Edit
-          {entry?.corrections && <span className="dot-mark" />}
-        </button>
-        <button className="book-btn" onClick={onBook}>
-          Book Now ↗
-        </button>
-      </div>
+    <div className="cell-foot">
       {showEdit && (
         <div className="correction-fields">
           {AUDITABLE_FIELDS.map((f) => (
@@ -688,7 +683,29 @@ function CellAuditRow({
           ))}
         </div>
       )}
-    </>
+      <div className="action-bar">
+        <button
+          className={`audit-btn approve${entry?.approved ? " active" : ""}`}
+          onClick={onToggleApprove}
+          title={entry?.approved ? `Approved ${new Date(entry.approved.at).toLocaleString()}` : "Mark verified"}
+        >
+          <IconCheck />
+          {entry?.approved ? "Approved" : "Approve"}
+        </button>
+        <button
+          className={`audit-btn${entry?.corrections ? " has-notes" : ""}${showEdit ? " open" : ""}`}
+          onClick={() => setShowEdit((s) => !s)}
+          title={entry?.corrections ? "Has edits — click to view" : "Add edit notes"}
+        >
+          <IconPencil />
+          Edit
+          {entry?.corrections && <span className="dot-mark" />}
+        </button>
+        <button className="book-btn" onClick={onBook}>
+          Book Now <IconBook />
+        </button>
+      </div>
+    </div>
   );
 }
 
@@ -736,34 +753,15 @@ function AttractionDetail({ a }: { a: Attraction }) {
     required: "Reservation required",
     recommended: "Reservation recommended",
   };
-  const res = a.reservation?.required ? (reservationText[a.reservation.required] || a.reservation.required) : "Unknown";
+  const resRaw = a.reservation?.required || "unknown";
+  const res = reservationText[resRaw] || resRaw;
+  const needsRes = resRaw !== "walk_in_ok" && resRaw !== "unknown";
   const addr = a.address ? [a.address.street, a.address.city, a.address.state, a.address.zip].filter(Boolean).join(", ") : null;
   return (
     <div className="detail-card">
       <div className="card-subtitle">{a.name}</div>
 
-      {a.prices && a.prices.length > 0 && (
-        <div className="data-section">
-          <div className="section-h">Tickets</div>
-          {a.prices.map((p, i) => {
-            const pl = priceLine(p);
-            return (
-              <div key={i} className="data-row sub">
-                <span className="k">{pl.label}</span>
-                <span className={`v${pl.isFree ? " v-free" : ""}`}>{pl.value}</span>
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      <div className="data-section">
-        <div className="data-row">
-          <span className="k">Reservation</span>
-          <span className="v">{res}</span>
-        </div>
-      </div>
-
+      {/* 1) Hours */}
       {a.hours ? (
         <div className="data-section">
           <div className="section-h">Hours</div>
@@ -783,6 +781,31 @@ function AttractionDetail({ a }: { a: Attraction }) {
         </div>
       ) : null}
 
+      {/* 2) Reservation — yellow text when ahead-of-time booking is needed */}
+      <div className="data-section">
+        <div className="data-row">
+          <span className="k">Reservation</span>
+          <span className={`v${needsRes ? " v-attn" : ""}`}>{res}</span>
+        </div>
+      </div>
+
+      {/* 3) Tickets */}
+      {a.prices && a.prices.length > 0 && (
+        <div className="data-section">
+          <div className="section-h">Tickets</div>
+          {a.prices.map((p, i) => {
+            const pl = priceLine(p);
+            return (
+              <div key={i} className="data-row">
+                <span className="k">{pl.label}</span>
+                <span className={`v${pl.isFree ? " v-free" : ""}`}>{pl.value}</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* 4) Address + website */}
       {(addr || a.website) && (
         <div className="data-section compact">
           {addr && <div className="addr">{addr}</div>}
