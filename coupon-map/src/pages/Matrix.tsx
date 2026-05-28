@@ -653,8 +653,8 @@ function CellGlyph({ p, lib }: { p: Pass; lib: Library }) {
   // Line 3: residency only when there IS a restriction (yes). Otherwise hidden.
   let residencyText: string | null = null;
   if (residency === "yes") {
-    if (residencyScope === "ma") residencyText = "MA Resident Only";
-    else residencyText = `${lib.town} Resident Only`;
+    if (residencyScope === "ma") residencyText = "MA Resident";
+    else residencyText = `${lib.town} Resident`;
   }
   return (
     <div className="glyph">

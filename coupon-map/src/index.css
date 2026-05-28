@@ -214,9 +214,9 @@ body,
   max-width: 74px;
 }
 .mx-cell .glyph-l3 {
-  font-size: 9px;
+  font-size: 10px;
+  font-weight: 500;
   color: #8c2a1e;
-  font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
