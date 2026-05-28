@@ -38,6 +38,13 @@ export async function loadAll(): Promise<DataBundle> {
     throw new Error(`duplicate (attraction,library) pair detected: ${passes.length} passes, ${passByPair.size} pairs`);
   }
 
+  const branchesByLib = new Map<string, Branch[]>();
+  for (const b of branches) {
+    if (!branchesByLib.has(b.library_id)) branchesByLib.set(b.library_id, []);
+    branchesByLib.get(b.library_id)!.push(b);
+  }
+  for (const arr of branchesByLib.values()) arr.sort((a, b) => a.name.localeCompare(b.name));
+
   const byNet = new Map<string, Library[]>();
   for (const l of libraries) {
     if (!byNet.has(l.network)) byNet.set(l.network, []);
@@ -48,5 +55,5 @@ export async function loadAll(): Promise<DataBundle> {
   for (const n of NETWORK_ORDER) if (byNet.has(n)) networks.push({ network: n, libraries: byNet.get(n)! });
   for (const [n, arr] of byNet) if (!NETWORK_ORDER.includes(n)) networks.push({ network: n, libraries: arr });
 
-  return { libraries, attractions, passes, branches, passByPair, libById, attrBySlug, networks };
+  return { libraries, attractions, passes, branches, passByPair, libById, attrBySlug, branchesByLib, networks };
 }

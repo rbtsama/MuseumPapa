@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Modal, ModalBody, ModalContent, ModalHeader, Popover, PopoverContent, PopoverTrigger } from "@heroui/react";
-import type { Attraction, DataBundle, Library, Pass } from "../data/types";
+import type { Attraction, Branch, DataBundle, Library, Pass } from "../data/types";
 import {
   adultPrice,
   audienceLabel,
@@ -18,23 +18,44 @@ import BookingWizard from "../components/BookingWizard";
 
 interface Props { bundle: DataBundle }
 
-// Stable column layout: networks in canonical order, each network's libs by town.
-function useColumns(bundle: DataBundle) {
+// One matrix column = either a library (institutional) or a branch sub-column
+// (pickup-location only — policy is verified identical across branches).
+export type Col =
+  | { kind: "lib"; lib: Library; branches: Branch[]; netStart: boolean }
+  | { kind: "branch"; lib: Library; branch: Branch; idx: number; total: number };
+
+function useColumns(bundle: DataBundle, expanded: Set<string>) {
   return useMemo(() => {
-    const cols: Library[] = [];
+    const cols: Col[] = [];
     const groups: Array<{ network: string; span: number }> = [];
-    const netStartCols = new Set<number>(); // column indices that begin a network
     for (const g of bundle.networks) {
-      netStartCols.add(cols.length);
-      groups.push({ network: g.network, span: g.libraries.length });
-      for (const l of g.libraries) cols.push(l);
+      const startLen = cols.length;
+      let first = true;
+      for (const lib of g.libraries) {
+        const branches = bundle.branchesByLib.get(lib.id) ?? [];
+        cols.push({ kind: "lib", lib, branches, netStart: first });
+        first = false;
+        if (branches.length > 1 && expanded.has(lib.id)) {
+          branches.forEach((branch, idx) =>
+            cols.push({ kind: "branch", lib, branch, idx, total: branches.length })
+          );
+        }
+      }
+      groups.push({ network: g.network, span: cols.length - startLen });
     }
-    return { cols, groups, netStartCols };
-  }, [bundle]);
+    return { cols, groups };
+  }, [bundle, expanded]);
 }
 
 export default function Matrix({ bundle }: Props) {
-  const { cols, groups, netStartCols } = useColumns(bundle);
+  const [expandedLibs, setExpandedLibs] = useState<Set<string>>(new Set());
+  const toggleExpand = (libId: string) =>
+    setExpandedLibs((prev) => {
+      const next = new Set(prev);
+      next.has(libId) ? next.delete(libId) : next.add(libId);
+      return next;
+    });
+  const { cols, groups } = useColumns(bundle, expandedLibs);
 
   // ── filters ─────────────────────────────────────────────────────────
   const [q, setQ] = useState("");
@@ -78,7 +99,8 @@ export default function Matrix({ bundle }: Props) {
     return true;
   }
 
-  const cellTemplate = `260px repeat(${cols.length}, 78px)`;
+  // Lib cols 78px; branch sub-cols 64px (subdued; policy identical to parent).
+  const cellTemplate = `260px ${cols.map((c) => (c.kind === "lib" ? "78px" : "64px")).join(" ")}`;
 
   return (
     <div>
@@ -135,62 +157,132 @@ export default function Matrix({ bundle }: Props) {
             </div>
           ))}
 
-          {/* row 2: corner-2 + town headers */}
-          <div className="mx-corner-2">{rows.length} 景 × {cols.length} 馆</div>
-          {cols.map((l, ci) => {
-            const e = eligibilityLabel(l.card_eligibility);
-            const cls = `mx-town${netStartCols.has(ci) ? " net-start" : ""}`;
-            return (
-              <Popover key={l.id} placement="bottom" showArrow>
-                <PopoverTrigger>
-                  <div className={cls} title={`${l.name} (${l.network})`}>
-                    {l.town}
-                  </div>
-                </PopoverTrigger>
-                <PopoverContent>
-                  <div className="detail-card">
-                    <h4>{l.name}</h4>
-                    <div className="row">
-                      <span className="k">Town / Network</span>
-                      <span>
-                        {l.town} · {l.network}
-                      </span>
-                    </div>
-                    <div className="row">
-                      <span className="k">办卡 residency</span>
-                      <span title={e.tooltip} style={{ color: e.warn ? "#8c2a1e" : "#1a1917" }}>
-                        {e.text}
-                      </span>
-                    </div>
-                    {l.address && (
-                      <div className="row">
-                        <span className="k">地址</span>
-                        <span>
-                          {[l.address.street, l.address.city, l.address.state, l.address.zip]
-                            .filter(Boolean)
-                            .join(", ")}
-                        </span>
-                      </div>
-                    )}
-                    {l.card_page && (
-                      <div className="row">
-                        <span className="k">办卡页</span>
-                        <a href={l.card_page} target="_blank" rel="noreferrer">
-                          打开
-                        </a>
-                      </div>
-                    )}
-                    <div className="row">
-                      <span className="k">营业时间</span>
-                      <span className="italic opacity-70" style={{ color: "#4a4845", fontStyle: "italic" }}>
-                        暂无数据 (v0.2)
-                      </span>
-                    </div>
-                  </div>
-                </PopoverContent>
-              </Popover>
-            );
-          })}
+          {/* row 2: corner-2 + town headers (+ optional branch sub-headers) */}
+          <div className="mx-corner-2">
+            {rows.length} 景 × {bundle.libraries.length} 馆
+            {expandedLibs.size > 0 ? ` (展开 ${expandedLibs.size})` : ""}
+          </div>
+          {cols.map((c, ci) =>
+            c.kind === "lib"
+              ? (() => {
+                  const l = c.lib;
+                  const e = eligibilityLabel(l.card_eligibility);
+                  const expanded = expandedLibs.has(l.id);
+                  const multi = c.branches.length > 1;
+                  const cls = `mx-town${c.netStart ? " net-start" : ""}`;
+                  return (
+                    <Popover key={`lib:${l.id}:${ci}`} placement="bottom" showArrow>
+                      <PopoverTrigger>
+                        <div className={cls} title={`${l.name} (${l.network})`}>
+                          {l.town}
+                          {multi && (
+                            <button
+                              className="expand-btn"
+                              onClick={(ev) => {
+                                ev.stopPropagation();
+                                toggleExpand(l.id);
+                              }}
+                              title={expanded ? `收起 ${c.branches.length} 个分馆` : `展开 ${c.branches.length} 个分馆`}
+                            >
+                              {expanded ? "−" : "+"}
+                              {c.branches.length}
+                            </button>
+                          )}
+                        </div>
+                      </PopoverTrigger>
+                      <PopoverContent>
+                        <div className="detail-card">
+                          <h4>{l.name}</h4>
+                          <div className="row">
+                            <span className="k">Town / Network</span>
+                            <span>
+                              {l.town} · {l.network}
+                            </span>
+                          </div>
+                          <div className="row">
+                            <span className="k">办卡 residency</span>
+                            <span title={e.tooltip} style={{ color: e.warn ? "#8c2a1e" : "#1a1917" }}>
+                              {e.text}
+                            </span>
+                          </div>
+                          {l.address && (
+                            <div className="row">
+                              <span className="k">地址</span>
+                              <span>
+                                {[l.address.street, l.address.city, l.address.state, l.address.zip]
+                                  .filter(Boolean)
+                                  .join(", ")}
+                              </span>
+                            </div>
+                          )}
+                          {l.card_page && (
+                            <div className="row">
+                              <span className="k">办卡页</span>
+                              <a href={l.card_page} target="_blank" rel="noreferrer">
+                                打开
+                              </a>
+                            </div>
+                          )}
+                          <div className="row">
+                            <span className="k">营业时间</span>
+                            <span style={{ color: "#4a4845", fontStyle: "italic" }}>暂无数据 (v0.2)</span>
+                          </div>
+                          {multi && (
+                            <div className="row" style={{ display: "block", marginTop: 4 }}>
+                              <span className="k">分馆 ({c.branches.length})</span>
+                              <span style={{ fontSize: 11, color: "#4a4845" }}>
+                                政策与主馆一致(已校验:1015/1015 passes `available_at_branches="all"`);
+                                分馆维度仅 pickup-location 差异。点击 town 右侧 [+] 展开列。
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </PopoverContent>
+                    </Popover>
+                  );
+                })()
+              : (() => {
+                  // branch sub-column header
+                  const b = c.branch;
+                  return (
+                    <Popover key={`br:${b.id}:${ci}`} placement="bottom" showArrow>
+                      <PopoverTrigger>
+                        <div className="mx-town branch-head" title={`${b.name} (${c.lib.name} 分馆)`}>
+                          ↳{b.name}
+                        </div>
+                      </PopoverTrigger>
+                      <PopoverContent>
+                        <div className="detail-card">
+                          <h4>
+                            {c.lib.town} · <span style={{ fontWeight: 400 }}>{b.name}</span>
+                          </h4>
+                          <div className="row">
+                            <span className="k">所属</span>
+                            <span>{c.lib.name}</span>
+                          </div>
+                          {b.code && (
+                            <div className="row">
+                              <span className="k">code</span>
+                              <span>{b.code}</span>
+                            </div>
+                          )}
+                          {b.geo && (
+                            <div className="row">
+                              <span className="k">geo</span>
+                              <span>
+                                {b.geo.lat.toFixed(4)}, {b.geo.lon.toFixed(4)}
+                              </span>
+                            </div>
+                          )}
+                          <div className="row" style={{ display: "block", marginTop: 6, color: "#8C6018", fontSize: 11 }}>
+                            ⓘ 此列为分馆 pickup-location;policy/coupon/availability 与主馆 {c.lib.town} 完全一致(已校验)。
+                          </div>
+                        </div>
+                      </PopoverContent>
+                    </Popover>
+                  );
+                })()
+          )}
 
           {/* data rows */}
           {rows.map((a) => {
@@ -201,7 +293,6 @@ export default function Matrix({ bundle }: Props) {
                 key={a.slug}
                 attr={a}
                 cols={cols}
-                netStartCols={netStartCols}
                 bundle={bundle}
                 cellMatch={cellMatch}
                 openKey={openKey}
@@ -247,8 +338,7 @@ export default function Matrix({ bundle }: Props) {
 
 interface RowProps {
   attr: Attraction;
-  cols: Library[];
-  netStartCols: Set<number>;
+  cols: Col[];
   bundle: DataBundle;
   cellMatch: (p: Pass) => boolean;
   openKey: string | null;
@@ -258,7 +348,7 @@ interface RowProps {
   onBook: (lib: Library) => void;
 }
 
-function RowFragment({ attr, cols, netStartCols, bundle, cellMatch, openKey, setOpenKey, adult, resFlag, onBook }: RowProps) {
+function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult, resFlag, onBook }: RowProps) {
   return (
     <>
       <Popover placement="right-start" showArrow>
@@ -278,10 +368,65 @@ function RowFragment({ attr, cols, netStartCols, bundle, cellMatch, openKey, set
         </PopoverContent>
       </Popover>
 
-      {cols.map((l, ci) => {
-        const key = `${attr.slug}::${l.id}`;
-        const p = bundle.passByPair.get(key);
-        const startCls = netStartCols.has(ci) ? " net-start" : "";
+      {cols.map((c, ci) => {
+        const l = c.kind === "lib" ? c.lib : c.lib;
+        const key =
+          c.kind === "lib"
+            ? `${attr.slug}::${l.id}`
+            : `${attr.slug}::${l.id}::${c.branch.id}`;
+        const p = bundle.passByPair.get(`${attr.slug}::${l.id}`);
+        const startCls = c.kind === "lib" && c.netStart ? " net-start" : "";
+
+        // Branch sub-column: subdued ditto marker, no own pass facts.
+        if (c.kind === "branch") {
+          if (!p) return <div key={key} className={`mx-cell branch empty`} />;
+          return (
+            <Popover key={key} placement="bottom" showArrow>
+              <PopoverTrigger>
+                <div className="mx-cell branch" title={`${c.branch.name} 分馆 — 凭证同 ${l.town} 主馆`}>
+                  ↳
+                </div>
+              </PopoverTrigger>
+              <PopoverContent>
+                <div className="detail-card">
+                  <h4>
+                    {l.town} · <span style={{ fontWeight: 400 }}>{c.branch.name}</span>
+                  </h4>
+                  <div className="row" style={{ display: "block", color: "#8C6018", fontSize: 11 }}>
+                    凭证 / 折扣 / 库存 与主馆 {l.town} 完全一致(已校验);此分馆仅作 pickup-location 选项。
+                  </div>
+                  {c.branch.geo && (
+                    <div className="row">
+                      <span className="k">geo</span>
+                      <span>
+                        {c.branch.geo.lat.toFixed(4)}, {c.branch.geo.lon.toFixed(4)}
+                      </span>
+                    </div>
+                  )}
+                  <div style={{ marginTop: 8 }}>
+                    <button
+                      onClick={() => onBook(l)}
+                      style={{
+                        padding: "5px 10px",
+                        background: "#1B5740",
+                        color: "#FAFAF7",
+                        border: "none",
+                        borderRadius: 4,
+                        cursor: "pointer",
+                        fontSize: 11,
+                        fontWeight: 600,
+                      }}
+                    >
+                      去预定 (主馆入口)
+                    </button>
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
+          );
+        }
+
+        // lib column (the institutional cell)
         if (!p) return <div key={key} className={`mx-cell empty${startCls}`} />;
         const masked = !cellMatch(p);
         return (

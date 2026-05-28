@@ -129,6 +129,10 @@ export interface DataBundle {
   passByPair: Map<string, Pass>; // key = `${attraction_slug}::${library_id}`
   libById: Map<string, Library>;
   attrBySlug: Map<string, Attraction>;
+  // Branch index: multi-branch libs (BPL 24 / Cambridge 7 / Brookline 3) can
+  // expand to per-branch sub-columns. Policy is institution-level so sub-cells
+  // are pickup-location annotations, not separate facts.
+  branchesByLib: Map<string, Branch[]>;
   // Column layout: networks in user-friendly order, each with its libraries by town.
   networks: Array<{ network: string; libraries: Library[] }>;
 }
