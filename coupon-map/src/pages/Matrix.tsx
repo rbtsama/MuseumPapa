@@ -99,8 +99,10 @@ export default function Matrix({ bundle }: Props) {
     return true;
   }
 
-  // Lib cols 78px; branch sub-cols 64px (subdued; policy identical to parent).
-  const cellTemplate = `260px ${cols.map((c) => (c.kind === "lib" ? "78px" : "64px")).join(" ")}`;
+  // All columns (lib + branch) use the same 78px width — branches are peer
+  // pickup-locations, not subordinates. Cell content is identical because
+  // they read the same institutional pass record.
+  const cellTemplate = `260px ${cols.map(() => "78px").join(" ")}`;
 
   return (
     <div>
@@ -231,8 +233,7 @@ export default function Matrix({ bundle }: Props) {
                             <div className="row" style={{ display: "block", marginTop: 4 }}>
                               <span className="k">分馆 ({c.branches.length})</span>
                               <span style={{ fontSize: 11, color: "#4a4845" }}>
-                                政策与主馆一致(已校验:1015/1015 passes `available_at_branches="all"`);
-                                分馆维度仅 pickup-location 差异。点击 town 右侧 [+] 展开列。
+                                点击 town 右侧 [+] 展开为 {c.branches.length} 个平级 pickup-location 列。
                               </span>
                             </div>
                           )}
@@ -247,17 +248,21 @@ export default function Matrix({ bundle }: Props) {
                   return (
                     <Popover key={`br:${b.id}:${ci}`} placement="bottom" showArrow>
                       <PopoverTrigger>
-                        <div className="mx-town branch-head" title={`${b.name} (${c.lib.name} 分馆)`}>
-                          ↳{b.name}
+                        <div className="mx-town branch-head" title={`${b.name} — ${c.lib.name}`}>
+                          {b.name}
                         </div>
                       </PopoverTrigger>
                       <PopoverContent>
                         <div className="detail-card">
-                          <h4>
-                            {c.lib.town} · <span style={{ fontWeight: 400 }}>{b.name}</span>
-                          </h4>
+                          <h4>{b.name}</h4>
                           <div className="row">
-                            <span className="k">所属</span>
+                            <span className="k">Town / Network</span>
+                            <span>
+                              {c.lib.town} · {c.lib.network}
+                            </span>
+                          </div>
+                          <div className="row">
+                            <span className="k">机构</span>
                             <span>{c.lib.name}</span>
                           </div>
                           {b.code && (
@@ -274,8 +279,13 @@ export default function Matrix({ bundle }: Props) {
                               </span>
                             </div>
                           )}
-                          <div className="row" style={{ display: "block", marginTop: 6, color: "#8C6018", fontSize: 11 }}>
-                            ⓘ 此列为分馆 pickup-location;policy/coupon/availability 与主馆 {c.lib.town} 完全一致(已校验)。
+                          <div className="row">
+                            <span className="k">办卡 residency</span>
+                            <span>{eligibilityLabel(c.lib.card_eligibility).text}</span>
+                          </div>
+                          <div className="row">
+                            <span className="k">营业时间</span>
+                            <span style={{ color: "#4a4845", fontStyle: "italic" }}>暂无数据 (v0.2)</span>
                           </div>
                         </div>
                       </PopoverContent>
@@ -377,58 +387,13 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
         const p = bundle.passByPair.get(`${attr.slug}::${l.id}`);
         const startCls = c.kind === "lib" && c.netStart ? " net-start" : "";
 
-        // Branch sub-column: subdued ditto marker, no own pass facts.
-        if (c.kind === "branch") {
-          if (!p) return <div key={key} className={`mx-cell branch empty`} />;
-          return (
-            <Popover key={key} placement="bottom" showArrow>
-              <PopoverTrigger>
-                <div className="mx-cell branch" title={`${c.branch.name} 分馆 — 凭证同 ${l.town} 主馆`}>
-                  ↳
-                </div>
-              </PopoverTrigger>
-              <PopoverContent>
-                <div className="detail-card">
-                  <h4>
-                    {l.town} · <span style={{ fontWeight: 400 }}>{c.branch.name}</span>
-                  </h4>
-                  <div className="row" style={{ display: "block", color: "#8C6018", fontSize: 11 }}>
-                    凭证 / 折扣 / 库存 与主馆 {l.town} 完全一致(已校验);此分馆仅作 pickup-location 选项。
-                  </div>
-                  {c.branch.geo && (
-                    <div className="row">
-                      <span className="k">geo</span>
-                      <span>
-                        {c.branch.geo.lat.toFixed(4)}, {c.branch.geo.lon.toFixed(4)}
-                      </span>
-                    </div>
-                  )}
-                  <div style={{ marginTop: 8 }}>
-                    <button
-                      onClick={() => onBook(l)}
-                      style={{
-                        padding: "5px 10px",
-                        background: "#1B5740",
-                        color: "#FAFAF7",
-                        border: "none",
-                        borderRadius: 4,
-                        cursor: "pointer",
-                        fontSize: 11,
-                        fontWeight: 600,
-                      }}
-                    >
-                      去预定 (主馆入口)
-                    </button>
-                  </div>
-                </div>
-              </PopoverContent>
-            </Popover>
-          );
-        }
-
-        // lib column (the institutional cell)
+        // Both lib and branch cells render identically — branches are peer
+        // pickup-locations, not subordinates. The popover header carries the
+        // location label so the user sees the actual pickup point.
         if (!p) return <div key={key} className={`mx-cell empty${startCls}`} />;
         const masked = !cellMatch(p);
+        const branch = c.kind === "branch" ? c.branch : null;
+        const locTitle = branch ? `${l.town} · ${branch.name}` : l.town;
         return (
           <Popover
             key={key}
@@ -441,7 +406,7 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
               <div
                 className={`mx-cell${startCls}`}
                 style={masked ? { opacity: 0.18 } : undefined}
-                title={`${attr.name} × ${l.town}`}
+                title={`${attr.name} × ${locTitle}`}
               >
                 <CellGlyph p={p} />
               </div>
@@ -451,6 +416,7 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
                 p={p}
                 attr={attr}
                 lib={l}
+                branch={branch}
                 onBook={() => {
                   setOpenKey(null);
                   onBook(l);
@@ -546,11 +512,13 @@ function CellDetail({
   p,
   attr,
   lib,
+  branch,
   onBook,
 }: {
   p: Pass;
   attr: Attraction;
   lib: Library;
+  branch?: Branch | null;
   onBook: () => void;
 }) {
   const fl = formLabel(p.pass_form);
@@ -561,9 +529,18 @@ function CellDetail({
   return (
     <div className="detail-card">
       <h4>
-        {attr.name} <span style={{ color: "#4a4845", fontWeight: 400 }}>×</span> {lib.town}
+        {attr.name} <span style={{ color: "#4a4845", fontWeight: 400 }}>×</span>{" "}
+        {branch ? `${lib.town} · ${branch.name}` : lib.town}
         <span style={{ color: "#4a4845", fontWeight: 400, fontSize: 11 }}> ({lib.network})</span>
       </h4>
+      {branch && branch.geo && (
+        <div className="row">
+          <span className="k">取件地点 geo</span>
+          <span>
+            {branch.geo.lat.toFixed(4)}, {branch.geo.lon.toFixed(4)}
+          </span>
+        </div>
+      )}
       <div className="row"><span className="k">折扣</span><span style={{ color: "#1B5740", fontWeight: 600 }}>{p.coupon.summary}</span></div>
       <div className="row"><span className="k">人数上限</span><span>{cap ? `up to ${cap} ${p.coupon.capacity?.kind || "people"}` : "—"}</span></div>
       <div className="row"><span className="k">领取方式</span><span title={fl.tooltip}>{fl.icon} {fl.short}</span></div>
