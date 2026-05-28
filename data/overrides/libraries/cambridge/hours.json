@@ -1,0 +1,14 @@
+{
+  "status": "corrected",
+  "corrected_value": {
+    "monday": "09:00-21:00",
+    "tuesday": "09:00-21:00",
+    "wednesday": "09:00-21:00",
+    "thursday": "09:00-21:00",
+    "friday": "09:00-17:00",
+    "saturday": "09:00-17:00",
+    "sunday": "13:00-17:00"
+  },
+  "source": "https://www.cambridgema.gov/cpl",
+  "evidence": "Main: Sun 1-5; Mon-Thu 9-9; Fri-Sat 9-5"
+}

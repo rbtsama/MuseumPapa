@@ -1,0 +1,14 @@
+{
+  "status": "corrected",
+  "corrected_value": {
+    "monday": "10:00-21:00",
+    "tuesday": "10:00-21:00",
+    "wednesday": "10:00-21:00",
+    "thursday": "10:00-21:00",
+    "friday": "closed",
+    "saturday": "09:00-17:00",
+    "sunday": "13:00-17:00"
+  },
+  "source": "https://hinghamlibrary.org/",
+  "evidence": "Mon-Thu 10-9; Fri Closed; Sat 9-5; Sun 1-5"
+}

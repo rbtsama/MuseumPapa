@@ -1,0 +1,14 @@
+{
+  "status": "corrected",
+  "corrected_value": {
+    "monday": "10:00-20:00",
+    "tuesday": "09:00-20:00",
+    "wednesday": "09:00-20:00",
+    "thursday": "09:00-20:00",
+    "friday": "09:00-17:00",
+    "saturday": "09:00-17:00",
+    "sunday": "13:00-17:00"
+  },
+  "source": "https://concordlibrary.org/visit/hours-and-directions",
+  "evidence": "Mon 10-8; Tue-Thu 9-8; Fri-Sat 9-5; Sun 1-5"
+}

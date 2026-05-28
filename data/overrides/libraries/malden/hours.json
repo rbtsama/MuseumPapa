@@ -1,0 +1,14 @@
+{
+  "status": "corrected",
+  "corrected_value": {
+    "monday": "09:00-21:00",
+    "tuesday": "09:00-21:00",
+    "wednesday": "09:00-21:00",
+    "thursday": "09:00-21:00",
+    "friday": "09:00-18:00",
+    "saturday": "09:00-18:00",
+    "sunday": "closed"
+  },
+  "source": "https://maldenpubliclibrary.org/about/location-hours/",
+  "evidence": "Mon-Thu 9-9; Fri-Sat 9-6; Sun Closed"
+}

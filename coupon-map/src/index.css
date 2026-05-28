@@ -368,6 +368,51 @@ body,
   font-weight: 600;
   color: #1b5740;
 }
+
+/* Evidence section — bottom of every popover. Shows raw source quotes + a
+   clickable link to the original page so the user can verify each fact. */
+.detail-card .evidence {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #d0cec6;
+}
+.detail-card .evidence-h {
+  font-size: 10px;
+  font-weight: 700;
+  color: #4a4845;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.detail-card .ev-row {
+  margin-bottom: 5px;
+  font-size: 11px;
+  line-height: 1.35;
+}
+.detail-card .ev-label {
+  font-size: 10px;
+  color: #8c6018;
+  font-weight: 600;
+}
+.detail-card .ev-quote {
+  color: #1a1917;
+  font-style: italic;
+  display: block;
+  padding: 1px 0 1px 6px;
+  border-left: 2px solid #c4ddcf;
+  margin: 2px 0;
+  word-break: break-word;
+}
+.detail-card .ev-src {
+  font-size: 10px;
+  color: #1b5740;
+  text-decoration: none;
+  word-break: break-all;
+}
+.detail-card .ev-src:hover {
+  text-decoration: underline;
+  color: #2a7055;
+}
 .detail-card h4 {
   margin: 0 0 4px;
   font-size: 13px;

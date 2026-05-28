@@ -1,0 +1,14 @@
+{
+  "status": "corrected",
+  "corrected_value": {
+    "monday": "09:00-21:00",
+    "tuesday": "09:00-21:00",
+    "wednesday": "09:00-21:00",
+    "thursday": "09:00-21:00",
+    "friday": "09:00-17:30",
+    "saturday": "09:00-17:30",
+    "sunday": "closed"
+  },
+  "source": "https://woburnpubliclibrary.org/",
+  "evidence": "Mon-Thu 9-9; Fri-Sat 9-5:30; Sun Closed"
+}

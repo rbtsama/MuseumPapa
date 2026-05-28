@@ -1,0 +1,14 @@
+{
+  "status": "corrected",
+  "corrected_value": {
+    "monday": "10:00-21:00",
+    "tuesday": "09:00-17:00",
+    "wednesday": "09:00-17:00",
+    "thursday": "10:00-21:00",
+    "friday": "09:00-17:00",
+    "saturday": "closed",
+    "sunday": "closed"
+  },
+  "source": "https://stonehamlibrary.org/about/hours-directions/",
+  "evidence": "Mon, Thu: 10 AM-9 PM; Tue, Wed, Fri: 9 AM-5 PM; Sat/Sun: CLOSED"
+}

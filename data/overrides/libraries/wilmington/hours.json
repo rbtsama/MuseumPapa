@@ -1,0 +1,14 @@
+{
+  "status": "corrected",
+  "corrected_value": {
+    "monday": "09:00-20:30",
+    "tuesday": "09:00-20:30",
+    "wednesday": "09:00-20:30",
+    "thursday": "09:00-20:30",
+    "friday": "09:00-17:00",
+    "saturday": "09:00-17:00",
+    "sunday": "closed"
+  },
+  "source": "https://wilmlibrary.org/",
+  "evidence": "Mon-Thu 9-8:30; Fri-Sat 9-5"
+}

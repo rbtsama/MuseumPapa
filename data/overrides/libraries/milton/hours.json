@@ -1,0 +1,14 @@
+{
+  "status": "corrected",
+  "corrected_value": {
+    "monday": "09:00-21:00",
+    "tuesday": "09:00-21:00",
+    "wednesday": "09:00-21:00",
+    "thursday": "13:00-21:00",
+    "friday": "09:00-17:00",
+    "saturday": "09:00-17:00",
+    "sunday": "closed"
+  },
+  "source": "https://www.miltonlibrary.org/",
+  "evidence": "Mon-Wed 9-9; Thu 1-9; Fri-Sat 9-5"
+}

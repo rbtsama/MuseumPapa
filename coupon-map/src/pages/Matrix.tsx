@@ -305,6 +305,31 @@ export default function Matrix({ bundle }: Props) {
                               </span>
                             </div>
                           )}
+                          <EvidenceSection
+                            items={[
+                              { label: "办卡页", source: l.card_page || null },
+                              l._evidence?.card_eligibility
+                                ? {
+                                    label: "办卡资格",
+                                    quote: l._evidence.card_eligibility.evidence || null,
+                                    source: l._evidence.card_eligibility.source || null,
+                                  }
+                                : { label: "" },
+                              l._evidence?.hours
+                                ? {
+                                    label: "营业时间",
+                                    quote: l._evidence.hours.evidence || null,
+                                    source: l._evidence.hours.source || null,
+                                  }
+                                : l._evidence?.hours_note
+                                ? {
+                                    label: "营业时间(varies)",
+                                    quote: l._evidence.hours_note.evidence || null,
+                                    source: l._evidence.hours_note.source || null,
+                                  }
+                                : { label: "" },
+                            ]}
+                          />
                         </div>
                       </PopoverContent>
                     </Popover>
@@ -373,6 +398,31 @@ export default function Matrix({ bundle }: Props) {
                               <span style={{ color: "#4a4845", fontStyle: "italic" }}>暂无数据</span>
                             </div>
                           )}
+                          <EvidenceSection
+                            items={[
+                              { label: "所属机构办卡页", source: c.lib.card_page || null },
+                              c.lib._evidence?.card_eligibility
+                                ? {
+                                    label: "办卡资格",
+                                    quote: c.lib._evidence.card_eligibility.evidence || null,
+                                    source: c.lib._evidence.card_eligibility.source || null,
+                                  }
+                                : { label: "" },
+                              c.lib._evidence?.hours
+                                ? {
+                                    label: "主馆营业时间",
+                                    quote: c.lib._evidence.hours.evidence || null,
+                                    source: c.lib._evidence.hours.source || null,
+                                  }
+                                : c.lib._evidence?.hours_note
+                                ? {
+                                    label: "主馆营业时间(varies)",
+                                    quote: c.lib._evidence.hours_note.evidence || null,
+                                    source: c.lib._evidence.hours_note.source || null,
+                                  }
+                                : { label: "" },
+                            ]}
+                          />
                         </div>
                       </PopoverContent>
                     </Popover>
@@ -516,6 +566,43 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
   );
 }
 
+// Evidence row: a labelled quote + an optional clickable source URL. Renders
+// the bottom half of every popover so each derived fact in the top half has
+// the raw source the user can verify against.
+interface EvidenceItem {
+  label: string;
+  quote?: string | null;
+  source?: string | null;
+}
+function prettyHost(url: string): string {
+  try {
+    const u = new URL(url);
+    return u.hostname.replace(/^www\./, "") + (u.pathname && u.pathname !== "/" ? u.pathname : "");
+  } catch {
+    return url;
+  }
+}
+function EvidenceSection({ items }: { items: EvidenceItem[] }) {
+  const visible = items.filter((i) => i.quote || i.source);
+  if (visible.length === 0) return null;
+  return (
+    <div className="evidence">
+      <div className="evidence-h">原文证据 · Evidence</div>
+      {visible.map((it, i) => (
+        <div className="ev-row" key={i}>
+          <div className="ev-label">{it.label}</div>
+          {it.quote && <div className="ev-quote">"{it.quote}"</div>}
+          {it.source && (
+            <a className="ev-src" href={it.source} target="_blank" rel="noreferrer">
+              {prettyHost(it.source)} ↗
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function CellGlyph({ p, lib }: { p: Pass; lib: Library }) {
   const fl = formLabel(p.pass_form);
   const av = availabilitySummary(p.availability);
@@ -607,6 +694,41 @@ function AttractionDetail({ a }: { a: Attraction }) {
           <a href={a.website} target="_blank" rel="noreferrer">打开</a>
         </div>
       )}
+      <EvidenceSection
+        items={[
+          {
+            label: "官网",
+            source: a.website || (Array.isArray(a.sources) && (a.sources as string[])[0]) || null,
+          },
+          a.prices && a.prices.length > 0
+            ? {
+                label: `票价 · ${a.prices[0].audience}`,
+                quote: a.prices[0].source_phrase || null,
+                source: a.website || null,
+              }
+            : { label: "" },
+          a.reservation?.required
+            ? {
+                label: "预约政策",
+                quote: a.reservation?.source_phrase || a.reservation?.notes || null,
+                source: a.reservation?.booking_url || a.reservation?.pass_holder_url || null,
+              }
+            : { label: "" },
+          a._evidence?.hours
+            ? {
+                label: "营业时间",
+                quote: a._evidence.hours.evidence || null,
+                source: a._evidence.hours.source || null,
+              }
+            : a._evidence?.hours_note
+            ? {
+                label: "营业时间(varies)",
+                quote: a._evidence.hours_note.evidence || null,
+                source: a._evidence.hours_note.source || null,
+              }
+            : { label: "" },
+        ]}
+      />
     </div>
   );
 }
@@ -684,6 +806,31 @@ function CellDetail({
       <div className="row"><span className="k">卡限制 (system 层)</span><span title={p.booking_access_probe?.evidence || ""}>{vd.dot} {vd.text}</span></div>
       <div className="row"><span className="k">取券居住地</span><span style={{ color: pr.warn ? "#8c2a1e" : "#1a1917" }}>{pr.text}</span></div>
       <div className="row"><span className="k">每月领取限制</span><span>{fq || "不限"}</span></div>
+      <EvidenceSection
+        items={[
+          { label: "Pass 源页面", source: p.source_url || null },
+          p.coupon.source_phrase_block
+            ? { label: "Coupon 原文 block", quote: p.coupon.source_phrase_block, source: p.source_url || null }
+            : { label: "" },
+          p.residency_restriction?.evidence
+            ? {
+                label: `取券居住地 (source: ${p.residency_restriction.source || "?"})`,
+                quote: p.residency_restriction.evidence || null,
+                source: p.source_url || null,
+              }
+            : { label: "" },
+          p.booking_access_probe?.evidence
+            ? {
+                label:
+                  `卡限制 probe` +
+                  (p.booking_access_probe.prober_card ? ` · via ${p.booking_access_probe.prober_card} card` : "") +
+                  (p.booking_access_probe.probed_date ? ` · ${p.booking_access_probe.probed_date}` : ""),
+                quote: p.booking_access_probe.evidence || null,
+                source: p.source_url || null,
+              }
+            : { label: "" },
+        ]}
+      />
       <div style={{ marginTop: 10, display: "flex", gap: 8 }}>
         <button
           onClick={onBook}

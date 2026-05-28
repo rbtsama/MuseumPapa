@@ -30,6 +30,7 @@ export interface Library {
   resident_zips?: string[];
   hours?: Record<string, string> | null;
   hours_note?: string | null;
+  _evidence?: Record<string, { source?: string | null; evidence?: string | null }>;
 }
 
 export interface Attraction {
@@ -64,6 +65,7 @@ export interface Attraction {
   hours?: Record<string, string> | null;
   hours_note?: string | null;
   sources?: unknown;
+  _evidence?: Record<string, { source?: string | null; evidence?: string | null }>;
 }
 
 export interface Pass {

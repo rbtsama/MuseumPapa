@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-28T13:19:37.173428+00:00",
+    "built_at": "2026-05-28T14:05:56.840537+00:00",
     "n_libraries": 59
   },
   "libraries": [
@@ -33,7 +33,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01880"
-      ]
+      ],
+      "hours_note": "学年与暑期排班不同(9月-6月有周日时段;暑期周日关闭)— 见官网"
     },
     {
       "id": "stoneham",
@@ -64,7 +65,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "02180"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-21:00",
+        "tuesday": "09:00-17:00",
+        "wednesday": "09:00-17:00",
+        "thursday": "10:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "closed",
+        "sunday": "closed"
+      }
     },
     {
       "id": "reading",
@@ -95,7 +105,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01867"
-      ]
+      ],
+      "hours_note": "周日时段仅 10 月初至阵亡将士周末;夏季周日关闭 — 见官网"
     },
     {
       "id": "woburn",
@@ -126,7 +137,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01801"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:30",
+        "saturday": "09:00-17:30",
+        "sunday": "closed"
+      }
     },
     {
       "id": "lynnfield",
@@ -157,7 +177,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01940"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "peabody",
@@ -188,7 +217,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01960"
-      ]
+      ],
+      "hours_note": "主馆周日 1-5pm 仅劳工节-阵亡将士纪念日开放;另有 South/West 分馆排班不同 — 见官网"
     },
     {
       "id": "melrose",
@@ -219,7 +249,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "02176"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-21:00",
+        "tuesday": "10:00-21:00",
+        "wednesday": "10:00-21:00",
+        "thursday": "10:00-21:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "14:00-17:00"
+      }
     },
     {
       "id": "saugus",
@@ -250,7 +289,16 @@
       "pass_pickup_default": "ma_resident",
       "resident_zips": [
         "01906"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-20:00",
+        "tuesday": "09:00-20:00",
+        "wednesday": "09:00-20:00",
+        "thursday": "09:00-20:00",
+        "friday": "09:00-16:30",
+        "saturday": "09:00-16:30",
+        "sunday": "closed"
+      }
     },
     {
       "id": "malden",
@@ -281,7 +329,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "02148"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-18:00",
+        "saturday": "09:00-18:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "medford",
@@ -312,7 +369,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "02155"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-18:00",
+        "saturday": "09:00-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "burlington",
@@ -343,7 +409,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01803"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-21:00",
+        "tuesday": "10:00-21:00",
+        "wednesday": "10:00-21:00",
+        "thursday": "10:00-21:00",
+        "friday": "10:00-18:00",
+        "saturday": "10:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "north-reading",
@@ -374,7 +449,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01864"
-      ]
+      ],
+      "hours_note": "周六开馆仅劳工节-阵亡将士纪念日 — 见官网"
     },
     {
       "id": "wilmington",
@@ -405,7 +481,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01887"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-20:30",
+        "tuesday": "09:00-20:30",
+        "wednesday": "09:00-20:30",
+        "thursday": "09:00-20:30",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "winchester",
@@ -436,7 +521,8 @@
       "pass_pickup_default": "town_resident",
       "resident_zips": [
         "01890"
-      ]
+      ],
+      "hours_note": "周日 2-5pm 仅 10 月-5 月;夏季周日关闭 — 见官网"
     },
     {
       "id": "bpl",
@@ -492,7 +578,16 @@
         "02134",
         "02135",
         "02136"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-20:00",
+        "tuesday": "09:00-20:00",
+        "wednesday": "09:00-20:00",
+        "thursday": "09:00-20:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "11:00-17:00"
+      }
     },
     {
       "id": "beverly",
@@ -523,7 +618,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01915"
-      ]
+      ],
+      "hours_note": "周日仅 9 月后至阵亡将士纪念日开放;夏季周日关闭 — 见官网"
     },
     {
       "id": "danvers",
@@ -554,7 +650,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01923"
-      ]
+      ],
+      "hours_note": "周日 1-5pm 仅 11 月-3 月开放 — 见官网"
     },
     {
       "id": "lynn",
@@ -588,7 +685,8 @@
         "01902",
         "01904",
         "01905"
-      ]
+      ],
+      "hours_note": "夏季(6 月中-8 月)排班不同 — 见官网"
     },
     {
       "id": "marblehead",
@@ -619,7 +717,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01945"
-      ]
+      ],
+      "hours_note": "官网未公布每日时间表 — 见官网"
     },
     {
       "id": "everett",
@@ -650,7 +749,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "02149"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "10:00-14:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "chelsea",
@@ -681,7 +789,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "02150"
-      ]
+      ],
+      "hours_note": "官网(chelseama.gov)受访问限制,未能取得每日时间表 — 见官网"
     },
     {
       "id": "billerica",
@@ -712,7 +821,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01821"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "topsfield",
@@ -743,7 +861,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01983"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-19:00",
+        "tuesday": "10:00-19:00",
+        "wednesday": "10:00-19:00",
+        "thursday": "10:00-19:00",
+        "friday": "10:00-14:00",
+        "saturday": "10:00-14:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "boxford",
@@ -774,7 +901,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01921"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-19:00",
+        "tuesday": "09:00-19:00",
+        "wednesday": "09:00-19:00",
+        "thursday": "09:00-19:00",
+        "friday": "10:00-15:00",
+        "saturday": "10:00-15:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "tewksbury",
@@ -805,7 +941,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01876"
-      ]
+      ],
+      "hours_note": "官网受访问限制(403),未能取得每日时间表 — 见官网"
     },
     {
       "id": "chelmsford",
@@ -837,7 +974,8 @@
       "resident_zips": [
         "01824",
         "01863"
-      ]
+      ],
+      "hours_note": "首页仅显示当日时间;每日时间表需查官网完整 Hours 页 — 见官网"
     },
     {
       "id": "haverhill",
@@ -870,7 +1008,16 @@
         "01830",
         "01832",
         "01835"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "lawrence",
@@ -904,7 +1051,8 @@
         "01841",
         "01843"
       ],
-      "pass_page": "https://www.lawrencepl.org/cultural-passes"
+      "pass_page": "https://www.lawrencepl.org/cultural-passes",
+      "hours_note": "夏季排班与学年排班不同 — 见官网"
     },
     {
       "id": "methuen",
@@ -935,7 +1083,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01844"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "andover",
@@ -966,7 +1123,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01810"
-      ]
+      ],
+      "hours_note": "mhl.org 多个 Hours 子页 403/404,未能取得每日时间表 — 见官网"
     },
     {
       "id": "north-andover",
@@ -997,7 +1155,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01845"
-      ]
+      ],
+      "hours_note": "夏季(阵亡将士纪念日-劳工节)周末关闭;学年周末开放 — 见官网"
     },
     {
       "id": "middleton",
@@ -1028,7 +1187,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01949"
-      ]
+      ],
+      "hours_note": "夏季(7-8 月)与学年排班不同 — 见官网"
     },
     {
       "id": "arlington",
@@ -1060,7 +1220,8 @@
       "resident_zips": [
         "02474",
         "02476"
-      ]
+      ],
+      "hours_note": "官网 Hours 子页 403,未能取得每日时间表 — 见官网"
     },
     {
       "id": "newton",
@@ -1100,7 +1261,16 @@
         "02466",
         "02467",
         "02468"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-18:00",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "lincoln",
@@ -1131,7 +1301,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01773"
-      ]
+      ],
+      "hours_note": "官网每日时间表动态加载未显示;周六/周日季节性窗口 — 见官网"
     },
     {
       "id": "acton",
@@ -1162,7 +1333,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01720"
-      ]
+      ],
+      "hours_note": "官网 Locations & Hours 子页加载受限 — 见官网"
     },
     {
       "id": "framingham",
@@ -1194,7 +1366,8 @@
       "resident_zips": [
         "01701",
         "01702"
-      ]
+      ],
+      "hours_note": "周日仅 9 月-6 月开放;7-8 月关闭 — 见官网"
     },
     {
       "id": "maynard",
@@ -1225,7 +1398,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01754"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-17:00",
+        "tuesday": "14:00-21:00",
+        "wednesday": "10:00-17:00",
+        "thursday": "14:00-21:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "carlisle",
@@ -1256,7 +1438,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01741"
-      ]
+      ],
+      "hours_note": "周六暑期(7-8 月)缩短为 10am-1pm — 见官网"
     },
     {
       "id": "wayland",
@@ -1287,7 +1470,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01778"
-      ]
+      ],
+      "hours_note": "暑期(6/27 起)周六缩短、周日关闭 — 见官网"
     },
     {
       "id": "weston",
@@ -1318,7 +1502,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "02493"
-      ]
+      ],
+      "hours_note": "镇政府官网未直接列出图书馆每日时间表 — 见官网"
     },
     {
       "id": "sudbury",
@@ -1349,7 +1534,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01776"
-      ]
+      ],
+      "hours_note": "周六/周日时段有季节性变化 — 见官网"
     },
     {
       "id": "belmont",
@@ -1380,7 +1566,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "02478"
-      ]
+      ],
+      "hours_note": "官网 Hours 子页 403 — 见官网"
     },
     {
       "id": "lexington",
@@ -1412,7 +1599,16 @@
       "resident_zips": [
         "02420",
         "02421"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "wellesley",
@@ -1444,7 +1640,8 @@
       "resident_zips": [
         "02481",
         "02482"
-      ]
+      ],
+      "hours_note": "官网 Hours 子页加载受限 — 见官网"
     },
     {
       "id": "waltham",
@@ -1477,7 +1674,16 @@
         "02451",
         "02452",
         "02453"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "watertown",
@@ -1508,7 +1714,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "02472"
-      ]
+      ],
+      "hours_note": "官网 Hours & Directions 页加载受限 — 见官网"
     },
     {
       "id": "concord",
@@ -1539,7 +1746,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01742"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-20:00",
+        "tuesday": "09:00-20:00",
+        "wednesday": "09:00-20:00",
+        "thursday": "09:00-20:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "bedford",
@@ -1570,7 +1786,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01730"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-18:00",
+        "saturday": "09:00-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "needham",
@@ -1602,7 +1827,8 @@
       "resident_zips": [
         "02492",
         "02494"
-      ]
+      ],
+      "hours_note": "周日时段夏季缩短为 1-5pm,其他时段 1-6pm — 见官网"
     },
     {
       "id": "natick",
@@ -1633,7 +1859,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01760"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-18:00",
+        "saturday": "09:00-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "somerville",
@@ -1666,7 +1901,16 @@
         "02143",
         "02144",
         "02145"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-18:00",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "quincy",
@@ -1699,7 +1943,16 @@
         "02169",
         "02170",
         "02171"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "cambridge",
@@ -1734,7 +1987,16 @@
         "02140",
         "02141",
         "02142"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "brookline",
@@ -1767,7 +2029,16 @@
         "02445",
         "02446",
         "02447"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-21:00",
+        "tuesday": "10:00-21:00",
+        "wednesday": "10:00-21:00",
+        "thursday": "10:00-21:00",
+        "friday": "10:00-17:00",
+        "saturday": "10:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "braintree",
@@ -1799,7 +2070,8 @@
       "resident_zips": [
         "02184",
         "02185"
-      ]
+      ],
+      "hours_note": "官网每日时间表页面 404/截断 — 见官网"
     },
     {
       "id": "milton",
@@ -1830,7 +2102,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "02186"
-      ]
+      ],
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "13:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "cohasset",
@@ -1861,7 +2142,8 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "02025"
-      ]
+      ],
+      "hours_note": "页面显示时段仅适用于劳工节-阵亡将士纪念日(学年);夏季排班不同 — 见官网"
     },
     {
       "id": "hingham",
@@ -1892,7 +2174,16 @@
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "02043"
-      ]
+      ],
+      "hours": {
+        "monday": "10:00-21:00",
+        "tuesday": "10:00-21:00",
+        "wednesday": "10:00-21:00",
+        "thursday": "10:00-21:00",
+        "friday": "closed",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     }
   ]
 }
