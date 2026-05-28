@@ -38,13 +38,13 @@ export default function App() {
     return (
       <div className="fullscreen error">
         <div>
-          <strong>数据加载失败(保真校验未通过)</strong>
+          <strong>Data load failed (fidelity check did not pass)</strong>
           {"\n\n"}
           {err}
         </div>
       </div>
     );
-  if (!bundle) return <div className="fullscreen">加载数据中…</div>;
+  if (!bundle) return <div className="fullscreen">Loading data…</div>;
 
   const nApproved = countApproved(audit);
   const nCorrections = countCorrections(audit);
@@ -54,22 +54,22 @@ export default function App() {
       <header className="app-header">
         <h1>Coupon Map</h1>
         <div className={`tab ${tab === "matrix" ? "active" : ""}`} onClick={() => setTab("matrix")}>
-          优惠总览
+          Matrix
         </div>
         <div className={`tab ${tab === "cards" ? "active" : ""}`} onClick={() => setTab("cards")}>
-          我的卡
+          My Cards
         </div>
         <div className="header-spacer" />
-        <div className="audit-counter" title="已 Approve / 有纠错备注 的 pass 条数">
+        <div className="audit-counter" title="Approved / with-notes passes">
           ✅ {nApproved} · 📝 {nCorrections}
         </div>
         <button
           className="header-btn"
           onClick={() => downloadAudit(audit)}
           disabled={nApproved === 0 && nCorrections === 0}
-          title="下载 Approve + 纠错备注 为 JSON"
+          title="Download Approve + correction notes as JSON"
         >
-          ⬇ 下载校验数据
+          ⬇ Download Audit
         </button>
       </header>
       <main className="app-body">

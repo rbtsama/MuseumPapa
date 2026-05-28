@@ -43,10 +43,10 @@ export default function MyCards({ bundle }: Props) {
   function copy(text: string) {
     navigator.clipboard.writeText(text).then(
       () => {
-        setCopyHint("已复制");
+        setCopyHint("Copied");
         setTimeout(() => setCopyHint(null), 1200);
       },
-      () => setCopyHint("复制失败")
+      () => setCopyHint("Copy failed")
     );
   }
 
@@ -55,11 +55,11 @@ export default function MyCards({ bundle }: Props) {
     if (!f) return;
     try {
       const imported = await importCardsFromFile(f);
-      if (confirm(`导入 ${imported.length} 条卡数据,将覆盖现有 ${cards.length} 条,确认?`)) {
+      if (confirm(`Import ${imported.length} card(s)? This will replace the current ${cards.length}.`)) {
         persist(imported);
       }
     } catch (err) {
-      alert("导入失败: " + (err as Error).message);
+      alert("Import failed: " + (err as Error).message);
     } finally {
       e.target.value = "";
     }
@@ -68,14 +68,14 @@ export default function MyCards({ bundle }: Props) {
   return (
     <div>
       <div className="filter-bar">
-        <strong style={{ marginRight: 8 }}>我的图书馆卡</strong>
-        <span style={{ color: "#4a4845" }}>{cards.length} 条 · 仅存本机浏览器(localStorage),严禁进 git</span>
+        <strong style={{ marginRight: 8 }}>My Library Cards</strong>
+        <span style={{ color: "#4a4845" }}>{cards.length} stored · localStorage only, never committed</span>
         <span style={{ marginLeft: "auto", display: "flex", gap: 8 }}>
           <button onClick={() => exportCards(cards)} style={btnGhost}>
-            导出 JSON
+            Export JSON
           </button>
           <button onClick={() => fileRef.current?.click()} style={btnGhost}>
-            导入 JSON
+            Import JSON
           </button>
           <input ref={fileRef} type="file" accept="application/json" hidden onChange={onImport} />
         </span>
@@ -87,7 +87,7 @@ export default function MyCards({ bundle }: Props) {
           value={draft.library_id}
           onChange={(e) => setDraft({ ...draft, library_id: e.target.value })}
         >
-          <option value="">-- 选择图书馆 (town) --</option>
+          <option value="">— Select library (town) —</option>
           {bundle.networks.map((g) => (
             <optgroup key={g.network} label={g.network}>
               {g.libraries.map((l) => (
@@ -100,42 +100,42 @@ export default function MyCards({ bundle }: Props) {
         </select>
         <input
           className="barcode"
-          placeholder="卡号 / barcode"
+          placeholder="Card number / barcode"
           value={draft.card_number}
           onChange={(e) => setDraft({ ...draft, card_number: e.target.value })}
         />
         <input
-          placeholder="备注 (例: 旧卡 / 主用)"
+          placeholder="Note (e.g. primary / old)"
           value={draft.note || ""}
           onChange={(e) => setDraft({ ...draft, note: e.target.value })}
         />
         <button onClick={add} style={btnPrimary} disabled={!draft.library_id || !draft.card_number.trim()}>
-          添加
+          Add
         </button>
       </div>
 
       {cards.length === 0 && (
         <div style={{ padding: "16px 0", color: "#4a4845", fontStyle: "italic" }}>
-          还没有卡。同一馆可添加多条(允许重复)。
+          No cards yet. Duplicate entries per library are allowed.
         </div>
       )}
 
       {/* list */}
       {cards.map((c) => {
         const lib = bundle.libById.get(c.library_id);
-        const town = lib ? `${lib.town} (${lib.network})` : `⚠ 未知馆: ${c.library_id}`;
+        const town = lib ? `${lib.town} (${lib.network})` : `⚠ Unknown library: ${c.library_id}`;
         return (
           <div key={c.id} className="card-row">
             <span>{town}</span>
             <span className="barcode" style={{ fontWeight: 600 }}>
               {c.card_number}{" "}
-              <button onClick={() => copy(c.card_number)} style={btnTiny} title="复制卡号">
-                复制
+              <button onClick={() => copy(c.card_number)} style={btnTiny} title="Copy card number">
+                Copy
               </button>
             </span>
             <span style={{ color: "#4a4845" }}>{c.note || "—"}</span>
             <button onClick={() => remove(c.id)} style={btnGhost}>
-              删除
+              Delete
             </button>
           </div>
         );

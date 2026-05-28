@@ -3,12 +3,8 @@ import { Modal, ModalBody, ModalContent, Popover, PopoverContent, PopoverTrigger
 import type { Attraction, Branch, DataBundle, Library, Pass } from "../data/types";
 import { AUDITABLE_FIELDS, type AuditState, passKey } from "../store/audit";
 import {
-  ELIGIBILITY_CATEGORIES,
-  RESIDENCY_CATEGORIES,
-  VERDICT_CATEGORIES,
   adultPrice,
   audienceLabel,
-  availabilitySummary,
   capacityStructure,
   eligibilityLabel,
   formLabel,
@@ -116,7 +112,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
   const [category, setCategory] = useState<string>("");
   const [form, setForm] = useState<string>("");
   const [verdictF, setVerdictF] = useState<string>("");
-  const [onlyAvail, setOnlyAvail] = useState(false);
+  const [residencyF, setResidencyF] = useState<string>("");
 
   const categories = useMemo(() => {
     const s = new Set<string>();
@@ -145,10 +141,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
   function cellMatch(p: Pass) {
     if (form && p.pass_form !== form) return false;
     if (verdictF && p.booking_access_probe?.verdict !== verdictF) return false;
-    if (onlyAvail) {
-      const av = availabilitySummary(p.availability);
-      if (av !== "has_avail") return false;
-    }
+    if (residencyF && (p.residency_restriction?.restricted || "unknown") !== residencyF) return false;
     return true;
   }
 
@@ -199,84 +192,16 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
 
   return (
     <div>
-      <details className="legend">
-        <summary>📖 维度分类说明 (点开看完整分类)</summary>
-        <div className="legend-grid">
-          <div className="legend-col">
-            <h5>单元格图例</h5>
-            <div className="lg-row">
-              <span className="lg-dot">$N</span>
-              <code>L1 amount</code>
-              <span className="lg-text">-50% / $10 / FREE / B1G1 / DISC(=泛指discount,无具体金额)</span>
-            </div>
-            <div className="lg-row">
-              <span className="lg-dot">★</span>
-              <code>★ / ★★</code>
-              <span className="lg-text">领取方式:★=Pickup,★★=Pickup &amp; return,(无)=Email</span>
-            </div>
-            <div className="lg-row">
-              <span className="lg-dot">💳</span>
-              <code>L2 card</code>
-              <span className="lg-text">卡限制 (system 层)</span>
-            </div>
-            <div className="lg-row">
-              <span className="lg-dot">🏠</span>
-              <code>L3 home</code>
-              <span className="lg-text">取券居住地限制</span>
-            </div>
-          </div>
-          <div className="legend-col">
-            <h5>卡限制 (system 层) — booking_access_probe.verdict</h5>
-            {VERDICT_CATEGORIES.map((v) => {
-              const l = verdictLabel(v, { network: "<network>", town: "<town>" });
-              return (
-                <div className="lg-row" key={v}>
-                  <span className="lg-dot">{l.dot}</span>
-                  <code>{v}</code>
-                  <span className="lg-text">{l.text}</span>
-                </div>
-              );
-            })}
-          </div>
-          <div className="legend-col">
-            <h5>办卡资格 — library.card_eligibility</h5>
-            {ELIGIBILITY_CATEGORIES.map((v) => {
-              const l = eligibilityLabel(v, { network: "<network>", town: "<town>" });
-              return (
-                <div className="lg-row" key={v}>
-                  <span className="lg-dot">{l.warn ? "⚠" : "·"}</span>
-                  <code>{v}</code>
-                  <span className="lg-text">{l.text}</span>
-                </div>
-              );
-            })}
-          </div>
-          <div className="legend-col">
-            <h5>取券居住地 — pass.residency_restriction</h5>
-            {RESIDENCY_CATEGORIES.map((v) => {
-              const l = passResidencyLabel(v, "town", { town: "<town>" });
-              return (
-                <div className="lg-row" key={v}>
-                  <span className="lg-dot">{l.warn ? "⚠" : "·"}</span>
-                  <code>{v}</code>
-                  <span className="lg-text">{l.text}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </details>
-
       <div className="filter-bar">
         <input
           type="text"
-          placeholder="搜景点名/slug…"
+          placeholder="Search attraction…"
           value={q}
           onChange={(e) => setQ(e.target.value)}
           style={{ minWidth: 200 }}
         />
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option value="">所有分类</option>
+          <option value="">All categories</option>
           {categories.map((c) => (
             <option key={c} value={c}>
               {c}
@@ -284,31 +209,33 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
           ))}
         </select>
         <select value={form} onChange={(e) => setForm(e.target.value)}>
-          <option value="">所有领取方式</option>
+          <option value="">All pickup methods</option>
           <option value="digital_email">✉ Email</option>
-          <option value="physical_coupon">☆ Pickup</option>
-          <option value="physical_circ">☆☆ Pickup &amp; return</option>
+          <option value="physical_coupon">★ Pickup</option>
+          <option value="physical_circ">★★ Pickup &amp; return</option>
         </select>
         <select value={verdictF} onChange={(e) => setVerdictF(e.target.value)}>
-          <option value="">所有卡限制</option>
-          <option value="network_open">🟢 network 任意卡</option>
-          <option value="own_card_only">🔴 仅本馆卡</option>
-          <option value="not_verified">⚪ 未验证</option>
-          <option value="ambiguous">🟠 存疑</option>
+          <option value="">All card scopes</option>
+          <option value="network_open">🟢 Network</option>
+          <option value="own_card_only">🔴 Own card only</option>
+          <option value="not_verified">⚪ Not verified</option>
+          <option value="ambiguous">🟠 Ambiguous</option>
         </select>
-        <label style={{ display: "flex", gap: 4, alignItems: "center", cursor: "pointer" }}>
-          <input type="checkbox" checked={onlyAvail} onChange={(e) => setOnlyAvail(e.target.checked)} />
-          仅有库存
-        </label>
+        <select value={residencyF} onChange={(e) => setResidencyF(e.target.value)}>
+          <option value="">All residency</option>
+          <option value="no">No residency requirement</option>
+          <option value="yes">Residency required</option>
+          <option value="unknown">Residency unknown</option>
+        </select>
         <span className="count">
-          景点 {rows.length}/{bundle.attractions.length} · 馆 {cols.length} · pass 总 {bundle.passes.length}
+          {rows.length}/{bundle.attractions.length} attractions · {cols.length} libs · {bundle.passes.length} passes
         </span>
       </div>
 
       <div className="matrix-scroll">
         <div ref={matrixRef} className="matrix" style={{ gridTemplateColumns: cellTemplate }}>
           {/* row 1: corner + network groups */}
-          <div className="mx-corner">景点 \ 图书馆 (按 network)</div>
+          <div className="mx-corner">Attractions × Libraries (by network)</div>
           {groups.map((g) => (
             <div
               key={g.network}
@@ -322,8 +249,8 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
 
           {/* row 2: corner-2 + town headers (+ optional branch sub-headers) */}
           <div className="mx-corner-2">
-            {rows.length} 景 × {bundle.libraries.length} 馆
-            {expandedLibs.size > 0 ? ` (展开 ${expandedLibs.size})` : ""}
+            {rows.length} × {bundle.libraries.length}
+            {expandedLibs.size > 0 ? ` (${expandedLibs.size} expanded)` : ""}
           </div>
           {cols.map((c, ci) =>
             c.kind === "lib"
@@ -357,20 +284,20 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                         <div className="detail-card">
                           <h4>{l.name}</h4>
                           <div className="row">
-                            <span className="k">Town / Network</span>
+                            <span className="k">Town · Network</span>
                             <span>
                               {l.town} · {l.network}
                             </span>
                           </div>
                           <div className="row">
-                            <span className="k">办卡 residency</span>
+                            <span className="k">Eligibility</span>
                             <span title={e.tooltip} style={{ color: e.warn ? "#8c2a1e" : "#1a1917" }}>
                               {e.text}
                             </span>
                           </div>
                           {l.address && (
                             <div className="row">
-                              <span className="k">地址</span>
+                              <span className="k">Address</span>
                               <span>
                                 {[l.address.street, l.address.city, l.address.state, l.address.zip]
                                   .filter(Boolean)
@@ -380,61 +307,62 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                           )}
                           {l.card_page && (
                             <div className="row">
-                              <span className="k">办卡页</span>
+                              <span className="k">Card page</span>
                               <a href={l.card_page} target="_blank" rel="noreferrer">
-                                打开
+                                Open ↗
                               </a>
                             </div>
                           )}
                           {l.hours ? (
                             <div className="row" style={{ display: "block" }}>
-                              <div className="k">营业时间</div>
-                              <div style={{ fontSize: 11 }}>
+                              <div className="k">Hours</div>
+                              <div className="hours-grid">
                                 {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
                                   <div key={d}>
-                                    {d.slice(0, 3)}: {l.hours?.[d] || "—"}
+                                    <span className="hours-d">{d.slice(0, 3)}</span>
+                                    <span className="hours-v">{l.hours?.[d] || "—"}</span>
                                   </div>
                                 ))}
                               </div>
                             </div>
                           ) : l.hours_note ? (
                             <div className="row" style={{ display: "block" }}>
-                              <div className="k">营业时间</div>
-                              <div style={{ fontSize: 11, color: "#8C6018" }}>⚠ {l.hours_note}</div>
+                              <div className="k">Hours</div>
+                              <div style={{ fontSize: 12, color: "#8C6018" }}>⚠ {l.hours_note}</div>
                             </div>
                           ) : (
                             <div className="row">
-                              <span className="k">营业时间</span>
-                              <span style={{ color: "#4a4845", fontStyle: "italic" }}>暂无数据</span>
+                              <span className="k">Hours</span>
+                              <span style={{ color: "#4a4845", fontStyle: "italic" }}>no data</span>
                             </div>
                           )}
                           {multi && (
                             <div className="row" style={{ display: "block", marginTop: 4 }}>
-                              <span className="k">分馆 ({c.branches.length})</span>
-                              <span style={{ fontSize: 11, color: "#4a4845" }}>
-                                点击 town 右侧 [+] 展开为 {c.branches.length} 个平级 pickup-location 列。
+                              <span className="k">Branches</span>
+                              <span style={{ fontSize: 12, color: "#4a4845" }}>
+                                Click [+{c.branches.length}] on the town header to expand into peer pickup-location columns.
                               </span>
                             </div>
                           )}
                           <EvidenceSection
                             items={[
-                              { label: "办卡页", source: l.card_page || null },
+                              { label: "Card page", source: l.card_page || null },
                               l._evidence?.card_eligibility
                                 ? {
-                                    label: "办卡资格",
+                                    label: "Eligibility",
                                     quote: l._evidence.card_eligibility.evidence || null,
                                     source: l._evidence.card_eligibility.source || null,
                                   }
                                 : { label: "" },
                               l._evidence?.hours
                                 ? {
-                                    label: "营业时间",
+                                    label: "Hours",
                                     quote: l._evidence.hours.evidence || null,
                                     source: l._evidence.hours.source || null,
                                   }
                                 : l._evidence?.hours_note
                                 ? {
-                                    label: "营业时间(varies)",
+                                    label: "Hours (varies)",
                                     quote: l._evidence.hours_note.evidence || null,
                                     source: l._evidence.hours_note.source || null,
                                   }
@@ -460,74 +388,75 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                         <div className="detail-card">
                           <h4>{b.name}</h4>
                           <div className="row">
-                            <span className="k">Town / Network</span>
+                            <span className="k">Town · Network</span>
                             <span>
                               {c.lib.town} · {c.lib.network}
                             </span>
                           </div>
                           <div className="row">
-                            <span className="k">机构</span>
+                            <span className="k">Institution</span>
                             <span>{c.lib.name}</span>
                           </div>
                           {b.code && (
                             <div className="row">
-                              <span className="k">code</span>
+                              <span className="k">Code</span>
                               <span>{b.code}</span>
                             </div>
                           )}
                           {b.geo && (
                             <div className="row">
-                              <span className="k">geo</span>
+                              <span className="k">Geo</span>
                               <span>
                                 {b.geo.lat.toFixed(4)}, {b.geo.lon.toFixed(4)}
                               </span>
                             </div>
                           )}
                           <div className="row">
-                            <span className="k">办卡资格</span>
+                            <span className="k">Eligibility</span>
                             <span>{eligibilityLabel(c.lib.card_eligibility, { network: c.lib.network, town: c.lib.town }).text}</span>
                           </div>
                           {c.lib.hours ? (
                             <div className="row" style={{ display: "block" }}>
-                              <div className="k">营业时间</div>
-                              <div style={{ fontSize: 11 }}>
+                              <div className="k">Hours</div>
+                              <div className="hours-grid">
                                 {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
                                   <div key={d}>
-                                    {d.slice(0, 3)}: {c.lib.hours?.[d] || "—"}
+                                    <span className="hours-d">{d.slice(0, 3)}</span>
+                                    <span className="hours-v">{c.lib.hours?.[d] || "—"}</span>
                                   </div>
                                 ))}
                               </div>
                             </div>
                           ) : c.lib.hours_note ? (
                             <div className="row" style={{ display: "block" }}>
-                              <div className="k">营业时间</div>
-                              <div style={{ fontSize: 11, color: "#8C6018" }}>⚠ {c.lib.hours_note}</div>
+                              <div className="k">Hours</div>
+                              <div style={{ fontSize: 12, color: "#8C6018" }}>⚠ {c.lib.hours_note}</div>
                             </div>
                           ) : (
                             <div className="row">
-                              <span className="k">营业时间</span>
-                              <span style={{ color: "#4a4845", fontStyle: "italic" }}>暂无数据</span>
+                              <span className="k">Hours</span>
+                              <span style={{ color: "#4a4845", fontStyle: "italic" }}>no data</span>
                             </div>
                           )}
                           <EvidenceSection
                             items={[
-                              { label: "所属机构办卡页", source: c.lib.card_page || null },
+                              { label: "Card page", source: c.lib.card_page || null },
                               c.lib._evidence?.card_eligibility
                                 ? {
-                                    label: "办卡资格",
+                                    label: "Eligibility",
                                     quote: c.lib._evidence.card_eligibility.evidence || null,
                                     source: c.lib._evidence.card_eligibility.source || null,
                                   }
                                 : { label: "" },
                               c.lib._evidence?.hours
                                 ? {
-                                    label: "主馆营业时间",
+                                    label: "Institution hours",
                                     quote: c.lib._evidence.hours.evidence || null,
                                     source: c.lib._evidence.hours.source || null,
                                   }
                                 : c.lib._evidence?.hours_note
                                 ? {
-                                    label: "主馆营业时间(varies)",
+                                    label: "Institution hours (varies)",
                                     quote: c.lib._evidence.hours_note.evidence || null,
                                     source: c.lib._evidence.hours_note.source || null,
                                   }
@@ -763,89 +692,93 @@ function AttractionDetail({ a }: { a: Attraction }) {
   return (
     <div className="detail-card">
       <h4>{a.name}</h4>
-      {a.categories && <div className="row"><span className="k">分类</span><span>{a.categories.join(" / ")}</span></div>}
+      {a.categories && <div className="row"><span className="k">Category</span><span>{a.categories.join(" / ")}</span></div>}
       {a.address && (
         <div className="row">
-          <span className="k">地址</span>
+          <span className="k">Address</span>
           <span>{[a.address.street, a.address.city, a.address.state, a.address.zip].filter(Boolean).join(", ")}</span>
         </div>
       )}
       {a.hours ? (
         <div className="row" style={{ display: "block" }}>
-          <div className="k">营业时间</div>
-          <div style={{ fontSize: 11 }}>
+          <div className="k">Hours</div>
+          <div className="hours-grid">
             {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
               <div key={d}>
-                {d.slice(0, 3)}: {a.hours?.[d] || "—"}
+                <span className="hours-d">{d.slice(0, 3)}</span>
+                <span className="hours-v">{a.hours?.[d] || "—"}</span>
               </div>
             ))}
           </div>
         </div>
       ) : a.hours_note ? (
         <div className="row" style={{ display: "block" }}>
-          <div className="k">营业时间</div>
-          <div style={{ fontSize: 11, color: "#8C6018" }}>⚠ {a.hours_note}</div>
+          <div className="k">Hours</div>
+          <div style={{ fontSize: 12, color: "#8C6018" }}>⚠ {a.hours_note}</div>
         </div>
       ) : (
         <div className="row">
-          <span className="k">营业时间</span>
-          <span style={{ color: "#4a4845", fontStyle: "italic" }}>暂无数据</span>
+          <span className="k">Hours</span>
+          <span style={{ color: "#4a4845", fontStyle: "italic" }}>no data</span>
         </div>
       )}
       {a.prices && a.prices.length > 0 && (
         <div className="row" style={{ display: "block" }}>
-          <div className="k">票价(原价)</div>
-          <div style={{ fontSize: 11 }}>
+          <div className="k">Tickets</div>
+          <div className="price-grid">
             {a.prices.map((p, i) => (
               <div key={i}>
-                {p.audience}: {p.price == null ? "—" : `$${p.price}`}
-                {p.age_range && p.age_range.min != null
-                  ? ` (${p.age_range.min}${p.age_range.max != null ? `-${p.age_range.max}` : "+"})`
-                  : ""}
+                <span className="price-aud">{p.audience}</span>
+                <span className="price-v">
+                  {p.price == null ? "—" : `$${p.price}`}
+                  {p.age_range && p.age_range.min != null
+                    ? ` (${p.age_range.min}${p.age_range.max != null ? `-${p.age_range.max}` : "+"})`
+                    : ""}
+                </span>
               </div>
             ))}
           </div>
         </div>
       )}
       <div className="row">
-        <span className="k">是否需预约</span>
-        <span>{a.reservation?.required || "未知"}</span>
+        <span className="k">Reservation</span>
+        <span>{a.reservation?.required || "unknown"}</span>
       </div>
       {a.website && (
         <div className="row">
-          <span className="k">官网</span>
-          <a href={a.website} target="_blank" rel="noreferrer">打开</a>
+          <span className="k">Website</span>
+          <a href={a.website} target="_blank" rel="noreferrer">Open ↗</a>
         </div>
       )}
       <EvidenceSection
         items={[
           {
-            label: "官网",
+            label: "Website",
             source: a.website || (Array.isArray(a.sources) && (a.sources as string[])[0]) || null,
           },
           a.prices && a.prices.length > 0
             ? {
-                label: `票价 · ${a.prices[0].audience}`,
+                label: `Price · ${a.prices[0].audience}`,
                 quote: a.prices[0].source_phrase || null,
                 source: a.website || null,
               }
             : { label: "" },
           a.reservation?.required
             ? {
-                label: "预约政策",
+                label: "Reservation policy",
                 quote: a.reservation?.source_phrase || a.reservation?.notes || null,
                 source: a.reservation?.booking_url || a.reservation?.pass_holder_url || null,
               }
             : { label: "" },
           a._evidence?.hours
             ? {
-                label: "营业时间",
+                label: "Hours",
                 quote: a._evidence.hours.evidence || null,
                 source: a._evidence.hours.source || null,
               }
             : a._evidence?.hours_note
             ? {
-                label: "营业时间(varies)",
+                label: "Hours (varies)",
                 quote: a._evidence.hours_note.evidence || null,
                 source: a._evidence.hours_note.source || null,
               }
@@ -889,7 +822,7 @@ function CellDetail({
       </h4>
       {branch && branch.geo && (
         <div className="row">
-          <span className="k">取件地点 geo</span>
+          <span className="k">Pickup geo</span>
           <span>
             {branch.geo.lat.toFixed(4)}, {branch.geo.lon.toFixed(4)}
           </span>
@@ -898,9 +831,7 @@ function CellDetail({
       {/* Discount breakdown replaces the single summary line — show each audience policy. */}
       {p.coupon.audience_policies && p.coupon.audience_policies.length > 0 ? (
         <div className="breakdown">
-          <div className="k" style={{ marginBottom: 3, fontWeight: 600, color: "#8c6018" }}>
-            折扣明细
-          </div>
+          <div className="breakdown-h">Discount</div>
           {p.coupon.audience_policies.map((ap, i) => (
             <div className="pol" key={i}>
               <span>
@@ -914,43 +845,43 @@ function CellDetail({
         </div>
       ) : (
         <div className="row">
-          <span className="k">折扣</span>
+          <span className="k">Discount</span>
           <span style={{ color: "#1B5740", fontWeight: 600 }}>{p.coupon.summary}</span>
         </div>
       )}
       {(() => {
         const cs = capacityStructure(p.coupon);
-        const fallback = cap ? `${cap} 人` : "—";
+        const fallback = cap ? String(cap) : "—";
         return (
-          <div className="row" style={{ display: "block" }}>
-            <span className="k">人数上限</span>{" "}
-            <span style={{ fontWeight: 600 }}>{cs.total ? `${cs.total} 人` : fallback}</span>
-            {cs.parts && cs.parts.length > 0 && (
-              <span style={{ marginLeft: 6, color: "#4a4845" }}>({cs.parts.join(" + ")})</span>
-            )}
+          <div className="row">
+            <span className="k">Capacity</span>
+            <span style={{ fontWeight: 600 }}>
+              {cs.total ? cs.total : fallback}
+              {cs.parts && cs.parts.length > 0 && (
+                <span style={{ marginLeft: 6, color: "#4a4845", fontWeight: 400 }}>
+                  ({cs.parts.join(" + ")})
+                </span>
+              )}
+            </span>
           </div>
         );
       })()}
-      <div className="row"><span className="k">领取方式</span><span title={fl.tooltip}>{fl.icon} {fl.short}</span></div>
-      <div className="row"><span className="k">卡限制 (system 层)</span><span title={p.booking_access_probe?.evidence || ""}>{vd.dot} {vd.text}</span></div>
-      <div className="row"><span className="k">取券居住地</span><span style={{ color: pr.warn ? "#8c2a1e" : "#1a1917" }}>{pr.text}</span></div>
-      <div className="row"><span className="k">每月领取限制</span><span>{fq || "不限"}</span></div>
+      <div className="row"><span className="k">Pickup</span><span title={fl.tooltip}>{fl.icon} {fl.short}</span></div>
+      <div className="row"><span className="k">Card</span><span title={p.booking_access_probe?.evidence || ""}>{vd.dot} {vd.text}</span></div>
+      <div className="row"><span className="k">Residency</span><span style={{ color: pr.warn ? "#8c2a1e" : "#1a1917" }}>{pr.text}</span></div>
+      <div className="row"><span className="k">Monthly limit</span><span>{fq || "none"}</span></div>
       <div className="audit-controls">
-        <label className="approve-toggle">
-          <input
-            type="checkbox"
-            checked={!!entry?.approved}
-            onChange={onToggleApprove}
-          />
-          <span>
-            <strong>Approve</strong> · 标记本格数据已人工认证
-          </span>
-          {entry?.approved && (
-            <span className="approved-meta">at {new Date(entry.approved.at).toLocaleString()}</span>
-          )}
-        </label>
+        <button
+          className={`audit-btn${entry?.approved ? " active" : ""}`}
+          onClick={onToggleApprove}
+          title={entry?.approved ? `Approved ${new Date(entry.approved.at).toLocaleString()}` : "Mark this cell as verified"}
+        >
+          {entry?.approved ? "✓ Approved" : "Approve"}
+        </button>
         <details className="correction-form">
-          <summary>📝 数据纠错 (按字段填备注)</summary>
+          <summary className="audit-btn" data-state={entry?.corrections ? "has" : ""}>
+            {entry?.corrections ? "✎ Notes ●" : "✎ Notes"}
+          </summary>
           <div className="correction-fields">
             {AUDITABLE_FIELDS.map((f) => (
               <div className="cf-row" key={f.key}>
@@ -958,7 +889,7 @@ function CellDetail({
                 <textarea
                   className="cf-input"
                   rows={1}
-                  placeholder={entry?.corrections?.notes[f.key] ? "" : "(无备注 · 填写即保存)"}
+                  placeholder=""
                   defaultValue={entry?.corrections?.notes[f.key] || ""}
                   onBlur={(e) => onSetCorrection(f.key, e.target.value)}
                 />
@@ -969,13 +900,13 @@ function CellDetail({
       </div>
       <EvidenceSection
         items={[
-          { label: "Pass 源页面", source: p.source_url || null },
+          { label: "Pass page", source: p.source_url || null },
           p.coupon.source_phrase_block
-            ? { label: "Coupon 原文 block", quote: p.coupon.source_phrase_block, source: p.source_url || null }
+            ? { label: "Coupon text", quote: p.coupon.source_phrase_block, source: p.source_url || null }
             : { label: "" },
           p.residency_restriction?.evidence
             ? {
-                label: `取券居住地 (source: ${p.residency_restriction.source || "?"})`,
+                label: `Residency (${p.residency_restriction.source || "?"})`,
                 quote: p.residency_restriction.evidence || null,
                 source: p.source_url || null,
               }
@@ -983,9 +914,9 @@ function CellDetail({
           p.booking_access_probe?.evidence
             ? {
                 label:
-                  `卡限制 probe` +
-                  (p.booking_access_probe.prober_card ? ` · via ${p.booking_access_probe.prober_card} card` : "") +
-                  (p.booking_access_probe.probed_date ? ` · ${p.booking_access_probe.probed_date}` : ""),
+                  `Card probe` +
+                  (p.booking_access_probe.prober_card ? ` (via ${p.booking_access_probe.prober_card})` : "") +
+                  (p.booking_access_probe.probed_date ? `, ${p.booking_access_probe.probed_date}` : ""),
                 quote: p.booking_access_probe.evidence || null,
                 source: p.source_url || null,
               }

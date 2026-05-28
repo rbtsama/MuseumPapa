@@ -420,88 +420,177 @@ body,
   border-radius: 8px !important;
 }
 .detail-card {
-  padding: 12px 14px;
-  max-width: 380px;
-  font-size: 12px;
+  padding: 14px 16px;
+  width: 360px;
+  max-width: 420px;
+  font-size: 13px;
   line-height: 1.5;
   background: #fafaf7;
   border-radius: 8px;
+  color: #1a1917;
 }
+.detail-card h4 {
+  font-size: 14px;
+  margin: 0 0 8px;
+  color: #1b5740;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.detail-card .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin: 4px 0;
+  font-size: 13px;
+}
+.detail-card .row .k {
+  color: #4a4845;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.detail-card .row > :nth-child(2) {
+  text-align: right;
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+.detail-card .row[style*="block"] > :nth-child(2) {
+  text-align: left;
+}
+.detail-card .row a {
+  color: #1b5740;
+  text-decoration: none;
+}
+.detail-card .row a:hover { text-decoration: underline; }
+/* Hours grid (lib/attraction popovers): two-column compact day:time list */
+.detail-card .hours-grid {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  row-gap: 1px;
+  column-gap: 6px;
+  font-size: 12px;
+  margin-top: 3px;
+}
+.detail-card .hours-grid > div {
+  display: contents;
+}
+.detail-card .hours-d {
+  color: #4a4845;
+  text-transform: capitalize;
+}
+.detail-card .hours-v {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.detail-card .price-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 1px;
+  column-gap: 12px;
+  font-size: 12px;
+  margin-top: 3px;
+}
+.detail-card .price-grid > div {
+  display: contents;
+}
+.detail-card .price-aud {
+  color: #4a4845;
+  text-transform: capitalize;
+}
+.detail-card .price-v {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+/* Discount breakdown — primary structured block in the cell popover.
+   Higher weight than ordinary rows so it reads as the headline data. */
 .detail-card .breakdown {
-  margin-top: 6px;
-  padding: 6px 8px;
-  background: #f4efe8;
-  border-left: 3px solid #8c6018;
-  border-radius: 3px;
+  margin: 6px 0 4px;
+  padding: 8px 10px;
+  background: #eaf1ee;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.detail-card .breakdown-h {
   font-size: 11px;
+  font-weight: 700;
+  color: #4a4845;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
 }
 .detail-card .breakdown .pol {
   display: flex;
   justify-content: space-between;
-  padding: 1px 0;
+  align-items: baseline;
+  padding: 2px 0;
+  font-variant-numeric: tabular-nums;
 }
 .detail-card .breakdown .pol .v {
-  font-weight: 600;
+  font-weight: 700;
   color: #1b5740;
 }
 
-/* Audit controls — sits between the data section and the evidence section
-   inside the Pass cell popover. Approve toggle + collapsible correction form. */
+/* Audit controls — two compact buttons side by side. The Notes button is a
+   <details> whose <summary> we style as a peer button; expanding it reveals
+   per-field correction textareas inline. */
 .detail-card .audit-controls {
-  margin-top: 8px;
-  padding: 6px 8px;
-  background: #eaf1ee;
-  border: 1px dashed #c4ddcf;
-  border-radius: 4px;
-  font-size: 11px;
-}
-.detail-card .approve-toggle {
+  margin-top: 10px;
   display: flex;
-  align-items: center;
   gap: 6px;
-  cursor: pointer;
-  user-select: none;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
-.detail-card .approve-toggle input[type="checkbox"] {
-  accent-color: #1b5740;
-  cursor: pointer;
-}
-.detail-card .approve-toggle .approved-meta {
-  margin-left: auto;
-  color: #4a4845;
-  font-size: 10px;
-}
-.detail-card .correction-form {
-  margin-top: 6px;
-}
-.detail-card .correction-form > summary {
-  cursor: pointer;
-  color: #8c6018;
+.detail-card .audit-btn {
+  font: inherit;
+  font-size: 12px;
   font-weight: 600;
+  padding: 4px 10px;
+  background: #fafaf7;
+  color: #1b5740;
+  border: 1px solid #c4ddcf;
+  border-radius: 4px;
+  cursor: pointer;
   user-select: none;
-  padding: 2px 0;
+  list-style: none;
 }
+.detail-card .audit-btn::-webkit-details-marker { display: none; }
+.detail-card .audit-btn:hover { background: #eaf1ee; }
+.detail-card .audit-btn.active {
+  background: #1b5740;
+  color: #fafaf7;
+  border-color: #1b5740;
+}
+.detail-card .audit-btn[data-state="has"] {
+  background: #f4efe8;
+  border-color: #8c6018;
+  color: #8c6018;
+}
+.detail-card .correction-form { width: 100%; }
 .detail-card .correction-fields {
-  margin-top: 4px;
+  margin-top: 6px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
+  padding: 6px 8px;
+  background: #f4f3ef;
+  border-radius: 4px;
 }
-.detail-card .cf-row { display: flex; flex-direction: column; gap: 1px; }
+.detail-card .cf-row { display: flex; flex-direction: column; gap: 2px; }
 .detail-card .cf-label {
-  font-size: 10px;
+  font-size: 11px;
   color: #4a4845;
   font-weight: 600;
 }
 .detail-card .cf-input {
   font: inherit;
-  font-size: 11px;
-  padding: 3px 5px;
+  font-size: 12px;
+  padding: 4px 6px;
   border: 1px solid #d0cec6;
   border-radius: 3px;
   background: #fafaf7;
   resize: vertical;
-  min-height: 22px;
+  min-height: 24px;
   font-family: inherit;
 }
 .detail-card .cf-input:focus {
@@ -510,49 +599,51 @@ body,
   background: #fff;
 }
 
-/* Evidence section — bottom of every popover. Shows raw source quotes + a
-   clickable link to the original page so the user can verify each fact. */
+/* Evidence section — kept visually secondary to the structured data above.
+   Muted gray throughout, no gold accent, smaller font, thin divider. The
+   colored quote/border were too loud; the user should only notice this
+   section when they want to verify. */
 .detail-card .evidence {
   margin-top: 10px;
-  padding-top: 8px;
-  border-top: 1px solid #d0cec6;
+  padding-top: 6px;
+  border-top: 1px solid #ecebe5;
+  color: #6f6c66;
 }
 .detail-card .evidence-h {
   font-size: 10px;
-  font-weight: 700;
-  color: #4a4845;
-  letter-spacing: 0.5px;
+  font-weight: 600;
+  color: #8a877f;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 .detail-card .ev-row {
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   font-size: 11px;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 .detail-card .ev-label {
   font-size: 10px;
-  color: #8c6018;
-  font-weight: 600;
+  color: #8a877f;
+  font-weight: 500;
 }
 .detail-card .ev-quote {
-  color: #1a1917;
+  color: #6f6c66;
   font-style: italic;
   display: block;
-  padding: 1px 0 1px 6px;
-  border-left: 2px solid #c4ddcf;
-  margin: 2px 0;
+  padding: 0;
+  margin: 1px 0;
   word-break: break-word;
 }
 .detail-card .ev-src {
   font-size: 10px;
-  color: #1b5740;
+  color: #8a877f;
   text-decoration: none;
   word-break: break-all;
 }
 .detail-card .ev-src:hover {
   text-decoration: underline;
-  color: #2a7055;
+  color: #4a4845;
 }
 .detail-card h4 {
   margin: 0 0 4px;
@@ -571,11 +662,16 @@ body,
 /* ── Booking Floater (replaces the 3-step wizard) ──────────────────── */
 .floater {
   padding: 14px 18px 12px;
-  font-size: 12px;
+  font-size: 13px;
   color: #1a1917;
   background: #fafaf7;
-  min-width: 520px;
-  max-width: 640px;
+  min-width: 760px;
+  max-width: 840px;
+}
+.floater-body {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 18px;
 }
 .floater-head { margin-bottom: 10px; }
 .floater-title { font-size: 15px; font-weight: 700; color: #1b5740; }
@@ -583,7 +679,7 @@ body,
 .floater-sub code {
   background: #eaf1ee; padding: 1px 4px; border-radius: 3px; color: #1b5740;
 }
-.floater-cal { margin-bottom: 12px; }
+.floater-cal { margin-bottom: 0; }
 .cal-nav { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
 .cal-nav button {
   font: inherit; font-size: 11px; padding: 3px 8px;
@@ -613,10 +709,9 @@ body,
 }
 
 .floater-cards {
-  border-top: 1px solid #d0cec6;
-  padding-top: 8px;
-  margin-bottom: 10px;
-  max-height: 220px; overflow-y: auto;
+  border-left: 1px solid #ecebe5;
+  padding-left: 14px;
+  max-height: 360px; overflow-y: auto;
 }
 .cards-h { font-size: 11px; font-weight: 700; color: #4a4845; letter-spacing: 0.5px; margin-bottom: 4px; }
 .cards-empty { font-size: 11px; color: #4a4845; font-style: italic; padding: 6px 0; }
