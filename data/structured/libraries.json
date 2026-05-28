@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-27T20:02:02.955480+00:00",
+    "built_at": "2026-05-28T12:30:03.054495+00:00",
     "n_libraries": 59
   },
   "libraries": [
@@ -445,9 +445,9 @@
       "network": "MBLN",
       "platform": "libcal",
       "consortium_label": "MBLN",
-      "card_issuance_group": "BPL",
+      "card_issuance_group": "MBLN",
       "card_issuance_groups": [
-        "BPL"
+        "MBLN"
       ],
       "card_auth_groups": [
         "BPL",

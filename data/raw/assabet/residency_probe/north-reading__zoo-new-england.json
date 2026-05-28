@@ -1,11 +1,18 @@
 {
   "library_id": "north-reading",
   "attraction_slug": "zoo-new-england",
-  "prober_card": "wakefield",
-  "probed_date": "2026-may/22",
+  "prober_card": "wilmington",
+  "probed_date": "2026-may/28",
   "verdict": "rejected_resident",
+  "attempts": [
+    {
+      "date": "2026-may/28",
+      "verdict": "rejected_resident",
+      "http_status": 200
+    }
+  ],
   "restricted": "yes",
   "scope": "town",
-  "evidence": "non-resident wakefield card (same NOBLE network) blocked at card-validation",
+  "evidence": "non-resident wilmington card (same MVLC network) blocked at card-validation",
   "source": "booking_probe"
 }
