@@ -131,11 +131,15 @@ def _booking_probe_own_card_conflicts(passes) -> tuple[int, list[dict]]:
         expects_open = "same-network card accepted" in evidence or "card accepted" in evidence
         actual_own = bool(p.get("requires_own_card"))
 
-        if rr.get("source") == "booking_probe_card_ownership" and rr.get("restricted") != "no":
+        # When residency was DERIVED from the booking probe alone (no coupon
+        # text signal), the only honest value is "unknown" — the probe never
+        # tests residency, only card scope. Anything else (yes/no) coming from
+        # this source is an over-reach.
+        if rr.get("source") == "booking_probe_card_ownership" and rr.get("restricted") != "unknown":
             mismatches.append({
                 "library_id": p.get("library_id"),
                 "attraction_slug": p.get("attraction_slug"),
-                "issue": "booking_probe_card_ownership_must_not_set_residency_block",
+                "issue": "booking_probe_card_ownership_must_not_assert_residency",
                 "actual_restricted": rr.get("restricted"),
             })
             continue

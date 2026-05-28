@@ -2,7 +2,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 from datetime import datetime, timezone
-from malibbene.common.audit_overrides import load_overrides, apply_overrides
+from malibbene.common.audit_overrides import load_overrides, apply_overrides, is_entity_removed
 from malibbene.build.slug_canonical import canonical
 from malibbene.build.coupons import coupon_from_extract, restrictions_from_extract, coupon_coverage_gaps
 
@@ -21,6 +21,38 @@ def _pass_form_from_pass_type(pass_type: str | None) -> str | None:
     return _PASS_TYPE_TO_FORM.get(pass_type)
 
 def _read(p): return json.loads(p.read_text()) if p.exists() else None
+
+def residency_from_coupon(coupon: dict | None) -> tuple[str, str] | None:
+    """Detect explicit residents-only language in the coupon's source_phrase_block.
+
+    Returns (scope, evidence) where scope is "town" or "ma", or None when the
+    coupon text is silent on residency. This is the AUTHORITATIVE source for
+    residency — the probe only tests card scope, never residency policy.
+    """
+    if not coupon: return None
+    block = coupon.get("source_phrase_block","") or ""
+    if not block: return None
+    import re as _re
+    if _re.search(r"\b(massachusetts|MA)\s+residents?\s+only\b", block, _re.I):
+        m = _re.search(r"\b(?:massachusetts|MA)\s+residents?\s+only\b", block, _re.I)
+        return ("ma", f'coupon source phrase: "{m.group(0)}"')
+    PATTERNS = (
+        r"\bfor\s+(\w[\w\- ]{2,20})\s+residents?\s+only\b",
+        r"\bto\s+(\w[\w\- ]{2,20})\s+residents?\s+only\b",
+        r"\bavailable\s+(?:only\s+)?to\s+(\w[\w\- ]{2,20})\s+residents?\b",
+        r"\bmust be (?:a|an)\s+(\w[\w\- ]{2,20})\s+resident\b",
+        r"\brestricted\s+to\s+(\w[\w\- ]{2,20})\s+residents?\b",
+        r"\blimited\s+to\s+(\w[\w\- ]{2,20})\s+residents?\b",
+    )
+    NOISE = {"ma","massachusetts","library","member","adult","adults","one","children","child"}
+    for rx in PATTERNS:
+        m = _re.search(rx, block, _re.I)
+        if m:
+            tok = m.group(1).strip().lower()
+            if tok in NOISE: continue
+            return ("town", f'coupon source phrase: "{m.group(0).strip()}"')
+    return None
+
 
 def infer_pass_form_from_text(text: str | None) -> str | None:
     t = " ".join((text or "").lower().split())
@@ -191,20 +223,48 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                     text_rr = row.get("residency_restriction") or {}
                     text_is_ma = (text_rr.get("restricted") == "yes"
                                   and text_rr.get("scope") == "ma")
+                    # AUTHORITATIVE residency: the coupon's own source_phrase_block.
+                    # The probe only tests CARD scope, never residency — it must
+                    # never override an explicit "X residents only" statement.
+                    coupon_res = residency_from_coupon(row.get("coupon"))
                     if probe["restricted"] == "yes":
-                        # own-card-only; residency itself is unrestricted unless the
-                        # catalog text independently requires a MA resident.
+                        # Probe says: same-network non-resident card blocked at
+                        # card-validation. That's card-ownership info only.
                         row["requires_own_card"] = True
                         row["own_card_evidence"] = probe.get("evidence")
-                        if not text_is_ma:
+                        if coupon_res:
+                            scope, evidence = coupon_res
                             row["residency_restriction"] = {
-                                "restricted": "no", "scope": None,
-                                "source": "booking_probe_card_ownership",
-                                "evidence": probe.get("evidence"),
+                                "restricted": "yes", "scope": scope,
+                                "source": "coupon_source_phrase",
+                                "evidence": evidence,
                             }
+                        elif text_is_ma:
+                            pass  # keep the catalog-text MA-resident requirement
+                        else:
+                            # No residency signal anywhere — be HONEST: unknown.
+                            # The probe is silent on residency. Previously this
+                            # branch claimed restricted="no" off the probe alone;
+                            # that was the bug that hid Needham / Winchester
+                            # "residents only" cases.
+                            row["residency_restriction"] = {
+                                "restricted": "unknown", "scope": None,
+                                "source": "booking_probe_card_ownership",
+                                "evidence": (
+                                    "probe shows own-card-only (card scope); "
+                                    "coupon text has no residency statement — residency unknown"
+                                ),
+                            }
+                    elif coupon_res:
+                        # Network-open per probe, but coupon text constrains residency.
+                        scope, evidence = coupon_res
+                        row["residency_restriction"] = {
+                            "restricted": "yes", "scope": scope,
+                            "source": "coupon_source_phrase+booking_probe",
+                            "evidence": evidence + " | booking probe: same-network card accepted",
+                        }
                     elif text_is_ma:
-                        # network-open per probe, but catalog text still requires a
-                        # MA resident in the party — keep that, annotate.
+                        # network-open per probe, but catalog text requires MA resident.
                         row["residency_restriction"] = {
                             "restricted": "yes", "scope": "ma",
                             "source": "catalog_text+booking_probe",
@@ -212,6 +272,8 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                             + " | booking probe: same-network card accepted",
                         }
                     else:
+                        # Probe accepted a non-resident card AND coupon text is
+                        # silent on residency → confident "no residency restriction".
                         row["residency_restriction"] = {
                             "restricted": "no", "scope": None,
                             "source": "booking_probe",
@@ -222,6 +284,8 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                     row["availability"] = {d["date"]:d["status"] for d in avail.get("days",[])}
                 key = f"{lib}__{rawslug}"
                 row = apply_overrides(f"pass:{key}", row, overrides)
+                if is_entity_removed(f"pass:{key}", overrides):
+                    continue
                 out_passes.append(row)
     # Silent-drop guard: refuse to ship if any pass has an empty coupon while an
     # authoritative pass_coupons file exists for it (the bug this fix addresses).
