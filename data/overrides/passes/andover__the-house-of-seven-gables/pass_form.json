@@ -1,0 +1,6 @@
+{
+  "status": "corrected",
+  "corrected_value": "digital_email",
+  "source": "https://mhl.assabetinteractive.com/museum-passes/by-museum/the-house-of-seven-gables/",
+  "evidence": "benefit_text 含 \"e-ticket\" → 推断为 digital_email;与申报 physical_coupon 不符。"
+}

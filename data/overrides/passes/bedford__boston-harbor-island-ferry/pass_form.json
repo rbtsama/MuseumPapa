@@ -1,0 +1,6 @@
+{
+  "status": "corrected",
+  "corrected_value": "physical_circ",
+  "source": "https://bedfordlibrary.assabetinteractive.com/museum-passes/by-museum/boston-harbor-island-ferry/",
+  "evidence": "benefit_text 含 \"must be returned\" → 推断为 physical_circ;与申报 digital_email 不符。"
+}

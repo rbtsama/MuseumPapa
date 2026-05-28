@@ -1,0 +1,6 @@
+{
+  "status": "corrected",
+  "corrected_value": "digital_email",
+  "source": "https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/the-aviation-museum-of-new-hampshire/",
+  "evidence": "benefit_text 含 \"e-ticket\" → 推断为 digital_email;与申报 physical_circ 不符。"
+}
