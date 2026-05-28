@@ -1,0 +1,33 @@
+{
+  "library_id": "arlington",
+  "attraction_slug": "new-england-aquarium",
+  "prober_card": "somerville",
+  "probed_date": null,
+  "verdict": "ambiguous",
+  "attempts": [
+    {
+      "date": "2026-june/01",
+      "verdict": "unknown",
+      "http_status": 200
+    },
+    {
+      "date": "2026-june/02",
+      "verdict": "unknown",
+      "http_status": 200
+    },
+    {
+      "date": "2026-june/03",
+      "verdict": "unknown",
+      "http_status": 200
+    },
+    {
+      "date": "2026-june/04",
+      "verdict": "unknown",
+      "http_status": 200
+    }
+  ],
+  "restricted": "unknown",
+  "scope": null,
+  "evidence": "inconclusive booking probe via somerville card; attempts=unknown,unknown,unknown,unknown",
+  "source": "booking_probe"
+}

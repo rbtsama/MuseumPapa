@@ -1,0 +1,28 @@
+{
+  "library_id": "newton",
+  "attraction_slug": "new-england-aquarium",
+  "prober_card": "somerville",
+  "probed_date": "2026-june/04",
+  "verdict": "accepted",
+  "attempts": [
+    {
+      "date": "2026-june/01",
+      "verdict": "unknown",
+      "http_status": 200
+    },
+    {
+      "date": "2026-june/02",
+      "verdict": "unknown",
+      "http_status": 200
+    },
+    {
+      "date": "2026-june/04",
+      "verdict": "accepted",
+      "http_status": 200
+    }
+  ],
+  "restricted": "no",
+  "scope": null,
+  "evidence": "non-resident somerville card (same Minuteman network) accepted at card-validation (advanced to reserver-info; not booked)",
+  "source": "booking_probe"
+}

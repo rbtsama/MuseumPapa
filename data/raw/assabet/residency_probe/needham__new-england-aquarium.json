@@ -1,0 +1,18 @@
+{
+  "library_id": "needham",
+  "attraction_slug": "new-england-aquarium",
+  "prober_card": "somerville",
+  "probed_date": "2026-june/01",
+  "verdict": "rejected_resident",
+  "attempts": [
+    {
+      "date": "2026-june/01",
+      "verdict": "rejected_resident",
+      "http_status": 200
+    }
+  ],
+  "restricted": "yes",
+  "scope": "town",
+  "evidence": "non-resident somerville card (same Minuteman network) blocked at card-validation",
+  "source": "booking_probe"
+}

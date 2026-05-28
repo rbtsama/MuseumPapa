@@ -1,0 +1,18 @@
+{
+  "library_id": "danvers",
+  "attraction_slug": "the-childrens-piazza",
+  "prober_card": "wakefield",
+  "probed_date": "2026-june/01",
+  "verdict": "accepted",
+  "attempts": [
+    {
+      "date": "2026-june/01",
+      "verdict": "accepted",
+      "http_status": 200
+    }
+  ],
+  "restricted": "no",
+  "scope": null,
+  "evidence": "non-resident wakefield card (same NOBLE network) accepted at card-validation (advanced to reserver-info; not booked)",
+  "source": "booking_probe"
+}

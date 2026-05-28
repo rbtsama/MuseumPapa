@@ -1,0 +1,33 @@
+{
+  "library_id": "everett",
+  "attraction_slug": "trustees-of-the-reservations",
+  "prober_card": "wakefield",
+  "probed_date": null,
+  "verdict": "ambiguous",
+  "attempts": [
+    {
+      "date": "2026-may/28",
+      "verdict": "format_error",
+      "http_status": 200
+    },
+    {
+      "date": "2026-may/29",
+      "verdict": "format_error",
+      "http_status": 200
+    },
+    {
+      "date": "2026-may/30",
+      "verdict": "format_error",
+      "http_status": 200
+    },
+    {
+      "date": "2026-may/31",
+      "verdict": "format_error",
+      "http_status": 200
+    }
+  ],
+  "restricted": "unknown",
+  "scope": null,
+  "evidence": "inconclusive booking probe via wakefield card; attempts=format_error,format_error,format_error,format_error",
+  "source": "booking_probe"
+}

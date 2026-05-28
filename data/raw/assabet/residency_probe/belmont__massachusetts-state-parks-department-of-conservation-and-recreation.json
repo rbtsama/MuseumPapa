@@ -1,0 +1,18 @@
+{
+  "library_id": "belmont",
+  "attraction_slug": "massachusetts-state-parks-department-of-conservation-and-recreation",
+  "prober_card": "somerville",
+  "probed_date": "2026-may/29",
+  "verdict": "rejected_resident",
+  "attempts": [
+    {
+      "date": "2026-may/29",
+      "verdict": "rejected_resident",
+      "http_status": 200
+    }
+  ],
+  "restricted": "yes",
+  "scope": "town",
+  "evidence": "non-resident somerville card (same Minuteman network) blocked at card-validation",
+  "source": "booking_probe"
+}

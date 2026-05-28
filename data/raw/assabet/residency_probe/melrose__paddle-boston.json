@@ -1,0 +1,33 @@
+{
+  "library_id": "melrose",
+  "attraction_slug": "paddle-boston",
+  "prober_card": "wakefield",
+  "probed_date": null,
+  "verdict": "ambiguous",
+  "attempts": [
+    {
+      "date": "2026-june/02",
+      "verdict": "unknown",
+      "http_status": 200
+    },
+    {
+      "date": "2026-june/08",
+      "verdict": "unknown",
+      "http_status": 200
+    },
+    {
+      "date": "2026-june/09",
+      "verdict": "unknown",
+      "http_status": 200
+    },
+    {
+      "date": "2026-june/19",
+      "verdict": "unknown",
+      "http_status": 200
+    }
+  ],
+  "restricted": "unknown",
+  "scope": null,
+  "evidence": "inconclusive booking probe via wakefield card; attempts=unknown,unknown,unknown,unknown",
+  "source": "booking_probe"
+}

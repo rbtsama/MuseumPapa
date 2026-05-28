@@ -1,0 +1,18 @@
+{
+  "library_id": "malden",
+  "attraction_slug": "american-repertory-theater",
+  "prober_card": "bpl",
+  "probed_date": null,
+  "verdict": "ambiguous",
+  "attempts": [
+    {
+      "date": "2026-june/26",
+      "verdict": "unknown",
+      "http_status": 200
+    }
+  ],
+  "restricted": "unknown",
+  "scope": null,
+  "evidence": "inconclusive booking probe via bpl card; attempts=unknown",
+  "source": "booking_probe"
+}

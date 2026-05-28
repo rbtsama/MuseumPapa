@@ -23,7 +23,8 @@
       "card_page": "https://stonehamlibrary.org/get-a-library-card/",
       "non_resident_policy_initial": "open_ma_resident",
       "supports_availability": true,
-      "pass_page": "https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "card_eligibility": "ma_resident"
     },
     {
       "id": "reading",
@@ -204,7 +205,8 @@
       "card_page": "https://beverlypubliclibrary.org/services/borrowing/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://beverlypubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://beverlypubliclibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "card_eligibility": "ma_resident"
     },
     {
       "id": "danvers",
@@ -229,7 +231,8 @@
       "card_page": "https://lynnpubliclibrary.org/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://lynnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://lynnpubliclibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "card_eligibility": "ma_resident"
     },
     {
       "id": "marblehead",
@@ -422,7 +425,8 @@
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "pass_page": "https://robbinslibrary.assabetinteractive.com/museum-passes/by-museum/",
-      "requires_render_js": true
+      "requires_render_js": true,
+      "card_eligibility": "ma_resident"
     },
     {
       "id": "newton",
@@ -447,7 +451,8 @@
       "card_page": "https://lincolnpl.org/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://lincolnpl.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://lincolnpl.assabetinteractive.com/museum-passes/by-museum/",
+      "card_eligibility": "ma_resident"
     },
     {
       "id": "acton",
@@ -537,7 +542,8 @@
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
       "pass_page": "https://goodnowlibrary.assabetinteractive.com/museum-passes/by-museum/",
-      "requires_render_js": true
+      "requires_render_js": true,
+      "card_eligibility": "ma_resident"
     },
     {
       "id": "belmont",
@@ -549,7 +555,8 @@
       "card_page": "https://www.belmontpubliclibrary.net/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://belmontpubliclibrary.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://belmontpubliclibrary.assabetinteractive.com/museum-passes/by-museum/",
+      "card_eligibility": "town_or_works"
     },
     {
       "id": "lexington",
@@ -649,7 +656,8 @@
       "card_page": "https://www.morseinstitute.org/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "pass_page": "https://morseinstitute.assabetinteractive.com/museum-passes/by-museum/"
+      "pass_page": "https://morseinstitute.assabetinteractive.com/museum-passes/by-museum/",
+      "card_eligibility": "ma_resident"
     },
     {
       "id": "somerville",
@@ -717,7 +725,8 @@
       "card_page": "https://www.thayerpubliclibrary.org/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "libcal_base": "https://thayerpubliclibrary.libcal.com"
+      "libcal_base": "https://thayerpubliclibrary.libcal.com",
+      "card_eligibility": "ma_resident"
     },
     {
       "id": "milton",
@@ -730,7 +739,8 @@
       "card_page": "https://www.miltonlibrary.org/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": true,
-      "libcal_base": "https://miltonlibrary.libcal.com"
+      "libcal_base": "https://miltonlibrary.libcal.com",
+      "card_eligibility": "ma_resident"
     },
     {
       "id": "cohasset",
@@ -743,7 +753,8 @@
       "card_page": "https://www.cohassetlibrary.org/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": false,
-      "base_url": "https://www2.museumkey.com/ui/byMuseum/?code=paulma02025&branchID=231"
+      "base_url": "https://www2.museumkey.com/ui/byMuseum/?code=paulma02025&branchID=231",
+      "card_eligibility": "ma_resident"
     },
     {
       "id": "hingham",
@@ -756,7 +767,8 @@
       "card_page": "https://hinghamlibrary.org/",
       "non_resident_policy_initial": "unknown",
       "supports_availability": false,
-      "base_url": "https://www2.museumkey.com/ui/byMuseum/?code=hingma02043&branchID=505"
+      "base_url": "https://www2.museumkey.com/ui/byMuseum/?code=hingma02043&branchID=505",
+      "card_eligibility": "ma_resident"
     }
   ]
 }

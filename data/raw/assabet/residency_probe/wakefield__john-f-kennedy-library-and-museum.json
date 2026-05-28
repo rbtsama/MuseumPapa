@@ -1,0 +1,33 @@
+{
+  "library_id": "wakefield",
+  "attraction_slug": "john-f-kennedy-library-and-museum",
+  "prober_card": "reading",
+  "probed_date": null,
+  "verdict": "ambiguous",
+  "attempts": [
+    {
+      "date": "2026-july/01",
+      "verdict": "unknown",
+      "http_status": 200
+    },
+    {
+      "date": "2026-july/02",
+      "verdict": "unknown",
+      "http_status": 200
+    },
+    {
+      "date": "2026-july/03",
+      "verdict": "unknown",
+      "http_status": 200
+    },
+    {
+      "date": "2026-july/04",
+      "verdict": "unknown",
+      "http_status": 200
+    }
+  ],
+  "restricted": "unknown",
+  "scope": null,
+  "evidence": "inconclusive booking probe via reading card; attempts=unknown,unknown,unknown,unknown",
+  "source": "booking_probe"
+}
