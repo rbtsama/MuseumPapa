@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Modal, ModalBody, ModalContent, ModalHeader, Popover, PopoverContent, PopoverTrigger } from "@heroui/react";
 import type { Attraction, Branch, DataBundle, Library, Pass } from "../data/types";
+import { AUDITABLE_FIELDS, type AuditState, passKey } from "../store/audit";
 import {
   ELIGIBILITY_CATEGORIES,
   RESIDENCY_CATEGORIES,
@@ -21,7 +22,11 @@ import {
 } from "../lib/derive";
 import BookingWizard from "../components/BookingWizard";
 
-interface Props { bundle: DataBundle }
+interface Props {
+  bundle: DataBundle;
+  audit: AuditState;
+  updateAudit: (u: (s: AuditState) => AuditState) => void;
+}
 
 // Per-network super-header tint (newspaper palette, low-saturation muted hues).
 // Sized 5 → 5 networks; the green stays the anchor (Minuteman is the largest
@@ -64,7 +69,39 @@ function useColumns(bundle: DataBundle, expanded: Set<string>) {
   }, [bundle, expanded]);
 }
 
-export default function Matrix({ bundle }: Props) {
+export default function Matrix({ bundle, audit, updateAudit }: Props) {
+  // Toggle the Approve flag for one pass key.
+  const toggleApprove = (key: string) =>
+    updateAudit((s) => {
+      const cur = s[key] || {};
+      if (cur.approved) {
+        const { approved: _a, ...rest } = cur;
+        const next = { ...s };
+        if (Object.keys(rest).length === 0) delete next[key];
+        else next[key] = rest;
+        return next;
+      }
+      return { ...s, [key]: { ...cur, approved: { at: new Date().toISOString() } } };
+    });
+
+  // Write/clear a correction note for one field of one pass.
+  const setCorrection = (key: string, field: string, note: string) =>
+    updateAudit((s) => {
+      const cur = s[key] || {};
+      const notes = { ...(cur.corrections?.notes || {}) };
+      if (note.trim() === "") delete notes[field];
+      else notes[field] = note;
+      const next = { ...s };
+      if (Object.keys(notes).length === 0) {
+        const { corrections: _c, ...rest } = cur;
+        if (Object.keys(rest).length === 0) delete next[key];
+        else next[key] = rest;
+      } else {
+        next[key] = { ...cur, corrections: { at: new Date().toISOString(), notes } };
+      }
+      return next;
+    });
+
   const [expandedLibs, setExpandedLibs] = useState<Set<string>>(new Set());
   const toggleExpand = (libId: string) =>
     setExpandedLibs((prev) => {
@@ -480,6 +517,9 @@ export default function Matrix({ bundle }: Props) {
                 setOpenKey={setOpenKey}
                 adult={adult}
                 resFlag={resFlag}
+                audit={audit}
+                onToggleApprove={toggleApprove}
+                onSetCorrection={setCorrection}
                 onBook={(lib) => {
                   setBookAttr(a);
                   setBookLib(lib);
@@ -526,10 +566,13 @@ interface RowProps {
   setOpenKey: (k: string | null) => void;
   adult: number | null;
   resFlag: ReturnType<typeof reservationFlag>;
+  audit: AuditState;
+  onToggleApprove: (key: string) => void;
+  onSetCorrection: (key: string, field: string, note: string) => void;
   onBook: (lib: Library) => void;
 }
 
-function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult, resFlag, onBook }: RowProps) {
+function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult, resFlag, audit, onToggleApprove, onSetCorrection, onBook }: RowProps) {
   return (
     <>
       <Popover placement="right-start" showArrow>
@@ -565,6 +608,8 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
         const masked = !cellMatch(p);
         const branch = c.kind === "branch" ? c.branch : null;
         const locTitle = branch ? `${l.town} · ${branch.name}` : l.town;
+        const pkey = passKey(p.library_id, p.attraction_slug);
+        const entry = audit[pkey];
         return (
           <Popover
             key={key}
@@ -579,7 +624,7 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
                 style={masked ? { opacity: 0.18 } : undefined}
                 title={`${attr.name} × ${locTitle}`}
               >
-                <CellGlyph p={p} lib={l} />
+                <CellGlyph p={p} lib={l} approved={!!entry?.approved} hasCorrection={!!entry?.corrections} />
               </div>
             </PopoverTrigger>
             <PopoverContent>
@@ -588,6 +633,9 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
                 attr={attr}
                 lib={l}
                 branch={branch}
+                entry={entry}
+                onToggleApprove={() => onToggleApprove(pkey)}
+                onSetCorrection={(field, note) => onSetCorrection(pkey, field, note)}
                 onBook={() => {
                   setOpenKey(null);
                   onBook(l);
@@ -638,7 +686,7 @@ function EvidenceSection({ items }: { items: EvidenceItem[] }) {
   );
 }
 
-function CellGlyph({ p, lib }: { p: Pass; lib: Library }) {
+function CellGlyph({ p, lib, approved, hasCorrection }: { p: Pass; lib: Library; approved?: boolean; hasCorrection?: boolean }) {
   const fl = formLabel(p.pass_form);
   const verdict = p.booking_access_probe?.verdict;
   const ownOnly = verdict === "own_card_only";
@@ -658,6 +706,8 @@ function CellGlyph({ p, lib }: { p: Pass; lib: Library }) {
   }
   return (
     <div className="glyph">
+      {approved && <span className="approved-badge" title="已 Approve · 数据已人工认证" />}
+      {hasCorrection && !approved && <span className="correction-badge" title="有纠错备注 · 待 review" />}
       <div className="glyph-l1">
         <span className="amount">{simpleDiscount(p.coupon)}</span>
         {fl.cellIcon && <span className="form-icon-solid">{fl.cellIcon}</span>}
@@ -776,12 +826,18 @@ function CellDetail({
   attr,
   lib,
   branch,
+  entry,
+  onToggleApprove,
+  onSetCorrection,
   onBook,
 }: {
   p: Pass;
   attr: Attraction;
   lib: Library;
   branch?: Branch | null;
+  entry?: { approved?: { at: string }; corrections?: { at: string; notes: Record<string, string> } };
+  onToggleApprove: () => void;
+  onSetCorrection: (field: string, note: string) => void;
   onBook: () => void;
 }) {
   const fl = formLabel(p.pass_form);
@@ -844,6 +900,38 @@ function CellDetail({
       <div className="row"><span className="k">卡限制 (system 层)</span><span title={p.booking_access_probe?.evidence || ""}>{vd.dot} {vd.text}</span></div>
       <div className="row"><span className="k">取券居住地</span><span style={{ color: pr.warn ? "#8c2a1e" : "#1a1917" }}>{pr.text}</span></div>
       <div className="row"><span className="k">每月领取限制</span><span>{fq || "不限"}</span></div>
+      <div className="audit-controls">
+        <label className="approve-toggle">
+          <input
+            type="checkbox"
+            checked={!!entry?.approved}
+            onChange={onToggleApprove}
+          />
+          <span>
+            <strong>Approve</strong> · 标记本格数据已人工认证
+          </span>
+          {entry?.approved && (
+            <span className="approved-meta">at {new Date(entry.approved.at).toLocaleString()}</span>
+          )}
+        </label>
+        <details className="correction-form">
+          <summary>📝 数据纠错 (按字段填备注)</summary>
+          <div className="correction-fields">
+            {AUDITABLE_FIELDS.map((f) => (
+              <div className="cf-row" key={f.key}>
+                <label className="cf-label">{f.label}</label>
+                <textarea
+                  className="cf-input"
+                  rows={1}
+                  placeholder={entry?.corrections?.notes[f.key] ? "" : "(无备注 · 填写即保存)"}
+                  defaultValue={entry?.corrections?.notes[f.key] || ""}
+                  onBlur={(e) => onSetCorrection(f.key, e.target.value)}
+                />
+              </div>
+            ))}
+          </div>
+        </details>
+      </div>
       <EvidenceSection
         items={[
           { label: "Pass 源页面", source: p.source_url || null },

@@ -176,6 +176,32 @@ body,
 .mx-cell.empty:hover {
   background-color: #ecebe5;
 }
+
+/* Audit badges. Approved cells get a tiny green corner-triangle in the
+   top-right; cells with only correction notes (not yet approved) get an
+   amber dot. Distinct shapes so the two states are unambiguous. */
+.mx-cell .approved-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 9px 9px 0;
+  border-color: transparent #1b5740 transparent transparent;
+  pointer-events: none;
+}
+.mx-cell .correction-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d97706;
+  pointer-events: none;
+}
+
 /* Cell glyph — 3 lines: discount+form, network/town, residency (optional). */
 .mx-cell .glyph {
   display: flex;
@@ -251,6 +277,29 @@ body,
 .app-header .tab.active {
   background: #2a7055;
   color: #fafaf7;
+}
+.app-header .header-spacer { flex: 1; }
+.app-header .audit-counter {
+  font-size: 12px;
+  color: #c4ddcf;
+  white-space: nowrap;
+}
+.app-header .header-btn {
+  background: #fafaf7;
+  color: #1b5740;
+  border: 1px solid #c4ddcf;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.app-header .header-btn:hover:not(:disabled) {
+  background: #c4ddcf;
+}
+.app-header .header-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 .app-body {
   padding: 14px 20px;
@@ -377,6 +426,71 @@ body,
 .detail-card .breakdown .pol .v {
   font-weight: 600;
   color: #1b5740;
+}
+
+/* Audit controls — sits between the data section and the evidence section
+   inside the Pass cell popover. Approve toggle + collapsible correction form. */
+.detail-card .audit-controls {
+  margin-top: 8px;
+  padding: 6px 8px;
+  background: #eaf1ee;
+  border: 1px dashed #c4ddcf;
+  border-radius: 4px;
+  font-size: 11px;
+}
+.detail-card .approve-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+.detail-card .approve-toggle input[type="checkbox"] {
+  accent-color: #1b5740;
+  cursor: pointer;
+}
+.detail-card .approve-toggle .approved-meta {
+  margin-left: auto;
+  color: #4a4845;
+  font-size: 10px;
+}
+.detail-card .correction-form {
+  margin-top: 6px;
+}
+.detail-card .correction-form > summary {
+  cursor: pointer;
+  color: #8c6018;
+  font-weight: 600;
+  user-select: none;
+  padding: 2px 0;
+}
+.detail-card .correction-fields {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.detail-card .cf-row { display: flex; flex-direction: column; gap: 1px; }
+.detail-card .cf-label {
+  font-size: 10px;
+  color: #4a4845;
+  font-weight: 600;
+}
+.detail-card .cf-input {
+  font: inherit;
+  font-size: 11px;
+  padding: 3px 5px;
+  border: 1px solid #d0cec6;
+  border-radius: 3px;
+  background: #fafaf7;
+  resize: vertical;
+  min-height: 22px;
+  font-family: inherit;
+}
+.detail-card .cf-input:focus {
+  outline: none;
+  border-color: #1b5740;
+  background: #fff;
 }
 
 /* Evidence section — bottom of every popover. Shows raw source quotes + a
