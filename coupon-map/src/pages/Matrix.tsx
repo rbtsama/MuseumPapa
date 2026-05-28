@@ -23,6 +23,18 @@ import BookingWizard from "../components/BookingWizard";
 
 interface Props { bundle: DataBundle }
 
+// Per-network super-header tint (newspaper palette, low-saturation muted hues).
+// Sized 5 → 5 networks; the green stays the anchor (Minuteman is the largest
+// group), the others read as related-but-distinct without breaking the editorial
+// look. Falls back to deep green for any unknown network.
+const NETWORK_COLOR: Record<string, string> = {
+  Minuteman: "#1B5740", // main deep green
+  NOBLE:     "#2A4A6B", // newsprint navy
+  MVLC:      "#8C6018", // gold
+  OCLN:      "#8C2A1E", // burgundy
+  MBLN:      "#4A4845", // dark ink
+};
+
 // One matrix column = either a library (institutional) or a branch sub-column
 // (pickup-location only — policy is verified identical across branches).
 export type Col =
@@ -225,7 +237,7 @@ export default function Matrix({ bundle }: Props) {
             <div
               key={g.network}
               className="mx-net"
-              style={{ gridColumn: `span ${g.span}` }}
+              style={{ gridColumn: `span ${g.span}`, background: NETWORK_COLOR[g.network] || "#1B5740" }}
               title={`${g.network} (${g.span} 馆)`}
             >
               {g.network} · {g.span}

@@ -43,19 +43,20 @@ body,
   position: sticky;
   top: 0;
   z-index: 4;
-  background: #1b5740;
+  background: #1b5740; /* default; per-network color comes via inline style */
   color: #fafaf7;
   font-weight: 600;
   text-align: center;
-  border-right: 3px solid #fafaf7;
+  border-right: 2px solid rgba(250, 250, 247, 0.35); /* soft cream seam */
   padding: 6px 8px;
   letter-spacing: 1px;
 }
-/* network-boundary divider: applied to every cell in the first column of
-   each network group (towns header + all data rows) for a strong vertical seam */
+/* network-boundary divider: soft 1px dashed seam in the rule color so the
+   eye picks out groups without the seam shouting over the data. The colored
+   super-header above is what marks the group identity. */
 .mx-town.net-start,
 .mx-cell.net-start {
-  border-left: 3px solid #8c6018;
+  border-left: 1px dashed #b5b2a8;
 }
 
 /* Branch column headers — peer-level pickup locations, lightly distinguished
