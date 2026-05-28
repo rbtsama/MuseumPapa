@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-27T17:31:09.869462+00:00",
+    "built_at": "2026-05-27T20:02:02.955480+00:00",
     "n_libraries": 59
   },
   "libraries": [
@@ -101,15 +101,15 @@
       "id": "woburn",
       "name": "Woburn Public Library",
       "town": "Woburn",
-      "network": "NOBLE",
+      "network": "Minuteman",
       "platform": "assabet",
-      "consortium_label": "NOBLE",
-      "card_issuance_group": "NOBLE",
+      "consortium_label": "Minuteman",
+      "card_issuance_group": "Minuteman",
       "card_issuance_groups": [
-        "NOBLE"
+        "Minuteman"
       ],
       "card_auth_groups": [
-        "NOBLE"
+        "Minuteman"
       ],
       "card_page": "https://woburnpubliclibrary.org/services/how-to-get-a-library-card/",
       "address": {
@@ -349,15 +349,15 @@
       "id": "north-reading",
       "name": "Flint Memorial Library",
       "town": "North Reading",
-      "network": "NOBLE",
+      "network": "MVLC",
       "platform": "assabet",
-      "consortium_label": "NOBLE",
-      "card_issuance_group": "NOBLE",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
       "card_issuance_groups": [
-        "NOBLE"
+        "MVLC"
       ],
       "card_auth_groups": [
-        "NOBLE"
+        "MVLC"
       ],
       "card_page": "https://flintmemoriallibrary.org/home/borrow-materials/",
       "address": {
@@ -442,9 +442,9 @@
       "id": "bpl",
       "name": "Boston Public Library",
       "town": "Boston",
-      "network": "BPL",
+      "network": "MBLN",
       "platform": "libcal",
-      "consortium_label": "BPL",
+      "consortium_label": "MBLN",
       "card_issuance_group": "BPL",
       "card_issuance_groups": [
         "BPL"
@@ -903,7 +903,8 @@
         "01840",
         "01841",
         "01843"
-      ]
+      ],
+      "pass_page": "https://www.lawrencepl.org/cultural-passes"
     },
     {
       "id": "methuen",
@@ -1230,15 +1231,15 @@
       "id": "carlisle",
       "name": "Gleason Public Library",
       "town": "Carlisle",
-      "network": "Minuteman",
+      "network": "MVLC",
       "platform": "assabet",
-      "consortium_label": "Minuteman",
-      "card_issuance_group": "Minuteman",
+      "consortium_label": "MVLC",
+      "card_issuance_group": "MVLC",
       "card_issuance_groups": [
-        "Minuteman"
+        "MVLC"
       ],
       "card_auth_groups": [
-        "Minuteman"
+        "MVLC"
       ],
       "card_page": "https://gleasonlibrary.org/get-a-library-card",
       "address": {
