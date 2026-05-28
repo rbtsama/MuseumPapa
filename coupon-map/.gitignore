@@ -1,0 +1,6 @@
+node_modules
+dist
+.vite
+public/data
+*.local
+.env*

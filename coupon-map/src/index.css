@@ -1,0 +1,337 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: #f4f3ef;
+  color: #1a1917;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+}
+
+/* ── Matrix layout ─────────────────────────────────────────────────────
+   Built with CSS grid + sticky for the cross-tab. HeroUI <Table> is row-list
+   oriented and not suited to a double-sticky 96×59 cross-tab. */
+.matrix-scroll {
+  overflow: auto;
+  max-height: calc(100vh - 200px);
+  border: 1px solid #d0cec6;
+  border-radius: 6px;
+  background: #fafaf7;
+}
+.matrix {
+  display: grid;
+  font-size: 12px;
+}
+.mx-net,
+.mx-town,
+.mx-row-head,
+.mx-cell {
+  border-bottom: 1px solid #ecebe5;
+  border-right: 1px solid #ecebe5;
+  padding: 4px 6px;
+  background: #fafaf7;
+}
+.mx-net {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: #1b5740;
+  color: #fafaf7;
+  font-weight: 600;
+  text-align: center;
+  border-right: 1px solid #2a7055;
+  padding: 6px 8px;
+}
+.mx-town {
+  position: sticky;
+  top: 28px;
+  z-index: 3;
+  background: #eaf1ee;
+  color: #1a1917;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.mx-town:hover {
+  background: #c4ddcf;
+}
+.mx-corner {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  background: #1b5740;
+  color: #fafaf7;
+  border-right: 2px solid #2a7055;
+  border-bottom: 1px solid #2a7055;
+  padding: 6px 8px;
+  font-weight: 600;
+}
+.mx-corner-2 {
+  position: sticky;
+  top: 28px;
+  left: 0;
+  z-index: 5;
+  background: #ecebe5;
+  border-right: 2px solid #b5b2a8;
+  font-weight: 600;
+  padding: 4px 8px;
+}
+.mx-row-head {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: #fafaf7;
+  border-right: 2px solid #b5b2a8;
+  cursor: pointer;
+  text-align: left;
+  min-width: 260px;
+  max-width: 260px;
+}
+.mx-row-head:hover {
+  background: #f4efe8;
+}
+.mx-row-head .attr-name {
+  font-weight: 600;
+  color: #1a1917;
+}
+.mx-row-head .attr-meta {
+  font-size: 11px;
+  color: #4a4845;
+  margin-top: 2px;
+}
+
+.mx-cell {
+  text-align: center;
+  font-size: 11px;
+  min-width: 78px;
+  max-width: 78px;
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+}
+.mx-cell:hover {
+  background: #eaf1ee;
+}
+.mx-cell.empty {
+  background-image: linear-gradient(
+    135deg,
+    #ecebe5 25%,
+    transparent 25%,
+    transparent 50%,
+    #ecebe5 50%,
+    #ecebe5 75%,
+    transparent 75%
+  );
+  background-size: 6px 6px;
+  cursor: default;
+}
+.mx-cell.empty:hover {
+  background-color: #ecebe5;
+}
+.mx-cell .summary {
+  font-weight: 600;
+  color: #1b5740;
+}
+.mx-cell .form-icon {
+  font-size: 10px;
+  color: #8c6018;
+}
+.mx-cell .dot-avail {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.mx-cell .own-only {
+  color: #8c2a1e;
+  font-size: 10px;
+  margin-left: 3px;
+}
+
+/* ── Tabs / chrome ──────────────────────────────────────────────────── */
+.app-header {
+  background: #1b5740;
+  color: #fafaf7;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.app-header h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.app-header .tab {
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #c4ddcf;
+  font-size: 13px;
+}
+.app-header .tab.active {
+  background: #2a7055;
+  color: #fafaf7;
+}
+.app-body {
+  padding: 14px 20px;
+}
+
+/* ── Filter bar ─────────────────────────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 8px 10px;
+  background: #ecebe5;
+  border-radius: 6px;
+  font-size: 12px;
+}
+.filter-bar .count {
+  color: #4a4845;
+  margin-left: auto;
+}
+.filter-bar select,
+.filter-bar input[type="text"] {
+  font: inherit;
+  padding: 4px 6px;
+  border: 1px solid #d0cec6;
+  border-radius: 4px;
+  background: #fafaf7;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #c4ddcf;
+  color: #1b5740;
+  font-size: 11px;
+}
+
+/* ── Detail popover & wizard ────────────────────────────────────────── */
+.detail-card {
+  padding: 12px 14px;
+  max-width: 360px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.detail-card h4 {
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+.detail-card .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 2px 0;
+}
+.detail-card .row .k {
+  color: #4a4845;
+}
+
+.wizard {
+  padding: 8px 4px;
+}
+.wizard h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+.lib-pick {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 420px;
+  overflow: auto;
+}
+.lib-pick .pick {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border: 1px solid #d0cec6;
+  border-radius: 4px;
+  background: #fafaf7;
+}
+.lib-pick .pick.dim {
+  opacity: 0.45;
+  background: #ecebe5;
+}
+.lib-pick .pick .town {
+  font-weight: 600;
+  min-width: 110px;
+}
+.lib-pick .pick .form {
+  color: #8c6018;
+  font-size: 11px;
+  min-width: 80px;
+}
+.lib-pick .pick .summary {
+  color: #1b5740;
+  font-weight: 600;
+  min-width: 80px;
+}
+.lib-pick .pick .card {
+  margin-left: auto;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 11px;
+}
+.lib-pick .pick .card.no {
+  color: #8c2a1e;
+}
+
+/* ── Cards page ─────────────────────────────────────────────────────── */
+.card-row {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px dashed #ecebe5;
+}
+.card-row input,
+.card-row select {
+  padding: 4px 6px;
+  border: 1px solid #d0cec6;
+  border-radius: 4px;
+  background: #fafaf7;
+  font: inherit;
+}
+.card-row .barcode {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ── Loading / error screens ────────────────────────────────────────── */
+.fullscreen {
+  display: grid;
+  place-items: center;
+  height: 60vh;
+  text-align: center;
+  color: #4a4845;
+}
+.fullscreen.error {
+  color: #8c2a1e;
+  white-space: pre-wrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  text-align: left;
+  padding: 24px;
+  align-items: start;
+}
