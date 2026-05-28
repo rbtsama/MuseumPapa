@@ -2,6 +2,9 @@ import { useMemo, useState } from "react";
 import { Modal, ModalBody, ModalContent, ModalHeader, Popover, PopoverContent, PopoverTrigger } from "@heroui/react";
 import type { Attraction, Branch, DataBundle, Library, Pass } from "../data/types";
 import {
+  ELIGIBILITY_CATEGORIES,
+  RESIDENCY_CATEGORIES,
+  VERDICT_CATEGORIES,
   adultPrice,
   audienceLabel,
   availabilitySummary,
@@ -106,6 +109,51 @@ export default function Matrix({ bundle }: Props) {
 
   return (
     <div>
+      <details className="legend">
+        <summary>📖 维度分类说明 (点开看完整分类)</summary>
+        <div className="legend-grid">
+          <div className="legend-col">
+            <h5>卡限制 (system 层) — booking_access_probe.verdict</h5>
+            {VERDICT_CATEGORIES.map((v) => {
+              const l = verdictLabel(v, { network: "<network>", town: "<town>" });
+              return (
+                <div className="lg-row" key={v}>
+                  <span className="lg-dot">{l.dot}</span>
+                  <code>{v}</code>
+                  <span className="lg-text">{l.text}</span>
+                </div>
+              );
+            })}
+          </div>
+          <div className="legend-col">
+            <h5>办卡资格 — library.card_eligibility</h5>
+            {ELIGIBILITY_CATEGORIES.map((v) => {
+              const l = eligibilityLabel(v, { network: "<network>", town: "<town>" });
+              return (
+                <div className="lg-row" key={v}>
+                  <span className="lg-dot">{l.warn ? "⚠" : "·"}</span>
+                  <code>{v}</code>
+                  <span className="lg-text">{l.text}</span>
+                </div>
+              );
+            })}
+          </div>
+          <div className="legend-col">
+            <h5>取券居住地 — pass.residency_restriction</h5>
+            {RESIDENCY_CATEGORIES.map((v) => {
+              const l = passResidencyLabel(v, "town", { town: "<town>" });
+              return (
+                <div className="lg-row" key={v}>
+                  <span className="lg-dot">{l.warn ? "⚠" : "·"}</span>
+                  <code>{v}</code>
+                  <span className="lg-text">{l.text}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </details>
+
       <div className="filter-bar">
         <input
           type="text"
@@ -168,7 +216,7 @@ export default function Matrix({ bundle }: Props) {
             c.kind === "lib"
               ? (() => {
                   const l = c.lib;
-                  const e = eligibilityLabel(l.card_eligibility);
+                  const e = eligibilityLabel(l.card_eligibility, { network: l.network, town: l.town });
                   const expanded = expandedLibs.has(l.id);
                   const multi = c.branches.length > 1;
                   const cls = `mx-town${c.netStart ? " net-start" : ""}`;
@@ -280,8 +328,8 @@ export default function Matrix({ bundle }: Props) {
                             </div>
                           )}
                           <div className="row">
-                            <span className="k">办卡 residency</span>
-                            <span>{eligibilityLabel(c.lib.card_eligibility).text}</span>
+                            <span className="k">办卡资格</span>
+                            <span>{eligibilityLabel(c.lib.card_eligibility, { network: c.lib.network, town: c.lib.town }).text}</span>
                           </div>
                           <div className="row">
                             <span className="k">营业时间</span>
@@ -522,8 +570,8 @@ function CellDetail({
   onBook: () => void;
 }) {
   const fl = formLabel(p.pass_form);
-  const vd = verdictLabel(p.booking_access_probe?.verdict);
-  const pr = passResidencyLabel(p.residency_restriction?.restricted);
+  const vd = verdictLabel(p.booking_access_probe?.verdict, { network: lib.network, town: lib.town });
+  const pr = passResidencyLabel(p.residency_restriction?.restricted, p.residency_restriction?.scope, { town: lib.town });
   const fq = frequencyLimit(p.restrictions?.booking_frequency_limit);
   const cap = p.coupon.capacity?.n;
   return (
@@ -544,8 +592,8 @@ function CellDetail({
       <div className="row"><span className="k">折扣</span><span style={{ color: "#1B5740", fontWeight: 600 }}>{p.coupon.summary}</span></div>
       <div className="row"><span className="k">人数上限</span><span>{cap ? `up to ${cap} ${p.coupon.capacity?.kind || "people"}` : "—"}</span></div>
       <div className="row"><span className="k">领取方式</span><span title={fl.tooltip}>{fl.icon} {fl.short}</span></div>
-      <div className="row"><span className="k">卡限制</span><span title={p.booking_access_probe?.evidence || ""}>{vd.dot} {vd.text}</span></div>
-      <div className="row"><span className="k">取券 residency</span><span style={{ color: pr.warn ? "#8c2a1e" : "#1a1917" }}>{pr.text}</span></div>
+      <div className="row"><span className="k">卡限制 (system 层)</span><span title={p.booking_access_probe?.evidence || ""}>{vd.dot} {vd.text}</span></div>
+      <div className="row"><span className="k">取券居住地</span><span style={{ color: pr.warn ? "#8c2a1e" : "#1a1917" }}>{pr.text}</span></div>
       <div className="row"><span className="k">每月领取限制</span><span>{fq || "不限"}</span></div>
       {p.coupon.audience_policies && p.coupon.audience_policies.length > 0 ? (
         <div className="breakdown">

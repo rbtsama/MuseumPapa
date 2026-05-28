@@ -29,48 +29,97 @@ export function formLabel(f: PassForm): FormLabel {
 }
 
 // ── booking_access_probe.verdict (per-pass card scope) ───────────────────
-export function verdictLabel(v: Verdict | undefined) {
+// Returns a label spelled out with the lib's actual network/town so the user
+// doesn't have to remember what each verdict means. All 4 possible categories:
+//   network_open  — 同 network 任意卡都能用
+//   own_card_only — 只接受本馆发的卡(连同 network 其他馆的卡也不行)
+//   not_verified  — 从未做 booking probe
+//   ambiguous     — 跑过 probe 但无可订日期可测/结果不确定
+export function verdictLabel(
+  v: Verdict | undefined,
+  ctx?: { network?: string; town?: string }
+) {
+  const net = ctx?.network ?? "network";
+  const town = ctx?.town ?? "本馆";
   switch (v) {
     case "network_open":
-      return { dot: "🟢", text: "本 network 任意卡", tone: "g" as const };
+      return { dot: "🟢", text: `${net} 网络任意卡可用`, tone: "g" as const };
     case "own_card_only":
-      return { dot: "🔴", text: "仅本馆卡", tone: "rd" as const };
+      return { dot: "🔴", text: `仅 ${town} 本馆卡可用`, tone: "rd" as const };
     case "ambiguous":
-      return { dot: "🟠", text: "存疑", tone: "or" as const };
+      return { dot: "🟠", text: "已测,结果不确定 (无可订日期)", tone: "or" as const };
     case "not_verified":
     default:
-      return { dot: "⚪", text: "未验证", tone: "ink-3" as const };
+      return { dot: "⚪", text: "尚未实测验证", tone: "ink-3" as const };
   }
 }
+
+// All 4 possible verdict categories — used by the matrix legend.
+export const VERDICT_CATEGORIES: Verdict[] = [
+  "network_open",
+  "own_card_only",
+  "ambiguous",
+  "not_verified",
+];
 
 // ── library.card_eligibility (residency to get the card) ─────────────────
-export function eligibilityLabel(e: Eligibility) {
+// All 5 possible categories:
+//   ma_resident   — 任何 MA 居民
+//   town_resident — 仅本镇居民
+//   town_or_works — 本镇居民 OR 在本镇工作 / 上学 / 持物业
+//   network       — 本 network 覆盖区居民
+//   unknown       — 未确认
+export function eligibilityLabel(
+  e: Eligibility,
+  ctx?: { network?: string; town?: string }
+) {
+  const net = ctx?.network ?? "network";
+  const town = ctx?.town ?? "本镇";
   switch (e) {
     case "ma_resident":
-      return { text: "MA 居民", warn: false, tooltip: "MA 居民均可,等同无 residency 限制" };
+      return { text: "任何 MA 居民可办卡", warn: false, tooltip: "MA 居民均可,等同无 residency 限制" };
     case "town_resident":
-      return { text: "⚠ 仅本镇居民", warn: true, tooltip: "仅本镇居民可办卡" };
+      return { text: `⚠ 仅 ${town} 居民可办卡`, warn: true, tooltip: `仅 ${town} 居民可办卡` };
     case "town_or_works":
-      return { text: "本镇居民或工作者", warn: true, tooltip: "本镇居民或在本镇工作" };
+      return { text: `${town} 居民或工作者可办卡`, warn: true, tooltip: `${town} 居民,或在 ${town} 工作/上学/持物业者` };
     case "network":
-      return { text: "本 network 居民", warn: false, tooltip: "本 network 覆盖范围内居民" };
+      return { text: `${net} 网络覆盖区居民可办卡`, warn: false, tooltip: `${net} network 服务区内居民` };
     case "unknown":
-      return { text: "未知", warn: false, tooltip: "未确认" };
+      return { text: "办卡资格未知", warn: false, tooltip: "未确认" };
   }
 }
 
-// ── pass-level residency (pickup residency, per [[product_dimension_pass_pickup_residency]]) ─
-export function passResidencyLabel(r: Residency | undefined) {
+export const ELIGIBILITY_CATEGORIES: Eligibility[] = [
+  "ma_resident",
+  "town_resident",
+  "town_or_works",
+  "network",
+  "unknown",
+];
+
+// ── pass-level residency (pickup residency) ──────────────────────────────
+// All 3 categories. yes=取这张 pass 时被验居住地;scope 通常是 town,即
+// 必须是该馆所在 town 的居民才能取这张 pass。
+export function passResidencyLabel(
+  r: Residency | undefined,
+  scope?: string | null,
+  ctx?: { town?: string }
+) {
+  const town = ctx?.town ?? "本馆所在镇";
   switch (r) {
     case "yes":
-      return { text: "⚠ 取券有 residency 限制", warn: true };
+      if (scope === "town")
+        return { text: `⚠ 取券仅限 ${town} 居民`, warn: true };
+      return { text: "⚠ 取券有居住地限制", warn: true };
     case "no":
-      return { text: "取券无 residency 限制", warn: false };
+      return { text: "取券无居住地限制", warn: false };
     case "unknown":
     default:
-      return { text: "取券限制未知", warn: false };
+      return { text: "取券限制未知 (未探测)", warn: false };
   }
 }
+
+export const RESIDENCY_CATEGORIES: Residency[] = ["no", "yes", "unknown"];
 
 // ── monthly booking-frequency limit (mostly free text, rarely set) ───────
 export function frequencyLimit(s: string | null | undefined): string | null {

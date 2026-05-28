@@ -227,6 +227,56 @@ body,
   padding: 14px 20px;
 }
 
+/* ── Legend (taxonomy reference) ─────────────────────────────────────── */
+.legend {
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  background: #ecebe5;
+  border: 1px solid #d0cec6;
+  border-radius: 6px;
+  font-size: 12px;
+}
+.legend > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #1b5740;
+  user-select: none;
+}
+.legend-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+.legend-col h5 {
+  margin: 0 0 4px;
+  font-size: 11px;
+  color: #4a4845;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.legend-col .lg-row {
+  display: grid;
+  grid-template-columns: 22px 110px 1fr;
+  gap: 4px;
+  align-items: center;
+  padding: 1px 0;
+  font-size: 11px;
+}
+.legend-col .lg-dot {
+  text-align: center;
+}
+.legend-col code {
+  background: #fafaf7;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 10px;
+  color: #4a4845;
+}
+.legend-col .lg-text {
+  color: #1a1917;
+}
+
 /* ── Filter bar ─────────────────────────────────────────────────────── */
 .filter-bar {
   display: flex;
