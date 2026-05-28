@@ -77,19 +77,27 @@ body,
   letter-spacing: 0;
   border-left: 1px dashed #d0cec6;
 }
+/* Expand button anchored to the town cell's top-right corner so the town
+   name stays centered and the button never gets covered by a neighbouring
+   sticky town header. The town cell rises to z-index 5 when an expand
+   button is present so the small badge actually sits above the rest. */
+.mx-town:has(.expand-btn) {
+  z-index: 5;
+}
 .mx-town .expand-btn {
-  display: inline-block;
-  margin-left: 4px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
   padding: 0 4px;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 700;
   background: #8c6018;
   color: #fafaf7;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  line-height: 14px;
-  vertical-align: middle;
+  line-height: 13px;
+  z-index: 10;
 }
 .mx-town .expand-btn:hover {
   background: #d97706;
@@ -177,16 +185,9 @@ body,
   background: #c4ddcf;
 }
 .mx-cell.empty {
-  background-image: linear-gradient(
-    135deg,
-    #d8d6cc 25%,
-    transparent 25%,
-    transparent 50%,
-    #d8d6cc 50%,
-    #d8d6cc 75%,
-    transparent 75%
-  );
-  background-size: 6px 6px;
+  /* No stripes — just a faint flat tint so empty cells read as "no pass
+     here" without flickering the eye. */
+  background: #f4f3ef;
   cursor: default;
 }
 .mx-cell.empty:hover {
