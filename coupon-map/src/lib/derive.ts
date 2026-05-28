@@ -232,15 +232,18 @@ export function policyText(p: AudiencePolicy): string {
 }
 
 // Compact discount for the matrix cell — picks the primary audience policy
-// and returns a short label like "-50%", "$10", "-$2", "FREE", "B1G1".
-// If multiple policies disagree, returns the first (typically "Everyone").
+// and returns a short label like "-50%", "$10", "-$2", "FREE", "B1G1", "$8.5".
+// If we fall back to coupon.summary, strip per-person suffixes ("/person",
+// "/p", "/人", "/each") so the cell stays compact.
+const stripPerUnit = (s: string) =>
+  s.replace(/\s*\/\s*(?:person|each\s+person|each|p|人)\b/i, "").trim();
 export function simpleDiscount(coupon: {
   summary?: string;
   audience_policies?: AudiencePolicy[];
 } | null | undefined): string {
   if (!coupon) return "—";
   const policies = coupon.audience_policies || [];
-  if (policies.length === 0) return coupon.summary || "—";
+  if (policies.length === 0) return stripPerUnit(coupon.summary || "—");
   // Prefer an "Everyone" / "Adult" policy; otherwise first.
   const primary =
     policies.find((p) => /everyone/i.test(p.audience)) ||
@@ -249,20 +252,20 @@ export function simpleDiscount(coupon: {
   const v = primary.value;
   switch ((primary.form || "").toLowerCase()) {
     case "percent-off":
-      return v != null ? `-${v}%` : coupon.summary || "—";
+      return v != null ? `-${v}%` : stripPerUnit(coupon.summary || "—");
     case "free":
       return "FREE";
     case "dollars-off":
     case "dollar-off":
-      return v != null ? `-$${v}` : coupon.summary || "—";
+      return v != null ? `-$${v}` : stripPerUnit(coupon.summary || "—");
     case "fixed-price":
-      return v != null ? `$${v}` : coupon.summary || "—";
+      return v != null ? `$${v}` : stripPerUnit(coupon.summary || "—");
     case "fixed-total":
-      return v != null ? `$${v}` : coupon.summary || "—";
+      return v != null ? `$${v}` : stripPerUnit(coupon.summary || "—");
     case "bogo":
       return "B1G1";
     default:
-      return coupon.summary || "—";
+      return stripPerUnit(coupon.summary || "—");
   }
 }
 

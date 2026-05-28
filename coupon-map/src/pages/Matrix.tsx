@@ -115,6 +115,39 @@ export default function Matrix({ bundle }: Props) {
         <summary>📖 维度分类说明 (点开看完整分类)</summary>
         <div className="legend-grid">
           <div className="legend-col">
+            <h5>单元格图例</h5>
+            <div className="lg-row">
+              <span className="lg-dot" style={{ background: "#1B5740", display: "inline-block", width: 8, height: 8, borderRadius: "50%" }} />
+              <code>avail dot 绿</code>
+              <span className="lg-text">至少 1 个 future 日期可订</span>
+            </div>
+            <div className="lg-row">
+              <span className="lg-dot" style={{ background: "#D97706", display: "inline-block", width: 8, height: 8, borderRadius: "50%" }} />
+              <code>avail dot 橙</code>
+              <span className="lg-text">future 日期全部 booked</span>
+            </div>
+            <div className="lg-row">
+              <span className="lg-dot" style={{ background: "#B5B2A8", display: "inline-block", width: 8, height: 8, borderRadius: "50%" }} />
+              <code>avail dot 灰</code>
+              <span className="lg-text">全 closed / 无库存数据</span>
+            </div>
+            <div className="lg-row">
+              <span className="lg-dot">★</span>
+              <code>★ / ★★</code>
+              <span className="lg-text">领取方式:★=Pickup,★★=Pickup &amp; return,(无)=Email</span>
+            </div>
+            <div className="lg-row">
+              <span className="lg-dot">💳</span>
+              <code>L2 card</code>
+              <span className="lg-text">卡限制(system 层)</span>
+            </div>
+            <div className="lg-row">
+              <span className="lg-dot">🏠</span>
+              <code>L3 home</code>
+              <span className="lg-text">取券居住地限制</span>
+            </div>
+          </div>
+          <div className="legend-col">
             <h5>卡限制 (system 层) — booking_access_probe.verdict</h5>
             {VERDICT_CATEGORIES.map((v) => {
               const l = verdictLabel(v, { network: "<network>", town: "<town>" });
@@ -628,10 +661,16 @@ function CellGlyph({ p, lib }: { p: Pass; lib: Library }) {
       <div className="glyph-l1">
         <span className="amount">{simpleDiscount(p.coupon)}</span>
         {fl.cellIcon && <span className="form-icon-solid">{fl.cellIcon}</span>}
-        <span className="dot-avail" style={{ background: dot }} />
+        <span className="dot-avail" style={{ background: dot }} title="库存:绿=有可订日 / 橙=已订满 / 灰=全闭" />
       </div>
-      <div className="glyph-l2" style={{ color: networkColor }}>{networkText}</div>
-      {residencyText && <div className="glyph-l3">{residencyText}</div>}
+      <div className="glyph-l2" style={{ color: networkColor }} title="卡限制 (system 层)">
+        <span className="line-icon">💳</span> {networkText}
+      </div>
+      {residencyText && (
+        <div className="glyph-l3" title="取券居住地限制">
+          <span className="line-icon">🏠</span> {residencyText}
+        </div>
+      )}
     </div>
   );
 }
