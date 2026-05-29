@@ -371,7 +371,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                                 { label: "Card page", source: l.card_page || null },
                                 l._evidence?.card_eligibility
                                   ? {
-                                      label: "Resident requirement",
+                                      label: "Library card eligibility",
                                       quote: l._evidence.card_eligibility.block || l._evidence.card_eligibility.evidence || null,
                                       source: l._evidence.card_eligibility.source || null,
                                     }
@@ -460,7 +460,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                               { label: "Card page", source: c.lib.card_page || null },
                               c.lib._evidence?.card_eligibility
                                 ? {
-                                    label: "Resident requirement",
+                                    label: "Library card eligibility",
                                     quote: c.lib._evidence.card_eligibility.block || c.lib._evidence.card_eligibility.evidence || null,
                                     source: c.lib._evidence.card_eligibility.source || null,
                                   }

@@ -228,66 +228,39 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                             "prober_card": probe.get("prober_card"),
                             "probed_date": probe.get("probed_date"),
                         }
-                if probe and probe.get("restricted") in ("yes", "no"):
-                    text_rr = row.get("residency_restriction") or {}
-                    text_is_ma = (text_rr.get("restricted") == "yes"
-                                  and text_rr.get("scope") == "ma")
-                    # AUTHORITATIVE residency: the coupon's own source_phrase_block.
-                    # The probe only tests CARD scope, never residency — it must
-                    # never override an explicit "X residents only" statement.
-                    coupon_res = residency_from_coupon(row.get("coupon"))
-                    if probe["restricted"] == "yes":
-                        # Probe says: same-network non-resident card blocked at
-                        # card-validation. That's card-ownership info only.
-                        row["requires_own_card"] = True
-                        row["own_card_evidence"] = probe.get("evidence")
-                        if coupon_res:
-                            scope, evidence = coupon_res
-                            row["residency_restriction"] = {
-                                "restricted": "yes", "scope": scope,
-                                "source": "coupon_source_phrase",
-                                "evidence": evidence,
-                            }
-                        elif text_is_ma:
-                            pass  # keep the catalog-text MA-resident requirement
-                        else:
-                            # No residency signal anywhere — be HONEST: unknown.
-                            # The probe is silent on residency. Previously this
-                            # branch claimed restricted="no" off the probe alone;
-                            # that was the bug that hid Needham / Winchester
-                            # "residents only" cases.
-                            row["residency_restriction"] = {
-                                "restricted": "unknown", "scope": None,
-                                "source": "booking_probe_card_ownership",
-                                "evidence": (
-                                    "probe shows own-card-only (card scope); "
-                                    "coupon text has no residency statement — residency unknown"
-                                ),
-                            }
-                    elif coupon_res:
-                        # Network-open per probe, but coupon text constrains residency.
-                        scope, evidence = coupon_res
-                        row["residency_restriction"] = {
-                            "restricted": "yes", "scope": scope,
-                            "source": "coupon_source_phrase+booking_probe",
-                            "evidence": evidence + " | booking probe: same-network card accepted",
-                        }
-                    elif text_is_ma:
-                        # network-open per probe, but catalog text requires MA resident.
-                        row["residency_restriction"] = {
-                            "restricted": "yes", "scope": "ma",
-                            "source": "catalog_text+booking_probe",
-                            "evidence": (text_rr.get("evidence") or "")
-                            + " | booking probe: same-network card accepted",
-                        }
-                    else:
-                        # Probe accepted a non-resident card AND coupon text is
-                        # silent on residency → confident "no residency restriction".
-                        row["residency_restriction"] = {
-                            "restricted": "no", "scope": None,
-                            "source": "booking_probe",
-                            "evidence": probe.get("evidence"),
-                        }
+                # ── RESIDENCY POLICY (Pass dimension) ───────────────────────
+                # residency_restriction reflects a STATED pass policy ONLY:
+                #   (1) the coupon's own source_phrase_block (e.g. "X residents
+                #       only"), or (2) a catalog-text residency line carried in
+                #       the legacy extraction, or (3) the library-level pass-page
+                #       policy from config/library_residency.json (applied below).
+                # The booking probe tests CARD scope (does a sibling-network card
+                # book?) — a card-OWNERSHIP fact, NOT a residency policy. It must
+                # never masquerade as the pass's residency source, so it only sets
+                # requires_own_card / booking_access_probe (above), never residency.
+                # When no stated policy exists we leave residency 'unknown' (honest);
+                # the library pass-page sweep (config) resolves it.
+                text_rr = row.get("residency_restriction") or {}
+                text_is_yes = text_rr.get("restricted") == "yes"
+                coupon_res = residency_from_coupon(row.get("coupon"))
+                if coupon_res:
+                    scope, evidence = coupon_res
+                    row["residency_restriction"] = {
+                        "restricted": "yes", "scope": scope,
+                        "source": "coupon_source_phrase", "evidence": evidence,
+                    }
+                elif text_is_yes:
+                    pass  # keep the stated residency carried from catalog text
+                else:
+                    row["residency_restriction"] = {
+                        "restricted": "unknown", "scope": None,
+                        "source": None, "evidence": None,
+                    }
+                if probe and probe.get("restricted") == "yes":
+                    # Sibling-network card blocked at card-validation → this pass
+                    # needs THIS library's own card (card-ownership, not residency).
+                    row["requires_own_card"] = True
+                    row["own_card_evidence"] = probe.get("evidence")
                 avail = _read(raw_root/platform/"availability"/lib/f"{rawslug}.json")
                 if avail:
                     row["availability"] = {d["date"]:d["status"] for d in avail.get("days",[])}
