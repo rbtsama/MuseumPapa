@@ -27,8 +27,8 @@
     "restricted": "yes",
     "scope": "ma",
     "source": "https://bedfordlibrary.net/services/museum-passes/",
-    "evidence": "You will need your valid library card, an email, and a phone number to complete the reservation. (no town restriction stated)",
-    "confidence": "medium"
+    "evidence": "Use your library card to obtain discount passes to many museums and attractions. You will need your valid library card, an email, and a phone number to complete the reservation. (No Bedford-resident restriction stated; any valid library card -> MA floor.)",
+    "confidence": "high"
   },
   "belmont": {
     "restricted": "yes",
@@ -129,8 +129,8 @@
     "restricted": "yes",
     "scope": "ma",
     "source": "https://danverslibrary.org/museum-passes/",
-    "evidence": "patrons must be 16 years of age or older in order to reserve a pass, and patrons must have their library card in order to make a reservation. (no town restriction)",
-    "confidence": "medium"
+    "evidence": "A patron's library account has to be in good standing to reserve or pick up passes. Patrons must be 16 years of age or older in order to reserve a pass. Patrons must have their library card in order to make a reservation. (No Danvers-resident restriction stated -> MA floor.)",
+    "confidence": "high"
   },
   "everett": {
     "restricted": "yes",
@@ -241,8 +241,8 @@
     "restricted": "yes",
     "scope": "ma",
     "source": "https://flintlibrary.org/index.php/library-card-info/",
-    "evidence": "...you will need a tangible card issued by the Flint Public Library or your home library. (any MVLC home-library card; no Middleton-only restriction)",
-    "confidence": "medium"
+    "evidence": "You will not be able to ... reserve museum passes ... with this eCard. For that you will need a tangible card issued by the Flint Public Library or your home library. (Home-library MVLC card accepted -> not Middleton-only -> MA floor.)",
+    "confidence": "high"
   },
   "milton": {
     "restricted": "yes",
@@ -385,7 +385,7 @@
     "restricted": "yes",
     "scope": "ma",
     "source": "https://www.westonlibrary.org/1543/Services",
-    "evidence": "Reserve a museum pass online ... with a valid Weston Library card; same-day first-come-first-served. No town-only reservation restriction stated.",
+    "evidence": "Reserve a museum pass online. You may also reserve museum passes at the library on the day you wish to use them, on a first-come, first-served basis. (No Weston-resident restriction on passes -> MA floor.)",
     "confidence": "medium"
   },
   "wilmington": {
