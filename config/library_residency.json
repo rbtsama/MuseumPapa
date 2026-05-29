@@ -1,0 +1,9 @@
+{
+  "_note": "Library-level pass-pickup residency policy. Some libraries restrict ALL museum-pass LOANING to their own town's residents — a blanket policy stated on the library's public card/pass page, NOT inside any single coupon's text. build/passes.py applies the entry to every pass of that library whose per-pass coupon/probe residency is still 'unknown' (it never overrides a stronger per-pass signal, and human data/overrides still win). scope: 'town' (this library's town) | 'ma' (any MA resident). Add a library here only when a public source confirms it; quote that source in 'evidence'. This is the L2->L3 path of the three-layer model (see data/raw/SOURCE_BLOCKS.md).",
+  "brookline": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://www.brooklinelibrary.org/how/library-card/",
+    "evidence": "Only a few of our services, such as the loaning of museum passes, are restricted to Brookline residents."
+  }
+}

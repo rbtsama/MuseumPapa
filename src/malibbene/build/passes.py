@@ -105,6 +105,15 @@ def _index_pass_types(raw_root: Path, platform: str, lib: str) -> tuple[dict, di
 
 def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
     overrides = load_overrides(overrides_root)
+    # Library-level pass-pickup residency policy (config/library_residency.json):
+    # a blanket "museum passes restricted to <town> residents" stated on a
+    # library's public page, applied below to every pass of that library whose
+    # per-pass residency is still unknown.
+    lr_path = raw_root.parents[1] / "config" / "library_residency.json"
+    lib_residency = {}
+    if lr_path.exists():
+        lib_residency = {k: v for k, v in json.loads(lr_path.read_text(encoding="utf-8")).items()
+                         if not k.startswith("_")}
     out_passes = []
     for platform in PLATFORMS:
         catalog_dir = raw_root / platform / "catalog"
@@ -282,6 +291,17 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                 avail = _read(raw_root/platform/"availability"/lib/f"{rawslug}.json")
                 if avail:
                     row["availability"] = {d["date"]:d["status"] for d in avail.get("days",[])}
+                # Library-level pass-pickup residency: fill from the blanket
+                # library policy when no stronger per-pass signal exists. Runs
+                # before apply_overrides so a human override still wins.
+                lr = lib_residency.get(lib)
+                if lr and (row.get("residency_restriction") or {}).get("restricted") == "unknown":
+                    row["residency_restriction"] = {
+                        "restricted": lr.get("restricted", "yes"),
+                        "scope": lr.get("scope"),
+                        "source": lr.get("source") or "library_pass_policy",
+                        "evidence": lr.get("evidence"),
+                    }
                 key = f"{lib}__{rawslug}"
                 row = apply_overrides(f"pass:{key}", row, overrides)
                 if is_entity_removed(f"pass:{key}", overrides):
