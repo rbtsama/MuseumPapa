@@ -50,7 +50,7 @@ export default function App() {
   const nCorrections = countCorrections(audit);
 
   return (
-    <div>
+    <div className="app-shell">
       <header className="app-header">
         <h1>Coupon Map</h1>
         <div className={`tab ${tab === "matrix" ? "active" : ""}`} onClick={() => setTab("matrix")}>
