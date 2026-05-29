@@ -4,6 +4,7 @@ import type { Attraction, Branch, DataBundle, Library, Pass } from "../data/type
 import { type AuditState, passKey } from "../store/audit";
 import {
   adultPrice,
+  compactHours,
   eligibilityLabel,
   formLabel,
   priceLine,
@@ -324,14 +325,14 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                           {l.hours ? (
                             <div className="data-section">
                               <div className="section-h">Hours</div>
-                              <div className="hours-grid">
-                                {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
-                                  <div key={d}>
-                                    <span className="hours-d">{d.slice(0, 3)}</span>
-                                    <span className="hours-v">{l.hours?.[d] || "—"}</span>
-                                  </div>
+                              <ul className="hours-compact">
+                                {compactHours(l.hours).map((r) => (
+                                  <li key={r.days}>
+                                    <span className="hc-d">{r.days}</span>
+                                    <span className={`hc-v${r.value === "Closed" ? " hc-closed" : ""}`}>{r.value}</span>
+                                  </li>
                                 ))}
-                              </div>
+                              </ul>
                             </div>
                           ) : l.hours_note ? (
                             <div className="data-section">
@@ -670,14 +671,14 @@ function AttractionDetail({ a }: { a: Attraction }) {
       {a.hours ? (
         <div className="data-section">
           <div className="section-h">Hours</div>
-          <div className="hours-grid">
-            {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
-              <div key={d}>
-                <span className="hours-d">{d.slice(0, 3)}</span>
-                <span className="hours-v">{a.hours?.[d] || "—"}</span>
-              </div>
+          <ul className="hours-compact">
+            {compactHours(a.hours).map((r) => (
+              <li key={r.days}>
+                <span className="hc-d">{r.days}</span>
+                <span className={`hc-v${r.value === "Closed" ? " hc-closed" : ""}`}>{r.value}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       ) : a.hours_note ? (
         <div className="data-section">

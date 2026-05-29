@@ -431,6 +431,13 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                     const usable = usableIds.has(c.id);
                     const cardLib = bundle.libById.get(c.library_id);
                     const selected = c.id === selectedCardId;
+                    // Mask everything but the trailing 4 of the barcode so the
+                    // single-line card row stays short and a screenshot of the
+                    // drawer doesn't leak the full number. The full barcode is
+                    // still copied to the clipboard on Book.
+                    const tail = c.card_number.length >= 4
+                      ? `••${c.card_number.slice(-4)}`
+                      : c.card_number;
                     return (
                       <div
                         key={c.id}
@@ -440,16 +447,10 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                         onClick={() => setSelectedCardId(c.id)}
                         title={usable ? undefined : "Our data says this card likely won't be accepted — you can still try."}
                       >
-                        <div className="cp-main">
-                          <div className="cp-name">
-                            {cardLib ? cardLib.town : c.library_id}
-                            {cardLib && <span className="cp-net">{cardLib.network}</span>}
-                          </div>
-                          <div className="cp-meta">
-                            <code className="cp-barcode">{c.card_number}</code>
-                            {c.note && <span className="cp-note">{c.note}</span>}
-                          </div>
-                        </div>
+                        <span className="cp-town">{cardLib ? cardLib.town : c.library_id}</span>
+                        {cardLib && <span className="cp-net">{cardLib.network}</span>}
+                        <code className="cp-barcode">{tail}</code>
+                        {c.note && <span className="cp-note">{c.note}</span>}
                       </div>
                     );
                   })

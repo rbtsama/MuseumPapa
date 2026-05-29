@@ -475,22 +475,36 @@ body,
 .detail-card .data-section { margin: 0 0 8px; }
 .detail-card .data-section + .data-section { margin-top: -2px; }
 
-.detail-card .hours-grid {
-  display: grid;
-  grid-template-columns: 38px 1fr;
-  row-gap: 2px;
-  column-gap: 10px;
+/* Compact hours — one row per CONSECUTIVE day-run that shares the same
+   schedule (Mon–Thu 9 AM – 9 PM / Fri 9 AM – 5 PM / Sat–Sun Closed).
+   Replaces the old 7-row grid. .hours-grid is kept as an alias so legacy
+   call-sites don't break if any survived. */
+.hours-compact {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   font-size: 13px;
 }
-.detail-card .hours-grid > div { display: contents; }
-.detail-card .hours-d {
-  color: #4a4845;
-  text-transform: capitalize;
+.hours-compact li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
 }
-.detail-card .hours-v {
+.hc-d {
+  color: #4a4845;
+  font-weight: 500;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+.hc-v {
+  color: #1a1917;
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
+.hc-v.hc-closed { color: #8a877f; font-style: italic; }
 .detail-card .block-note {
   font-size: 13px;
   color: #8c6018;
@@ -957,13 +971,21 @@ body,
 .src-quote::before { content: open-quote; color: #8a877f; margin-right: 2px; }
 .src-quote::after  { content: close-quote; color: #8a877f; margin-left: 2px; }
 .card-pick {
-  padding: 10px 12px;
-  margin-bottom: 6px;
+  /* Single-row layout per operator: Town · NETWORK · ••barcode · note,
+     all on one line. Click target stays generous via padding even though
+     the row is short. */
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 10px;
+  margin-bottom: 4px;
   border: 1px solid #d0cec6;
   border-radius: 5px;
   background: #fafaf7;
   cursor: pointer;
   transition: background 0.1s, border-color 0.1s;
+  font-size: 13px;
+  line-height: 1.3;
 }
 .card-pick:hover:not(.disabled) {
   background: #eaf1ee;
@@ -994,36 +1016,33 @@ body,
   background: #c4ddcf;
 }
 .card-pick.selected:hover { background: #c4ddcf; }
-.card-pick .cp-name {
+.card-pick .cp-town {
   font-weight: 600;
-  font-size: 13px;
   color: #1a1917;
-  display: flex; gap: 8px; align-items: baseline;
 }
 .card-pick .cp-net {
-  font-size: 11px;
-  font-weight: 500;
-  color: #8a877f;
-}
-.card-pick .cp-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  margin-top: 4px;
-  flex-wrap: wrap;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: #fafaf7;
+  background: #4a4845;
+  padding: 1px 5px;
+  border-radius: 3px;
 }
 .card-pick .cp-barcode {
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  color: #4a4845;
   background: #ecebe5;
-  padding: 2px 6px;
+  padding: 1px 5px;
   border-radius: 3px;
-  font-family: ui-monospace, monospace;
-  font-size: 12px;
-  letter-spacing: 0.2px;
 }
 .card-pick .cp-note {
-  color: #4a4845;
+  color: #8a877f;
   font-size: 11px;
+  margin-left: auto;          /* push note to the right of the row */
+  font-style: italic;
 }
 
 /* ── My Cards page — unified typography ────────────────────────────── */

@@ -319,6 +319,71 @@ export function policyRange(p: AudiencePolicy): string {
   return "";
 }
 
+// ── compact weekly hours ─────────────────────────────────────────────────
+// Squash a 7-day hours dict into runs of consecutive days that share the same
+// time string. Output is a list of human-readable strings the caller renders
+// however they like (one chip per run, comma list, etc.).
+//
+// Example:
+//   { mon:"09:00-21:00", tue:"09:00-21:00", wed:"09:00-21:00", thu:"09:00-21:00",
+//     fri:"09:00-17:00", sat:"09:00-17:00", sun:"closed" }
+//   →
+//   [
+//     { days: "Mon–Thu", value: "9 AM – 9 PM" },
+//     { days: "Fri–Sat", value: "9 AM – 5 PM" },
+//     { days: "Sun",     value: "Closed" },
+//   ]
+const _WEEK = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const;
+const _ABBR: Record<typeof _WEEK[number], string> = {
+  monday: "Mon", tuesday: "Tue", wednesday: "Wed", thursday: "Thu",
+  friday: "Fri", saturday: "Sat", sunday: "Sun",
+};
+
+function _formatHour(h: string): string {
+  // "HH:MM" → "H AM" / "H PM" / "H:MM AM". Trims an unnecessary :00.
+  const [hh, mm] = h.split(":").map(Number);
+  if (Number.isNaN(hh)) return h;
+  const period = hh >= 12 ? "PM" : "AM";
+  const hr = ((hh + 11) % 12) + 1;
+  return mm === 0 ? `${hr} ${period}` : `${hr}:${String(mm).padStart(2, "0")} ${period}`;
+}
+
+function _formatHoursValue(raw: string): string {
+  const v = (raw || "").trim().toLowerCase();
+  if (!v || v === "—") return "—";
+  if (v === "closed") return "Closed";
+  if (v === "unknown") return "—";
+  // Accept "HH:MM-HH:MM" or "HH:MM–HH:MM"
+  const m = v.match(/^(\d{1,2}:\d{2})\s*[-–]\s*(\d{1,2}:\d{2})$/);
+  if (!m) return raw;
+  return `${_formatHour(m[1])} – ${_formatHour(m[2])}`;
+}
+
+export function compactHours(hours: Partial<Record<typeof _WEEK[number], string>> | null | undefined):
+  Array<{ days: string; value: string }> {
+  if (!hours) return [];
+  const runs: Array<{ days: string; value: string; startIdx: number; endIdx: number }> = [];
+  for (let i = 0; i < _WEEK.length; i++) {
+    const day = _WEEK[i];
+    const raw = (hours[day] || "").trim();
+    const pretty = _formatHoursValue(raw);
+    const prev = runs[runs.length - 1];
+    if (prev && prev.value === pretty && prev.endIdx === i - 1) {
+      prev.endIdx = i;
+      prev.days = prev.startIdx === prev.endIdx
+        ? _ABBR[_WEEK[prev.startIdx]]
+        : `${_ABBR[_WEEK[prev.startIdx]]}–${_ABBR[_WEEK[prev.endIdx]]}`;
+    } else {
+      runs.push({
+        days: _ABBR[day],
+        value: pretty,
+        startIdx: i, endIdx: i,
+      });
+    }
+  }
+  return runs.map(({ days, value }) => ({ days, value }));
+}
+
 // ── attraction adult price (display only) ────────────────────────────────
 export function adultPrice(a: { prices?: Array<{ audience: string; price: number | null }> }): number | null {
   const p = a.prices?.find((x) => x.audience === "adult");
