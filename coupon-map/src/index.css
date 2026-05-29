@@ -1106,35 +1106,36 @@ body,
   border-radius: 2px;
   background: #8c6018;       /* default gold rail */
 }
+.popover-v2 .pv-sources .ev-head {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 3px;
+}
 .popover-v2 .pv-sources .ev-label {
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: #8c6018;
-  margin-bottom: 3px;
 }
 .popover-v2 .pv-sources .ev-quote {
   margin: 0;
   padding: 0;
   border: 0;
-  font-style: italic;
   color: #1a1917;
   word-break: break-word;
+  white-space: pre-wrap;       /* preserve paragraph breaks in source_block */
 }
 .popover-v2 .pv-sources .ev-link {
   font-size: 11px;
   color: #1b5740;
   font-weight: 600;
-  margin-left: 6px;
+  margin-left: auto;           /* right-align in the head row */
   text-decoration: none;
   white-space: nowrap;
 }
 .popover-v2 .pv-sources .ev-link:hover { text-decoration: underline; }
-.popover-v2 .pv-sources .ev-link.standalone {
-  display: inline-block;
-  margin: 0;
-}
 
 /* ── Drawer Sources ───────────────────────────────────────────────────
    Each source is a small card with a colored left rail keyed to its kind.
@@ -1177,7 +1178,7 @@ body,
 .src-label {
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   color: #4a4845;
 }
@@ -1216,17 +1217,12 @@ body,
 
 .src-quote {
   margin: 0;
-  padding: 6px 8px;
-  background: #f4f3ef;
-  border-radius: 4px;
-  font-style: italic;
+  padding: 0;
+  border: 0;
   color: #1a1917;
   word-break: break-word;
-  white-space: pre-wrap;
-  quotes: "\201C" "\201D";   /* fancy curly quotes around the passage */
+  white-space: pre-wrap;       /* preserve paragraph breaks in source_block */
 }
-.src-quote::before { content: open-quote; color: #8a877f; margin-right: 2px; }
-.src-quote::after  { content: close-quote; color: #8a877f; margin-left: 2px; }
 .card-pick {
   /* Two-row card per operator: line 1 = town + full barcode,
      line 2 = note. Normal black text, no de-emphasis. */

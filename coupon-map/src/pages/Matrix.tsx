@@ -621,23 +621,17 @@ function EvidenceSection({ items }: { items: EvidenceItem[] }) {
       <div className="section-h">Sources</div>
       {visible.map((it, i) => (
         <div className="ev-item" key={i}>
-          {it.label && <div className="ev-label">{it.label}</div>}
-          {it.quote ? (
-            <div className="ev-quote">
-              {it.quote}
+          {(it.label || it.source) && (
+            <div className="ev-head">
+              {it.label && <span className="ev-label">{it.label}</span>}
               {it.source && (
                 <a className="ev-link" href={it.source} target="_blank" rel="noreferrer">
                   Open ↗
                 </a>
               )}
             </div>
-          ) : (
-            it.source && (
-              <a className="ev-link standalone" href={it.source} target="_blank" rel="noreferrer">
-                Open ↗
-              </a>
-            )
           )}
+          {it.quote && <div className="ev-quote">{it.quote}</div>}
         </div>
       ))}
     </div>
