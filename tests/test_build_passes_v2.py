@@ -211,7 +211,9 @@ def test_booking_probe_rejection_is_own_card_not_residency(tmp_path):
     build_passes(raw_root=raw, overrides_root=tmp_path/"overrides", out_path=out)
     p = json.loads(out.read_text())["passes"][0]
     assert p["requires_own_card"] is True
-    assert p["residency_restriction"]["restricted"] == "no"   # NOT yes/town
+    # Probe is card-ownership only — it must NOT set residency. With no stated
+    # policy, residency stays honestly unknown (not "no", not "yes/town").
+    assert p["residency_restriction"]["restricted"] == "unknown"
     assert p["residency_restriction"]["scope"] is None
     assert p["booking_access_probe"] == {
         "verdict": "own_card_only",
@@ -234,7 +236,9 @@ def test_booking_probe_acceptance_is_network_open(tmp_path):
     build_passes(raw_root=raw, overrides_root=tmp_path/"overrides", out_path=out)
     p = json.loads(out.read_text())["passes"][0]
     assert p["requires_own_card"] is False
-    assert p["residency_restriction"]["restricted"] == "no"
+    # Probe acceptance proves card scope (network-open), NOT residency policy —
+    # residency stays unknown until a stated policy (coupon/catalog/config) sets it.
+    assert p["residency_restriction"]["restricted"] == "unknown"
     assert p["booking_access_probe"] == {
         "verdict": "network_open",
         "source": "booking_probe",
@@ -287,3 +291,15 @@ def test_coupon_coverage_gaps_detects_silent_drop(tmp_path):
     ok = [{"library_id":"acton","attraction_slug":"mfa","attraction_rawslug":"mfa","coupon":{"x":1}},
           {"library_id":"x","attraction_slug":"y","attraction_rawslug":"y","coupon":None}]
     assert coupon_coverage_gaps(ok, tmp_path) == []
+
+def test_pass_drop_override_removes_row_from_output(tmp_path):
+    raw = tmp_path/"raw"
+    _w(raw/"assabet/catalog/wakefield.json", {"library_id":"wakefield","passes":[
+        {"library_id":"wakefield","attraction_slug":"mfa","title":"MFA"},
+        {"library_id":"wakefield","attraction_slug":"pem","title":"PEM"}]})
+    overrides = tmp_path/"overrides"
+    _w(overrides/"passes/wakefield__mfa/__drop__.json", {"status":"removed","note":"delisted in live catalog"})
+    out = tmp_path/"passes.json"
+    build_passes(raw_root=raw, overrides_root=overrides, out_path=out)
+    rows = json.loads(out.read_text())["passes"]
+    assert [p["attraction_slug"] for p in rows] == ["pem"]

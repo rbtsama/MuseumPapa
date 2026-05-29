@@ -4,3 +4,7 @@ dist
 public/data
 *.local
 .env*
+
+# tsc -b type-check emit (project is all TS/TSX; vite produces dist)
+src/**/*.js
+*.tsbuildinfo
