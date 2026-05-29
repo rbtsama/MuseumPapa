@@ -38,13 +38,6 @@ body,
   overflow: auto;
   flex: 1 1 0;
   min-height: 0;
-  /* Belt-and-suspenders: even if some descendant breaks the page-level flex
-     column (e.g. a future child grows past viewport), capping max-height at
-     100vh-minus-chrome keeps the horizontal scrollbar at the viewport
-     bottom instead of way below the fold. The exact subtractor is the
-     app-header (48px) + filter-bar (~52px) — slightly generous to avoid
-     ever clipping bottom rows. */
-  max-height: calc(100vh - 110px);
   border: 1px solid #d0cec6;
   border-radius: 6px;
   background: #fafaf7;
