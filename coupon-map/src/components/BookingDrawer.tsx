@@ -406,6 +406,23 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                     </strong></span>
                   )}
                 </div>
+                {/* Empty-state messages — explain WHY no card is usable when the
+                    wallet has cards but none of them match this pass's scope.
+                    Without this the user just sees a row of greyed cards and
+                    has to remember every verdict rule themselves. */}
+                {cards.length > 0 && usableIds.size === 0 && (
+                  <div className="cards-empty cards-explain">
+                    {p.booking_access_probe?.verdict === "own_card_only" ? (
+                      <>This pass accepts <strong>{lib.town} cards only</strong>.
+                        Your wallet doesn't have one — every card below is
+                        greyed out.</>
+                    ) : (
+                      <>This pass works with any <strong>{lib.network}</strong> network
+                        card. Your wallet doesn't have a {lib.network} card — every
+                        card below is greyed out.</>
+                    )}
+                  </div>
+                )}
                 {cards.length === 0 ? (
                   <div className="cards-empty">No cards yet. Add or import from "My Cards".</div>
                 ) : (
