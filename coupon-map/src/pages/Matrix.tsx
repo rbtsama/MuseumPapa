@@ -304,54 +304,66 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                             {multi && (
                               <span className="pv-badge">{c.branches.length} branches</span>
                             )}
-                            <div className="pv-meta">
-                              <span>{l.town}</span>
-                              <span className="pv-sep">·</span>
-                              <span>{l.network}</span>
-                              <span className="pv-sep">·</span>
-                              <span className={e.warn ? "v-warn" : ""}>{e.text}</span>
-                            </div>
                           </header>
 
-                          {(l.hours || l.hours_note || l.address || l.card_page) && (
-                            <div className="pv-body">
-                              {(l.hours || l.hours_note) && (
-                                <section className="pv-col">
-                                  <div className="pv-h">Hours</div>
-                                  {l.hours ? (
-                                    <ul className="hours-compact">
-                                      {compactHours(l.hours).map((r) => (
-                                        <li key={r.days}>
-                                          <span className="hc-d">{r.days}</span>
-                                          <span className={`hc-v${r.value === "Closed" ? " hc-closed" : ""}`}>{r.value}</span>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  ) : (
-                                    <div className="block-note">{l.hours_note}</div>
-                                  )}
-                                </section>
+                          <div className="pv-body">
+                            {/* LEFT — Hours */}
+                            <section className="pv-col">
+                              <div className="pv-h">Hours</div>
+                              {l.hours ? (
+                                <ul className="hours-compact">
+                                  {compactHours(l.hours).map((r) => (
+                                    <li key={r.days}>
+                                      <span className="hc-d">{r.days}</span>
+                                      <span className={`hc-v${r.value === "Closed" ? " hc-closed" : ""}`}>{r.value}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : l.hours_note ? (
+                                <div className="block-note">{l.hours_note}</div>
+                              ) : (
+                                <div style={{ color: "#8a877f" }}>—</div>
                               )}
-                              {(l.address || l.card_page) && (
-                                <section className="pv-col">
-                                  <div className="pv-h">Address</div>
-                                  {l.address && (
-                                    <div>
+                            </section>
+
+                            {/* RIGHT — Basic info (network membership + residency + address) */}
+                            <section className="pv-col">
+                              <div className="pv-h">Basic info</div>
+                              <ul className="basic-info">
+                                <li>
+                                  <span className="bi-k">Town</span>
+                                  <span className="bi-v">{l.town}</span>
+                                </li>
+                                <li>
+                                  <span className="bi-k">Network</span>
+                                  <span className="bi-v">{l.network}</span>
+                                </li>
+                                <li>
+                                  <span className="bi-k">Resident</span>
+                                  <span className={`bi-v${e.warn ? " v-attn" : ""}`}>{e.text}</span>
+                                </li>
+                                {l.address && (
+                                  <li>
+                                    <span className="bi-k">Address</span>
+                                    <span className="bi-v">
                                       {l.address.street && <div>{l.address.street}</div>}
                                       <div>
                                         {[l.address.city, l.address.state, l.address.zip].filter(Boolean).join(", ")}
                                       </div>
-                                    </div>
-                                  )}
-                                  {l.card_page && (
-                                    <a className="pv-link" href={l.card_page} target="_blank" rel="noreferrer" style={{ display: "inline-block", marginTop: 6 }}>
+                                    </span>
+                                  </li>
+                                )}
+                                {l.card_page && (
+                                  <li>
+                                    <span className="bi-k">Card page</span>
+                                    <a className="bi-v pv-link" href={l.card_page} target="_blank" rel="noreferrer">
                                       {prettyHost(l.card_page)} ↗
                                     </a>
-                                  )}
-                                </section>
-                              )}
-                            </div>
-                          )}
+                                  </li>
+                                )}
+                              </ul>
+                            </section>
+                          </div>
 
                           <div className="pv-sources">
                             <EvidenceSection

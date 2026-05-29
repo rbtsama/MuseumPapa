@@ -840,6 +840,31 @@ body,
 .avail-banner.ok.loading { background: #ecebe5; color: #4a4845; }
 .avail-banner.ok.err   { background: #fdf1e2; color: #8c6018; }
 .avail-banner.stale    { background: #fdf1e2; color: #8c6018; }
+
+/* Calendar lazy-load placeholder (Assabet only, while /api/availability
+   is fetching). Same height ballpark as the grid so the layout doesn't
+   jump when the live data arrives. */
+.cal-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 220px;
+  font-size: 12px;
+  color: #4a4845;
+  background: #f4f3ef;
+  border-radius: 4px;
+}
+.cal-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #c4ddcf;
+  border-top-color: #1b5740;
+  animation: cal-spin 0.8s linear infinite;
+}
+@keyframes cal-spin { to { transform: rotate(360deg); } }
 .cal-nav { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
 .cal-nav button {
   font: inherit; font-size: 11px; padding: 3px 8px;
@@ -944,12 +969,24 @@ body,
 
 .popover-v2 .pv-body {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 16px;
   padding: 14px 16px;
 }
 .popover-v2 .pv-body.single { grid-template-columns: 1fr; }
+.popover-v2 .pv-body::before {
+  /* Vertical divider between the two columns — only when there ARE two
+     columns (.single grid blanks the middle track). */
+  content: "";
+  grid-column: 2;
+  background: #d0cec6;
+  min-height: 100%;
+}
+.popover-v2 .pv-body.single::before { display: none; }
 .popover-v2 .pv-col { min-width: 0; }
+.popover-v2 .pv-col:first-of-type { grid-column: 1; }
+.popover-v2 .pv-col:last-of-type  { grid-column: 3; }
+.popover-v2 .pv-body.single .pv-col { grid-column: 1 !important; }
 .popover-v2 .pv-h {
   font-size: 10px;
   font-weight: 700;
@@ -980,6 +1017,37 @@ body,
   font-weight: 500;
 }
 .popover-v2 .pv-tickets .pv-price.v-free { color: #1b5740; font-weight: 600; }
+
+/* Library popover RIGHT column — basic info rows (Town / Network /
+   Resident requirement / Address / Card page). Same key-on-left,
+   value-on-right pattern as .data-row but lighter weight to fit a
+   small column. */
+.basic-info {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+}
+.basic-info li {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  column-gap: 8px;
+  align-items: baseline;
+}
+.basic-info .bi-k {
+  color: #8a877f;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+}
+.basic-info .bi-v {
+  color: #1a1917;
+  word-break: break-word;
+}
+.basic-info .bi-v.v-attn { color: #8c6018; font-weight: 600; }
 
 .popover-v2 .pv-address {
   padding: 8px 16px 12px;

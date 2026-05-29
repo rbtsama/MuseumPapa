@@ -259,32 +259,47 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                 )}
               </section>
 
-              {/* Facts */}
+              {/* Facts — color rules per operator:
+                  Capacity      → normal black (no de-emphasis)
+                  Pickup        → email = normal · pickup = orange · pickup&return = red
+                  Card          → own_card_only = orange · network_open / other = black
+                  Residency     → MA = black · town-level = orange
+                  Monthly limit → any value = red                                  */}
               <section className="drawer-section">
                 <div className="data-row">
                   <span className="k">Capacity</span>
                   <span className="v">
                     {capValue ?? "—"}
                     {cs?.parts && cs.parts.length > 0 && (
-                      <span className="v-note"> · {cs.parts.join(" + ")}</span>
+                      <span> · {cs.parts.join(" + ")}</span>
                     )}
                   </span>
                 </div>
                 <div className="data-row">
                   <span className="k">Pickup</span>
-                  <span className="v">{fl?.icon} {fl?.short}</span>
+                  <span className={`v${
+                    p.pass_form === "physical_coupon" ? " v-attn" :
+                    p.pass_form === "physical_circ"   ? " v-warn" :
+                    ""
+                  }`}>{fl?.icon} {fl?.short}</span>
                 </div>
                 <div className="data-row">
                   <span className="k">Card</span>
-                  <span className="v">{vd?.text}</span>
+                  <span className={`v${
+                    p.booking_access_probe?.verdict === "own_card_only" ? " v-attn" : ""
+                  }`}>{vd?.text}</span>
                 </div>
                 <div className="data-row">
                   <span className="k">Residency</span>
-                  <span className={`v${pr?.warn ? " v-warn" : ""}`}>{pr?.text}</span>
+                  <span className={`v${
+                    p.residency_restriction?.restricted === "yes" &&
+                    p.residency_restriction?.scope !== "ma"
+                      ? " v-attn" : ""
+                  }`}>{pr?.text}</span>
                 </div>
                 <div className="data-row">
                   <span className="k">Monthly limit</span>
-                  <span className="v">{fq || "—"}</span>
+                  <span className={`v${fq ? " v-warn" : ""}`}>{fq || "—"}</span>
                 </div>
               </section>
 
@@ -359,33 +374,45 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                     <div key={i} className="cal-wh">{w}</div>
                   ))}
                 </div>
-                <div className="cal-grid">
-                  {cells.map((c, i) => {
-                    if (!c.d) return <div key={i} className="cal-blank" />;
-                    const raw = avail[c.d];
-                    const status: DayStatus =
-                      raw === "available" ? "available" :
-                      raw === "booked" ? "booked" :
-                      raw === "closed" ? "closed" :
-                      raw === "unavailable" ? "unavailable" : "none";
-                    const st = STATUS_STYLE[status];
-                    const past = c.d < todayStr;
-                    const isSelected = c.d === date;
-                    const disabled = past || !st.click;
-                    return (
-                      <button
-                        key={c.d}
-                        className={`cal-cell${isSelected ? " selected" : ""}`}
-                        disabled={disabled}
-                        style={{ background: st.bg, color: st.fg, opacity: past ? 0.35 : 1 }}
-                        onClick={() => setDate(c.d!)}
-                        title={`${c.d} — ${st.label}`}
-                      >
-                        <span className="cal-day">{c.label}</span>
-                      </button>
-                    );
-                  })}
-                </div>
+                {/* Calendar lazy-load: Assabet passes wait for /api/availability
+                    before painting the grid (otherwise we'd flash a stale
+                    snapshot then snap to live data, which is confusing). Other
+                    platforms render their snapshot immediately — they have no
+                    live source. Rest of the drawer (Pass / Facts / Card /
+                    Sources / Book) renders independently of this fetch. */}
+                {isAssabet && liveStatus === "loading" && !liveAvail ? (
+                  <div className="cal-loading" role="status" aria-live="polite">
+                    <span className="cal-spinner" /> Loading live calendar…
+                  </div>
+                ) : (
+                  <div className="cal-grid">
+                    {cells.map((c, i) => {
+                      if (!c.d) return <div key={i} className="cal-blank" />;
+                      const raw = avail[c.d];
+                      const status: DayStatus =
+                        raw === "available" ? "available" :
+                        raw === "booked" ? "booked" :
+                        raw === "closed" ? "closed" :
+                        raw === "unavailable" ? "unavailable" : "none";
+                      const st = STATUS_STYLE[status];
+                      const past = c.d < todayStr;
+                      const isSelected = c.d === date;
+                      const disabled = past || !st.click;
+                      return (
+                        <button
+                          key={c.d}
+                          className={`cal-cell${isSelected ? " selected" : ""}`}
+                          disabled={disabled}
+                          style={{ background: st.bg, color: st.fg, opacity: past ? 0.35 : 1 }}
+                          onClick={() => setDate(c.d!)}
+                          title={`${c.d} — ${st.label}`}
+                        >
+                          <span className="cal-day">{c.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
                 <div className="cal-legend">
                   {(["available","booked","closed","unavailable"] as DayStatus[]).map((s) => (
                     <span key={s} className="lg">
@@ -528,9 +555,9 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                 onClick={onBook}
                 disabled={!ready}
                 className="drawer-book"
-                title={!date ? "Pick a date" : !selectedCard ? "Pick a card" : "Copy card & open booking page"}
+                title={!date ? "Pick a date" : !selectedCard ? "Pick a card" : "Copy card to clipboard + open booking page"}
               >
-                Book ↗
+                Copy and Book ↗
               </button>
             </footer>
           </>
