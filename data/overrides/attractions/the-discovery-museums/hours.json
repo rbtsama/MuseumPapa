@@ -1,0 +1,14 @@
+{
+  "status": "corrected",
+  "corrected_value": {
+    "monday": "closed",
+    "tuesday": "09:00-16:30",
+    "wednesday": "09:00-16:30",
+    "thursday": "09:00-16:30",
+    "friday": "09:00-16:30",
+    "saturday": "09:00-16:30",
+    "sunday": "09:00-16:30"
+  },
+  "source": "http://www.discoveryacton.org/plan-your-visit",
+  "evidence": "Monday: Closed (but open select Mondays for holidays and public school vacation weeks); Tuesday - Sunday : 9:00am to 4:30pm. (legacy data wrongly marked Monday open.)"
+}

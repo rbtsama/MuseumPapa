@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-29T18:45:57.011938+00:00",
+    "built_at": "2026-05-29T18:50:25.409452+00:00",
     "n_attractions": 96
   },
   "attractions": [
@@ -80,7 +80,10 @@
       ],
       "booking_model": null,
       "booking_note": null,
-      "closed_days": [],
+      "closed_days": [
+        "monday",
+        "tuesday"
+      ],
       "sources": [
         "https://www.americanheritagemuseum.org/"
       ],
@@ -104,8 +107,8 @@
         "source_confidence": "medium"
       },
       "hours": {
-        "monday": "10:00-17:00",
-        "tuesday": "10:00-17:00",
+        "monday": "closed",
+        "tuesday": "closed",
         "wednesday": "10:00-17:00",
         "thursday": "10:00-17:00",
         "friday": "10:00-17:00",
@@ -1489,7 +1492,10 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
-      "closed_days": [],
+      "closed_days": [
+        "saturday",
+        "sunday"
+      ],
       "sources": [],
       "hours": {
         "monday": "09:00-13:00",
@@ -3722,7 +3728,9 @@
       "prices": [],
       "booking_model": null,
       "booking_note": null,
-      "closed_days": [],
+      "closed_days": [
+        "sunday"
+      ],
       "sources": [],
       "hours": {
         "monday": "10:00-16:00",
@@ -6398,7 +6406,9 @@
       ],
       "booking_model": null,
       "booking_note": null,
-      "closed_days": [],
+      "closed_days": [
+        "monday"
+      ],
       "sources": [
         "http://www.discoveryacton.org/"
       ],
@@ -6422,7 +6432,7 @@
         "source_confidence": "high"
       },
       "hours": {
-        "monday": "09:00-16:30",
+        "monday": "closed",
         "tuesday": "09:00-16:30",
         "wednesday": "09:00-16:30",
         "thursday": "09:00-16:30",

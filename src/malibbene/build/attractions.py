@@ -251,6 +251,9 @@ def build_attractions(raw_root: Path, overrides_root: Path, out_path: Path) -> d
             a["sources"] = [a["website"]]
 
         a = apply_overrides(f"attraction:{slug}", a, overrides)
+        # Recompute closed_days AFTER overrides so an hours override (e.g. a day
+        # corrected to "closed") propagates to closed_days too.
+        a["closed_days"] = closed_days_from_hours(a["hours"])
         _apply_source_blocks(a, raw_root)
         attractions.append(a)
 
