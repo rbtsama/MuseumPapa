@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-28T14:05:56.840537+00:00",
+    "built_at": "2026-05-29T08:36:39.311988+00:00",
     "n_libraries": 59
   },
   "libraries": [
@@ -798,7 +798,16 @@
       "resident_zips": [
         "02150"
       ],
-      "hours_note": "官网(chelseama.gov)受访问限制,未能取得每日时间表 — 见官网"
+      "hours_note": "官网(chelseama.gov)受访问限制,未能取得每日时间表 — 见官网",
+      "hours": {
+        "monday": "09:00-20:00",
+        "tuesday": "09:00-20:00",
+        "wednesday": "09:00-20:00",
+        "thursday": "09:00-20:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "billerica",
@@ -950,7 +959,16 @@
       "resident_zips": [
         "01876"
       ],
-      "hours_note": "官网受访问限制(403),未能取得每日时间表 — 见官网"
+      "hours_note": "官网受访问限制(403),未能取得每日时间表 — 见官网",
+      "hours": {
+        "monday": "10:00-21:00",
+        "tuesday": "10:00-21:00",
+        "wednesday": "10:00-21:00",
+        "thursday": "10:00-17:00",
+        "friday": "10:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "chelmsford",
@@ -1059,8 +1077,8 @@
         "01841",
         "01843"
       ],
-      "pass_page": "https://www.lawrencepl.org/cultural-passes",
-      "hours_note": "夏季排班与学年排班不同 — 见官网"
+      "hours_note": "夏季排班与学年排班不同 — 见官网",
+      "pass_page": "https://www.lawrencepl.org/cultural-passes"
     },
     {
       "id": "methuen",
@@ -1132,7 +1150,16 @@
       "resident_zips": [
         "01810"
       ],
-      "hours_note": "mhl.org 多个 Hours 子页 403/404,未能取得每日时间表 — 见官网"
+      "hours_note": "mhl.org 多个 Hours 子页 403/404,未能取得每日时间表 — 见官网",
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "north-andover",
@@ -1229,7 +1256,16 @@
         "02474",
         "02476"
       ],
-      "hours_note": "官网 Hours 子页 403,未能取得每日时间表 — 见官网"
+      "hours_note": "官网 Hours 子页 403,未能取得每日时间表 — 见官网",
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "13:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "14:00-17:00"
+      }
     },
     {
       "id": "newton",
@@ -1310,7 +1346,16 @@
       "resident_zips": [
         "01773"
       ],
-      "hours_note": "官网每日时间表动态加载未显示;周六/周日季节性窗口 — 见官网"
+      "hours_note": "官网每日时间表动态加载未显示;周六/周日季节性窗口 — 见官网",
+      "hours": {
+        "monday": "13:00-20:30",
+        "tuesday": "09:00-18:00",
+        "wednesday": "09:00-20:30",
+        "thursday": "09:00-20:30",
+        "friday": "09:00-18:00",
+        "saturday": "10:00-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "acton",
@@ -1342,7 +1387,16 @@
       "resident_zips": [
         "01720"
       ],
-      "hours_note": "官网 Locations & Hours 子页加载受限 — 见官网"
+      "hours_note": "官网 Locations & Hours 子页加载受限 — 见官网",
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "14:00-17:00"
+      }
     },
     {
       "id": "framingham",
@@ -1511,7 +1565,16 @@
       "resident_zips": [
         "02493"
       ],
-      "hours_note": "镇政府官网未直接列出图书馆每日时间表 — 见官网"
+      "hours_note": "镇政府官网未直接列出图书馆每日时间表 — 见官网",
+      "hours": {
+        "monday": "09:00-18:00",
+        "tuesday": "09:00-18:00",
+        "wednesday": "09:00-20:00",
+        "thursday": "09:00-17:00",
+        "friday": "09:00-17:00",
+        "saturday": "10:00-16:00",
+        "sunday": "12:00-16:00"
+      }
     },
     {
       "id": "sudbury",
@@ -1575,7 +1638,16 @@
       "resident_zips": [
         "02478"
       ],
-      "hours_note": "官网 Hours 子页 403 — 见官网"
+      "hours_note": "官网 Hours 子页 403 — 见官网",
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "lexington",
@@ -1649,7 +1721,16 @@
         "02481",
         "02482"
       ],
-      "hours_note": "官网 Hours 子页加载受限 — 见官网"
+      "hours_note": "官网 Hours 子页加载受限 — 见官网",
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-18:00",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "waltham",
@@ -1723,7 +1804,16 @@
       "resident_zips": [
         "02472"
       ],
-      "hours_note": "官网 Hours & Directions 页加载受限 — 见官网"
+      "hours_note": "官网 Hours & Directions 页加载受限 — 见官网",
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-19:00",
+        "saturday": "09:00-17:00",
+        "sunday": "13:00-17:00"
+      }
     },
     {
       "id": "concord",
@@ -2079,7 +2169,16 @@
         "02184",
         "02185"
       ],
-      "hours_note": "官网每日时间表页面 404/截断 — 见官网"
+      "hours_note": "官网每日时间表页面 404/截断 — 见官网",
+      "hours": {
+        "monday": "09:00-21:00",
+        "tuesday": "09:00-21:00",
+        "wednesday": "09:00-21:00",
+        "thursday": "09:00-21:00",
+        "friday": "09:00-17:00",
+        "saturday": "09:00-17:00",
+        "sunday": "closed"
+      }
     },
     {
       "id": "milton",

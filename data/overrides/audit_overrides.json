@@ -1,0 +1,292 @@
+{
+  "library:lawrence:pass_page": {
+    "target": "library:lawrence:pass_page",
+    "status": "corrected",
+    "corrected_value": "https://www.lawrencepl.org/cultural-passes",
+    "note": "Lawrence Public Library migrated cultural passes off Assabet to its Wix-hosted Cultural Passes page, which links into WhoFi."
+  },
+  "pass:lawrence__harvard-museums-of-science-and-culture:source_url": {
+    "target": "pass:lawrence__harvard-museums-of-science-and-culture:source_url",
+    "status": "corrected",
+    "corrected_value": "https://lawrence-ma.whofi.com/passes/reserve/98",
+    "note": "Assabet deep link 404s; live Lawrence Cultural Passes page now points HMSC bookings to WhoFi pass 98."
+  },
+  "pass:lawrence__boston-childrens-museum:source_url": {
+    "target": "pass:lawrence__boston-childrens-museum:source_url",
+    "status": "corrected",
+    "corrected_value": "https://lawrence-ma.whofi.com/passes/reserve/99",
+    "note": "Assabet deep link 404s; live Lawrence Cultural Passes page now points Boston Children's Museum bookings to WhoFi pass 99."
+  },
+  "pass:lawrence__massachusetts-state-parks-department-of-conservation-and-recreation:source_url": {
+    "target": "pass:lawrence__massachusetts-state-parks-department-of-conservation-and-recreation:source_url",
+    "status": "corrected",
+    "corrected_value": "https://lawrence-ma.whofi.com/passes/reserve/103",
+    "note": "Assabet deep link 404s; live Lawrence Cultural Passes page now points Massachusetts State Parks bookings to WhoFi pass 103."
+  },
+  "pass:lawrence__museum-of-fine-arts:source_url": {
+    "target": "pass:lawrence__museum-of-fine-arts:source_url",
+    "status": "corrected",
+    "corrected_value": "https://lawrence-ma.whofi.com/passes/reserve/100",
+    "note": "Assabet deep link 404s; live Lawrence Cultural Passes page now points Museum of Fine Arts bookings to WhoFi pass 100."
+  },
+  "pass:lawrence__museum-of-science:source_url": {
+    "target": "pass:lawrence__museum-of-science:source_url",
+    "status": "corrected",
+    "corrected_value": "https://lawrence-ma.whofi.com/passes/reserve/101",
+    "note": "Assabet deep link 404s; live Lawrence Cultural Passes page now points Museum of Science bookings to WhoFi pass 101."
+  },
+  "pass:lawrence__the-uss-constitution-museum:source_url": {
+    "target": "pass:lawrence__the-uss-constitution-museum:source_url",
+    "status": "corrected",
+    "corrected_value": "https://lawrence-ma.whofi.com/passes/reserve/104",
+    "note": "Assabet deep link 404s; live Lawrence Cultural Passes page now points USS Constitution Museum bookings to WhoFi pass 104."
+  },
+  "pass:lawrence__wheelock-family-theatre:source_url": {
+    "target": "pass:lawrence__wheelock-family-theatre:source_url",
+    "status": "corrected",
+    "corrected_value": "https://lawrence-ma.whofi.com/passes/reserve/105",
+    "note": "Assabet deep link 404s; live Lawrence Cultural Passes page now points Wheelock Family Theatre bookings to WhoFi pass 105."
+  },
+  "pass:lawrence__zoo-new-england:source_url": {
+    "target": "pass:lawrence__zoo-new-england:source_url",
+    "status": "corrected",
+    "corrected_value": "https://lawrence-ma.whofi.com/passes/reserve/106",
+    "note": "Assabet deep link 404s; live Lawrence Cultural Passes page now points Zoo New England bookings to WhoFi pass 106."
+  },
+  "pass:acton__new-england-aquarium:__drop__": {
+    "target": "pass:acton__new-england-aquarium:__drop__",
+    "status": "removed",
+    "note": "Verified in audit: New England Aquarium no longer appears in the live library offering."
+  },
+  "pass:belmont__new-england-aquarium:__drop__": {
+    "target": "pass:belmont__new-england-aquarium:__drop__",
+    "status": "removed",
+    "note": "Verified in audit: New England Aquarium no longer appears in the live library offering."
+  },
+  "pass:brookline__zoo-new-england:__drop__": {
+    "target": "pass:brookline__zoo-new-england:__drop__",
+    "status": "removed",
+    "note": "Verified in audit: Brookline's Zoo New England pass is no longer present in the live LibCal catalog."
+  },
+  "pass:brookline__new-england-aquarium:__drop__": {
+    "target": "pass:brookline__new-england-aquarium:__drop__",
+    "status": "removed",
+    "note": "Verified in audit: New England Aquarium no longer appears in Brookline's live LibCal catalog."
+  },
+  "pass:framingham__new-england-aquarium:__drop__": {
+    "target": "pass:framingham__new-england-aquarium:__drop__",
+    "status": "removed",
+    "note": "Verified in audit: New England Aquarium no longer appears in the live library offering."
+  },
+  "pass:sudbury__new-england-aquarium:__drop__": {
+    "target": "pass:sudbury__new-england-aquarium:__drop__",
+    "status": "removed",
+    "note": "Verified in audit: New England Aquarium no longer appears in the live library offering."
+  },
+  "pass:lawrence__new-england-aquarium:__drop__": {
+    "target": "pass:lawrence__new-england-aquarium:__drop__",
+    "status": "removed",
+    "note": "Lawrence migrated to WhoFi; New England Aquarium is absent from the live Cultural Passes page."
+  },
+  "pass:lynnfield__new-england-aquarium:__drop__": {
+    "target": "pass:lynnfield__new-england-aquarium:__drop__",
+    "status": "removed",
+    "note": "Verified in audit: New England Aquarium no longer appears in the live library offering."
+  },
+  "pass:methuen__new-england-aquarium:__drop__": {
+    "target": "pass:methuen__new-england-aquarium:__drop__",
+    "status": "removed",
+    "note": "Verified in audit: New England Aquarium no longer appears in the live library offering."
+  },
+  "pass:peabody__new-england-aquarium:__drop__": {
+    "target": "pass:peabody__new-england-aquarium:__drop__",
+    "status": "removed",
+    "note": "Verified in audit: New England Aquarium no longer appears in the live library offering."
+  },
+  "pass:somerville__new-england-aquarium:__drop__": {
+    "target": "pass:somerville__new-england-aquarium:__drop__",
+    "status": "removed",
+    "note": "Verified in audit: New England Aquarium no longer appears in the live library offering."
+  },
+  "pass:wellesley__new-england-aquarium:__drop__": {
+    "target": "pass:wellesley__new-england-aquarium:__drop__",
+    "status": "removed",
+    "note": "Verified in audit: New England Aquarium no longer appears in the live library offering."
+  },
+  "library:chelsea:hours": {
+    "target": "library:chelsea:hours",
+    "status": "corrected",
+    "corrected_value": {
+      "monday": "09:00-20:00",
+      "tuesday": "09:00-20:00",
+      "wednesday": "09:00-20:00",
+      "thursday": "09:00-20:00",
+      "friday": "09:00-17:00",
+      "saturday": "09:00-17:00",
+      "sunday": "closed"
+    },
+    "source": "https://www.chelseama.gov/departments/library/",
+    "evidence": "Regular Hours (Sep 4 - Jun 1): Mon-Thu 9am-8pm; Fri & Sat 9am-5pm; closed Sunday",
+    "note": "Summer schedule (May 28-Aug 31) differs: Mon/Tue/Wed 9-5, Thu 9-8, Fri 9-5, Sat 10-1"
+  },
+  "library:tewksbury:hours": {
+    "target": "library:tewksbury:hours",
+    "status": "corrected",
+    "corrected_value": {
+      "monday": "10:00-21:00",
+      "tuesday": "10:00-21:00",
+      "wednesday": "10:00-21:00",
+      "thursday": "10:00-17:00",
+      "friday": "10:00-17:00",
+      "saturday": "09:00-17:00",
+      "sunday": "13:00-17:00"
+    },
+    "source": "https://www.tewksburypl.org/",
+    "evidence": "Mon-Wed 10am-9pm; Thu-Fri 10am-5pm; Sat 9am-5pm; Sun 1pm-5pm",
+    "note": "Saturday and Sunday closed late June through summer"
+  },
+  "library:andover:hours": {
+    "target": "library:andover:hours",
+    "status": "corrected",
+    "corrected_value": {
+      "monday": "09:00-21:00",
+      "tuesday": "09:00-21:00",
+      "wednesday": "09:00-21:00",
+      "thursday": "09:00-21:00",
+      "friday": "09:00-17:00",
+      "saturday": "09:00-17:00",
+      "sunday": "13:00-17:00"
+    },
+    "source": "https://mhl.org/hours-location",
+    "evidence": "Mon-Thu 9am-9pm; Fri-Sat 9am-5pm; Sun 1-5pm",
+    "note": "Hours backfilled 2026-05-29 from https://mhl.org/hours-location"
+  },
+  "library:arlington:hours": {
+    "target": "library:arlington:hours",
+    "status": "corrected",
+    "corrected_value": {
+      "monday": "09:00-21:00",
+      "tuesday": "09:00-21:00",
+      "wednesday": "09:00-21:00",
+      "thursday": "13:00-21:00",
+      "friday": "09:00-17:00",
+      "saturday": "09:00-17:00",
+      "sunday": "14:00-17:00"
+    },
+    "source": "https://www.robbinslibrary.org/about/hours/",
+    "evidence": "Mon-Wed 9-9; Thu 1-9; Fri-Sat 9-5; Sun 2-5 (Oct-May only)",
+    "note": "Sunday hours run October through May only; closed Sundays June-September"
+  },
+  "library:lincoln:hours": {
+    "target": "library:lincoln:hours",
+    "status": "corrected",
+    "corrected_value": {
+      "monday": "13:00-20:30",
+      "tuesday": "09:00-18:00",
+      "wednesday": "09:00-20:30",
+      "thursday": "09:00-20:30",
+      "friday": "09:00-18:00",
+      "saturday": "10:00-17:00",
+      "sunday": "closed"
+    },
+    "source": "https://lincolnpl.org/hours/",
+    "evidence": "Mon 1pm-8:30pm; Tue 9am-6pm; Wed-Thu 9am-8:30pm; Fri 9am-6pm; Sat 10am-5pm; Sun closed",
+    "note": "Confirmed by operator from lincolnpl.org 2026-05-29 (page renders hours via JS, not WebFetch-reachable)"
+  },
+  "library:acton:hours": {
+    "target": "library:acton:hours",
+    "status": "corrected",
+    "corrected_value": {
+      "monday": "09:00-21:00",
+      "tuesday": "09:00-21:00",
+      "wednesday": "09:00-21:00",
+      "thursday": "09:00-21:00",
+      "friday": "09:00-17:00",
+      "saturday": "09:00-17:00",
+      "sunday": "14:00-17:00"
+    },
+    "source": "https://www.actonmemoriallibrary.org/about-us/locations-hours/",
+    "evidence": "Mon-Thu 9 a.m.-9 p.m.; Fri 9-5; Sat 9-5; Sun 2-5 p.m. (main Acton Memorial Library location)",
+    "note": "Hours backfilled 2026-05-29 from https://www.actonmemoriallibrary.org/about-us/locations-hours/"
+  },
+  "library:weston:hours": {
+    "target": "library:weston:hours",
+    "status": "corrected",
+    "corrected_value": {
+      "monday": "09:00-18:00",
+      "tuesday": "09:00-18:00",
+      "wednesday": "09:00-20:00",
+      "thursday": "09:00-17:00",
+      "friday": "09:00-17:00",
+      "saturday": "10:00-16:00",
+      "sunday": "12:00-16:00"
+    },
+    "source": "https://westonlibrary.org/1531/Library-Hours",
+    "evidence": "Mon-Tue 9am-6pm; Wed 9am-8pm; Thu-Fri 9am-5pm; Sat 10am-4pm; Sun 12pm-4pm",
+    "note": "Summer (Jul/Aug): Saturday reduced to 10am-2pm and Sunday closed"
+  },
+  "library:belmont:hours": {
+    "target": "library:belmont:hours",
+    "status": "corrected",
+    "corrected_value": {
+      "monday": "09:00-21:00",
+      "tuesday": "09:00-21:00",
+      "wednesday": "09:00-21:00",
+      "thursday": "09:00-21:00",
+      "friday": "09:00-17:00",
+      "saturday": "09:00-17:00",
+      "sunday": "13:00-17:00"
+    },
+    "source": "https://www.belmontpubliclibrary.net/",
+    "evidence": "Mon-Thu 9:00 AM-9:00 PM; Fri-Sat 9:00 AM-5:00 PM; Sun 1:00 PM-5:00 PM",
+    "note": "Children's Room closes 8 PM Mon-Thu"
+  },
+  "library:wellesley:hours": {
+    "target": "library:wellesley:hours",
+    "status": "corrected",
+    "corrected_value": {
+      "monday": "09:00-21:00",
+      "tuesday": "09:00-21:00",
+      "wednesday": "09:00-21:00",
+      "thursday": "09:00-21:00",
+      "friday": "09:00-18:00",
+      "saturday": "09:00-17:00",
+      "sunday": "13:00-17:00"
+    },
+    "source": "https://wellesleyfreelibrary.libcal.com/hours",
+    "evidence": "Mon-Thu 9am-9pm; Fri 9am-6pm; Sat 9am-5pm; Sun typically 1pm-5pm (main branch)",
+    "note": "Sunday may be closed on some dates / school recesses; confirm via libcal calendar"
+  },
+  "library:watertown:hours": {
+    "target": "library:watertown:hours",
+    "status": "corrected",
+    "corrected_value": {
+      "monday": "09:00-21:00",
+      "tuesday": "09:00-21:00",
+      "wednesday": "09:00-21:00",
+      "thursday": "09:00-21:00",
+      "friday": "09:00-19:00",
+      "saturday": "09:00-17:00",
+      "sunday": "13:00-17:00"
+    },
+    "source": "https://www.watertownlib.org/150/Hours-Directions",
+    "evidence": "Mon-Thu 9am-9pm; Fri 9am-7pm; Sat 9am-5pm; Sun 1pm-5pm (main branch, 123 Main St)",
+    "note": "Hours backfilled 2026-05-29 from https://www.watertownlib.org/150/Hours-Directions"
+  },
+  "library:braintree:hours": {
+    "target": "library:braintree:hours",
+    "status": "corrected",
+    "corrected_value": {
+      "monday": "09:00-21:00",
+      "tuesday": "09:00-21:00",
+      "wednesday": "09:00-21:00",
+      "thursday": "09:00-21:00",
+      "friday": "09:00-17:00",
+      "saturday": "09:00-17:00",
+      "sunday": "closed"
+    },
+    "source": "https://www.thayerpubliclibrary.net/",
+    "evidence": "Monday-Thursday, 9 am to 9 pm; Friday and Saturday, 9 am to 5 pm",
+    "note": "Sunday hours not listed on site; treating as closed. Holiday hours vary."
+  }
+}
