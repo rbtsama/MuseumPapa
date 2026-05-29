@@ -880,9 +880,24 @@ body,
   border-color: #c4ddcf;
 }
 .card-pick.disabled {
-  opacity: 0.4;
+  /* Soft warning only — these are still clickable. Cursor stays pointer
+     and we lift the opacity slightly so the meta text is readable when
+     the user is reviewing whether to try anyway. */
+  opacity: 0.55;
   background: #ecebe5;
-  cursor: default;
+  cursor: pointer;
+}
+.card-pick.disabled:hover {
+  opacity: 0.75;
+  background: #e4e3dd;
+}
+.card-pick.disabled.selected {
+  /* Greyed + selected = "I'm overriding our judgment". Show the green
+     selection ring but keep a hint of grey in the body so the override
+     is visually obvious. */
+  opacity: 1;
+  background: #d6e6de;
+  border-color: #1b5740;
 }
 .card-pick.selected {
   border-color: #1b5740;

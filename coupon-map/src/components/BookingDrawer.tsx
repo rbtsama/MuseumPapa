@@ -166,10 +166,10 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
   );
   const usableIds = useMemo(() => new Set([...exact, ...network].map((c) => c.id)), [exact, network]);
   const selectedCard = cards.find((c) => c.id === selectedCardId) || null;
-  // Drop selection if card stops being usable when ctx changes
-  useEffect(() => {
-    if (selectedCardId && !usableIds.has(selectedCardId)) setSelectedCardId(null);
-  }, [selectedCardId, usableIds]);
+  // (Previously: auto-deselect when a card stopped being usable. Removed —
+  // greyed cards are now soft warnings, not locks; deselecting under the
+  // user's feet would silently undo their explicit "I'll try it anyway"
+  // choice.)
 
   function onBook() {
     if (!ctx || !date || !selectedCard) return;
@@ -406,20 +406,21 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                     </strong></span>
                   )}
                 </div>
-                {/* Empty-state messages — explain WHY no card is usable when the
-                    wallet has cards but none of them match this pass's scope.
-                    Without this the user just sees a row of greyed cards and
-                    has to remember every verdict rule themselves. */}
+                {/* Hint banner — explains WHY some cards are greyed. We don't
+                    block the user from picking a greyed card: the verdict
+                    might be wrong (probe miscalibration, recent network
+                    change), or they may have another physical card not in
+                    this wallet. Greyed = soft warning, not a lock. */}
                 {cards.length > 0 && usableIds.size === 0 && (
                   <div className="cards-empty cards-explain">
                     {p.booking_access_probe?.verdict === "own_card_only" ? (
-                      <>This pass accepts <strong>{lib.town} cards only</strong>.
-                        Your wallet doesn't have one — every card below is
-                        greyed out.</>
+                      <>Our data says this pass accepts <strong>{lib.town} cards only</strong>.
+                        None of your cards match — but you can still pick one and
+                        try if you think we're wrong.</>
                     ) : (
-                      <>This pass works with any <strong>{lib.network}</strong> network
-                        card. Your wallet doesn't have a {lib.network} card — every
-                        card below is greyed out.</>
+                      <>Our data says this pass needs a <strong>{lib.network}</strong> network
+                        card. You don't have one — but you can still pick a card
+                        and try.</>
                     )}
                   </div>
                 )}
@@ -433,8 +434,11 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                     return (
                       <div
                         key={c.id}
+                        // `disabled` here is a visual greying only — clicking
+                        // still selects (see why in the explain banner above).
                         className={`card-pick${usable ? "" : " disabled"}${selected ? " selected" : ""}`}
-                        onClick={() => usable && setSelectedCardId(c.id)}
+                        onClick={() => setSelectedCardId(c.id)}
+                        title={usable ? undefined : "Our data says this card likely won't be accepted — you can still try."}
                       >
                         <div className="cp-main">
                           <div className="cp-name">
