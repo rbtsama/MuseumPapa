@@ -21,6 +21,9 @@ export default function MyCards({ bundle }: Props) {
     setDraft({ id: "", library_id: "", card_number: "", note: "" });
   }
   function remove(id: string) { persist(cards.filter((c) => c.id !== id)); }
+  function toggle(id: string) {
+    persist(cards.map((c) => (c.id === id ? { ...c, enabled: c.enabled === false } : c)));
+  }
   function copy(text: string) {
     navigator.clipboard.writeText(text).then(
       () => { setCopyHint("Copied"); setTimeout(() => setCopyHint(null), 1200); },
@@ -99,6 +102,7 @@ export default function MyCards({ bundle }: Props) {
       ) : (
         <div className="cards-table">
           <div className="ct-head">
+            <span>Active</span>
             <span>Library</span>
             <span>Card number</span>
             <span>Note</span>
@@ -106,8 +110,20 @@ export default function MyCards({ bundle }: Props) {
           </div>
           {cards.map((c) => {
             const lib = bundle.libById.get(c.library_id);
+            const active = c.enabled !== false;
             return (
-              <div key={c.id} className="ct-row">
+              <div key={c.id} className={`ct-row${active ? "" : " ct-disabled"}`}>
+                <span className="ct-active">
+                  <button
+                    role="switch"
+                    aria-checked={active}
+                    onClick={() => toggle(c.id)}
+                    className={`card-toggle${active ? " on" : ""}`}
+                    title={active ? "Active — counts as a card you own. Click to disable (self-test)." : "Disabled — treated as if you don't own this card. Click to enable."}
+                  >
+                    <span className="card-toggle-knob" />
+                  </button>
+                </span>
                 <span className="ct-lib">
                   {lib ? (
                     <>

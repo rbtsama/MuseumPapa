@@ -1391,12 +1391,34 @@ body,
 
 .cards-table {
   display: grid;
-  grid-template-columns: 1fr 1.4fr 1fr auto;
+  grid-template-columns: auto 1fr 1.4fr 1fr auto;
   border: 1px solid #d0cec6;
   border-radius: 6px;
   overflow: hidden;
   background: #fafaf7;
 }
+/* Self-test enable/disable toggle (slider). */
+.cards-table .ct-active { justify-content: center; }
+.card-toggle {
+  position: relative;
+  width: 34px; height: 18px;
+  border-radius: 9px;
+  background: #c8c5bd;
+  border: none; padding: 0; cursor: pointer;
+  transition: background 0.15s ease;
+  flex: 0 0 auto;
+}
+.card-toggle.on { background: #1b5740; }
+.card-toggle-knob {
+  position: absolute; top: 2px; left: 2px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #fff;
+  transition: transform 0.15s ease;
+}
+.card-toggle.on .card-toggle-knob { transform: translateX(16px); }
+/* Disabled card row reads muted — "as if you don't own it". */
+.cards-table .ct-disabled > span:not(.ct-active),
+.cards-table .ct-disabled > button { opacity: 0.45; }
 .cards-table .ct-head {
   display: contents;
 }

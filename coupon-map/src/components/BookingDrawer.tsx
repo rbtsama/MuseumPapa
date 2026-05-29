@@ -159,7 +159,9 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
   }, [ctx?.pass.source_url, isAssabet, sourceUrl, month]);
 
   // ── card matching ─────────────────────────────────────────────────────
-  const cards = useMemo(() => loadCards(), [ctx?.attr.slug, ctx?.lib.id]);
+  // Disabled cards (enabled === false) are excluded — the self-test toggle on
+  // "My Cards" makes them behave as if the user doesn't own them.
+  const cards = useMemo(() => loadCards().filter((c) => c.enabled !== false), [ctx?.attr.slug, ctx?.lib.id]);
   const { exact, network } = useMemo(
     () => (ctx ? matchCards(cards, ctx.pass, bundle.libById) : { exact: [], network: [] }),
     [cards, ctx, bundle]

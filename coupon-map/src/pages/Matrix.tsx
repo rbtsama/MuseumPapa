@@ -104,25 +104,17 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
 
   // ── filters ─────────────────────────────────────────────────────────
   const [q, setQ] = useState("");
-  const [category, setCategory] = useState<string>("");
   const [form, setForm] = useState<string>("");
   const [verdictF, setVerdictF] = useState<string>("");
   const [residencyF, setResidencyF] = useState<string>("");
-
-  const categories = useMemo(() => {
-    const s = new Set<string>();
-    bundle.attractions.forEach((a) => a.categories?.forEach((c) => s.add(c)));
-    return Array.from(s).sort();
-  }, [bundle]);
 
   // Row filter only over attractions; cell-form/verdict filters mask cells.
   const rows = useMemo(() => {
     const ql = q.trim().toLowerCase();
     return bundle.attractions
-      .filter((a) => (category ? (a.categories || []).includes(category) : true))
       .filter((a) => (ql ? a.name.toLowerCase().includes(ql) || a.slug.includes(ql) : true))
       .sort((a, b) => a.name.localeCompare(b.name));
-  }, [bundle, q, category]);
+  }, [bundle, q]);
 
   // Drawer state — one slide-in panel replaces the old popover+modal chain.
   // Clicking another cell while one is open: null-out first so the close
@@ -225,14 +217,6 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
           onChange={(e) => setQ(e.target.value)}
           style={{ minWidth: 200 }}
         />
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option value="">All categories</option>
-          {categories.map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
-          ))}
-        </select>
         <select value={form} onChange={(e) => setForm(e.target.value)}>
           <option value="">All pickup methods</option>
           <option value="digital_email">✉ Email</option>

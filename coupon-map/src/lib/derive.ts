@@ -123,6 +123,9 @@ export interface StoredCard {
   library_id: string;
   card_number: string;
   note?: string;
+  // Self-test toggle. Undefined/true = active (you have this card); false =
+  // temporarily disabled, treated everywhere as if you don't own it.
+  enabled?: boolean;
 }
 export function matchCards(
   cards: StoredCard[],

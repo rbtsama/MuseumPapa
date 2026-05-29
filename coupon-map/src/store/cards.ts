@@ -48,6 +48,7 @@ export async function importCardsFromFile(file: File): Promise<StoredCard[]> {
       library_id: String(c.library_id),
       card_number: String(c.card_number),
       note: c.note ? String(c.note) : "",
+      enabled: c.enabled === false ? false : true,
     };
   });
 }
