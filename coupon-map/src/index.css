@@ -338,59 +338,6 @@ body,
 }
 .app-body { padding: 14px 20px; }
 
-/* ── Legend (taxonomy reference) ─────────────────────────────────────── */
-.legend {
-  margin-bottom: 10px;
-  padding: 6px 10px;
-  background: #ecebe5;
-  border: 1px solid #d0cec6;
-  border-radius: 6px;
-  font-size: 12px;
-}
-.legend > summary {
-  cursor: pointer;
-  font-weight: 600;
-  color: #1b5740;
-  user-select: none;
-}
-.legend-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-top: 8px;
-}
-@media (max-width: 1100px) {
-  .legend-grid { grid-template-columns: 1fr 1fr; }
-}
-.legend-col h5 {
-  margin: 0 0 4px;
-  font-size: 11px;
-  color: #4a4845;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-}
-.legend-col .lg-row {
-  display: grid;
-  grid-template-columns: 22px 110px 1fr;
-  gap: 4px;
-  align-items: center;
-  padding: 1px 0;
-  font-size: 11px;
-}
-.legend-col .lg-dot {
-  text-align: center;
-}
-.legend-col code {
-  background: #fafaf7;
-  padding: 1px 4px;
-  border-radius: 3px;
-  font-size: 10px;
-  color: #4a4845;
-}
-.legend-col .lg-text {
-  color: #1a1917;
-}
-
 /* ── Filter bar ─────────────────────────────────────────────────────── */
 .filter-bar {
   display: flex;
@@ -884,58 +831,6 @@ body,
   cursor: pointer;
 }
 .foot-btns .btn-ghost:hover { background: #ecebe5; }
-
-.wizard {
-  padding: 8px 4px;
-}
-.wizard h3 {
-  margin: 0 0 8px;
-  font-size: 14px;
-}
-.lib-pick {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  max-height: 420px;
-  overflow: auto;
-}
-.lib-pick .pick {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 8px;
-  border: 1px solid #d0cec6;
-  border-radius: 4px;
-  background: #fafaf7;
-}
-.lib-pick .pick.dim {
-  opacity: 0.45;
-  background: #ecebe5;
-}
-.lib-pick .pick .town {
-  font-weight: 600;
-  min-width: 110px;
-}
-.lib-pick .pick .form {
-  color: #8c6018;
-  font-size: 11px;
-  min-width: 80px;
-}
-.lib-pick .pick .summary {
-  color: #1b5740;
-  font-weight: 600;
-  min-width: 80px;
-}
-.lib-pick .pick .card {
-  margin-left: auto;
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  font-size: 11px;
-}
-.lib-pick .pick .card.no {
-  color: #8c2a1e;
-}
 
 /* ── My Cards page — unified typography ────────────────────────────── */
 .my-cards { padding: 6px 4px; font-size: 13px; }

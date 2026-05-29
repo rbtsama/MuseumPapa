@@ -58,14 +58,6 @@ export function verdictLabel(
   }
 }
 
-// All 4 possible verdict categories — used by the matrix legend.
-export const VERDICT_CATEGORIES: Verdict[] = [
-  "network_open",
-  "own_card_only",
-  "ambiguous",
-  "not_verified",
-];
-
 // ── library.card_eligibility (residency to get the card) ─────────────────
 // All 5 possible categories:
 //   ma_resident   — 任何 MA 居民
@@ -93,14 +85,6 @@ export function eligibilityLabel(
   }
 }
 
-export const ELIGIBILITY_CATEGORIES: Eligibility[] = [
-  "ma_resident",
-  "town_resident",
-  "town_or_works",
-  "network",
-  "unknown",
-];
-
 // ── pass-level residency (pickup residency) ──────────────────────────────
 // All 3 categories. yes=取这张 pass 时被验居住地;scope 通常是 town,即
 // 必须是该馆所在 town 的居民才能取这张 pass。
@@ -123,32 +107,11 @@ export function passResidencyLabel(
   }
 }
 
-export const RESIDENCY_CATEGORIES: Residency[] = ["no", "yes", "unknown"];
 
 // ── monthly booking-frequency limit (mostly free text, rarely set) ───────
 export function frequencyLimit(s: string | null | undefined): string | null {
   if (!s) return null;
   return s; // raw verbatim — never inject our own number
-}
-
-// ── availability summary for a cell: any future date 'available'? ────────
-export type AvailKind = "has_avail" | "all_booked" | "all_closed" | "none";
-export function availabilitySummary(avail: Record<string, string> | undefined, today = new Date()): AvailKind {
-  if (!avail) return "none";
-  const todayStr = today.toISOString().slice(0, 10);
-  let hasAvail = false;
-  let hasBooked = false;
-  let hasFuture = false;
-  for (const [d, st] of Object.entries(avail)) {
-    if (d < todayStr) continue;
-    hasFuture = true;
-    if (st === "available") hasAvail = true;
-    else if (st === "booked") hasBooked = true;
-  }
-  if (!hasFuture) return "none";
-  if (hasAvail) return "has_avail";
-  if (hasBooked) return "all_booked";
-  return "all_closed";
 }
 
 // ── card-matching: given the user's stored cards + a target pass, is there
