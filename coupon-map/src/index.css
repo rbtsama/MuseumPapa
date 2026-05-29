@@ -429,7 +429,7 @@ body,
   letter-spacing: 0.6px;
   margin-bottom: 5px;
 }
-.detail-card .data-row {
+.data-row {
   display: grid;
   grid-template-columns: 160px 1fr;
   align-items: baseline;
@@ -437,12 +437,12 @@ body,
   padding: 3px 0;
   font-size: 13px;
 }
-.detail-card .data-row .k {
+.data-row .k {
   color: #4a4845;
   text-transform: capitalize;
   grid-column: 1;
 }
-.detail-card .data-row .v {
+.data-row .v {
   color: #1a1917;
   text-align: right;
   font-variant-numeric: tabular-nums;
@@ -450,14 +450,14 @@ body,
   min-width: 0;
   word-break: break-word;
 }
-.detail-card .data-row .v-warn { color: #8c2a1e; }
-.detail-card .data-row .v-free { color: #1b5740; font-weight: 600; }
-.detail-card .data-row .v-note {
+.data-row .v-warn { color: #8c2a1e; }
+.data-row .v-free { color: #1b5740; font-weight: 600; }
+.data-row .v-note {
   font-weight: 400;
   color: #8a877f;
   font-size: 12px;
 }
-.detail-card .data-row .v-attn {
+.data-row .v-attn {
   color: #8c6018;
   font-weight: 600;
 }
@@ -730,6 +730,20 @@ body,
 .drawer-section .section-h {
   font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
   color: #8a877f; font-weight: 600; margin-bottom: 6px;
+}
+/* Narrower label column for the 380px drawer (matrix popover uses 160px). */
+.drawer-section .data-row {
+  grid-template-columns: 110px 1fr;
+  column-gap: 12px;
+  padding: 2px 0;
+}
+.drawer-section .data-row.sub {
+  grid-template-columns: 1fr auto;
+  column-gap: 10px;
+}
+.drawer-section .data-row.sub .v {
+  font-weight: 600;
+  color: #1b5740;
 }
 .section-h-pick { color: #4a4845; font-weight: 500; text-transform: none; letter-spacing: 0; }
 .section-h-pick strong { color: #1b5740; }

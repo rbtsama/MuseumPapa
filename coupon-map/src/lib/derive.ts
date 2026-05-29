@@ -24,11 +24,11 @@ export interface FormLabel {
 export function formLabel(f: PassForm): FormLabel {
   switch (f) {
     case "digital_email":
-      return { cellIcon: "", icon: "✉", short: "Email", tooltip: "邮件电子券:下单后自动发邮件" };
+      return { cellIcon: "", icon: "✉", short: "Email", tooltip: "Emailed digital voucher — sent automatically after booking" };
     case "physical_coupon":
-      return { cellIcon: "★", icon: "★", short: "Pickup", tooltip: "去图书馆领纸质优惠券,领走即可" };
+      return { cellIcon: "★", icon: "★", short: "Pickup", tooltip: "Pick up a paper voucher at the library — keep it (no return)" };
     case "physical_circ":
-      return { cellIcon: "★★", icon: "★★", short: "Pickup & return", tooltip: "借实体通行证,用完需归还" };
+      return { cellIcon: "★★", icon: "★★", short: "Pickup & return", tooltip: "Borrow a physical pass — must be returned after use" };
   }
 }
 
@@ -206,20 +206,29 @@ export function policyText(p: AudiencePolicy): string {
   const v = p.value;
   switch ((p.form || "").toLowerCase()) {
     case "percent-off":
-      return v != null ? `-${v}%` : "% off";
+      return v != null ? `${v}% off` : "% off";
     case "free":
-      return "FREE";
+      return "Free";
     case "dollars-off":
     case "dollar-off":
-      return v != null ? `-$${v}` : "$ off";
+      return v != null ? `$${v} off` : "$ off";
     case "fixed-price":
-      return v != null ? `$${v}/人` : "固定价";
+    case "per-person-price":
+      return v != null ? `$${v} / person` : "Fixed price";
     case "fixed-total":
-      return v != null ? `共 $${v}` : "固定总价";
+      return v != null ? `$${v} total` : "Fixed total";
     case "bogo":
-      return "B1G1";
+      return "Buy 1 get 1";
     default:
-      return [p.form, v].filter((x) => x !== undefined && x !== null && x !== "").join(" ").trim() || "—";
+      // Unknown form — surface what we have so a missing case is visible
+      // (rather than silently saying "—"). Form names are kebab-case enum
+      // values like "per-pass-discount"; humanize them so users see a
+      // readable phrase instead of raw enum text.
+      if (p.form) {
+        const human = p.form.replace(/-/g, " ");
+        return v != null ? `${human}: ${v}` : human;
+      }
+      return v != null ? String(v) : "—";
   }
 }
 
@@ -276,30 +285,37 @@ export function capacityStructure(coupon: {
   const withCount = policies.filter((p) => p.count != null && p.count > 0);
   if (withCount.length === 0) return { total };
   const audMap: Record<string, string> = {
-    adult: "大",
-    senior: "老",
-    child: "小",
-    children: "小",
-    youth: "青",
-    student: "学",
-    infant: "婴",
-    everyone: "人",
-    family: "家",
-    military: "军",
+    adult:    "adult",
+    senior:   "senior",
+    child:    "child",
+    children: "child",
+    youth:    "youth",
+    student:  "student",
+    infant:   "infant",
+    everyone: "person",
+    family:   "family",
+    military: "military",
   };
   const parts = withCount.map((p) => {
     const aud = (p.audience || "").toLowerCase();
     const tag = audMap[aud] || p.audience;
-    return `${p.count} ${tag}`;
+    // Pluralize when count > 1 (simple s-suffix — every term above pluralizes
+    // regularly except "child" → "children").
+    const n = p.count!;
+    const word = n === 1
+      ? tag
+      : tag === "child" ? "children"
+      : `${tag}s`;
+    return `${n} ${word}`;
   });
   return { total, parts };
 }
 export function policyRange(p: AudiencePolicy): string {
   if (!p.age_range || (p.age_range.min == null && p.age_range.max == null)) return "";
   const { min, max } = p.age_range;
-  if (min != null && max != null) return ` (${min}-${max} 岁)`;
-  if (min != null) return ` (${min}+ 岁)`;
-  if (max != null) return ` (≤${max} 岁)`;
+  if (min != null && max != null) return ` (ages ${min}–${max})`;
+  if (min != null) return ` (ages ${min}+)`;
+  if (max != null) return ` (under ${max + 1})`;
   return "";
 }
 
