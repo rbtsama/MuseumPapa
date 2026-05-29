@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-29T08:36:39.311988+00:00",
+    "built_at": "2026-05-29T16:13:33.827288+00:00",
     "n_libraries": 59
   },
   "libraries": [
@@ -34,7 +34,15 @@
       "resident_zips": [
         "01880"
       ],
-      "hours_note": "学年与暑期排班不同(9月-6月有周日时段;暑期周日关闭)— 见官网"
+      "hours_note": "学年与暑期排班不同(9月-6月有周日时段;暑期周日关闭)— 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Anyone is eligible for a library card with valid identification and proof of current address (e.g. a driver’s license and utility bill).",
+          "block": "Anyone is eligible for a library card with valid identification and proof of current address (e.g. a driver’s license and utility bill).\n\nRegister for a library card from your computer or smartphone to access digital content right away. Sign up for a NOBLE eCard and once your address is verified, you will receive an email with your library card number to instantly access ebooks, audiobooks, magazines, and more.\n\nThe eCard is for patrons who do not already have a NOBLE public library card and may be upgraded to a physical library card with borrowing privileges by visiting the library.",
+          "source": "https://wakefieldlibrary.org/get-a-library-card/",
+          "source_confidence": "high"
+        }
+      }
     },
     {
       "id": "stoneham",
@@ -74,6 +82,14 @@
         "friday": "09:00-17:00",
         "saturday": "closed",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "In order to register for a Stoneham Public Library card in person, you must bring a form of ID and/or another document with your current address to the main circulation desk.",
+          "block": "For Adults and Teens 12+\nIn order to register for a Stoneham Public Library card in person, you must bring a form of ID and/or another document with your current address to the main circulation desk.\n\nClick HERE to register for an e-card online! An e-card gives you immediate access to our digital resources like hoopla, Libby, and kanopy. Please note that an e-card does not cover museum pass reservations. Once you register, you will receive an email with your e-card barcode number. The e-card is valid for three (3) years. If you would like to check out physical materials, you will need to visit the library to upgrade to a full access card. Make sure you bring a form of ID and an item with your current address. Please note that if you already have a full access library card, you will not be validated to receive an e-card.",
+          "source": "https://stonehamlibrary.org/get-a-library-card/",
+          "source_confidence": "medium"
+        }
       }
     },
     {
@@ -106,7 +122,15 @@
       "resident_zips": [
         "01867"
       ],
-      "hours_note": "周日时段仅 10 月初至阵亡将士周末;夏季周日关闭 — 见官网"
+      "hours_note": "周日时段仅 10 月初至阵亡将士周末;夏季周日关闭 — 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Stop by the Borrower Services desk to present identification and proof of residency.",
+          "block": "Get a Library Card - It's Easy!\n\nReading Public Library Card\n\nStop by the Borrower Services desk to present identification and proof of residency. You will select a password to manage your account, access online resources, and reserve museum passes.\n\nThat’s it! We’ll give you a library card right away!",
+          "source": "https://www.readingpl.org/get-a-library-card/",
+          "source_confidence": "medium"
+        }
+      }
     },
     {
       "id": "woburn",
@@ -146,6 +170,14 @@
         "friday": "09:00-17:30",
         "saturday": "09:00-17:30",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "To get a free Library Card, you must be a Massachusetts resident.",
+          "block": "To get a free Library Card, you must\n\nbe a Massachusetts resident.\n\nbring a picture I.D. with current address or a picture I.D. and a bill/mail received at your current address.*\n\nbe at least 4 years old OR be able to write your own full name (whichever comes first).\n\nhave a parent or guardian sign your application if you are under 12 years old.",
+          "source": "https://woburnpubliclibrary.org/services/how-to-get-a-library-card/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -186,6 +218,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Library cards are free and available regardless of where you live in Massachusetts.",
+          "block": "Requests for full access library cards can be sent to lfdcirc@noblenet.org . Please include your name, address, phone number, and birth date for any person requesting a card. You can also download and email an application.\n\nRequests may also be made in person, we cannot take card requests over the phone.\n\nLibrary cards are free and available regardless of where you live in Massachusetts. In addition to the above information, proof of current mailing address (license, checkbook, utility bill, etc.) is needed. This can be done electronically by including a picture of an ID/license or a piece of mail with your request. We just need to see your name and address, anything else can be blocked.",
+          "source": "https://lynnfieldlibrary.org/about/get-a-library-card/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -218,7 +258,15 @@
       "resident_zips": [
         "01960"
       ],
-      "hours_note": "主馆周日 1-5pm 仅劳工节-阵亡将士纪念日开放;另有 South/West 分馆排班不同 — 见官网"
+      "hours_note": "主馆周日 1-5pm 仅劳工节-阵亡将士纪念日开放;另有 South/West 分馆排班不同 — 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Anyone can get a Peabody Institute Library card at any of our 3 locations! Just show library staff a photo ID and proof of residence, and fill out a short application.",
+          "block": "How can I get a Library Card?\n\nAnyone can get a Peabody Institute Library card at any of our 3 locations! Just show library staff a photo ID and proof of residence, and fill out a short application. Children 12 and under must have a parent or guardian permission and signature.\n\nCan I get a Library Card if I don't live in Peabody?\n\nYes! We just need to see proof of your address. If you live in another NOBLE library community, you can use your card at the Peabody Institute Library, but you can only have one card in the NOBLE network. Please be aware that some online resources are only available for Peabody residents.",
+          "source": "https://peabodylibrary.org/librarycard/",
+          "source_confidence": "high"
+        }
+      }
     },
     {
       "id": "melrose",
@@ -258,6 +306,14 @@
         "friday": "10:00-17:00",
         "saturday": "10:00-17:00",
         "sunday": "14:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "To register for a physical library card, please bring photo identification with proof of your current address to the Main Desk and fill out our registration form.",
+          "block": "To register for a physical library card, please bring photo identification with proof of your current address to the Main Desk and fill out our registration form. Guardians of children ages 4 and older may register them for a library card with proof of address and a signature. Local students ages 11-18 may register with school identification or with a guardian.\n\nIf you do not have a current permanent address, you may get a local use Melrose Public Library card.\n\nIf you are a Massachusetts resident without a library card and would like to obtain an eCard, granting access to digital materials only, please apply online .",
+          "source": "https://melrosepubliclibrary.org/services/borrow/library-cards/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -298,6 +354,14 @@
         "friday": "09:00-16:30",
         "saturday": "09:00-16:30",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "however, NOBLE (North of Boston Library Exchange) libraries will issue a library card to anyone with a picture ID and proof of a current address.",
+          "block": "Who can apply?\n\nAny Massachusetts resident may register and use any public library in the Commonwealth. It’s easier if you register in the town where you live; however, NOBLE (North of Boston Library Exchange) libraries will issue a library card to anyone with a picture ID and proof of a current address. Once you have a library card, you can use it at most other NOBLE libraries without the need to get multiple cards.",
+          "source": "https://www.sauguspubliclibrary.org/explore/library-card/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -338,6 +402,14 @@
         "friday": "09:00-18:00",
         "saturday": "09:00-18:00",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "To apply for a library card, you do not have to be a resident of Malden, but you do have to be a resident of Massachusetts.",
+          "block": "To apply for a library card, you do not have to be a resident of Malden, but you do have to be a resident of Massachusetts. People applying for a library card must provide a valid photo ID, and an accepted form of proof of current address. (If your photo ID has your current address, then that is all you need.)",
+          "source": "https://maldenpubliclibrary.org/about/policies/library-cards/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -378,6 +450,14 @@
         "friday": "09:00-18:00",
         "saturday": "09:00-17:00",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Library cards are issued to Massachusetts residents who present a piece of identification with their name and current address.",
+          "block": "Library cards are issued to Massachusetts residents who present a piece of identification with their name and current address. Children under age 18 may obtain a card if accompanied by a parent or guardian. 7th grade and older must be accompanied by a parent or guardian, or present signed permission in writing and a piece of identification with name and address. Cards issued in Medford may be used at any library in the Minuteman Library Network.\n\nIdentification may include a valid driver’s license, imprinted bank check, piece of delivered non-personal mail such as a bill, bank statement, or magazine with a mailing label.\n\nOut-of-state residents who work in Massachusetts, are students in Massachusetts, own property in Massachusetts, or are living in temporarily in Massachusetts (for a minimum of 8 weeks), may register for a card. Work ID that includes a current mailing address, or a student ID that includes a current mailing address, or a piece of delivered non-personal mail is required for verification of a Massachusetts mailing address.",
+          "source": "https://medfordlibrary.org/about-us/policies/borrowing-policies/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -418,6 +498,14 @@
         "friday": "10:00-18:00",
         "saturday": "10:00-17:00",
         "sunday": "13:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "You can obtain a library card at the Burlington Public Library if you are a: Resident of any Massachusetts municipality whose library is certified by the Massachusetts Board of Library Commissioners; you may register with the Burlington Public Library and receive borrowing privileges within the Merrimack Valley Library Consortium (MVLC).",
+          "block": "Obtaining a Library Card\nYou can obtain a library card at the Burlington Public Library if you are a:\nResident of any Massachusetts municipality whose library is certified by the Massachusetts Board of Library Commissioners; you may register with the Burlington Public Library and receive borrowing privileges within the Merrimack Valley Library Consortium (MVLC).\nOut-of-state resident who either own property, work, or attend school in Burlington.\nProof of Identity and Address are required to obtain a Burlington Public Library Card.",
+          "source": "https://www.burlingtonpubliclibrary.org/186/Get-a-Library-Card",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -450,7 +538,15 @@
       "resident_zips": [
         "01864"
       ],
-      "hours_note": "周六开馆仅劳工节-阵亡将士纪念日 — 见官网"
+      "hours_note": "周六开馆仅劳工节-阵亡将士纪念日 — 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "A library card is available to all North Reading residents.",
+          "block": "Your library card or a valid ID must be presented to withdraw materials.\n\nA library card is available to all North Reading residents. To obtain a card, you will need a photo ID, preferably a driver’s license with the correct address. If the address is not current, please provide a lease, utility bill, or another document with the current North Reading address.",
+          "source": "https://flintmemoriallibrary.org/home/borrow-materials/",
+          "source_confidence": "high"
+        }
+      }
     },
     {
       "id": "wilmington",
@@ -490,6 +586,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Proper identification is required to apply for a Wilmington Memorial Library (WML) card.",
+          "block": "Residents of Wilmington\n\nProper identification is required to apply for a Wilmington Memorial Library (WML) card. The following documents are acceptable\n\nMassachusetts driver’s license or license with a new address sticker attached\n\nMassachusetts car registration, state ID or passport\n\nWilmington property tax bill, lease/mortgage bill or utility bill\n\nChildren under age 14 are required to have a parent or legal guardian present when applying and a parent or legal guardian must sign the application. Children age 14 and over are required to present proper identification (school I.D.) or be accompanied by a parent or legal guardian with acceptable identification.",
+          "source": "https://wilmlibrary.org/library-card/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -522,7 +626,15 @@
       "resident_zips": [
         "01890"
       ],
-      "hours_note": "周日 2-5pm 仅 10 月-5 月;夏季周日关闭 — 见官网"
+      "hours_note": "周日 2-5pm 仅 10 月-5 月;夏季周日关闭 — 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Present a photo ID and proof of your current address at any Circulation Desk. Massachusetts residency is required to get your library card and some services are restricted to Winchester residents only.",
+          "block": "Get a Library Card\n\nIt’s Easy!\n\nPresent a photo ID and proof of your current address at any Circulation Desk. Massachusetts residency is required to get your library card and some services are restricted to Winchester residents only. Complete requirements are available in our policy manual .",
+          "source": "https://www.winpublib.org/librarycard/",
+          "source_confidence": "high"
+        }
+      }
     },
     {
       "id": "bpl",
@@ -587,6 +699,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "11:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Come with picture ID and proof of Massachusetts residency, which can be either a physical document or an official document available on an electronic device. A Massachusetts driver’s license or ID card satisfies both requirements.",
+          "block": "Apply for a physical library card at the circulation desk in any BPL location.\n\nCome with picture ID and proof of Massachusetts residency, which can be either a physical document or an official document available on an electronic device. A Massachusetts driver’s license or ID card satisfies both requirements.\n\nIf you don’t have a Massachusetts driver’s license or state ID, you can bring some other form of ID that shows your picture and signature along with official mail sent to you at a Massachusetts address.",
+          "source": "https://www.bpl.org/faq/eligibility/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -619,7 +739,15 @@
       "resident_zips": [
         "01915"
       ],
-      "hours_note": "周日仅 9 月后至阵亡将士纪念日开放;夏季周日关闭 — 见官网"
+      "hours_note": "周日仅 9 月后至阵亡将士纪念日开放;夏季周日关闭 — 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "The library honors library cards from other Massachusetts libraries, but the patron must also register with the Beverly Public Library.",
+          "block": "To borrow library materials, patrons should present a NOBLE registered library card. The library honors library cards from other Massachusetts libraries, but the patron must also register with the Beverly Public Library.\n\nTo get a library card:\n\nFill out a registration form. Printable versions: ( English ) ( Portuguese ) ( Spanish ) ( Haitian ) ( Albanian ) ( French ).\n\nPresent photo identification with name and proof of current address (e.g. a driver’s license and utility bill).\n\nParents or guardians must show their I.D. when registering children. There is no minimum age limit and no requirement that children can read or write their name.\n\nPatrons may apply for an eCard. This card allows access to electronic resources only.\n\nThere is no charge for a library card. However, should a card be lost, patrons are responsible for all the items checked out on the card up to the date that it is reported missing. Patrons must show identification to replace a lost card.",
+          "source": "https://beverlypubliclibrary.org/services/borrowing/",
+          "source_confidence": "high"
+        }
+      }
     },
     {
       "id": "danvers",
@@ -686,7 +814,15 @@
         "01904",
         "01905"
       ],
-      "hours_note": "夏季(6 月中-8 月)排班不同 — 见官网"
+      "hours_note": "夏季(6 月中-8 月)排班不同 — 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Once your address is verified, you will receive an email containing your digital library card number.",
+          "block": "NOBLE now offers eCard service! Patrons, complete your registration online using this form , no need to visit the library.\n\nOnce your address is verified, you will receive an email containing your digital library card number. This number can be used to access your account, borrow eBooks through Libby/Overdrive, and access other digital resources. eCard accounts are valid for 3 years at a time and can be upgraded to a traditional account by visiting any NOBLE library with your I.D.",
+          "source": "https://lynnpubliclibrary.org/",
+          "source_confidence": "low"
+        }
+      }
     },
     {
       "id": "marblehead",
@@ -726,6 +862,14 @@
         "friday": "09:30-17:00",
         "saturday": "09:30-17:00",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Library cards are available free of charge to residents of Massachusetts and individuals who work or attend school in Marblehead.",
+          "block": "Library Card Eligibility & Registration\n\n1.1 Eligibility\n\nLibrary cards are available free of charge to residents of Massachusetts and individuals who work or attend school in Marblehead. Non-residents may be eligible for a card under specific circumstances.\n\n1.2 Registration\n\nTo obtain a library card, applicants must:\n\nComplete a registration form.\n\nPresent valid photo identification.\n\nProvide proof of current address.",
+          "source": "https://abbotlibrary.org/about/general-info/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -766,6 +910,14 @@
         "friday": "09:00-17:00",
         "saturday": "10:00-14:00",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "A library card is totally free, and anyone can get one! All you need is a form of photo I.D. and proof of address.",
+          "block": "Having a library card will allow you to bring the library’s materials home, give you access to our online learning resources, and more. A library card is totally free, and anyone can get one! All you need is a form of photo I.D. and proof of address.\n\nIf you are under 18 years old and you go to school in Everett, you can show us one of the following to get your library card: School I.D., School uniform, School planner, Report card, School email with your full name, Online school profile.\n\nIf you go to school outside of Everett, you’ll need to show us a proof of address. If you do not have one of the above items, bring your parent or guardian and their I.D. and proof of address.",
+          "source": "https://www.everettpubliclibraries.org/get-a-library-card/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -807,6 +959,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "A library card is needed to borrow items or use public computers. In order to obtain a card: The child must be present. The child must be enrolled in school (preschool is considered school). Verification of address is required. A parent or guardian should be present for a child under 10.",
+          "block": "The Children’s Department is reserved for children, their parents, guardians, teachers, and caregivers. A library card is needed to borrow items or use public computers. In order to obtain a card: The child must be present. The child must be enrolled in school (preschool is considered school). Verification of address is required. A parent or guardian should be present for a child under 10. Responsibility for all materials borrowed on a library card lies with the cardholder and/or their parent or guardian. Library staff do not monitor the selection of materials and are not responsible for items that are checked out.",
+          "source": "https://www.chelseama.gov/departments/library/",
+          "source_confidence": "low"
+        }
       }
     },
     {
@@ -847,6 +1007,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "13:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "A physical Billerica Public Library card is available to all Billerica residents.",
+          "block": "A physical Billerica Public Library card is available to all Billerica residents. Property owners and those employed in town may also obtain a card if they are not already part of the Merrimack Valley Library Consortium (MVLC). The Library will follow MVLC policies and procedures when registering patrons who are residents of MVLC communities.",
+          "source": "https://billericalibrary.org/borrowing/library-cards/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -887,6 +1055,14 @@
         "friday": "10:00-14:00",
         "saturday": "10:00-14:00",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "All Topsfield residents aged six and older are eligible to receive a library card from the Topsfield Town Library.",
+          "block": "How do I get a library card?\n\nAll Topsfield residents aged six and older are eligible to receive a library card from the Topsfield Town Library. Residents can apply for an eCard from home using our eCard Registration Form , or register in-person at the library’s Circulation Desk. View our welcome brochure here.\n\nNot from Topsfield? Resident of Town in the Merrimack Valley Library Consortium (MVLC): Library card holders in good standing from any town within the Merrimack Valley Library Consortium (MVLC) can borrow materials from the Topsfield Town Library. Residents of other towns within the MVLC that do not have an active library account can apply for and receive a library card in-person at the Topsfield Town Library Circulation Desk; however, residents of other towns within the MVLC are encouraged to receive a library card at the library in their town of residence or to apply online using the MVLC eCard registration form to ensure unfettered access to all e-resources offered by the home library. Resident of Towns not in the MVLC: Massachusetts residents of towns outside of the MVLC can apply for a library card in-person at the Topsfield Town Library, or online using the MVLC eCard registration form . Living Out of State but Working in Topsfield: The Topsfield Town Library will issue a local-use only library card to those who work in Topsfield but live outside of the Commonwealth of Massachusetts.",
+          "source": "https://topsfieldlibrary.org/borrow/get-a-library-card/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -927,6 +1103,14 @@
         "friday": "10:00-15:00",
         "saturday": "10:00-15:00",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Any Boxford Resident is eligible to obtain a Boxford Town Library Account and Card.",
+          "block": "Any Boxford Resident is eligible to obtain a Boxford Town Library Account and Card. To obtain an account please follow the steps outlined below:\nCome to the Library located at 7A Spofford Road, Boxford. MA\nBring a form of Identification (See Below) and Proof of Residency (See below)\nFill out the Library Account and Card application\nCurrently, accounts are created in person. If you are unable to come in for a visit please call the library at 978-887-7323 to see how we can help you get set up with a library account and card.",
+          "source": "https://www.boxfordma.gov/210/Get-a-Library-Card",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -1001,7 +1185,15 @@
         "01824",
         "01863"
       ],
-      "hours_note": "首页仅显示当日时间;每日时间表需查官网完整 Hours 页 — 见官网"
+      "hours_note": "首页仅显示当日时间;每日时间表需查官网完整 Hours 页 — 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "If you live in Chelmsford, your employer is the Town of Chelmsford, or you own a business or property in Chelmsford, you may apply in person at the Chelmsford Public Library.",
+          "block": "Online Application\nIf you live anywhere in Massachusetts (including Chelmsford) and do not already have a card from an MVLC Library, you may apply for a library card online .\nIn-Person Application for a Chelmsford Library Card\nIf you live in Chelmsford, your employer is the Town of Chelmsford, or you own a business or property in Chelmsford, you may apply in person at the Chelmsford Public Library. Bring proof of identity and current address/employment. Items that may serve this purpose include (but are not limited to) a government-issued photo id, utility bill, tax bill, current use of a Town of Chelmsford work email address, or school photo ID.",
+          "source": "https://www.chelmsfordlibrary.org/about/get-a-library-card",
+          "source_confidence": "high"
+        }
+      }
     },
     {
       "id": "haverhill",
@@ -1043,6 +1235,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "You must be a Haverhill resident, Haverhill property owner, or municipal employee to receive a Haverhill Public Library card.",
+          "block": "How to get a Haverhill Public Library Card!\n\nYou must be a Haverhill resident, Haverhill property owner, or municipal employee to receive a Haverhill Public Library card.\n\nYou can come in to the library and set up your library card in a few minutes! If you are coming into the library to create a card, you will need to bring proof of address with you. Examples of proof of address include a state ID or a utility bill.",
+          "source": "https://www.haverhillpl.org/library-card",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -1078,7 +1278,15 @@
         "01843"
       ],
       "hours_note": "夏季排班与学年排班不同 — 见官网",
-      "pass_page": "https://www.lawrencepl.org/cultural-passes"
+      "pass_page": "https://www.lawrencepl.org/cultural-passes",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "The library registers Lawrence residents above 7th grade with a picture identification (driver's license, Massachusetts identification, Passport, or school ID) and proof of address (utility bill, current month rent receipt, or currently postmarked mail).",
+          "block": "The library registers Lawrence residents above 7th grade with a picture identification (driver's license, Massachusetts identification, Passport, or school ID) and proof of address (utility bill, current month rent receipt, or currently postmarked mail). Borrowers 6th grade or below must have a parent or guardian's signature to obtain a library card.\n\nMassachusetts residents with a card from their hometown belonging to the Merrimack Valley Library Consortium (MVLC) network are welcome to use our library. If you are a member of another network (NOBLE, Minuteman, Metro Boston, Clams, Old Colony, or CW/MARS) we can register your card in our network.\n\nNon-Lawrence residents may obtain a Local Use Lawrence Public Library Card, which would give the borrower access to all of the services offered by the Lawrence Public Library, including our extensive Online Databases.",
+          "source": "https://www.lawrencepl.org/library-card",
+          "source_confidence": "high"
+        }
+      }
     },
     {
       "id": "methuen",
@@ -1118,6 +1326,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Methuen Residents Bring a current photo ID and proof of your Methuen address to the Main Desk.",
+          "block": "How to Get a Physical Card\n\nMethuen Residents\n\nBring a current photo ID and proof of your Methuen address to the Main Desk.\n\nChildren 12 and younger can get their free library card in the Children’s Room with a parent or legal guardian present.\n\nUse your Nevins Library card at any Massachusetts library or use it with our many Online Resources .\n\nMethuen Teachers, Town Employees, or Methuen Property Taxpayers\n\nBring your ID and information about your employment or address to the Main Desk.\n\nReceive a free library card to be used at the Nevins Library.\n\nNonresidents of Methuen\n\nApply for a library card in your hometown library.\n\nUse your Massachusetts library card at the Nevins Library too.",
+          "source": "https://www.nevinslibrary.org/about-nevins-library/library-cards/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -1159,6 +1375,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "13:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "All Andover residents, property owners, Town of Andover municipal employees, and Andover public school teachers and students are eligible to get a Memorial Hall Library card.",
+          "block": "All Andover residents, property owners, Town of Andover municipal employees, and Andover public school teachers and students are eligible to get a Memorial Hall Library card. Apply for a virtual card online if you are an Andover resident or visit the library with appropriate identification to sign up.\n\nResidents of other cities and towns in Massachusetts may use their hometown library card in our system or apply for a Merrimack Valley Library Consortium (MVLC) card online or in person with appropriate identification.\n\nStudents, Staff and Teachers affiliated with a school in Andover but do not live in Andover may apply for a card online .",
+          "source": "https://mhl.org/borrow/on-the-shelves/library-cards-and-borrowing-items",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -1191,7 +1415,15 @@
       "resident_zips": [
         "01845"
       ],
-      "hours_note": "夏季(阵亡将士纪念日-劳工节)周末关闭;学年周末开放 — 见官网"
+      "hours_note": "夏季(阵亡将士纪念日-劳工节)周末关闭;学年周末开放 — 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Residents of North Andover : New borrowers are asked to show photo identification and proof of their North Andover address before they are issued a Stevens library card.",
+          "block": "Residents of North Andover : New borrowers are asked to show photo identification and proof of their North Andover address before they are issued a Stevens library card. A parent or legal guardian must sign the registration form and co-sign the library card of any child under 12.\n\nResidents of towns whose libraries belong to the Merrimack Valley Library Consortium : Patrons who live in another MVLC community can receive a MVLC card OR can use the ecard registration to get a home library card.\n\nMassachusetts residents outside of the Merrimack Valley Library Consortium (MVLC) may either cross-register their other Massachusetts network card or be issued an MVLC card. A patron must have a photo ID (i.e. license, etc.) proving MA residence and complete a registration form.",
+          "source": "https://www.stevensmemlib.org/library-card",
+          "source_confidence": "high"
+        }
+      }
     },
     {
       "id": "middleton",
@@ -1223,7 +1455,15 @@
       "resident_zips": [
         "01949"
       ],
-      "hours_note": "夏季(7-8 月)与学年排班不同 — 见官网"
+      "hours_note": "夏季(7-8 月)与学年排班不同 — 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Library cards will be issued to any resident of Middleton, MA who shows proper identification.",
+          "block": "LIBRARY CARDS\n\nLibrary cards will be issued to any resident of Middleton, MA who shows proper identification. The minimum age to receive a library card is 5 years. Children 14 years and under need a parent or guardian’s signature.\n\nPLEASE NOTE: Flint Public Library cards may only be issued to residents of Middleton, Massachusetts. If you are a Massachusetts resident that lives outside of Middleton and you would like to borrow our materials, please visit the library circulation desk or call 978-774-8132 to learn more.",
+          "source": "https://flintlibrary.org/index.php/get-a-library-card/",
+          "source_confidence": "high"
+        }
+      }
     },
     {
       "id": "arlington",
@@ -1314,6 +1554,14 @@
         "friday": "09:00-18:00",
         "saturday": "09:00-17:00",
         "sunday": "13:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Anyone with a current address in Massachusetts is eligible to get a Newton Free Library card.",
+          "block": "Apply for a library card in person at the Newton Free Library or at any other Minuteman library with a photo ID and proof of address .\n\nProof of address can be a drivers license, a lease agreement, or something that was mailed to you (Amazon, a bill, etc) .\n\nMA Residents (who do not live in Newton)\n\nAnyone with a current address in Massachusetts is eligible to get a Newton Free Library card.\n\nWhile anyone in Massachusetts can get a Newton library card, some resources are only available for Newton Residents including, but not limited to: hoopla, kanopy, and naxos. For specific information about access to another database or digital resource if you are not a Newton Resident, please contact the library for more information.",
+          "source": "https://newtonfreelibrary.net/about/our-library/library-card-borrowing/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -1396,6 +1644,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "14:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Library cards are available to anyone 4 years and older who lives in Massachusetts or works in Acton.",
+          "block": "Library cards are available to anyone 4 years and older who lives in Massachusetts or works in Acton. Anyone who would like a full service library card must apply in person at the Circulation Desk. Valid name and address identification are required. AML accepts a current, valid Massachusetts Driver’s license or Massachusetts State ID card with current address.",
+          "source": "https://www.actonmemoriallibrary.org/services/library-cards/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -1429,7 +1685,15 @@
         "01701",
         "01702"
       ],
-      "hours_note": "周日仅 9 月-6 月开放;7-8 月关闭 — 见官网"
+      "hours_note": "周日仅 9 月-6 月开放;7-8 月关闭 — 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Massachusetts residents may obtain a library card in person by presenting identification and proof of current address.",
+          "block": "Massachusetts residents may obtain a library card in person by presenting identification and proof of current address. There is no waiting period for a library card. You must be at least five years old to get a card.\n\nYou may sign up for a temporary card online , which allows you to download eBooks and access state provided databases. Please read the Minuteman page on temporary cards for more information.",
+          "source": "https://framinghamlibrary.org/services/cards-borrowing",
+          "source_confidence": "high"
+        }
+      }
     },
     {
       "id": "maynard",
@@ -1469,6 +1733,14 @@
         "friday": "10:00-17:00",
         "saturday": "10:00-17:00",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Any resident of Massachusetts, age 4 or older, who can provide an ID proving current address is entitled to a library card.",
+          "block": "Library cards are free! They are quick and easy to get, with no waiting period.\n\nAny resident of Massachusetts, age 4 or older, who can provide an ID proving current address is entitled to a library card.\n\nChildren (4-13 years old) need a parent or guardian’s signature and ID to obtain a card.",
+          "source": "https://www.maynardpubliclibrary.org/get-library-card",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -1501,7 +1773,15 @@
       "resident_zips": [
         "01741"
       ],
-      "hours_note": "周六暑期(7-8 月)缩短为 10am-1pm — 见官网"
+      "hours_note": "周六暑期(7-8 月)缩短为 10am-1pm — 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Any Carlisle resident aged 5 and older is eligible to obtain a Gleason library card free of charge.",
+          "block": "Any Carlisle resident aged 5 and older is eligible to obtain a Gleason library card free of charge. Children under age 14 must be accompanied by a parent or guardian able to show identification and proof of residency. See our Checkout Policy for more details.\n\nLibrary cards are available at the main circulation desk during all library hours, or via online registration at https://ln.mvlc.org/carlisleecard . Photo ID and proof of address are required for in-person registration. Online registration uses an address verification service; if the online registration service is unable to verify residence, a temporary card will be issued and you will need to show photo ID and proof of address at the library to receive a permanent card.\n\nResidents of other MVLC towns may use their hometown cards at the Gleason. Residents of other Massachusetts towns may register their home library card with us – photo ID and proof of address are required – or may register online for an eCard .",
+          "source": "https://gleasonlibrary.org/get-a-library-card",
+          "source_confidence": "high"
+        }
+      }
     },
     {
       "id": "wayland",
@@ -1533,7 +1813,15 @@
       "resident_zips": [
         "01778"
       ],
-      "hours_note": "暑期(6/27 起)周六缩短、周日关闭 — 见官网"
+      "hours_note": "暑期(6/27 起)周六缩短、周日关闭 — 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Come in person to the library with a photo ID and proof of your current Massachusetts address.",
+          "block": "How do I obtain a library card?\n\nCome in person to the library with a photo ID and proof of your current Massachusetts address.\n\nAccepted forms of photo ID include, but are not limited to: state driver’s license or ID, passport, military ID, and student ID\n\nAccepted forms of current address include, but are not limited to: state driver’s license or ID, passport, bill, and government sent mail",
+          "source": "https://waylandlibrary.org/services/library-card/",
+          "source_confidence": "high"
+        }
+      }
     },
     {
       "id": "weston",
@@ -1574,6 +1862,14 @@
         "friday": "09:00-17:00",
         "saturday": "10:00-16:00",
         "sunday": "12:00-16:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "If you have a Massachusetts address, you make the cut.",
+          "block": "If you have a Massachusetts address, you make the cut. If you don't have a library card, just visit our Circulation Desk. Library card signup takes 5 minutes or less and all you need is something verifying your name and address, like a driver's license or school ID. If you don't have something like that, don't stress, just give us a call and we can figure out what you do have that will work. If you can't wait another minute to check out our digital resources, you can get a digital library card online and get instant access to our Overdrive/Libby eBook, magazine, and digital audiobook collection. This eCard is only good for 6 months, so plan to drop by the library to convert your eCard to a fancy-schmancy physical card that never expires.",
+          "source": "https://www.westonma.gov/CivicSend/ViewMessage/message/165250",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -1688,6 +1984,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "13:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "To get a library card, please bring a piece of identification with your name and current address to one of our circulation desks and complete our library card application.",
+          "block": "Get a Library Card In Person\nFor Adults and Young Adults (ages 13 and up)\nTo get a library card, please bring a piece of identification with your name and current address to one of our circulation desks and complete our library card application. For your convenience, our library card application [PDF] is also available to download, complete and print in advance of your visit. For more information about identification requirements, see the Minuteman Library Network’s Library Card Registration Policy . Your card will be issued immediately and may be used the same day at any Minuteman library.\nPlease remember to bring your library card with you each time you visit. There is no charge for your initial library card, nor is there a charge for replacement cards.\nChildren\nWe recommend waiting until your child's 5th birthday to get them their own library card, but every family is different! Children ages 12 and younger may apply for a library card if they are accompanied by a parent or guardian with a piece of identification with their name and current address. Please read Your Child's Library Card [PDF] document for more information.",
+          "source": "https://www.carylibrary.org/library-cards",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -1730,6 +2034,14 @@
         "friday": "09:00-18:00",
         "saturday": "09:00-17:00",
         "sunday": "13:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Upon request, the WFL will issue a library card to any resident of Massachusetts.",
+          "block": "The Trustees of the Wellesley Free Library (WFL) encourage the use of a Wellesley Free Library card as an opportunity to access the collections and resources of its library and of the larger network of libraries within the Minuteman Network.\n\nUpon request, the WFL will issue a library card to any resident of Massachusetts.\n\nResidents sixteen (16) years or older must present a photo ID and satisfactory proof of Massachusetts residency. Out-of-state students at institutions of higher learning in Massachusetts, as well as out-of-state individuals who work or own property in Massachusetts, may also obtain cards with production of a photo ID and satisfactory proof of their above-required relationship to Massachusetts.",
+          "source": "https://www.wellesleyfreelibrary.org/library-info/policies/eligibility-and-use-of-library-cards-policy/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -1772,6 +2084,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "13:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Waltham Public Library cards are free.",
+          "block": "Your Free Waltham Public Library Card: Waltham Public Library cards are free. A library card gives borrowing and computer use privileges at the Library and provides access to the Library’s online subscriptions from any Internet connection.\nGETTING A CARD:\nA library card will be issued to you when one of the following is presented in person:\nValid Massachusetts driver’s license, or\nValid Massachusetts state identification card\nOR, any one identification from EACH of the following two lists:\nCurrent Picture Identification (ID) – must include name and photo:\nPassport\nAlien Registration Card\nGovernment issued cards, such as Military ID\nUniversity or school ID\nOut-of-state driver’s license\nState issued photo ID including welfare, Medicaid or FID card\nAddress Verification – must include applicant’s name and Massachusetts address*\nImprinted bank check or deposit slip\nUtility bill dated within the last 30 days\nPostmarked first class letter dated within the last 30 days\nSchool schedule with your name and address printed on it\nLetter verifying residency and mailing address dated within the last 30 days from a social service provider, temporary employer that provides housing, or a short-term residence.\nPostcard mailed to you from the Library\nLease Agreement\n*a Post Office Box or business address is not sufficient – we must also have your current residential address.",
+          "source": "https://waltham.lib.ma.us/policies/library-cards/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -1853,6 +2173,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "13:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "To open a library account, please visit the Circulation Desk and provide a valid ID with your current Massachusetts address .",
+          "block": "To open a library account, please visit the Circulation Desk and provide a valid ID with your current Massachusetts address . In lieu of an-up to-date ID, you may also bring one photo ID AND a piece of mail (personal letter, bank letter, tax/utility bill, or lease agreement) with your updated address . If you already have a Minuteman Library Network card from a nearby library , it likely already works here! Children ages 11 and younger may get a card if their parent/guardian allows and is present at signup. Middle and high school students may use their student ID as proof of identity.\n\nOut-of-state residents who meet at least one of the following requirements may be issued a temporary library card with sufficient identification: work in Massachusetts, attend school in Massachusetts, own property in Massachusetts, or are temporarily living in Massachusetts for more than two months.",
+          "source": "https://concordlibrary.org/borrow/library-cards-and-borrowing",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -1893,6 +2221,14 @@
         "friday": "09:00-18:00",
         "saturday": "09:00-17:00",
         "sunday": "closed"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Library cards are issued free of charge to any Massachusetts resident, student, or employee who can provide identification and proof of current home address.",
+          "block": "Library cards are issued free of charge to any Massachusetts resident, student, or employee who can provide identification and proof of current home address.\n\nA child must be present for a parent/legal guardian to get them a library card. Children of any age can have a card, but a parent or guardian must sign the application for any child under the age of thirteen.\n\nYour card can be used at all other public libraries in the Minuteman Library Network.",
+          "source": "https://bedfordlibrary.net/library-card",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -1926,7 +2262,15 @@
         "02492",
         "02494"
       ],
-      "hours_note": "周日时段夏季缩短为 1-5pm,其他时段 1-6pm — 见官网"
+      "hours_note": "周日时段夏季缩短为 1-5pm,其他时段 1-6pm — 见官网",
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Individuals who live, work or study in Massachusetts are eligible to hold a Minuteman Library Network card, which avails patrons of over six million items held by forty-two member libraries.",
+          "block": "Individuals who live, work or study in Massachusetts are eligible to hold a Minuteman Library Network card, which avails patrons of over six million items held by forty-two member libraries. A valid Minuteman library card allows borrowing privileges at all member libraries, though select resources and databases may be only available based on residency or college affiliation.",
+          "source": "https://needhamlibrary.org/get-a-library-card",
+          "source_confidence": "high"
+        }
+      }
     },
     {
       "id": "natick",
@@ -2008,6 +2352,14 @@
         "friday": "09:00-18:00",
         "saturday": "09:00-17:00",
         "sunday": "13:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "It's available to any Massachusetts resident 5 years and older.",
+          "block": "About Your Library Card\n\nIt's free!\n\nIt's available to any Massachusetts resident 5 years and older. (See below for details!)\n\nIt's needed for all transactions, in person, online, or by phone.",
+          "source": "https://somervillepubliclibrary.org/how-do-i/get-library-card/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -2050,6 +2402,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "13:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Library cards are available for free! Massachusetts residents can apply for an e-card online.",
+          "block": "Get a Thomas Crane Public Library card! Sign up at any TCPL location or online.\n\nLibrary cards are available for free! Massachusetts residents can apply for an e-card online. With an e-card, you can access and use our online resources and databases, borrow eBooks and eAudiobooks, and stream music, movies, and TV online.\n\nA permanent card is required for the borrowing of physical materials. To register for a permanent card, to upgrade your e-card to a permanent card, or to get a replacement card, visit any TCPL location and bring proof of identification.",
+          "source": "https://thomascranelibrary.org/library-cards-accounts/",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -2094,6 +2454,14 @@
         "friday": "09:00-17:00",
         "saturday": "09:00-17:00",
         "sunday": "13:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Live, work, go to school or own property in Massachusetts (for at least 2 months);",
+          "block": "Requirements\n\nTo get a Cambridge Public Library card, you must:\n\nLive, work, go to school or own property in Massachusetts (for at least 2 months);\n\nBe at least 5 years old; and\n\nRegister in person at any Cambridge Public Library location.\n\nIf you don’t meet these requirements, you can still apply for a digital card through the Minuteman Library Network . This gives you instant access to digital books and audiobooks and some databases.",
+          "source": "https://www.cambridgema.gov/iwantto/getalibrarycard",
+          "source_confidence": "high"
+        }
       }
     },
     {
@@ -2136,6 +2504,14 @@
         "friday": "10:00-17:00",
         "saturday": "10:00-17:00",
         "sunday": "13:00-17:00"
+      },
+      "_evidence": {
+        "card_eligibility": {
+          "evidence": "Minuteman Library cards are available at no cost to: Massachusetts residents, Town of Brookline employees, Brookline public or private school students, Owners of property in Brookline",
+          "block": "Who can get a card?\n\nMinuteman Library cards are available at no cost to:\n\nMassachusetts residents\n\nTown of Brookline employees\n\nBrookline public or private school students\n\nOwners of property in Brookline\n\nOut-of-state residents should refer to our guidelines for out-of-state cardholders .",
+          "source": "https://brooklinelibrary.org/library-card",
+          "source_confidence": "high"
+        }
       }
     },
     {

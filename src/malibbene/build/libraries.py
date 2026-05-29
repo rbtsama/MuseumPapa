@@ -55,6 +55,20 @@ def build_libraries(seed_path: Path, raw_root: Path, overrides_root: Path, out_p
             # raw policy_text is scraped nav-menu / schema.org noise (67/118 garbage),
             # not real provenance. Re-add only with a proper policy-text extractor.
         lib = apply_overrides(f"library:{s['id']}", lib, overrides)
+        # Overlay verbatim card-eligibility source block (plan: source-block
+        # extraction). data/raw/libraries/_source_blocks/<id>.json. A null
+        # card_eligibility is honest "no passage found" — skipped, not invented.
+        sb_path = raw_root / "libraries" / "_source_blocks" / f"{s['id']}.json"
+        if sb_path.exists():
+            sb = json.loads(sb_path.read_text(encoding="utf-8"))
+            ce = sb.get("card_eligibility")
+            if ce and ce.get("source_block"):
+                lib.setdefault("_evidence", {})["card_eligibility"] = {
+                    "evidence": ce.get("source_phrase"),
+                    "block": ce.get("source_block"),
+                    "source": ce.get("source_url"),
+                    "source_confidence": ce.get("source_confidence"),
+                }
         libs.append(lib)
     out = {
         "_meta": {"built_at": datetime.now(timezone.utc).isoformat(),"n_libraries": len(libs)},
