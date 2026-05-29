@@ -104,17 +104,59 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
   // Always render the shell so the close transition can play; gate by `open`.
   const open = !!ctx;
 
-  // ── month grid (depends on pass.availability) ─────────────────────────
-  const avail = ctx?.pass.availability || {};
+  // ── month grid ────────────────────────────────────────────────────────
+  // Assabet passes: fetch fresh availability on demand from /api/availability
+  // (live calendar overlay; cached 15 min at the edge). Other platforms
+  // stay on the build-time snapshot and surface a "non-realtime" banner.
+  const sourceUrl = ctx?.pass.source_url || "";
+  const isAssabet = sourceUrl.includes("assabetinteractive.com");
+  const [liveAvail, setLiveAvail] = useState<Record<string, string> | null>(null);
+  const [liveStatus, setLiveStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
+
+  // Static snapshot from passes.json (the merge target / fallback).
+  const staticAvail = ctx?.pass.availability || {};
+  const avail = liveAvail ? { ...staticAvail, ...liveAvail } : staticAvail;
+
   const months = useMemo(() => {
     const s = new Set<string>();
-    Object.keys(avail).forEach((d) => s.add(d.slice(0, 7)));
+    // Show months from BOTH the static snapshot AND today's calendar window
+    // so the user always sees at least the current + next month even if the
+    // static snapshot is stale.
+    Object.keys(staticAvail).forEach((d) => s.add(d.slice(0, 7)));
+    const today = new Date();
+    for (let i = 0; i < 3; i++) {
+      const d = new Date(today.getFullYear(), today.getMonth() + i, 1);
+      s.add(`${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`);
+    }
     return Array.from(s).sort();
-  }, [avail]);
+  }, [staticAvail]);
   const todayStr = new Date().toISOString().slice(0, 10);
   const initialMonth = months.find((m) => m >= todayStr.slice(0, 7)) || months[0] || todayStr.slice(0, 7);
   const [month, setMonth] = useState(initialMonth);
   useEffect(() => { setMonth(initialMonth); }, [initialMonth]);
+
+  // Live-fetch Assabet availability for the visible month. Re-runs when the
+  // user navigates to a different month or opens a different pass. Other
+  // platforms skip the fetch entirely.
+  useEffect(() => {
+    if (!ctx || !isAssabet || !sourceUrl) {
+      setLiveAvail(null);
+      setLiveStatus("idle");
+      return;
+    }
+    let cancelled = false;
+    setLiveStatus("loading");
+    const qs = new URLSearchParams({ url: sourceUrl, month });
+    fetch(`/api/availability?${qs}`)
+      .then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`)))
+      .then((data: { days: Record<string, string> }) => {
+        if (cancelled) return;
+        setLiveAvail((prev) => ({ ...(prev || {}), ...(data.days || {}) }));
+        setLiveStatus("ok");
+      })
+      .catch(() => { if (!cancelled) setLiveStatus("error"); });
+    return () => { cancelled = true; };
+  }, [ctx?.pass.source_url, isAssabet, sourceUrl, month]);
 
   // ── card matching ─────────────────────────────────────────────────────
   const cards = useMemo(() => loadCards(), [ctx?.attr.slug, ctx?.lib.id]);
@@ -288,6 +330,18 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                   Date
                   {date && <span className="section-h-pick"> · <strong>{date}</strong></span>}
                 </div>
+                {isAssabet ? (
+                  <div className={`avail-banner ok${liveStatus === "loading" ? " loading" : ""}${liveStatus === "error" ? " err" : ""}`}>
+                    {liveStatus === "loading" && "📡 Refreshing calendar…"}
+                    {liveStatus === "ok"      && "📡 Live calendar"}
+                    {liveStatus === "error"   && "⚠ Live fetch failed — showing snapshot"}
+                    {liveStatus === "idle"    && "📡 Live calendar"}
+                  </div>
+                ) : (
+                  <div className="avail-banner stale">
+                    ⚠ Snapshot data — please confirm dates & inventory on the official site
+                  </div>
+                )}
                 <div className="cal-nav">
                   <button onClick={() => mi > 0 && setMonth(months[mi - 1])} disabled={mi <= 0}>
                     ←

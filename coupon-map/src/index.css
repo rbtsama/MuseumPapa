@@ -791,6 +791,18 @@ body,
   outline-offset: -2px;
   z-index: 2;
 }
+
+/* Live-calendar freshness banner above the date grid */
+.avail-banner {
+  font-size: 11px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+.avail-banner.ok       { background: #eaf1ee; color: #1b5740; }
+.avail-banner.ok.loading { background: #ecebe5; color: #4a4845; }
+.avail-banner.ok.err   { background: #fdf1e2; color: #8c6018; }
+.avail-banner.stale    { background: #fdf1e2; color: #8c6018; }
 .cal-nav { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
 .cal-nav button {
   font: inherit; font-size: 11px; padding: 3px 8px;
