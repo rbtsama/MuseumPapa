@@ -2,17 +2,61 @@
   "_note": "Library-level PASS-PICKUP residency policy (Pass dimension). Who may BORROW this library's museum passes, per the library's own public museum-pass/card page. build/passes.py applies the entry to every pass of that library whose per-pass residency is still 'unknown' (never overrides a stronger per-pass coupon/catalog signal; human data/overrides still win).",
   "_model": "restricted: 'yes' (a residency requirement exists) | 'no' (truly none — rare; only if a non-MA person with no MA card could borrow). scope (when yes): 'town' = THIS library's own town residents only; 'ma' = any Massachusetts resident. DEFAULT-INFERENCE RULE: a museum pass always requires that library's card, and MA public-library cards require a MA connection (live/work/study/own property in MA). So when a library's pages state NO town restriction (e.g. 'open to any <network> cardholder', or only require 'proof of MA residency'), the conclusion is scope 'ma' (MA resident) — NOT 'no'. Reserve 'no' for the genuinely-unrestricted case. Confirmed exemplar: BPL requires 'proof of your Massachusetts residency' with no Boston-town restriction => ma.",
   "_method": "Platform/network differs per library (Minuteman/NOBLE/OCLN/MBLN; LibCal/Assabet/EventKeeper). The METHOD (read the library's own public pass page) generalizes; the POLICY does not — confirm each entry independently and quote the source verbatim in 'evidence'. L2->L3 path of the three-layer model (see data/raw/SOURCE_BLOCKS.md).",
-  "brookline": {
+  "acton": {
     "restricted": "yes",
-    "scope": "town",
-    "source": "https://www.brooklinelibrary.org/how/library-card/",
-    "evidence": "Only a few of our services, such as the loaning of museum passes, are restricted to Brookline residents."
+    "scope": "ma",
+    "source": "https://www.actonmemoriallibrary.org/services/museum-passes/",
+    "evidence": "Acton's passes may be reserved by anyone 14 years or older with a valid Minuteman Library Network card.",
+    "confidence": "high"
   },
-  "quincy": {
+  "andover": {
     "restricted": "yes",
     "scope": "town",
-    "source": "https://tcplquincy.org/borrow/museum-passes/",
-    "evidence": "Museum passes are reservable by Quincy residents who are over the age of 18 and have a library card in good standing (owe less than $15.00.)"
+    "source": "https://mhl.assabetinteractive.com/museum-passes/by-museum/",
+    "evidence": "Only Andover residents may reserve and use this pass.",
+    "confidence": "high"
+  },
+  "arlington": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://www.robbinslibrary.org/services/museum-passes/",
+    "evidence": "Museum passes are available for Minuteman Library Network cardholders in good standing.",
+    "confidence": "medium"
+  },
+  "bedford": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://bedfordlibrary.net/services/museum-passes/",
+    "evidence": "You will need your valid library card, an email, and a phone number to complete the reservation. (no town restriction stated)",
+    "confidence": "medium"
+  },
+  "belmont": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://belmontpubliclibrary.net/visit/services/museum-passes/",
+    "evidence": "Museum pass borrowers must be Belmont residents.",
+    "confidence": "high"
+  },
+  "beverly": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://beverlypubliclibrary.org/services/museum-passes/",
+    "evidence": "You must have a library card to reserve a pass. (no town restriction stated)",
+    "confidence": "high"
+  },
+  "billerica": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://billericalibrary.org/museum-passes/",
+    "evidence": "Passes may be borrowed by any Massachusetts resident with a library card.",
+    "confidence": "high"
+  },
+  "boxford": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://www.boxfordma.gov/394/Museum-Passes",
+    "evidence": "Anyone with a valid MVLC Library card may reserve a pass",
+    "confidence": "high"
   },
   "bpl": {
     "restricted": "yes",
@@ -20,11 +64,253 @@
     "source": "https://www.bpl.org/faq/museum-pass-details/",
     "evidence": "To reserve museum passes, upgrade your eCard at any BPL location by bringing a photo ID and proof of your Massachusetts residency. A state-issued ID or driver's license meets both requirements. (No Boston-town restriction stated -> any MA resident.)"
   },
+  "braintree": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://thayerpubliclibrary.libcal.com/passes",
+    "evidence": "Passes are available to Braintree residents only. You must present your OCLN card to the librarian at the Reference Desk to pick up your pass.",
+    "confidence": "medium"
+  },
+  "brookline": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://www.brooklinelibrary.org/how/library-card/",
+    "evidence": "Only a few of our services, such as the loaning of museum passes, are restricted to Brookline residents."
+  },
+  "burlington": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://burlington.assabetinteractive.com/museum-passes/",
+    "evidence": "Book a museum pass online with your library card number by selecting an option below. (no town restriction stated)",
+    "confidence": "medium"
+  },
   "cambridge": {
     "restricted": "yes",
     "scope": "ma",
     "source": "https://www.cambridgema.gov/Departments/cambridgepubliclibrary/iwantto/getamuseumpass",
     "evidence": "Free or discounted museum passes are available to the public through the Cambridge Public Library to anyone with a Minuteman Library card. (No town restriction; a Minuteman card requires a MA connection -> any MA resident.)"
+  },
+  "carlisle": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "http://www.carlisle.org/library_passes.htm",
+    "evidence": "Only Carlisle residents may reserve passes in advance. Massachusetts non-Carlisle residents can request a pass on the afternoon or evening of the day before or on the day of expected use. [DUAL-TIER]",
+    "confidence": "medium"
+  },
+  "chelmsford": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://www.chelmsfordlibrary.org/books-more/museum-passes",
+    "evidence": "Chelmsford residents, and active members of the Chelmsford Friends of the Library may reserve passes up to 60 days in advance. [DUAL-TIER: anyone can check out a pass on the day of use, without a reservation.]",
+    "confidence": "high"
+  },
+  "chelsea": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://chelseama.assabetinteractive.com/museum-passes/by-museum/",
+    "evidence": "Reserve with a Chelsea/MBLN library card; no town-only restriction. Harvard pass: 'At least one 1 must bring proof of MA residence.'",
+    "confidence": "medium"
+  },
+  "cohasset": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://www.cohassetlibrary.org/537/Circulation-Policy",
+    "evidence": "Museum passes are available for Cohasset library card holders.",
+    "confidence": "high"
+  },
+  "concord": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://concordlibrary.org/borrow/museum-passes",
+    "evidence": "Passes may be booked up to 4 weeks in advance ... (no Concord-only restriction; Minuteman cardholder floor)",
+    "confidence": "medium"
+  },
+  "danvers": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://danverslibrary.org/museum-passes/",
+    "evidence": "patrons must be 16 years of age or older in order to reserve a pass, and patrons must have their library card in order to make a reservation. (no town restriction)",
+    "confidence": "medium"
+  },
+  "everett": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://www.everettpubliclibraries.org/museum-passes/",
+    "evidence": "Non-Everett residents with a valid NOBLE library card may borrow a museum pass on the day of its use, provided the pass has not already been reserved for use that day. [DUAL-TIER: Everett residents reserve in advance]",
+    "confidence": "high"
+  },
+  "framingham": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://framinghamlibrary.org/services/museum-passes/",
+    "evidence": "Patrons must present the valid Minuteman library card used to reserve the museum pass when picking up a returnable pass.",
+    "confidence": "high"
+  },
+  "haverhill": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://haverhillpl.org/museum-passes/",
+    "evidence": "You will need your library card number to make your reservation. (no town restriction stated)",
+    "confidence": "high"
+  },
+  "hingham": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://www.eventkeeper.com/mars/tkflex.cfm?curOrg=HINGHAM",
+    "evidence": "Hingham residents with active library cards may reserve passes up to 60 days in advance. Residents from other towns may request passes the day of, or the day before you'd like to use the pass. [DUAL-TIER]",
+    "confidence": "high"
+  },
+  "lawrence": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://www.lawrencepl.org/culture-pass-policy",
+    "evidence": "Passes may be borrowed by anyone 16 and older holding a Lawrence library card. If passes have not been reserved by Lawrence patrons, same day reservations from patrons from other consortium member libraries will be honored after 10AM. [DUAL-TIER]",
+    "confidence": "high"
+  },
+  "lexington": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://www.carylibrary.org/museum-passes",
+    "evidence": "Patrons living or working in Lexington with a valid library card can reserve one pass per day.",
+    "confidence": "high"
+  },
+  "lincoln": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://lincolnpl.org/services/museum-passes/",
+    "evidence": "Passes may be booked by anyone with a Minuteman Library Network card in good standing.",
+    "confidence": "high"
+  },
+  "lynn": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://lynnpubliclibrary.org/museum-pass-program",
+    "evidence": "LYNN RESIDENTS who are age 18 or older and have an account in good standing",
+    "confidence": "high"
+  },
+  "lynnfield": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://lynnfieldlibrary.org/about/get-a-library-card/",
+    "evidence": "Additionally, museum passes are only available for those with full access cards.",
+    "confidence": "high"
+  },
+  "malden": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://maldenpubliclibrary.org/about/policies/museum-pass-policy/",
+    "evidence": "Must be a Malden Resident",
+    "confidence": "high"
+  },
+  "marblehead": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://abbotlibrary.org/what-we-offer/get-a-museum-pass/",
+    "evidence": "To reserve a museum pass, you must be at least 18 years old and have a library card. (via Marblehead Patch; pass page 403)",
+    "confidence": "medium"
+  },
+  "maynard": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://www.maynardpubliclibrary.org/museum-passes",
+    "evidence": "Maynard Public Library passes are available to anyone who holds a library card for the Minuteman Library Network (MLN).",
+    "confidence": "high"
+  },
+  "medford": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://medfordlibrary.org/about-us/policies/borrowing-policies/",
+    "evidence": "Borrowing policy lists Museum Passes (1 day) with no Medford-only restriction stated; Minuteman card required.",
+    "confidence": "medium"
+  },
+  "melrose": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://melrosepubliclibrary.org/services/museum-passes/",
+    "evidence": "Melrose residents can reserve Museum Passes with their library card. (library framing; FB/library page)",
+    "confidence": "medium"
+  },
+  "methuen": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://www.nevinslibrary.org/services/museum-passes/",
+    "evidence": "Anyone with a MVLC library card are also able to reserve these passes in advance!",
+    "confidence": "high"
+  },
+  "middleton": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://flintlibrary.org/index.php/library-card-info/",
+    "evidence": "...you will need a tangible card issued by the Flint Public Library or your home library. (any MVLC home-library card; no Middleton-only restriction)",
+    "confidence": "medium"
+  },
+  "milton": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://miltonlibrary.org/resources/museum-passes/",
+    "evidence": "The Friends of the Milton Public Library has funded yearly museum memberships so that library card holders ... can visit local museums and zoos at a discount. (card-number required; no Milton-only restriction)",
+    "confidence": "medium"
+  },
+  "natick": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://morseinstitute.libguides.com/building/museum-passes",
+    "evidence": "Natick museum passes are available to all valid Minuteman Library Network cardholders, and can be reserved at either library.",
+    "confidence": "high"
+  },
+  "needham": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://needhamlibrary.org/services/general-services/museum-passes/",
+    "evidence": "Museum passes are available to anyone living or working in Needham with a valid card from the Minuteman Library Network.",
+    "confidence": "high"
+  },
+  "newton": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://newtonfreelibrary.net/collections/more-than-books/museum-passes/",
+    "evidence": "...allow all Minuteman Library Card Holders to visit museums, parks, and more at discounted rates.",
+    "confidence": "high"
+  },
+  "north-andover": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://www.stevensmemlib.org/circulation-department/museum-passes/",
+    "evidence": "Only North Andover residents may reserve a Stevens pass in advance using the online system, by phone, or in person. [DUAL-TIER: non-residents may borrow same-day with a valid MVLC card]",
+    "confidence": "high"
+  },
+  "north-reading": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://flintmemoriallibrary.assabetinteractive.com/museum-passes/",
+    "evidence": "Reservations require a library card; no North Reading-only restriction stated (card-required default).",
+    "confidence": "medium"
+  },
+  "peabody": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://peabodylibrary.org/museumpasses/",
+    "evidence": "Museum passes may be reserved in advance with a library card in good standing. (No town restriction stated; a NOBLE card requires a MA connection -> any MA resident.)"
+  },
+  "quincy": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://tcplquincy.org/borrow/museum-passes/",
+    "evidence": "Museum passes are reservable by Quincy residents who are over the age of 18 and have a library card in good standing (owe less than $15.00.)"
+  },
+  "reading": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://readingpl.org/museum-passes/",
+    "evidence": "Book online or call (781) 944-0840. One pass per family per day and two passes per family per week during school vacation weeks.",
+    "confidence": "medium"
+  },
+  "saugus": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://www.sauguspubliclibrary.org/museum-passes/",
+    "evidence": "A valid NOBLE library card in good standing is required when placing a reservation.",
+    "confidence": "high"
   },
   "somerville": {
     "restricted": "yes",
@@ -32,10 +318,95 @@
     "source": "https://somervillepubliclibrary.org/how-do-i/get-cultural-pass/",
     "evidence": "Cultural Passes ... are available to all adults with a valid Minuteman library card. (No town restriction; a Minuteman card requires a MA connection -> any MA resident.)"
   },
-  "peabody": {
+  "stoneham": {
     "restricted": "yes",
     "scope": "ma",
-    "source": "https://peabodylibrary.org/museumpasses/",
-    "evidence": "Museum passes may be reserved in advance with a library card in good standing. (No town restriction stated; a NOBLE card requires a MA connection -> any MA resident.)"
+    "source": "https://stonehamlibrary.org/books-more/services/museum-passes/",
+    "evidence": "Passes circulate or are valid for one day only to library users 18 years of age or older, with a library card in good standing unless otherwise indicated.",
+    "confidence": "high"
+  },
+  "sudbury": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://goodnowlibrary.org/services/in-library/museum-passes/",
+    "evidence": "Museum passes can be checked out to adult library accounts in good standing ... (no Sudbury-residency restriction)",
+    "confidence": "high"
+  },
+  "tewksbury": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://www.tewksburypl.org/home/pages/museum-passes",
+    "evidence": "A valid library card is required to reserve a pass. (no town restriction; Tewksbury residents get reduced pricing only)",
+    "confidence": "medium"
+  },
+  "topsfield": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://topsfieldlibrary.org/borrow/museum-passes/",
+    "evidence": "Passes are available to anyone with a Massachusetts library card in good standing.",
+    "confidence": "high"
+  },
+  "wakefield": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://wakefieldlibrary.org/policies/",
+    "evidence": "The library accepts reservations for museum passes from registered Wakefield residents and institutions.",
+    "confidence": "high"
+  },
+  "waltham": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://waltham.lib.ma.us/museum-passes/",
+    "evidence": "Museum passes are available to Waltham residents or a Friend of the Waltham Public Library (FWPL) member from any city/town.",
+    "confidence": "high"
+  },
+  "watertown": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://www.watertownlib.org/770/Museum-Passes",
+    "evidence": "Museum passes may be booked by anyone with a Minuteman Library Network card in good standing.",
+    "confidence": "medium"
+  },
+  "wayland": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://waylandlibrary.org/beyond-books/museum-passes/",
+    "evidence": "Passes may be booked up to 3 weeks in advance by library cardholders; no Wayland-only restriction (museum-imposed MA-residency only).",
+    "confidence": "medium"
+  },
+  "wellesley": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://www.wellesleyfreelibrary.org/beyond-wfl/museum-passes/",
+    "evidence": "Wellesley residents and town employees may reserve one pass per week, up to 60 days in advance ... Non-Wellesley residents with a valid Minuteman card may borrow a museum pass on the day of its use. [DUAL-TIER]",
+    "confidence": "high"
+  },
+  "weston": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://www.westonlibrary.org/1543/Services",
+    "evidence": "Reserve a museum pass online ... with a valid Weston Library card; same-day first-come-first-served. No town-only reservation restriction stated.",
+    "confidence": "medium"
+  },
+  "wilmington": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://wilmlibrary.org/services/mp/",
+    "evidence": "Discount passes ... may be borrowed by patrons with an MVLC library card in good standing.",
+    "confidence": "high"
+  },
+  "winchester": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://www.winpublib.org/museumpasses/",
+    "evidence": "Passes are available to Winchester residents only.",
+    "confidence": "high"
+  },
+  "woburn": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://woburnpubliclibrary.org/services/museum-passes/",
+    "evidence": "Passes are available to WOBURN RESIDENTS ONLY and may be reserved with a valid Minuteman Library Network card.",
+    "confidence": "high"
   }
 }
