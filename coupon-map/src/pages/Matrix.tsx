@@ -311,7 +311,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                               <span className="v">{l.network}</span>
                             </div>
                             <div className="data-row">
-                              <span className="k">Eligibility</span>
+                              <span className="k">Resident requirement</span>
                               <span className={`v${e.warn ? " v-warn" : ""}`}>{e.text}</span>
                             </div>
                             {multi && (
@@ -358,7 +358,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                               { label: "Card page", source: l.card_page || null },
                               l._evidence?.card_eligibility
                                 ? {
-                                    label: "Eligibility",
+                                    label: "Resident requirement",
                                     quote: l._evidence.card_eligibility.evidence || null,
                                     source: l._evidence.card_eligibility.source || null,
                                   }
@@ -432,7 +432,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                               { label: "Card page", source: c.lib.card_page || null },
                               c.lib._evidence?.card_eligibility
                                 ? {
-                                    label: "Eligibility",
+                                    label: "Resident requirement",
                                     quote: c.lib._evidence.card_eligibility.evidence || null,
                                     source: c.lib._evidence.card_eligibility.source || null,
                                   }

@@ -237,9 +237,9 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
               {/* Coupon summary — the headline value prop */}
               <div className="drawer-coupon">{p.coupon.summary}</div>
 
-              {/* Discount breakdown */}
+              {/* Pass breakdown — per-audience policy from coupon.audience_policies */}
               <section className="drawer-section">
-                <div className="section-h">Discount</div>
+                <div className="section-h">Pass</div>
                 {p.coupon.audience_policies && p.coupon.audience_policies.length > 0 ? (
                   p.coupon.audience_policies.map((ap, i) => {
                     const range = policyRange(ap);
@@ -431,13 +431,6 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                     const usable = usableIds.has(c.id);
                     const cardLib = bundle.libById.get(c.library_id);
                     const selected = c.id === selectedCardId;
-                    // Mask everything but the trailing 4 of the barcode so the
-                    // single-line card row stays short and a screenshot of the
-                    // drawer doesn't leak the full number. The full barcode is
-                    // still copied to the clipboard on Book.
-                    const tail = c.card_number.length >= 4
-                      ? `••${c.card_number.slice(-4)}`
-                      : c.card_number;
                     return (
                       <div
                         key={c.id}
@@ -447,10 +440,11 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                         onClick={() => setSelectedCardId(c.id)}
                         title={usable ? undefined : "Our data says this card likely won't be accepted — you can still try."}
                       >
-                        <span className="cp-town">{cardLib ? cardLib.town : c.library_id}</span>
-                        {cardLib && <span className="cp-net">{cardLib.network}</span>}
-                        <code className="cp-barcode">{tail}</code>
-                        {c.note && <span className="cp-note">{c.note}</span>}
+                        <div className="cp-line1">
+                          <span className="cp-town">{cardLib ? cardLib.town : c.library_id}</span>
+                          <code className="cp-barcode">{c.card_number}</code>
+                        </div>
+                        {c.note && <div className="cp-line2">{c.note}</div>}
                       </div>
                     );
                   })

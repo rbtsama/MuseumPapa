@@ -971,21 +971,18 @@ body,
 .src-quote::before { content: open-quote; color: #8a877f; margin-right: 2px; }
 .src-quote::after  { content: close-quote; color: #8a877f; margin-left: 2px; }
 .card-pick {
-  /* Single-row layout per operator: Town · NETWORK · ••barcode · note,
-     all on one line. Click target stays generous via padding even though
-     the row is short. */
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  padding: 6px 10px;
-  margin-bottom: 4px;
+  /* Two-row card per operator: line 1 = town + full barcode,
+     line 2 = note. Normal black text, no de-emphasis. */
+  padding: 7px 10px;
+  margin-bottom: 5px;
   border: 1px solid #d0cec6;
   border-radius: 5px;
   background: #fafaf7;
   cursor: pointer;
   transition: background 0.1s, border-color 0.1s;
   font-size: 13px;
-  line-height: 1.3;
+  line-height: 1.35;
+  color: #1a1917;
 }
 .card-pick:hover:not(.disabled) {
   background: #eaf1ee;
@@ -1016,33 +1013,29 @@ body,
   background: #c4ddcf;
 }
 .card-pick.selected:hover { background: #c4ddcf; }
+.card-pick .cp-line1 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
 .card-pick .cp-town {
   font-weight: 600;
   color: #1a1917;
 }
-.card-pick .cp-net {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  color: #fafaf7;
-  background: #4a4845;
-  padding: 1px 5px;
-  border-radius: 3px;
-}
 .card-pick .cp-barcode {
   font-family: ui-monospace, "JetBrains Mono", monospace;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.4px;
-  color: #4a4845;
-  background: #ecebe5;
-  padding: 1px 5px;
-  border-radius: 3px;
+  color: #1a1917;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
 }
-.card-pick .cp-note {
-  color: #8a877f;
-  font-size: 11px;
-  margin-left: auto;          /* push note to the right of the row */
-  font-style: italic;
+.card-pick .cp-line2 {
+  color: #1a1917;
+  font-size: 12px;
+  margin-top: 2px;
 }
 
 /* ── My Cards page — unified typography ────────────────────────────── */
