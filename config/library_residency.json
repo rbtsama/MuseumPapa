@@ -1,5 +1,7 @@
 {
-  "_note": "Library-level pass-pickup residency policy. A library may state on its public museum-pass / card page who is allowed to BORROW its museum passes — sometimes restricted to the library's own town residents, sometimes open to any cardholder. That blanket policy is NOT inside any single coupon's text, so build/passes.py applies the entry below to every pass of that library whose per-pass coupon/probe residency is still 'unknown' (it never overrides a stronger per-pass signal, and human data/overrides still win). restricted: 'yes'|'no'. scope (only when yes): 'town' (this library's own town) | 'ma' (any MA resident). Add a library here only when a public source confirms it; quote that source verbatim in 'evidence'. This is the L2->L3 path of the three-layer model (see data/raw/SOURCE_BLOCKS.md). NOTE: the platform/network differs per library (Minuteman/NOBLE/OCLN; LibCal/Assabet/EventKeeper) — the METHOD (read the library's own public pass page) generalizes, the POLICY does not, so each entry is confirmed independently.",
+  "_note": "Library-level PASS-PICKUP residency policy (Pass dimension). Who may BORROW this library's museum passes, per the library's own public museum-pass/card page. build/passes.py applies the entry to every pass of that library whose per-pass residency is still 'unknown' (never overrides a stronger per-pass coupon/catalog signal; human data/overrides still win).",
+  "_model": "restricted: 'yes' (a residency requirement exists) | 'no' (truly none — rare; only if a non-MA person with no MA card could borrow). scope (when yes): 'town' = THIS library's own town residents only; 'ma' = any Massachusetts resident. DEFAULT-INFERENCE RULE: a museum pass always requires that library's card, and MA public-library cards require a MA connection (live/work/study/own property in MA). So when a library's pages state NO town restriction (e.g. 'open to any <network> cardholder', or only require 'proof of MA residency'), the conclusion is scope 'ma' (MA resident) — NOT 'no'. Reserve 'no' for the genuinely-unrestricted case. Confirmed exemplar: BPL requires 'proof of your Massachusetts residency' with no Boston-town restriction => ma.",
+  "_method": "Platform/network differs per library (Minuteman/NOBLE/OCLN/MBLN; LibCal/Assabet/EventKeeper). The METHOD (read the library's own public pass page) generalizes; the POLICY does not — confirm each entry independently and quote the source verbatim in 'evidence'. L2->L3 path of the three-layer model (see data/raw/SOURCE_BLOCKS.md).",
   "brookline": {
     "restricted": "yes",
     "scope": "town",
@@ -12,22 +14,28 @@
     "source": "https://tcplquincy.org/borrow/museum-passes/",
     "evidence": "Museum passes are reservable by Quincy residents who are over the age of 18 and have a library card in good standing (owe less than $15.00.)"
   },
+  "bpl": {
+    "restricted": "yes",
+    "scope": "ma",
+    "source": "https://www.bpl.org/faq/museum-pass-details/",
+    "evidence": "To reserve museum passes, upgrade your eCard at any BPL location by bringing a photo ID and proof of your Massachusetts residency. A state-issued ID or driver's license meets both requirements. (No Boston-town restriction stated -> any MA resident.)"
+  },
   "cambridge": {
-    "restricted": "no",
-    "scope": null,
+    "restricted": "yes",
+    "scope": "ma",
     "source": "https://www.cambridgema.gov/Departments/cambridgepubliclibrary/iwantto/getamuseumpass",
-    "evidence": "Free or discounted museum passes are available to the public through the Cambridge Public Library to anyone with a Minuteman Library card."
+    "evidence": "Free or discounted museum passes are available to the public through the Cambridge Public Library to anyone with a Minuteman Library card. (No town restriction; a Minuteman card requires a MA connection -> any MA resident.)"
   },
   "somerville": {
-    "restricted": "no",
-    "scope": null,
+    "restricted": "yes",
+    "scope": "ma",
     "source": "https://somervillepubliclibrary.org/how-do-i/get-cultural-pass/",
-    "evidence": "Cultural Passes offer free or discounted admission to local cultural attractions, and are available to all adults with a valid Minuteman library card."
+    "evidence": "Cultural Passes ... are available to all adults with a valid Minuteman library card. (No town restriction; a Minuteman card requires a MA connection -> any MA resident.)"
   },
   "peabody": {
-    "restricted": "no",
-    "scope": null,
+    "restricted": "yes",
+    "scope": "ma",
     "source": "https://peabodylibrary.org/museumpasses/",
-    "evidence": "Museum passes may be reserved in advance with a library card in good standing (no outstanding balance over $50.00)."
+    "evidence": "Museum passes may be reserved in advance with a library card in good standing. (No town restriction stated; a NOBLE card requires a MA connection -> any MA resident.)"
   }
 }
