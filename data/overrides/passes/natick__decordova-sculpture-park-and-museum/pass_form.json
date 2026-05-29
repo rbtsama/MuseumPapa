@@ -1,6 +1,0 @@
-{
-  "status": "corrected",
-  "corrected_value": "digital_email",
-  "source": "https://morseinstitute.assabetinteractive.com/museum-passes/by-museum/decordova-sculpture-park-and-museum/",
-  "evidence": "benefit_text 含 \"e-coupon\" → 推断为 digital_email;与申报 physical_coupon 不符。"
-}

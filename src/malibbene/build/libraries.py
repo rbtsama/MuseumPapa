@@ -63,9 +63,10 @@ def build_libraries(seed_path: Path, raw_root: Path, overrides_root: Path, out_p
             sb = json.loads(sb_path.read_text(encoding="utf-8"))
             ce = sb.get("card_eligibility")
             if ce and ce.get("source_block"):
+                from malibbene.build.attractions import collapse_blank_lines
                 lib.setdefault("_evidence", {})["card_eligibility"] = {
                     "evidence": ce.get("source_phrase"),
-                    "block": ce.get("source_block"),
+                    "block": collapse_blank_lines(ce.get("source_block")),
                     "source": ce.get("source_url"),
                     "source_confidence": ce.get("source_confidence"),
                 }

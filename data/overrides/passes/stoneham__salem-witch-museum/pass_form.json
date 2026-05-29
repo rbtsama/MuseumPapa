@@ -1,6 +1,0 @@
-{
-  "status": "corrected",
-  "corrected_value": "physical_coupon",
-  "source": "https://stonehamlibrary.assabetinteractive.com/museum-passes/by-museum/salem-witch-museum/",
-  "evidence": "benefit_text 含 \"must be picked up at the library\" → 推断为 physical_coupon;与申报 physical_circ 不符。"
-}

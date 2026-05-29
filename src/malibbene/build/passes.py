@@ -55,19 +55,49 @@ def residency_from_coupon(coupon: dict | None) -> tuple[str, str] | None:
 
 
 def infer_pass_form_from_text(text: str | None) -> str | None:
+    """Delivery form from the pass's own benefit text — the AUTHORITATIVE signal
+    for digital vs physical (the index pass_type code is often stale/wrong).
+
+    NEGATION-AWARE: a negated pickup phrase ("no physical pass to pick up",
+    "e-voucher — nothing to pick up", "e-ticket which does not need to be picked
+    up") must read as DIGITAL, never physical. So digital cues are tested FIRST.
+    """
     t = " ".join((text or "").lower().split())
     if not t:
         return None
-    if "digital (downloadable via email)" in t or "e-coupon" in t or "e-ticket" in t:
+    # 1) DIGITAL — only UNAMBIGUOUS digital tokens or negated-physical phrasings.
+    # (Deliberately NOT "print"/"printable"/"discount code" — those appear in
+    # physical passes too and would mislabel them; explicit pickup/return below
+    # must win in those cases.)
+    digital_cues = (
+        "e-ticket", "eticket", "e-voucher", "evoucher", "e-coupon", "e-pass",
+        "digital pass", "digital (downloadable via email)", "downloadable via email",
+        "emailed to you", "will be emailed to you", "be emailed to you",
+        "no physical pass", "not a physical pass", "no physical pass to pick up",
+        "nothing to pick up", "there is nothing to pick up",
+        "does not need to be picked up", "do not need to pick up",
+        "no need to pick up", "not need to be picked up", "no pass to pick up",
+        "this is an e-ticket", "this is a digital",
+    )
+    if any(c in t for c in digital_cues):
         return "digital_email"
-    # These explicit no-return cues are more trustworthy than the generic
-    # LibCal footer boilerplate that sometimes still says "picked up ... and
-    # returned" even when the pass page body says otherwise.
-    if "does not need to be returned" in t or "this is a disposable pass" in t or "disposable pass" in t:
-        return "physical_coupon"
-    if "returnable pass" in t or "must be returned" in t:
+    # 2) PHYSICAL-CIRCULATING — must be returned to the library.
+    circ_cues = (
+        "returnable pass", "must be returned", "pick up and return",
+        "picked up and returned", "return the pass", "due back",
+        "returned to the library", "returned to the reference desk",
+    )
+    if any(c in t for c in circ_cues):
         return "physical_circ"
-    if "physical passes must be picked up" in t or "must be picked up at the branch" in t or "must be picked up at the library" in t:
+    # 3) PHYSICAL-COUPON — a paper pass picked up, not returned.
+    coupon_cues = (
+        "does not need to be returned", "disposable pass",
+        "paper pass", "paper, must be picked up", "type of pass: paper",
+        "pick up a paper", "picked up from the library", "must be picked up from",
+        "physical passes must be picked up", "must be picked up at the branch",
+        "must be picked up at the library", "pick up a paper pass",
+    )
+    if any(c in t for c in coupon_cues):
         return "physical_coupon"
     return None
 
@@ -202,6 +232,13 @@ def build_passes(raw_root: Path, overrides_root: Path, out_path: Path) -> dict:
                 elif old_e:
                     row["coupon"] = old_e.get("coupon")
                     row["restrictions"] = old_e.get("restrictions")
+                # AUTHORITATIVE pass_form: the pass's own benefit text states the
+                # delivery method explicitly (e-ticket / paper pickup / returnable),
+                # which is more reliable than the index pass_type code. Apply it last
+                # (highest priority) when the text gives a clear, negation-aware cue.
+                block_pf = infer_pass_form_from_text((row.get("coupon") or {}).get("source_phrase_block"))
+                if block_pf:
+                    row["pass_form"] = block_pf
                 # A booking probe tries to book with a SAME-NETWORK card from a
                 # DIFFERENT library. Its rejection happens at card-validation and
                 # means "this pass needs THIS library's OWN card" (card-ownership)

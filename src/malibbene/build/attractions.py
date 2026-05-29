@@ -123,6 +123,16 @@ def _first_ok(raw_root: Path, subdir: str, variants: list[str]):
     return None
 
 
+def collapse_blank_lines(s: str | None) -> str | None:
+    """Drop blank lines INSIDE a source block — collapse runs of newlines (with
+    any intervening whitespace) to a single newline, and trim per-line padding.
+    The verbatim passage stays intact; it just reads tight, with no empty lines."""
+    if not s:
+        return s
+    lines = [ln.strip() for ln in s.replace("\r\n", "\n").split("\n")]
+    return "\n".join(ln for ln in lines if ln)
+
+
 def _apply_source_blocks(a: dict, raw_root: Path) -> None:
     """Overlay verbatim source-block evidence (plan: source-block extraction).
 
@@ -131,6 +141,7 @@ def _apply_source_blocks(a: dict, raw_root: Path) -> None:
     hours / visitor_eligibility recorded under a['_evidence'][field]. A null
     field in the source-block file is honest "no passage found" — skipped here,
     not invented. Existing source_phrase fields are preserved as fallbacks.
+    Blank lines inside each block are collapsed so the passage reads tight.
     """
     sb = _read_json(raw_root / "attractions" / "_source_blocks" / f"{a['slug']}.json")
     if not sb:
@@ -139,12 +150,12 @@ def _apply_source_blocks(a: dict, raw_root: Path) -> None:
         match = next((x for x in (sb.get("prices") or [])
                       if x and x.get("audience") == p.get("audience") and x.get("source_block")), None)
         if match:
-            p["source_block"] = match.get("source_block")
+            p["source_block"] = collapse_blank_lines(match.get("source_block"))
             p["source_url"] = match.get("source_url")
             p["source_confidence"] = match.get("source_confidence")
     rv = sb.get("reservation")
     if rv and rv.get("source_block") and isinstance(a.get("reservation"), dict):
-        a["reservation"]["source_block"] = rv.get("source_block")
+        a["reservation"]["source_block"] = collapse_blank_lines(rv.get("source_block"))
         a["reservation"]["source_url"] = rv.get("source_url")
         a["reservation"]["source_confidence"] = rv.get("source_confidence")
     for fld in ("hours", "visitor_eligibility"):
@@ -152,7 +163,7 @@ def _apply_source_blocks(a: dict, raw_root: Path) -> None:
         if ev and ev.get("source_block"):
             a.setdefault("_evidence", {})[fld] = {
                 "evidence": ev.get("source_phrase"),
-                "block": ev.get("source_block"),
+                "block": collapse_blank_lines(ev.get("source_block")),
                 "source": ev.get("source_url"),
                 "source_confidence": ev.get("source_confidence"),
             }

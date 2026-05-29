@@ -1,6 +1,0 @@
-{
-  "status": "corrected",
-  "corrected_value": "physical_coupon",
-  "source": "https://billericalibrary.assabetinteractive.com/museum-passes/by-museum/the-uss-constitution-museum/",
-  "evidence": "benefit_text 含 \"must be picked up at the library\" → 推断为 physical_coupon;与申报 digital_email 不符。"
-}
