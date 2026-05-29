@@ -1,23 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Modal, ModalBody, ModalContent, Popover, PopoverContent, PopoverTrigger } from "@heroui/react";
+import { Popover, PopoverContent, PopoverTrigger } from "@heroui/react";
 import type { Attraction, Branch, DataBundle, Library, Pass } from "../data/types";
-import { AUDITABLE_FIELDS, type AuditState, passKey } from "../store/audit";
+import { type AuditState, passKey } from "../store/audit";
 import {
   adultPrice,
-  audienceLabel,
-  capacityStructure,
   eligibilityLabel,
   formLabel,
-  frequencyLimit,
-  passResidencyLabel,
-  policyRange,
-  policyText,
   priceLine,
   reservationFlag,
   simpleDiscount,
-  verdictLabel,
 } from "../lib/derive";
-import BookingWizard from "../components/BookingWizard";
+import BookingDrawer, { type DrawerCtx } from "../components/BookingDrawer";
 
 interface Props {
   bundle: DataBundle;
@@ -130,11 +123,33 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
       .sort((a, b) => a.name.localeCompare(b.name));
   }, [bundle, q, category]);
 
-  // Wizard state
-  const [bookCtx, setBookCtx] = useState<{ attr: Attraction; lib: Library; pass: Pass } | null>(null);
-
-  // Cell detail popover (inline) — show on click
-  const [openKey, setOpenKey] = useState<string | null>(null);
+  // Drawer state — one slide-in panel replaces the old popover+modal chain.
+  // Clicking another cell while one is open: null-out first so the close
+  // animation plays, then mount the new ctx after ~220ms.
+  const [drawerCtx, setDrawerCtx] = useState<DrawerCtx | null>(null);
+  const switchTimer = useRef<number | null>(null);
+  function openDrawer(ctx: DrawerCtx) {
+    if (switchTimer.current) {
+      window.clearTimeout(switchTimer.current);
+      switchTimer.current = null;
+    }
+    if (drawerCtx) {
+      setDrawerCtx(null);
+      switchTimer.current = window.setTimeout(() => {
+        setDrawerCtx(ctx);
+        switchTimer.current = null;
+      }, 220);
+    } else {
+      setDrawerCtx(ctx);
+    }
+  }
+  function closeDrawer() {
+    if (switchTimer.current) {
+      window.clearTimeout(switchTimer.current);
+      switchTimer.current = null;
+    }
+    setDrawerCtx(null);
+  }
 
   function cellKey(a: Attraction, l: Library) {
     return `${a.slug}::${l.id}`;
@@ -454,42 +469,25 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                 cols={cols}
                 bundle={bundle}
                 cellMatch={cellMatch}
-                openKey={openKey}
-                setOpenKey={setOpenKey}
+                drawerKey={drawerCtx ? `${drawerCtx.attr.slug}::${drawerCtx.lib.id}${drawerCtx.branch ? `::${drawerCtx.branch.id}` : ""}` : null}
                 adult={adult}
                 resFlag={resFlag}
                 audit={audit}
-                onToggleApprove={toggleApprove}
-                onSetCorrection={setCorrection}
-                onBook={(lib, pass) => setBookCtx({ attr: a, lib, pass })}
+                onCellClick={(lib, branch, pass) => openDrawer({ attr: a, lib, branch, pass })}
               />
             );
           })}
         </div>
       </div>
 
-      <Modal
-        isOpen={!!bookCtx}
-        onOpenChange={(o) => !o && setBookCtx(null)}
-        size="3xl"
-        placement="center"
-        backdrop="opaque"
-        classNames={{ base: "floater-modal", body: "floater-modal-body" }}
-      >
-        <ModalContent>
-          <ModalBody>
-            {bookCtx && (
-              <BookingWizard
-                bundle={bundle}
-                attraction={bookCtx.attr}
-                pass={bookCtx.pass}
-                lib={bookCtx.lib}
-                onClose={() => setBookCtx(null)}
-              />
-            )}
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+      <BookingDrawer
+        bundle={bundle}
+        ctx={drawerCtx}
+        entry={drawerCtx ? audit[passKey(drawerCtx.lib.id, drawerCtx.attr.slug)] : undefined}
+        onClose={closeDrawer}
+        onToggleApprove={() => drawerCtx && toggleApprove(passKey(drawerCtx.lib.id, drawerCtx.attr.slug))}
+        onSetCorrection={(field, note) => drawerCtx && setCorrection(passKey(drawerCtx.lib.id, drawerCtx.attr.slug), field, note)}
+      />
     </div>
   );
 }
@@ -499,17 +497,14 @@ interface RowProps {
   cols: Col[];
   bundle: DataBundle;
   cellMatch: (p: Pass) => boolean;
-  openKey: string | null;
-  setOpenKey: (k: string | null) => void;
+  drawerKey: string | null;
   adult: number | null;
   resFlag: ReturnType<typeof reservationFlag>;
   audit: AuditState;
-  onToggleApprove: (key: string) => void;
-  onSetCorrection: (key: string, field: string, note: string) => void;
-  onBook: (lib: Library, pass: Pass) => void;
+  onCellClick: (lib: Library, branch: Branch | null, pass: Pass) => void;
 }
 
-function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult, resFlag, audit, onToggleApprove, onSetCorrection, onBook }: RowProps) {
+function RowFragment({ attr, cols, bundle, cellMatch, drawerKey, adult, resFlag, audit, onCellClick }: RowProps) {
   return (
     <>
       <Popover placement="right-start" showArrow>
@@ -538,52 +533,34 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
         const p = bundle.passByPair.get(`${attr.slug}::${l.id}`);
         const startCls = c.kind === "lib" && c.netStart ? " net-start" : "";
 
-        // Both lib and branch cells render identically — branches are peer
-        // pickup-locations, not subordinates. The popover header carries the
-        // location label so the user sees the actual pickup point.
+        // Pass cell — plain clickable div. Click opens the right-side drawer
+        // (no per-cell popover state, no modal — the drawer is a single
+        // top-level panel driven by drawerCtx).
         if (!p) return <div key={key} className={`mx-cell empty${startCls}`} data-row={attr.slug} data-col={String(ci)} />;
         const masked = !cellMatch(p);
         const branch = c.kind === "branch" ? c.branch : null;
-        const locTitle = branch ? `${l.town} · ${branch.name}` : l.town;
         const pkey = passKey(p.library_id, p.attraction_slug);
         const entry = audit[pkey];
+        const isActive = drawerKey === key;
         return (
-          <Popover
+          <div
             key={key}
-            placement="bottom"
-            showArrow
-            isOpen={openKey === key}
-            onOpenChange={(o) => setOpenKey(o ? key : null)}
+            className={`mx-cell${startCls}${isActive ? " drawer-active" : ""}`}
+            style={masked ? { opacity: 0.18 } : undefined}
+            data-row={attr.slug}
+            data-col={String(ci)}
+            onClick={() => !masked && onCellClick(l, branch, p)}
+            role="button"
+            tabIndex={masked ? -1 : 0}
+            onKeyDown={(e) => {
+              if (!masked && (e.key === "Enter" || e.key === " ")) {
+                e.preventDefault();
+                onCellClick(l, branch, p);
+              }
+            }}
           >
-            <PopoverTrigger>
-              <div
-                className={`mx-cell${startCls}`}
-                style={masked ? { opacity: 0.18 } : undefined}
-                data-row={attr.slug}
-                data-col={String(ci)}
-              >
-                <CellGlyph p={p} lib={l} approved={!!entry?.approved} hasCorrection={!!entry?.corrections} />
-              </div>
-            </PopoverTrigger>
-            <PopoverContent>
-              <CellDetail
-                p={p}
-                attr={attr}
-                lib={l}
-                branch={branch}
-                entry={entry}
-                onToggleApprove={() => onToggleApprove(pkey)}
-                onSetCorrection={(field, note) => onSetCorrection(pkey, field, note)}
-                onBook={() => {
-                  // Open the modal. We deliberately do NOT touch the popover
-                  // state — the opaque modal backdrop covers it. Trying to
-                  // close the popover synchronously was racing with HeroUI's
-                  // own focus/portal handling and eating some clicks.
-                  onBook(l, p);
-                }}
-              />
-            </PopoverContent>
-          </Popover>
+            <CellGlyph p={p} lib={l} approved={!!entry?.approved} hasCorrection={!!entry?.corrections} />
+          </div>
         );
       })}
     </>
@@ -633,85 +610,6 @@ function EvidenceSection({ items }: { items: EvidenceItem[] }) {
           )}
         </div>
       ))}
-    </div>
-  );
-}
-
-// Paired SVG icons (Lucide-style, stroke-only) so Approve and Edit read as
-// a deliberate two-button set at the same visual weight.
-const IconCheck = () => (
-  <svg className="ico-svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
-const IconPencil = () => (
-  <svg className="ico-svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M12 20h9" />
-    <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
-  </svg>
-);
-const IconBook = () => (
-  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <line x1="7" y1="17" x2="17" y2="7" />
-    <polyline points="7 7 17 7 17 17" />
-  </svg>
-);
-
-function CellAuditRow({
-  entry,
-  onToggleApprove,
-  onSetCorrection,
-  onBook,
-}: {
-  entry?: { approved?: { at: string }; corrections?: { at: string; notes: Record<string, string> } };
-  onToggleApprove: () => void;
-  onSetCorrection: (field: string, note: string) => void;
-  onBook: () => void;
-}) {
-  const [showEdit, setShowEdit] = useState(false);
-  return (
-    <div className="cell-foot">
-      {showEdit && (
-        <div className="correction-fields">
-          {AUDITABLE_FIELDS.map((f) => (
-            <div className="cf-row" key={f.key}>
-              <label className="cf-label">{f.label}</label>
-              <textarea
-                className="cf-input"
-                rows={1}
-                defaultValue={entry?.corrections?.notes[f.key] || ""}
-                onBlur={(e) => onSetCorrection(f.key, e.target.value)}
-              />
-            </div>
-          ))}
-        </div>
-      )}
-      <div className="action-bar">
-        <button
-          className={`audit-btn approve${entry?.approved ? " active" : ""}`}
-          onClick={onToggleApprove}
-          title={entry?.approved ? `Approved ${new Date(entry.approved.at).toLocaleString()}` : "Mark verified"}
-        >
-          <IconCheck />
-          {entry?.approved ? "Approved" : "Approve"}
-        </button>
-        <button
-          className={`audit-btn${entry?.corrections ? " has-notes" : ""}${showEdit ? " open" : ""}`}
-          onClick={() => setShowEdit((s) => !s)}
-          title={entry?.corrections ? "Has edits — click to view" : "Add edit notes"}
-        >
-          <IconPencil />
-          Edit
-          {entry?.corrections && <span className="dot-mark" />}
-        </button>
-        <button
-          className="book-btn"
-          type="button"
-          onClick={(e) => { e.stopPropagation(); onBook(); }}
-        >
-          Book Now <IconBook />
-        </button>
-      </div>
     </div>
   );
 }
@@ -860,133 +758,3 @@ function AttractionDetail({ a }: { a: Attraction }) {
   );
 }
 
-function CellDetail({
-  p,
-  attr,
-  lib,
-  branch,
-  entry,
-  onToggleApprove,
-  onSetCorrection,
-  onBook,
-}: {
-  p: Pass;
-  attr: Attraction;
-  lib: Library;
-  branch?: Branch | null;
-  entry?: { approved?: { at: string }; corrections?: { at: string; notes: Record<string, string> } };
-  onToggleApprove: () => void;
-  onSetCorrection: (field: string, note: string) => void;
-  onBook: () => void;
-}) {
-  const fl = formLabel(p.pass_form);
-  const vd = verdictLabel(p.booking_access_probe?.verdict, { network: lib.network, town: lib.town });
-  const pr = passResidencyLabel(p.residency_restriction?.restricted, p.residency_restriction?.scope, { town: lib.town });
-  const fq = frequencyLimit(p.restrictions?.booking_frequency_limit);
-  const cap = p.coupon.capacity?.n;
-  const cs = capacityStructure(p.coupon);
-  const capValue = cs.total ?? cap;
-  return (
-    <div className="detail-card has-foot">
-      <div className="detail-scroll">
-      <div className="card-subtitle">
-        {attr.name} · {branch ? `${lib.town} · ${branch.name}` : lib.town} · {lib.network}
-      </div>
-
-      {/* Discount — plain row group with sub-rows for each audience. */}
-      <div className="data-section">
-        <div className="section-h">Discount</div>
-        {p.coupon.audience_policies && p.coupon.audience_policies.length > 0 ? (
-          p.coupon.audience_policies.map((ap, i) => {
-            const range = policyRange(ap);
-            const count = ap.count ? ` × ${ap.count}` : "";
-            return (
-              <div className="data-row sub" key={i}>
-                <span className="k">{audienceLabel(ap.audience)}{range}{count}</span>
-                <span className="v">{policyText(ap)}</span>
-              </div>
-            );
-          })
-        ) : (
-          <div className="data-row sub">
-            <span className="k">Everyone</span>
-            <span className="v">{p.coupon.summary}</span>
-          </div>
-        )}
-      </div>
-
-      {/* Other facts — one row each. */}
-      <div className="data-section">
-        <div className="data-row">
-          <span className="k">Capacity</span>
-          <span className="v">
-            {capValue ?? "—"}
-            {cs.parts && cs.parts.length > 0 && (
-              <span className="v-note"> · {cs.parts.join(" + ")}</span>
-            )}
-          </span>
-        </div>
-        <div className="data-row">
-          <span className="k">Pickup</span>
-          <span className="v">{fl.icon} {fl.short}</span>
-        </div>
-        <div className="data-row">
-          <span className="k">Card</span>
-          <span className="v">{vd.text}</span>
-        </div>
-        <div className="data-row">
-          <span className="k">Residency</span>
-          <span className={`v${pr.warn ? " v-warn" : ""}`}>{pr.text}</span>
-        </div>
-        <div className="data-row">
-          <span className="k">Monthly limit</span>
-          <span className="v">{fq || "—"}</span>
-        </div>
-        {branch && branch.geo && (
-          <div className="data-row">
-            <span className="k">Pickup geo</span>
-            <span className="v">{branch.geo.lat.toFixed(4)}, {branch.geo.lon.toFixed(4)}</span>
-          </div>
-        )}
-      </div>
-
-
-      <EvidenceSection
-        items={[
-          { label: "Pass page", source: p.source_url || null },
-          p.coupon.source_phrase_block
-            ? { label: "Coupon text", quote: p.coupon.source_phrase_block, source: p.source_url || null }
-            : { label: "" },
-          p.residency_restriction?.evidence
-            ? {
-                label: `Residency (${p.residency_restriction.source || "—"})`,
-                quote: p.residency_restriction.evidence || null,
-                source: p.source_url || null,
-              }
-            : { label: "" },
-          p.booking_access_probe?.evidence
-            ? {
-                label:
-                  `Card probe` +
-                  (p.booking_access_probe.prober_card ? ` (via ${p.booking_access_probe.prober_card})` : "") +
-                  (p.booking_access_probe.probed_date ? ` · ${p.booking_access_probe.probed_date}` : ""),
-                quote: p.booking_access_probe.evidence || null,
-                source: p.source_url || null,
-              }
-            : { label: "" },
-        ]}
-      />
-
-      </div>
-      {/* Bottom action bar — outside the scrolling area so the buttons are
-          always visible AND always clickable (sticky in HeroUI popovers was
-          unreliable, swallowing some Book Now clicks). */}
-      <CellAuditRow
-        entry={entry}
-        onToggleApprove={onToggleApprove}
-        onSetCorrection={onSetCorrection}
-        onBook={onBook}
-      />
-    </div>
-  );
-}

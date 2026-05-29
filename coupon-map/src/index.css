@@ -666,48 +666,131 @@ body,
 /* ── Floater Modal (HeroUI wrapper) ─────────────────────────────────── */
 /* HeroUI's default modal base is transparent unless themed. We force a
    solid newspaper-cream background, centered, with a clear shadow. */
-.floater-modal {
-  background: #fafaf7 !important;
-  border-radius: 10px !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22) !important;
-  border: 1px solid #d0cec6 !important;
+/* ── Right-side BookingDrawer (replaces popover+modal chain) ─────────
+   380px slide-in panel. Backdrop is near-transparent — the matrix stays
+   visible so users can compare neighbouring cells while picking a date. */
+.drawer-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(26, 25, 23, 0.08);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.18s ease-out;
+  z-index: 90;
 }
-.floater-modal-body {
-  padding: 0 !important;
+.drawer-backdrop.open { opacity: 1; pointer-events: auto; }
+
+.drawer {
+  position: fixed; top: 0; right: 0; bottom: 0;
+  width: 380px;
+  background: #fafaf7;
+  border-left: 1px solid #d0cec6;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
+  display: flex; flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.22s ease-out;
+  z-index: 100;
+  font-size: 13px; color: #1a1917;
+}
+.drawer.open { transform: translateX(0); }
+
+.drawer-head {
+  position: relative;
+  padding: 14px 38px 12px 16px;
+  border-bottom: 1px solid #ecebe5;
+}
+.drawer-title {
+  font-size: 15px; font-weight: 700; color: #1b5740; line-height: 1.25;
+}
+.drawer-sub {
+  font-size: 12px; color: #8a877f; margin-top: 3px;
+}
+.drawer-sub strong { color: #4a4845; font-weight: 600; }
+.drawer-sub .drawer-net { color: #b5b2a8; }
+.drawer-x {
+  position: absolute; top: 10px; right: 10px;
+  width: 24px; height: 24px;
+  background: transparent; border: none;
+  font-size: 22px; line-height: 1; color: #8a877f;
+  cursor: pointer; border-radius: 4px;
+}
+.drawer-x:hover { background: #ecebe5; color: #1a1917; }
+
+.drawer-body {
+  flex: 1; overflow-y: auto;
+  padding: 12px 16px 16px;
+}
+.drawer-coupon {
+  font-size: 18px; font-weight: 700; color: #1b5740;
+  background: #c4ddcf; padding: 8px 12px; border-radius: 5px;
+  text-align: center; margin-bottom: 14px;
+}
+.drawer-section { margin-bottom: 14px; }
+.drawer-section + .drawer-section {
+  border-top: 1px solid #ecebe5; padding-top: 12px;
+}
+.drawer-section .section-h {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+  color: #8a877f; font-weight: 600; margin-bottom: 6px;
+}
+.section-h-pick { color: #4a4845; font-weight: 500; text-transform: none; letter-spacing: 0; }
+.section-h-pick strong { color: #1b5740; }
+
+.drawer-audit .action-bar {
+  display: flex; gap: 8px;
+}
+.drawer-audit .audit-btn {
+  flex: 1;
+  font: inherit; font-size: 12px;
+  padding: 6px 8px;
+  background: #fafaf7; color: #4a4845;
+  border: 1px solid #d0cec6; border-radius: 4px;
+  cursor: pointer; position: relative;
+}
+.drawer-audit .audit-btn:hover { background: #ecebe5; }
+.drawer-audit .audit-btn.approve.active {
+  background: #c4ddcf; border-color: #1b5740; color: #1b5740; font-weight: 600;
+}
+.drawer-audit .audit-btn.open { background: #ecebe5; border-color: #8a877f; }
+.drawer-audit .audit-btn .dot-mark {
+  position: absolute; top: 4px; right: 4px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #d97706;
+}
+.correction-fields { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+.cf-row { display: flex; flex-direction: column; gap: 2px; }
+.cf-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px;
+  color: #8a877f; font-weight: 600;
+}
+.cf-input {
+  font: inherit; font-size: 12px;
+  padding: 5px 7px;
+  background: #fafaf7; color: #1a1917;
+  border: 1px solid #d0cec6; border-radius: 3px;
+  resize: vertical; min-height: 26px;
 }
 
-/* ── Booking Floater (replaces the 3-step wizard) ──────────────────── */
-.floater {
-  padding: 14px 18px 12px;
-  font-size: 13px;
-  color: #1a1917;
+.drawer-foot {
+  border-top: 1px solid #d0cec6;
+  padding: 10px 16px;
   background: #fafaf7;
-  min-width: 760px;
-  max-width: 840px;
 }
-.floater-body {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 18px;
+.drawer-book {
+  width: 100%;
+  font: inherit; font-size: 14px; font-weight: 600;
+  padding: 9px 18px;
+  background: #1b5740; color: #fafaf7;
+  border: none; border-radius: 4px;
+  cursor: pointer;
 }
-.floater-head { margin-bottom: 14px; }
-.floater-title { font-size: 16px; font-weight: 700; color: #1b5740; letter-spacing: 0.2px; }
-.floater-sub { font-size: 12px; color: #8a877f; margin-top: 4px; }
-.floater-sub strong { color: #4a4845; font-weight: 600; }
-.floater-sub code {
-  background: #ecebe5; padding: 1px 5px; border-radius: 3px; color: #4a4845;
-  font-family: ui-monospace, monospace; font-size: 11px;
+.drawer-book:hover:not(:disabled) { background: #2a7055; }
+.drawer-book:disabled { background: #d0cec6; color: #8a877f; cursor: default; }
+
+/* Highlight the active pass cell when its drawer is open */
+.mx-cell.drawer-active {
+  outline: 2px solid #1b5740;
+  outline-offset: -2px;
+  z-index: 2;
 }
-.floater-cal { margin-bottom: 0; }
-.col-hint {
-  font-size: 12px;
-  color: #4a4845;
-  margin-bottom: 8px;
-  padding: 6px 10px;
-  background: #ecebe5;
-  border-radius: 4px;
-}
-.col-hint strong { color: #1b5740; font-weight: 700; }
 .cal-nav { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
 .cal-nav button {
   font: inherit; font-size: 11px; padding: 3px 8px;
@@ -736,9 +819,6 @@ body,
   border: 1px solid #b5b2a8; border-radius: 2px;
 }
 
-.floater-cards {
-  max-height: 360px; overflow-y: auto;
-}
 .cards-empty { font-size: 12px; color: #8a877f; padding: 10px 0; }
 .card-pick {
   padding: 10px 12px;
@@ -794,43 +874,6 @@ body,
   color: #4a4845;
   font-size: 11px;
 }
-
-.floater-foot {
-  border-top: 1px solid #d0cec6;
-  padding-top: 12px;
-  margin-top: 14px;
-  display: flex;
-  justify-content: flex-end;
-}
-.foot-btns { display: flex; gap: 10px; }
-.foot-btns .btn-primary {
-  font: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 7px 18px;
-  background: #1b5740;
-  color: #fafaf7;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.foot-btns .btn-primary:hover:not(:disabled) { background: #2a7055; }
-.foot-btns .btn-primary:disabled {
-  background: #d0cec6;
-  color: #8a877f;
-  cursor: default;
-}
-.foot-btns .btn-ghost {
-  font: inherit;
-  font-size: 13px;
-  padding: 6px 14px;
-  background: #fafaf7;
-  color: #1a1917;
-  border: 1px solid #d0cec6;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.foot-btns .btn-ghost:hover { background: #ecebe5; }
 
 /* ── My Cards page — unified typography ────────────────────────────── */
 .my-cards { padding: 6px 4px; font-size: 13px; }
