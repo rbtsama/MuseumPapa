@@ -80,15 +80,24 @@ for (const name of files) {
   // override-derived _evidence onto whatever the build pipeline already
   // injected (e.g. source_block evidence for hours / card_eligibility /
   // visitor_eligibility). Override entries win per-field.
+  const mergeEvidence = (base, ov) => {
+    // Per-field deep merge so a build-injected verbatim `block` survives even
+    // when an override supplies only {source, evidence} for the same field.
+    const out = { ...(base || {}) };
+    for (const [field, val] of Object.entries(ov || {})) {
+      out[field] = { ...(out[field] || {}), ...val };
+    }
+    return out;
+  };
   if (name === "libraries.json" && Array.isArray(parsed.libraries)) {
     for (const lib of parsed.libraries) {
       const ev = libsEv.get(lib.id);
-      if (ev) lib._evidence = { ...(lib._evidence || {}), ...ev };
+      if (ev) lib._evidence = mergeEvidence(lib._evidence, ev);
     }
   } else if (name === "attractions.json" && Array.isArray(parsed.attractions)) {
     for (const a of parsed.attractions) {
       const ev = attrsEv.get(a.slug);
-      if (ev) a._evidence = { ...(a._evidence || {}), ...ev };
+      if (ev) a._evidence = mergeEvidence(a._evidence, ev);
     }
   }
 

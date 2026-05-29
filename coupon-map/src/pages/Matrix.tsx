@@ -372,14 +372,14 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                                 l._evidence?.card_eligibility
                                   ? {
                                       label: "Resident requirement",
-                                      quote: l._evidence.card_eligibility.evidence || null,
+                                      quote: l._evidence.card_eligibility.block || l._evidence.card_eligibility.evidence || null,
                                       source: l._evidence.card_eligibility.source || null,
                                     }
                                   : { label: "" },
                                 l._evidence?.hours
                                   ? {
                                       label: "Hours",
-                                      quote: l._evidence.hours.evidence || null,
+                                      quote: l._evidence.hours.block || l._evidence.hours.evidence || null,
                                       source: l._evidence.hours.source || null,
                                     }
                                   : l._evidence?.hours_note
@@ -461,14 +461,14 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                               c.lib._evidence?.card_eligibility
                                 ? {
                                     label: "Resident requirement",
-                                    quote: c.lib._evidence.card_eligibility.evidence || null,
+                                    quote: c.lib._evidence.card_eligibility.block || c.lib._evidence.card_eligibility.evidence || null,
                                     source: c.lib._evidence.card_eligibility.source || null,
                                   }
                                 : { label: "" },
                               c.lib._evidence?.hours
                                 ? {
                                     label: "Institution hours",
-                                    quote: c.lib._evidence.hours.evidence || null,
+                                    quote: c.lib._evidence.hours.block || c.lib._evidence.hours.evidence || null,
                                     source: c.lib._evidence.hours.source || null,
                                   }
                                 : c.lib._evidence?.hours_note
@@ -788,21 +788,21 @@ function AttractionDetail({ a }: { a: Attraction }) {
           a.prices && a.prices.length > 0
             ? {
                 label: `Price · ${a.prices[0].audience}`,
-                quote: a.prices[0].source_phrase || null,
-                source: a.website || null,
+                quote: a.prices[0].source_block || a.prices[0].source_phrase || null,
+                source: a.prices[0].source_url || a.website || null,
               }
             : { label: "" },
           a.reservation?.required
             ? {
                 label: "Reservation policy",
-                quote: a.reservation?.source_phrase || a.reservation?.notes || null,
-                source: a.reservation?.booking_url || a.reservation?.pass_holder_url || null,
+                quote: a.reservation?.source_block || a.reservation?.source_phrase || a.reservation?.notes || null,
+                source: a.reservation?.source_url || a.reservation?.booking_url || a.reservation?.pass_holder_url || null,
               }
             : { label: "" },
           a._evidence?.hours
             ? {
                 label: "Hours",
-                quote: a._evidence.hours.evidence || null,
+                quote: a._evidence.hours.block || a._evidence.hours.evidence || null,
                 source: a._evidence.hours.source || null,
               }
             : a._evidence?.hours_note

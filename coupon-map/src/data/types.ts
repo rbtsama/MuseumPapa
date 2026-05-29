@@ -30,7 +30,7 @@ export interface Library {
   resident_zips?: string[];
   hours?: Record<string, string> | null;
   hours_note?: string | null;
-  _evidence?: Record<string, { source?: string | null; evidence?: string | null }>;
+  _evidence?: Record<string, EvidenceEntry>;
 }
 
 export interface Attraction {
@@ -48,6 +48,9 @@ export interface Attraction {
     price: number | null;
     age_range?: { min: number | null; max: number | null } | null;
     source_phrase?: string | null;
+    source_block?: string | null;
+    source_url?: string | null;
+    source_confidence?: "high" | "medium" | "low" | null;
   }>;
   booking_model?: string | null;
   booking_note?: string | null;
@@ -61,11 +64,21 @@ export interface Attraction {
     pass_holder_url?: string | null;
     notes?: string | null;
     source_phrase?: string | null;
+    source_block?: string | null;
+    source_url?: string | null;
+    source_confidence?: "high" | "medium" | "low" | null;
   };
   hours?: Record<string, string> | null;
   hours_note?: string | null;
   sources?: unknown;
-  _evidence?: Record<string, { source?: string | null; evidence?: string | null }>;
+  _evidence?: Record<string, EvidenceEntry>;
+}
+
+export interface EvidenceEntry {
+  source?: string | null;
+  evidence?: string | null;
+  block?: string | null;
+  source_confidence?: "high" | "medium" | "low" | null;
 }
 
 export interface Pass {
