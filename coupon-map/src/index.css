@@ -864,6 +864,98 @@ body,
   line-height: 1.45;
 }
 .cards-empty.cards-explain strong { color: #4a4845; }
+
+/* ── Drawer Sources ───────────────────────────────────────────────────
+   Each source is a small card with a colored left rail keyed to its kind.
+   Colors reuse the network palette so the drawer stays in the same
+   visual family as the matrix headers — no new design tokens. */
+.drawer-sources .section-h { margin-bottom: 8px; }
+
+.src-card {
+  position: relative;
+  background: #fafaf7;
+  border: 1px solid #ecebe5;
+  border-radius: 5px;
+  padding: 8px 10px 8px 14px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.src-card:last-child { margin-bottom: 0; }
+.src-card::before {
+  /* Colored left rail — set per kind below. */
+  content: "";
+  position: absolute;
+  top: 6px; bottom: 6px; left: 4px;
+  width: 3px;
+  border-radius: 2px;
+  background: #b5b2a8;
+}
+.src-pass::before      { background: #1b5740; } /* Minuteman green */
+.src-coupon::before    { background: #8c6018; } /* MVLC gold */
+.src-residency::before { background: #2a4a6b; } /* NOBLE navy */
+.src-probe::before     { background: #8c2a1e; } /* OCLN burgundy */
+
+.src-head {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.src-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #4a4845;
+}
+.src-pass      .src-label { color: #1b5740; }
+.src-coupon    .src-label { color: #8c6018; }
+.src-residency .src-label { color: #2a4a6b; }
+.src-probe     .src-label { color: #8c2a1e; }
+
+.src-meta {
+  font-size: 10px;
+  color: #8a877f;
+  margin-right: auto;        /* push Open ↗ to the right of the row */
+}
+.src-open {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1b5740;
+  text-decoration: none;
+  white-space: nowrap;
+  margin-left: auto;          /* always right-aligned when no .src-meta */
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+.src-open:hover {
+  background: #c4ddcf;
+  color: #1b5740;
+}
+
+/* Pass-page card has no quote — just the host shown a bit larger. */
+.src-host {
+  font-family: ui-monospace, "JetBrains Mono", "Consolas", monospace;
+  font-size: 11px;
+  color: #4a4845;
+  word-break: break-all;
+}
+
+.src-quote {
+  margin: 0;
+  padding: 6px 8px;
+  background: #f4f3ef;
+  border-radius: 4px;
+  font-style: italic;
+  color: #1a1917;
+  word-break: break-word;
+  white-space: pre-wrap;
+  quotes: "\201C" "\201D";   /* fancy curly quotes around the passage */
+}
+.src-quote::before { content: open-quote; color: #8a877f; margin-right: 2px; }
+.src-quote::after  { content: close-quote; color: #8a877f; margin-left: 2px; }
 .card-pick {
   padding: 10px 12px;
   margin-bottom: 6px;

@@ -456,39 +456,72 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                 )}
               </section>
 
-              {/* Sources */}
+              {/* Sources — each fact above pairs to a card here with the verbatim
+                  evidence. Colored left rail tells the four kinds apart at a
+                  glance: pass page (green) is the canonical link; coupon text
+                  (gold) is the verbatim discount blurb; residency (navy) is the
+                  rule under "Residency"; card probe (burgundy) is the empirical
+                  card-validation result. */}
               {(p.source_url || p.coupon.source_phrase_block || p.residency_restriction?.evidence || p.booking_access_probe?.evidence) && (
-                <section className="drawer-section evidence">
+                <section className="drawer-section drawer-sources">
                   <div className="section-h">Sources</div>
+
                   {p.source_url && (
-                    <div className="ev-item">
-                      <div className="ev-label">Pass page</div>
-                      <a className="ev-link standalone" href={p.source_url} target="_blank" rel="noreferrer">
-                        {prettyHost(p.source_url)} ↗
-                      </a>
-                    </div>
+                    <article className="src-card src-pass">
+                      <header className="src-head">
+                        <span className="src-label">Pass page</span>
+                        <a className="src-open" href={p.source_url} target="_blank" rel="noreferrer">
+                          Open ↗
+                        </a>
+                      </header>
+                      <div className="src-host">{prettyHost(p.source_url)}</div>
+                    </article>
                   )}
+
                   {p.coupon.source_phrase_block && (
-                    <div className="ev-item">
-                      <div className="ev-label">Coupon text</div>
-                      <div className="ev-quote">{p.coupon.source_phrase_block}</div>
-                    </div>
+                    <article className="src-card src-coupon">
+                      <header className="src-head">
+                        <span className="src-label">Coupon text</span>
+                        {p.source_url && (
+                          <a className="src-open" href={p.source_url} target="_blank" rel="noreferrer">
+                            Open ↗
+                          </a>
+                        )}
+                      </header>
+                      <blockquote className="src-quote">{p.coupon.source_phrase_block}</blockquote>
+                    </article>
                   )}
+
                   {p.residency_restriction?.evidence && (
-                    <div className="ev-item">
-                      <div className="ev-label">Residency ({p.residency_restriction.source || "—"})</div>
-                      <div className="ev-quote">{p.residency_restriction.evidence}</div>
-                    </div>
+                    <article className="src-card src-residency">
+                      <header className="src-head">
+                        <span className="src-label">Residency</span>
+                        {p.residency_restriction.source && (
+                          <span className="src-meta">via {p.residency_restriction.source}</span>
+                        )}
+                        {p.source_url && (
+                          <a className="src-open" href={p.source_url} target="_blank" rel="noreferrer">
+                            Open ↗
+                          </a>
+                        )}
+                      </header>
+                      <blockquote className="src-quote">{p.residency_restriction.evidence}</blockquote>
+                    </article>
                   )}
+
                   {p.booking_access_probe?.evidence && (
-                    <div className="ev-item">
-                      <div className="ev-label">
-                        Card probe
-                        {p.booking_access_probe.prober_card && ` (via ${p.booking_access_probe.prober_card})`}
-                        {p.booking_access_probe.probed_date && ` · ${p.booking_access_probe.probed_date}`}
-                      </div>
-                      <div className="ev-quote">{p.booking_access_probe.evidence}</div>
-                    </div>
+                    <article className="src-card src-probe">
+                      <header className="src-head">
+                        <span className="src-label">Card probe</span>
+                        {p.booking_access_probe.prober_card && (
+                          <span className="src-meta">
+                            via {p.booking_access_probe.prober_card}
+                            {p.booking_access_probe.probed_date && ` · ${p.booking_access_probe.probed_date}`}
+                          </span>
+                        )}
+                      </header>
+                      <blockquote className="src-quote">{p.booking_access_probe.evidence}</blockquote>
+                    </article>
                   )}
                 </section>
               )}
