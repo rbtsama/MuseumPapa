@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "built_at": "2026-05-29T18:45:56.961020+00:00",
+    "built_at": "2026-05-29T18:58:15.240705+00:00",
     "n_libraries": 59
   },
   "libraries": [
@@ -994,7 +994,7 @@
         "lat": 42.5583785,
         "lon": -71.2699681
       },
-      "card_eligibility": "ma_resident",
+      "card_eligibility": "town_or_works",
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01821"
@@ -1220,7 +1220,7 @@
         "lat": 42.7772317,
         "lon": -71.0767573
       },
-      "card_eligibility": "ma_resident",
+      "card_eligibility": "town_or_works",
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01830",
@@ -1361,7 +1361,7 @@
         "lat": 42.656828,
         "lon": -71.1414112
       },
-      "card_eligibility": "ma_resident",
+      "card_eligibility": "town_or_works",
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01810"
@@ -1450,7 +1450,7 @@
         "lat": 42.594723,
         "lon": -71.0161341
       },
-      "card_eligibility": "ma_resident",
+      "card_eligibility": "town_resident",
       "pass_pickup_default": "unknown",
       "resident_zips": [
         "01949"
