@@ -158,7 +158,15 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
   function cellMatch(p: Pass) {
     if (form && p.pass_form !== form) return false;
     if (verdictF && p.booking_access_probe?.verdict !== verdictF) return false;
-    if (residencyF && (p.residency_restriction?.restricted || "unknown") !== residencyF) return false;
+    if (residencyF) {
+      // Only a TOWN restriction is a meaningful residency filter; "ma" (any MA
+      // resident) is the non-restrictive baseline we don't surface.
+      const isTown =
+        p.residency_restriction?.restricted === "yes" &&
+        p.residency_restriction?.scope === "town";
+      if (residencyF === "town" && !isTown) return false;
+      if (residencyF === "open" && isTown) return false;
+    }
     return true;
   }
 
@@ -240,9 +248,8 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
         </select>
         <select value={residencyF} onChange={(e) => setResidencyF(e.target.value)}>
           <option value="">All residency</option>
-          <option value="no">No residency requirement</option>
-          <option value="yes">Residency required</option>
-          <option value="unknown">Residency unknown</option>
+          <option value="town">Town residents only</option>
+          <option value="open">No town requirement</option>
         </select>
         <span className="count">
           {rows.length}/{bundle.attractions.length} attractions · {cols.length} libs · {bundle.passes.length} passes
@@ -650,11 +657,13 @@ function CellGlyph({ p, lib, approved, hasCorrection }: { p: Pass; lib: Library;
   // yet verified or ambiguous.
   const networkText = ownOnly ? lib.town : networkOpen ? "Network" : verdict === "ambiguous" ? "Network?" : "—";
   const networkColor = ownOnly ? "#D97706" : networkOpen ? "#1B5740" : "#B5B2A8";
-  // Line 3: residency only when there IS a restriction (yes). Otherwise hidden.
+  // Line 3: residency shown ONLY for a real TOWN restriction. scope "ma"
+  // (any MA resident) is the baseline floor — effectively non-restrictive —
+  // so we don't surface it; it would just be noise on nearly every pass.
   let residencyText: string | null = null;
-  if (residency === "yes") {
+  if (residency === "yes" && residencyScope === "town") {
     // 🏠 icon already conveys "lives here"; just print the locality.
-    residencyText = residencyScope === "ma" ? "MA" : lib.town;
+    residencyText = lib.town;
   }
   return (
     <div className="glyph">

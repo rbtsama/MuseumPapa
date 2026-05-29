@@ -97,7 +97,9 @@ export function passResidencyLabel(
   switch (r) {
     case "yes":
       if (scope === "town") return { text: `${town} Resident`, warn: true };
-      if (scope === "ma") return { text: "MA Resident", warn: true };
+      // scope "ma" (any MA resident) is the baseline floor — effectively
+      // non-restrictive — so we don't surface it (render like no requirement).
+      if (scope === "ma") return { text: "—", warn: false };
       return { text: "Restricted", warn: true };
     case "no":
       return { text: "—", warn: false };

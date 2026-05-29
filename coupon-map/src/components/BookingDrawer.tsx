@@ -484,7 +484,7 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                   (gold) is the verbatim discount blurb; residency (navy) is the
                   rule under "Residency"; card probe (burgundy) is the empirical
                   card-validation result. */}
-              {(p.source_url || p.coupon.source_phrase_block || p.residency_restriction?.evidence || p.booking_access_probe?.evidence) && (
+              {(p.source_url || p.coupon.source_phrase_block || (p.residency_restriction?.evidence && p.residency_restriction?.scope === "town") || p.booking_access_probe?.evidence) && (
                 <section className="drawer-section drawer-sources">
                   <div className="section-h">Sources</div>
 
@@ -514,7 +514,7 @@ export default function BookingDrawer({ bundle, ctx, entry, onClose, onToggleApp
                     </article>
                   )}
 
-                  {p.residency_restriction?.evidence && (
+                  {p.residency_restriction?.evidence && p.residency_restriction?.scope === "town" && (
                     <article className="src-card src-residency">
                       <header className="src-head">
                         <span className="src-label">Residency</span>
