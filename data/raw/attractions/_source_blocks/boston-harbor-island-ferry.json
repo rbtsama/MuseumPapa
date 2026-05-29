@@ -1,0 +1,21 @@
+{
+  "slug": "boston-harbor-island-ferry",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/boston-harbor-island-ferry.html", "subpages/boston-harbor-island-ferry__access-hours.html", "subpages/boston-harbor-island-ferry__ferry-tickets.html", "subpages/boston-harbor-island-ferry__rendered.html"],
+  "prices": [],
+  "reservation": {
+    "source_phrase": "Reserve Your Seat for Your Next Island Visit!",
+    "source_block": "Reserve Your Seat for Your Next Island Visit!\n\nFerry service to the park is provided by Boston Harbor City Cruises . Scroll down to view and purchase ferry tickets for Georges and Spectacle Island online. Tickets can also be reserved over the phone at 617-227-4321, or in person at the ticket center at Long Wharf North. All ticket purchases are round-trip – there is no need to select a return time.",
+    "source_url": "https://www.bostonharborislands.org/ferry-tickets",
+    "source_path": "subpages/boston-harbor-island-ferry__ferry-tickets.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "Most park islands are open to visitation from dawn until dusk, year-round. The best way to visit the park is by public ferry from Boston or Hingham. Ferries operate from mid-May through mid-October.",
+    "source_block": "Most park islands are open to visitation from dawn until dusk, year-round. The best way to visit the park is by public ferry from Boston or Hingham. Ferries operate from mid-May through mid-October.\n\nVisitors may also access the islands by private vessel. Park moorings are open by reservation. Boaters are advised that there are no services such as visitor centers, restrooms, or drinking water outside of ferry operating hours.",
+    "source_url": "https://www.bostonharborislands.org/access-hours",
+    "source_path": "subpages/boston-harbor-island-ferry__access-hours.html",
+    "source_confidence": "medium"
+  },
+  "visitor_eligibility": null
+}

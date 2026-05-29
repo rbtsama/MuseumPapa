@@ -1,0 +1,16 @@
+{
+  "slug": "armenian-museum-of-america",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/armenian-museum-of-america.html", "subpages/armenian-museum-of-america__about.html", "subpages/armenian-museum-of-america__visit.html", "subpages/armenian-museum-of-america__visitor-comments.html"],
+  "prices": [
+    {"audience": "adult", "source_phrase": "Adults $15", "source_block": "Admission\n\nArmenian Museum Members\n\nFree\n\nAdults\n\n$15\n\nSeniors\n\n$5\n\nStudents\n\n$5\n\nChildren (under 18)\n\nFree", "source_url": "https://www.armenianmuseum.org/visit", "source_path": "subpages/armenian-museum-of-america__visit.html", "source_confidence": "high"},
+    {"audience": "senior", "source_phrase": "Seniors $5", "source_block": "Admission\n\nArmenian Museum Members\n\nFree\n\nAdults\n\n$15\n\nSeniors\n\n$5\n\nStudents\n\n$5\n\nChildren (under 18)\n\nFree", "source_url": "https://www.armenianmuseum.org/visit", "source_path": "subpages/armenian-museum-of-america__visit.html", "source_confidence": "high"},
+    {"audience": "youth", "source_phrase": "Children (under 18) Free", "source_block": "Admission\n\nArmenian Museum Members\n\nFree\n\nAdults\n\n$15\n\nSeniors\n\n$5\n\nStudents\n\n$5\n\nChildren (under 18)\n\nFree", "source_url": "https://www.armenianmuseum.org/visit", "source_path": "subpages/armenian-museum-of-america__visit.html", "source_confidence": "high"},
+    {"audience": "child", "source_phrase": "Children (under 18) Free", "source_block": "Admission\n\nArmenian Museum Members\n\nFree\n\nAdults\n\n$15\n\nSeniors\n\n$5\n\nStudents\n\n$5\n\nChildren (under 18)\n\nFree", "source_url": "https://www.armenianmuseum.org/visit", "source_path": "subpages/armenian-museum-of-america__visit.html", "source_confidence": "high"},
+    {"audience": "military", "source_phrase": null, "source_block": null, "source_url": null, "source_path": null, "source_confidence": null},
+    {"audience": "member", "source_phrase": "Armenian Museum Members Free", "source_block": "Admission\n\nArmenian Museum Members\n\nFree\n\nAdults\n\n$15\n\nSeniors\n\n$5\n\nStudents\n\n$5\n\nChildren (under 18)\n\nFree", "source_url": "https://www.armenianmuseum.org/visit", "source_path": "subpages/armenian-museum-of-america__visit.html", "source_confidence": "high"}
+  ],
+  "reservation": null,
+  "hours": {"source_phrase": "Thursday 12:00 pm–6:00 pm Friday 12:00 pm–6:00 pm Saturday 12:00 pm–6:00 pm Sunday 12:00 pm–6:00 pm", "source_block": "Hours\n\nMonday–Wednesday\n\nClosed\n\nThursday\n\n12:00 pm–6:00 pm\n\nFriday\n\n12:00 pm–6:00 pm\n\nSaturday\n\n12:00 pm–6:00 pm\n\nSunday\n\n12:00 pm–6:00 pm\n\nAdministrative offices are open Monday through Friday from 9:00 am to 5:00 pm.", "source_url": "https://www.armenianmuseum.org/visit", "source_path": "subpages/armenian-museum-of-america__visit.html", "source_confidence": "high"},
+  "visitor_eligibility": null
+}

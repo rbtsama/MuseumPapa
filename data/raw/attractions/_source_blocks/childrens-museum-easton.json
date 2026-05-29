@@ -1,0 +1,13 @@
+{
+  "slug": "childrens-museum-easton",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/childrens-museum-easton.html", "subpages/childrens-museum-easton__hours-admission.html", "subpages/childrens-museum-easton__visit.html"],
+  "prices": [
+    {"audience": "adult", "source_phrase": "$12 per person\nAdults and Children 1 year and up", "source_block": "Admission Fee\n\n$12 per person\nAdults and Children 1 year and up\n\nMembers have unlimited FREE Visits.", "source_url": "https://www.cmeaston.org/visit/hours-admission", "source_path": "subpages/childrens-museum-easton__hours-admission.html", "source_confidence": "high"},
+    {"audience": "child", "source_phrase": "$12 per person\nAdults and Children 1 year and up", "source_block": "Admission Fee\n\n$12 per person\nAdults and Children 1 year and up\n\nMembers have unlimited FREE Visits.", "source_url": "https://www.cmeaston.org/visit/hours-admission", "source_path": "subpages/childrens-museum-easton__hours-admission.html", "source_confidence": "high"},
+    {"audience": "member", "source_phrase": "Members have unlimited FREE Visits.", "source_block": "Admission Fee\n\n$12 per person\nAdults and Children 1 year and up\n\nMembers have unlimited FREE Visits.", "source_url": "https://www.cmeaston.org/visit/hours-admission", "source_path": "subpages/childrens-museum-easton__hours-admission.html", "source_confidence": "high"}
+  ],
+  "reservation": {"source_phrase": "Tickets do not need to be purchased in advance.", "source_block": "Hours & Admission Information\n\nTickets do not need to be purchased in advance.", "source_url": "https://www.cmeaston.org/visit/hours-admission", "source_path": "subpages/childrens-museum-easton__hours-admission.html", "source_confidence": "high"},
+  "hours": {"source_phrase": "Tuesday through Friday 9:30am to 3:00 pm", "source_block": "HOURS:\n\nClosed Monday\n\nTuesday through Friday 9:30am to 3:00 pm\n\nSaturday and Sunday 12:30am to 4:00pm\n\nPlease plan for your visit accordingly as last entrance into the Museum is 45 minutes prior to closing time.", "source_url": "https://www.cmeaston.org/visit/hours-admission", "source_path": "subpages/childrens-museum-easton__hours-admission.html", "source_confidence": "high"},
+  "visitor_eligibility": null
+}

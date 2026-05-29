@@ -1,0 +1,79 @@
+{
+  "slug": "heritage-museums-gardens",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": [
+    "pages/heritage-museums-gardens.html",
+    "subpages/heritage-museums-gardens__admission.html",
+    "subpages/heritage-museums-gardens__hours-admission-guidelines.html",
+    "subpages/heritage-museums-gardens__hours.html",
+    "subpages/heritage-museums-gardens__plan-your-visit.html",
+    "subpages/heritage-museums-gardens__rendered.html",
+    "subpages/heritage-museums-gardens__tickets.html",
+    "subpages/heritage-museums-gardens__visit.html"
+  ],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adults: $26",
+      "source_block": "Hours & Pricing\n\nHeritage Museums & Gardens is Open Daily\n10 am-5 pm, until October 18\nAdults: $26\nYouth (3-17): $16\nChild (0-2): $0\nMembers: Free",
+      "source_url": "https://heritagemuseumsandgardens.org/hours-admission-guidelines",
+      "source_path": "subpages/heritage-museums-gardens__hours-admission-guidelines.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Youth (3-17): $16",
+      "source_block": "Hours & Pricing\n\nHeritage Museums & Gardens is Open Daily\n10 am-5 pm, until October 18\nAdults: $26\nYouth (3-17): $16\nChild (0-2): $0\nMembers: Free",
+      "source_url": "https://heritagemuseumsandgardens.org/hours-admission-guidelines",
+      "source_path": "subpages/heritage-museums-gardens__hours-admission-guidelines.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Child (0-2): $0",
+      "source_block": "Hours & Pricing\n\nHeritage Museums & Gardens is Open Daily\n10 am-5 pm, until October 18\nAdults: $26\nYouth (3-17): $16\nChild (0-2): $0\nMembers: Free",
+      "source_url": "https://heritagemuseumsandgardens.org/hours-admission-guidelines",
+      "source_path": "subpages/heritage-museums-gardens__hours-admission-guidelines.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "Members: Free",
+      "source_block": "Hours & Pricing\n\nHeritage Museums & Gardens is Open Daily\n10 am-5 pm, until October 18\nAdults: $26\nYouth (3-17): $16\nChild (0-2): $0\nMembers: Free",
+      "source_url": "https://heritagemuseumsandgardens.org/hours-admission-guidelines",
+      "source_path": "subpages/heritage-museums-gardens__hours-admission-guidelines.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": null,
+      "source_block": null,
+      "source_url": null,
+      "source_path": null,
+      "source_confidence": null
+    },
+    {
+      "audience": "military",
+      "source_phrase": null,
+      "source_block": null,
+      "source_url": null,
+      "source_path": null,
+      "source_confidence": null
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Tickets are date-specific and are valid for entry any time between 10am-4:30pm.",
+    "source_block": "Guests may purchase General Admission tickets online prior to arrival by clicking here or purchasing at the door upon arrival.\n\nOnline ticket purchases are strongly encouraged and allow for quick and easy entry.\n\nTickets are date-specific and are valid for entry any time between 10am-4:30pm.",
+    "source_url": "https://heritagemuseumsandgardens.org/hours-admission-guidelines",
+    "source_path": "subpages/heritage-museums-gardens__hours-admission-guidelines.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "Heritage Museums & Gardens is Open Daily 10 am-5 pm, until October 18",
+    "source_block": "Hours & Pricing\n\nHeritage Museums & Gardens is Open Daily\n10 am-5 pm, until October 18\nAdults: $26\nYouth (3-17): $16\nChild (0-2): $0\nMembers: Free",
+    "source_url": "https://heritagemuseumsandgardens.org/hours-admission-guidelines",
+    "source_path": "subpages/heritage-museums-gardens__hours-admission-guidelines.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

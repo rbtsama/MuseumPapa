@@ -1,0 +1,16 @@
+{
+  "slug": "ica-boston",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/ica-boston.html", "subpages/ica-boston__hours-locations.html", "subpages/ica-boston__ica-wine-coffee-bar.html", "subpages/ica-boston__visiting-ica-know-you-go-and-faq.html"],
+  "prices": [
+    {"audience": "adult", "source_phrase": "Adults $20", "source_block": "Admission\n\nAdults\n\n$20\n\nStudents\n\n$15\n\nSeniors (65+)\n\n$17\n\n18 + under / BPS students\n\nFREE", "source_url": "https://www.icaboston.org/hours-locations", "source_path": "subpages/ica-boston__hours-locations.html", "source_confidence": "high"},
+    {"audience": "senior", "source_phrase": "Seniors (65+) $17", "source_block": "Admission\n\nAdults\n\n$20\n\nStudents\n\n$15\n\nSeniors (65+)\n\n$17\n\n18 + under / BPS students\n\nFREE", "source_url": "https://www.icaboston.org/hours-locations", "source_path": "subpages/ica-boston__hours-locations.html", "source_confidence": "high"},
+    {"audience": "youth", "source_phrase": "18 + under / BPS students FREE", "source_block": "Admission\n\nAdults\n\n$20\n\nStudents\n\n$15\n\nSeniors (65+)\n\n$17\n\n18 + under / BPS students\n\nFREE", "source_url": "https://www.icaboston.org/hours-locations", "source_path": "subpages/ica-boston__hours-locations.html", "source_confidence": "high"},
+    {"audience": "child", "source_phrase": "Admission is always free for visitors 18 and under.", "source_block": "Kids + Families\n\nAdmission is always free for visitors 18 and under.\n\nLearn More about Kids and Families at the ICA", "source_url": "https://www.icaboston.org/hours-locations", "source_path": "subpages/ica-boston__hours-locations.html", "source_confidence": "high"},
+    {"audience": "military", "source_phrase": null, "source_block": null, "source_url": null, "source_path": null, "source_confidence": "low"},
+    {"audience": "member", "source_phrase": "ICA members: FREE", "source_block": "ICA members: FREE\n\nLearn More\n\nICA university members: FREE\n\nLearn More\n\nCorporate members: FREE", "source_url": "https://www.icaboston.org/hours-locations", "source_path": "subpages/ica-boston__hours-locations.html", "source_confidence": "high"}
+  ],
+  "reservation": {"source_phrase": "Timed tickets are no longer required.", "source_block": "Are timed tickets required for general admission?\nTimed tickets are no longer required. General admission tickets are valid for individual dates, and visitors may use those tickets to enter the museum at any time on the day they’ve chosen.", "source_url": "https://www.icaboston.org/visiting-ica-know-you-go-and-faq", "source_path": "subpages/ica-boston__visiting-ica-know-you-go-and-faq.html", "source_confidence": "high"},
+  "hours": {"source_phrase": "TUE 10 AM – 5 PM WED 10 AM – 5 PM THU 10 AM – 9 PM FRI 10 AM – 9 PM* SAT 10 AM – 5 PM SUN 10 AM – 5 PM Closed Mondays", "source_block": "Hours\n\nTUE\n\n10 AM – 5 PM\n\nWED\n\n10 AM – 5 PM\n\nTHU\n\n10 AM – 9 PM\n\nFRI\n\n10 AM – 9 PM*\n\nSAT\n\n10 AM – 5 PM\n\nSUN\n\n10 AM – 5 PM\n\nClosed Mondays\n\n* The ICA closes at 5 PM on the first Friday of every month for First Fridays, a ticketed, 21+ event.", "source_url": "https://www.icaboston.org/hours-locations", "source_path": "subpages/ica-boston__hours-locations.html", "source_confidence": "high"},
+  "visitor_eligibility": null
+}

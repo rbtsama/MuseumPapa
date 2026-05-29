@@ -1,0 +1,16 @@
+{
+  "slug": "mfa",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/mfa.html", "subpages/mfa__boston-family-days.html", "subpages/mfa__tickets.html", "subpages/mfa__visit.html"],
+  "prices": [
+    {"audience": "adult", "source_phrase": "Adults $30", "source_block": "Admission\nMembers Free\nAdults $30\nYouths 7–17 $14\nYouths 0–6 Free\nMembers save on every visit. Join today! Learn more about free and discounted admission opportunities .", "source_url": "http://www.mfa.org/visit", "source_path": "subpages/mfa__visit.html", "source_confidence": "high"},
+    {"audience": "youth", "source_phrase": "Youths 7–17 $14", "source_block": "Admission\nMembers Free\nAdults $30\nYouths 7–17 $14\nYouths 0–6 Free\nMembers save on every visit. Join today! Learn more about free and discounted admission opportunities .", "source_url": "http://www.mfa.org/visit", "source_path": "subpages/mfa__visit.html", "source_confidence": "high"},
+    {"audience": "child", "source_phrase": "Youths 0–6 Free", "source_block": "Admission\nMembers Free\nAdults $30\nYouths 7–17 $14\nYouths 0–6 Free\nMembers save on every visit. Join today! Learn more about free and discounted admission opportunities .", "source_url": "http://www.mfa.org/visit", "source_path": "subpages/mfa__visit.html", "source_confidence": "high"},
+    {"audience": "member", "source_phrase": "Members Free", "source_block": "Admission\nMembers Free\nAdults $30\nYouths 7–17 $14\nYouths 0–6 Free\nMembers save on every visit. Join today! Learn more about free and discounted admission opportunities .", "source_url": "http://www.mfa.org/visit", "source_path": "subpages/mfa__visit.html", "source_confidence": "high"},
+    {"audience": "senior", "source_phrase": null, "source_block": null, "source_url": null, "source_path": null, "source_confidence": null},
+    {"audience": "military", "source_phrase": null, "source_block": null, "source_url": null, "source_path": null, "source_confidence": null}
+  ],
+  "reservation": {"source_phrase": "Yes, we recommend purchasing tickets in advance to ensure availability and ease of entry into the Museum.", "source_block": "Can I purchase tickets in advance?\nYes, we recommend purchasing tickets in advance to ensure availability and ease of entry into the Museum.\n\nAccess to “Framing Nature: Gardens and Imagination” requires a specific exhibition ticket with a timed-entry time slot for the gallery. Entry time slots are 30 minutes; visitors must enter the exhibition within that 30-minute window.", "source_url": "http://www.mfa.org/visit", "source_path": "subpages/mfa__visit.html", "source_confidence": "medium"},
+  "hours": {"source_phrase": "Sunday 10 am–5 pm Monday 10 am–5 pm Tuesday Closed Wednesday 10 am–5 pm Thursday 10 am–10 pm Friday 10 am–10 pm Saturday 10 am–5 pm", "source_block": "Hours\nSunday 10 am–5 pm\nMonday 10 am–5 pm\nTuesday Closed\nWednesday 10 am–5 pm\nThursday 10 am–10 pm\nFriday 10 am–10 pm\nSaturday 10 am–5 pm\nLast entry 30 minutes before closing. Closed New Year’s Day, Patriots’ Day, Fourth of July, Thanksgiving, and Christmas.", "source_url": "http://www.mfa.org/visit", "source_path": "subpages/mfa__visit.html", "source_confidence": "high"},
+  "visitor_eligibility": null
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "north-shore-childrens-museum",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/north-shore-childrens-museum.html", "subpages/north-shore-childrens-museum__admission.html", "subpages/north-shore-childrens-museum__birthday-parties.html", "subpages/north-shore-childrens-museum__buy-tickets.html", "subpages/north-shore-childrens-museum__events.html", "subpages/north-shore-childrens-museum__hours.html", "subpages/north-shore-childrens-museum__info.html", "subpages/north-shore-childrens-museum__plan-your-visit.html", "subpages/north-shore-childrens-museum__rendered.html", "subpages/north-shore-childrens-museum__tickets.html", "subpages/north-shore-childrens-museum__visit-us.html", "subpages/north-shore-childrens-museum__visit.html", "subpages/north-shore-childrens-museum__visitor-info.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adults & Children (age 12 months+) : $12.00",
+      "source_block": "Children under 12 months : FREE\n\nAdults & Children (age 12 months+) : $12.00\n\nAdults & Children with EBT/WIC Card: $3.00 To reserve EBT/WIC tickets, please call 978 538 5765\n\nLibrary Passes: $6.00",
+      "source_url": "https://www.nschildrensmuseum.org/visit/buy-tickets",
+      "source_path": "subpages/north-shore-childrens-museum__buy-tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Children under 12 months : FREE",
+      "source_block": "Children under 12 months : FREE\n\nAdults & Children (age 12 months+) : $12.00\n\nAdults & Children with EBT/WIC Card: $3.00 To reserve EBT/WIC tickets, please call 978 538 5765\n\nLibrary Passes: $6.00",
+      "source_url": "https://www.nschildrensmuseum.org/visit/buy-tickets",
+      "source_path": "subpages/north-shore-childrens-museum__buy-tickets.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Online ticket reservations are strongly encouraged due to our museum capacity.",
+    "source_block": "Tickets are available in-person on a first-come, first-serve basis for all visitors, regardless of discount or membership used. Online ticket reservations are strongly encouraged due to our museum capacity.\n\nSold out online? We have walk-in tickets available every day. You just may need to wait a bit if we are operating on a one-in, one-out basis.",
+    "source_url": "https://www.nschildrensmuseum.org/visit/buy-tickets",
+    "source_path": "subpages/north-shore-childrens-museum__buy-tickets.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "Wednesdays : 9:00 am – 12:00 pm & 1:00 pm – 4:00 pm (Closed 12:00-1:00PM) Thursdays : 9:00 am – 12:00 pm & 1:00 pm – 4:00 pm (Closed 12:00-1:00PM) Fridays: 9:00 am – 12:00 pm & 1:00 pm – 4:00 pm (Closed 12:00-1:00PM) Saturdays : 9:00 am – 12:00 pm, 12:00 pm – 2:00 pm, 2:00 pm – 4:00 pm Sundays: 12:00 pm – 2:00 pm, 2:00pm – 4:00pm",
+    "source_block": "Hours of Operation\n\nWednesdays : 9:00 am – 12:00 pm & 1:00 pm – 4:00 pm (Closed 12:00-1:00PM) Thursdays : 9:00 am – 12:00 pm & 1:00 pm – 4:00 pm (Closed 12:00-1:00PM) Fridays: 9:00 am – 12:00 pm & 1:00 pm – 4:00 pm (Closed 12:00-1:00PM) Saturdays : 9:00 am – 12:00 pm, 12:00 pm – 2:00 pm, 2:00 pm – 4:00 pm Sundays: 12:00 pm – 2:00 pm, 2:00pm – 4:00pm\n\nPlease check the monthly calendar on our homepage for any schedule changes, such as holiday closures or special school break hours.",
+    "source_url": "https://www.nschildrensmuseum.org/visit/buy-tickets",
+    "source_path": "subpages/north-shore-childrens-museum__buy-tickets.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

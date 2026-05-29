@@ -1,0 +1,45 @@
+You are a Phase-B extraction subagent. Your entire task is below. Do exactly this and nothing else.
+
+STEP 1. Read the readable-text dump for this entity:
+  F:/pj/MuseumPapa/data/raw/libraries/_stripped/maynard.txt
+It contains each inspected page's text after a `=== <filename> ===` header with its `source_url:` line.
+`sources_inspected` for your JSON = ["_pages/maynard.html"]
+
+STEP 2. Follow these instructions EXACTLY (do not rewrite them):
+------------------------------------------------------------
+You are extracting verifiable evidence passages from an official museum / library website for an audit dataset. Your output must let a human reviewer verify each structured fact against the original page text.
+
+Entity: Maynard Public Library (slug: maynard)
+Type: library
+
+For each HTML file below, the text content is already extracted to readable paragraphs and shown after a "=== <filename> ===" header.
+
+For each FIELD in the FIELDS list, do the following:
+
+1. Find the passage on any of the inspected pages that establishes that fact. Prefer the deepest / most-specific page (e.g. /admission/ over the homepage).
+2. Return the FULL paragraph (or up to 3 consecutive paragraphs) verbatim — do NOT paraphrase, do NOT truncate mid-sentence. The passage should be self-explanatory to a reader who has never seen this museum.
+3. Also return the single most-specific sentence inside that passage as `source_phrase` (the "anchor" line that pinpoints the value).
+4. Record the source URL and the input file path the passage came from.
+5. Assign confidence: high / medium / low (see schema).
+6. If no relevant passage exists on any inspected page, set the field to null. Do not invent.
+
+FIELDS for a library:
+- card_eligibility: single object — who is eligible to receive a library card from this library (residency / fee / partnership rules).
+
+Output ONLY the JSON. No markdown fence. No prose. Schema:
+
+{
+  "library_id": "maynard",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["_pages/<id>.html"],
+  "card_eligibility": {"source_phrase": "...", "source_block": "...", "source_url": "https://...", "source_path": "_pages/<id>.html", "source_confidence": "high"}
+}
+Confidence ladder: high = passage uses the exact numbers/words of the structured value; medium = clearly about the field but no literal value; low = partial mention only; null = no passage found on any page (honest, do not invent, never emit empty string "").
+
+------------------------------------------------------------
+
+STEP 3. Write your JSON (UTF-8, valid JSON, the schema above) to:
+  F:/pj/MuseumPapa/data/raw/libraries/_source_blocks/maynard.json
+Use `extracted_at`: "2026-05-29T00:00:00Z". `source_path` must be one of the sources_inspected paths.
+
+STEP 4. Output ONLY the JSON object as your final message — no markdown fence, no prose.

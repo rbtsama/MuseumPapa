@@ -1,0 +1,1743 @@
+[
+  {
+    "kind": "attraction",
+    "id": "american-heritage-museum",
+    "name": "American Heritage Museum",
+    "base_url": "https://www.americanheritagemuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/american-heritage-museum.txt",
+    "sources_inspected": [
+      "pages/american-heritage-museum.html",
+      "subpages/american-heritage-museum__group-tours.html",
+      "subpages/american-heritage-museum__hours-admission.html",
+      "subpages/american-heritage-museum__hours.html",
+      "subpages/american-heritage-museum__plan-your-visit.html",
+      "subpages/american-heritage-museum__purchase-tickets-online.html",
+      "subpages/american-heritage-museum__tickets.html",
+      "subpages/american-heritage-museum__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "american-repertory-theater",
+    "name": "American Repertory Theater",
+    "base_url": "https://americanrepertorytheater.org/",
+    "stripped": "data/raw/attractions/_stripped/american-repertory-theater.txt",
+    "sources_inspected": [
+      "pages/american-repertory-theater.html",
+      "subpages/american-repertory-theater__plan-your-visit.html",
+      "subpages/american-repertory-theater__shows-events.html",
+      "subpages/american-repertory-theater__ticketing-policies.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "americas-stonehenge",
+    "name": "America's Stonehenge",
+    "base_url": "https://www.stonehengeusa.com/",
+    "stripped": "data/raw/attractions/_stripped/americas-stonehenge.txt",
+    "sources_inspected": [
+      "pages/americas-stonehenge.html",
+      "subpages/americas-stonehenge__admission.html",
+      "subpages/americas-stonehenge__list.html",
+      "subpages/americas-stonehenge__plan-your-visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "armenian-museum-of-america",
+    "name": "Armenian Museum of America",
+    "base_url": "https://www.armenianmuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/armenian-museum-of-america.txt",
+    "sources_inspected": [
+      "pages/armenian-museum-of-america.html",
+      "subpages/armenian-museum-of-america__about.html",
+      "subpages/armenian-museum-of-america__visit.html",
+      "subpages/armenian-museum-of-america__visitor-comments.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "battleship-cove",
+    "name": "Battleship Cove",
+    "base_url": "https://www.battleshipcove.org/",
+    "stripped": "data/raw/attractions/_stripped/battleship-cove.txt",
+    "sources_inspected": [
+      "pages/battleship-cove.html",
+      "subpages/battleship-cove__directions-and-parking.html",
+      "subpages/battleship-cove__hours-and-admission.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "bedrock-gardens",
+    "name": "Bedrock Gardens",
+    "base_url": "https://www.bedrockgardens.org/",
+    "stripped": "data/raw/attractions/_stripped/bedrock-gardens.txt",
+    "sources_inspected": [
+      "pages/bedrock-gardens.html",
+      "subpages/bedrock-gardens__bedrock-book-html.html",
+      "subpages/bedrock-gardens__directions-html.html",
+      "subpages/bedrock-gardens__visiting-html.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "blithewold",
+    "name": "Blithewold",
+    "base_url": "https://www.blithewold.org/",
+    "stripped": "data/raw/attractions/_stripped/blithewold.txt",
+    "sources_inspected": [
+      "pages/blithewold.html",
+      "subpages/blithewold__general-admission-tickets.html",
+      "subpages/blithewold__general-information.html",
+      "subpages/blithewold__preservation.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "boston-athenaeum",
+    "name": "Boston Athenaeum",
+    "base_url": "https://www.bostonathenaeum.org/",
+    "stripped": "data/raw/attractions/_stripped/boston-athenaeum.txt",
+    "sources_inspected": [
+      "pages/boston-athenaeum.html",
+      "subpages/boston-athenaeum__day-passes.html",
+      "subpages/boston-athenaeum__e-audiobooks-ebooks-cloudlibrary.html",
+      "subpages/boston-athenaeum__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "boston-by-foot",
+    "name": "Boston by Foot",
+    "base_url": "http://www.bostonbyfoot.org/",
+    "stripped": "data/raw/attractions/_stripped/boston-by-foot.txt",
+    "sources_inspected": [
+      "pages/boston-by-foot.html",
+      "subpages/boston-by-foot__accessibility-information.html",
+      "subpages/boston-by-foot__admission.html",
+      "subpages/boston-by-foot__bbf.html",
+      "subpages/boston-by-foot__hours.html",
+      "subpages/boston-by-foot__info.html",
+      "subpages/boston-by-foot__intro.html",
+      "subpages/boston-by-foot__plan-your-visit.html",
+      "subpages/boston-by-foot__rendered.html",
+      "subpages/boston-by-foot__tickets.html",
+      "subpages/boston-by-foot__visit-us.html",
+      "subpages/boston-by-foot__visit.html",
+      "subpages/boston-by-foot__visitor-info.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "boston-childrens-museum",
+    "name": "Boston Children's Museum",
+    "base_url": "http://www.bostonchildrensmuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/boston-childrens-museum.txt",
+    "sources_inspected": [
+      "pages/boston-childrens-museum.html",
+      "subpages/boston-childrens-museum__info.html",
+      "subpages/boston-childrens-museum__ticketing.html",
+      "subpages/boston-childrens-museum__visit.html",
+      "subpages/boston-childrens-museum__visitor-services-information.html",
+      "subpages/boston-childrens-museum__ways-save.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "boston-harbor-island-ferry",
+    "name": "Boston Harbor Island Ferry",
+    "base_url": "http://www.bostonharborislands.org/",
+    "stripped": "data/raw/attractions/_stripped/boston-harbor-island-ferry.txt",
+    "sources_inspected": [
+      "pages/boston-harbor-island-ferry.html",
+      "subpages/boston-harbor-island-ferry__access-hours.html",
+      "subpages/boston-harbor-island-ferry__ferry-tickets.html",
+      "subpages/boston-harbor-island-ferry__rendered.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "boston-harbor-islands",
+    "name": "Boston Harbor Islands",
+    "base_url": "https://www.bostonharborislands.org/",
+    "stripped": "data/raw/attractions/_stripped/boston-harbor-islands.txt",
+    "sources_inspected": [
+      "pages/boston-harbor-islands.html",
+      "subpages/boston-harbor-islands__access-hours.html",
+      "subpages/boston-harbor-islands__ferry-tickets.html",
+      "subpages/boston-harbor-islands__rendered.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "butterfly-place",
+    "name": "The Butterfly Place",
+    "base_url": "https://www.butterflyplace-ma.com/",
+    "stripped": "data/raw/attractions/_stripped/butterfly-place.txt",
+    "sources_inspected": [
+      "pages/butterfly-place.html",
+      "subpages/butterfly-place__schedule.html",
+      "subpages/butterfly-place__travel.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "charles-river-museum-of-industry-and-innovation",
+    "name": "Charles River Museum of Industry & Innovation",
+    "base_url": "https://www.charlesrivermuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/charles-river-museum-of-industry-and-innovation.txt",
+    "sources_inspected": [
+      "pages/charles-river-museum-of-industry-and-innovation.html",
+      "subpages/charles-river-museum-of-industry-and-innovation__admission.html",
+      "subpages/charles-river-museum-of-industry-and-innovation__directions.html",
+      "subpages/charles-river-museum-of-industry-and-innovation__enhance-your-visit-were-now-on-bloomberg-connects.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "charles-riverboat-tour",
+    "name": "Charles River Boat Tour",
+    "base_url": "https://charlesriverboat.com/",
+    "stripped": "data/raw/attractions/_stripped/charles-riverboat-tour.txt",
+    "sources_inspected": [
+      "pages/charles-riverboat-tour.html",
+      "subpages/charles-riverboat-tour__about-us.html",
+      "subpages/charles-riverboat-tour__directions.html",
+      "subpages/charles-riverboat-tour__tours.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "childrens-museum-easton",
+    "name": "Children's Museum Easton",
+    "base_url": "https://www.cmeaston.org/",
+    "stripped": "data/raw/attractions/_stripped/childrens-museum-easton.txt",
+    "sources_inspected": [
+      "pages/childrens-museum-easton.html",
+      "subpages/childrens-museum-easton__hours-admission.html",
+      "subpages/childrens-museum-easton__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "childrens-museum-of-new-hampshire",
+    "name": "Children's Museum of New Hampshire",
+    "base_url": "http://www.childrens-museum.org/",
+    "stripped": "data/raw/attractions/_stripped/childrens-museum-of-new-hampshire.txt",
+    "sources_inspected": [
+      "pages/childrens-museum-of-new-hampshire.html",
+      "subpages/childrens-museum-of-new-hampshire__plan-your-visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "christian-science-plaza",
+    "name": "Christian Science Plaza",
+    "base_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza",
+    "stripped": "data/raw/attractions/_stripped/christian-science-plaza.txt",
+    "sources_inspected": [
+      "pages/christian-science-plaza.html",
+      "subpages/christian-science-plaza__books-and-more.html",
+      "subpages/christian-science-plaza__how-do-you-see-the-world-experience.html",
+      "subpages/christian-science-plaza__rendered.html",
+      "subpages/christian-science-plaza__tickets.html",
+      "subpages/christian-science-plaza__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "concord-museum",
+    "name": "Concord Museum",
+    "base_url": "http://www.concordmuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/concord-museum.txt",
+    "sources_inspected": [
+      "pages/concord-museum.html",
+      "subpages/concord-museum__families.html",
+      "subpages/concord-museum__group.html",
+      "subpages/concord-museum__plan-your-visit.html",
+      "subpages/concord-museum__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "currier-museum-of-art",
+    "name": "Currier Museum of Art",
+    "base_url": "http://currier.org/",
+    "stripped": "data/raw/attractions/_stripped/currier-museum-of-art.txt",
+    "sources_inspected": [
+      "pages/currier-museum-of-art.html",
+      "subpages/currier-museum-of-art__frank-lloyd-wright.html",
+      "subpages/currier-museum-of-art__free-admission-opportunities.html",
+      "subpages/currier-museum-of-art__visit-currier.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "davis-farmland",
+    "name": "Davis Farmland",
+    "base_url": "https://www.davisfarmland.com/",
+    "stripped": "data/raw/attractions/_stripped/davis-farmland.txt",
+    "sources_inspected": [
+      "pages/davis-farmland.html",
+      "subpages/davis-farmland__admission.html",
+      "subpages/davis-farmland__cow-lendar-of-events.html",
+      "subpages/davis-farmland__faqs-and-policies.html",
+      "subpages/davis-farmland__hours-tickets.html",
+      "subpages/davis-farmland__hours.html",
+      "subpages/davis-farmland__plan-your-visit.html",
+      "subpages/davis-farmland__rendered.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "decordova-sculpture-park-and-museum",
+    "name": "deCordova Sculpture Park and Museum",
+    "base_url": "http://www.decordova.org/",
+    "stripped": "data/raw/attractions/_stripped/decordova-sculpture-park-and-museum.txt",
+    "sources_inspected": [
+      "pages/decordova-sculpture-park-and-museum.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "ecotarium",
+    "name": "EcoTarium",
+    "base_url": "http://www.ecotarium.org/",
+    "stripped": "data/raw/attractions/_stripped/ecotarium.txt",
+    "sources_inspected": [
+      "pages/ecotarium.html",
+      "subpages/ecotarium__group-visits.html",
+      "subpages/ecotarium__the-secret-world-of-elephants.html",
+      "subpages/ecotarium__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "garden-in-the-woods-native-plant-trust",
+    "name": "Garden in the Woods (Native Plant Trust)",
+    "base_url": "http://www.nativeplanttrust.org/",
+    "stripped": "data/raw/attractions/_stripped/garden-in-the-woods-native-plant-trust.txt",
+    "sources_inspected": [
+      "pages/garden-in-the-woods-native-plant-trust.html",
+      "subpages/garden-in-the-woods-native-plant-trust__books-by-our-experts.html",
+      "subpages/garden-in-the-woods-native-plant-trust__garden-woods.html",
+      "subpages/garden-in-the-woods-native-plant-trust__rendered.html",
+      "subpages/garden-in-the-woods-native-plant-trust__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "gore-place",
+    "name": "Gore Place",
+    "base_url": "https://www.goreplace.org/",
+    "stripped": "data/raw/attractions/_stripped/gore-place.txt",
+    "sources_inspected": [
+      "pages/gore-place.html",
+      "subpages/gore-place__directions-parking.html",
+      "subpages/gore-place__prices-and-dates.html",
+      "subpages/gore-place__rendered.html",
+      "subpages/gore-place__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "greater-boston-stage-company",
+    "name": "Greater Boston Stage Company",
+    "base_url": "https://www.greaterbostonstage.org/",
+    "stripped": "data/raw/attractions/_stripped/greater-boston-stage-company.txt",
+    "sources_inspected": [
+      "pages/greater-boston-stage-company.html",
+      "subpages/greater-boston-stage-company__directions-parking.html",
+      "subpages/greater-boston-stage-company__plan-your-visit.html",
+      "subpages/greater-boston-stage-company__pricing-subscriptions.html",
+      "subpages/greater-boston-stage-company__rendered.html",
+      "subpages/greater-boston-stage-company__theatre-for-young-audiences.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "griffin-museum-of-photography",
+    "name": "Griffin Museum of Photography",
+    "base_url": "http://www.griffinmuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/griffin-museum-of-photography.txt",
+    "sources_inspected": [
+      "pages/griffin-museum-of-photography.html",
+      "subpages/griffin-museum-of-photography__about-the-griffin-2026.html",
+      "subpages/griffin-museum-of-photography__info.html",
+      "subpages/griffin-museum-of-photography__museum-admission.html",
+      "subpages/griffin-museum-of-photography__photobook2026.html",
+      "subpages/griffin-museum-of-photography__rendered.html",
+      "subpages/griffin-museum-of-photography__tickets.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "hale-education",
+    "name": "Hale Education",
+    "base_url": "https://hale.education/",
+    "stripped": "data/raw/attractions/_stripped/hale-education.txt",
+    "sources_inspected": [
+      "pages/hale-education.html",
+      "subpages/hale-education__about.html",
+      "subpages/hale-education__mountain-biking.html",
+      "subpages/hale-education__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "harvard-art-museums",
+    "name": "Harvard Art Museums",
+    "base_url": "http://www.harvardartmuseums.org/",
+    "stripped": "data/raw/attractions/_stripped/harvard-art-museums.txt",
+    "sources_inspected": [
+      "pages/harvard-art-museums.html",
+      "subpages/harvard-art-museums__parking.html",
+      "subpages/harvard-art-museums__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "harvard-museum-of-natural-history",
+    "name": "Harvard Museum of Natural History",
+    "base_url": "https://hmnh.harvard.edu/",
+    "stripped": "data/raw/attractions/_stripped/harvard-museum-of-natural-history.txt",
+    "sources_inspected": [
+      "pages/harvard-museum-of-natural-history.html",
+      "subpages/harvard-museum-of-natural-history__about.html",
+      "subpages/harvard-museum-of-natural-history__makers.html",
+      "subpages/harvard-museum-of-natural-history__plan-your-visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "harvard-museums-of-science-and-culture",
+    "name": "Harvard Museums of Science and Culture",
+    "base_url": "https://hmsc.harvard.edu/",
+    "stripped": "data/raw/attractions/_stripped/harvard-museums-of-science-and-culture.txt",
+    "sources_inspected": [
+      "pages/harvard-museums-of-science-and-culture.html",
+      "subpages/harvard-museums-of-science-and-culture__about.html",
+      "subpages/harvard-museums-of-science-and-culture__kulturecity.html",
+      "subpages/harvard-museums-of-science-and-culture__rendered.html",
+      "subpages/harvard-museums-of-science-and-culture__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "heritage-museums-gardens",
+    "name": "Heritage Museums & Gardens",
+    "base_url": "https://heritagemuseumsandgardens.org/",
+    "stripped": "data/raw/attractions/_stripped/heritage-museums-gardens.txt",
+    "sources_inspected": [
+      "pages/heritage-museums-gardens.html",
+      "subpages/heritage-museums-gardens__admission.html",
+      "subpages/heritage-museums-gardens__hours-admission-guidelines.html",
+      "subpages/heritage-museums-gardens__hours.html",
+      "subpages/heritage-museums-gardens__plan-your-visit.html",
+      "subpages/heritage-museums-gardens__rendered.html",
+      "subpages/heritage-museums-gardens__tickets.html",
+      "subpages/heritage-museums-gardens__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "ica-boston",
+    "name": "Institute of Contemporary Art/Boston",
+    "base_url": "https://www.icaboston.org/",
+    "stripped": "data/raw/attractions/_stripped/ica-boston.txt",
+    "sources_inspected": [
+      "pages/ica-boston.html",
+      "subpages/ica-boston__hours-locations.html",
+      "subpages/ica-boston__ica-wine-coffee-bar.html",
+      "subpages/ica-boston__visiting-ica-know-you-go-and-faq.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "isabella-stewart-gardner-museum",
+    "name": "Isabella Stewart Gardner Museum",
+    "base_url": "http://www.gardnermuseum.org/home/",
+    "stripped": "data/raw/attractions/_stripped/isabella-stewart-gardner-museum.txt",
+    "sources_inspected": [
+      "pages/isabella-stewart-gardner-museum.html",
+      "subpages/isabella-stewart-gardner-museum__directions-and-parking.html",
+      "subpages/isabella-stewart-gardner-museum__organizational-memberships.html",
+      "subpages/isabella-stewart-gardner-museum__theft.html",
+      "subpages/isabella-stewart-gardner-museum__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "larz-anderson",
+    "name": "Larz Anderson Museum",
+    "base_url": "https://www.larzanderson.org",
+    "stripped": "data/raw/attractions/_stripped/larz-anderson.txt",
+    "sources_inspected": [
+      "pages/larz-anderson.html",
+      "subpages/larz-anderson__copy-of-plan-your-visit.html",
+      "subpages/larz-anderson__plan-your-visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "larz-anderson-auto-museum",
+    "name": "Larz Anderson Auto Museum",
+    "base_url": "https://www.larzanderson.org/",
+    "stripped": "data/raw/attractions/_stripped/larz-anderson-auto-museum.txt",
+    "sources_inspected": [
+      "pages/larz-anderson-auto-museum.html",
+      "subpages/larz-anderson-auto-museum__copy-of-plan-your-visit.html",
+      "subpages/larz-anderson-auto-museum__plan-your-visit.html",
+      "subpages/larz-anderson-auto-museum__rendered.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "maplewood-day-camp",
+    "name": "Maplewood Country Day Camp & Enrichment Center",
+    "base_url": "https://www.maplewoodyearround.com/",
+    "stripped": "data/raw/attractions/_stripped/maplewood-day-camp.txt",
+    "sources_inspected": [
+      "pages/maplewood-day-camp.html",
+      "subpages/maplewood-day-camp__dates-and-rates.html",
+      "subpages/maplewood-day-camp__school-year.html",
+      "subpages/maplewood-day-camp__summer-camp.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "mapparium",
+    "name": "How Do You See the World + Mapparium™ Globe",
+    "base_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience",
+    "stripped": "data/raw/attractions/_stripped/mapparium.txt",
+    "sources_inspected": [
+      "pages/mapparium.html",
+      "subpages/mapparium__books-and-more.html",
+      "subpages/mapparium__how-do-you-see-the-world-visitor-information.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "mass-audubon",
+    "name": "Mass Audubon",
+    "base_url": "https://www.massaudubon.org/",
+    "stripped": "data/raw/attractions/_stripped/mass-audubon.txt",
+    "sources_inspected": [
+      "pages/mass-audubon.html",
+      "subpages/mass-audubon__about.html",
+      "subpages/mass-audubon__action-agenda.html",
+      "subpages/mass-audubon__admission-expanding-access.html",
+      "subpages/mass-audubon__admission.html",
+      "subpages/mass-audubon__rendered.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "mass-audubon-drumlin-farm",
+    "name": "Mass Audubon (Drumlin Farm)",
+    "base_url": "http://www.massaudubon.org/",
+    "stripped": "data/raw/attractions/_stripped/mass-audubon-drumlin-farm.txt",
+    "sources_inspected": [
+      "pages/mass-audubon-drumlin-farm.html",
+      "subpages/mass-audubon-drumlin-farm__about.html",
+      "subpages/mass-audubon-drumlin-farm__action-agenda.html",
+      "subpages/mass-audubon-drumlin-farm__admission-expanding-access.html",
+      "subpages/mass-audubon-drumlin-farm__admission.html",
+      "subpages/mass-audubon-drumlin-farm__rendered.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "massachusetts-state-police-museum-and-learning-center",
+    "name": "Massachusetts State Police Museum & Learning Center",
+    "base_url": "https://www.mspmlc.org/ ",
+    "stripped": "data/raw/attractions/_stripped/massachusetts-state-police-museum-and-learning-center.txt",
+    "sources_inspected": [
+      "pages/massachusetts-state-police-museum-and-learning-center.html",
+      "subpages/massachusetts-state-police-museum-and-learning-center__about.html",
+      "subpages/massachusetts-state-police-museum-and-learning-center__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "mfa",
+    "name": "Museum of Fine Arts",
+    "base_url": "http://www.mfa.org/",
+    "stripped": "data/raw/attractions/_stripped/mfa.txt",
+    "sources_inspected": [
+      "pages/mfa.html",
+      "subpages/mfa__boston-family-days.html",
+      "subpages/mfa__tickets.html",
+      "subpages/mfa__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "museum-of-african-american-history",
+    "name": "Museum of African American History",
+    "base_url": "https://www.maah.org/",
+    "stripped": "data/raw/attractions/_stripped/museum-of-african-american-history.txt",
+    "sources_inspected": [
+      "pages/museum-of-african-american-history.html",
+      "subpages/museum-of-african-american-history__about-the-museum.html",
+      "subpages/museum-of-african-american-history__locations.html",
+      "subpages/museum-of-african-american-history__maah-stone-book-award.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "museum-of-printing",
+    "name": "Museum of Printing",
+    "base_url": "https://www.museumofprinting.org/",
+    "stripped": "data/raw/attractions/_stripped/museum-of-printing.txt",
+    "sources_inspected": [
+      "pages/museum-of-printing.html",
+      "subpages/museum-of-printing__book-arts-open-studio.html",
+      "subpages/museum-of-printing__book-illustration-in-the-age-of-shakespeare.html",
+      "subpages/museum-of-printing__new-book-w-a-dwiggins-a-life-in-design.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "museum-of-science",
+    "name": "Museum of Science",
+    "base_url": "http://www.mos.org/",
+    "stripped": "data/raw/attractions/_stripped/museum-of-science.txt",
+    "sources_inspected": [
+      "pages/museum-of-science.html",
+      "subpages/museum-of-science__directions.html",
+      "subpages/museum-of-science__faq.html",
+      "subpages/museum-of-science__hours.html",
+      "subpages/museum-of-science__rendered.html",
+      "subpages/museum-of-science__visit-us.html",
+      "subpages/museum-of-science__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "naismith-memorial-basketball-hall-of-fame",
+    "name": "Naismith Memorial Basketball Hall of Fame",
+    "base_url": "https://www.hoophall.com/",
+    "stripped": "data/raw/attractions/_stripped/naismith-memorial-basketball-hall-of-fame.txt",
+    "sources_inspected": [
+      "pages/naismith-memorial-basketball-hall-of-fame.html",
+      "subpages/naismith-memorial-basketball-hall-of-fame__hours-and-pricing.html",
+      "subpages/naismith-memorial-basketball-hall-of-fame__plan-your-visit.html",
+      "subpages/naismith-memorial-basketball-hall-of-fame__rendered.html",
+      "subpages/naismith-memorial-basketball-hall-of-fame__tickets.html",
+      "subpages/naismith-memorial-basketball-hall-of-fame__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "new-bedford-whaling-museum",
+    "name": "New Bedford Whaling Museum",
+    "base_url": "https://www.whalingmuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/new-bedford-whaling-museum.txt",
+    "sources_inspected": [
+      "pages/new-bedford-whaling-museum.html",
+      "subpages/new-bedford-whaling-museum__across-the-atlantic-onto-the-field-the-story-of-portuguese-american-soccer.html",
+      "subpages/new-bedford-whaling-museum__art-talks-susan-heideman.html",
+      "subpages/new-bedford-whaling-museum__tickets.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "new-england-aquarium",
+    "name": "New England Aquarium",
+    "base_url": "http://www.neaq.org/",
+    "stripped": "data/raw/attractions/_stripped/new-england-aquarium.txt",
+    "sources_inspected": [
+      "pages/new-england-aquarium.html",
+      "subpages/new-england-aquarium__directions-and-parking.html",
+      "subpages/new-england-aquarium__offers-and-discounts.html",
+      "subpages/new-england-aquarium__rendered.html",
+      "subpages/new-england-aquarium__tickets.html",
+      "subpages/new-england-aquarium__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "new-england-botanic-garden-at-tower-hill",
+    "name": "New England Botanic Garden at Tower Hill",
+    "base_url": "https://www.nebg.org/",
+    "stripped": "data/raw/attractions/_stripped/new-england-botanic-garden-at-tower-hill.txt",
+    "sources_inspected": [
+      "pages/new-england-botanic-garden-at-tower-hill.html",
+      "subpages/new-england-botanic-garden-at-tower-hill__about-the-gardens.html",
+      "subpages/new-england-botanic-garden-at-tower-hill__admission.html",
+      "subpages/new-england-botanic-garden-at-tower-hill__group-visits-and-tours.html",
+      "subpages/new-england-botanic-garden-at-tower-hill__plan-your-visit.html",
+      "subpages/new-england-botanic-garden-at-tower-hill__rendered.html",
+      "subpages/new-england-botanic-garden-at-tower-hill__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "new-england-quilt-museum",
+    "name": "New England Quilt Museum",
+    "base_url": "https://www.neqm.org/",
+    "stripped": "data/raw/attractions/_stripped/new-england-quilt-museum.txt",
+    "sources_inspected": [
+      "pages/new-england-quilt-museum.html",
+      "subpages/new-england-quilt-museum__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "new-hampshire-philharmonic-orchestra",
+    "name": "New Hampshire Philharmonic Orchestra",
+    "base_url": "https://www.nhphil.org/",
+    "stripped": "data/raw/attractions/_stripped/new-hampshire-philharmonic-orchestra.txt",
+    "sources_inspected": [
+      "pages/new-hampshire-philharmonic-orchestra.html",
+      "subpages/new-hampshire-philharmonic-orchestra__auditioninformation.html",
+      "subpages/new-hampshire-philharmonic-orchestra__library-partners.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "north-shore-childrens-museum",
+    "name": "North Shore Children's Museum",
+    "base_url": "https://www.nschildrensmuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/north-shore-childrens-museum.txt",
+    "sources_inspected": [
+      "pages/north-shore-childrens-museum.html",
+      "subpages/north-shore-childrens-museum__admission.html",
+      "subpages/north-shore-childrens-museum__birthday-parties.html",
+      "subpages/north-shore-childrens-museum__buy-tickets.html",
+      "subpages/north-shore-childrens-museum__events.html",
+      "subpages/north-shore-childrens-museum__hours.html",
+      "subpages/north-shore-childrens-museum__info.html",
+      "subpages/north-shore-childrens-museum__plan-your-visit.html",
+      "subpages/north-shore-childrens-museum__rendered.html",
+      "subpages/north-shore-childrens-museum__tickets.html",
+      "subpages/north-shore-childrens-museum__visit-us.html",
+      "subpages/north-shore-childrens-museum__visit.html",
+      "subpages/north-shore-childrens-museum__visitor-info.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "old-sturbridge-village",
+    "name": "Old Sturbridge Village/Coggeshall Farm",
+    "base_url": "https://www.osv.org/",
+    "stripped": "data/raw/attractions/_stripped/old-sturbridge-village.txt",
+    "sources_inspected": [
+      "pages/old-sturbridge-village.html",
+      "subpages/old-sturbridge-village__daytime-admission-discounts.html",
+      "subpages/old-sturbridge-village__plan-your-visit.html",
+      "subpages/old-sturbridge-village__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "orchard-house",
+    "name": "Orchard House",
+    "base_url": "http://www.louisamayalcott.org/",
+    "stripped": "data/raw/attractions/_stripped/orchard-house.txt",
+    "sources_inspected": [
+      "pages/orchard-house.html",
+      "subpages/orchard-house__sharing-space-visit.html",
+      "subpages/orchard-house__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "paddle-boston",
+    "name": "Paddle Boston",
+    "base_url": "https://www.paddleboston.com/",
+    "stripped": "data/raw/attractions/_stripped/paddle-boston.txt",
+    "sources_inspected": [
+      "pages/paddle-boston.html",
+      "subpages/paddle-boston__directions-paddling-store.html",
+      "subpages/paddle-boston__hours.html",
+      "subpages/paddle-boston__rates-and-reservations.html",
+      "subpages/paddle-boston__rendered.html",
+      "subpages/paddle-boston__rentals.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "patriots-hall-of-fame",
+    "name": "Patriots Hall of Fame",
+    "base_url": "https://www.patriotshalloffame.com/",
+    "stripped": "data/raw/attractions/_stripped/patriots-hall-of-fame.txt",
+    "sources_inspected": [
+      "pages/patriots-hall-of-fame.html",
+      "subpages/patriots-hall-of-fame__admission.html",
+      "subpages/patriots-hall-of-fame__book-a-function.html",
+      "subpages/patriots-hall-of-fame__book-a-group.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "paul-revere-house",
+    "name": "Paul Revere House",
+    "base_url": "https://www.paulreverehouse.org/",
+    "stripped": "data/raw/attractions/_stripped/paul-revere-house.txt",
+    "sources_inspected": [
+      "pages/paul-revere-house.html",
+      "subpages/paul-revere-house__directions.html",
+      "subpages/paul-revere-house__frequently-asked-questions-about-the-midnight-ride-of-paul-revere.html",
+      "subpages/paul-revere-house__hours-prices.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "peabody-essex-museum",
+    "name": "Peabody Essex Museum",
+    "base_url": "http://www.pem.org/",
+    "stripped": "data/raw/attractions/_stripped/peabody-essex-museum.txt",
+    "sources_inspected": [
+      "pages/peabody-essex-museum.html",
+      "subpages/peabody-essex-museum__group-tours.html",
+      "subpages/peabody-essex-museum__tickets.html",
+      "subpages/peabody-essex-museum__visit.html",
+      "subpages/peabody-essex-museum__vivaldi-with-symphony-by-the-sea.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "plimoth-patuxet",
+    "name": "Plimoth Patuxet Museums",
+    "base_url": "http://www.plimoth.org/",
+    "stripped": "data/raw/attractions/_stripped/plimoth-patuxet.txt",
+    "sources_inspected": [
+      "pages/plimoth-patuxet.html",
+      "subpages/plimoth-patuxet__hours-tickets-directions.html",
+      "subpages/plimoth-patuxet__plan-your-visit.html",
+      "subpages/plimoth-patuxet__rendered.html",
+      "subpages/plimoth-patuxet__visitor-guide.html",
+      "subpages/plimoth-patuxet__what-to-expect.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "public-health-museum",
+    "name": "Public Health Museum",
+    "base_url": "https://www.publichealthmuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/public-health-museum.txt",
+    "sources_inspected": [
+      "pages/public-health-museum.html",
+      "subpages/public-health-museum__about-us-html.html",
+      "subpages/public-health-museum__visit-us-html.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "real-pirates-salem",
+    "name": "Real Pirates Salem",
+    "base_url": "https://www.realpiratessalem.com/",
+    "stripped": "data/raw/attractions/_stripped/real-pirates-salem.txt",
+    "sources_inspected": [
+      "pages/real-pirates-salem.html",
+      "subpages/real-pirates-salem__4-must-visit-museums-in-salem-massachusetts.html",
+      "subpages/real-pirates-salem__visiting-in-october.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "revolutionary-spaces",
+    "name": "Revolutionary Spaces",
+    "base_url": "https://revolutionaryspaces.org/",
+    "stripped": "data/raw/attractions/_stripped/revolutionary-spaces.txt",
+    "sources_inspected": [
+      "pages/revolutionary-spaces.html",
+      "subpages/revolutionary-spaces__museum-admission.html",
+      "subpages/revolutionary-spaces__ruckus.html",
+      "subpages/revolutionary-spaces__the-road-to-revolution.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "roger-williams-park-zoo",
+    "name": "Roger Williams Park Zoo",
+    "base_url": "http://www.rwpzoo.org/",
+    "stripped": "data/raw/attractions/_stripped/roger-williams-park-zoo.txt",
+    "sources_inspected": [
+      "pages/roger-williams-park-zoo.html",
+      "subpages/roger-williams-park-zoo__book-a-carousel-event.html",
+      "subpages/roger-williams-park-zoo__fathersday.html",
+      "subpages/roger-williams-park-zoo__tickets.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "royall-house",
+    "name": "Royall House & Slave Quarters",
+    "base_url": "https://royallhouse.org/",
+    "stripped": "data/raw/attractions/_stripped/royall-house.txt",
+    "sources_inspected": [
+      "pages/royall-house.html",
+      "subpages/royall-house__directions-and-map.html",
+      "subpages/royall-house__hours-and-admission.html",
+      "subpages/royall-house__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "salem-witch-museum",
+    "name": "Salem Witch Museum",
+    "base_url": "http://www.salemwitchmuseum.com/",
+    "stripped": "data/raw/attractions/_stripped/salem-witch-museum.txt",
+    "sources_inspected": [
+      "pages/salem-witch-museum.html",
+      "subpages/salem-witch-museum__cost.html",
+      "subpages/salem-witch-museum__hours.html",
+      "subpages/salem-witch-museum__info.html",
+      "subpages/salem-witch-museum__our-founding-mothers-and-fathers-2.html",
+      "subpages/salem-witch-museum__rendered.html",
+      "subpages/salem-witch-museum__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "sandmagination",
+    "name": "Sandmagination",
+    "base_url": "https://sandmagination.com/",
+    "stripped": "data/raw/attractions/_stripped/sandmagination.txt",
+    "sources_inspected": [
+      "pages/sandmagination.html",
+      "subpages/sandmagination__about-us.html",
+      "subpages/sandmagination__admission.html",
+      "subpages/sandmagination__plan-your-visit.html",
+      "subpages/sandmagination__rendered.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "sandwich-glass-museum",
+    "name": "Sandwich Glass Museum",
+    "base_url": "https://sandwichglassmuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/sandwich-glass-museum.txt",
+    "sources_inspected": [
+      "pages/sandwich-glass-museum.html",
+      "subpages/sandwich-glass-museum__online-shop.html",
+      "subpages/sandwich-glass-museum__plan-your-visit.html",
+      "subpages/sandwich-glass-museum__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "seacoast-science-center",
+    "name": "Seacoast Science Center",
+    "base_url": "http://www.seacoastsciencecenter.org/",
+    "stripped": "data/raw/attractions/_stripped/seacoast-science-center.txt",
+    "sources_inspected": [
+      "pages/seacoast-science-center.html",
+      "subpages/seacoast-science-center__admission-hours.html",
+      "subpages/seacoast-science-center__admission.html",
+      "subpages/seacoast-science-center__daily-visitor-programs.html",
+      "subpages/seacoast-science-center__info.html",
+      "subpages/seacoast-science-center__plan-your-visit.html",
+      "subpages/seacoast-science-center__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "strawbery-banke-museum",
+    "name": "Strawbery Banke Museum",
+    "base_url": "http://www.strawberybanke.org/",
+    "stripped": "data/raw/attractions/_stripped/strawbery-banke-museum.txt",
+    "sources_inspected": [
+      "pages/strawbery-banke-museum.html",
+      "subpages/strawbery-banke-museum__plan-a-visit.html",
+      "subpages/strawbery-banke-museum__ticket-information.html",
+      "subpages/strawbery-banke-museum__tickets.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "the-aviation-museum-of-new-hampshire",
+    "name": "The Aviation Museum of New Hampshire",
+    "base_url": "https://aviationmuseumofnh.org/",
+    "stripped": "data/raw/attractions/_stripped/the-aviation-museum-of-new-hampshire.txt",
+    "sources_inspected": [
+      "pages/the-aviation-museum-of-new-hampshire.html",
+      "subpages/the-aviation-museum-of-new-hampshire__directions.html",
+      "subpages/the-aviation-museum-of-new-hampshire__hours-and-directions.html",
+      "subpages/the-aviation-museum-of-new-hampshire__hours.html",
+      "subpages/the-aviation-museum-of-new-hampshire__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "the-childrens-piazza",
+    "name": "The Children's Piazza",
+    "base_url": "https://www.thechildrenspiazza.com/",
+    "stripped": "data/raw/attractions/_stripped/the-childrens-piazza.txt",
+    "sources_inspected": [
+      "pages/the-childrens-piazza.html",
+      "subpages/the-childrens-piazza__rendered.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "the-danforth",
+    "name": "The Danforth",
+    "base_url": "https://danforth.framingham.edu/",
+    "stripped": "data/raw/attractions/_stripped/the-danforth.txt",
+    "sources_inspected": [
+      "pages/the-danforth.html",
+      "subpages/the-danforth__learn-create.html",
+      "subpages/the-danforth__meet-us.html",
+      "subpages/the-danforth__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "the-discovery-museums",
+    "name": "Discovery Museum",
+    "base_url": "http://www.discoveryacton.org/",
+    "stripped": "data/raw/attractions/_stripped/the-discovery-museums.txt",
+    "sources_inspected": [
+      "pages/the-discovery-museums.html",
+      "subpages/the-discovery-museums__accessibility.html",
+      "subpages/the-discovery-museums__plan-your-visit.html",
+      "subpages/the-discovery-museums__rendered.html",
+      "subpages/the-discovery-museums__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "the-gardens-at-elm-bank",
+    "name": "The Gardens at Elm Bank",
+    "base_url": "https://www.masshort.org/",
+    "stripped": "data/raw/attractions/_stripped/the-gardens-at-elm-bank.txt",
+    "sources_inspected": [
+      "pages/the-gardens-at-elm-bank.html",
+      "subpages/the-gardens-at-elm-bank__about.html",
+      "subpages/the-gardens-at-elm-bank__book-a-speaker.html",
+      "subpages/the-gardens-at-elm-bank__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "the-house-of-seven-gables",
+    "name": "The House of Seven Gables",
+    "base_url": "https://www.7gables.org/",
+    "stripped": "data/raw/attractions/_stripped/the-house-of-seven-gables.txt",
+    "sources_inspected": [
+      "pages/the-house-of-seven-gables.html",
+      "subpages/the-house-of-seven-gables__grounds-pass.html",
+      "subpages/the-house-of-seven-gables__group-tours.html",
+      "subpages/the-house-of-seven-gables__rendered.html",
+      "subpages/the-house-of-seven-gables__tickets.html",
+      "subpages/the-house-of-seven-gables__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "the-icon-museum-and-study-center",
+    "name": "The Icon Museum & Study Center",
+    "base_url": "https://www.iconmuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/the-icon-museum-and-study-center.txt",
+    "sources_inspected": [
+      "pages/the-icon-museum-and-study-center.html",
+      "subpages/the-icon-museum-and-study-center__about.html",
+      "subpages/the-icon-museum-and-study-center__plan-your-visit.html",
+      "subpages/the-icon-museum-and-study-center__rendered.html",
+      "subpages/the-icon-museum-and-study-center__study-center.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "the-spellman-museum-of-stamps-and-postal-history",
+    "name": "The Spellman Museum of Stamps & Postal History",
+    "base_url": "https://www.spellmanmuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/the-spellman-museum-of-stamps-and-postal-history.txt",
+    "sources_inspected": [
+      "pages/the-spellman-museum-of-stamps-and-postal-history.html",
+      "subpages/the-spellman-museum-of-stamps-and-postal-history__about-us.html",
+      "subpages/the-spellman-museum-of-stamps-and-postal-history__contact-us.html",
+      "subpages/the-spellman-museum-of-stamps-and-postal-history__rendered.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "the-uss-constitution-museum",
+    "name": "USS Constitution Museum",
+    "base_url": "https://ussconstitutionmuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/the-uss-constitution-museum.txt",
+    "sources_inspected": [
+      "pages/the-uss-constitution-museum.html",
+      "subpages/the-uss-constitution-museum__admission.html",
+      "subpages/the-uss-constitution-museum__hours-admission.html",
+      "subpages/the-uss-constitution-museum__hours.html",
+      "subpages/the-uss-constitution-museum__impact-recognition.html",
+      "subpages/the-uss-constitution-museum__plan-your-visit.html",
+      "subpages/the-uss-constitution-museum__rendered.html",
+      "subpages/the-uss-constitution-museum__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "trustees-of-reservations",
+    "name": "Trustees of Reservations (with deCordova Sculpture Park and Museum)",
+    "base_url": "http://www.thetrustees.org/",
+    "stripped": "data/raw/attractions/_stripped/trustees-of-reservations.txt",
+    "sources_inspected": [
+      "pages/trustees-of-reservations.html",
+      "subpages/trustees-of-reservations__benefits-of-membership.html",
+      "subpages/trustees-of-reservations__hamlin-reservation.html",
+      "subpages/trustees-of-reservations__trustees-of-reservations-jobs.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "uss-constitution-museum",
+    "name": "USS Constitution Museum",
+    "base_url": "https://ussconstitutionmuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/uss-constitution-museum.txt",
+    "sources_inspected": [
+      "pages/uss-constitution-museum.html",
+      "subpages/uss-constitution-museum__admission.html",
+      "subpages/uss-constitution-museum__hours-admission.html",
+      "subpages/uss-constitution-museum__hours.html",
+      "subpages/uss-constitution-museum__impact-recognition.html",
+      "subpages/uss-constitution-museum__plan-your-visit.html",
+      "subpages/uss-constitution-museum__rendered.html",
+      "subpages/uss-constitution-museum__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "wenham-museum",
+    "name": "Wenham Museum",
+    "base_url": "http://www.wenhammuseum.org/",
+    "stripped": "data/raw/attractions/_stripped/wenham-museum.txt",
+    "sources_inspected": [
+      "pages/wenham-museum.html",
+      "subpages/wenham-museum__about-the-collection.html",
+      "subpages/wenham-museum__about.html",
+      "subpages/wenham-museum__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "west-suburban-ymca",
+    "name": "West Suburban YMCA",
+    "base_url": "https://wsymca.org/",
+    "stripped": "data/raw/attractions/_stripped/west-suburban-ymca.txt",
+    "sources_inspected": [
+      "pages/west-suburban-ymca.html",
+      "subpages/west-suburban-ymca__holiday-hours.html",
+      "subpages/west-suburban-ymca__racquetball.html",
+      "subpages/west-suburban-ymca__work-here.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "wheelock-family-theatre",
+    "name": "Wheelock Family Theatre",
+    "base_url": "https://www.wheelockfamilytheatre.org/",
+    "stripped": "data/raw/attractions/_stripped/wheelock-family-theatre.txt",
+    "sources_inspected": [
+      "pages/wheelock-family-theatre.html",
+      "subpages/wheelock-family-theatre__choose-yours-seats.html",
+      "subpages/wheelock-family-theatre__directionsandparking.html",
+      "subpages/wheelock-family-theatre__plan-your-visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "worcester-art-museum",
+    "name": "Worcester Art Museum",
+    "base_url": "http://www.worcesterart.org/",
+    "stripped": "data/raw/attractions/_stripped/worcester-art-museum.txt",
+    "sources_inspected": [
+      "pages/worcester-art-museum.html",
+      "subpages/worcester-art-museum__accessibility.html",
+      "subpages/worcester-art-museum__floor-map.html",
+      "subpages/worcester-art-museum__rendered.html",
+      "subpages/worcester-art-museum__tickets.html",
+      "subpages/worcester-art-museum__visit.html"
+    ]
+  },
+  {
+    "kind": "attraction",
+    "id": "zoo-new-england",
+    "name": "Zoo New England",
+    "base_url": "http://www.zoonewengland.org/",
+    "stripped": "data/raw/attractions/_stripped/zoo-new-england.txt",
+    "sources_inspected": [
+      "pages/zoo-new-england.html",
+      "subpages/zoo-new-england__buy-tickets-aspx.html",
+      "subpages/zoo-new-england__buy-tickets.html",
+      "subpages/zoo-new-england__rendered.html",
+      "subpages/zoo-new-england__visit.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "wakefield",
+    "name": "Lucius Beebe Memorial Library",
+    "base_url": "https://wakefieldlibrary.org/get-a-library-card/",
+    "stripped": "data/raw/libraries/_stripped/wakefield.txt",
+    "sources_inspected": [
+      "_pages/wakefield.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "stoneham",
+    "name": "Stoneham Public Library",
+    "base_url": "https://stonehamlibrary.org/get-a-library-card/",
+    "stripped": "data/raw/libraries/_stripped/stoneham.txt",
+    "sources_inspected": [
+      "_pages/stoneham.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "reading",
+    "name": "Reading Public Library",
+    "base_url": "https://www.readingpl.org/get-a-library-card/",
+    "stripped": "data/raw/libraries/_stripped/reading.txt",
+    "sources_inspected": [
+      "_pages/reading.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "woburn",
+    "name": "Woburn Public Library",
+    "base_url": "https://woburnpubliclibrary.org/services/how-to-get-a-library-card/",
+    "stripped": "data/raw/libraries/_stripped/woburn.txt",
+    "sources_inspected": [
+      "_pages/woburn.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "lynnfield",
+    "name": "Lynnfield Public Library",
+    "base_url": "https://lynnfieldlibrary.org/about/get-a-library-card/",
+    "stripped": "data/raw/libraries/_stripped/lynnfield.txt",
+    "sources_inspected": [
+      "_pages/lynnfield.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "peabody",
+    "name": "Peabody Institute Library",
+    "base_url": "https://peabodylibrary.org/librarycard/",
+    "stripped": "data/raw/libraries/_stripped/peabody.txt",
+    "sources_inspected": [
+      "_pages/peabody.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "melrose",
+    "name": "Melrose Public Library",
+    "base_url": "https://melrosepubliclibrary.org/services/borrow/library-cards/",
+    "stripped": "data/raw/libraries/_stripped/melrose.txt",
+    "sources_inspected": [
+      "_pages/melrose.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "saugus",
+    "name": "Saugus Public Library",
+    "base_url": "https://www.sauguspubliclibrary.org/explore/library-card/",
+    "stripped": "data/raw/libraries/_stripped/saugus.txt",
+    "sources_inspected": [
+      "_pages/saugus.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "malden",
+    "name": "Malden Public Library",
+    "base_url": "https://maldenpubliclibrary.org/about/policies/library-cards/",
+    "stripped": "data/raw/libraries/_stripped/malden.txt",
+    "sources_inspected": [
+      "_pages/malden.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "medford",
+    "name": "Medford Public Library",
+    "base_url": "https://medfordlibrary.org/about-us/policies/borrowing-policies/",
+    "stripped": "data/raw/libraries/_stripped/medford.txt",
+    "sources_inspected": [
+      "_pages/medford.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "burlington",
+    "name": "Burlington Public Library",
+    "base_url": "https://www.burlingtonpubliclibrary.org/186/Get-a-Library-Card",
+    "stripped": "data/raw/libraries/_stripped/burlington.txt",
+    "sources_inspected": [
+      "_pages/burlington.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "north-reading",
+    "name": "Flint Memorial Library",
+    "base_url": "https://flintmemoriallibrary.org/home/borrow-materials/",
+    "stripped": "data/raw/libraries/_stripped/north-reading.txt",
+    "sources_inspected": [
+      "_pages/north-reading.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "wilmington",
+    "name": "Wilmington Memorial Library",
+    "base_url": "https://wilmlibrary.org/library-card/",
+    "stripped": "data/raw/libraries/_stripped/wilmington.txt",
+    "sources_inspected": [
+      "_pages/wilmington.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "winchester",
+    "name": "Winchester Public Library",
+    "base_url": "https://www.winpublib.org/librarycard/",
+    "stripped": "data/raw/libraries/_stripped/winchester.txt",
+    "sources_inspected": [
+      "_pages/winchester.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "bpl",
+    "name": "Boston Public Library",
+    "base_url": "https://www.bpl.org/faq/eligibility/",
+    "stripped": "data/raw/libraries/_stripped/bpl.txt",
+    "sources_inspected": [
+      "_pages/bpl.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "beverly",
+    "name": "Beverly Public Library",
+    "base_url": "https://beverlypubliclibrary.org/services/borrowing/",
+    "stripped": "data/raw/libraries/_stripped/beverly.txt",
+    "sources_inspected": [
+      "_pages/beverly.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "danvers",
+    "name": "Peabody Institute Library of Danvers",
+    "base_url": "https://danverslibrary.org/library-policies-information/",
+    "stripped": "data/raw/libraries/_stripped/danvers.txt",
+    "sources_inspected": [
+      "_pages/danvers.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "lynn",
+    "name": "Lynn Public Library",
+    "base_url": "https://lynnpubliclibrary.org/",
+    "stripped": "data/raw/libraries/_stripped/lynn.txt",
+    "sources_inspected": [
+      "_pages/lynn.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "marblehead",
+    "name": "Abbot Public Library",
+    "base_url": "https://abbotlibrary.org/about/general-info/",
+    "stripped": "data/raw/libraries/_stripped/marblehead.txt",
+    "sources_inspected": [
+      "_pages/marblehead.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "everett",
+    "name": "Everett Public Libraries",
+    "base_url": "https://www.everettpubliclibraries.org/get-a-library-card/",
+    "stripped": "data/raw/libraries/_stripped/everett.txt",
+    "sources_inspected": [
+      "_pages/everett.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "chelsea",
+    "name": "Chelsea Public Library",
+    "base_url": "https://www.chelseama.gov/departments/library/",
+    "stripped": "data/raw/libraries/_stripped/chelsea.txt",
+    "sources_inspected": [
+      "_pages/chelsea.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "billerica",
+    "name": "Billerica Public Library",
+    "base_url": "https://billericalibrary.org/borrowing/library-cards/",
+    "stripped": "data/raw/libraries/_stripped/billerica.txt",
+    "sources_inspected": [
+      "_pages/billerica.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "topsfield",
+    "name": "Topsfield Town Library",
+    "base_url": "https://topsfieldlibrary.org/borrow/get-a-library-card/",
+    "stripped": "data/raw/libraries/_stripped/topsfield.txt",
+    "sources_inspected": [
+      "_pages/topsfield.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "boxford",
+    "name": "Boxford Town Library",
+    "base_url": "https://www.boxfordma.gov/210/Get-a-Library-Card",
+    "stripped": "data/raw/libraries/_stripped/boxford.txt",
+    "sources_inspected": [
+      "_pages/boxford.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "chelmsford",
+    "name": "Chelmsford Public Library",
+    "base_url": "https://www.chelmsfordlibrary.org/about/get-a-library-card",
+    "stripped": "data/raw/libraries/_stripped/chelmsford.txt",
+    "sources_inspected": [
+      "_pages/chelmsford.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "haverhill",
+    "name": "Haverhill Public Library",
+    "base_url": "https://www.haverhillpl.org/library-card",
+    "stripped": "data/raw/libraries/_stripped/haverhill.txt",
+    "sources_inspected": [
+      "_pages/haverhill.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "lawrence",
+    "name": "Lawrence Public Library",
+    "base_url": "https://www.lawrencepl.org/library-card",
+    "stripped": "data/raw/libraries/_stripped/lawrence.txt",
+    "sources_inspected": [
+      "_pages/lawrence.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "methuen",
+    "name": "Nevins Memorial Library",
+    "base_url": "https://www.nevinslibrary.org/about-nevins-library/library-cards/",
+    "stripped": "data/raw/libraries/_stripped/methuen.txt",
+    "sources_inspected": [
+      "_pages/methuen.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "andover",
+    "name": "Memorial Hall Library",
+    "base_url": "https://mhl.org/borrow/on-the-shelves/library-cards-and-borrowing-items",
+    "stripped": "data/raw/libraries/_stripped/andover.txt",
+    "sources_inspected": [
+      "_pages/andover.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "north-andover",
+    "name": "Stevens Memorial Library",
+    "base_url": "https://www.stevensmemlib.org/library-card",
+    "stripped": "data/raw/libraries/_stripped/north-andover.txt",
+    "sources_inspected": [
+      "_pages/north-andover.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "middleton",
+    "name": "Flint Public Library",
+    "base_url": "https://flintlibrary.org/index.php/get-a-library-card/",
+    "stripped": "data/raw/libraries/_stripped/middleton.txt",
+    "sources_inspected": [
+      "_pages/middleton.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "newton",
+    "name": "Newton Free Library",
+    "base_url": "https://newtonfreelibrary.net/about/our-library/library-card-borrowing/",
+    "stripped": "data/raw/libraries/_stripped/newton.txt",
+    "sources_inspected": [
+      "_pages/newton.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "lincoln",
+    "name": "Lincoln Public Library",
+    "base_url": "https://lincolnpl.org/",
+    "stripped": "data/raw/libraries/_stripped/lincoln.txt",
+    "sources_inspected": [
+      "_pages/lincoln.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "acton",
+    "name": "Acton Memorial Library",
+    "base_url": "https://www.actonmemoriallibrary.org/services/library-cards/",
+    "stripped": "data/raw/libraries/_stripped/acton.txt",
+    "sources_inspected": [
+      "_pages/acton.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "framingham",
+    "name": "Framingham Public Library",
+    "base_url": "https://framinghamlibrary.org/services/cards-borrowing",
+    "stripped": "data/raw/libraries/_stripped/framingham.txt",
+    "sources_inspected": [
+      "_pages/framingham.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "maynard",
+    "name": "Maynard Public Library",
+    "base_url": "https://www.maynardpubliclibrary.org/get-library-card",
+    "stripped": "data/raw/libraries/_stripped/maynard.txt",
+    "sources_inspected": [
+      "_pages/maynard.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "carlisle",
+    "name": "Gleason Public Library",
+    "base_url": "https://gleasonlibrary.org/get-a-library-card",
+    "stripped": "data/raw/libraries/_stripped/carlisle.txt",
+    "sources_inspected": [
+      "_pages/carlisle.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "wayland",
+    "name": "Wayland Free Public Library",
+    "base_url": "https://waylandlibrary.org/services/library-card/",
+    "stripped": "data/raw/libraries/_stripped/wayland.txt",
+    "sources_inspected": [
+      "_pages/wayland.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "weston",
+    "name": "Weston Public Library",
+    "base_url": "https://www.westonma.gov/CivicSend/ViewMessage/message/165250",
+    "stripped": "data/raw/libraries/_stripped/weston.txt",
+    "sources_inspected": [
+      "_pages/weston.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "sudbury",
+    "name": "Goodnow Library",
+    "base_url": "https://goodnowlibrary.org/",
+    "stripped": "data/raw/libraries/_stripped/sudbury.txt",
+    "sources_inspected": [
+      "_pages/sudbury.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "belmont",
+    "name": "Belmont Public Library",
+    "base_url": "https://www.belmontpubliclibrary.net/",
+    "stripped": "data/raw/libraries/_stripped/belmont.txt",
+    "sources_inspected": [
+      "_pages/belmont.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "lexington",
+    "name": "Cary Memorial Library",
+    "base_url": "https://www.carylibrary.org/library-cards",
+    "stripped": "data/raw/libraries/_stripped/lexington.txt",
+    "sources_inspected": [
+      "_pages/lexington.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "wellesley",
+    "name": "Wellesley Free Library",
+    "base_url": "https://www.wellesleyfreelibrary.org/library-info/policies/eligibility-and-use-of-library-cards-policy/",
+    "stripped": "data/raw/libraries/_stripped/wellesley.txt",
+    "sources_inspected": [
+      "_pages/wellesley.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "waltham",
+    "name": "Waltham Public Library",
+    "base_url": "https://waltham.lib.ma.us/policies/library-cards/",
+    "stripped": "data/raw/libraries/_stripped/waltham.txt",
+    "sources_inspected": [
+      "_pages/waltham.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "watertown",
+    "name": "Watertown Free Public Library",
+    "base_url": "https://www.watertownlib.org/217/Library-Cards-Borrowing",
+    "stripped": "data/raw/libraries/_stripped/watertown.txt",
+    "sources_inspected": [
+      "_pages/watertown.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "concord",
+    "name": "Concord Free Public Library",
+    "base_url": "https://concordlibrary.org/borrow/library-cards-and-borrowing",
+    "stripped": "data/raw/libraries/_stripped/concord.txt",
+    "sources_inspected": [
+      "_pages/concord.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "bedford",
+    "name": "Bedford Free Public Library",
+    "base_url": "https://bedfordlibrary.net/library-card",
+    "stripped": "data/raw/libraries/_stripped/bedford.txt",
+    "sources_inspected": [
+      "_pages/bedford.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "needham",
+    "name": "Needham Free Public Library",
+    "base_url": "https://needhamlibrary.org/get-a-library-card",
+    "stripped": "data/raw/libraries/_stripped/needham.txt",
+    "sources_inspected": [
+      "_pages/needham.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "natick",
+    "name": "Morse Institute Library",
+    "base_url": "https://www.morseinstitute.org/",
+    "stripped": "data/raw/libraries/_stripped/natick.txt",
+    "sources_inspected": [
+      "_pages/natick.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "somerville",
+    "name": "Somerville Public Library",
+    "base_url": "https://somervillepubliclibrary.org/how-do-i/get-library-card/",
+    "stripped": "data/raw/libraries/_stripped/somerville.txt",
+    "sources_inspected": [
+      "_pages/somerville.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "quincy",
+    "name": "Thomas Crane Public Library",
+    "base_url": "https://thomascranelibrary.org/library-cards-accounts/",
+    "stripped": "data/raw/libraries/_stripped/quincy.txt",
+    "sources_inspected": [
+      "_pages/quincy.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "cambridge",
+    "name": "Cambridge Public Library",
+    "base_url": "https://www.cambridgema.gov/iwantto/getalibrarycard",
+    "stripped": "data/raw/libraries/_stripped/cambridge.txt",
+    "sources_inspected": [
+      "_pages/cambridge.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "brookline",
+    "name": "Brookline Public Library",
+    "base_url": "https://brooklinelibrary.org/library-card",
+    "stripped": "data/raw/libraries/_stripped/brookline.txt",
+    "sources_inspected": [
+      "_pages/brookline.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "braintree",
+    "name": "Thayer Public Library",
+    "base_url": "https://www.thayerpubliclibrary.org/",
+    "stripped": "data/raw/libraries/_stripped/braintree.txt",
+    "sources_inspected": [
+      "_pages/braintree.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "milton",
+    "name": "Milton Public Library",
+    "base_url": "https://www.miltonlibrary.org/",
+    "stripped": "data/raw/libraries/_stripped/milton.txt",
+    "sources_inspected": [
+      "_pages/milton.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "cohasset",
+    "name": "Paul Pratt Memorial Library",
+    "base_url": "https://www.cohassetlibrary.org/",
+    "stripped": "data/raw/libraries/_stripped/cohasset.txt",
+    "sources_inspected": [
+      "_pages/cohasset.html"
+    ]
+  },
+  {
+    "kind": "library",
+    "id": "hingham",
+    "name": "Hingham Public Library",
+    "base_url": "https://hinghamlibrary.org/",
+    "stripped": "data/raw/libraries/_stripped/hingham.txt",
+    "sources_inspected": [
+      "_pages/hingham.html"
+    ]
+  }
+]

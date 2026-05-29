@@ -1,0 +1,64 @@
+{
+  "slug": "griffin-museum-of-photography",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": [
+    "pages/griffin-museum-of-photography.html",
+    "subpages/griffin-museum-of-photography__about-the-griffin-2026.html",
+    "subpages/griffin-museum-of-photography__info.html",
+    "subpages/griffin-museum-of-photography__museum-admission.html",
+    "subpages/griffin-museum-of-photography__photobook2026.html",
+    "subpages/griffin-museum-of-photography__rendered.html",
+    "subpages/griffin-museum-of-photography__tickets.html"
+  ],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "General Admission – $12",
+      "source_block": "Please print and present receipt for this ticket at the museum.\n\nGriffin Members – FREE admission\nNARM Members – FREE admission\nGeneral Admission – $12\nSeniors (65+) – $8\nChildren 12 and under – FREE\nStudents of member academic institutions with student ID – FREE\nThursdays 2 to 4 – FREE admission for all\nCard to Culture holders of a ConnectorCare, WIC or EBT card are admitted free of charge.",
+      "source_url": "https://griffinmuseum.org/shop/museum-admission",
+      "source_path": "subpages/griffin-museum-of-photography__museum-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Seniors (65+) – $8",
+      "source_block": "Please print and present receipt for this ticket at the museum.\n\nGriffin Members – FREE admission\nNARM Members – FREE admission\nGeneral Admission – $12\nSeniors (65+) – $8\nChildren 12 and under – FREE\nStudents of member academic institutions with student ID – FREE\nThursdays 2 to 4 – FREE admission for all\nCard to Culture holders of a ConnectorCare, WIC or EBT card are admitted free of charge.",
+      "source_url": "https://griffinmuseum.org/shop/museum-admission",
+      "source_path": "subpages/griffin-museum-of-photography__museum-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Children 12 and under – FREE",
+      "source_block": "Please print and present receipt for this ticket at the museum.\n\nGriffin Members – FREE admission\nNARM Members – FREE admission\nGeneral Admission – $12\nSeniors (65+) – $8\nChildren 12 and under – FREE\nStudents of member academic institutions with student ID – FREE\nThursdays 2 to 4 – FREE admission for all\nCard to Culture holders of a ConnectorCare, WIC or EBT card are admitted free of charge.",
+      "source_url": "https://griffinmuseum.org/shop/museum-admission",
+      "source_path": "subpages/griffin-museum-of-photography__museum-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "We are a Blue Star Museum and for members of the military and families admission is FREE",
+      "source_block": "Thursdays 2 to 4 – FREE admission for all\nCard to Culture holders of a ConnectorCare, WIC or EBT card are admitted free of charge.\n\nWe are a Blue Star Museum and for members of the military and families admission is FREE",
+      "source_url": "https://griffinmuseum.org/shop/museum-admission",
+      "source_path": "subpages/griffin-museum-of-photography__museum-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "Griffin Members – FREE admission",
+      "source_block": "Please print and present receipt for this ticket at the museum.\n\nGriffin Members – FREE admission\nNARM Members – FREE admission\nGeneral Admission – $12\nSeniors (65+) – $8\nChildren 12 and under – FREE\nStudents of member academic institutions with student ID – FREE\nThursdays 2 to 4 – FREE admission for all\nCard to Culture holders of a ConnectorCare, WIC or EBT card are admitted free of charge.",
+      "source_url": "https://griffinmuseum.org/shop/museum-admission",
+      "source_path": "subpages/griffin-museum-of-photography__museum-admission.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": null,
+  "hours": {
+    "source_phrase": "Note the Griffin Museum is currently open Tues-Sun Noon-4PM.",
+    "source_block": "Note the Griffin Museum is currently open Tues-Sun Noon-4PM. We occasionally close for an event, really bad weather, or to hang the next show. If that is the case we post that information in a banner at the top of our site. View levels and benefits of membership.",
+    "source_url": "https://griffinmuseum.org/shop/museum-admission",
+    "source_path": "subpages/griffin-museum-of-photography__museum-admission.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

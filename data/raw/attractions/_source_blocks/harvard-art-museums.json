@@ -1,0 +1,11 @@
+{
+  "slug": "harvard-art-museums",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/harvard-art-museums.html", "subpages/harvard-art-museums__parking.html", "subpages/harvard-art-museums__visit.html"],
+  "prices": [
+    {"audience": "adult", "source_phrase": "Admission is free to all visitors every day.", "source_block": "Admission is free to all visitors every day. Please check in at the Visitor Services desk upon arrival to allow us to share information about special exhibitions, gallery tours, programs, and other amenities available to ensure that you have a great visit!\n\nFree admission is made possible by a generous contribution from the Estate of David Rockefeller and support from the Office of the President at Harvard University.", "source_url": "https://harvardartmuseums.org/visit", "source_path": "subpages/harvard-art-museums__visit.html", "source_confidence": "high"}
+  ],
+  "reservation": null,
+  "hours": {"source_phrase": "Open Tuesday-Sunday 10am-5pm", "source_block": "Friday, May 29 Open 10am–5pm\nOpen Tuesday-Sunday 10am-5pm\nClosed on Mondays, major holidays, and other select dates", "source_url": "https://harvardartmuseums.org/visit", "source_path": "subpages/harvard-art-museums__visit.html", "source_confidence": "high"},
+  "visitor_eligibility": null
+}

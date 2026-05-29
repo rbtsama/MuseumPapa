@@ -1,0 +1,21 @@
+{
+  "slug": "paddle-boston",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/paddle-boston.html", "subpages/paddle-boston__directions-paddling-store.html", "subpages/paddle-boston__hours.html", "subpages/paddle-boston__rates-and-reservations.html", "subpages/paddle-boston__rendered.html", "subpages/paddle-boston__rentals.html"],
+  "prices": [],
+  "reservation": {
+    "source_phrase": "Walk-up rentals are available at all locations, Save time and make a reservation now (if you don't see the time you want, just walk in, we only take reservations at some times)",
+    "source_block": "Walk up or Make a Reservation:\n\nWalk-up rentals are available at all locations, Save time and make a reservation now (if you don't see the time you want, just walk in, we only take reservations at some times)\n\nBOOK NOW",
+    "source_url": "https://www.paddleboston.com/rentals",
+    "source_path": "subpages/paddle-boston__rentals.html",
+    "source_confidence": "high"
+  },
+  "hours": {
+    "source_phrase": "Below is a list of our Allston/Brighton location hours and events organized by week.",
+    "source_block": "Boston: Allston/Brighton – Hours & Events\n\nBelow is a list of our Allston/Brighton location hours and events organized by week.\n\nLAST BOAT GOES OUT ONE HOUR BEFORE CLOSE",
+    "source_url": "https://www.paddleboston.com/hours",
+    "source_path": "subpages/paddle-boston__hours.html",
+    "source_confidence": "low"
+  },
+  "visitor_eligibility": null
+}

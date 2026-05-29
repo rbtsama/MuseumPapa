@@ -1,0 +1,70 @@
+{
+  "slug": "bedrock-gardens",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/bedrock-gardens.html", "subpages/bedrock-gardens__bedrock-book-html.html", "subpages/bedrock-gardens__directions-html.html", "subpages/bedrock-gardens__visiting-html.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Admission Adults $15.",
+      "source_block": "Admission Adults $15. Children 12 and under free",
+      "source_url": "https://www.bedrockgardens.org/visiting.html",
+      "source_path": "subpages/bedrock-gardens__visiting-html.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Children 12 and under free",
+      "source_block": "Admission Adults $15. Children 12 and under free",
+      "source_url": "https://www.bedrockgardens.org/visiting.html",
+      "source_path": "subpages/bedrock-gardens__visiting-html.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": null,
+      "source_block": null,
+      "source_url": null,
+      "source_path": null,
+      "source_confidence": null
+    },
+    {
+      "audience": "youth",
+      "source_phrase": null,
+      "source_block": null,
+      "source_url": null,
+      "source_path": null,
+      "source_confidence": null
+    },
+    {
+      "audience": "military",
+      "source_phrase": null,
+      "source_block": null,
+      "source_url": null,
+      "source_path": null,
+      "source_confidence": null
+    },
+    {
+      "audience": "member",
+      "source_phrase": null,
+      "source_block": null,
+      "source_url": null,
+      "source_path": null,
+      "source_confidence": null
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Join one of our daily tours or discover the gardens on your own. No reservation required.",
+    "source_block": "​Plan Your Garden Visit\n\n​Join one of our daily tours or discover the gardens on your own. No reservation required.",
+    "source_url": "https://www.bedrockgardens.org/",
+    "source_path": "pages/bedrock-gardens.html",
+    "source_confidence": "high"
+  },
+  "hours": {
+    "source_phrase": "Weekdays : Tuesday through Friday ​ Weekends : 1st and 3rd weekends each month. Closed the 2nd, 4th (and 5th) weekends. Confirm dates below * Hours : 10 am - 4 pm",
+    "source_block": "2026 Season Information\n\nMay 13th - October 12, 2026 ​ Weekdays : Tuesday through Friday ​ Weekends : 1st and 3rd weekends each month. Closed the 2nd, 4th (and 5th) weekends. Confirm dates below * Hours : 10 am - 4 pm",
+    "source_url": "https://www.bedrockgardens.org/visiting.html",
+    "source_path": "subpages/bedrock-gardens__visiting-html.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

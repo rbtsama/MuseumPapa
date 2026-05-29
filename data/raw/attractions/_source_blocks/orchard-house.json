@@ -1,0 +1,70 @@
+{
+  "slug": "orchard-house",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/orchard-house.html", "subpages/orchard-house__sharing-space-visit.html", "subpages/orchard-house__visit.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adults $15",
+      "source_block": "Current Admission Rates\n\nAdults\n$15\n\nOlder Adults / College Students\n$12\n\n62+ years / 18+ years with ID\n\nYouths\n$8\n\nAges 6 - 17",
+      "source_url": "http://www.louisamayalcott.org/visit",
+      "source_path": "subpages/orchard-house__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Older Adults / College Students $12 — 62+ years / 18+ years with ID",
+      "source_block": "Current Admission Rates\n\nAdults\n$15\n\nOlder Adults / College Students\n$12\n\n62+ years / 18+ years with ID\n\nYouths\n$8\n\nAges 6 - 17",
+      "source_url": "http://www.louisamayalcott.org/visit",
+      "source_path": "subpages/orchard-house__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Youths $8 — Ages 6 - 17",
+      "source_block": "Youths\n$8\n\nAges 6 - 17\nPlease note: Youths must be accompanied by an Adult, Senior, or College Student",
+      "source_url": "http://www.louisamayalcott.org/visit",
+      "source_path": "subpages/orchard-house__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Children under 6 ( must be accompanied by an Adult/Senior/College Student )",
+      "source_block": "Free Admission\n\nChildren under 6 ( must be accompanied by an Adult/Senior/College Student ); Blue Star Museums Program; Members of \"Friends of the Alcotts\"; other museum personnel (NEMA, AAM, AASLH, etc.)",
+      "source_url": "http://www.louisamayalcott.org/visit",
+      "source_path": "subpages/orchard-house__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "Military Family & Veterans ( 1/2 price )",
+      "source_block": "Discounts\n\nMilitary Family & Veterans ( 1/2 price )\n\nBlue Star Museums",
+      "source_url": "http://www.louisamayalcott.org/visit",
+      "source_path": "subpages/orchard-house__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "Members of \"Friends of the Alcotts\"",
+      "source_block": "Free Admission\n\nChildren under 6 ( must be accompanied by an Adult/Senior/College Student ); Blue Star Museums Program; Members of \"Friends of the Alcotts\"; other museum personnel (NEMA, AAM, AASLH, etc.)",
+      "source_url": "http://www.louisamayalcott.org/visit",
+      "source_path": "subpages/orchard-house__visit.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Tickets are primarily sold on a Timed-Entry reservation basis , but \"walk-in\" visitors (i.e., those who do not reserve tickets online) can often be accommodated as well",
+    "source_block": "The House is shown by guided tour only ; admission is charged\n\nThe visit experience lasts approximately 45 minutes\n\nTickets are primarily sold on a Timed-Entry reservation basis , but \"walk-in\" visitors (i.e., those who do not reserve tickets online) can often be accommodated as well\n\nTimed-Entry Admission is non-refundable , but can be re-scheduled to a future date",
+    "source_url": "http://www.louisamayalcott.org/visit",
+    "source_path": "subpages/orchard-house__visit.html",
+    "source_confidence": "high"
+  },
+  "hours": {
+    "source_phrase": "Open year-round: CURRENT HOURS (through October 2026) Open today 10:00 am – 05:00 pm",
+    "source_block": "Open year-round: CURRENT HOURS (through October 2026)\nOpen today\n10:00 am – 05:00 pm\n\nNovember - March Hours of Operation :\nWeekdays 11 am - 3:30 pm; Saturdays 10 am - 5 pm; Sundays 1 - 5 pm\n\nCLOSED : Easter, Thanksgiving, Christmas Eve & Day, December 31-January 3",
+    "source_url": "http://www.louisamayalcott.org/visit",
+    "source_path": "subpages/orchard-house__visit.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

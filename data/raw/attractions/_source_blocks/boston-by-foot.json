@@ -1,0 +1,15 @@
+{
+  "slug": "boston-by-foot",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/boston-by-foot.html", "subpages/boston-by-foot__accessibility-information.html", "subpages/boston-by-foot__admission.html", "subpages/boston-by-foot__bbf.html", "subpages/boston-by-foot__hours.html", "subpages/boston-by-foot__info.html", "subpages/boston-by-foot__intro.html", "subpages/boston-by-foot__plan-your-visit.html", "subpages/boston-by-foot__rendered.html", "subpages/boston-by-foot__tickets.html", "subpages/boston-by-foot__visit-us.html", "subpages/boston-by-foot__visit.html", "subpages/boston-by-foot__visitor-info.html"],
+  "prices": [],
+  "reservation": {
+    "source_phrase": "Our ability to offer you your preferred tour at your preferred time will depend on the availability of our guides.",
+    "source_block": "Any of the walking tours listed on our website can be booked upon request as a private tour. Please review the available tours using the category tabs on the right.\nOur ability to offer you your preferred tour at your preferred time will depend on the availability of our guides. Some tours have more limited availability than others. Unfortunately we are not able to offer tours on the same day of a request, nor are we able to guarantee tours without enough notice. We kindly request at least 1-2 weeks notice to make arrangements.",
+    "source_url": "https://bostonbyfoot.org/tours/Private-Tours/intro",
+    "source_path": "subpages/boston-by-foot__intro.html",
+    "source_confidence": "low"
+  },
+  "hours": null,
+  "visitor_eligibility": null
+}

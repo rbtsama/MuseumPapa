@@ -1,0 +1,38 @@
+{
+  "slug": "uss-constitution-museum",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/uss-constitution-museum.html", "subpages/uss-constitution-museum__admission.html", "subpages/uss-constitution-museum__hours-admission.html", "subpages/uss-constitution-museum__hours.html", "subpages/uss-constitution-museum__impact-recognition.html", "subpages/uss-constitution-museum__plan-your-visit.html", "subpages/uss-constitution-museum__rendered.html", "subpages/uss-constitution-museum__visit.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Standard: $15 per person",
+      "source_block": "Museum Admission\n\nThe Museum has suggested admission tiers of:\n\nPay it Forward: $25 per person\n\nStandard: $15 per person\n\nReduced: Free – $10 per person\n\nPlease help us keep our doors open for all by being as generous as possible.\n\nThe USS Constitution Museum is proud to offer several discounted or free admission programs to individuals, families, and groups. Visit our Ways to Save page to find out more.",
+      "source_url": "https://ussconstitutionmuseum.org/visit/museum-ship/hours-admission",
+      "source_path": "subpages/uss-constitution-museum__hours-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "We salute those who serve with free admission for active-duty and retired military members.",
+      "source_block": "Our admission by donation policy ensures all visitors have access to this extraordinary icon of the American experience. Place-based education programs empower students to think critically and creatively both in our galleries and on the decks of Constitution . We offer these programs – and transportation to the Museum – to Boston Public Schools students free of cost so that local young people can explore their hometown history. We salute those who serve with free admission for active-duty and retired military members. By exploring “Old Ironsides”’ history through our programs and exhibits, our visitors discover how ordinary people can come together to achieve extraordinary success.",
+      "source_url": "https://ussconstitutionmuseum.org/about-us/impact-recognition",
+      "source_path": "subpages/uss-constitution-museum__impact-recognition.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "All visitors must check in at the Admission desk prior to entry into the Museum exhibits.",
+    "source_block": "Museum Policies\n\nAll visitors must check in at the Admission desk prior to entry into the Museum exhibits.\n\nThe safety of our visitors and staff remains our top priority. We ask all visitors to:\n\nWash or sanitize hands frequently\n\nDo not visit if they are experiencing any symptoms of COVID-19\n\nDo not eat or drink in the exhibits",
+    "source_url": "https://ussconstitutionmuseum.org/visit/museum-ship/hours-admission",
+    "source_path": "subpages/uss-constitution-museum__hours-admission.html",
+    "source_confidence": "low"
+  },
+  "hours": {
+    "source_phrase": "Museum Hours\n\nOpen Daily | 9:30 am – 5:00 pm",
+    "source_block": "Museum + Ship’s Hours\n\nMuseum Hours\n\nOpen Daily | 9:30 am – 5:00 pm\n\nThe Museum is closed for Thanksgiving, Christmas Day, and New Year’s Day and has an early closure at 2:00 PM on December 24th.\n\nShip Hours\n\nOpen Wednesday- Sunday | 10:00 am – 6:00 pm\n\nThe Ship is also closed on Martin Luther King, Jr.’s Birthday, Thanksgiving, Christmas Day, and New Year’s Day. Visit USS Constitution ’s website for more information about visiting the Ship.",
+    "source_url": "https://ussconstitutionmuseum.org/visit/museum-ship/hours-admission",
+    "source_path": "subpages/uss-constitution-museum__hours-admission.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

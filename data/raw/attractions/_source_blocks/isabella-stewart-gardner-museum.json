@@ -1,0 +1,76 @@
+{
+  "slug": "isabella-stewart-gardner-museum",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": [
+    "pages/isabella-stewart-gardner-museum.html",
+    "subpages/isabella-stewart-gardner-museum__directions-and-parking.html",
+    "subpages/isabella-stewart-gardner-museum__organizational-memberships.html",
+    "subpages/isabella-stewart-gardner-museum__theft.html",
+    "subpages/isabella-stewart-gardner-museum__visit.html"
+  ],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adult $22",
+      "source_block": "Ticket Prices\nAdult $22\nChildren (17 and under) Free\nSenior (65 and up) $20\nStudent (with current ID) $15\nMembers Free",
+      "source_url": "http://www.gardnermuseum.org/visit",
+      "source_path": "subpages/isabella-stewart-gardner-museum__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Senior (65 and up) $20",
+      "source_block": "Ticket Prices\nAdult $22\nChildren (17 and under) Free\nSenior (65 and up) $20\nStudent (with current ID) $15\nMembers Free",
+      "source_url": "http://www.gardnermuseum.org/visit",
+      "source_path": "subpages/isabella-stewart-gardner-museum__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Student (with current ID) $15",
+      "source_block": "Ticket Prices\nAdult $22\nChildren (17 and under) Free\nSenior (65 and up) $20\nStudent (with current ID) $15\nMembers Free",
+      "source_url": "http://www.gardnermuseum.org/visit",
+      "source_path": "subpages/isabella-stewart-gardner-museum__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Children (17 and under) Free",
+      "source_block": "Ticket Prices\nAdult $22\nChildren (17 and under) Free\nSenior (65 and up) $20\nStudent (with current ID) $15\nMembers Free",
+      "source_url": "http://www.gardnermuseum.org/visit",
+      "source_path": "subpages/isabella-stewart-gardner-museum__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "The Gardner Museum thanks members of our military and their families for their service to our country by providing them with free admission to the Museum for themselves and up to four family members. Valid ID required at visit.",
+      "source_block": "U.S. Military and Families\n\nThe Gardner Museum thanks members of our military and their families for their service to our country by providing them with free admission to the Museum for themselves and up to four family members. Valid ID required at visit.",
+      "source_url": "http://www.gardnermuseum.org/visit",
+      "source_path": "subpages/isabella-stewart-gardner-museum__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "Members Free",
+      "source_block": "Ticket Prices\nAdult $22\nChildren (17 and under) Free\nSenior (65 and up) $20\nStudent (with current ID) $15\nMembers Free",
+      "source_url": "http://www.gardnermuseum.org/visit",
+      "source_path": "subpages/isabella-stewart-gardner-museum__visit.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Buy your tickets in advance to guarantee entrance at your preferred time.",
+    "source_block": "Reserve Your Time with a Ticket\n\nTickets can sell out fast and may not be available at the door. Buy your tickets in advance to guarantee entrance at your preferred time.",
+    "source_url": "http://www.gardnermuseum.org/visit",
+    "source_path": "subpages/isabella-stewart-gardner-museum__visit.html",
+    "source_confidence": "high"
+  },
+  "hours": {
+    "source_phrase": "Monday: 11:00am–5:00pm Tuesday: Closed Wednesday: 11:00am–5:00pm Thursday: 11:00am–9:00pm Friday: 11:00am–5:00pm Saturday: 10:00am–5:00pm Sunday: 10:00am–5:00pm",
+    "source_block": "All hours\n\nMonday:\n\n11:00am–5:00pm\n\nTuesday:\n\nClosed\n\nWednesday:\n\n11:00am–5:00pm\n\nThursday:\n\n11:00am–9:00pm\n\nFriday:\n\n11:00am–5:00pm\n\nSaturday:\n\n10:00am–5:00pm\n\nSunday:\n\n10:00am–5:00pm",
+    "source_url": "http://www.gardnermuseum.org/visit",
+    "source_path": "subpages/isabella-stewart-gardner-museum__visit.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

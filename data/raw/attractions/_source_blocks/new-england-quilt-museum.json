@@ -1,0 +1,13 @@
+{
+  "slug": "new-england-quilt-museum",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/new-england-quilt-museum.html", "subpages/new-england-quilt-museum__visit.html"],
+  "prices": [
+    {"audience": "adult", "source_phrase": "Regular Admission - $10", "source_block": "Admission\nRegular Admission - $10\n\nChildren 12 and under - FREE\n\nMuseum Members - FREE\n\nEBT cardholders and 1 guest - FREE", "source_url": "https://www.neqm.org/visit", "source_path": "subpages/new-england-quilt-museum__visit.html", "source_confidence": "high"},
+    {"audience": "child", "source_phrase": "Children 12 and under - FREE", "source_block": "Admission\nRegular Admission - $10\n\nChildren 12 and under - FREE\n\nMuseum Members - FREE\n\nEBT cardholders and 1 guest - FREE", "source_url": "https://www.neqm.org/visit", "source_path": "subpages/new-england-quilt-museum__visit.html", "source_confidence": "high"},
+    {"audience": "member", "source_phrase": "Museum Members - FREE", "source_block": "Admission\nRegular Admission - $10\n\nChildren 12 and under - FREE\n\nMuseum Members - FREE\n\nEBT cardholders and 1 guest - FREE", "source_url": "https://www.neqm.org/visit", "source_path": "subpages/new-england-quilt-museum__visit.html", "source_confidence": "high"}
+  ],
+  "reservation": {"source_phrase": "Guided tours can be arranged for groups of eight or more guests. Reservations are required no less than two weeks in advance.", "source_block": "Tours\nGuided tours can be arranged for groups of eight or more guests.\nReservations are required no less than two weeks in advance. In addition to general admission, a fee of $30 will be charged for each docent required.\nContact the development office at giving@nequiltmuseum.org or 978-452-4207 ext. 18", "source_url": "https://www.neqm.org/visit", "source_path": "subpages/new-england-quilt-museum__visit.html", "source_confidence": "low"},
+  "hours": {"source_phrase": "Tuesday through Saturday : 10 AM - 4 PM Closed Sundays and Mondays", "source_block": "Hours\nTuesday through Saturday : 10 AM - 4 PM Closed Sundays and Mondays", "source_url": "https://www.neqm.org/visit", "source_path": "subpages/new-england-quilt-museum__visit.html", "source_confidence": "high"},
+  "visitor_eligibility": null
+}

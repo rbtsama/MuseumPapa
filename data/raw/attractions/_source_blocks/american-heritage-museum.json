@@ -1,0 +1,79 @@
+{
+  "slug": "american-heritage-museum",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": [
+    "pages/american-heritage-museum.html",
+    "subpages/american-heritage-museum__group-tours.html",
+    "subpages/american-heritage-museum__hours-admission.html",
+    "subpages/american-heritage-museum__hours.html",
+    "subpages/american-heritage-museum__plan-your-visit.html",
+    "subpages/american-heritage-museum__purchase-tickets-online.html",
+    "subpages/american-heritage-museum__tickets.html",
+    "subpages/american-heritage-museum__visit.html"
+  ],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adults $23.00",
+      "source_block": "GENERAL ADMISSIONS PRICING AT DESK\n\nAdults\n$23.00\n\nChildren (16 and Under)\n$12.00\n\nSeniors (62 plus)\n$20.00\n\nActive Duty Military (With ID) and Veterans\n$20.00\n\nChildren 3 and Under\nFREE\n\nAmerican Heritage Museum Members ( click here to become one )\nFREE\n\nWorld War II & Korean War Veterans\nFREE\n\nMA Teachers Association (MTA) (with MTA Card)\nFREE\n\nSAVE $2 PER TICKET BY PURCHASING ADMISSION ONLINE!",
+      "source_url": "https://www.americanheritagemuseum.org/plan-your-visit/hours-admission",
+      "source_path": "subpages/american-heritage-museum__hours-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Seniors (62 plus) $20.00",
+      "source_block": "GENERAL ADMISSIONS PRICING AT DESK\n\nAdults\n$23.00\n\nChildren (16 and Under)\n$12.00\n\nSeniors (62 plus)\n$20.00\n\nActive Duty Military (With ID) and Veterans\n$20.00\n\nChildren 3 and Under\nFREE\n\nAmerican Heritage Museum Members ( click here to become one )\nFREE\n\nWorld War II & Korean War Veterans\nFREE\n\nMA Teachers Association (MTA) (with MTA Card)\nFREE\n\nSAVE $2 PER TICKET BY PURCHASING ADMISSION ONLINE!",
+      "source_url": "https://www.americanheritagemuseum.org/plan-your-visit/hours-admission",
+      "source_path": "subpages/american-heritage-museum__hours-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Children (16 and Under) $12.00",
+      "source_block": "GENERAL ADMISSIONS PRICING AT DESK\n\nAdults\n$23.00\n\nChildren (16 and Under)\n$12.00\n\nSeniors (62 plus)\n$20.00\n\nActive Duty Military (With ID) and Veterans\n$20.00\n\nChildren 3 and Under\nFREE",
+      "source_url": "https://www.americanheritagemuseum.org/plan-your-visit/hours-admission",
+      "source_path": "subpages/american-heritage-museum__hours-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Children 3 and Under FREE",
+      "source_block": "GENERAL ADMISSIONS PRICING AT DESK\n\nAdults\n$23.00\n\nChildren (16 and Under)\n$12.00\n\nSeniors (62 plus)\n$20.00\n\nActive Duty Military (With ID) and Veterans\n$20.00\n\nChildren 3 and Under\nFREE",
+      "source_url": "https://www.americanheritagemuseum.org/plan-your-visit/hours-admission",
+      "source_path": "subpages/american-heritage-museum__hours-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "Active Duty Military (With ID) and Veterans $20.00",
+      "source_block": "GENERAL ADMISSIONS PRICING AT DESK\n\nAdults\n$23.00\n\nChildren (16 and Under)\n$12.00\n\nSeniors (62 plus)\n$20.00\n\nActive Duty Military (With ID) and Veterans\n$20.00\n\nChildren 3 and Under\nFREE\n\nAmerican Heritage Museum Members ( click here to become one )\nFREE\n\nWorld War II & Korean War Veterans\nFREE",
+      "source_url": "https://www.americanheritagemuseum.org/plan-your-visit/hours-admission",
+      "source_path": "subpages/american-heritage-museum__hours-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "American Heritage Museum Members ( click here to become one ) FREE",
+      "source_block": "Children 3 and Under\nFREE\n\nAmerican Heritage Museum Members ( click here to become one )\nFREE\n\nWorld War II & Korean War Veterans\nFREE\n\nMA Teachers Association (MTA) (with MTA Card)\nFREE",
+      "source_url": "https://www.americanheritagemuseum.org/plan-your-visit/hours-admission",
+      "source_path": "subpages/american-heritage-museum__hours-admission.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "For simple admissions processing, we encourage you to purchase tickets in advance using our online portal and your tickets may be emailed directly to you. Otherwise, you may purchase tickets at our admissions desk on your arrival.",
+    "source_block": "HOW TO PURCHASE TICKETS\n\nFor simple admissions processing, we encourage you to purchase tickets in advance using our online portal and your tickets may be emailed directly to you. Otherwise, you may purchase tickets at our admissions desk on your arrival. Special Event Weekend tickets should be purchased through the event page ( schedule at this link ). Tank Driving Programs and Tank Rides must be scheduled and purchased separately and are NOT available on all days that the museum is open ( see this link for tank drives and rides including schedule )",
+    "source_url": "https://www.americanheritagemuseum.org/plan-your-visit/hours-admission",
+    "source_path": "subpages/american-heritage-museum__hours-admission.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "The American Heritage Museum is open weekly from Wednesday through Sunday from 10:00am to 5:00pm each day.",
+    "source_block": "The American Heritage Museum is open weekly from Wednesday through Sunday from 10:00am to 5:00pm each day. The AHM is fully ADA accessible and covers over 67,000 square feet in our well ventilated, climate controlled facility. Visitors are encouraged to plan at least two hours for their visit.\n\nDAILY SCHEDULE\n\nMONDAY\n10:00 AM to 5:00 PM (SPECIAL Open Memorial Day 5/25)\n\nTUESDAY\nCLOSED\n\nWEDNESDAY\n10:00 AM to 5:00 PM\n\nTHURSDAY\n10:00 AM to 5:00 PM\n\nFRIDAY\n10:00 AM to 5:00 PM\n\nSATURDAY\n9:00 AM to 5:00 PM ( WWII Tank Demo Weekend )\n\nSUNDAY\n9:00 AM to 5:00 PM ( WWII Tank Demo Weekend )",
+    "source_url": "https://www.americanheritagemuseum.org/plan-your-visit/hours-admission",
+    "source_path": "subpages/american-heritage-museum__hours-admission.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

@@ -1,0 +1,16 @@
+{
+  "slug": "new-hampshire-philharmonic-orchestra",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/new-hampshire-philharmonic-orchestra.html", "subpages/new-hampshire-philharmonic-orchestra__auditioninformation.html", "subpages/new-hampshire-philharmonic-orchestra__library-partners.html"],
+  "prices": [
+    {"audience": "adult", "source_phrase": "$35 Adults", "source_block": "Ticket Prices are as follows\n(unless otherwise noted)\n$35 Adults\n$30 Seniors\n$10 Students ($5 Salem Students)\n$15 Streaming Online (Sundays at Siefert)", "source_url": "https://www.nhphil.org/", "source_path": "pages/new-hampshire-philharmonic-orchestra.html", "source_confidence": "high"},
+    {"audience": "senior", "source_phrase": "$30 Seniors", "source_block": "Ticket Prices are as follows\n(unless otherwise noted)\n$35 Adults\n$30 Seniors\n$10 Students ($5 Salem Students)\n$15 Streaming Online (Sundays at Siefert)", "source_url": "https://www.nhphil.org/", "source_path": "pages/new-hampshire-philharmonic-orchestra.html", "source_confidence": "high"},
+    {"audience": "youth", "source_phrase": "$10 Students ($5 Salem Students)", "source_block": "Ticket Prices are as follows\n(unless otherwise noted)\n$35 Adults\n$30 Seniors\n$10 Students ($5 Salem Students)\n$15 Streaming Online (Sundays at Siefert)", "source_url": "https://www.nhphil.org/", "source_path": "pages/new-hampshire-philharmonic-orchestra.html", "source_confidence": "high"},
+    {"audience": "child", "source_phrase": null, "source_block": null, "source_url": null, "source_path": null, "source_confidence": null},
+    {"audience": "military", "source_phrase": null, "source_block": null, "source_url": null, "source_path": null, "source_confidence": null},
+    {"audience": "member", "source_phrase": null, "source_block": null, "source_url": null, "source_path": null, "source_confidence": null}
+  ],
+  "reservation": {"source_phrase": "Purchase Tickets Here", "source_block": "Purchase Tickets Here\nThank you to all our loyal patrons who have supported and attended our concerts throughout the years.", "source_url": "https://www.nhphil.org/", "source_path": "pages/new-hampshire-philharmonic-orchestra.html", "source_confidence": "low"},
+  "hours": {"source_phrase": "Please note: All concerts now begin at 2:00 PM on Saturday and Sunday. All dates and times are subject to change.", "source_block": "The Phil’s 121st Season is Here!\nJoin us as we celebrate more than 120 years of musical excellence and community. Experience the thrill of live orchestral music and create unforgettable memories with family and friends.\nPlease note: All concerts now begin at 2:00 PM on Saturday and Sunday. All dates and times are subject to change.", "source_url": "https://www.nhphil.org/", "source_path": "pages/new-hampshire-philharmonic-orchestra.html", "source_confidence": "medium"},
+  "visitor_eligibility": null
+}

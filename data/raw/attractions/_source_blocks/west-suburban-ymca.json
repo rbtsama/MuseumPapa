@@ -1,0 +1,11 @@
+{
+  "slug": "west-suburban-ymca",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/west-suburban-ymca.html", "subpages/west-suburban-ymca__holiday-hours.html", "subpages/west-suburban-ymca__racquetball.html", "subpages/west-suburban-ymca__work-here.html"],
+  "prices": [
+    {"audience": "adult", "source_phrase": "Day pass prices are based on age, stop by our branches or visit the membership page for pricing.", "source_block": "Want to try the Y? A paid day pass allows access to available amenities, and the cost is credited toward membership if you join within the same week. Staff are also available to provide facility tours and program guidance to help you decide. Day pass prices are based on age, stop by our branches or visit the membership page for pricing.", "source_url": "https://wsymca.org/", "source_path": "pages/west-suburban-ymca.html", "source_confidence": "low"}
+  ],
+  "reservation": {"source_phrase": "Reservations can be made no more than 48 hours in advance.", "source_block": "Make A Reservation for Church St Y Racquetball Court Reservations can be made no more than 48 hours in advance. Use this tool to reserve an appointment for use of the Church St Y squash/racquetball court. Appointment times will not appear in the search until you are within 48 hours of the start time.", "source_url": "https://wsymca.org/racquetball", "source_path": "subpages/west-suburban-ymca__racquetball.html", "source_confidence": "low"},
+  "hours": {"source_phrase": "Operating Hours Monday-Thursday: 5:30 a.m. - 10 p.m. Friday: 5:30 a.m. - 9 p.m. Saturday-Sunday: 7 a.m. - 7 p.m.", "source_block": "Operating Hours Monday-Thursday: 5:30 a.m. - 10 p.m. Friday: 5:30 a.m. - 9 p.m. Saturday-Sunday: 7 a.m. - 7 p.m. Holiday Hours", "source_url": "https://wsymca.org/", "source_path": "pages/west-suburban-ymca.html", "source_confidence": "high"},
+  "visitor_eligibility": null
+}

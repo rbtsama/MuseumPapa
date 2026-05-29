@@ -1,0 +1,70 @@
+{
+  "slug": "new-england-botanic-garden-at-tower-hill",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/new-england-botanic-garden-at-tower-hill.html", "subpages/new-england-botanic-garden-at-tower-hill__about-the-gardens.html", "subpages/new-england-botanic-garden-at-tower-hill__admission.html", "subpages/new-england-botanic-garden-at-tower-hill__group-visits-and-tours.html", "subpages/new-england-botanic-garden-at-tower-hill__plan-your-visit.html", "subpages/new-england-botanic-garden-at-tower-hill__rendered.html", "subpages/new-england-botanic-garden-at-tower-hill__visit.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adults $24 $26",
+      "source_block": "May–October 2026 Admission Prices\n\nTICKET TYPE\nADVANCE PRICES\nWALK-UP PRICES\n\nMembers\nFREE\nFREE\n\nAdults\n$24\n$26\n\nSeniors (65+)\n$19\n$20\n\nChild (age 4-12)\n$12\n$14\n\nChild (age 3 and under) : Free\nFree\nFree\n\nDogs : $8 ( Learn more about dog walking guidelines )\n$8\n$8",
+      "source_url": "https://www.nebg.org/plan-your-visit",
+      "source_path": "subpages/new-england-botanic-garden-at-tower-hill__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Seniors (65+) $19 $20",
+      "source_block": "May–October 2026 Admission Prices\n\nTICKET TYPE\nADVANCE PRICES\nWALK-UP PRICES\n\nMembers\nFREE\nFREE\n\nAdults\n$24\n$26\n\nSeniors (65+)\n$19\n$20\n\nChild (age 4-12)\n$12\n$14\n\nChild (age 3 and under) : Free\nFree\nFree\n\nDogs : $8 ( Learn more about dog walking guidelines )\n$8\n$8",
+      "source_url": "https://www.nebg.org/plan-your-visit",
+      "source_path": "subpages/new-england-botanic-garden-at-tower-hill__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Child (age 4-12) $12 $14",
+      "source_block": "May–October 2026 Admission Prices\n\nTICKET TYPE\nADVANCE PRICES\nWALK-UP PRICES\n\nMembers\nFREE\nFREE\n\nAdults\n$24\n$26\n\nSeniors (65+)\n$19\n$20\n\nChild (age 4-12)\n$12\n$14\n\nChild (age 3 and under) : Free\nFree\nFree\n\nDogs : $8 ( Learn more about dog walking guidelines )\n$8\n$8",
+      "source_url": "https://www.nebg.org/plan-your-visit",
+      "source_path": "subpages/new-england-botanic-garden-at-tower-hill__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Child (age 3 and under) : Free",
+      "source_block": "May–October 2026 Admission Prices\n\nTICKET TYPE\nADVANCE PRICES\nWALK-UP PRICES\n\nMembers\nFREE\nFREE\n\nAdults\n$24\n$26\n\nSeniors (65+)\n$19\n$20\n\nChild (age 4-12)\n$12\n$14\n\nChild (age 3 and under) : Free\nFree\nFree\n\nDogs : $8 ( Learn more about dog walking guidelines )\n$8\n$8",
+      "source_url": "https://www.nebg.org/plan-your-visit",
+      "source_path": "subpages/new-england-botanic-garden-at-tower-hill__plan-your-visit.html",
+      "source_confidence": "medium"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "Year-round discount: All military personnel, veterans, and military families receive a 25% discount on up to six General Admission tickets.",
+      "source_block": "Military Discounts\n\nYear-round discount: All military personnel, veterans, and military families receive a 25% discount on up to six General Admission tickets. To redeem, present your valid Military ID or Dependent ID when you check in or, if ordering online, enter promotional code “MIL” at checkout. Be prepared to present your valid Military ID or Dependent ID alongside your tickets when you check in at the Garden.",
+      "source_url": "https://www.nebg.org/admission",
+      "source_path": "subpages/new-england-botanic-garden-at-tower-hill__admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "Members FREE FREE",
+      "source_block": "May–October 2026 Admission Prices\n\nTICKET TYPE\nADVANCE PRICES\nWALK-UP PRICES\n\nMembers\nFREE\nFREE\n\nAdults\n$24\n$26\n\nSeniors (65+)\n$19\n$20\n\nChild (age 4-12)\n$12\n$14\n\nChild (age 3 and under) : Free\nFree\nFree\n\nDogs : $8 ( Learn more about dog walking guidelines )\n$8\n$8",
+      "source_url": "https://www.nebg.org/plan-your-visit",
+      "source_path": "subpages/new-england-botanic-garden-at-tower-hill__plan-your-visit.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "While tickets can generally be purchased at the door, we do occasionally sell out.",
+    "source_block": "GENERAL ADMISSION\n\nPurchase your tickets in advance and save! While tickets can generally be purchased at the door, we do occasionally sell out. We strongly recommend making a reservation for our busiest days like Mother’s Day, exhibition openings, Thursday Summer Evenings, and school vacation weeks. Tickets are non-refundable.\n\nCLICK HERE TO RESERVE GENERAL ADMISSION TICKETS",
+    "source_url": "https://www.nebg.org/plan-your-visit",
+    "source_path": "subpages/new-england-botanic-garden-at-tower-hill__plan-your-visit.html",
+    "source_confidence": "high"
+  },
+  "hours": {
+    "source_phrase": "Open daily: 10 a.m.–5 p.m.",
+    "source_block": "GENERAL ADMISSION HOURS\n\nOpen daily: 10 a.m.–5 p.m.\nLast admission: 4:30 p.m.",
+    "source_url": "https://www.nebg.org/plan-your-visit",
+    "source_path": "subpages/new-england-botanic-garden-at-tower-hill__plan-your-visit.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

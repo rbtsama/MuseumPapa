@@ -1,0 +1,13 @@
+{
+  "slug": "mass-audubon-drumlin-farm",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/mass-audubon-drumlin-farm.html", "subpages/mass-audubon-drumlin-farm__about.html", "subpages/mass-audubon-drumlin-farm__action-agenda.html", "subpages/mass-audubon-drumlin-farm__admission-expanding-access.html", "subpages/mass-audubon-drumlin-farm__admission.html", "subpages/mass-audubon-drumlin-farm__rendered.html"],
+  "prices": [
+    {"audience": "adult", "source_phrase": "Most of our sanctuaries that have Nature Centers or Museums charge small admission fees to nonmembers.", "source_block": "How Much Does It Cost to Visit a Wildlife Sanctuary?\nMost of our sanctuaries that have Nature Centers or Museums charge small admission fees to nonmembers. Sanctuaries that only have trails are free, but donations are always appreciated.", "source_url": "http://www.massaudubon.org/admission", "source_path": "subpages/mass-audubon-drumlin-farm__admission.html", "source_confidence": "low"},
+    {"audience": "member", "source_phrase": "Mass Audubon members always enjoy free admission to all of our sanctuaries; if you have a Family-level membership , then free admission also applies to a second adult in your household plus your children or grandchildren under age 21.", "source_block": "Mass Audubon members always enjoy free admission to all of our sanctuaries; if you have a Family-level membership , then free admission also applies to a second adult in your household plus your children or grandchildren under age 21. \"Migrate up\" to a higher level to add free guest admissions.", "source_url": "http://www.massaudubon.org/admission", "source_path": "subpages/mass-audubon-drumlin-farm__admission.html", "source_confidence": "high"},
+    {"audience": "military", "source_phrase": "Active-Duty Military : Free for up to 5 people with a valid military ID card", "source_block": "As a way to increase access to nature for even more people, Mass Audubon is proud to offer free admission for the following individuals and groups:\nActive-Duty Military : Free for up to 5 people with a valid military ID card", "source_url": "http://www.massaudubon.org/admission", "source_path": "subpages/mass-audubon-drumlin-farm__admission.html", "source_confidence": "high"}
+  ],
+  "reservation": null,
+  "hours": null,
+  "visitor_eligibility": null
+}

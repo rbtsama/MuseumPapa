@@ -1,0 +1,62 @@
+{
+  "slug": "mapparium",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/mapparium.html", "subpages/mapparium__books-and-more.html", "subpages/mapparium__how-do-you-see-the-world-visitor-information.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adults: $6.00 / Youth 0-17: Free",
+      "source_block": "Tickets\nAdults: $6.00 / Youth 0-17: Free\nIndividual ticket\nQuestions? Call 617-450-7224\nGroup tickets\nFor groups of 10 or more.\nGroup tour booking\nQuestions? Call 617-450-7330\nSee our list of available discounts",
+      "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience/how-do-you-see-the-world-visitor-information",
+      "source_path": "subpages/mapparium__how-do-you-see-the-world-visitor-information.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Adults: $6.00 / Youth 0-17: Free",
+      "source_block": "Tickets\nAdults: $6.00 / Youth 0-17: Free\nIndividual ticket\nQuestions? Call 617-450-7224\nGroup tickets\nFor groups of 10 or more.\nGroup tour booking\nQuestions? Call 617-450-7330\nSee our list of available discounts",
+      "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience/how-do-you-see-the-world-visitor-information",
+      "source_path": "subpages/mapparium__how-do-you-see-the-world-visitor-information.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Adults: $6.00 / Youth 0-17: Free",
+      "source_block": "Tickets\nAdults: $6.00 / Youth 0-17: Free\nIndividual ticket\nQuestions? Call 617-450-7224\nGroup tickets\nFor groups of 10 or more.\nGroup tour booking\nQuestions? Call 617-450-7330\nSee our list of available discounts",
+      "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience/how-do-you-see-the-world-visitor-information",
+      "source_path": "subpages/mapparium__how-do-you-see-the-world-visitor-information.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Senior (62+) $5 Reduced price with show of ID",
+      "source_block": "Category\nDiscounted Rate\nEligibility\nSenior (62+)\n$5\nReduced price with show of ID",
+      "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience/how-do-you-see-the-world-visitor-information",
+      "source_path": "subpages/mapparium__how-do-you-see-the-world-visitor-information.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "Military Free Free for active or retired military members with ID. For any country.",
+      "source_block": "Category\nDiscounted Rate\nEligibility\nMilitary\nFree\nFree for active or retired military members with ID. For any country.",
+      "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience/how-do-you-see-the-world-visitor-information",
+      "source_path": "subpages/mapparium__how-do-you-see-the-world-visitor-information.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Tickets are required to view the Mapparium globe. The last tour starts at 4:40 p.m.",
+    "source_block": "Mapparium TM globe tickets and visitor guidelines\n\nTickets are required to view the Mapparium globe. The last tour starts at 4:40 p.m. All other exhibits in the How Do You See the World? experience are free to the public.",
+    "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience/how-do-you-see-the-world-visitor-information",
+    "source_path": "subpages/mapparium__how-do-you-see-the-world-visitor-information.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "Monday: 10 a.m.–5 p.m. Tuesday: 10 a.m.–5 p.m. Wednesday: 10 a.m.–5 p.m. Thursday: 10 a.m.–5 p.m. Friday: 10 a.m.–5 p.m. Saturday: 10 a.m.–5 p.m. Sunday: 11 a.m.–5 p.m.",
+    "source_block": "Hours\nMonday: 10 a.m.–5 p.m. Tuesday: 10 a.m.–5 p.m. Wednesday: 10 a.m.–5 p.m. Thursday: 10 a.m.–5 p.m. Friday: 10 a.m.–5 p.m. Saturday: 10 a.m.–5 p.m. Sunday: 11 a.m.–5 p.m.",
+    "source_url": "https://www.christianscience.com/find-us/visit-the-mother-church/visit-the-christian-science-plaza/how-do-you-see-the-world-experience/how-do-you-see-the-world-visitor-information",
+    "source_path": "subpages/mapparium__how-do-you-see-the-world-visitor-information.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "roger-williams-park-zoo",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/roger-williams-park-zoo.html", "subpages/roger-williams-park-zoo__book-a-carousel-event.html", "subpages/roger-williams-park-zoo__fathersday.html", "subpages/roger-williams-park-zoo__tickets.html"],
+  "prices": [
+    {"audience": "adult", "source_phrase": "Adults $25", "source_block": "Daily Zoo Admission Prices\nAdults $25\nChildren (2-12) $19\nSeniors (62+) $21\nToddlers one & younger FREE\nZoo members FREE", "source_url": "https://www.rwpzoo.org/tickets", "source_path": "subpages/roger-williams-park-zoo__tickets.html", "source_confidence": "high"},
+    {"audience": "senior", "source_phrase": "Seniors (62+) $21", "source_block": "Daily Zoo Admission Prices\nAdults $25\nChildren (2-12) $19\nSeniors (62+) $21\nToddlers one & younger FREE\nZoo members FREE", "source_url": "https://www.rwpzoo.org/tickets", "source_path": "subpages/roger-williams-park-zoo__tickets.html", "source_confidence": "high"},
+    {"audience": "child", "source_phrase": "Children (2-12) $19", "source_block": "Daily Zoo Admission Prices\nAdults $25\nChildren (2-12) $19\nSeniors (62+) $21\nToddlers one & younger FREE\nZoo members FREE", "source_url": "https://www.rwpzoo.org/tickets", "source_path": "subpages/roger-williams-park-zoo__tickets.html", "source_confidence": "high"},
+    {"audience": "member", "source_phrase": "Zoo members FREE", "source_block": "Daily Zoo Admission Prices\nAdults $25\nChildren (2-12) $19\nSeniors (62+) $21\nToddlers one & younger FREE\nZoo members FREE", "source_url": "https://www.rwpzoo.org/tickets", "source_path": "subpages/roger-williams-park-zoo__tickets.html", "source_confidence": "high"}
+  ],
+  "reservation": {"source_phrase": "We recommend booking your tickets online to secure your spot for your desired date and time.", "source_block": "Guarantee Your Entry: We recommend booking your tickets online to secure your spot for your desired date and time. Capacity is limited, especially on weekends and holidays.", "source_url": "https://www.rwpzoo.org/tickets", "source_path": "subpages/roger-williams-park-zoo__tickets.html", "source_confidence": "medium"},
+  "hours": {"source_phrase": "The Zoo is open daily from 9am – 4pm (last entry at 3:30) for the spring and summer seasons!", "source_block": "The Zoo is open daily from 9am – 4pm (last entry at 3:30) for the spring and summer seasons! For all ticket assistance questions, email info@rwpzoo.org. Tickets are non-transferable and non-refundable.", "source_url": "https://www.rwpzoo.org/tickets", "source_path": "subpages/roger-williams-park-zoo__tickets.html", "source_confidence": "high"},
+  "visitor_eligibility": null
+}

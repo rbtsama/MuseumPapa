@@ -1,0 +1,64 @@
+{
+  "slug": "larz-anderson",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/larz-anderson.html", "subpages/larz-anderson__copy-of-plan-your-visit.html", "subpages/larz-anderson__plan-your-visit.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adults, $15 | Seniors, Students, Military (with ID), Children 6-12, $10 Children under 6 are free.",
+      "source_block": "Adults, $15 | Seniors, Students, Military (with ID), Children 6-12, $10 Children under 6 are free. Museum Members are always free. Free admission for NARM and ROAM participants. We invite you to consider becoming a Museum Member to enjoy year round benefits to the Museum.",
+      "source_url": "https://www.larzanderson.org/plan-your-visit",
+      "source_path": "subpages/larz-anderson__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Seniors, Students, Military (with ID), Children 6-12, $10",
+      "source_block": "Adults, $15 | Seniors, Students, Military (with ID), Children 6-12, $10 Children under 6 are free. Museum Members are always free. Free admission for NARM and ROAM participants. We invite you to consider becoming a Museum Member to enjoy year round benefits to the Museum.",
+      "source_url": "https://www.larzanderson.org/plan-your-visit",
+      "source_path": "subpages/larz-anderson__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Seniors, Students, Military (with ID), Children 6-12, $10",
+      "source_block": "Adults, $15 | Seniors, Students, Military (with ID), Children 6-12, $10 Children under 6 are free. Museum Members are always free. Free admission for NARM and ROAM participants. We invite you to consider becoming a Museum Member to enjoy year round benefits to the Museum.",
+      "source_url": "https://www.larzanderson.org/plan-your-visit",
+      "source_path": "subpages/larz-anderson__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Children 6-12, $10 Children under 6 are free.",
+      "source_block": "Adults, $15 | Seniors, Students, Military (with ID), Children 6-12, $10 Children under 6 are free. Museum Members are always free. Free admission for NARM and ROAM participants. We invite you to consider becoming a Museum Member to enjoy year round benefits to the Museum.",
+      "source_url": "https://www.larzanderson.org/plan-your-visit",
+      "source_path": "subpages/larz-anderson__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "Seniors, Students, Military (with ID), Children 6-12, $10",
+      "source_block": "Adults, $15 | Seniors, Students, Military (with ID), Children 6-12, $10 Children under 6 are free. Museum Members are always free. Free admission for NARM and ROAM participants. We invite you to consider becoming a Museum Member to enjoy year round benefits to the Museum.",
+      "source_url": "https://www.larzanderson.org/plan-your-visit",
+      "source_path": "subpages/larz-anderson__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "Museum Members are always free.",
+      "source_block": "Adults, $15 | Seniors, Students, Military (with ID), Children 6-12, $10 Children under 6 are free. Museum Members are always free. Free admission for NARM and ROAM participants. We invite you to consider becoming a Museum Member to enjoy year round benefits to the Museum.",
+      "source_url": "https://www.larzanderson.org/plan-your-visit",
+      "source_path": "subpages/larz-anderson__plan-your-visit.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": null,
+  "hours": {
+    "source_phrase": "The Museum is open 10 AM - 3 PM, Tuesday through Sunday.",
+    "source_block": "The Museum is open 10 AM - 3 PM, Tuesday through Sunday. Our weekly schedule can be viewed below. Holidays (closed): New Years Day: January 1 Independence Day: July 4 Thanksgiving Day: Fourth Thursday of November Christmas Day: December 25",
+    "source_url": "https://www.larzanderson.org/plan-your-visit",
+    "source_path": "subpages/larz-anderson__plan-your-visit.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

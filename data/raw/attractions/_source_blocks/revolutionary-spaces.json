@@ -1,0 +1,70 @@
+{
+  "slug": "revolutionary-spaces",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/revolutionary-spaces.html", "subpages/revolutionary-spaces__museum-admission.html", "subpages/revolutionary-spaces__ruckus.html", "subpages/revolutionary-spaces__the-road-to-revolution.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adults: $15",
+      "source_block": "Through July 1, 2026:\n\nAdults: $15\n\nSeniors (age 65+): $13\n\nStudents (ID required): $13\n\nChildren (ages 6-12): $8\n\nChildren (ages 5 and under): FREE\n\nMembers: FREE",
+      "source_url": "https://revolutionaryspaces.org/visit/museum-admission",
+      "source_path": "subpages/revolutionary-spaces__museum-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Seniors (age 65+): $13",
+      "source_block": "Through July 1, 2026:\n\nAdults: $15\n\nSeniors (age 65+): $13\n\nStudents (ID required): $13\n\nChildren (ages 6-12): $8\n\nChildren (ages 5 and under): FREE\n\nMembers: FREE",
+      "source_url": "https://revolutionaryspaces.org/visit/museum-admission",
+      "source_path": "subpages/revolutionary-spaces__museum-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Children (ages 6-12): $8",
+      "source_block": "Through July 1, 2026:\n\nAdults: $15\n\nSeniors (age 65+): $13\n\nStudents (ID required): $13\n\nChildren (ages 6-12): $8\n\nChildren (ages 5 and under): FREE\n\nMembers: FREE",
+      "source_url": "https://revolutionaryspaces.org/visit/museum-admission",
+      "source_path": "subpages/revolutionary-spaces__museum-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Children (ages 5 and under): FREE",
+      "source_block": "Through July 1, 2026:\n\nAdults: $15\n\nSeniors (age 65+): $13\n\nStudents (ID required): $13\n\nChildren (ages 6-12): $8\n\nChildren (ages 5 and under): FREE\n\nMembers: FREE",
+      "source_url": "https://revolutionaryspaces.org/visit/museum-admission",
+      "source_path": "subpages/revolutionary-spaces__museum-admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": null,
+      "source_block": null,
+      "source_url": null,
+      "source_path": null,
+      "source_confidence": null
+    },
+    {
+      "audience": "member",
+      "source_phrase": "Members: FREE",
+      "source_block": "Through July 1, 2026:\n\nAdults: $15\n\nSeniors (age 65+): $13\n\nStudents (ID required): $13\n\nChildren (ages 6-12): $8\n\nChildren (ages 5 and under): FREE\n\nMembers: FREE",
+      "source_url": "https://revolutionaryspaces.org/visit/museum-admission",
+      "source_path": "subpages/revolutionary-spaces__museum-admission.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Space is limited—advance tickets are strongly recommended.",
+    "source_block": "ARRIVAL & ENTRY\n\nShows begin at 15 minutes past each hour, starting at 10:15 AM.\n\nSpace is limited—advance tickets are strongly recommended.\n\nPlease arrive at the Old South Meeting House 15-20 minutes before your showtime.\n\nLate entry is not permitted more than 5 minutes after the show begins.",
+    "source_url": "https://revolutionaryspaces.org/explore/exhibits/ruckus",
+    "source_path": "subpages/revolutionary-spaces__ruckus.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "Revolutionary Spaces is conveniently open seven days per week from 10:00 AM to 5:00 PM unless otherwise noted.",
+    "source_block": "Museum Hours\n\nRevolutionary Spaces is conveniently open seven days per week from 10:00 AM to 5:00 PM unless otherwise noted. Click the button below for up-to-date information on hours and building closures.",
+    "source_url": "https://revolutionaryspaces.org/visit/museum-admission",
+    "source_path": "subpages/revolutionary-spaces__museum-admission.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

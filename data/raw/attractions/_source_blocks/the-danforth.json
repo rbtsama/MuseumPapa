@@ -1,0 +1,15 @@
+{
+  "slug": "the-danforth",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/the-danforth.html", "subpages/the-danforth__learn-create.html", "subpages/the-danforth__meet-us.html", "subpages/the-danforth__visit.html"],
+  "prices": [
+    {"audience": "adult", "source_phrase": "Adults: $7.00", "source_block": "Museum Admission\n\nAdults: $7.00\nSeniors (65+) + FSU Alum: $6.00\nFramingham residents: $6.00\nHigh school + college students: $5.00", "source_url": "https://danforth.framingham.edu/visit", "source_path": "subpages/the-danforth__visit.html", "source_confidence": "high"},
+    {"audience": "senior", "source_phrase": "Seniors (65+) + FSU Alum: $6.00", "source_block": "Museum Admission\n\nAdults: $7.00\nSeniors (65+) + FSU Alum: $6.00\nFramingham residents: $6.00\nHigh school + college students: $5.00", "source_url": "https://danforth.framingham.edu/visit", "source_path": "subpages/the-danforth__visit.html", "source_confidence": "high"},
+    {"audience": "youth", "source_phrase": "High school + college students: $5.00", "source_block": "Museum Admission\n\nAdults: $7.00\nSeniors (65+) + FSU Alum: $6.00\nFramingham residents: $6.00\nHigh school + college students: $5.00", "source_url": "https://danforth.framingham.edu/visit", "source_path": "subpages/the-danforth__visit.html", "source_confidence": "high"},
+    {"audience": "child", "source_phrase": "Children (through 13): Free", "source_block": "admission fees\n\nAdults: $7.00\n\nSeniors (65+)+FSU Alum: $6.00\n\nChildren (through 13): Free\n\nFramingham residents: $6.00\n\nStudents High School + College: $5.00\n\nDanforth Members, NARM Members, FSU students, faculty and staff: Free", "source_url": "https://danforth.framingham.edu/", "source_path": "pages/the-danforth.html", "source_confidence": "high"},
+    {"audience": "member", "source_phrase": "Danforth Members, NARM Members, FSU students, faculty and staff: Free", "source_block": "admission fees\n\nAdults: $7.00\n\nSeniors (65+)+FSU Alum: $6.00\n\nChildren (through 13): Free\n\nFramingham residents: $6.00\n\nStudents High School + College: $5.00\n\nDanforth Members, NARM Members, FSU students, faculty and staff: Free", "source_url": "https://danforth.framingham.edu/", "source_path": "pages/the-danforth.html", "source_confidence": "high"}
+  ],
+  "reservation": null,
+  "hours": {"source_phrase": "Tuesday — Sunday 12:00pm — 5:00pm", "source_block": "Museum open today\n12:00pm — 5:00pm\n\nMonday\nClosed\n\nTuesday — Sunday\n12:00pm — 5:00pm\n\nThe Danforth Museum is closed all Mondays, exhibition rotations, and the following holidays: July 4, Easter Sunday, Thanksgiving and the following Friday, December 24 – January 1, reopening on January 2, unless it is a Monday.", "source_url": "https://danforth.framingham.edu/visit", "source_path": "subpages/the-danforth__visit.html", "source_confidence": "high"},
+  "visitor_eligibility": null
+}

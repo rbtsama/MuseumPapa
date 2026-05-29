@@ -1,0 +1,48 @@
+{
+  "slug": "massachusetts-state-police-museum-and-learning-center",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/massachusetts-state-police-museum-and-learning-center.html", "subpages/massachusetts-state-police-museum-and-learning-center__about.html", "subpages/massachusetts-state-police-museum-and-learning-center__visit.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "$5 for adults",
+      "source_block": "Museum Admission:\n\n$5 for adults\n\nFree for under age 16, Museum Members, and Military/Veterans",
+      "source_url": "https://www.mspmlc.org/visit",
+      "source_path": "subpages/massachusetts-state-police-museum-and-learning-center__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Free for under age 16, Museum Members, and Military/Veterans",
+      "source_block": "Museum Admission:\n\n$5 for adults\n\nFree for under age 16, Museum Members, and Military/Veterans",
+      "source_url": "https://www.mspmlc.org/visit",
+      "source_path": "subpages/massachusetts-state-police-museum-and-learning-center__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "Free for under age 16, Museum Members, and Military/Veterans",
+      "source_block": "Museum Admission:\n\n$5 for adults\n\nFree for under age 16, Museum Members, and Military/Veterans",
+      "source_url": "https://www.mspmlc.org/visit",
+      "source_path": "subpages/massachusetts-state-police-museum-and-learning-center__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "Free for under age 16, Museum Members, and Military/Veterans",
+      "source_block": "Museum Admission:\n\n$5 for adults\n\nFree for under age 16, Museum Members, and Military/Veterans",
+      "source_url": "https://www.mspmlc.org/visit",
+      "source_path": "subpages/massachusetts-state-police-museum-and-learning-center__visit.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": null,
+  "hours": {
+    "source_phrase": "Tuesday and Saturday 11am-4pm",
+    "source_block": "Museum Hours of Operation:\n\nTuesday and Saturday 11am-4pm",
+    "source_url": "https://www.mspmlc.org/visit",
+    "source_path": "subpages/massachusetts-state-police-museum-and-learning-center__visit.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

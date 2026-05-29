@@ -1,0 +1,21 @@
+{
+  "slug": "museum-of-african-american-history",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/museum-of-african-american-history.html", "subpages/museum-of-african-american-history__about-the-museum.html", "subpages/museum-of-african-american-history__locations.html", "subpages/museum-of-african-american-history__maah-stone-book-award.html"],
+  "prices": [],
+  "reservation": {
+    "source_phrase": "1 Reserve Your Ticket Choose a date, reserve your ticket, and learn something new every time you visit.",
+    "source_block": "Plan Your Visit\n\n1 Reserve Your Ticket\nChoose a date, reserve your ticket, and learn something new every time you visit.\n\nReserve a Ticket\n\n2 Experience the Museum (Virtually)\nExplore exhibits, sign-up for a customized talk or schedule a tour, and discover the stories of courageous Americans on a guided walking tour of the Museum’s Black Heritage Trails®.\n\n3 Leave Inspired & Empowered\nContinue the conversation and share the authentic stories of New Englanders of African descent, and those who found common cause with them, in their quest for freedom and justice.",
+    "source_url": "https://www.maah.org/",
+    "source_path": "pages/museum-of-african-american-history.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "10 am - 4 pm | Tues - Sun",
+    "source_block": "Boston Campus\n\n46 Joy Street Beacon Hill Boston, MA\n\n617.725.0022\n10 am - 4 pm | Tues - Sun\nExplore Boston Campus Get Directions\n\nNantucket Campus\n\n29 York Street Five Corners Nantucket, MA\n\n617.725.0022 ext 440\n10 am - 4 pm | Mon - Sat\nExplore Nantucket Campus Get Directions",
+    "source_url": "https://www.maah.org/locations",
+    "source_path": "subpages/museum-of-african-american-history__locations.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "maplewood-day-camp",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/maplewood-day-camp.html", "subpages/maplewood-day-camp__dates-and-rates.html", "subpages/maplewood-day-camp__school-year.html", "subpages/maplewood-day-camp__summer-camp.html"],
+  "prices": [
+    {
+      "audience": "child",
+      "source_phrase": "8 weeks 5,765 $5,615",
+      "source_block": "Grades K-7 & CIT\n\nFor kindergarten : Entering Kindergarten September 2026. Time: 9:00 am-4:00 pm. 5-Day: Monday-Friday\n\nSession Dates K-7th CIT: 8th-9th\n8 weeks  5,765  $5,615\n7 weeks  $5,285  $5,145\n6 weeks  $4,705  $4,615\n5 weeks  $3,950  $3,845\n4 weeks  $3,195  $3,180\n3 weeks  $2,495  $2,485\n2 weeks  $1,680  $1,675\nWEEK 9  $795  $795",
+      "source_url": "https://www.maplewoodyearround.com/summer-camp/dates-and-rates",
+      "source_path": "subpages/maplewood-day-camp__dates-and-rates.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "8 weeks 2-Day: $2,735 3-Day: $4,105 5-Day: $5,765",
+      "source_block": "Preschool & Kindergarten\n\nFor: children at least 3 years of age and fully potty trained. Time: 9:00 am - 4:00 pm. Please note: The Kindergarten is 5-Day only (2 and 3 day options are for preschool-age children).\n\nSessions 2-Day (preschool only) Tuesday & Thursday; 3-Day (preschool only) Monday, Wednesday, Friday; 5-Day (K. & preschool) Monday to Friday\n8 weeks  2-Day: $2,735  3-Day: $4,105  5-Day: $5,765\n7 weeks  2-Day: $2,390  3-Day: $3,590  5-Day: $5,285\n6 weeks  2-Day: $2,055  3-Day: $3,085  5-Day: $4,705\n5 weeks  2-Day: $1,715  3-Day: $2,570  5-Day: $3,950\n4 weeks  2-Day: $1,380  3-Day: $2,055  5-Day: $3,195\n3 weeks  2-Day: $1,030  3-Day: $1,545  5-Day: $2,495\n2 Weeks  2-Day: $690  3-Day: $1,035  5-Day: $1,680",
+      "source_url": "https://www.maplewoodyearround.com/summer-camp/dates-and-rates",
+      "source_path": "subpages/maplewood-day-camp__dates-and-rates.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Once application is submitted our team will review the application, enroll your camper, and charge the $400 deposit.",
+    "source_block": "Step 2 Complete Camper Application Form\nThis online form will guide you through providing all the info needed. You will also be asked to review the financial portion of the application form. Once you are ready, you can submit the form.\n\nStep 3 Application Review & Approval\nOnce application is submitted our team will review the application, enroll your camper, and charge the $400 deposit. If for some reason there is not availability then the parent will receive a call to review and discuss other options.",
+    "source_url": "https://www.maplewoodyearround.com/summer-camp",
+    "source_path": "subpages/maplewood-day-camp__summer-camp.html",
+    "source_confidence": "high"
+  },
+  "hours": {
+    "source_phrase": "Summer 2026 will start on Monday , June 22nd , and ends on Friday , August 14th .",
+    "source_block": "What are the dates and hours for Summer Camp 2026?\n\nSummer 2026 will start on Monday , June 22nd , and ends on Friday , August 14th .\nThe buses pull into the camp between 8:55 and 9:10 .\nRound-up , which is our morning all-camp activity runs from 9:15 -to 9:30.\nFirst group activity beginning at 9:30 .\nThe buses leave at 3:40 pm .",
+    "source_url": "https://www.maplewoodyearround.com/summer-camp",
+    "source_path": "subpages/maplewood-day-camp__summer-camp.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

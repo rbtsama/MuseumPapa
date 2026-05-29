@@ -1,0 +1,77 @@
+{
+  "slug": "naismith-memorial-basketball-hall-of-fame",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": [
+    "pages/naismith-memorial-basketball-hall-of-fame.html",
+    "subpages/naismith-memorial-basketball-hall-of-fame__hours-and-pricing.html",
+    "subpages/naismith-memorial-basketball-hall-of-fame__plan-your-visit.html",
+    "subpages/naismith-memorial-basketball-hall-of-fame__rendered.html",
+    "subpages/naismith-memorial-basketball-hall-of-fame__tickets.html",
+    "subpages/naismith-memorial-basketball-hall-of-fame__visit.html"
+  ],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adults $34",
+      "source_block": "Ticket Pricing\n\nAdults\n\n$34\n\nYouth (5-12)\n\n$20\n\nSeniors (65+)\n\n$25\n\nStudents (13+)\n\n$25\n\nPrices may vary based on ticket type. Children under 4 are free! Students must show current high school or college ID at the ticket booth.",
+      "source_url": "https://www.hoophall.com/visit/tickets/hours-and-pricing",
+      "source_path": "subpages/naismith-memorial-basketball-hall-of-fame__hours-and-pricing.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Seniors (65+) $25",
+      "source_block": "Ticket Pricing\n\nAdults\n\n$34\n\nYouth (5-12)\n\n$20\n\nSeniors (65+)\n\n$25\n\nStudents (13+)\n\n$25\n\nPrices may vary based on ticket type. Children under 4 are free! Students must show current high school or college ID at the ticket booth.",
+      "source_url": "https://www.hoophall.com/visit/tickets/hours-and-pricing",
+      "source_path": "subpages/naismith-memorial-basketball-hall-of-fame__hours-and-pricing.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Youth (5-12) $20",
+      "source_block": "Ticket Pricing\n\nAdults\n\n$34\n\nYouth (5-12)\n\n$20\n\nSeniors (65+)\n\n$25\n\nStudents (13+)\n\n$25\n\nPrices may vary based on ticket type. Children under 4 are free! Students must show current high school or college ID at the ticket booth.",
+      "source_url": "https://www.hoophall.com/visit/tickets/hours-and-pricing",
+      "source_path": "subpages/naismith-memorial-basketball-hall-of-fame__hours-and-pricing.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Children under 4 are free!",
+      "source_block": "Ticket Pricing\n\nAdults\n\n$34\n\nYouth (5-12)\n\n$20\n\nSeniors (65+)\n\n$25\n\nStudents (13+)\n\n$25\n\nPrices may vary based on ticket type. Children under 4 are free! Students must show current high school or college ID at the ticket booth.",
+      "source_url": "https://www.hoophall.com/visit/tickets/hours-and-pricing",
+      "source_path": "subpages/naismith-memorial-basketball-hall-of-fame__hours-and-pricing.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "student",
+      "source_phrase": "Students (13+) $25",
+      "source_block": "Ticket Pricing\n\nAdults\n\n$34\n\nYouth (5-12)\n\n$20\n\nSeniors (65+)\n\n$25\n\nStudents (13+)\n\n$25\n\nPrices may vary based on ticket type. Children under 4 are free! Students must show current high school or college ID at the ticket booth.",
+      "source_url": "https://www.hoophall.com/visit/tickets/hours-and-pricing",
+      "source_path": "subpages/naismith-memorial-basketball-hall-of-fame__hours-and-pricing.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "Active & Career retired military personnel - FREE",
+      "source_block": "Military & First Responders\n\nActive & Career retired military personnel - FREE\n\nVeterans - $20\n\nFirst Responders  (Police, Fire, EMT, & Paramedics) $15\n\nAccompanied Adults – $24\n\nAccompanied Children (5 -12) – $16\n\nAccompanied Seniors/Students – $20\n\nMust present service identification card at the ticket booth",
+      "source_url": "https://www.hoophall.com/visit/tickets/hours-and-pricing",
+      "source_path": "subpages/naismith-memorial-basketball-hall-of-fame__hours-and-pricing.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Buy your tickets now to visit World's Finest Sports Museum.",
+    "source_block": "MUSEUM OPEN DAILY, 10AM-4PM. PLAN YOUR VISIT TODAY.\n\nGet Tickets\n\nBuy your tickets now to visit World's Finest Sports Museum.",
+    "source_url": "https://www.hoophall.com/",
+    "source_path": "pages/naismith-memorial-basketball-hall-of-fame.html",
+    "source_confidence": "low"
+  },
+  "hours": {
+    "source_phrase": "10am - 4pm OPEN DAILY",
+    "source_block": "Museum Hours\n\n10am - 4pm\n\nOPEN DAILY\n\nThe Hall of Fame may be closed certain holidays. Click below for special hours.\n\nHours of operation are subject to change. The Hall of Fame hosts many special events, which can close parts of the Museum.",
+    "source_url": "https://www.hoophall.com/visit/tickets/hours-and-pricing",
+    "source_path": "subpages/naismith-memorial-basketball-hall-of-fame__hours-and-pricing.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

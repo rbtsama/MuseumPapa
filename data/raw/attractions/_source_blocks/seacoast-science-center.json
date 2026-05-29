@@ -1,0 +1,62 @@
+{
+  "slug": "seacoast-science-center",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/seacoast-science-center.html", "subpages/seacoast-science-center__admission-hours.html", "subpages/seacoast-science-center__admission.html", "subpages/seacoast-science-center__daily-visitor-programs.html", "subpages/seacoast-science-center__info.html", "subpages/seacoast-science-center__plan-your-visit.html", "subpages/seacoast-science-center__visit.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Ages 12-Adult: $15",
+      "source_block": "Seacoast Science Center Admission\n\nSSC admission does not include the required Odiorne Point State Park fee . Membership includes free admission to SSC and OPSP.\n\nAges 12-Adult: $15\nSeniors (65+): $12.50\nActive Duty Military & Veterans (with ID): $12.50\nAges 3-11: $10\nAges 0-2: FREE\nMembers: FREE admission to SSC and OPSP!",
+      "source_url": "https://www.seacoastsciencecenter.org/visit/admission-hours",
+      "source_path": "subpages/seacoast-science-center__admission-hours.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Seniors (65+): $12.50",
+      "source_block": "Seacoast Science Center Admission\n\nSSC admission does not include the required Odiorne Point State Park fee . Membership includes free admission to SSC and OPSP.\n\nAges 12-Adult: $15\nSeniors (65+): $12.50\nActive Duty Military & Veterans (with ID): $12.50\nAges 3-11: $10\nAges 0-2: FREE\nMembers: FREE admission to SSC and OPSP!",
+      "source_url": "https://www.seacoastsciencecenter.org/visit/admission-hours",
+      "source_path": "subpages/seacoast-science-center__admission-hours.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Ages 3-11: $10",
+      "source_block": "Seacoast Science Center Admission\n\nSSC admission does not include the required Odiorne Point State Park fee . Membership includes free admission to SSC and OPSP.\n\nAges 12-Adult: $15\nSeniors (65+): $12.50\nActive Duty Military & Veterans (with ID): $12.50\nAges 3-11: $10\nAges 0-2: FREE\nMembers: FREE admission to SSC and OPSP!",
+      "source_url": "https://www.seacoastsciencecenter.org/visit/admission-hours",
+      "source_path": "subpages/seacoast-science-center__admission-hours.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "Active Duty Military & Veterans (with ID): $12.50",
+      "source_block": "Seacoast Science Center Admission\n\nSSC admission does not include the required Odiorne Point State Park fee . Membership includes free admission to SSC and OPSP.\n\nAges 12-Adult: $15\nSeniors (65+): $12.50\nActive Duty Military & Veterans (with ID): $12.50\nAges 3-11: $10\nAges 0-2: FREE\nMembers: FREE admission to SSC and OPSP!",
+      "source_url": "https://www.seacoastsciencecenter.org/visit/admission-hours",
+      "source_path": "subpages/seacoast-science-center__admission-hours.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "Members: FREE admission to SSC and OPSP!",
+      "source_block": "Seacoast Science Center Admission\n\nSSC admission does not include the required Odiorne Point State Park fee . Membership includes free admission to SSC and OPSP.\n\nAges 12-Adult: $15\nSeniors (65+): $12.50\nActive Duty Military & Veterans (with ID): $12.50\nAges 3-11: $10\nAges 0-2: FREE\nMembers: FREE admission to SSC and OPSP!",
+      "source_url": "https://www.seacoastsciencecenter.org/visit/admission-hours",
+      "source_path": "subpages/seacoast-science-center__admission-hours.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Advance tickets for general admission to SSC are available and recommended; walk-ins are subject to availability.",
+    "source_block": "We recommend you purchase tickets in advance to ensure entry. Walk-in visits to SSC are subject to availability.\n\nAbout Your Visit\n\nMembers should reserve tickets to visit SSC and OPSP in advance; member OPSP only visits, please also register in advance and show your membership card (digital or paper) at the Park gate.\nAdvance tickets for general admission to SSC are available and recommended; walk-ins are subject to availability.\nYou may visit the Park before or after visiting SSC, or anytime during its open hours on the date of your ticket.\nNon-members must pay an entry fee to Odiorne Point State Park (payable when purchasing SSC admission tickets online).\nWalk-in visits to Seacoast Science Center are subject to availability.",
+    "source_url": "https://www.seacoastsciencecenter.org/visit/admission-hours",
+    "source_path": "subpages/seacoast-science-center__admission-hours.html",
+    "source_confidence": "high"
+  },
+  "hours": {
+    "source_phrase": "Open Tuesday-Sunday, 10am-4pm (closed Monday)",
+    "source_block": "Hours\n\nOpen Tuesday-Sunday, 10am-4pm (closed Monday)\n\nWe recommend you purchase tickets in advance to ensure entry. Walk-in visits to SSC are subject to availability.\n\nPlease refer to the web calendar for a complete, monthly overview of the seasonal schedule and hours.",
+    "source_url": "https://www.seacoastsciencecenter.org/visit/admission-hours",
+    "source_path": "subpages/seacoast-science-center__admission-hours.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

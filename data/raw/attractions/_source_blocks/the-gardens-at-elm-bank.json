@@ -1,0 +1,70 @@
+{
+  "slug": "the-gardens-at-elm-bank",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/the-gardens-at-elm-bank.html", "subpages/the-gardens-at-elm-bank__about.html", "subpages/the-gardens-at-elm-bank__book-a-speaker.html", "subpages/the-gardens-at-elm-bank__visit.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "General Admission $14",
+      "source_block": "Standard garden admission is paid at the Gatehouse when you arrive. During special events and festivals, timed tickets are required. Rates below exclude special events, festivals and ticket add-ons.\n\nAdult\nYouth (3-17)\n\nGeneral Admission\n$14\n$5\n\nMHS Members\nFREE\nFREE\n\nEBT and WIC Card Max. 2 guests at discounted rate\n\n$5\nFREE\n\nKids 2 and under are FREE",
+      "source_url": "https://www.masshort.org/the-garden/visit",
+      "source_path": "subpages/the-gardens-at-elm-bank__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Youth (3-17) ... General Admission ... $5",
+      "source_block": "Standard garden admission is paid at the Gatehouse when you arrive. During special events and festivals, timed tickets are required. Rates below exclude special events, festivals and ticket add-ons.\n\nAdult\nYouth (3-17)\n\nGeneral Admission\n$14\n$5\n\nMHS Members\nFREE\nFREE\n\nEBT and WIC Card Max. 2 guests at discounted rate\n\n$5\nFREE\n\nKids 2 and under are FREE",
+      "source_url": "https://www.masshort.org/the-garden/visit",
+      "source_path": "subpages/the-gardens-at-elm-bank__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Kids 2 and under are FREE",
+      "source_block": "Standard garden admission is paid at the Gatehouse when you arrive. During special events and festivals, timed tickets are required. Rates below exclude special events, festivals and ticket add-ons.\n\nAdult\nYouth (3-17)\n\nGeneral Admission\n$14\n$5\n\nMHS Members\nFREE\nFREE\n\nEBT and WIC Card Max. 2 guests at discounted rate\n\n$5\nFREE\n\nKids 2 and under are FREE",
+      "source_url": "https://www.masshort.org/the-garden/visit",
+      "source_path": "subpages/the-gardens-at-elm-bank__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "MHS Members FREE FREE",
+      "source_block": "Standard garden admission is paid at the Gatehouse when you arrive. During special events and festivals, timed tickets are required. Rates below exclude special events, festivals and ticket add-ons.\n\nAdult\nYouth (3-17)\n\nGeneral Admission\n$14\n$5\n\nMHS Members\nFREE\nFREE\n\nEBT and WIC Card Max. 2 guests at discounted rate\n\n$5\nFREE\n\nKids 2 and under are FREE",
+      "source_url": "https://www.masshort.org/the-garden/visit",
+      "source_path": "subpages/the-gardens-at-elm-bank__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": null,
+      "source_block": null,
+      "source_url": null,
+      "source_path": null,
+      "source_confidence": null
+    },
+    {
+      "audience": "military",
+      "source_phrase": null,
+      "source_block": null,
+      "source_url": null,
+      "source_path": null,
+      "source_confidence": null
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Standard garden admission is paid at the Gatehouse when you arrive. During special events and festivals, timed tickets are required.",
+    "source_block": "Standard garden admission is paid at the Gatehouse when you arrive. During special events and festivals, timed tickets are required. Rates below exclude special events, festivals and ticket add-ons.",
+    "source_url": "https://www.masshort.org/the-garden/visit",
+    "source_path": "subpages/the-gardens-at-elm-bank__visit.html",
+    "source_confidence": "high"
+  },
+  "hours": {
+    "source_phrase": "Standard Garden Hours: Monday-Thursday 10am-7pm, last entry at 6:15pm; Friday-Sunday 10am-5pm, last entry at 4:15pm",
+    "source_block": "Garden Season\n\nApril 1 - November 24, 2026\n\nStandard Garden Hours:\n\nMonday-Thursday 10am-7pm, last entry at 6:15pm\n\nFriday-Sunday 10am-5pm, last entry at 4:15pm\n\nThe Garden closes early some days for private events. For today's hours, please refer to our On View Today section above.",
+    "source_url": "https://www.masshort.org/the-garden/visit",
+    "source_path": "subpages/the-gardens-at-elm-bank__visit.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

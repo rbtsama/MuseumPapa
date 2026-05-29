@@ -1,0 +1,70 @@
+{
+  "slug": "the-house-of-seven-gables",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/the-house-of-seven-gables.html", "subpages/the-house-of-seven-gables__grounds-pass.html", "subpages/the-house-of-seven-gables__group-tours.html", "subpages/the-house-of-seven-gables__rendered.html", "subpages/the-house-of-seven-gables__tickets.html", "subpages/the-house-of-seven-gables__visit.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Mansion Tour $26",
+      "source_block": "ADMISSION RATES & DISCOUNTS\nMansion Tour\n$26\nMansion Tour - Age 65+\n$21\nMansion Tour - Ages 5-12\n$18\nGrounds Pass (May 1-Sept 30)*\n$13",
+      "source_url": "https://www.7gables.org/tickets",
+      "source_path": "subpages/the-house-of-seven-gables__tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Mansion Tour - Age 65+ $21",
+      "source_block": "ADMISSION RATES & DISCOUNTS\nMansion Tour\n$26\nMansion Tour - Age 65+\n$21\nMansion Tour - Ages 5-12\n$18\nGrounds Pass (May 1-Sept 30)*\n$13",
+      "source_url": "https://www.7gables.org/tickets",
+      "source_path": "subpages/the-house-of-seven-gables__tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Mansion Tour - Ages 5-12 $18",
+      "source_block": "ADMISSION RATES & DISCOUNTS\nMansion Tour\n$26\nMansion Tour - Age 65+\n$21\nMansion Tour - Ages 5-12\n$18\nGrounds Pass (May 1-Sept 30)*\n$13",
+      "source_url": "https://www.7gables.org/tickets",
+      "source_path": "subpages/the-house-of-seven-gables__tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Children Under 5 FREE - accompanied by an adult",
+      "source_block": "Children Under 5\nFREE - accompanied by an adult\nGables Members\nFREE\nSalem Residents\nFREE - proof of residency required\nNARM Passholders\nFREE - must show card",
+      "source_url": "https://www.7gables.org/tickets",
+      "source_path": "subpages/the-house-of-seven-gables__tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "Military – Adult – $21.00",
+      "source_block": "DETAILED PRICING - MANSION TOUR PACKAGE (NOV-SEPT)\nAdult – $26.00\nChild (Age 5-12) – $18.00\nChild Under 5 – FREE\nSenior (65+) – $21.00\nFirst Responder/Teacher – $21.00\nCollege Student – $21.00\nMA Public College Student – Free\nMilitary – Adult – $21.00\nMilitary – Child (5-12) – $16.00\nSalem Resident – FREE, proof of residency required\nNARM/Museum Professional – FREE, must show card\nSNAP/WIC/EBT – FREE*\nAccessibility ticket – $13.00",
+      "source_url": "https://www.7gables.org/tickets",
+      "source_path": "subpages/the-house-of-seven-gables__tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "Gables Members FREE",
+      "source_block": "Children Under 5\nFREE - accompanied by an adult\nGables Members\nFREE\nSalem Residents\nFREE - proof of residency required\nNARM Passholders\nFREE - must show card",
+      "source_url": "https://www.7gables.org/tickets",
+      "source_path": "subpages/the-house-of-seven-gables__tickets.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Due to capacity restraints, we cannot accept late arrivals. Please plan to arrive 15 minutes before your tour to check in.",
+    "source_block": "VISITOR GUIDELINES\nYour purchase signifies that you read and agree to the following Visitor Guidelines:\nRescheduling: We do not have the staff resources to accommodate requests for rescheduling your tickets. Your date and time of ticket sale are final.\nAll sales final: Your date and time of ticket sale are final. Refunds and rescheduling are not available.\nOn-time arrival: Due to capacity restraints, we cannot accept late arrivals. Please plan to arrive 15 minutes before your tour to check in. No refunds will be offered for late arrivals.",
+    "source_url": "https://www.7gables.org/tickets",
+    "source_path": "subpages/the-house-of-seven-gables__tickets.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "Open daily, 10 A.M.-5 P.M.",
+    "source_block": "Open daily, 10 A.M.-5 P.M. • #1 Historical Home Tour in the U.S. by Newsweek",
+    "source_url": "https://www.7gables.org/",
+    "source_path": "pages/the-house-of-seven-gables.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

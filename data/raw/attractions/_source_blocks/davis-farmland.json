@@ -1,0 +1,76 @@
+{
+  "slug": "davis-farmland",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/davis-farmland.html", "subpages/davis-farmland__admission.html", "subpages/davis-farmland__cow-lendar-of-events.html", "subpages/davis-farmland__faqs-and-policies.html", "subpages/davis-farmland__hours-tickets.html", "subpages/davis-farmland__hours.html", "subpages/davis-farmland__plan-your-visit.html", "subpages/davis-farmland__rendered.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "General Admission (age 2-59) $28.95",
+      "source_block": "Spring Schedule\n\nMonday – Friday\n\nOpen 9:30-4 PM\nlast admission at 3 PM\n\nGeneral Admission (age 2-59) $28.95\nSeniors (60+) $25.95\n\nSaturday, Sunday & Memorial Day Mon. May 25\n\nOpen 9:30-5 PM\nlast admission at 4 PM\n\nGeneral Admission (age 2-59) $31.95\nSeniors (60+) $28.95",
+      "source_url": "https://davisfarmland.com/plan-your-visit/hours-tickets",
+      "source_path": "subpages/davis-farmland__hours-tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Seniors (60+) $25.95",
+      "source_block": "Spring Schedule\n\nMonday – Friday\n\nOpen 9:30-4 PM\nlast admission at 3 PM\n\nGeneral Admission (age 2-59) $28.95\nSeniors (60+) $25.95\n\nSaturday, Sunday & Memorial Day Mon. May 25\n\nOpen 9:30-5 PM\nlast admission at 4 PM\n\nGeneral Admission (age 2-59) $31.95\nSeniors (60+) $28.95",
+      "source_url": "https://davisfarmland.com/plan-your-visit/hours-tickets",
+      "source_path": "subpages/davis-farmland__hours-tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "General Admission (age 2-59) $28.95",
+      "source_block": "Admission includes more than 50 MOO-velous activities!\n\nEach ticket admits one person age two years or older.\n\nSpring Schedule\n\nMonday – Friday\n\nOpen 9:30-4 PM\nlast admission at 3 PM\n\nGeneral Admission (age 2-59) $28.95\nSeniors (60+) $25.95",
+      "source_url": "https://davisfarmland.com/plan-your-visit/hours-tickets",
+      "source_path": "subpages/davis-farmland__hours-tickets.html",
+      "source_confidence": "medium"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "General Admission (age 2-59) $28.95",
+      "source_block": "Admission includes more than 50 MOO-velous activities!\n\nEach ticket admits one person age two years or older.\n\nSpring Schedule\n\nMonday – Friday\n\nOpen 9:30-4 PM\nlast admission at 3 PM\n\nGeneral Admission (age 2-59) $28.95\nSeniors (60+) $25.95",
+      "source_url": "https://davisfarmland.com/plan-your-visit/hours-tickets",
+      "source_path": "subpages/davis-farmland__hours-tickets.html",
+      "source_confidence": "medium"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "At the Gate Only: Save $6 per ticket for up to 4 tickets! YOU MUST PRESENT YOUR PHYSICAL AAA CARD , MTA/ Military or Veteran’s CARD AT THE TIME OF ADMISSIONS.",
+      "source_block": "How to use AAA/MTA discount\n\nAt the Gate Only: Save $6 per ticket for up to 4 tickets! YOU MUST PRESENT YOUR PHYSICAL AAA CARD , MTA/ Military or Veteran’s CARD AT THE TIME OF ADMISSIONS.",
+      "source_url": "https://davisfarmland.com/plan-your-visit/hours-tickets",
+      "source_path": "subpages/davis-farmland__hours-tickets.html",
+      "source_confidence": "medium"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "Become a member! Apply your paid admission ticket to your membership within 7 days of visiting. One applicable admission can be applied per member.",
+      "source_block": "Apply your admission ticket to a Membership\n\nBecome a member! Apply your paid admission ticket to your membership within 7 days of visiting. One applicable admission can be applied per member.",
+      "source_url": "https://davisfarmland.com/plan-your-visit/hours-tickets",
+      "source_path": "subpages/davis-farmland__hours-tickets.html",
+      "source_confidence": "low"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "There’s a limited number of discount tickets available online — Tickets at the gate are always available.",
+    "source_block": "There’s a limited number of discount tickets available online — Tickets at the gate are always available.\n\nWe offer two types of general admission tickets. Those purchased at the gate, and those purchased online. Online tickets offer a discounted price.\n\nAll general admission tickets share the same farm entry. Only Farmland Members have an express entry.",
+    "source_url": "https://davisfarmland.com/plan-your-visit/hours-tickets",
+    "source_path": "subpages/davis-farmland__hours-tickets.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "Open Monday – Friday from 9:30-4 , Saturdays and Sundays from 9:30-5. Last admission one hour prior to closing.",
+    "source_block": "Our Spring Schedule:\nOpen Monday – Friday from 9:30-4 , Saturdays and Sundays from 9:30-5. Last admission one hour prior to closing.\n\nCome meet the babies, explore the farm, and kick off an unforgettable season with us!",
+    "source_url": "https://davisfarmland.com/plan-your-visit/hours-tickets",
+    "source_path": "subpages/davis-farmland__hours-tickets.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": {
+    "source_phrase": "Adults must be accompanied by at least one child 12 years or younger when visiting Davis Farmland.",
+    "source_block": "Any child age 12 years or younger is always warmly welcomed at Davis Farmland. Any adult who is accompanied by a child age 12 years or younger is also always welcomed. Over the years, we have received many requests for departure from this policy, but legally and logistically we are unable to make exceptions. Please understand that we have only two options: allow admission for everyone or restrict admission universally. As a Children’s Discovery Farm, we have chosen the latter in order to ensure the safety and comfort of our young guests.",
+    "source_url": "https://davisfarmland.com/plan-your-visit/hours-tickets",
+    "source_path": "subpages/davis-farmland__hours-tickets.html",
+    "source_confidence": "high"
+  }
+}

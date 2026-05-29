@@ -1,0 +1,56 @@
+{
+  "slug": "the-spellman-museum-of-stamps-and-postal-history",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/the-spellman-museum-of-stamps-and-postal-history.html", "subpages/the-spellman-museum-of-stamps-and-postal-history__about-us.html", "subpages/the-spellman-museum-of-stamps-and-postal-history__contact-us.html", "subpages/the-spellman-museum-of-stamps-and-postal-history__rendered.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adults: $8",
+      "source_block": "Admission\n\nAdults: $8\n\nSeniors: $5\n\nChildren (5-16): $3\n\nFamilies: $20 maximum",
+      "source_url": "https://spellmanmuseum.org/contact-us",
+      "source_path": "subpages/the-spellman-museum-of-stamps-and-postal-history__contact-us.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Seniors: $5",
+      "source_block": "Admission\n\nAdults: $8\n\nSeniors: $5\n\nChildren (5-16): $3\n\nFamilies: $20 maximum",
+      "source_url": "https://spellmanmuseum.org/contact-us",
+      "source_path": "subpages/the-spellman-museum-of-stamps-and-postal-history__contact-us.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Children (5-16): $3",
+      "source_block": "Admission\n\nAdults: $8\n\nSeniors: $5\n\nChildren (5-16): $3\n\nFamilies: $20 maximum",
+      "source_url": "https://spellmanmuseum.org/contact-us",
+      "source_path": "subpages/the-spellman-museum-of-stamps-and-postal-history__contact-us.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "DISCOUNTED Admission ($2 off Adult rate) for: -AAA and MTA members -American Philatelic Society members -Active duty and retired US military",
+      "source_block": "DISCOUNTED Admission ($2 off Adult rate) for:\n\n-AAA and MTA members -American Philatelic Society members -Active duty and retired US military",
+      "source_url": "https://spellmanmuseum.org/contact-us",
+      "source_path": "subpages/the-spellman-museum-of-stamps-and-postal-history__contact-us.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "FREE Admission for : -Spellman Museum members ( Become a member !)",
+      "source_block": "FREE Admission for : -Spellman Museum members ( Become a member !) -North American Reciprocal Museum members w/ card -Current Regis College students, faculty, and staff w/ ID card -EBT, WIC, and ConnectorCare cardholders ( MCC Card to Culture program )\n\nVisitors must present card for discount or free admission",
+      "source_url": "https://spellmanmuseum.org/contact-us",
+      "source_path": "subpages/the-spellman-museum-of-stamps-and-postal-history__contact-us.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": null,
+  "hours": {
+    "source_phrase": "Wed. to Fri.: 12PM to 5PM Saturday: 11AM to 4PM Sunday: 12PM to 4PM*",
+    "source_block": "hours\n\nWed. to Fri.: 12PM to 5PM Saturday: 11AM to 4PM Sunday: 12PM to 4PM*\n\n*The museum is closed on national holidays and Sundays from Memorial Day through Labor Day.",
+    "source_url": "https://spellmanmuseum.org/contact-us",
+    "source_path": "subpages/the-spellman-museum-of-stamps-and-postal-history__contact-us.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

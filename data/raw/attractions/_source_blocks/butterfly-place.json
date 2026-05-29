@@ -1,0 +1,70 @@
+{
+  "slug": "butterfly-place",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/butterfly-place.html", "subpages/butterfly-place__schedule.html", "subpages/butterfly-place__travel.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adults: $15.00",
+      "source_block": "Admission Prices\n\nAdults: $15.00\n\nSeniors (65+): $13.00\n\nChildren (3-12 years): $11.00\n\nChildren (2 and under): Free\n\nPrices are subject to change.",
+      "source_url": "https://www.butterflyplace-ma.com/schedule",
+      "source_path": "subpages/butterfly-place__schedule.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Seniors (65+): $13.00",
+      "source_block": "Admission Prices\n\nAdults: $15.00\n\nSeniors (65+): $13.00\n\nChildren (3-12 years): $11.00\n\nChildren (2 and under): Free\n\nPrices are subject to change.",
+      "source_url": "https://www.butterflyplace-ma.com/schedule",
+      "source_path": "subpages/butterfly-place__schedule.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Children (3-12 years): $11.00",
+      "source_block": "Admission Prices\n\nAdults: $15.00\n\nSeniors (65+): $13.00\n\nChildren (3-12 years): $11.00\n\nChildren (2 and under): Free\n\nPrices are subject to change.",
+      "source_url": "https://www.butterflyplace-ma.com/schedule",
+      "source_path": "subpages/butterfly-place__schedule.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Children (2 and under): Free",
+      "source_block": "Admission Prices\n\nAdults: $15.00\n\nSeniors (65+): $13.00\n\nChildren (3-12 years): $11.00\n\nChildren (2 and under): Free\n\nPrices are subject to change.",
+      "source_url": "https://www.butterflyplace-ma.com/schedule",
+      "source_path": "subpages/butterfly-place__schedule.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": null,
+      "source_block": null,
+      "source_url": null,
+      "source_path": null,
+      "source_confidence": null
+    },
+    {
+      "audience": "member",
+      "source_phrase": null,
+      "source_block": null,
+      "source_url": null,
+      "source_path": null,
+      "source_confidence": null
+    }
+  ],
+  "reservation": {
+    "source_phrase": "You do not need to purchase tickets ahead of time or make a reservation unless you have 15 or more people.",
+    "source_block": "You do not need to purchase tickets ahead of time or make a reservation unless you have 15 or more people. Ticket sales end at 3:30 PM, and no new customers will be admitted into the exhibits after 3:30 PM. We suggest you arrive no later than 3:00 PM.",
+    "source_url": "https://www.butterflyplace-ma.com/schedule",
+    "source_path": "subpages/butterfly-place__schedule.html",
+    "source_confidence": "high"
+  },
+  "hours": {
+    "source_phrase": "10:00 AM - 4:00 PM, from Valentine’s Day through Columbus Day.",
+    "source_block": "Hours of Operation\n\n10:00 AM - 4:00 PM, from Valentine’s Day through Columbus Day.\n\nYou do not need to purchase tickets ahead of time or make a reservation unless you have 15 or more people. Ticket sales end at 3:30 PM, and no new customers will be admitted into the exhibits after 3:30 PM. We suggest you arrive no later than 3:00 PM.",
+    "source_url": "https://www.butterflyplace-ma.com/schedule",
+    "source_path": "subpages/butterfly-place__schedule.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

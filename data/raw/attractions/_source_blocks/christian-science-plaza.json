@@ -1,0 +1,70 @@
+{
+  "slug": "christian-science-plaza",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/christian-science-plaza.html", "subpages/christian-science-plaza__books-and-more.html", "subpages/christian-science-plaza__how-do-you-see-the-world-experience.html", "subpages/christian-science-plaza__rendered.html", "subpages/christian-science-plaza__tickets.html", "subpages/christian-science-plaza__visit.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adults: $6.00 / Youth 0-17: Free",
+      "source_block": "Tickets\nAdults: $6.00 / Youth 0-17: Free\nIndividual ticket\nQuestions? Call 617-450-7224\nGroup tickets\nFor groups of 10 or more.\nGroup tour booking\nQuestions? Call 617-450-7330\nSee our list of available discounts",
+      "source_url": "https://www.christianscience.com/tickets",
+      "source_path": "subpages/christian-science-plaza__tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Adults: $6.00 / Youth 0-17: Free",
+      "source_block": "Tickets\nAdults: $6.00 / Youth 0-17: Free\nIndividual ticket\nQuestions? Call 617-450-7224\nGroup tickets\nFor groups of 10 or more.\nGroup tour booking\nQuestions? Call 617-450-7330\nSee our list of available discounts",
+      "source_url": "https://www.christianscience.com/tickets",
+      "source_path": "subpages/christian-science-plaza__tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Adults: $6.00 / Youth 0-17: Free",
+      "source_block": "Tickets\nAdults: $6.00 / Youth 0-17: Free\nIndividual ticket\nQuestions? Call 617-450-7224\nGroup tickets\nFor groups of 10 or more.\nGroup tour booking\nQuestions? Call 617-450-7330\nSee our list of available discounts",
+      "source_url": "https://www.christianscience.com/tickets",
+      "source_path": "subpages/christian-science-plaza__tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Senior (62+) $5 Reduced price with show of ID",
+      "source_block": "Senior (62+)\n\n$5\n\nReduced price with show of ID",
+      "source_url": "https://www.christianscience.com/tickets",
+      "source_path": "subpages/christian-science-plaza__tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "Military Free Free for active or retired military members with ID. For any country.",
+      "source_block": "Military\n\nFree\n\nFree for active or retired military members with ID. For any country.",
+      "source_url": "https://www.christianscience.com/tickets",
+      "source_path": "subpages/christian-science-plaza__tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": null,
+      "source_block": null,
+      "source_url": null,
+      "source_path": null,
+      "source_confidence": null
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Tickets are required to view the Mapparium globe. The last tour starts at 4:40 p.m. All other exhibits in the How Do You See the World? experience are free to the public.",
+    "source_block": "Mapparium TM globe tickets and visitor guidelines\n\nTickets are required to view the Mapparium globe. The last tour starts at 4:40 p.m. All other exhibits in the How Do You See the World? experience are free to the public.\n\nMapparium globe visitor terms:\n\nVisitors are allowed to take photographs and short-form videos inside the Mapparium exhibit at the end of the tour, for personal, non-commercial use and enjoyment (and for other limited uses described here ). You agree to follow the Photography and Short-form Video Policy below.\n\nVisitors under age 12 must be accompanied by an adult.\n\nAll visitors need a ticket, regardless of age.",
+    "source_url": "https://www.christianscience.com/tickets",
+    "source_path": "subpages/christian-science-plaza__tickets.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "Monday: 10 a.m.–5 p.m. Tuesday: 10 a.m.–5 p.m. Wednesday: 10 a.m.–5 p.m. Thursday: 10 a.m.–5 p.m. Friday: 10 a.m.–5 p.m. Saturday: 10 a.m.–5 p.m. Sunday: 11 a.m.–5 p.m.",
+    "source_block": "Hours\nMonday: 10 a.m.–5 p.m. Tuesday: 10 a.m.–5 p.m. Wednesday: 10 a.m.–5 p.m. Thursday: 10 a.m.–5 p.m. Friday: 10 a.m.–5 p.m. Saturday: 10 a.m.–5 p.m. Sunday: 11 a.m.–5 p.m.\n\nLocation\n210 Massachusetts Avenue  Boston, MA 02115",
+    "source_url": "https://www.christianscience.com/tickets",
+    "source_path": "subpages/christian-science-plaza__tickets.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

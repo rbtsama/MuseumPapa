@@ -1,0 +1,75 @@
+{
+  "slug": "charles-river-museum-of-industry-and-innovation",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": [
+    "pages/charles-river-museum-of-industry-and-innovation.html",
+    "subpages/charles-river-museum-of-industry-and-innovation__admission.html",
+    "subpages/charles-river-museum-of-industry-and-innovation__directions.html",
+    "subpages/charles-river-museum-of-industry-and-innovation__enhance-your-visit-were-now-on-bloomberg-connects.html"
+  ],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "$10.00 Adults (aged 18-64)",
+      "source_block": "$10.00 Adults (aged 18-64) — $5.00 Children and Teens (aged 6-17) College Students (with current ID) Seniors (65 and over) Active Duty Military Personnel — FREE Admission Museum Members & children aged 5 and under",
+      "source_url": "https://www.charlesrivermuseum.org/admission",
+      "source_path": "subpages/charles-river-museum-of-industry-and-innovation__admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "$5.00 ... Seniors (65 and over)",
+      "source_block": "$10.00 Adults (aged 18-64) — $5.00 Children and Teens (aged 6-17) College Students (with current ID) Seniors (65 and over) Active Duty Military Personnel — FREE Admission Museum Members & children aged 5 and under",
+      "source_url": "https://www.charlesrivermuseum.org/admission",
+      "source_path": "subpages/charles-river-museum-of-industry-and-innovation__admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "$5.00 Children and Teens (aged 6-17)",
+      "source_block": "$10.00 Adults (aged 18-64) — $5.00 Children and Teens (aged 6-17) College Students (with current ID) Seniors (65 and over) Active Duty Military Personnel — FREE Admission Museum Members & children aged 5 and under",
+      "source_url": "https://www.charlesrivermuseum.org/admission",
+      "source_path": "subpages/charles-river-museum-of-industry-and-innovation__admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "FREE Admission Museum Members & children aged 5 and under",
+      "source_block": "$10.00 Adults (aged 18-64) — $5.00 Children and Teens (aged 6-17) College Students (with current ID) Seniors (65 and over) Active Duty Military Personnel — FREE Admission Museum Members & children aged 5 and under",
+      "source_url": "https://www.charlesrivermuseum.org/admission",
+      "source_path": "subpages/charles-river-museum-of-industry-and-innovation__admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "$5.00 ... Active Duty Military Personnel",
+      "source_block": "$10.00 Adults (aged 18-64) — $5.00 Children and Teens (aged 6-17) College Students (with current ID) Seniors (65 and over) Active Duty Military Personnel — FREE Admission Museum Members & children aged 5 and under",
+      "source_url": "https://www.charlesrivermuseum.org/admission",
+      "source_path": "subpages/charles-river-museum-of-industry-and-innovation__admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "FREE Admission Museum Members & children aged 5 and under",
+      "source_block": "$10.00 Adults (aged 18-64) — $5.00 Children and Teens (aged 6-17) College Students (with current ID) Seniors (65 and over) Active Duty Military Personnel — FREE Admission Museum Members & children aged 5 and under",
+      "source_url": "https://www.charlesrivermuseum.org/admission",
+      "source_path": "subpages/charles-river-museum-of-industry-and-innovation__admission.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Tickets are also available at the door.",
+    "source_block": "Admission Fees\n\nBuy Tickets\n\nTickets are also available at the door.",
+    "source_url": "https://www.charlesrivermuseum.org/admission",
+    "source_path": "subpages/charles-river-museum-of-industry-and-innovation__admission.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "Wednesday - Friday: 10:00 AM - 3:00 PM Saturday: 10:00 AM - 2:30 PM final admission is 30 minutes before closing",
+    "source_block": "HOURS of OPERATION:\nWednesday - Friday: 10:00 AM - 3:00 PM Saturday: 10:00 AM - 2:30 PM final admission is 30 minutes before closing\nHours subject to change due to special and private events.\nClosed Thanksgiving, Christmas and New Year’s Day.",
+    "source_url": "https://www.charlesrivermuseum.org/admission",
+    "source_path": "subpages/charles-river-museum-of-industry-and-innovation__admission.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

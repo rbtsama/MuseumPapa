@@ -1,0 +1,13 @@
+{
+  "slug": "salem-witch-museum",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/salem-witch-museum.html", "subpages/salem-witch-museum__cost.html", "subpages/salem-witch-museum__hours.html", "subpages/salem-witch-museum__info.html", "subpages/salem-witch-museum__our-founding-mothers-and-fathers-2.html", "subpages/salem-witch-museum__rendered.html", "subpages/salem-witch-museum__visit.html"],
+  "prices": [
+    {"audience": "adult", "source_phrase": "Adult $19.00", "source_block": "Ticketing Information and Prices\n\nAdult\n\n$19.00\n\nSenior Citizen (62+)\n\n$17.50\n\nChildren (6-14)\n\n$16.00", "source_url": "https://salemwitchmuseum.com/cost", "source_path": "subpages/salem-witch-museum__cost.html", "source_confidence": "high"},
+    {"audience": "senior", "source_phrase": "Senior Citizen (62+) $17.50", "source_block": "Ticketing Information and Prices\n\nAdult\n\n$19.00\n\nSenior Citizen (62+)\n\n$17.50\n\nChildren (6-14)\n\n$16.00", "source_url": "https://salemwitchmuseum.com/cost", "source_path": "subpages/salem-witch-museum__cost.html", "source_confidence": "high"},
+    {"audience": "child", "source_phrase": "Children (6-14) $16.00", "source_block": "Ticketing Information and Prices\n\nAdult\n\n$19.00\n\nSenior Citizen (62+)\n\n$17.50\n\nChildren (6-14)\n\n$16.00", "source_url": "https://salemwitchmuseum.com/cost", "source_path": "subpages/salem-witch-museum__cost.html", "source_confidence": "high"}
+  ],
+  "reservation": {"source_phrase": "Tickets are sold in-person during our slower seasons, although the museum recommends purchasing online to secure admission.", "source_block": "Tickets are sold in-person during our slower seasons, although the museum recommends purchasing online to secure admission.\n\nTickets are sold online only in October and are available for purchase at 10:00PM for the following day .\n\nThe museum offers presentations every half-hour with a check-in time fifteen minutes listed fifteen minutes before the start. For example, the listed time of 9:45AM is the check-in time for the 10:00AM presentation. Please allow up to one hour for your visit.", "source_url": "https://salemwitchmuseum.com/cost", "source_path": "subpages/salem-witch-museum__cost.html", "source_confidence": "medium"},
+  "hours": {"source_phrase": "Year-Round 10AM-5PM", "source_block": "Hours\n\nYear-Round\n\n10AM-5PM\n\nJuly and August\n\n10AM-7PM\n\nOctober - Extended Hours", "source_url": "http://www.salemwitchmuseum.com/hours", "source_path": "subpages/salem-witch-museum__hours.html", "source_confidence": "high"},
+  "visitor_eligibility": null
+}

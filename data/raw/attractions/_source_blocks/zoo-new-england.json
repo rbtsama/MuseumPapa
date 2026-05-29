@@ -1,0 +1,54 @@
+{
+  "slug": "zoo-new-england",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/zoo-new-england.html", "subpages/zoo-new-england__buy-tickets-aspx.html", "subpages/zoo-new-england__buy-tickets.html", "subpages/zoo-new-england__rendered.html", "subpages/zoo-new-england__visit.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "With Plan Ahead Pricing, pick the day and time that works best for your budget.",
+      "source_block": "Buy Franklin Park Zoo Tickets\n\nWith Plan Ahead Pricing, pick the day and time that works best for your budget. The further in advance you purchase, the more you save! Tickets may also be purchased at our gates.",
+      "source_url": "http://www.zoonewengland.org/franklin-park-zoo/buy-tickets",
+      "source_path": "subpages/zoo-new-england__buy-tickets.html",
+      "source_confidence": "low"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Children under age two are free.",
+      "source_block": "How does online pricing work?\n\nWith Plan-Ahead Pricing, you can pick the date and time that works best with your schedule and budget. The further in advance you purchase tickets, the more you’re likely to save!\n\nChildren under age two are free.\n\nA $1.50 processing fee applies per ticket.",
+      "source_url": "http://www.zoonewengland.org/franklin-park-zoo/buy-tickets",
+      "source_path": "subpages/zoo-new-england__buy-tickets.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "All active military personnel and their dependents receive a 50% discount on general, daytime admission.",
+      "source_block": "Military:\n\nAll active military personnel and their dependents receive a 50% discount on general, daytime admission. Active military personnel also receive discounts on membership .",
+      "source_url": "http://www.zoonewengland.org/franklin-park-zoo/buy-tickets",
+      "source_path": "subpages/zoo-new-england__buy-tickets.html",
+      "source_confidence": "medium"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "Two Zoos for the price of one for a full year, discounts, exclusive previews, and much more!",
+      "source_block": "Become a Member!\n\nTwo Zoos for the price of one for a full year, discounts, exclusive previews, and much more! Check out the amazing perks of becoming a Zoo New England member!",
+      "source_url": "http://www.zoonewengland.org/visit",
+      "source_path": "subpages/zoo-new-england__visit.html",
+      "source_confidence": "low"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "To use the library discount, you must present the physical library ticket at the Zoo's admission booth. Reservations are not required for this discount.",
+    "source_block": "Library Passes\n\nTo use the library discount, you must present the physical library ticket at the Zoo's admission booth. Reservations are not required for this discount. Please note: we will not accept any confirmation emails; you must have the physical ticket. Check with your library about when to pick up the pass, as many libraries are closed on weekends. Library passes are good for daytime admission only.",
+    "source_url": "http://www.zoonewengland.org/franklin-park-zoo/buy-tickets",
+    "source_path": "subpages/zoo-new-england__buy-tickets.html",
+    "source_confidence": "high"
+  },
+  "hours": {
+    "source_phrase": "Today's Hours: 9am - 5pm",
+    "source_block": "Tickets & Membership\n\nPurchase tickets for either of our Zoos, or visit both Zoos for free all year long by becoming a member.\n\nToday's Hours: 9am - 5pm\n\nFPZ Visiting Information\nPurchase Tickets\n\nToday's Hours: 9am - 5pm\n\nSZ Visiting Information\nPurchase Tickets",
+    "source_url": "http://www.zoonewengland.org/visit",
+    "source_path": "subpages/zoo-new-england__visit.html",
+    "source_confidence": "medium"
+  },
+  "visitor_eligibility": null
+}

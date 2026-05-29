@@ -1,0 +1,70 @@
+{
+  "slug": "harvard-museum-of-natural-history",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/harvard-museum-of-natural-history.html", "subpages/harvard-museum-of-natural-history__about.html", "subpages/harvard-museum-of-natural-history__makers.html", "subpages/harvard-museum-of-natural-history__plan-your-visit.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adults: $15.00",
+      "source_block": "General admission gives access to all exhibits, including the Glass Flowers Gallery . Tickets can only be purchased at the admissions desk and the museum shop.\nThe museum is connected to the Peabody Museum of Archaeology & Ethnology , and admission to one museum admits you to both during regular hours.\nAdults: $15.00 Seniors (65+): $13.00\nHarvard ID Holders: Free +1 guest\nNon-Harvard students with ID: $10.00 Youth ages 3–18: $10.00 Youth under 3: Free Free for members",
+      "source_url": "https://hmnh.harvard.edu/plan-your-visit",
+      "source_path": "subpages/harvard-museum-of-natural-history__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Seniors (65+): $13.00",
+      "source_block": "General admission gives access to all exhibits, including the Glass Flowers Gallery . Tickets can only be purchased at the admissions desk and the museum shop.\nThe museum is connected to the Peabody Museum of Archaeology & Ethnology , and admission to one museum admits you to both during regular hours.\nAdults: $15.00 Seniors (65+): $13.00\nHarvard ID Holders: Free +1 guest\nNon-Harvard students with ID: $10.00 Youth ages 3–18: $10.00 Youth under 3: Free Free for members",
+      "source_url": "https://hmnh.harvard.edu/plan-your-visit",
+      "source_path": "subpages/harvard-museum-of-natural-history__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Youth ages 3–18: $10.00 Youth under 3: Free",
+      "source_block": "Harvard ID Holders: Free +1 guest\nNon-Harvard students with ID: $10.00 Youth ages 3–18: $10.00 Youth under 3: Free Free for members",
+      "source_url": "https://hmnh.harvard.edu/plan-your-visit",
+      "source_path": "subpages/harvard-museum-of-natural-history__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Youth under 3: Free",
+      "source_block": "Harvard ID Holders: Free +1 guest\nNon-Harvard students with ID: $10.00 Youth ages 3–18: $10.00 Youth under 3: Free Free for members",
+      "source_url": "https://hmnh.harvard.edu/plan-your-visit",
+      "source_path": "subpages/harvard-museum-of-natural-history__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "Free to active duty military with their families in collaboration with the National Endowment for the Arts Blue Star Museums Program.",
+      "source_block": "National Endowment for the Arts Blue Star Museums Program\nFree to active duty military with their families in collaboration with the National Endowment for the Arts Blue Star Museums Program. Year-round free admission is offered to the Peabody Museum and Harvard Museum of Natural History using the Blue Star Museums guidelines.",
+      "source_url": "https://hmnh.harvard.edu/plan-your-visit",
+      "source_path": "subpages/harvard-museum-of-natural-history__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": "Free for members",
+      "source_block": "Harvard ID Holders: Free +1 guest\nNon-Harvard students with ID: $10.00 Youth ages 3–18: $10.00 Youth under 3: Free Free for members",
+      "source_url": "https://hmnh.harvard.edu/plan-your-visit",
+      "source_path": "subpages/harvard-museum-of-natural-history__plan-your-visit.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "Tickets can only be purchased at the admissions desk and the museum shop.",
+    "source_block": "General Admission\nGeneral admission gives access to all exhibits, including the Glass Flowers Gallery . Tickets can only be purchased at the admissions desk and the museum shop.\nThe museum is connected to the Peabody Museum of Archaeology & Ethnology , and admission to one museum admits you to both during regular hours.",
+    "source_url": "https://hmnh.harvard.edu/plan-your-visit",
+    "source_path": "subpages/harvard-museum-of-natural-history__plan-your-visit.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "Open daily from 9:00 am to 5:00 pm",
+    "source_block": "Hours\nOpen daily from 9:00 am to 5:00 pm\nClosed the following days:\nWednesday, November 25, 2026 (day before Thanksgiving)\nThursday, November 26, 2026 (Thanksgiving Day)\nThursday, December 24, 2026 (Christmas Eve)\nFriday, December 25, 2026 (Christmas)\nSaturday, December 26, 2026\nSunday, December 27, 2026\nFriday, January 1, 2027 (New Year's Day)",
+    "source_url": "https://hmnh.harvard.edu/plan-your-visit",
+    "source_path": "subpages/harvard-museum-of-natural-history__plan-your-visit.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

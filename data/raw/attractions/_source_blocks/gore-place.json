@@ -1,0 +1,11 @@
+{
+  "slug": "gore-place",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/gore-place.html", "subpages/gore-place__directions-parking.html", "subpages/gore-place__prices-and-dates.html", "subpages/gore-place__rendered.html", "subpages/gore-place__visit.html"],
+  "prices": [
+    {"audience": "adult", "source_phrase": "You can visit the Gores' 1806 Mansion by guided tour. View tour schedules and admission fees at Mansion Tours .", "source_block": "Take a Mansion Tour\n\nYou can visit the Gores' 1806 Mansion by guided tour. View tour schedules and admission fees at Mansion Tours .", "source_url": "https://www.goreplace.org/visit", "source_path": "subpages/gore-place__visit.html", "source_confidence": "low"}
+  ],
+  "reservation": null,
+  "hours": {"source_phrase": "Our grounds are free and open to the public from dawn to dusk every day, unless there is a special event.", "source_block": "Our Grounds\n\nOur grounds are free and open to the public from dawn to dusk every day, unless there is a special event. Parking is free. No pet dogs, please. See our map here .", "source_url": "https://www.goreplace.org/visit", "source_path": "subpages/gore-place__visit.html", "source_confidence": "high"},
+  "visitor_eligibility": null
+}

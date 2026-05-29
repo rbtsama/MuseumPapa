@@ -1,0 +1,38 @@
+{
+  "slug": "hale-education",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/hale-education.html", "subpages/hale-education__about.html", "subpages/hale-education__mountain-biking.html", "subpages/hale-education__visit.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "SBDPs cost $15 per person, per day, up to a maximum of $50 per passenger vehicle.",
+      "source_block": "Available for purchase at South Beach, the South Beach Day Pass (SBDP) includes access to Hale’s South Entrance parking lots, our private beach with open swimming and boating, beach toys, picnic areas, playgrounds, restrooms, rinse stations, volleyball and basketball courts, canoes, kayaks, and more.\n\nSBDPs cost $15 per person, per day, up to a maximum of $50 per passenger vehicle. Passes are just $5 per person after 5 PM. South Beach is always free for babies and toddlers under the age of 2.",
+      "source_url": "https://hale.education/visit",
+      "source_path": "subpages/hale-education__visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "South Beach is always free for babies and toddlers under the age of 2.",
+      "source_block": "Available for purchase at South Beach, the South Beach Day Pass (SBDP) includes access to Hale’s South Entrance parking lots, our private beach with open swimming and boating, beach toys, picnic areas, playgrounds, restrooms, rinse stations, volleyball and basketball courts, canoes, kayaks, and more.\n\nSBDPs cost $15 per person, per day, up to a maximum of $50 per passenger vehicle. Passes are just $5 per person after 5 PM. South Beach is always free for babies and toddlers under the age of 2.",
+      "source_url": "https://hale.education/visit",
+      "source_path": "subpages/hale-education__visit.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "SBDPs are only available upon arrival, space permitting.",
+    "source_block": "SBDPs are only available upon arrival, space permitting. Hale’s South Entrance is located at Brué Way (next to 573 Dover Road, Westwood) . Please call ahead to check if the beach is already at capacity: 781-326-8985.",
+    "source_url": "https://hale.education/visit",
+    "source_path": "subpages/hale-education__visit.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "Access to the property via Hale’s main entrance at 80 Carby Street changes throughout the year.",
+    "source_block": "Access to the property via Hale’s main entrance at 80 Carby Street changes throughout the year. Hale hosts many programs during the summer, so for the safety of our campers, families, and staff members, vehicular entry is limited on weekdays during that time. Public restrooms are not available.\n\nDATES (2026) Open Time Close TIme\nJan. 1–March 7 8 AM 5 PM\nMarch 8–April 30 8 AM 7 PM\nMay 1–June 12 8 AM 8 PM\nJune 13–Aug. 23 (Weekdays) 4:30 PM 8 PM\nJune 13–Aug. 23 (Weekends) 8 AM 8 PM\nAug. 24–Sept. 30 8 AM 7 PM\nOct. 1–Dec. 31 8 AM 5 PM",
+    "source_url": "https://hale.education/visit",
+    "source_path": "subpages/hale-education__visit.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

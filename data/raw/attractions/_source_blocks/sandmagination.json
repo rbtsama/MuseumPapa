@@ -1,0 +1,38 @@
+{
+  "slug": "sandmagination",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/sandmagination.html", "subpages/sandmagination__about-us.html", "subpages/sandmagination__admission.html", "subpages/sandmagination__plan-your-visit.html", "subpages/sandmagination__rendered.html"],
+  "prices": [
+    {
+      "audience": "child",
+      "source_phrase": "Sandy Explorer (1-10 Years) 90 Minutes $18.00",
+      "source_block": "Admissions Overiew Waiver Required for All Pass Type Duration Price Sandy Explorer (1-10 Years) 90 Minutes $18.00 Little Starfish - w/Sibling (< 1 Year) 90 Minutes $0.00 Little Starfish - No Sibling (< 1 Year) 90 Minutes $5.00 First Adult in a Party 90 Minutes Free Additional Adults 90 Minutes $4.00 Additional Hour 60 Minutes $5.00 Therapists (attending with family) 90 Minutes Free",
+      "source_url": "https://sandmagination.com/admission",
+      "source_path": "subpages/sandmagination__admission.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "adult",
+      "source_phrase": "First Adult in a Party 90 Minutes Free",
+      "source_block": "All admissions include 1 adult for free for each Child! ... Pass Type Duration Price ... First Adult in a Party 90 Minutes Free Additional Adults 90 Minutes $4.00 Additional Hour 60 Minutes $5.00",
+      "source_url": "https://sandmagination.com/admission",
+      "source_path": "subpages/sandmagination__admission.html",
+      "source_confidence": "high"
+    }
+  ],
+  "reservation": {
+    "source_phrase": "NOTE: On inclement weather days, tickets must be purchased in advance.",
+    "source_block": "Hours 7 Days per Week: 9:00 AM - 6:00PM NOTE: On inclement weather days, tickets must be purchased in advance. Due to limited space, we cannot accommodate waiting inside or in the vestibule when we are at capacity. We are generally open every Holiday. Check our Calendar for Holiday Hours",
+    "source_url": "https://sandmagination.com/plan-your-visit",
+    "source_path": "subpages/sandmagination__plan-your-visit.html",
+    "source_confidence": "medium"
+  },
+  "hours": {
+    "source_phrase": "7 Days per Week: 9:00 AM - 6:00PM",
+    "source_block": "Hours 7 Days per Week: 9:00 AM - 6:00PM NOTE: On inclement weather days, tickets must be purchased in advance. Due to limited space, we cannot accommodate waiting inside or in the vestibule when we are at capacity. We are generally open every Holiday. Check our Calendar for Holiday Hours",
+    "source_url": "https://sandmagination.com/plan-your-visit",
+    "source_path": "subpages/sandmagination__plan-your-visit.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}

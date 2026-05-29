@@ -1,0 +1,70 @@
+{
+  "slug": "sandwich-glass-museum",
+  "extracted_at": "2026-05-29T00:00:00Z",
+  "sources_inspected": ["pages/sandwich-glass-museum.html", "subpages/sandwich-glass-museum__online-shop.html", "subpages/sandwich-glass-museum__plan-your-visit.html", "subpages/sandwich-glass-museum__visit.html"],
+  "prices": [
+    {
+      "audience": "adult",
+      "source_phrase": "Adult (age 15-64): $15",
+      "source_block": "Admission\n\nAdult (age 15-64): $15\nYouth (age 6-14): $5\nSenior 65+: $13\nChild (age 5 and under): Free\nActive Military: Free\nPlan on staying 60-90 minutes. Please note admission closes half an hour prior to posted museum closing time.",
+      "source_url": "https://sandwichglassmuseum.org/pages/plan-your-visit",
+      "source_path": "subpages/sandwich-glass-museum__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "senior",
+      "source_phrase": "Senior 65+: $13",
+      "source_block": "Admission\n\nAdult (age 15-64): $15\nYouth (age 6-14): $5\nSenior 65+: $13\nChild (age 5 and under): Free\nActive Military: Free\nPlan on staying 60-90 minutes. Please note admission closes half an hour prior to posted museum closing time.",
+      "source_url": "https://sandwichglassmuseum.org/pages/plan-your-visit",
+      "source_path": "subpages/sandwich-glass-museum__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "youth",
+      "source_phrase": "Youth (age 6-14): $5",
+      "source_block": "Admission\n\nAdult (age 15-64): $15\nYouth (age 6-14): $5\nSenior 65+: $13\nChild (age 5 and under): Free\nActive Military: Free\nPlan on staying 60-90 minutes. Please note admission closes half an hour prior to posted museum closing time.",
+      "source_url": "https://sandwichglassmuseum.org/pages/plan-your-visit",
+      "source_path": "subpages/sandwich-glass-museum__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "child",
+      "source_phrase": "Child (age 5 and under): Free",
+      "source_block": "Admission\n\nAdult (age 15-64): $15\nYouth (age 6-14): $5\nSenior 65+: $13\nChild (age 5 and under): Free\nActive Military: Free\nPlan on staying 60-90 minutes. Please note admission closes half an hour prior to posted museum closing time.",
+      "source_url": "https://sandwichglassmuseum.org/pages/plan-your-visit",
+      "source_path": "subpages/sandwich-glass-museum__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "military",
+      "source_phrase": "Active Military: Free",
+      "source_block": "Admission\n\nAdult (age 15-64): $15\nYouth (age 6-14): $5\nSenior 65+: $13\nChild (age 5 and under): Free\nActive Military: Free\nPlan on staying 60-90 minutes. Please note admission closes half an hour prior to posted museum closing time.",
+      "source_url": "https://sandwichglassmuseum.org/pages/plan-your-visit",
+      "source_path": "subpages/sandwich-glass-museum__plan-your-visit.html",
+      "source_confidence": "high"
+    },
+    {
+      "audience": "member",
+      "source_phrase": null,
+      "source_block": null,
+      "source_url": null,
+      "source_path": null,
+      "source_confidence": null
+    }
+  ],
+  "reservation": {
+    "source_phrase": "January: Closed The museum galleries will be open by appointment only in January 2026 as we repair our glass furnace.",
+    "source_block": "January: Closed\nThe museum galleries will be open by appointment only in January 2026 as we repair our glass furnace. Check our SGM Glass Academy page for glass classes in January!\n\nTake a Class!\n\nLive Glassblowing Demonstrations occur every hour on the hour.\n\nAdmission\n\nAdult (age 15-64): $15\nYouth (age 6-14): $5\nSenior 65+: $13\nChild (age 5 and under): Free\nActive Military: Free\nPlan on staying 60-90 minutes. Please note admission closes half an hour prior to posted museum closing time.",
+    "source_url": "https://sandwichglassmuseum.org/pages/plan-your-visit",
+    "source_path": "subpages/sandwich-glass-museum__plan-your-visit.html",
+    "source_confidence": "low"
+  },
+  "hours": {
+    "source_phrase": "Summer Hours April 1 - December 30 Open every day 9:30 – 5",
+    "source_block": "Summer Hours\nApril 1 - December 30\nOpen every day 9:30 – 5\nOPEN\nFriday after Thanksgiving\nCLOSED\nThanksgiving Day\nChristmas Eve\nChristmas Day\nNew Year's Eve\n\nWinter Hours\nFebruary 1 - March 30\nMonday – Tuesday: Closed Wednesday – Sunday: 9:30 – 4\nOPEN\nWashington's Birthday\nCLOSED\nEaster Sunday\n\nJanuary: Closed\nThe museum galleries will be open by appointment only in January 2026 as we repair our glass furnace. Check our SGM Glass Academy page for glass classes in January!",
+    "source_url": "https://sandwichglassmuseum.org/pages/plan-your-visit",
+    "source_path": "subpages/sandwich-glass-museum__plan-your-visit.html",
+    "source_confidence": "high"
+  },
+  "visitor_eligibility": null
+}
