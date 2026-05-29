@@ -1,0 +1,512 @@
+<!-- source_url: https://www.readingpl.org/get-a-library-card/ -->
+<!DOCTYPE html>
+<html lang="en">
+	<!--Page served by ip-172-31-19-6.us-east-2.compute.internal, 1437 () -->
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+		<title>Get a Library Card - Reading Public Library</title>
+		<link rel="shortcut icon" href="/images/favicon/readingpl/RPL_favicon_Blue.png">
+		<link rel="icon" href="/images/favicon/readingpl/RPL_favicon_Blue.png">
+		<meta name="client" content="readingpl">
+		<meta name="location" content="<!--location-->">
+		<meta name="apiserver" content="https://api.communico.co">
+		<meta name="region" content="us">
+		<meta name="location-id" content="<!--location_id-->">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://kit.fontawesome.com/1086c1c18e.js" crossorigin="anonymous"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+</style>
+
+
+		<link href="/css/animate.css" rel="stylesheet" type="text/css">
+<link href="//cdn.libnet.info/css/rome/2.1.14/rome.min.css" rel="stylesheet" type="text/css" integrity="sha512-/XkQhXweIRQd7p8YCmwaBLyUwfTdUg8t7ad6POQK1cOTCEMu7A/wlexnDQhfc1smusfg2V4m3ztSpDby+lXo7Q==" crossorigin="anonymous">
+<link href="//cdn.libnet.info/css/twitter-bootstrap/3.4.1/bootstrap.min.css" rel="stylesheet" type="text/css" integrity="sha512-Dop/vW3iOtayerlYAqCgkVr2aTr2ErwwTYOvRFUpzl2VhCMJyjQF0Q9TjUXIo6JhuM/3i0vVEt2e/7QQmnHQqw==" crossorigin="anonymous">
+<link href="/css/amfont.css" rel="stylesheet" type="text/css">
+<link href="//cdn.libnet.info/css/qtip2/3.0.3/jquery.qtip.css" rel="stylesheet" type="text/css" integrity="sha512-+eoiXLTtw/fDauKv6qMjHuO5pCnqJLz83WWIEpCF+fCAoIkK4UNy04CtJbNZ73Oo/WeNom5FwKie4NVorKjomA==" crossorigin="anonymous">
+<link href="//cdn.libnet.info/css/jqueryui/1.14.1/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" integrity="sha512-hQrNVZL4jUAHcqbF25UiEFZ/NGCbhAWI9aVAUfI5H+sG17C1Lc4Tm4HpU5A69E1jquKr3f0LnxD3uzfoCj/koQ==" crossorigin="anonymous">
+<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+<link href="/css/lib/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css">
+<link href="//cdn.libnet.info/css/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css" rel="stylesheet" type="text/css" integrity="sha512-6qkvBbDyl5TDJtNJiC8foyEVuB6gxMBkrKy67XpqnIDxyvLLPJzmTjAj1dRJfNdmXWqD10VbJoeN4pOQqDwvRA==" crossorigin="anonymous">
+<link href="//cdn.libnet.info/css/bootstrap-datetimepicker/4.17.37/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" integrity="sha512-WWc9iSr5tHo+AliwUnAQN1RfGK9AnpiOFbmboA0A0VJeooe69YR2rLgHw13KxF1bOSLmke+SNnLWxmZd8RTESQ==" crossorigin="anonymous">
+<link href="/css/lib/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css">
+<link href="//cdn.libnet.info/css/bootstrap-multiselect/0.9.13/bootstrap-multiselect.css" rel="stylesheet" type="text/css" integrity="sha512-S1l1mfpQS+XBPSgS8cCqElwRx24IcAYrwxLJg6WaFkG9J8bfNuilkoqkGny/rz7jS7Bo03qnzeBtE9LElt/fDg==" crossorigin="anonymous">
+<link href="//cdn.libnet.info/css/noUiSlider/14.0.2/nouislider.min.css" rel="stylesheet" type="text/css" integrity="sha512-bqcVAZj+T8z4LwjUVg2KqRRaBRvZcrH3pqKzMrDBJc01Fkcd9ioJsX5eYx6x7GDQSISa6GaFj1b3lEWgoa+hxw==" crossorigin="anonymous">
+<link href="/css/shared.css" rel="stylesheet" type="text/css">
+<link href="/css/anywhere.css?version=2.36.5" rel="stylesheet" type="text/css">
+
+		<script type="text/javascript" src="//cdn.libnet.info/js/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/jquery-ui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/babel-polyfill/7.12.1/polyfill.min.js" integrity="sha512-uzOpZ74myvXTYZ+mXUsPhDF+/iL/n32GDxdryI2SJronkEyKC8FBFRLiBQ7l7U/PTYebDbgTtbqTa6/vGtU23A==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/bluebird/3.7.2/bluebird.min.js" integrity="sha512-TFp7JOp8so/oHJrngLI0kn9diZrc0YDr1NrGj1YbzbvSBdGfligjYVRp1xtqlmNCPWpx4xJDhiWSGgUYvqCbBg==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/fetch/2.0.4/fetch.min.js" integrity="sha512-IsoGB9P1Kjw962zrslxT91OfoKkAnlBfQDdh5HwFvOxwJ8xGV6MuDeAli4TkEMiUqhJVkvpxJBsIS14bSERgxA==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/moment.js/2.30.1/moment.js" integrity="sha512-3CuraBvy05nIgcoXjVN33mACRyI89ydVHg7y/HMN9wcTVbHeur0SeBzweSd/rxySapO7Tmfu68+JlKkLTnDFNg==" crossorigin="anonymous"></script>
+<style>
+				#header iframe[data-widgetid="22670"] {
+  height: 248px !important; 
+}
+
+.amnp-segment::after {
+	 line-height: 1.42857143;
+}
+
+/*========== Custom Styles ==========*/
+
+.custom1 .amev-event-list {
+    height: 278px;
+}
+
+.custom2 .amev-event-title {
+  font-size: 14px;
+}
+
+.custom3 .amr-links {
+  font-size: 1.0em;
+}
+
+			</style>
+<script>
+				$(document).ready(function(){
+					try{
+						/*! Assabet iFrame Resizer (iframeSizer.min.js ) - v2.8.6 - 2015-04-06
+ *  Desc: Force cross domain iframes to size to content.
+ *  Requires: iframeResizer.contentWindow.min.js to be loaded into the target frame.
+ *  Copyright: (c) 2015 David J. Bradshaw - dave@bradshaw.net
+ *  License: MIT
+ */
+
+!function(){"use strict";function a(a,b,c){"addEventListener"in window?a.addEventListener(b,c,!1):"attachEvent"in window&&a.attachEvent("on"+b,c)}function b(){var a,b=["moz","webkit","o","ms"];for(a=0;a<b.length&&!A;a+=1)A=window[b[a]+"RequestAnimationFrame"];A||e(" RequestAnimationFrame not supported")}function c(){var a="Host page";return window.top!==window.self&&(a=window.parentIFrame?window.parentIFrame.getId():"Nested host page"),a}function d(a){return x+"["+c()+"]"+a}function e(a){u&&"object"==typeof window.console&&console.log(d(a))}function f(a){"object"==typeof window.console&&console.warn(d(a))}function g(a){function b(){function a(){k(F),i(),C[G].resizedCallback(F)}g("Height"),g("Width"),l(a,F,"resetPage")}function c(a){var b=a.id;e(" Removing iFrame: "+b),a.parentNode.removeChild(a),C[b].closedCallback(b),delete C[b],e(" --")}function d(){var a=E.substr(y).split(":");return{iframe:document.getElementById(a[0]),id:a[0],height:a[1],width:a[2],type:a[3]}}function g(a){var b=Number(C[G]["max"+a]),c=Number(C[G]["min"+a]),d=a.toLowerCase(),f=Number(F[d]);if(c>b)throw new Error("Value for min"+a+" can not be greater than max"+a);e(" Checking "+d+" is in range "+c+"-"+b),c>f&&(f=c,e(" Set "+d+" to min value")),f>b&&(f=b,e(" Set "+d+" to max value")),F[d]=""+f}function m(){var b=a.origin,c=F.iframe.src.split("/").slice(0,3).join("/");if(C[G].checkOrigin&&(e(" Checking connection is from: "+c),""+b!="null"&&b!==c))throw new Error("Unexpected message received from: "+b+" for "+F.iframe.id+". Message was: "+a.data+". This error can be disabled by adding the checkOrigin: false option.");return!0}function n(){return x===(""+E).substr(0,y)}function o(){var a=F.type in{"true":1,"false":1};return a&&e(" Ignoring init message from meta parent page"),a}function p(a){return E.substr(E.indexOf(":")+w+a)}function q(a){e(" MessageCallback passed: {iframe: "+F.iframe.id+", message: "+a+"}"),C[G].messageCallback({iframe:F.iframe,message:JSON.parse(a)}),e(" --")}function r(){return null===F.iframe?(f(" IFrame ("+F.id+") not found"),!1):!0}function s(a){var b=a.getBoundingClientRect();return h(),{x:parseInt(b.left,10)+parseInt(z.x,10),y:parseInt(b.top,10)+parseInt(z.y,10)}}function v(a){function b(){z=g,A(),e(" --")}function c(){return{x:Number(F.width)+d.x,y:Number(F.height)+d.y}}var d=a?s(F.iframe):{x:0,y:0},g=c();e(" Reposition requested from iFrame (offset x:"+d.x+" y:"+d.y+")"),window.top!==window.self?window.parentIFrame?a?parentIFrame.scrollToOffset(g.x,g.y):parentIFrame.scrollTo(F.width,F.height):f(" Unable to scroll to requested position, window.parentIFrame not found"):b()}function A(){!1!==C[G].scrollCallback(z)&&i()}function B(a){function b(a){var b=s(a);e(" Moving to in page link (#"+c+") at x: "+b.x+" y: "+b.y),z={x:b.x,y:b.y},A(),e(" --")}var c=a.split("#")[1]||"",d=decodeURIComponent(c),f=document.getElementById(d)||document.getElementsByName(d)[0];window.top!==window.self?window.parentIFrame?parentIFrame.moveToAnchor(c):e(" In page link #"+c+" not found and window.parentIFrame not found"):f?b(f):e(" In page link #"+c+" not found")}function D(){switch(F.type){case"close":c(F.iframe);break;case"message":q(p(6));break;case"scrollTo":v(!1);break;case"scrollToOffset":v(!0);break;case"inPageLink":B(p(9));break;case"reset":j(F);break;case"init":b(),C[G].initCallback(F.iframe);break;default:b()}}var E=a.data,F={},G=null;n()&&(F=d(),G=F.id,u=C[G].log,e(" Received: "+E),!o()&&r()&&m()&&(D(),t=!1))}function h(){null===z&&(z={x:void 0!==window.pageXOffset?window.pageXOffset:document.documentElement.scrollLeft,y:void 0!==window.pageYOffset?window.pageYOffset:document.documentElement.scrollTop},e(" Get page position: "+z.x+","+z.y))}function i(){null!==z&&(window.scrollTo(z.x,z.y),e(" Set page position: "+z.x+","+z.y),z=null)}function j(a){function b(){k(a),m("reset","reset",a.iframe,a.id)}e(" Size reset requested by "+("init"===a.type?"host page":"iFrame")),h(),l(b,a,"init")}function k(a){function b(b){a.iframe.style[b]=a[b]+"px",e(" IFrame ("+c+") "+b+" set to "+a[b]+"px")}var c=a.iframe.id;C[c].sizeHeight&&b("height"),C[c].sizeWidth&&b("width")}function l(a,b,c){c!==b.type&&A?(e(" Requesting animation frame"),A(a)):a()}function m(a,b,c,d){c&&c.contentWindow?(e("["+a+"] Sending msg to iframe ("+b+")"),c.contentWindow.postMessage(x+b,"*")):(f("["+a+"] IFrame not found"),C[d]&&delete C[d])}function n(b){function c(){function a(a){1/0!==C[o][a]&&0!==C[o][a]&&(n.style[a]=C[o][a]+"px",e(" Set "+a+" = "+C[o][a]+"px"))}a("maxHeight"),a("minHeight"),a("maxWidth"),a("minWidth")}function d(a){return""===a&&(n.id=a="iFrameResizer"+s++,u=(b||{}).log,e(" Added missing iframe ID: "+a+" ("+n.src+")")),a}function f(){e(" IFrame scrolling "+(C[o].scrolling?"enabled":"disabled")+" for "+o),n.style.overflow=!1===C[o].scrolling?"hidden":"auto",n.scrolling=!1===C[o].scrolling?"no":"yes"}function g(){("number"==typeof C[o].bodyMargin||"0"===C[o].bodyMargin)&&(C[o].bodyMarginV1=C[o].bodyMargin,C[o].bodyMargin=""+C[o].bodyMargin+"px")}function h(){return o+":"+C[o].bodyMarginV1+":"+C[o].sizeWidth+":"+C[o].log+":"+C[o].interval+":"+C[o].enablePublicMethods+":"+C[o].autoResize+":"+C[o].bodyMargin+":"+C[o].heightCalculationMethod+":"+C[o].bodyBackground+":"+C[o].bodyPadding+":"+C[o].tolerance+":"+C[o].enableInPageLinks+":"+C[o].resizeFrom}function i(b){a(n,"load",function(){var a=t;m("iFrame.onload",b,n),!a&&C[o].heightCalculationMethod in B&&j({iframe:n,height:0,width:0,type:"init"})}),m("init",b,n)}function k(a){if("object"!=typeof a)throw new TypeError("Options is not an object.")}function l(a){a=a||{},C[o]={},k(a);for(var b in E)E.hasOwnProperty(b)&&(C[o][b]=a.hasOwnProperty(b)?a[b]:E[b]);u=C[o].log}var n=this,o=d(n.id);l(b),f(),c(),g(),i(h())}function o(a,b){null===D&&(D=setTimeout(function(){D=null,a()},b))}function p(){o(function(){for(var a in C)"parent"===C[a].resizeFrom&&m("Window resize","resize",document.getElementById(a),a)},66)}function q(){function a(a,b){if(!a.tagName)throw new TypeError("Object is not a valid DOM element");if("IFRAME"!==a.tagName.toUpperCase())throw new TypeError("Expected <IFRAME> tag, found <"+a.tagName+">.");n.call(a,b)}return function(b,c){switch(typeof c){case"undefined":case"string":Array.prototype.forEach.call(document.querySelectorAll(c||"iframe"),function(c){a(c,b)});break;case"object":a(c,b);break;default:throw new TypeError("Unexpected data type ("+typeof c+").")}}}function r(a){a.fn.iFrameResize=function(a){return this.filter("iframe").each(function(b,c){n.call(c,a)}).end()}}var s=0,t=!0,u=!1,v="message",w=v.length,x="[iFrameSizer]",y=x.length,z=null,A=window.requestAnimationFrame,B={max:1,scroll:1,bodyScroll:1,documentElementScroll:1},C={},D=null,E={autoResize:!0,bodyBackground:null,bodyMargin:null,bodyMarginV1:8,bodyPadding:null,checkOrigin:!0,enableInPageLinks:!1,enablePublicMethods:!1,heightCalculationMethod:"offset",interval:32,log:!1,maxHeight:1/0,maxWidth:1/0,minHeight:0,minWidth:0,resizeFrom:"parent",scrolling:!1,sizeHeight:!0,sizeWidth:!1,tolerance:0,closedCallback:function(){},initCallback:function(){},messageCallback:function(){},resizedCallback:function(){},scrollCallback:function(){return!0}};b(),a(window,"message",g),a(window,"resize",p),window.jQuery&&r(jQuery),"function"==typeof define&&define.amd?define([],q):"object"==typeof module&&"object"==typeof module.exports?module.exports=q():window.iFrameResize=q()}();
+
+if(window.addEventListener){
+    window.addEventListener('load', function() {
+        if (window.document.getElementsByName('ai_iframe').length) {
+            window.document.getElementsByName('ai_iframe')[0].onload = function(){window.top.scrollTo(0,window.document.getElementsByName('ai_iframe')[0].offsetTop);};
+        }
+    });
+}
+
+$('.header__search-form').on('submit', function(e) {
+  e.preventDefault();
+  const term = $('#header input#term').val();
+  if ($('input#source-catalog').is(':checked')) {window.open('https://reading.noblenet.org/Union/Search?searchSource=local&basicType=Keyword&lookfor=' + term, '_blank');
+  } else {
+    window.open('/sitesearch?term=' + term, '_self');
+  }
+});
+
+
+const date = new Date().toISOString().split('T')[0];
+fetch('https://api.communico.co/v1/readingpl/opening-hours/4058/' + date + '/1').then(function(response) {
+  response.json().then(function(json) {
+    $('.today-open-hours').append(json[date].open.replace('AM', ' AM').replace('PM', ' PM') + ' - ' + json[date].close.replace('AM', ' AM').replace('PM', ' PM'));
+  });
+});
+
+const newTabLinks = [
+  '/suggest-a-purchase-15709',
+  'docs.google.com/forms/d/e/1FAIpQLSfqfQ2nWKAVBXxrr-dPLjrwi6siEW-dimto-fdqwHujoydznA/viewform',
+  'my.nicheacademy.com/readingpl',
+  'proxy10.noblenet.org/login?url=https://landing.brainfuse.com/index.asp?u=main.reading.ma.brainfuse.com',
+  'proxy10.noblenet.org/login?url=http://connect.mangolanguages.com/reading/start',
+  'proxy10.noblenet.org/login?url=https://www.learningexpresshub.com/learningexpresslibrary/libraryhome?AuthToken=D5FF7809-D3D5-45B7-8E76-1B73336E0EE3',
+  'readingma.gov/695/Office-of-Equity-and-Social-Justice'
+];
+newTabLinks.forEach(i => { document.querySelector(`#header a[href$="${i}"]`).setAttribute('target', '_blank'); });
+
+					} catch (e) {
+						if (console) console.log('custom js error', e);
+					}
+				});
+				</script><script>
+			window.addEventListener('WebComponentsReady', function() {
+
+				var components = [
+					'coAddress',
+					'coBirthdate'
+				];
+
+				for(var c=0;c<components.length;c++) {
+					var link = document.createElement('link');
+					link.setAttribute('rel', 'import');
+					link.setAttribute('href', '/js/es6/components/' + components[c] + '/' + components[c] + '.html');
+					document.getElementsByTagName('head')[0].appendChild(link);
+				}
+			});
+		</script><link id="customstyle" href="/css/style/1688" rel="stylesheet" type="text/css">
+
+		<!--[if lt IE 9]>
+			<script src="/js/lib/html5.js"></script>
+			<script src="/js/lib/respond.min.js"></script>
+		<![endif]-->
+		<!--[if lte IE 9]>
+			<script
+				type="text/javascript"
+				src="//cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.3/jquery.xdomainrequest.min.js"
+			></script>
+		<![endif]-->
+		<!--custom_js_includes-->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-B7EHTY6QXY"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-B7EHTY6QXY');
+</script>
+	</head>
+
+	<body>
+		<a class="skip-main" href="#body" onclick="return skipToMainContent('#body');">Skip to main content</a>
+
+		<header>
+			<div id="header">
+				
+<div class="amh-row row" id="ida8val"><div class="amh-block amh-widget col-md-12" data-block-type="widget" id="idE1wne"><div class="amh-content" style="margin: 0px; padding: 0px; border-width: 0px; border-style: solid;"><div class="dynamic-widget" data-frame="false" data-fill-with="21777" data-location="">
+			<a class="widget-skip-link" href="#skip_target_21777">Skip Connect app banner widget</a>
+			<div data-widgetid="21777" id="21777"><div style="background: #3B3D47;">
+<p style="text-align: center; font-size: 18px; color: #fff; margin: 0; padding: 10px;">Traffic Alert: Middlesex Ave will be closed between Lowell St and Deering St for paving from June 2-3, 7 am to 3 pm. The library parking lot will remain open during this time.</p>
+</div></div>
+			<div id="skip_target_21777" class="widget-skip-target" tabindex="-1"></div>
+			</div></div></div></div>
+<div class="amh-row row" style="max-width: none; background-color: rgb(21, 42, 86);" id="id6xqN2"><div class="amh-block amh-container col-md-12" data-block-type="container" id="idl0vX8"><div class="amh-content"><div class="amh-row row" id="id2lP22">
+<div class="amh-block amh-text col-md-6" data-block-type="text" id="idHPx68"><div class="amh-content" style="margin: 0px; padding: 0px; position: relative; border-width: 0px; border-style: solid;" id="mce_25" spellcheck="false"><div class="home-logo"><a href="https://readingpl.org/" style=""><img src="https://static.libnet.info/frontend-images/editor/readingpl/December_2024_Assets/RPL_banner_white-blue__1_.png"></a></div></div></div>
+<div class="amh-block amh-container col-md-6" data-block-type="container" id="idwWW40"><div class="amh-content">
+<div class="amh-row row" id="idlRoXJ"><div class="amh-block amh-container col-md-12" data-block-type="container" id="idyoTkh"><div class="amh-content"><div class="amh-row row" id="idzJO7N">
+<div class="amh-block amh-text col-md-4" data-block-type="text" id="idg7DhA"><div class="amh-content mce-content-body" style="margin: 0px; padding: 0px; position: relative; border-width: 0px; border-style: solid;" id="mce_26" spellcheck="false"><div class="today-open-hours">
+<i class="fa-solid fa-clock"></i><br>
+</div></div></div>
+<div class="amh-block amh-text col-md-4" data-block-type="text" id="idYWSoN"><div class="amh-content mce-content-body" style="margin: 0px; padding: 0px; position: relative; border-width: 0px; border-style: solid;" id="mce_27" spellcheck="false"><p><a href="https://reading.noblenet.org/MyAccount/Home" target="_blank" rel="noopener" style="cursor: default;" data-mce-href="https://reading.noblenet.org/MyAccount/Home" data-mce-style="cursor: default;" data-mce-selected="inline-boundary"><i class="fa-solid fa-user"></i><span>﻿Account Login</span></a></p></div></div>
+<div class="amh-block amh-text col-md-4" data-block-type="text" id="id6VBOe"><div class="amh-content mce-content-body" style="margin: 0px; padding: 0px; position: relative; border-width: 0px; border-style: solid;" id="mce_28" spellcheck="false"><p><a href="/get-a-library-card-15613" data-mce-href="/get-a-library-card-15613" data-mce-selected="inline-boundary" style="cursor: default;" data-mce-style="cursor: default;"><i class="fa-solid fa-id-card"></i><span>Get a Library Card</span></a></p></div></div>
+</div></div></div></div>
+<div class="amh-row row" id="idTLQHE"><div class="amh-block amh-widget col-md-12" data-block-type="widget" id="idFT0Lb"><div class="amh-content" style="margin: 0px; padding: 0px; border-width: 0px; border-style: solid;"><div class="dynamic-widget" data-frame="false" data-fill-with="22670" data-location="">
+			<a class="widget-skip-link" href="#skip_target_22670">Skip Search widget in header widget</a>
+			<div data-widgetid="22670" id="22670"><form class="header__search-form search-form" method="GET" action="/sitesearch/">
+<label class="search-form__title title" for="term">Search</label><fieldset class="search-form__fieldset">
+<input class="search-form__input input input--toggle input--toggle-radio" type="radio" name="source" value="catalog" id="source-catalog" checked> <label class="search-form__text text text--label" for="source-catalog">Catalog</label> <input class="search-form__input input input--toggle input--toggle-radio" type="radio" name="source" value="website" id="source-website"> <label class="search-form__text text text--label" for="source-website">Website</label>
+</fieldset>
+<div class="search-form__input__container">
+<input class="search-form__input input input--search" type="search" name="term" value="" id="term" placeholder="Search"> <button class="search-form__button button" type="submit" aria-label="Submit"> <i class="fa fa-search" aria-hidden="true" role="presentation"></i> <span class="__visuallyhidden">Submit</span> </button>
+</div>
+</form></div>
+			<div id="skip_target_22670" class="widget-skip-target" tabindex="-1"></div>
+			</div></div></div></div>
+</div></div>
+</div></div></div></div>
+<div class="amh-row row" style="background-color: rgb(52, 122, 173); max-width: none;" id="idjrG0c"><div class="amh-block amh-text col-md-12" data-block-type="text" id="idru3zF"><div class="amh-content" style="margin: 0px; padding: 0px; position: relative; border-width: 0px; border-style: solid;" id="mce_0" spellcheck="false"><p><div id='navbar' class='content'><div class="navbar yamm navbar-top"><div class="navbar-header visible-xs nav-mobile"><span tabindex="0" class="burger-button" data-toggle="collapse" data-target="#navbar-collapse-grid" class="navbar-toggle" aria-label="Toggle menu" role="button"><i class="fa fa-bars"></i></span><script type='text/javascript'>
+				$(function(){
+					$('.burger-button').on('keyup', function(event) {
+						event.preventDefault();
+						var isSpace = event.type === 'keyup' && (event.which === 32 || event.keyCode === 32 || event.key === ' ');
+                		var isEnter = event.type === 'keyup' && (event.which === 13 || event.keyCode === 13 || event.key === 'Enter');
+
+						if (isSpace || isEnter) {
+							var nav = $('.navbar-collapse');
+							nav.toggleClass('in');
+							var isExpanded = nav.hasClass('in');
+							$(this).attr('aria-expanded', isExpanded);
+
+							nav.css('height', (isExpanded ? '' : '1px'));
+						}
+					})
+				});
+			</script><div class="navbar-brand">Menu</div></div><div id="navbar-collapse-grid" class="navbar-collapse collapse"><ul class="nav navbar-nav"><li class="dropdown"><li><a href="/home-page-14869">Hompage</a></li><li class="menuspace"></li><li class="dropdown"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle js-activated noselect">Browse & Borrow <i class="fa fa-sort-desc"></i></a><ul class="dropdown-menu"><li><div class="yamm-content"><ul class="list-unstyled nav-list"><li><p><span class="heading4">Collections</span></p></li><ul class="list-unstyled nav-list"><li><a href="/whats-new-at-reading-public-library-15020">What's New</a></li><li><a href="/downloads--streaming-15606">Downloads & Streaming</a></li><li><a href="/library-of-things">Library of Things</a></li><li><a href="/museum-passes-15680">Museum Passes</a></li></ul></ul><ul class="list-unstyled nav-list"><li><p><span class="heading4">Recommendations</span></p></li><ul class="list-unstyled nav-list"><li><a href="/what-to-read-next-15682">What to Read</a></li><li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfqfQ2nWKAVBXxrr-dPLjrwi6siEW-dimto-fdqwHujoydznA/viewform">Book Detectives - Adult/Teen</a></li><li><a href="/suggest-a-purchase-15709">Suggest a Purchase</a></li></ul></ul><ul class="list-unstyled nav-list"><li><p><span class="heading4">Borrowing Information</span></p></li><ul class="list-unstyled nav-list"><li><a href="/get-a-library-card-15613">Get a Library Card</a></li><li><a href="/homebound-delivery-15683">Home Delivery</a></li></ul></ul><ul class="list-unstyled nav-list"></ul></div></li></ul></li><li class="menuspace"></li><li class="dropdown"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle js-activated noselect">Research & Learn <i class="fa fa-sort-desc"></i></a><ul class="dropdown-menu"><li><div class="yamm-content"><ul class="list-unstyled nav-list"><li><p><span class="heading4">Resources</span></p></li><ul class="list-unstyled nav-list"><li><a href="/online-resources-15073">All Online Resources</a></li><li><a href="/career--college-14982">College & Career</a></li><li><a href="/health--wellness-resources-14984">Health & Wellness</a></li><li><a href="/lh--genealogy-15694">Local History & Genealogy</a></li><li><a href="/rooted-in-reading-14870">Rooted in Reading</a></li></ul></ul><ul class="list-unstyled nav-list"><li><p><span class="heading4">Online Learning</span></p></li><ul class="list-unstyled nav-list"><li><a href="https://proxy10.noblenet.org/login?url=https://landing.brainfuse.com/index.asp?u=main.reading.ma.brainfuse.com">Brainfuse</a></li><li><a href="https://search.ebscohost.com/login.aspx?authtype=ip,cookie,cpid&custid=rdg&groupid=main&site=crcro&return=y">Consumer Reports</a></li><li><a href="https://proxy10.noblenet.org/login?url=https://www.learningexpresshub.com/learningexpresslibrary/libraryhome?AuthToken=D5FF7809-D3D5-45B7-8E76-1B73336E0EE3">Learning Express</a></li><li><a href="https://proxy10.noblenet.org/login?url=http://connect.mangolanguages.com/reading/start">Mango Languages</a></li><li><a href="https://my.nicheacademy.com/readingpl">RPL Academy</a></li></ul></ul><ul class="list-unstyled nav-list"></ul></div></li></ul></li><li class="menuspace"></li><li class="dropdown"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle js-activated noselect">Use & Explore <i class="fa fa-sort-desc"></i></a><ul class="dropdown-menu"><li><div class="yamm-content"><ul class="list-unstyled nav-list"><li><p><span class="heading4">Technology</span></p></li><ul class="list-unstyled nav-list"><li><a href="/public-computers-15614">Computers & Wifi</a></li><li><a href="/print-fax-scan-copy-15681">Copy, Fax, Scan & Print</a></li><li><a href="/rpl-app-15685">RPL App</a></li><li><a href="/virutal-meeting-room-reservation-15690">Virtual Meeting Room Space</a></li></ul></ul><ul class="list-unstyled nav-list"><li><p><span class="heading4">Services</span></p></li><ul class="list-unstyled nav-list"><li><a href="/accessibility-services-16089">Accessibility Services</a></li><li><a href="/library-hours-16314">Library Hours</a></li><li><a href="/meeting-room-rentals-15689">Meeting Room Rentals</a></li><li><a href="/stay-connected-15978">Stay Connected</a></li><li><a href="/tax-information-17338">Tax Information</a></li></ul></ul><ul class="list-unstyled nav-list"><li><p><span class="heading4">Other</span></p></li><ul class="list-unstyled nav-list"><li><a href="/busy-bee-volunteers-16206">Busy Bees Volunteer Program</a></li><li><a href="/policies-16090">Library Policies</a></li><li><a href="/library-terrace-project-16173">Libary Terrace Project</a></li><li><a href="https://www.readingma.gov/695/Office-of-Equity-and-Social-Justice">Office of Equity</a></li><li><a href="/support-rpl-15979">Support RPL</a></li></ul></ul><ul class="list-unstyled nav-list"></ul></div></li></ul></li><li class="menuspace"></li><li class="dropdown"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle js-activated noselect">Events <i class="fa fa-sort-desc"></i></a><ul class="dropdown-menu"><li><div class="yamm-content"><ul class="list-unstyled nav-list"><li><p><span class="heading4">By Audience</span></p></li><ul class="list-unstyled nav-list"><li><a href="https://readingpl.libnet.info/events?n=30&r=days">All Events</a></li><li><a href="https://readingpl.libnet.info/events?n=30&a=Adults&r=days">Adults</a></li><li><a href="https://readingpl.libnet.info/events?n=30&a=Children&r=days">Children</a></li><li><a href="https://readingpl.libnet.info/events?n=30&a=Teens&r=days">Teens</a></li></ul></ul><ul class="list-unstyled nav-list"><li><p><span class="heading4">By Category</span></p></li><ul class="list-unstyled nav-list"><li><a href="https://libraryc.org/readingpl">Friends Speaker Series</a></li><li><a href="https://readingpl.libnet.info/events?n=30&t=Book+Group&r=days">Book Groups</a></li><li><a href="https://readingpl.libnet.info/events?n=30&t=Classes+%26+Workshops&r=days">Classes & Workshops</a></li><li><a href="https://readingpl.libnet.info/events?n=30&t=Meet+Ups&r=days">Meetups</a></li><li><a href="https://readingpl.libnet.info/events?n=30&t=Performances+%26+Special+Events&r=days">Performances & Special Events</a></li></ul><ul class="list-unstyled nav-list"><li><a href="https://www.readingma.gov/calendar.aspx?CID=108&showPastEvents=false">Town DEI Calendar</a></li><li><a href="/summer-reading-16164">Summer Reading</a></li><li><a href="/foundation-writing-17582">RPL Foundation Writing Contest 2026</a></li></ul></ul><ul class="list-unstyled nav-list"></ul></div></li></ul></li><li class="menuspace"></li><li class="dropdown"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle js-activated noselect">Youth <i class="fa fa-sort-desc"></i></a><ul class="dropdown-menu"><li><div class="yamm-content"><ul class="list-unstyled nav-list"><li><p><span class="heading4">Children</span></p></li><ul class="list-unstyled nav-list"><li><a href="/childrens-16160">Welcome to the Children's Room</a></li><li><a href="https://readingpl.libnet.info/events?r=days&n=30&a=Children">Children's Events</a></li><li><a href="/for-babies-and-toddlers-15698">Babies & Toddlers</a></li><li><a href="/digikids-15699">Digikids: Online Resources</a></li><li><a href="/homework-help-for-kids-15700">Homework Help for Kids</a></li></ul><ul class="list-unstyled nav-list"><li><a href="/library-card-design-contest-17496">Library Card Design Contest</a></li><li><a href="/recommended-reads-for-kids-15701">Recommended Reads for Kids</a></li></ul></ul><ul class="list-unstyled nav-list"><li><p><span class="heading4">Tweens</span></p></li><ul class="list-unstyled nav-list"><li><a href="/tween-page-15693">Welcome to the Tween Space</a></li></ul></ul><ul class="list-unstyled nav-list"><li><p><span class="heading4">Teens</span></p></li><ul class="list-unstyled nav-list"><li><a href="/teens-15673">Welcome to the Teen Room</a></li><li><a href="https://readingpl.libnet.info/events?r=days&n=30&a=teens">Teen Events</a></li><li><a href="/homework-help-for-teens-15706">Homework Help for Teens</a></li><li><a href="/recommended-reads-for-teens-15707">Recommended Reads for Teens</a></li></ul></ul><ul class="list-unstyled nav-list"></ul></div></li></ul></li><li class="menuspace"></li><li class="dropdown"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle js-activated noselect">How Do I...? <i class="fa fa-sort-desc"></i></a><ul class="dropdown-menu"><li><div class="yamm-content"><ul class="list-unstyled nav-list"><li><p><span class="heading4">Apply For</span></p></li><ul class="list-unstyled nav-list"><li><a href="/get-a-library-card-15613">Library Card</a></li></ul></ul><ul class="list-unstyled nav-list"><li><p><span class="heading4">Stay Connected</span></p></li><ul class="list-unstyled nav-list"><li><a href="http://eepurl.com/bwpOT">Subscribe Library News</a></li><li><a href="https://readingpl.us2.list-manage.com/subscribe?u=b7696077cf1a679261debbe72&id=3af8ee4ca4">Subscribe Children's News</a></li><li><a href="https://wowbrary.org/signupcustomize.aspx?l=9218">Subscribe What's New</a></li><li><a href="https://chat.mosio.com/par/chat/new_chat/rplinfo">Ask-a-Library Chat</a></li></ul><ul class="list-unstyled nav-list"><li><a href="/sms:+17817057117">Text-a-Librarian (mobile)</a></li></ul></ul><ul class="list-unstyled nav-list"><li><p><span class="heading4">Submit</span></p></li><ul class="list-unstyled nav-list"><li><a href="/community-outreach-request-16784">Request Outreach</a></li><li><a href="/suggest-a-program-16151">Suggest a Program</a></li><li><a href="/suggest-a-purchase-15709">Suggest a Purchase</a></li></ul></ul><ul class="list-unstyled nav-list"><li><p><span class="heading4">Support the Library</span></p></li><ul class="list-unstyled nav-list"><li><a href="https://www.friendsofreadingpl.org/">Friends of RPL</a></li><li><a href="https://readingplfoundation.org/rf/">RPL Foundation</a></li></ul></ul><ul class="list-unstyled nav-list"></ul></div></li></ul></li><li class="menuspace"></li></div></ul></div></div></p></div></div></div>
+<div class="amh-row row" id="idh21Hv"><div class="amh-block amh-widget col-md-12" data-block-type="widget" id="id8fP6U"><div class="amh-content" style="margin: 5px; padding: 5px; border-width: 0px; border-style: solid;"><div class="dynamic-widget" data-frame="false" data-fill-with="" data-location=""></div></div></div></div>
+
+				<div id="htmlheader">
+					<!--html_header-->
+				</div>
+			</div>
+		</header>
+		<div class="content"></div>
+		<div id="accessibility" class="content">
+			<div class="accessibility-topbar">
+				<button class="button" type="button" onclick="return openAccessibility();">Close accessibility options</button>
+			</div>
+
+			<div class="fluid-container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-sm-6">
+								<ul class="accessibility-icons">
+									<li>
+									<button type="button" aria-label="Set font size to standard" onclick="
+											document.body.style.fontSize = '100%';
+											return false;
+										"><img border="0" src="/images/accessibility/accessibility-a-small-icon.svg" alt="" aria-hidden="true"></button>
+									</li>
+									<li>
+									<button type="button" aria-label="Set font size to large" onclick="
+											document.body.style.fontSize = '140%';
+											return false;
+										"><img border="0" src="/images/accessibility/accessibility-a-medium-icon.svg" alt="" aria-hidden="true"></button>
+									</li>
+									<li>
+									<button type="button" aria-label="Set font size to extra large" onclick="
+											document.body.style.fontSize = '160%';
+											return false;
+										"><img border="0" src="/images/accessibility/accessibility-a-large-icon.svg" alt="" aria-hidden="true"></button>
+									</li>
+									<li>
+									<button type="button" onclick="
+											document.body.style.fontSize = '100%';
+											return false;
+										">Reset to standard size</button>
+									</li>
+								</ul>
+							</div>
+							<div class="col-sm-6">
+								<div class="accessibility-text">
+									<span class="accessibility-heading">Font size options</span>
+									<div>
+										Increase or decrease the font size for this website by clicking on the 'A's.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-sm-6">
+								<ul class="accessibility-icons">
+									<li><button type="button" aria-label="Use yellow on black contrast" onclick="setStyleSheet('/accessibility.pcss?style=yellow%20on%20black')"><img border="0" src="/images/accessibility/accessibility-contrast-y-b.svg" alt="" aria-hidden="true"></button></li>
+									<li><button type="button" aria-label="Use white on black contrast" onclick="setStyleSheet('/accessibility.pcss?style=white%20on%20black')"><img border="0" src="/images/accessibility/accessibility-contrast-w-b.svg" alt="" aria-hidden="true"></button></li>
+									<li><button type="button" aria-label="Use soft greys contrast" onclick="setStyleSheet('/accessibility.pcss?style=soft%20greys')"><img border="0" src="/images/accessibility/accessibility-contrast-softgreys.svg" alt="" aria-hidden="true"></button></li>
+									<li><button type="button" aria-label="Use black on linen contrast" onclick="setStyleSheet('/accessibility.pcss?style=black%20on%20linen')"><img border="0" src="/images/accessibility/accessibility-contrast-b-l.svg" alt="" aria-hidden="true"></button></li>
+									<li><button type="button" aria-label="Use black on white contrast" onclick="setStyleSheet('/accessibility.pcss?style=black%20on%20white')"><img border="0" src="/images/accessibility/accessibility-contrast-b-w.svg" alt="" aria-hidden="true"></button></li>
+									<li><button type="button" onclick="setStyleSheet('')">Reset to default contrast</button></li>
+								</ul>
+							</div>
+							<div class="col-sm-6">
+								<div class="accessibility-text">
+									<span class="accessibility-heading">Contrast options</span>
+									<div id="accessibilityText">
+										Choose a color combination to give the most comfortable contrast.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<main id="body" class="content default get-a-library-card-15613">
+			<div data-portal="reading-public-library" data-pageid="15613">
+<div class="amh-row row" id="idGIyH9"><div class="amh-block amh-container col-md-12" data-block-type="container" id="idqFDwy"><div class="amh-content"><div class="amh-row row" id="idg8bl1"><div class="amh-block amh-text col-md-12" data-block-type="text" id="idBvm97" style=""><div class="amh-content mce-content-body" id="mce_25" style="margin: 5px; padding: 5px; position: relative;" spellcheck="false"><h1>
+<i class="fa-solid fa-id-card"></i> Get a Library Card - It's Easy!</h1></div></div></div></div></div></div>
+<div class="amh-row row" id="idkKPi9">
+<div class="amh-block amh-container col-md-6" data-block-type="container" id="idOn7QF" style=""><div class="amh-content" style="border-width: 0px; border-style: solid; border-radius: 8px; border-color: rgb(52, 122, 173); padding: 5px; margin: 10px;">
+<div class="amh-row row" id="id3WJ89"><div class="amh-block amh-text col-md-12" data-block-type="text" style="" id="idL5mG0"><div class="amh-content" style="margin: 5px; padding: 10px; position: relative; border-width: 0px; border-style: solid; border-radius: 18px;" id="mce_25" spellcheck="false"><h2>Reading Public Library Card</h2></div></div></div>
+<div class="amh-row row" id="id4tKw3"><div class="amh-block amh-text col-md-12" data-block-type="text" style="" id="idWGn14"><div class="amh-content" style="margin: 5px; padding: 10px; position: relative; border-width: 1px; border-style: solid; border-radius: 18px; border-color: rgb(132, 135, 141);" id="mce_25" spellcheck="false">
+<p>Stop by the Borrower Services desk to present identification and proof of residency. You will select a password to manage your account, access online resources, and reserve museum passes.</p>
+<p>That’s it! We’ll give you a library card right away!</p>
+<p>Acceptable forms of ID:</p>
+<ul>
+<li>Massachusetts driver's license with current address</li>
+<li>Checkbook with current address and photo ID</li>
+<li>Recent mail with current address and photo ID</li>
+<li>Student ID and identification with photo ID</li>
+</ul>
+<h3>Children</h3>
+<p>Children through sixth grade may apply for cards in the Children’s Room. Library card applications for anyone under 16 years of age requires the signature of a parent or guardian.</p>
+</div></div></div>
+<div class="amh-row row" id="id0sUqN"><div class="amh-block amh-text col-md-12" data-block-type="text" style="" id="idulO2b"><div class="amh-content" style="margin: 5px; padding: 10px; position: relative; border-width: 0px; border-style: solid; border-radius: 18px;" id="mce_25" spellcheck="false"><h2>
+<a href="https://noble.overdrive.com/noble-reading/content" target="_blank" rel="noopener" style="cursor: default;"></a>Use Your Card @ Other Libraries</h2></div></div></div>
+<div class="amh-row row" id="idGYyxC"><div class="amh-block amh-text col-md-12" data-block-type="text" style="" id="idqXDcI">
+<div class="amh-content mce-content-body" style="margin: 5px; padding: 15px; position: relative; border-width: 1px; border-style: solid; border-radius: 18px; border-color: rgb(132, 135, 141);" id="mce_25" spellcheck="false" aria-label="To enrich screen reader interactions, please activate Accessibility in Grammarly extension settings">
+<p>You can use just about any public library in Massachusetts.</p>
+<p>Anyone who lives, works, or goes to school in Massachusetts can register for a free<a data-mce-href="https://www.bpl.org/ecard-registration/" href="https://www.bpl.org/ecard-registration/"> Boston Public Library eCard</a> and gain access to a wide range of digital resources covering newspapers, magazines, streaming media, genealogy, and more!<br><br></p>
+<p style="text-align: center;" data-mce-style="text-align: center;"><a href="https://www.bpl.org/ecard/" target="_blank" rel="noopener" data-mce-href="https://www.bpl.org/ecard/"><span class="button">Boston Public Library eCard</span></a><br data-mce-bogus="1"></p>
+</div>
+<grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: -2px; left: -2px; pointer-events: none; z-index: auto; --rem: 16;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: -2px; left: -2px; pointer-events: none; z-index: auto; --rem: 16;" class="dnXmp"></grammarly-extension>
+</div></div>
+</div></div>
+<div class="amh-block amh-container col-md-6" data-block-type="container" id="id176iU"><div class="amh-content" style="border-width: 0px; border-style: solid; border-radius: 8px; border-color: rgb(52, 122, 173); padding: 5px; margin: 10px;">
+<div class="amh-row row" id="id6oMsy"><div class="amh-block amh-text col-md-12" data-block-type="text" style="" id="idiBXKe"><div class="amh-content" style="margin: 5px; padding: 10px; position: relative; border-width: 0px; border-style: solid; border-radius: 18px;" id="mce_25" spellcheck="false"><h2>NOBLE eCard</h2></div></div></div>
+<div class="amh-row row" id="id6Hnst"><div class="amh-block amh-text col-md-12" data-block-type="text" style="" id="id9rGfo">
+<div class="amh-content mce-content-body" style="margin: 5px; padding: 10px; position: relative; border-width: 1px; border-style: solid; border-color: rgb(132, 135, 141); border-radius: 18px;" id="mce_25" spellcheck="false" aria-label="To enrich screen reader interactions, please activate Accessibility in Grammarly extension settings">
+<p>Sign up for an electronic card and upgrade it to a physical card when you visit RPL or any other NOBLE library and present a form of identification. You will have immediate access to NOBLE electronic materials such as ebooks, audiobooks, magazines, and databases.</p>
+<p>Eligibility:</p>
+<ul>
+<li>Massachusetts residency</li>
+<li>Cannot have a library card from a <a href="https://www.noblenet.org/libraries/" target="_blank" rel="noopener" data-mce-href="https://www.noblenet.org/libraries/">NOBLE member library</a>
+</li>
+</ul>
+<p style="text-align: center;" data-mce-style="text-align: center;"><a href="https://reading.noblenet.org/MyAccount/eCARD" target="_blank" rel="noopener" data-mce-href="https://reading.noblenet.org/MyAccount/eCARD"><span class="button">NOBLE eCard Application</span></a></p>
+</div>
+<grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: -2px; left: -2px; pointer-events: none; z-index: auto; --rem: 16;" class="dnXmp"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: -2px; left: -2px; pointer-events: none; z-index: auto; --rem: 16;" class="dnXmp"></grammarly-extension>
+</div></div>
+<div class="amh-row row" id="idKMz7X"><div class="amh-block amh-text col-md-12" data-block-type="text" style="" id="idojJkH"><div class="amh-content" style="margin: 5px; padding: 10px; position: relative; border-width: 0px; border-style: solid; border-radius: 18px;" id="mce_25" spellcheck="false"><h2>Not a Reading Resident?<em>.</em>
+</h2></div></div></div>
+<div class="amh-row row" id="idHVzLi"><div class="amh-block amh-text col-md-12" data-block-type="text" style="" id="idmYxv7"><div class="amh-content" style="margin: 5px; padding: 15px; position: relative; border-width: 1px; border-style: solid; border-color: rgb(132, 135, 141); border-radius: 18px;" id="mce_25" spellcheck="false">
+<p>If you aren’t a resident of Reading, you can still use your hometown card at the Reading Public Library. </p>
+<p><em>If your home library has been decertified, please see our “Policy on Lending to Residents of Municipalities with Decertified Libraries”.</em></p>
+</div></div></div>
+<div class="amh-row row" id="idPhugu"><div class="amh-block amh-text col-md-12" data-block-type="text" style="" id="idLmVrQ"><div class="amh-content" style="margin: 5px; padding: 10px; position: relative; border-width: 0px; border-style: solid; border-radius: 18px;" id="mce_25" spellcheck="false"><h2>Helpful Links</h2></div></div></div>
+<div class="amh-row row" id="idjdWNk"><div class="amh-block amh-text col-md-12" data-block-type="text" style="" id="idZr5zv"><div class="amh-content mce-content-body" style="margin: 5px; padding: 15px; position: relative; border-width: 1px; border-style: solid; border-color: rgb(132, 135, 141); border-radius: 18px;" id="mce_25" spellcheck="false"><blockquote>
+<p><a href="https://static.libnet.info/frontend-images/pdfs/readingpl/RPL_Policies/2_3_Borrowing__Fines_and_Fees_Policy.pdf" data-mce-href="https://static.libnet.info/frontend-images/pdfs/readingpl/RPL_Policies/2_3_Borrowing__Fines_and_Fees_Policy.pdf" style="">Borrowing, Fines, and Fees Policy</a></p>
+<p><a href="https://static.libnet.info/frontend-images/pdfs/readingpl/RPL_Policies/2_7_Policy_on_Lending_to_Residents_of_Municipalities_with_Decertified_Libraries.pdf" data-mce-href="https://static.libnet.info/frontend-images/pdfs/readingpl/RPL_Policies/2_7_Policy_on_Lending_to_Residents_of_Municipalities_with_Decertified_Libraries.pdf" style="">Policy on Lending to Residents of Municipalities with Decertified Libraries</a></p>
+<p>Chat:<a href="https://chat.mosio.com/par/chat/new_chat/rplinfo" target="_blank" rel="noopener" data-mce-href="https://chat.mosio.com/par/chat/new_chat/rplinfo"> Ask-a-Libarian</a></p>
+<p>Text: <a href="sms:+1781-705-7117" data-mce-href="sms:+1781-705-7117">781-705-7117</a></p>
+<p><a href="https://www.noblenet.org/library-card/" target="_blank" rel="noopener" data-mce-href="https://www.noblenet.org/library-card/">NOBLE Library Card Information</a></p>
+<p><a href="https://www.noblenet.org/noble-privacy-policy/" target="_blank" rel="noopener" data-mce-href="https://www.noblenet.org/noble-privacy-policy/" data-mce-selected="inline-boundary">NOBLE Privacy Policy﻿</a><a href="https://static.libnet.info/frontend-images/pdfs/readingpl/RPL_Policies/2_7_Policy_on_Lending_to_Residents_of_Municipalities_with_Decertified_Libraries.pdf" style="cursor: default;" data-mce-href="https://static.libnet.info/frontend-images/pdfs/readingpl/RPL_Policies/2_7_Policy_on_Lending_to_Residents_of_Municipalities_with_Decertified_Libraries.pdf" data-mce-style="cursor: default;"></a></p>
+</blockquote></div></div></div>
+</div></div>
+</div>
+<div class="amh-row row" id="idihgE4"><div class="amh-block amh-container col-md-12" data-block-type="container" id="idslsDP" style=""><div class="amh-content" style='border-width: 1px; border-style: solid; border-radius: 18px; border-color: rgb(132, 135, 141); background-color: rgb(244, 244, 244); background-image: url("https://readingpl.libnet.info/images/tile/readingpl/null"); padding: 5px; margin: 20px;'><div class="amh-row row" id="idwmmq0">
+<div class="amh-block amh-text col-md-4" data-block-type="text" id="id0QGag"><div class="amh-content" id="mce_24" style="margin: 10px; padding: 10px; position: relative; border-width: 0px; border-style: solid;" spellcheck="false">
+<h4>Borrowing Periods</h4>
+<ul>
+<li>Books, Magazines, Audiobooks, Videogames, Library of Things: 14 days</li>
+<li>Express books: 7 days, Express DVDs: 3 days (no renewals)</li>
+<li>Telescope, CDs, DVDs: 7 days</li>
+<li>Museum passes: 1 day (no renewals)</li>
+</ul>
+<p><em>* Special arrangements may be made by request. Extended loans are also available to Reading teachers and for school or special projects.</em></p>
+</div></div>
+<div class="amh-block amh-text col-md-4" data-block-type="text" id="idWyydi"><div class="amh-content" style="margin: 10px; padding: 10px; position: relative; border-width: 0px; border-style: solid;" id="mce_25" spellcheck="false">
+<h4>Checkout Limits</h4>
+<p>Most library materials have no borrowing limits. However, to allow everyone to have access to items in certain collections we limit:</p>
+<ul>
+<li>Video Games: 2 per patron.</li>
+<li>Adult Library of Things: 2 per patron.</li>
+<li>Children’s Library of Things: 2 per patron.</li>
+</ul>
+<p><em>*To protect our collections, the library reserves the right to refuse service to anyone who abuses borrowed items, or is repeatedly late in returning borrowed items.</em></p>
+</div></div>
+<div class="amh-block amh-text col-md-4" data-block-type="text" style="" id="idxAUru"><div class="amh-content" style="margin: 10px; padding: 10px; position: relative; border-width: 0px; border-style: solid;" id="mce_26" spellcheck="false">
+<h4>Using Your Account Online</h4>
+<p>Log in with your library card number and password at “<a href="https://evergreen.noblenet.org/eg/opac/login?" target="_blank" rel="noopener">My Account</a>”. Once logged in, you can request new items, renew items, and manage all requests.</p>
+</div></div>
+</div></div></div></div>
+</div>
+		</main>
+
+		<footer>
+			<div id="footer">
+				<!--social_media-->
+				<div class="amh-row row" id="id5FU37" style="max-width: none; background-color: rgb(21, 42, 86);"><div class="amh-block amh-container col-md-12" data-block-type="container" id="idhzfhZ"><div class="amh-content"><div class="amh-row row" id="ide6rZt">
+<div class="amh-block amh-text col-md-4" data-block-type="text" style="" id="idDZIr7"><div class="amh-content mce-content-body" style="margin: 0px; padding: 0px; border-width: 0px; border-style: solid; position: relative;" id="mce_25" spellcheck="false"><div class="stay-connected-column">
+<h3>Contact Us</h3>
+<ul class="news-items">
+<li><a href="/stay-connected-15978" style="cursor: default;" data-mce-href="/stay-connected-15978" data-mce-style="cursor: default;"><i class="fa-solid fa-envelope"></i> Stay Connected</a></li>
+<li><a href="tel:+17819440840" data-mce-href="tel:+17819440840"><i class="fa-solid fa-phone"></i> Call: 781–944–0840</a></li>
+<li><a href="https://chat.mosio.com/par/chat/new_chat/rplinfo" target="_blank" rel="noopener" data-mce-href="https://chat.mosio.com/par/chat/new_chat/rplinfo"><i class="fa-solid fa-comment"></i> Chat: Ask-a-Librarian</a></li>
+<li><a href="sms:+17817057117" data-mce-href="sms:+17817057117"><i class="fa-solid fa-message-text"></i> Text: 781–705–7117</a></li>
+</ul>
+<ul class="social-icons">
+<li><a href="https://www.facebook.com/Readingpl.org/" aria-label="Visit us on Facebook" data-mce-href="https://www.facebook.com/Readingpl.org/"><i class="fa-brands fa-facebook-f"></i></a></li>
+<li><a href="https://www.instagram.com/readingpl/" aria-label="Visit us on Instagram" data-mce-href="https://www.instagram.com/readingpl/"><i class="fa-brands fa-instagram"></i></a></li>
+<li><a href="https://www.youtube.com/user/ReadingPublicLibrary" aria-label="Visit us on YouTube" data-mce-href="https://www.youtube.com/user/ReadingPublicLibrary"><i class="fa-brands fa-youtube"></i></a></li>
+</ul>
+</div></div></div>
+<div class="amh-block amh-text col-md-4" data-block-type="text" id="idft43S"><div class="amh-content" style="margin: 0px; padding: 0px; border-width: 0px; border-style: solid; position: relative;" id="mce_24" spellcheck="false"><div class="visit-column">
+<h3>Visit Us</h3>
+<div class="textwidget">
+<span style="color: white;">Reading Public Library<br>64 Middlesex Avenue<br>Reading, MA 01867<br></span>
+<div class="su-gmap su-u-responsive-media-yes"><iframe src="//maps.google.com/maps?q=64%20Middlesex%20Avenue%2C%20Reading%2C%20MA%2001867&amp;output=embed&amp;z=15" title=""></iframe></div>
+</div>
+</div></div></div>
+<div class="amh-block amh-text col-md-4" data-block-type="text" style="" id="idDqi6w"><div class="amh-content" style="margin: 0px; padding: 0px; border-width: 0px; border-style: solid; position: relative;" id="mce_26" spellcheck="false"><div class="about-us-column">
+<h3>About Us</h3>
+<ul>
+<li><a href="/library-hours" style="cursor: default;">Hours</a></li>
+<li><a href="/our-mission" style="">RPL Mission</a></li>
+<li><a href="/policies-16090" style="">Policies</a></li>
+<li><a href="https://www.readingma.gov/304/Board-of-Library-Trustees" target="_blank" rel="noopener">Library Trustees</a></li>
+<li><a href="https://www.readingma.gov/695/Office-of-Equity-and-Social-Justice" target="_blank" rel="noopener">OESJ</a></li>
+</ul>
+</div></div></div>
+</div></div></div></div>
+			</div>
+			<div id="default_footer">
+				<a class="sideload" href="/privacy">Privacy and cookie policy</a> | <a href="#" onclick="openAccessibility()">Accessibility</a> | <a href="http://communico.co">Communico</a><br><br>
+				<span style="font-size:80%">Connected content from Communico. © 2026.</span>
+			</div>
+		</footer>
+		<script type="text/javascript" src="/js/lib/jquery.shapeshift.min.js?v=1437"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/bootstrap-multiselect/0.9.13/bootstrap-multiselect.min.js" integrity="sha512-p/rWSzeAUmYFvtMy6D5VfINfnHEWSz1h87a7fyGMaQQGmniI54CGQyecfvy5MTtGzZ80CyL/JG39SfVJjqiUJw==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/am-shared.js?v=1437"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/twitter-bootstrap/3.4.1/bootstrap.min.js" integrity="sha512-oBTprMeNEKCnqfuqKd6sbvFzmFQtlXS3e0C/RGFV0hD6QzhHV+ODfaQbAlmY6/q0ubbwlAM/nCJjkrgA3waLzg==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/lib/bootstrap-timepicker.js?v=1437"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js" integrity="sha512-Yk47FuYNtuINE1w+t/KT4BQ7JaycTCcrvlSvdK/jry6Kcxqg5vN7/svVWCxZykVzzJHaxXk5T9jnFemZHSYgnw==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/lib/bootstrap-datepicker.min.js?v=1437"></script>
+<script type="text/javascript" src="/js/lib/jquery.cycle2.min.js?v=1437"></script>
+<script type="text/javascript" src="/js/jquery.tweet.min.js?v=1437"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/jQuery.dotdotdot/1.7.2/jquery.dotdotdot.min.js" integrity="sha512-En43ubdM+iORz+sRSvgoT8rNOSRoFhSZqpSYE/peTL+18AhGWH4iL80jUfgLLE6NguB8IYZpJ/W72LpNRdYAaw==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/rome/2.1.14/rome.min.js" integrity="sha512-YK82PgTowJa7qObvSJ87e49YSPhZXMWv1tkn+Np8pXgg32Q3vZKTco/yORo17F+rZtbC3krSX+ZMEqtQ1PDrbQ==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/jquery.zrssfeed.min.js?v=1437"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/qtip2/3.0.3/jquery.qtip.min.js" integrity="sha512-BxJRFdTKV85fhFUw+olPr0B+UEzk8FTLxRB7dAdhoQ7SXmwMECj1I4BlSmZfeoSfy0OVA8xFLTDyObu3Nv1FoQ==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/lib/jquery.cookie.min.js?v=1437"></script>
+<script type="text/javascript" src="/js/lib/json3.min.js?v=1437"></script>
+<script type="text/javascript" src="/js/am-events-listings.js?v=1437"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha512-MAhdSIQcK5z9i33WN0KzveJUhM2852CJ1lJp4o60cXhQT20Y3friVRdeZ5TEWz4Pi+nvaQqnIqWJJw4HVTKg1Q==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/jquery.payment/3.0.0/jquery.payment.min.js" integrity="sha512-vBu5d4hztWcpvKmp+qUS8afvWUMjTd59Z7ci0j6YnKu83yy6Xh/VxtgZqIteIFaK3gMYDm0AnOp3pEF4z6afMw==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/am-reserve-booker.v3.js?v=1437"></script>
+<script type="text/javascript" src="/js/am-reserve-room.v3.js?v=1437"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/jquery.sticky/1.0.4/jquery.sticky.min.js" integrity="sha512-QABeEm/oYtKZVyaO8mQQjePTPplrV8qoT7PrwHDJCBLqZl5UmuPi3APEcWwtTNOiH24psax69XPQtEo5dAkGcA==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/am-room-info.js?v=1437"></script>
+<script type="text/javascript" src="/js/am-room-picker.js?v=1437"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/bootstrap-datetimepicker/4.17.37/bootstrap-datetimepicker.min.js" integrity="sha512-Y+0b10RbVUTf3Mi0EgJue0FoheNzentTMMIE2OreNbqnUPNbQj8zmjK3fs5D2WhQeGWIem2G2UkKjAL/bJ/UXQ==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/moment-timezone/0.6.0/moment-timezone-with-data.min.js" integrity="sha512-+FcC+reETRqrbKDor++Otoek++yhj4Q1pu/VjNTYHywub+2uoKV+0o0C+yLDun7b+MzAQ0qz9G5ShZUUJpxN1Q==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/am-reserve-picker.v3.js?v=1437"></script>
+<script type="text/javascript" src="/js/am-subscriptions.js?v=1437"></script>
+<script type="text/javascript" src="/js/am-subscriptions.js?v=1437"></script>
+<script type="text/javascript" src="/js/am-channel.js?v=1437"></script>
+<script type="text/javascript" src="/js/card-signup.js?v=1437"></script>
+<script type="text/javascript" src="/js/custom.js?v=1437"></script>
+<script type="text/javascript" src="/js/es6/dist/coUtilsComp.js?v=1437"></script>
+<script type="text/javascript" src="/js/es6/dist/coEventBillingComp.js?v=1437"></script>
+<script type="text/javascript" src="/js/es6/coRooms/coRooms-comp.js?v=1437"></script>
+<script type="text/javascript" src="//cdn.libnet.info/js/noUiSlider/14.0.2/nouislider.min.js" integrity="sha512-cxew3BIHteKU8gsydtZpj/BZPPmgKMF04NT6oPB/9BDIq8VKHzX9Q58l574b7xnklw81ZQ33gD1YumK8ea34hw==" crossorigin="anonymous"></script>
+
+										<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.3.3/custom-elements-es5-adapter.js"></script>
+										<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.3.3/webcomponents-lite.js"></script>
+		<script type="text/javascript">
+			function skipToMainContent(targetSelector) {
+				var target = targetSelector ? document.querySelector(targetSelector) : null;
+				if (!target) {
+					return true;
+				}
+				if (!target.hasAttribute("tabindex")) {
+					target.setAttribute("tabindex", "-1");
+					target.setAttribute("data-skip-main-focus", "1");
+				}
+				if (window.history && window.history.pushState) {
+					window.history.pushState(null, document.title, targetSelector);
+				} else {
+					window.location.hash = targetSelector;
+				}
+				window.setTimeout(function () {
+					if (target.scrollIntoView) {
+						target.scrollIntoView();
+					}
+					target.focus();
+				}, 0);
+				target.addEventListener("blur", function cleanup() {
+					if (target.getAttribute("data-skip-main-focus") === "1") {
+						target.removeAttribute("tabindex");
+						target.removeAttribute("data-skip-main-focus");
+					}
+					target.removeEventListener("blur", cleanup);
+				});
+				return false;
+			}
+
+			$(function () {
+				var accessibilityText = "";
+				switch (document.querySelector("meta[name=region]").content) {
+					case "us":
+						accessibilityText = "Choose a color combination to give the most comfortable contrast.";
+						break;
+					default:
+						accessibilityText = "Choose a colour combination to give the most comfortable contrast.";
+						break;
+				}
+				document.getElementById("accessibilityText").innerText = accessibilityText;
+			});
+		</script>
+	</body>
+</html>
