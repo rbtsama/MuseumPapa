@@ -575,11 +575,11 @@ function RowFragment({ attr, cols, bundle, cellMatch, openKey, setOpenKey, adult
                 onToggleApprove={() => onToggleApprove(pkey)}
                 onSetCorrection={(field, note) => onSetCorrection(pkey, field, note)}
                 onBook={() => {
-                  // Open the modal first (sync state update), then close the
-                  // popover on the next tick so HeroUI's popover dismiss flow
-                  // doesn't race with the modal-mount portal.
+                  // Open the modal. We deliberately do NOT touch the popover
+                  // state — the opaque modal backdrop covers it. Trying to
+                  // close the popover synchronously was racing with HeroUI's
+                  // own focus/portal handling and eating some clicks.
                   onBook(l, p);
-                  requestAnimationFrame(() => setOpenKey(null));
                 }}
               />
             </PopoverContent>
@@ -704,7 +704,11 @@ function CellAuditRow({
           Edit
           {entry?.corrections && <span className="dot-mark" />}
         </button>
-        <button className="book-btn" onClick={onBook}>
+        <button
+          className="book-btn"
+          type="button"
+          onClick={(e) => { e.stopPropagation(); onBook(); }}
+        >
           Book Now <IconBook />
         </button>
       </div>
@@ -883,7 +887,8 @@ function CellDetail({
   const cs = capacityStructure(p.coupon);
   const capValue = cs.total ?? cap;
   return (
-    <div className="detail-card">
+    <div className="detail-card has-foot">
+      <div className="detail-scroll">
       <div className="card-subtitle">
         {attr.name} · {branch ? `${lib.town} · ${branch.name}` : lib.town} · {lib.network}
       </div>
@@ -972,7 +977,10 @@ function CellDetail({
         ]}
       />
 
-      {/* Bottom action bar — Approve + Edit on the left, Book Now anchored right. */}
+      </div>
+      {/* Bottom action bar — outside the scrolling area so the buttons are
+          always visible AND always clickable (sticky in HeroUI popovers was
+          unreliable, swallowing some Book Now clicks). */}
       <CellAuditRow
         entry={entry}
         onToggleApprove={onToggleApprove}

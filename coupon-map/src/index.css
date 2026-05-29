@@ -425,7 +425,7 @@ body,
   border-radius: 8px !important;
 }
 .detail-card {
-  padding: 16px 20px 0;
+  padding: 16px 20px;
   width: 580px;
   max-height: 50vh;
   overflow-y: auto;
@@ -434,8 +434,22 @@ body,
   background: #fafaf7;
   border-radius: 8px;
   color: #1a1917;
-  /* The cell-foot pins itself to the bottom via position:sticky. The card
-     itself stays the scroll container. */
+}
+/* Cell-popover variant: the card is a flex column with a scrollable upper
+   region (.detail-scroll) and a fixed footer (.cell-foot) that's OUTSIDE
+   the scroll area. This made Book Now reliably clickable — sticky-bottom
+   inside a HeroUI popover portal was eating roughly half the clicks. */
+.detail-card.has-foot {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.detail-card.has-foot .detail-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 16px 20px 0;
 }
 
 /* Subdued title at the top — user already saw this context on the cell
@@ -540,22 +554,19 @@ body,
 /* (Old .breakdown block removed — Discount now uses .data-section + .data-row.sub
    so it visually aligns with every other data section, no tinted box.) */
 
-/* Sticky bottom — the action bar pins to the bottom of the scroll container
-   so it stays visible no matter how long the Sources list is. */
+/* Pinned footer — always visible at the bottom of the cell popover. Lives
+   OUTSIDE the .detail-scroll area (flex sibling) so it never scrolls and
+   nothing can intercept clicks on its buttons. */
 .detail-card .cell-foot {
-  position: sticky;
-  bottom: 0;
-  margin: 0 -20px;
-  padding: 0 20px 16px;
-  background: linear-gradient(180deg, rgba(250,250,247,0) 0, #fafaf7 8px, #fafaf7 100%);
-  z-index: 2;
+  flex-shrink: 0;
+  padding: 12px 20px 16px;
+  background: #fafaf7;
+  border-top: 1px solid #d0cec6;
 }
 .detail-card .cell-foot .action-bar {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding-top: 12px;
-  border-top: 1px solid #d0cec6;
 }
 .detail-card .cell-foot .action-bar .book-btn {
   margin-left: auto;
