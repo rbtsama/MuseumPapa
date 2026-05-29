@@ -1,9 +1,27 @@
 {
-  "_note": "Library-level pass-pickup residency policy. Some libraries restrict ALL museum-pass LOANING to their own town's residents — a blanket policy stated on the library's public card/pass page, NOT inside any single coupon's text. build/passes.py applies the entry to every pass of that library whose per-pass coupon/probe residency is still 'unknown' (it never overrides a stronger per-pass signal, and human data/overrides still win). scope: 'town' (this library's town) | 'ma' (any MA resident). Add a library here only when a public source confirms it; quote that source in 'evidence'. This is the L2->L3 path of the three-layer model (see data/raw/SOURCE_BLOCKS.md).",
+  "_note": "Library-level pass-pickup residency policy. A library may state on its public museum-pass / card page who is allowed to BORROW its museum passes — sometimes restricted to the library's own town residents, sometimes open to any cardholder. That blanket policy is NOT inside any single coupon's text, so build/passes.py applies the entry below to every pass of that library whose per-pass coupon/probe residency is still 'unknown' (it never overrides a stronger per-pass signal, and human data/overrides still win). restricted: 'yes'|'no'. scope (only when yes): 'town' (this library's own town) | 'ma' (any MA resident). Add a library here only when a public source confirms it; quote that source verbatim in 'evidence'. This is the L2->L3 path of the three-layer model (see data/raw/SOURCE_BLOCKS.md). NOTE: the platform/network differs per library (Minuteman/NOBLE/OCLN; LibCal/Assabet/EventKeeper) — the METHOD (read the library's own public pass page) generalizes, the POLICY does not, so each entry is confirmed independently.",
   "brookline": {
     "restricted": "yes",
     "scope": "town",
     "source": "https://www.brooklinelibrary.org/how/library-card/",
     "evidence": "Only a few of our services, such as the loaning of museum passes, are restricted to Brookline residents."
+  },
+  "quincy": {
+    "restricted": "yes",
+    "scope": "town",
+    "source": "https://tcplquincy.org/borrow/museum-passes/",
+    "evidence": "Museum passes are reservable by Quincy residents who are over the age of 18 and have a library card in good standing (owe less than $15.00.)"
+  },
+  "cambridge": {
+    "restricted": "no",
+    "scope": null,
+    "source": "https://www.cambridgema.gov/Departments/cambridgepubliclibrary/iwantto/getamuseumpass",
+    "evidence": "Free or discounted museum passes are available to the public through the Cambridge Public Library to anyone with a Minuteman Library card."
+  },
+  "somerville": {
+    "restricted": "no",
+    "scope": null,
+    "source": "https://somervillepubliclibrary.org/how-do-i/get-cultural-pass/",
+    "evidence": "Cultural Passes offer free or discounted admission to local cultural attractions, and are available to all adults with a valid Minuteman library card."
   }
 }
