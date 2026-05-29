@@ -1,10 +1,120 @@
 {
   "_meta": {
-    "built_at": "2026-05-28T13:19:37.219437+00:00",
-    "n_branches": 34,
-    "n_geocoded": 34
+    "built_at": "2026-05-29T08:57:44.880760+00:00",
+    "n_branches": 44,
+    "n_geocoded": 44
   },
   "branches": [
+    {
+      "id": "peabody-main",
+      "library_id": "peabody",
+      "name": "Main Library",
+      "address": "82 Main Street, Peabody, MA 01960",
+      "phone": "(978) 531-0100",
+      "geo": {
+        "lat": 42.5249222,
+        "lon": -70.9242115
+      }
+    },
+    {
+      "id": "peabody-south",
+      "library_id": "peabody",
+      "name": "South Branch",
+      "address": "78 Lynn Street, Peabody, MA 01960",
+      "phone": "(978) 531-3380",
+      "geo": {
+        "lat": 42.5127026,
+        "lon": -70.946542
+      }
+    },
+    {
+      "id": "peabody-west",
+      "library_id": "peabody",
+      "name": "West Branch",
+      "address": "603 Lowell Street, Peabody, MA 01960",
+      "phone": "(978) 535-3354",
+      "geo": {
+        "lat": 42.5490692,
+        "lon": -70.9924346
+      }
+    },
+    {
+      "id": "quincy-main",
+      "library_id": "quincy",
+      "name": "Main Library",
+      "address": "40 Washington Street, Quincy, MA 02169",
+      "phone": "(617) 376-1300",
+      "geo": {
+        "lat": 42.2515107,
+        "lon": -71.0008246
+      }
+    },
+    {
+      "id": "quincy-north-quincy",
+      "library_id": "quincy",
+      "name": "North Quincy",
+      "address": "381 Hancock Street, Quincy, MA 02171",
+      "phone": "(617) 376-1320",
+      "geo": {
+        "lat": 42.2740138,
+        "lon": -71.0263247
+      }
+    },
+    {
+      "id": "quincy-adams-shore",
+      "library_id": "quincy",
+      "name": "Adams Shore",
+      "address": "519 Sea Street, Quincy, MA 02169",
+      "phone": "(617) 376-1325",
+      "geo": {
+        "lat": 42.2606346,
+        "lon": -70.9790579
+      }
+    },
+    {
+      "id": "quincy-wollaston",
+      "library_id": "quincy",
+      "name": "Wollaston",
+      "address": "41 Beale Street, Quincy, MA 02171",
+      "phone": "(617) 376-1330",
+      "geo": {
+        "lat": 42.2668216,
+        "lon": -71.0179025
+      }
+    },
+    {
+      "id": "somerville-main",
+      "library_id": "somerville",
+      "name": "Central Library",
+      "address": "79 Highland Ave, Somerville, MA 02143",
+      "phone": "(617) 623-5000",
+      "geo": {
+        "lat": 42.3857881,
+        "lon": -71.0944054
+      }
+    },
+    {
+      "id": "somerville-east",
+      "library_id": "somerville",
+      "name": "East Branch",
+      "address": "115 Broadway, Somerville, MA 02145",
+      "phone": "(617) 623-5000 x2970",
+      "geo": {
+        "lat": 42.3879326,
+        "lon": -71.0835948
+      }
+    },
+    {
+      "id": "somerville-west",
+      "library_id": "somerville",
+      "name": "West Branch",
+      "address": "40 College Ave, Somerville, MA 02144",
+      "phone": "(617) 623-5000 x2975",
+      "geo": {
+        "lat": 42.3981484,
+        "lon": -71.1217138
+      }
+    },
     {
       "id": "bpl-central",
       "library_id": "bpl",

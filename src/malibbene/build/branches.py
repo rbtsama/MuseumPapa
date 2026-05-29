@@ -29,19 +29,39 @@ def accept_geo(result: dict, lib_geo: dict | None, max_mi: float = MAX_BRANCH_MI
     return {"lat": lat, "lon": lon}
 
 
-def _geocode_branch(name: str, town: str, lib_geo: dict | None) -> dict | None:
+_MAIN_BRANCH_NAMES = {"main library", "central library", "main", "central"}
+
+
+def _geocode_branch(name: str, town: str, lib_geo: dict | None, branch_id: str | None = None) -> dict | None:
     """Geocode one branch by name. Tries a library-qualified query first, then a
-    looser one; returns the first hit that passes ``accept_geo`` or None."""
+    looser one; returns the first hit that passes ``accept_geo`` or None.
+
+    Main-branch fallback: if the branch is the library's central building
+    (matches name allow-list OR id ends with ``-main``) and Nominatim
+    didn't find it, the library's own centroid IS the main branch — inherit
+    it instead of leaving the dot off the map.
+    """
     for q in (f"{name} Branch Library, {town}, MA", f"{name}, {town}, MA"):
         geo = accept_geo(geocode(q), lib_geo)
         if geo:
             return geo
+    is_main = name.strip().lower() in _MAIN_BRANCH_NAMES or (
+        branch_id is not None and branch_id.endswith("-main")
+    )
+    if is_main and lib_geo and lib_geo.get("lat") is not None:
+        return {"lat": lib_geo["lat"], "lon": lib_geo["lon"]}
     return None
 
 
 def build_branches(raw_root: Path, overrides_root: Path, out_path: Path,
                    libraries_path: Path | None = None) -> dict:
-    branches_dir = raw_root/"libcal"/"branches"
+    # All platforms that produce branch rosters land under
+    # `data/raw/<platform>/branches/`. Iterate every such platform in a
+    # stable order so the output diff stays platform-grouped.
+    branches_dirs = [
+        raw_root / platform / "branches"
+        for platform in ("assabet", "libcal", "museumkey")
+    ]
     overrides = load_overrides(overrides_root)
 
     # Library centroid + town feed the geocode query and the sanity radius.
@@ -56,7 +76,9 @@ def build_branches(raw_root: Path, overrides_root: Path, out_path: Path,
 
     out_branches = []
     n_geo = 0
-    if branches_dir.exists():
+    for branches_dir in branches_dirs:
+        if not branches_dir.exists():
+            continue
         for f in sorted(branches_dir.glob("*.json")):
             data = json.loads(f.read_text(encoding="utf-8"))
             for b in data.get("branches", []):
@@ -65,7 +87,7 @@ def build_branches(raw_root: Path, overrides_root: Path, out_path: Path,
                 # Don't re-geocode if a coordinate is already present (e.g. an
                 # override supplied one). Otherwise look it up (cached on disk).
                 if not b.get("geo"):
-                    b["geo"] = _geocode_branch(b["name"], town, lib.get("geo"))
+                    b["geo"] = _geocode_branch(b["name"], town, lib.get("geo"), b.get("id"))
                 if b.get("geo"):
                     n_geo += 1
                 key = f"{b['library_id']}__{b['id'].replace(b['library_id']+'-','')}"

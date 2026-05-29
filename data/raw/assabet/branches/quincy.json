@@ -1,0 +1,34 @@
+{
+  "library_id": "quincy",
+  "source": "https://tcplquincy.org/locations",
+  "branches": [
+    {
+      "id": "quincy-main",
+      "library_id": "quincy",
+      "name": "Main Library",
+      "address": "40 Washington Street, Quincy, MA 02169",
+      "phone": "(617) 376-1300"
+    },
+    {
+      "id": "quincy-north-quincy",
+      "library_id": "quincy",
+      "name": "North Quincy",
+      "address": "381 Hancock Street, Quincy, MA 02171",
+      "phone": "(617) 376-1320"
+    },
+    {
+      "id": "quincy-adams-shore",
+      "library_id": "quincy",
+      "name": "Adams Shore",
+      "address": "519 Sea Street, Quincy, MA 02169",
+      "phone": "(617) 376-1325"
+    },
+    {
+      "id": "quincy-wollaston",
+      "library_id": "quincy",
+      "name": "Wollaston",
+      "address": "41 Beale Street, Quincy, MA 02171",
+      "phone": "(617) 376-1330"
+    }
+  ]
+}

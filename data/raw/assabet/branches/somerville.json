@@ -1,0 +1,27 @@
+{
+  "library_id": "somerville",
+  "source": "https://somervillepubliclibrary.org/library/hours-locations/",
+  "branches": [
+    {
+      "id": "somerville-main",
+      "library_id": "somerville",
+      "name": "Central Library",
+      "address": "79 Highland Ave, Somerville, MA 02143",
+      "phone": "(617) 623-5000"
+    },
+    {
+      "id": "somerville-east",
+      "library_id": "somerville",
+      "name": "East Branch",
+      "address": "115 Broadway, Somerville, MA 02145",
+      "phone": "(617) 623-5000 x2970"
+    },
+    {
+      "id": "somerville-west",
+      "library_id": "somerville",
+      "name": "West Branch",
+      "address": "40 College Ave, Somerville, MA 02144",
+      "phone": "(617) 623-5000 x2975"
+    }
+  ]
+}
