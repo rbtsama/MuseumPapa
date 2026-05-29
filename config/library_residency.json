@@ -20,7 +20,7 @@
     "restricted": "yes",
     "scope": "ma",
     "source": "https://www.robbinslibrary.org/services/museum-passes/",
-    "evidence": "Museum passes are available for Minuteman Library Network cardholders in good standing.",
+    "evidence": "Museum passes are available for Minuteman Library Network cardholders in good standing. (Page is Cloudflare-protected/403 to bots; verbatim via search index of this exact URL.)",
     "confidence": "medium"
   },
   "bedford": {
@@ -225,9 +225,9 @@
   },
   "melrose": {
     "restricted": "yes",
-    "scope": "town",
-    "source": "https://melrosepubliclibrary.org/services/museum-passes/",
-    "evidence": "Melrose residents can reserve Museum Passes with their library card. (library framing; FB/library page)",
+    "scope": "ma",
+    "source": "https://melrosepubliclibrary.org/museum-pass-page/",
+    "evidence": "A household may reserve one pass per day. Passes may be reserved up to 30 days in advance. (Current museum-pass page states NO Melrose-resident restriction -> MA-resident floor. Supersedes a prior dead /services/museum-passes/ 404 path.)",
     "confidence": "medium"
   },
   "methuen": {
@@ -336,7 +336,7 @@
     "restricted": "yes",
     "scope": "ma",
     "source": "https://www.tewksburypl.org/home/pages/museum-passes",
-    "evidence": "A valid library card is required to reserve a pass. (no town restriction; Tewksbury residents get reduced pricing only)",
+    "evidence": "Your Tewksbury library card provides access to these great passes pending individual library restrictions; a valid library card is required to reserve a pass (Tewksbury residents get reduced pricing only). (Page Cloudflare-protected/403 to bots; verbatim via search index.)",
     "confidence": "medium"
   },
   "topsfield": {
