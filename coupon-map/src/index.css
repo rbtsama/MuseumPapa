@@ -879,6 +879,195 @@ body,
 }
 .cards-empty.cards-explain strong { color: #4a4845; }
 
+/* ── Popover v2 ─────────────────────────────────────────────────────────
+   Replaces the linear .detail-card stack for the attraction / library
+   header popovers. Layout: header strip with name + chip meta, 2-col
+   body for the two short data blocks (Hours / Tickets · Hours / Address),
+   address full-width strip, sources strip with the colored-rail cards
+   we already use in the drawer. */
+.popover-v2 {
+  width: 540px;
+  max-width: 90vw;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: #fafaf7;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #1a1917;
+  line-height: 1.5;
+}
+.popover-v2 .pv-header {
+  padding: 12px 16px 10px;
+  background: linear-gradient(180deg, #ecebe5 0%, #f4f3ef 100%);
+  border-bottom: 1px solid #d0cec6;
+  position: relative;
+}
+.popover-v2 .pv-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1b5740;
+  line-height: 1.25;
+  margin-right: 110px;        /* leave room for the right-aligned chip */
+}
+.popover-v2 .pv-badge {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #8c6018;
+  background: #fdf1e2;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.2px;
+}
+.popover-v2 .pv-meta {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #4a4845;
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.popover-v2 .pv-meta .pv-sep { color: #b5b2a8; }
+.popover-v2 .pv-meta .pv-link {
+  color: #1b5740;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: auto;
+  white-space: nowrap;
+}
+.popover-v2 .pv-meta .pv-link:hover { text-decoration: underline; }
+.popover-v2 .pv-meta .v-attn { color: #8c6018; font-weight: 600; }
+.popover-v2 .pv-meta .v-warn { color: #8c2a1e; font-weight: 600; }
+
+.popover-v2 .pv-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 14px 16px;
+}
+.popover-v2 .pv-body.single { grid-template-columns: 1fr; }
+.popover-v2 .pv-col { min-width: 0; }
+.popover-v2 .pv-h {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #8a877f;
+  margin-bottom: 6px;
+}
+
+/* Compact ticket rows — label left, price right-aligned. */
+.popover-v2 .pv-tickets {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 13px;
+}
+.popover-v2 .pv-tickets > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+.popover-v2 .pv-tickets .pv-aud {
+  color: #4a4845;
+}
+.popover-v2 .pv-tickets .pv-price {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+.popover-v2 .pv-tickets .pv-price.v-free { color: #1b5740; font-weight: 600; }
+
+.popover-v2 .pv-address {
+  padding: 8px 16px 12px;
+  font-size: 12px;
+  color: #4a4845;
+  border-top: 1px solid #ecebe5;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.popover-v2 .pv-address::before {
+  content: "📍";
+  font-size: 13px;
+  filter: grayscale(0.3);
+}
+.popover-v2 .pv-address .pv-link {
+  margin-left: auto;
+  color: #1b5740;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.popover-v2 .pv-address .pv-link:hover { text-decoration: underline; }
+
+.popover-v2 .pv-sources {
+  padding: 12px 16px 14px;
+  border-top: 1px solid #ecebe5;
+  background: #f4f3ef;
+}
+.popover-v2 .pv-sources .pv-h {
+  color: #8c6018;
+  margin-bottom: 8px;
+}
+/* EvidenceSection lives inside .pv-sources — give the ev-* a more
+   structured look than the legacy .detail-card variant. */
+.popover-v2 .pv-sources .evidence {
+  margin: 0; padding: 0; border: 0;
+}
+.popover-v2 .pv-sources .section-h { display: none; }  /* we render our own */
+.popover-v2 .pv-sources .ev-item {
+  position: relative;
+  background: #fafaf7;
+  border: 1px solid #ecebe5;
+  border-radius: 5px;
+  padding: 7px 10px 7px 14px;
+  margin-bottom: 7px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.popover-v2 .pv-sources .ev-item:last-child { margin-bottom: 0; }
+.popover-v2 .pv-sources .ev-item::before {
+  content: "";
+  position: absolute;
+  top: 6px; bottom: 6px; left: 4px;
+  width: 3px;
+  border-radius: 2px;
+  background: #8c6018;       /* default gold rail */
+}
+.popover-v2 .pv-sources .ev-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #8c6018;
+  margin-bottom: 3px;
+}
+.popover-v2 .pv-sources .ev-quote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-style: italic;
+  color: #1a1917;
+  word-break: break-word;
+}
+.popover-v2 .pv-sources .ev-link {
+  font-size: 11px;
+  color: #1b5740;
+  font-weight: 600;
+  margin-left: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.popover-v2 .pv-sources .ev-link:hover { text-decoration: underline; }
+.popover-v2 .pv-sources .ev-link.standalone {
+  display: inline-block;
+  margin: 0;
+}
+
 /* ── Drawer Sources ───────────────────────────────────────────────────
    Each source is a small card with a colored left rail keyed to its kind.
    Colors reuse the network palette so the drawer stays in the same

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@heroui/react";
 import type { Attraction, Branch, DataBundle, Library, Pass } from "../data/types";
 import { type AuditState, passKey } from "../store/audit";
@@ -298,86 +298,88 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                         </div>
                       </PopoverTrigger>
                       <PopoverContent>
-                        <div className="detail-card">
-                          <div className="card-subtitle">{l.name}</div>
-
-                          <div className="data-section">
-                            <div className="data-row">
-                              <span className="k">Town</span>
-                              <span className="v">{l.town}</span>
-                            </div>
-                            <div className="data-row">
-                              <span className="k">Network</span>
-                              <span className="v">{l.network}</span>
-                            </div>
-                            <div className="data-row">
-                              <span className="k">Resident requirement</span>
-                              <span className={`v${e.warn ? " v-warn" : ""}`}>{e.text}</span>
-                            </div>
+                        <div className="popover-v2">
+                          <header className="pv-header">
+                            <div className="pv-title">{l.name}</div>
                             {multi && (
-                              <div className="data-row">
-                                <span className="k">Branches</span>
-                                <span className="v">{c.branches.length}</span>
-                              </div>
+                              <span className="pv-badge">{c.branches.length} branches</span>
                             )}
-                          </div>
-
-                          {l.hours ? (
-                            <div className="data-section">
-                              <div className="section-h">Hours</div>
-                              <ul className="hours-compact">
-                                {compactHours(l.hours).map((r) => (
-                                  <li key={r.days}>
-                                    <span className="hc-d">{r.days}</span>
-                                    <span className={`hc-v${r.value === "Closed" ? " hc-closed" : ""}`}>{r.value}</span>
-                                  </li>
-                                ))}
-                              </ul>
+                            <div className="pv-meta">
+                              <span>{l.town}</span>
+                              <span className="pv-sep">·</span>
+                              <span>{l.network}</span>
+                              <span className="pv-sep">·</span>
+                              <span className={e.warn ? "v-warn" : ""}>{e.text}</span>
                             </div>
-                          ) : l.hours_note ? (
-                            <div className="data-section">
-                              <div className="section-h">Hours</div>
-                              <div className="block-note">{l.hours_note}</div>
-                            </div>
-                          ) : null}
+                          </header>
 
-                          {(l.address || l.card_page) && (
-                            <div className="data-section compact">
-                              {l.address && (
-                                <div className="addr">
-                                  {[l.address.street, l.address.city, l.address.state, l.address.zip].filter(Boolean).join(", ")}
-                                </div>
+                          {(l.hours || l.hours_note || l.address || l.card_page) && (
+                            <div className="pv-body">
+                              {(l.hours || l.hours_note) && (
+                                <section className="pv-col">
+                                  <div className="pv-h">Hours</div>
+                                  {l.hours ? (
+                                    <ul className="hours-compact">
+                                      {compactHours(l.hours).map((r) => (
+                                        <li key={r.days}>
+                                          <span className="hc-d">{r.days}</span>
+                                          <span className={`hc-v${r.value === "Closed" ? " hc-closed" : ""}`}>{r.value}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  ) : (
+                                    <div className="block-note">{l.hours_note}</div>
+                                  )}
+                                </section>
                               )}
-                              {l.card_page && (
-                                <a className="ext-link" href={l.card_page} target="_blank" rel="noreferrer">{prettyHost(l.card_page)} ↗</a>
+                              {(l.address || l.card_page) && (
+                                <section className="pv-col">
+                                  <div className="pv-h">Address</div>
+                                  {l.address && (
+                                    <div>
+                                      {l.address.street && <div>{l.address.street}</div>}
+                                      <div>
+                                        {[l.address.city, l.address.state, l.address.zip].filter(Boolean).join(", ")}
+                                      </div>
+                                    </div>
+                                  )}
+                                  {l.card_page && (
+                                    <a className="pv-link" href={l.card_page} target="_blank" rel="noreferrer" style={{ display: "inline-block", marginTop: 6 }}>
+                                      {prettyHost(l.card_page)} ↗
+                                    </a>
+                                  )}
+                                </section>
                               )}
                             </div>
                           )}
-                          <EvidenceSection
-                            items={[
-                              { label: "Card page", source: l.card_page || null },
-                              l._evidence?.card_eligibility
-                                ? {
-                                    label: "Resident requirement",
-                                    quote: l._evidence.card_eligibility.evidence || null,
-                                    source: l._evidence.card_eligibility.source || null,
-                                  }
-                                : { label: "" },
-                              l._evidence?.hours
-                                ? {
-                                    label: "Hours",
-                                    quote: l._evidence.hours.evidence || null,
-                                    source: l._evidence.hours.source || null,
-                                  }
-                                : l._evidence?.hours_note
-                                ? {
-                                    label: "Hours (varies)",
-                                    quote: l._evidence.hours_note.evidence || null,
-                                    source: l._evidence.hours_note.source || null,
-                                  }
-                                : { label: "" },
-                            ]}
-                          />
+
+                          <div className="pv-sources">
+                            <EvidenceSection
+                              items={[
+                                { label: "Card page", source: l.card_page || null },
+                                l._evidence?.card_eligibility
+                                  ? {
+                                      label: "Resident requirement",
+                                      quote: l._evidence.card_eligibility.evidence || null,
+                                      source: l._evidence.card_eligibility.source || null,
+                                    }
+                                  : { label: "" },
+                                l._evidence?.hours
+                                  ? {
+                                      label: "Hours",
+                                      quote: l._evidence.hours.evidence || null,
+                                      source: l._evidence.hours.source || null,
+                                    }
+                                  : l._evidence?.hours_note
+                                  ? {
+                                      label: "Hours (varies)",
+                                      quote: l._evidence.hours_note.evidence || null,
+                                      source: l._evidence.hours_note.source || null,
+                                    }
+                                  : { label: "" },
+                              ]}
+                            />
+                          </div>
                         </div>
                       </PopoverContent>
                     </Popover>
@@ -394,39 +396,53 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                         </div>
                       </PopoverTrigger>
                       <PopoverContent>
-                        <div className="detail-card">
-                          <div className="card-subtitle">{b.name} · branch of {c.lib.name}</div>
-
-                          <div className="data-section">
-                            <div className="data-row"><span className="k">Town</span><span className="v">{c.lib.town}</span></div>
-                            <div className="data-row"><span className="k">Network</span><span className="v">{c.lib.network}</span></div>
-                            {b.code && <div className="data-row"><span className="k">Code</span><span className="v">{b.code}</span></div>}
-                            {b.geo && (
-                              <div className="data-row">
-                                <span className="k">Geo</span>
-                                <span className="v">{b.geo.lat.toFixed(4)}, {b.geo.lon.toFixed(4)}</span>
-                              </div>
-                            )}
-                          </div>
-
-                          {c.lib.hours ? (
-                            <div className="data-section">
-                              <div className="section-h">Hours (institution)</div>
-                              <div className="hours-grid">
-                                {(["monday","tuesday","wednesday","thursday","friday","saturday","sunday"] as const).map((d) => (
-                                  <div key={d}>
-                                    <span className="hours-d">{d.slice(0, 3)}</span>
-                                    <span className="hours-v">{c.lib.hours?.[d] || "—"}</span>
-                                  </div>
-                                ))}
-                              </div>
+                        <div className="popover-v2">
+                          <header className="pv-header">
+                            <div className="pv-title">{b.name}</div>
+                            <span className="pv-badge">Branch</span>
+                            <div className="pv-meta">
+                              <span>{c.lib.name}</span>
+                              <span className="pv-sep">·</span>
+                              <span>{c.lib.town}</span>
+                              <span className="pv-sep">·</span>
+                              <span>{c.lib.network}</span>
                             </div>
-                          ) : c.lib.hours_note ? (
-                            <div className="data-section">
-                              <div className="section-h">Hours (institution)</div>
-                              <div className="block-note">{c.lib.hours_note}</div>
+                          </header>
+
+                          {(c.lib.hours || c.lib.hours_note || b.code || b.geo) && (
+                            <div className="pv-body">
+                              {(c.lib.hours || c.lib.hours_note) && (
+                                <section className="pv-col">
+                                  <div className="pv-h">Hours (institution)</div>
+                                  {c.lib.hours ? (
+                                    <ul className="hours-compact">
+                                      {compactHours(c.lib.hours).map((r) => (
+                                        <li key={r.days}>
+                                          <span className="hc-d">{r.days}</span>
+                                          <span className={`hc-v${r.value === "Closed" ? " hc-closed" : ""}`}>{r.value}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  ) : (
+                                    <div className="block-note">{c.lib.hours_note}</div>
+                                  )}
+                                </section>
+                              )}
+                              {(b.code || b.geo) && (
+                                <section className="pv-col">
+                                  <div className="pv-h">Branch info</div>
+                                  {b.code && <div>Code: <strong>{b.code}</strong></div>}
+                                  {b.geo && (
+                                    <div style={{ color: "#4a4845", fontVariantNumeric: "tabular-nums" }}>
+                                      {b.geo.lat.toFixed(4)}, {b.geo.lon.toFixed(4)}
+                                    </div>
+                                  )}
+                                </section>
+                              )}
                             </div>
-                          ) : null}
+                          )}
+
+                          <div className="pv-sources">
                           <EvidenceSection
                             items={[
                               { label: "Card page", source: c.lib.card_page || null },
@@ -452,6 +468,7 @@ export default function Matrix({ bundle, audit, updateAudit }: Props) {
                                 : { label: "" },
                             ]}
                           />
+                          </div>
                         </div>
                       </PopoverContent>
                     </Popover>
@@ -655,71 +672,101 @@ function CellGlyph({ p, lib, approved, hasCorrection }: { p: Pass; lib: Library;
 
 function AttractionDetail({ a }: { a: Attraction }) {
   const reservationText: Record<string, string> = {
-    walk_in_ok: "Walk-in",
+    walk_in_ok: "Walk-in OK",
     required: "Reservation required",
     recommended: "Reservation recommended",
   };
   const resRaw = a.reservation?.required || "unknown";
-  const res = reservationText[resRaw] || resRaw;
+  const resText = reservationText[resRaw] || resRaw;
   const needsRes = resRaw !== "walk_in_ok" && resRaw !== "unknown";
+  const adult = adultPrice(a);
   const addr = a.address ? [a.address.street, a.address.city, a.address.state, a.address.zip].filter(Boolean).join(", ") : null;
+
+  // Build the inline meta chips. Categories (up to 2) + adult price + reservation
+  // hint — everything the user sees at a glance before deciding whether to dig
+  // into the popover body.
+  const chips: ReactNode[] = [];
+  (a.categories || []).slice(0, 2).forEach((c, i) => {
+    if (i > 0) chips.push(<span key={`s-cat-${i}`} className="pv-sep">·</span>);
+    chips.push(<span key={`cat-${i}`}>{c}</span>);
+  });
+  if (adult != null) {
+    if (chips.length) chips.push(<span key="s-pr" className="pv-sep">·</span>);
+    chips.push(<span key="pr">Adult ${adult}</span>);
+  }
+  if (resRaw !== "unknown") {
+    if (chips.length) chips.push(<span key="s-rv" className="pv-sep">·</span>);
+    chips.push(<span key="rv" className={needsRes ? "v-attn" : ""}>{resText}</span>);
+  }
+
+  const hasBody = !!a.hours || !!a.hours_note || (a.prices && a.prices.length > 0);
   return (
-    <div className="detail-card">
-      <div className="card-subtitle">{a.name}</div>
-
-      {/* 1) Hours */}
-      {a.hours ? (
-        <div className="data-section">
-          <div className="section-h">Hours</div>
-          <ul className="hours-compact">
-            {compactHours(a.hours).map((r) => (
-              <li key={r.days}>
-                <span className="hc-d">{r.days}</span>
-                <span className={`hc-v${r.value === "Closed" ? " hc-closed" : ""}`}>{r.value}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : a.hours_note ? (
-        <div className="data-section">
-          <div className="section-h">Hours</div>
-          <div className="block-note">{a.hours_note}</div>
-        </div>
-      ) : null}
-
-      {/* 2) Reservation — yellow text when ahead-of-time booking is needed */}
-      <div className="data-section">
-        <div className="data-row">
-          <span className="k">Reservation</span>
-          <span className={`v${needsRes ? " v-attn" : ""}`}>{res}</span>
-        </div>
-      </div>
-
-      {/* 3) Tickets */}
-      {a.prices && a.prices.length > 0 && (
-        <div className="data-section">
-          <div className="section-h">Tickets</div>
-          {a.prices.map((p, i) => {
-            const pl = priceLine(p);
-            return (
-              <div key={i} className="data-row">
-                <span className="k">{pl.label}</span>
-                <span className={`v${pl.isFree ? " v-free" : ""}`}>{pl.value}</span>
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      {/* 4) Address + website */}
-      {(addr || a.website) && (
-        <div className="data-section compact">
-          {addr && <div className="addr">{addr}</div>}
+    <div className="popover-v2">
+      <header className="pv-header">
+        <div className="pv-title">{a.name}</div>
+        <div className="pv-meta">
+          {chips}
           {a.website && (
-            <a className="ext-link" href={a.website} target="_blank" rel="noreferrer">{prettyHost(a.website)} ↗</a>
+            <a className="pv-link" href={a.website} target="_blank" rel="noreferrer">
+              {prettyHost(a.website)} ↗
+            </a>
+          )}
+        </div>
+      </header>
+
+      {hasBody && (
+        <div className={`pv-body${a.prices && a.prices.length > 0 ? "" : " single"}`}>
+          {/* Hours */}
+          {(a.hours || a.hours_note) && (
+            <section className="pv-col">
+              <div className="pv-h">Hours</div>
+              {a.hours ? (
+                <ul className="hours-compact">
+                  {compactHours(a.hours).map((r) => (
+                    <li key={r.days}>
+                      <span className="hc-d">{r.days}</span>
+                      <span className={`hc-v${r.value === "Closed" ? " hc-closed" : ""}`}>{r.value}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div className="block-note">{a.hours_note}</div>
+              )}
+            </section>
+          )}
+
+          {/* Tickets */}
+          {a.prices && a.prices.length > 0 && (
+            <section className="pv-col">
+              <div className="pv-h">Tickets</div>
+              <div className="pv-tickets">
+                {a.prices.map((p, i) => {
+                  const pl = priceLine(p);
+                  return (
+                    <div key={i}>
+                      <span className="pv-aud">{pl.label}</span>
+                      <span className={`pv-price${pl.isFree ? " v-free" : ""}`}>{pl.value}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
           )}
         </div>
       )}
+
+      {(addr || a.website) && (
+        <div className="pv-address">
+          {addr ? <span>{addr}</span> : <span style={{ opacity: 0.5 }}>Address unknown</span>}
+          {a.website && (
+            <a className="pv-link" href={a.website} target="_blank" rel="noreferrer">
+              {prettyHost(a.website)} ↗
+            </a>
+          )}
+        </div>
+      )}
+
+      <div className="pv-sources">
       <EvidenceSection
         items={[
           {
@@ -755,6 +802,7 @@ function AttractionDetail({ a }: { a: Attraction }) {
             : { label: "" },
         ]}
       />
+      </div>
     </div>
   );
 }
